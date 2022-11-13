@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <Platform>AnyCPU</Platform>
+    <ImplicitUsings>true</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>net6.0</TargetFramework>
+    <NoWarn>CS0649;CS0169</NoWarn>
+    <NukeRootDirectory>..</NukeRootDirectory>
+    <NukeScriptDirectory>..</NukeScriptDirectory>
+    <NukeTelemetryVersion>1</NukeTelemetryVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Nuke.Common" Version="6.0.1" />
+    <PackageReference Include="vswhere" Version="2.*" />
+    <PackageDownload Include="GitVersion.Tool" Version="[5.8.1]" />
+  </ItemGroup>
+</Project>
