@@ -15,7 +15,8 @@ using Octokit;
 using Serilog;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
-internal partial class Build : NukeBuild
+
+class Build : NukeBuild
 {
     /// Support plugins are available for:
     ///   - JetBrains ReSharper        https://nuke.build/resharper
@@ -26,13 +27,15 @@ internal partial class Build : NukeBuild
     {
         "OpenMEP"
     };
-    private const string ArtifactsFolder = "output";
+
+    const string ArtifactsFolder = "output";
     public const string InstallerProject = "DeployInstaller";
 
     public const string BuildConfiguration = "Release";
     public const string InstallerConfiguration = "Installer";
-    private const string BinOutputFolder = "bin";
-    private static readonly Lazy<string> MsBuildPath = new(() =>
+    const string BinOutputFolder = "bin";
+
+    static readonly Lazy<string> MsBuildPath = new(() =>
     {
         if (IsServerBuild) return null;
         var (_, output) = VSWhereTasks.VSWhere(settings => settings
@@ -47,26 +50,23 @@ internal partial class Build : NukeBuild
     });
 
     //Specify the path to the MSBuild.exe file here if you are not using VisualStudio
-    private const string CustomMsBuildPath = @"C:\Program Files\JetBrains\JetBrains Rider\tools\MSBuild\Current\Bin\MSBuild.exe";
-    private readonly AbsolutePath ArtifactsDirectory = RootDirectory /InstallerProject / ArtifactsFolder;
-    private readonly AbsolutePath ChangeLogPath = RootDirectory / "CHANGELOG.md";
-    [GitRepository] private readonly GitRepository GitRepository;
-    [Solution] private readonly Solution Solution;
+    const string CustomMsBuildPath = @"C:\Program Files\JetBrains\JetBrains Rider\tools\MSBuild\Current\Bin\MSBuild.exe";
+    readonly AbsolutePath ArtifactsDirectory = RootDirectory /InstallerProject / ArtifactsFolder;
+    readonly AbsolutePath ChangeLogPath = RootDirectory / "CHANGELOG.md";
+    [GitRepository] readonly GitRepository GitRepository;
+    [Solution] readonly Solution Solution;
     
-    [GitVersion(NoFetch = true)] private readonly GitVersion GitVersion;
-    [Parameter] private string GitHubToken { get; set; }
-    private readonly Regex VersionRegex = new(@"(\d+\.)+\d+", RegexOptions.Compiled);
+    [GitVersion(NoFetch = true)] readonly GitVersion GitVersion;
+    [Parameter] string GitHubToken { get; set; }
+    readonly Regex VersionRegex = new(@"(\d+\.)+\d+", RegexOptions.Compiled);
     public static int Main () => Execute<Build>(x => x.Compile);
-
-    [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
-    readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
     
     Target Compile => _ => _
         .DependsOn(CreateInstaller)
         .DependsOn(PublishGitHubRelease)
         .Executes(() =>
         {
-            Console.WriteLine("Compile target");
+            Console.WriteLine("Dynamo Package Published");
         });
   
     Target RestoreAndBuild => _ => _
@@ -119,7 +119,7 @@ internal partial class Build : NukeBuild
             });
         });
 
-    private Target PublishGitHubRelease => _ => _
+    Target PublishGitHubRelease => _ => _
         .Requires(() => GitHubToken)
         .Requires(() => GitRepository)
         .Requires(() => GitVersion)
@@ -132,7 +132,7 @@ internal partial class Build : NukeBuild
             {
                 Credentials = new Credentials(GitHubToken)
             };
-
+            GetCommitHistory();
             var gitHubName = GitRepository.GetGitHubName();
             var gitHubOwner = GitRepository.GetGitHubOwner();
             var artifacts = Directory.GetFiles(ArtifactsDirectory, "*");
@@ -153,8 +153,8 @@ internal partial class Build : NukeBuild
             UploadArtifacts(draft, artifacts);
             ReleaseDraft(gitHubOwner, gitHubName, draft);
         });
-    
-    private string GetProductVersion(IEnumerable<string> artifacts)
+
+    string GetProductVersion(IEnumerable<string> artifacts)
     {
         var stringVersion = string.Empty;
         var doubleVersion = 0d;
@@ -177,7 +177,7 @@ internal partial class Build : NukeBuild
         return stringVersion;
     }
 
-    private static void UploadArtifacts(Release createdRelease, IEnumerable<string> artifacts)
+    static void UploadArtifacts(Release createdRelease, IEnumerable<string> artifacts)
     {
         foreach (var file in artifacts)
         {
@@ -191,19 +191,30 @@ internal partial class Build : NukeBuild
             Log.Information("Added artifact: {Path}", file);
         }
     }
-    private static Release CreatedDraft(string gitHubOwner, string gitHubName, NewRelease newRelease) =>
+
+    static Release CreatedDraft(string gitHubOwner, string gitHubName, NewRelease newRelease) =>
         GitHubTasks.GitHubClient.Repository.Release
             .Create(gitHubOwner, gitHubName, newRelease)
             .Result;
 
-    private static void ReleaseDraft(string gitHubOwner, string gitHubName, Release draft)
+    static void ReleaseDraft(string gitHubOwner, string gitHubName, Release draft)
     {
         var _ = GitHubTasks.GitHubClient.Repository.Release
             .Edit(gitHubOwner, gitHubName, draft.Id, new ReleaseUpdate { Draft = false })
             .Result;
     }
-    
-    private string CreateChangelog(string version)
+
+    void GetCommitHistory()
+    {
+        var commits = GitHubTasks.GitHubClient.Repository.Commit.GetAll("chuongmep", "RevitAddInManager").Result;
+        foreach (var commit in commits)
+        {
+            Console.WriteLine($"Message:{commit.Commit.Message}");
+            Console.WriteLine($"Message:{commit.Commit.Label}");
+            Console.WriteLine($"Message:{commit.Commit.User.Name}");
+        }
+    }
+    string CreateChangelog(string version)
     {
         if (!File.Exists(ChangeLogPath))
         {
@@ -235,7 +246,7 @@ internal partial class Build : NukeBuild
         return logBuilder.ToString();
     }
 
-    private static void CheckTags(string gitHubOwner, string gitHubName, string version)
+    static void CheckTags(string gitHubOwner, string gitHubName, string version)
     {
         var gitHubTags = GitHubTasks.GitHubClient.Repository
             .GetAllTags(gitHubOwner, gitHubName)
