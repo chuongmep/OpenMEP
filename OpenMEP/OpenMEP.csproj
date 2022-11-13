@@ -68,9 +68,15 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Chuongmep.Revit.Api.RevitAPI" Version="2023.0.0" />
-        <PackageReference Include="Chuongmep.Revit.Api.RevitAPIUI" Version="2023.0.0" />
-        <PackageReference Include="DynamoVisualProgramming.Core" Version="2.13.1.3887" />
+        <PackageReference Include="Chuongmep.Revit.Api.RevitAPI" Version="$(RevitVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Chuongmep.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynamoVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
         <Reference Include="System.Net.Http" />
     </ItemGroup>
     <ItemGroup>
@@ -86,7 +92,7 @@
         <DependentUpon>OpenMEPImages.resx</DependentUpon>
       </Compile>
     </ItemGroup>
-    <Target Name="CopyFiles" AfterTargets="CoreBuild">
+    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="$(Configuration.Contains('Debug'))">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
