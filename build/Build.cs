@@ -206,14 +206,14 @@ class Build : NukeBuild
 
     async void GetCommitHistory()
     {
-        IReadOnlyList<GitHubCommit> commits = await GitHubTasks.GitHubClient.Repository.Commit.GetAll("chuongmep","RevitAddinManager");
+        IReadOnlyList<GitHubCommit> commits = await GitHubTasks.GitHubClient.Repository.Commit.GetAll("chuongmep","RevitAddInManager");
         foreach (var commit in commits)
         {
             Console.WriteLine($"Message:{commit.Commit.Message}");
             Console.WriteLine($"Message:{commit.Commit.Label}");
             Console.WriteLine($"Message:{commit.Commit.User.Name}");
         }
-        IReadOnlyList<Release> releases = await GitHubTasks.GitHubClient.Repository.Release.GetAll("chuongmep","RevitAddinManager");
+        IReadOnlyList<Release> releases = await GitHubTasks.GitHubClient.Repository.Release.GetAll("chuongmep","RevitAddInManager");
         foreach (var release in releases)
         {
             Console.WriteLine($"Message:{release.TagName}");
