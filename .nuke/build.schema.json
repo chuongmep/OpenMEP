@@ -18,6 +18,9 @@
           "type": "boolean",
           "description": "Indicates to continue a previously failed build attempt"
         },
+        "GitHubToken": {
+          "type": "string"
+        },
         "Help": {
           "type": "boolean",
           "description": "Shows the help text for this build assembly"
@@ -74,6 +77,7 @@
               "Clean",
               "Compile",
               "CreateInstaller",
+              "PublishGitHubRelease",
               "RestoreAndBuild"
             ]
           }
@@ -91,6 +95,7 @@
               "Clean",
               "Compile",
               "CreateInstaller",
+              "PublishGitHubRelease",
               "RestoreAndBuild"
             ]
           }
