@@ -92,7 +92,7 @@
         <DependentUpon>OpenMEPImages.resx</DependentUpon>
       </Compile>
     </ItemGroup>
-    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="$(Configuration.Contains('Debug'))">
+    <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
