@@ -125,6 +125,7 @@ internal partial class Build : NukeBuild
         .Requires(() => GitVersion)
         .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
         .OnlyWhenStatic(() => IsServerBuild)
+        .DependsOn(CreateInstaller)
         .Executes(() =>
         {
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
