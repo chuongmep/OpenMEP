@@ -48,7 +48,7 @@ internal partial class Build : NukeBuild
 
     //Specify the path to the MSBuild.exe file here if you are not using VisualStudio
     private const string CustomMsBuildPath = @"C:\Program Files\JetBrains\JetBrains Rider\tools\MSBuild\Current\Bin\MSBuild.exe";
-    private readonly AbsolutePath ArtifactsDirectory = RootDirectory / ArtifactsFolder;
+    private readonly AbsolutePath ArtifactsDirectory = RootDirectory /InstallerProject / ArtifactsFolder;
     private readonly AbsolutePath ChangeLogPath = RootDirectory / "CHANGELOG.md";
     [GitRepository] private readonly GitRepository GitRepository;
     [Solution] private readonly Solution Solution;
@@ -62,6 +62,7 @@ internal partial class Build : NukeBuild
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
     
     Target Compile => _ => _
+        .DependsOn(CreateInstaller)
         .DependsOn(PublishGitHubRelease)
         .Executes(() =>
         {
@@ -119,7 +120,6 @@ internal partial class Build : NukeBuild
         });
 
     private Target PublishGitHubRelease => _ => _
-        .DependsOn(CreateInstaller)
         .Requires(() => GitHubToken)
         .Requires(() => GitRepository)
         .Requires(() => GitVersion)
