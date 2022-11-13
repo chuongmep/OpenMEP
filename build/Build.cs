@@ -128,11 +128,14 @@ class Build : NukeBuild
         .DependsOn(CreateInstaller)
         .Executes(() =>
         {
+            
+            
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
                 Credentials = new Credentials(GitHubToken)
             };
-            GetCommitHistory();
+            
+            GetHistory();
             var gitHubName = GitRepository.GetGitHubName();
             var gitHubOwner = GitRepository.GetGitHubOwner();
             var artifacts = Directory.GetFiles(ArtifactsDirectory, "*");
@@ -154,6 +157,20 @@ class Build : NukeBuild
             ReleaseDraft(gitHubOwner, gitHubName, draft);
         });
 
+
+    void GetHistory()
+    {
+        IReadOnlyList<GitHubCommit> gitHubCommits = GitHubTasks.GitHubClient.Repository.Commit.GetAll(GitRepository.GetGitHubOwner(),
+            GitRepository.GetGitHubName()).GetAwaiter().GetResult();
+        foreach (GitHubCommit commit in gitHubCommits)
+        {
+            Log.Information(commit.Commit.Message);
+            Log.Information(commit.Label);
+            Log.Information(commit.Ref);
+            Log.Information(commit.User.Name);
+            
+        }
+    }
     string GetProductVersion(IEnumerable<string> artifacts)
     {
         var stringVersion = string.Empty;
@@ -204,22 +221,6 @@ class Build : NukeBuild
             .Result;
     }
 
-    void GetCommitHistory()
-    {
-        IReadOnlyList<GitHubCommit> commits = GitHubTasks.GitHubClient.Repository.Commit.GetAll("chuongmep","RevitAddInManager").GetAwaiter().GetResult();
-        foreach (var commit in commits)
-        {
-            Log.Information("Commit: {Commit}", commit.Commit.Message);
-            Log.Information($"Label:{commit.Commit.Label}");
-            Log.Information($"User Name:{commit.Commit.User.Name}");
-        }
-        IReadOnlyList<Release> releases = GitHubTasks.GitHubClient.Repository.Release.GetAll("chuongmep","RevitAddInManager").GetAwaiter().GetResult();
-        foreach (var release in releases)
-        {
-            Log.Information($"TagName:{release.TagName}");
-            Log.Information($"Name:{release.Name}");
-        }
-    }
     string CreateChangelog(string version)
     {
         if (!File.Exists(ChangeLogPath))
