@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using _build;
@@ -158,10 +159,11 @@ class Build : NukeBuild
         });
 
 
-    void GetHistory()
+    async void GetHistory()
     {
-        IReadOnlyList<GitHubCommit> gitHubCommits = GitHubTasks.GitHubClient.Repository.Commit.GetAll(GitRepository.GetGitHubOwner(),
-            GitRepository.GetGitHubName()).GetAwaiter().GetResult();
+        IReadOnlyList<GitHubCommit> gitHubCommits = await GitHubTasks.GitHubClient.Repository.Commit.GetAll(GitRepository.GetGitHubOwner(),
+            GitRepository.GetGitHubName());
+        if(!gitHubCommits.Any() || gitHubCommits.Count == 0) return;
         foreach (GitHubCommit commit in gitHubCommits)
         {
             Log.Information(commit.Commit.Message);
