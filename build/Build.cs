@@ -209,15 +209,15 @@ class Build : NukeBuild
         IReadOnlyList<GitHubCommit> commits = await GitHubTasks.GitHubClient.Repository.Commit.GetAll("chuongmep","RevitAddInManager");
         foreach (var commit in commits)
         {
-            Console.WriteLine($"Message:{commit.Commit.Message}");
-            Console.WriteLine($"Message:{commit.Commit.Label}");
-            Console.WriteLine($"Message:{commit.Commit.User.Name}");
+            Log.Information("Commit: {Commit}", commit.Commit.Message);
+            Log.Information($"Label:{commit.Commit.Label}");
+            Log.Information($"User Name:{commit.Commit.User.Name}");
         }
         IReadOnlyList<Release> releases = await GitHubTasks.GitHubClient.Repository.Release.GetAll("chuongmep","RevitAddInManager");
         foreach (var release in releases)
         {
-            Console.WriteLine($"Message:{release.TagName}");
-            Console.WriteLine($"Message:{release.Name}");
+            Log.Information($"TagName:{release.TagName}");
+            Log.Information($"Name:{release.Name}");
         }
     }
     string CreateChangelog(string version)
