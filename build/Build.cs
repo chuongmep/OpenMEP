@@ -204,14 +204,20 @@ class Build : NukeBuild
             .Result;
     }
 
-    void GetCommitHistory()
+    async void GetCommitHistory()
     {
-        var commits = GitHubTasks.GitHubClient.Repository.Commit.GetAll("chuongmep", "RevitAddInManager").Result;
+        IReadOnlyList<GitHubCommit> commits = await GitHubTasks.GitHubClient.Repository.Commit.GetAll("chuongmep","RevitAddinManager");
         foreach (var commit in commits)
         {
             Console.WriteLine($"Message:{commit.Commit.Message}");
             Console.WriteLine($"Message:{commit.Commit.Label}");
             Console.WriteLine($"Message:{commit.Commit.User.Name}");
+        }
+        IReadOnlyList<Release> releases = await GitHubTasks.GitHubClient.Repository.Release.GetAll("chuongmep","RevitAddinManager");
+        foreach (var release in releases)
+        {
+            Console.WriteLine($"Message:{release.TagName}");
+            Console.WriteLine($"Message:{release.Name}");
         }
     }
     string CreateChangelog(string version)
