@@ -135,8 +135,6 @@ class Build : NukeBuild
             {
                 Credentials = new Credentials(GitHubToken)
             };
-            
-            GetHistory();
             var gitHubName = GitRepository.GetGitHubName();
             var gitHubOwner = GitRepository.GetGitHubOwner();
             var artifacts = Directory.GetFiles(ArtifactsDirectory, "*");
@@ -157,22 +155,6 @@ class Build : NukeBuild
             UploadArtifacts(draft, artifacts);
             ReleaseDraft(gitHubOwner, gitHubName, draft);
         });
-
-
-    async void GetHistory()
-    {
-        IReadOnlyList<GitHubCommit> gitHubCommits = await GitHubTasks.GitHubClient.Repository.Commit.GetAll(GitRepository.GetGitHubOwner(),
-            GitRepository.GetGitHubName());
-        if(!gitHubCommits.Any() || gitHubCommits.Count == 0) return;
-        foreach (GitHubCommit commit in gitHubCommits)
-        {
-            Log.Information(commit.Commit.Message);
-            Log.Information(commit.Label);
-            Log.Information(commit.Ref);
-            Log.Information(commit.User.Name);
-            
-        }
-    }
     string GetProductVersion(IEnumerable<string> artifacts)
     {
         var stringVersion = string.Empty;
@@ -230,7 +212,6 @@ class Build : NukeBuild
             Log.Warning("Can't find changelog file: {Log}", ChangeLogPath);
             return string.Empty;
         }
-
         Log.Information("Detected Changelog: {Path}", ChangeLogPath);
 
         var logBuilder = new StringBuilder();
@@ -245,7 +226,6 @@ class Build : NukeBuild
                 logBuilder.AppendLine(line);
                 continue;
             }
-
             if (!changelogLineRegex.Match(line).Success) continue;
             var truncatedLine = changelogLineRegex.Replace(line, string.Empty);
             logBuilder.AppendLine(truncatedLine);
