@@ -8,10 +8,10 @@ on:
       - '!master'
 jobs:
   build:
-    name: windows-latest
-    runs-on: windows-latest
+    name: windows-2022
+    runs-on: windows-2022
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
       - name: Run Nuke Build
         run: ./build.cmd --GitHubToken ${{ secrets.GITHUB_TOKEN }}
