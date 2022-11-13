@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMEP", "OpenMEP\OpenMEP.csproj", "{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E88D2164-64FA-43C4-AA82-ABAA064404B0}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+		docs\pkg.json = docs\pkg.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+								Debug R21|Any CPU = Debug R21|Any CPU
+								Debug R22|Any CPU = Debug R22|Any CPU
+								Debug R23|Any CPU = Debug R23|Any CPU
+								Release R21|Any CPU = Release R21|Any CPU
+								Release R22|Any CPU = Release R22|Any CPU
+								Release R23|Any CPU = Release R23|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R21|Any CPU.ActiveCfg = Debug R21|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R21|Any CPU.Build.0 = Debug R21|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R22|Any CPU.ActiveCfg = Debug R22|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R22|Any CPU.Build.0 = Debug R22|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R23|Any CPU.ActiveCfg = Debug R23|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R23|Any CPU.Build.0 = Debug R23|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R21|Any CPU.ActiveCfg = Release R21|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R21|Any CPU.Build.0 = Release R21|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R22|Any CPU.ActiveCfg = Release R22|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R22|Any CPU.Build.0 = Release R22|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R23|Any CPU.ActiveCfg = Release R23|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R23|Any CPU.Build.0 = Release R23|Any CPU
+	EndGlobalSection
+EndGlobal

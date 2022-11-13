@@ -1,0 +1,110 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>true</ImplicitUsings>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <LangVersion>latest</LangVersion>
+        <UseWPF>true</UseWPF>
+        <PlatformTarget>x64</PlatformTarget>
+        <RootNamespace>OpenMEP</RootNamespace>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <Configurations>Debug R21;Debug R22;Debug R23</Configurations>
+        <Configurations>$(Configurations);Release R21;Release R22;Release R23</Configurations>
+        <NoWarn>CS1591;CS0168;CS8618;CS1591</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R21'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+        <RevitVersion>2021</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R21'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+        <RevitVersion>2021</RevitVersion>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R22'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+        <RevitVersion>2022</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R22'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+        <RevitVersion>2022</RevitVersion>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R23'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R23'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup>
+        <DynVersion>$(DynamoVersion)</DynVersion>
+        <BuildOutput>$(DynamoOutput)</BuildOutput>
+        <PublishSingleFile>true</PublishSingleFile>
+        <PublishTrimmed>true</PublishTrimmed>
+        <Copyright>MIT</Copyright>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>dynamo</PackageTags>
+        <FolderPackages>$(Appdata)\Dynamo\Dynamo Revit\$(BuildOutput)\packages\OpenMEP\</FolderPackages>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Chuongmep.Revit.Api.RevitAPI" Version="2023.0.0" />
+        <PackageReference Include="Chuongmep.Revit.Api.RevitAPIUI" Version="2023.0.0" />
+        <PackageReference Include="DynamoVisualProgramming.Core" Version="2.13.1.3887" />
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\OpenMEPImages.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>OpenMEPImages.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Resources\OpenMEPImages.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>OpenMEPImages.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    <Target Name="CopyFiles" AfterTargets="CoreBuild">
+        <ItemGroup>
+            <AssemblyFiles Include="$(TargetDir)*.*" />
+            <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
+            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
+            <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
+        </ItemGroup>
+        <Message Text="Copy $(TargetDir) To $(FolderPackages)" Importance="high" />
+        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
+        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
+        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
+    </Target>
+
+    <Target Name="GenerateCustomization" BeforeTargets="Build">
+        <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v4.8">
+            <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
+        </GetReferenceAssemblyPaths>
+        <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\Resources\OpenMEPimages.resx" OutputResources="$(ProjectDir)\Resources\OpenMEPimages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
+        <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\Resources\OpenMEPimages.resources" OutputAssembly="$(TargetDir)OpenMEP.customization.dll" />
+    </Target>
+</Project>
