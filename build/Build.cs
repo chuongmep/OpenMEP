@@ -62,7 +62,7 @@ internal partial class Build : NukeBuild
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
     
     Target Compile => _ => _
-        .DependsOn(CreateInstaller)
+        .DependsOn(PublishGitHubRelease)
         .Executes(() =>
         {
             Console.WriteLine("Compile target");
