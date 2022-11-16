@@ -60,7 +60,7 @@ class Build : NukeBuild
     [GitVersion(NoFetch = true)] readonly GitVersion GitVersion;
     [Parameter] string GitHubToken { get; set; }
     readonly Regex VersionRegex = new(@"(\d+\.)+\d+", RegexOptions.Compiled);
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main () => Execute<Build>(x => x.Compile, x => x.PublishGitHubRelease);
     
     Target Compile => _ => _
         .DependsOn(CreateInstaller)
@@ -129,8 +129,6 @@ class Build : NukeBuild
         .DependsOn(CreateInstaller)
         .Executes(() =>
         {
-            
-            
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
                 Credentials = new Credentials(GitHubToken)
