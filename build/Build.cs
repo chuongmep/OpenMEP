@@ -60,30 +60,13 @@ class Build : NukeBuild
     [GitVersion(NoFetch = true)] readonly GitVersion GitVersion;
     [Parameter] string GitHubToken { get; set; }
     readonly Regex VersionRegex = new(@"(\d+\.)+\d+", RegexOptions.Compiled);
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main () => Execute<Build>(x => x.Clean);
     
     Target Compile => _ => _
-        .TriggeredBy(RestoreAndBuild)
+        .TriggeredBy(Clean)
         .Executes(() =>
         {
-            Console.WriteLine("Dynamo Package Published");
-        });
-  
-    Target RestoreAndBuild => _ => _
-        .DependsOn(Clean)
-        .Executes(() =>
-        {
-            var configurations = Solution.GetConfigurations(BuildConfiguration);
-            configurations.ForEach(configuration =>
-            {
-                MSBuild(s => s
-                    .SetTargets("Rebuild")
-                    .SetProcessToolPath(MsBuildPath.Value)
-                    .SetConfiguration(configuration)
-                    .SetVerbosity(MSBuildVerbosity.Minimal)
-                    .DisableNodeReuse()
-                    .EnableRestore());
-            });
+            Console.WriteLine("Some Process Boring Completed ^_^");
         });
     Target Clean => _ => _
         .Executes(() =>
@@ -100,7 +83,24 @@ class Build : NukeBuild
                 binDirectory.GlobDirectories($"{BinOutputFolder}", $"{BuildConfiguration}*").ForEach(DeleteDirectory);
             }
         });
-    
+
+    Target RestoreAndBuild => _ => _
+        .DependsOn(Compile)
+        .Executes(() =>
+        {
+            var configurations = Solution.GetConfigurations(BuildConfiguration);
+            configurations.ForEach(configuration =>
+            {
+                MSBuild(s => s
+                    .SetTargets("Rebuild")
+                    .SetProcessToolPath(MsBuildPath.Value)
+                    .SetConfiguration(configuration)
+                    .SetVerbosity(MSBuildVerbosity.Minimal)
+                    .DisableNodeReuse()
+                    .EnableRestore());
+            });
+        });
+   
     Target CreateInstaller => _ => _
         .TriggeredBy(Compile)
         .OnlyWhenStatic(()=>IsLocalBuild || GitRepository.IsOnMainOrMasterBranch())
