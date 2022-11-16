@@ -60,7 +60,7 @@ class Build : NukeBuild
     [GitVersion(NoFetch = true)] readonly GitVersion GitVersion;
     [Parameter] string GitHubToken { get; set; }
     readonly Regex VersionRegex = new(@"(\d+\.)+\d+", RegexOptions.Compiled);
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main () => Execute<Build>(x => x.Clean);
     
     Target Compile => _ => _
         .TriggeredBy(Clean)
@@ -85,7 +85,7 @@ class Build : NukeBuild
         });
 
     Target RestoreAndBuild => _ => _
-        .TriggeredBy(Clean)
+        .TriggeredBy(Compile)
         .Executes(() =>
         {
             var configurations = Solution.GetConfigurations(BuildConfiguration);
