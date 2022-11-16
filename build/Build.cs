@@ -60,11 +60,10 @@ class Build : NukeBuild
     [GitVersion(NoFetch = true)] readonly GitVersion GitVersion;
     [Parameter] string GitHubToken { get; set; }
     readonly Regex VersionRegex = new(@"(\d+\.)+\d+", RegexOptions.Compiled);
-    public static int Main () => Execute<Build>(x => x.Compile, x => x.PublishGitHubRelease);
+    public static int Main () => Execute<Build>(x => x.Compile);
     
     Target Compile => _ => _
-        .DependsOn(CreateInstaller)
-        //.DependsOn(PublishGitHubRelease)
+        .TriggeredBy(RestoreAndBuild)
         .Executes(() =>
         {
             Console.WriteLine("Dynamo Package Published");
@@ -103,7 +102,7 @@ class Build : NukeBuild
         });
     
     Target CreateInstaller => _ => _
-        .DependsOn(RestoreAndBuild)
+        .TriggeredBy(Compile)
         .OnlyWhenStatic(()=>IsLocalBuild || GitRepository.IsOnMainOrMasterBranch())
         .Executes(() =>
         {
@@ -126,7 +125,7 @@ class Build : NukeBuild
         .Requires(() => GitVersion)
         .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
         .OnlyWhenStatic(() => IsServerBuild)
-        .DependsOn(CreateInstaller)
+        .TriggeredBy(CreateInstaller)
         .Executes(() =>
         {
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
