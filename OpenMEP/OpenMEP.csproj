@@ -119,7 +119,7 @@
             <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
             <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
         </ItemGroup>
-        <Message Text="Copy $(TargetDir) To $(FolderPackages)" Importance="high" />
+        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
         <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
         <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
         <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
