@@ -64,7 +64,7 @@ class Build : NukeBuild
     
     Target Compile => _ => _
         .DependsOn(CreateInstaller)
-        .DependsOn(PublishGitHubRelease)
+        //.DependsOn(PublishGitHubRelease)
         .Executes(() =>
         {
             Console.WriteLine("Dynamo Package Published");
