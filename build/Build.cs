@@ -66,7 +66,7 @@ class Build : NukeBuild
         .TriggeredBy(Clean)
         .Executes(() =>
         {
-            Console.WriteLine("Some Process Boring Completed ^_^");
+            Console.WriteLine("Starting Some Process Boring ....^_^");
         });
     Target Clean => _ => _
         .Executes(() =>
