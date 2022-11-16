@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Text.RegularExpressions;
+using DeployInstaller;
 using WixSharp;
 using WixSharp.CommonTasks;
 using WixSharp.Controls;
@@ -62,18 +63,22 @@ WixEntity[] GenerateWixEntities()
     Regex regex = new Regex(@"\d+\.\d+");
     List<DirectoryInfo> directoryInfos =
         dir.GetDirectories().Where(x => regex.Match(x.Name).Success).Select(x => x).ToList();
-    //directoryInfos.ForEach(x=>Console.WriteLine("Building Dynamo Version: " + x.Name));
+    // order directoryInfos by regex match value *.*
+    StringNumberComparer comparer = new StringNumberComparer();
+    directoryInfos.Sort((x, y) => comparer.Compare(x.Name, y.Name));
     foreach (var directory in directoryInfos)
     {
         var directoryInfo = new DirectoryInfo(Path.Combine(directory.FullName, "packages", folderPackageName));
-       
         if (directoryInfo.Exists)
         {
             var files = new Files($@"{directoryInfo.FullName}\*.*");
             var dynamoVersion = directoryInfo.Parent.Parent.Name + $"\\packages\\{folderPackageName}";
             if (versionStorages.ContainsKey(dynamoVersion))
+            {
                 versionStorages[dynamoVersion].Add(files);
+            }
             else
+                Console.WriteLine("Add Files Dynamo Version: " + regex.Match(dynamoVersion).Value);
                 versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
             var assemblies = Directory.GetFiles(directoryInfo.FullName, "*", SearchOption.AllDirectories);
             foreach (var assembly in assemblies) Console.WriteLine($"'{assembly}'");
