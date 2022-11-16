@@ -14,7 +14,6 @@ const string outputName = "OpenMEP";
 string folderPackageName = "OpenMEP";
 const string outputDir = "output";
 string Version = "1.0.0.0";
-Console.WriteLine(Version);
 var fileName = new StringBuilder().Append(outputName).Append("-").Append(Version);
 
 var project = new Project
@@ -59,15 +58,15 @@ WixEntity[] GenerateWixEntities()
     var versionStorages = new Dictionary<string, List<WixEntity>>();
     // Get appdata directory
     var appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-    Console.WriteLine(appDataDir);
     DirectoryInfo dir = new DirectoryInfo(Path.Combine(appDataDir, "Dynamo", "Dynamo Revit"));
-    Console.WriteLine(dir.FullName);
     Regex regex = new Regex(@"\d+\.\d+");
-    List<string> directoryInfos =
-        dir.GetDirectories().Where(x => regex.Match(x.Name).Success).Select(x => x.FullName).ToList();
+    List<DirectoryInfo> directoryInfos =
+        dir.GetDirectories().Where(x => regex.Match(x.Name).Success).Select(x => x).ToList();
+    //directoryInfos.ForEach(x=>Console.WriteLine("Building Dynamo Version: " + x.Name));
     foreach (var directory in directoryInfos)
     {
-        var directoryInfo = new DirectoryInfo(Path.Combine(directory, "packages", folderPackageName));
+        var directoryInfo = new DirectoryInfo(Path.Combine(directory.FullName, "packages", folderPackageName));
+       
         if (directoryInfo.Exists)
         {
             var files = new Files($@"{directoryInfo.FullName}\*.*");
