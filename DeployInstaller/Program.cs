@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Text;
+using System.Text.RegularExpressions;
 using WixSharp;
 using WixSharp.CommonTasks;
 using WixSharp.Controls;
@@ -61,8 +62,9 @@ WixEntity[] GenerateWixEntities()
     Console.WriteLine(appDataDir);
     DirectoryInfo dir = new DirectoryInfo(Path.Combine(appDataDir, "Dynamo", "Dynamo Revit"));
     Console.WriteLine(dir.FullName);
+    Regex regex = new Regex(@"\d+\.\d+");
     List<string> directoryInfos =
-        dir.GetDirectories().Where(x => x.Name.Contains("2")).Select(x => x.FullName).ToList();
+        dir.GetDirectories().Where(x => regex.Match(x.Name).Success).Select(x => x.FullName).ToList();
     foreach (var directory in directoryInfos)
     {
         var directoryInfo = new DirectoryInfo(Path.Combine(directory, "packages", folderPackageName));
