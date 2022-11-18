@@ -22,7 +22,22 @@ public class UnitUtils
         // UnitUtils.GetUnitSymbolType()
     }
 
-#if R21 || R22 || R23
+#if !(R20 || R21)
+    /// <summary>
+    /// Converts a value from one unit to another, such as square feet to square meters.
+    /// </summary>
+    /// <param name="value">The value to convert.</param>
+    /// <param name="currentUnitTypeId">Identifier of the current unit</param>
+    /// <param name="desiredUnitTypeId">Identifier of the desired unit.</param>
+    /// <returns name="value">The converted value.</returns>
+    public static double Convert(double value,ForgeTypeId currentUnitTypeId,ForgeTypeId desiredUnitTypeId)
+    {
+        double convert = Autodesk.Revit.DB.UnitUtils.Convert(value, currentUnitTypeId, desiredUnitTypeId);
+        return convert;
+    }
+#endif
+
+#if !R20
     /// <summary>
     /// Gets the identifiers of all available units.
     /// </summary>
@@ -32,6 +47,7 @@ public class UnitUtils
         return Autodesk.Revit.DB.UnitUtils.GetAllUnits();
     }
 #endif
+    
 #if R20
 #elif R21
     public static IList<Autodesk.Revit.DB.ForgeTypeId> GetAllSpec()
