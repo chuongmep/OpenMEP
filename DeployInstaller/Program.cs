@@ -14,7 +14,7 @@ const string projectName = "OpenMEP";
 const string outputName = "OpenMEP";
 string folderPackageName = "OpenMEP";
 const string outputDir = "output";
-string Version = "1.0.0.0";
+string Version = $"1.0.{GetLastTwoDigitOfYear()}.{GetDayInYear()}";
 var fileName = new StringBuilder().Append(outputName).Append("-").Append(Version);
 
 var project = new Project
@@ -124,4 +124,18 @@ void CompressFile(string filePath, string OutputFilePath, int compressLevel = 9)
         // No need to rethrow the exception as for our purposes its handled.
         Console.WriteLine("Exception during processing {0}", ex);
     }
+}
+
+string GetDayInYear()
+{
+    // Get Day Current Of Year
+    DateTime now = DateTime.Now;
+    DateTime startOfYear = new DateTime(now.Year, 1, 1);
+    return (now - startOfYear).Days.ToString();
+}
+
+string GetLastTwoDigitOfYear()
+{
+    DateTime now = DateTime.Now;
+    return now.Year.ToString().Substring(2, 2);
 }
