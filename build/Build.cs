@@ -145,7 +145,7 @@ class Build : NukeBuild
                 // Body = CreateChangelog(version),
                 Draft = true,
                 TargetCommitish = GitVersion.Sha,
-                GenerateReleaseNotes = true,
+                // GenerateReleaseNotes = true,
                 
             };
 

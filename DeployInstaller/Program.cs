@@ -14,7 +14,7 @@ const string projectName = "OpenMEP";
 const string outputName = "OpenMEP";
 string folderPackageName = "OpenMEP";
 const string outputDir = "output";
-string Version = $"1.0.{GetLastTwoDigitOfYear()}.{GetDayInYear()}";
+string Version = $"1.0.{GetLastTwoDigitOfYear()}.{GetDayInYear()}{GetDay()}";
 var fileName = new StringBuilder().Append(outputName).Append("-").Append(Version);
 
 var project = new Project
@@ -138,6 +138,14 @@ string GetLastTwoDigitOfYear()
 {
     DateTime now = DateTime.Now;
     return now.Year.ToString().Substring(2, 2);
+}
+
+string GetDay()
+{
+    int hour = DateTime.Now.Hour;
+    int minute = DateTime.Now.Minute;
+    string Sub = hour + minute.ToString();
+    return Sub;
 }
 
 
