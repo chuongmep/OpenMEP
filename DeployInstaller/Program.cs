@@ -48,7 +48,7 @@ MajorUpgrade.Default.AllowSameVersionUpgrades = true;
 project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.InstallDirDlg);
 string buildMsi = project.BuildMsi();
 FileInfo fileInfo = new FileInfo(buildMsi);
-
+// get version info 
 
 string zipfileName = Path.Combine(fileInfo.Directory.FullName, fileName + ".zip");
 CompressFile(buildMsi, zipfileName);
@@ -139,3 +139,5 @@ string GetLastTwoDigitOfYear()
     DateTime now = DateTime.Now;
     return now.Year.ToString().Substring(2, 2);
 }
+
+

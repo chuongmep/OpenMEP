@@ -23,6 +23,8 @@ public static class BuilderExtensions
     /// <param name="project"></param>
     /// <returns></returns>
     public static AbsolutePath GetBinDirectory(this Project project) => project.Directory / "bin";
+    
+    
     /// <summary>
     /// return configuration from pattern filter name
     /// </summary>

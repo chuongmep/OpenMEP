@@ -139,13 +139,14 @@ class Build : NukeBuild
 
             CheckTags(gitHubOwner, gitHubName, version);
             Log.Information("Detected Tag: {Version}", version);
-
             var newRelease = new NewRelease(version)
             {
                 Name = version,
-                Body = CreateChangelog(version),
+                // Body = CreateChangelog(version),
                 Draft = true,
-                TargetCommitish = GitVersion.Sha
+                TargetCommitish = GitVersion.Sha,
+                GenerateReleaseNotes = true,
+                
             };
 
             var draft = CreatedDraft(gitHubOwner, gitHubName, newRelease);
