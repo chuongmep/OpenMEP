@@ -12,7 +12,8 @@
     <NukeTelemetryVersion>1</NukeTelemetryVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Nuke.Common" Version="6.0.1" />
+    <PackageReference Include="Nuke.Common" Version="6.2.1" />
+    <PackageReference Include="Octokit" Version="4.0.2" />
     <PackageReference Include="vswhere" Version="2.*" />
     <PackageDownload Include="GitVersion.Tool" Version="[5.8.1]" />
   </ItemGroup>
