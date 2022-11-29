@@ -91,6 +91,9 @@
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynamoVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
+        <PackageReference Include="DynamoVisualProgramming.Revit" Version="$(DynamoVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
         <Reference Include="System.Net.Http" />
     </ItemGroup>
     <ItemGroup>
