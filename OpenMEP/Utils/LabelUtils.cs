@@ -1,4 +1,6 @@
-﻿namespace Utils;
+﻿using Autodesk.Revit.DB.Structure;
+
+namespace Utils;
 
 public class LabelUtils
 {
