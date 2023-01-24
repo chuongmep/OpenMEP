@@ -142,13 +142,12 @@ class Build : NukeBuild
             var newRelease = new NewRelease(version)
             {
                 Name = version,
-                // Body = CreateChangelog(version),
+                //Body = CreateChangelog(version),
                 Draft = true,
                 TargetCommitish = GitVersion.Sha,
                 GenerateReleaseNotes = true,
                 
             };
-
             var draft = CreatedDraft(gitHubOwner, gitHubName, newRelease);
             UploadArtifacts(draft, artifacts);
             ReleaseDraft(gitHubOwner, gitHubName, draft);
