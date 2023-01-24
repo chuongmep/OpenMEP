@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using _build;
@@ -146,7 +145,7 @@ class Build : NukeBuild
                 Draft = true,
                 TargetCommitish = GitVersion.Sha,
                 GenerateReleaseNotes = true,
-                
+
             };
             var draft = CreatedDraft(gitHubOwner, gitHubName, newRelease);
             UploadArtifacts(draft, artifacts);
