@@ -28,3 +28,12 @@ The package installer is available on the [Open MEP Release](https://github.com/
 
 This package is licensed under the [MIT License](LICENSE).
 
+# Sponsors
+
+This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP)
+
+# Contributing
+
+I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute, please read guideline [here](CONTRIBUTING.md).
+
+
