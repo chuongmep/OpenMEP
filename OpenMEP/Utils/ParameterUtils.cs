@@ -8,7 +8,8 @@ public class ParameterUtils
     {
         
     }
-    
+
+#if R22 || R23
     /// <summary>
     ///  Gets the BuiltInParameter value corresponding to built-in parameter identified by the given ForgeTypeId.
     /// </summary>
@@ -19,4 +20,6 @@ public class ParameterUtils
         BuiltInParameter builtInParameter = Autodesk.Revit.DB.ParameterUtils.GetBuiltInParameter(forgeTypeId);
         return builtInParameter;
     }
+#endif
+
 }
