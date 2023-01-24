@@ -7,21 +7,7 @@ public class UnitUtils
 {
     private UnitUtils()
     {
-        // TODO 
-        // UnitUtils.IsSymbol()
-        //
-        // UnitUtils.GetSpecTypeId()
-        //
-        // UnitUtils.GetUnitType()
-        //
-        // UnitUtils.GetUnitTypeId()
-        //
-        // UnitUtils.GetDisplayUnitType()
-        //
-        // UnitUtils.GetSymbolTypeId()
-        //
         
-        // UnitUtils.GetUnitSymbolType()
     }
 
 #if !(R20 || R21)
