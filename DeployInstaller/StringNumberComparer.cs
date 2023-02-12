@@ -1,8 +1,5 @@
 ﻿namespace DeployInstaller;
 
-/// <summary>
-/// https://stackoverflow.com/questions/4389929/how-can-i-use-c-sharp-to-sort-values-numerically
-/// </summary>
 class StringNumberComparer : IComparer<string>
 {
     public int Compare(string x, string y)
