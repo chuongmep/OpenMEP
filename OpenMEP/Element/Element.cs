@@ -4,14 +4,18 @@ using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace Element;
 
-public static class Element
+public class Element
 {
+    private Element()
+    {
+        
+    }
     /// <summary>
     /// Return A Location Center Of Element
     /// </summary>
     /// <param name="element"></param>
     /// <returns></returns>
-    public static Point LocationCenter(this Revit.Elements.Element? element)
+    public static Point LocationCenter(Revit.Elements.Element? element)
     {
         if (element.InternalElement.Location is LocationPoint)
         {

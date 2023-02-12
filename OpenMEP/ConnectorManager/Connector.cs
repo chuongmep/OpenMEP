@@ -122,9 +122,8 @@ public static class Connector
     /// <returns name="connector">closet connector</returns>
     public static Autodesk.Revit.DB.Connector? GetConnectorCloset( Revit.Elements.Element? element, ConnectorSet? connectorSet)
     {
-        Autodesk.Revit.DB.Document doc = element!.InternalElement.Document;
         Autodesk.Revit.DB.Connector? closet = null;
-        Point locationCenter = element.LocationCenter();
+        Point locationCenter = Element.Element.LocationCenter(element);
         double distance = Double.MaxValue;
         foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
         {
