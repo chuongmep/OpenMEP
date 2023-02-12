@@ -45,8 +45,9 @@ public class MEPModel
         }
         return electricSystems;
     }
-    
-    /// <summary>
+
+#if !R20
+     /// <summary>
     ///    Retrieves the electrical systems this electrical panel currently is assigned to.
     /// </summary>
     /// <para name="mepModel">Autodesk.Revit.DB.MEPModel</para>
@@ -67,6 +68,7 @@ public class MEPModel
         }
         return electricSystems;
     }
+#endif
     
     /// <summary>
     /// Retrieves the Connector Manager from this MEPModel.

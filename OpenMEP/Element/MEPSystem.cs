@@ -2,8 +2,12 @@
 
 namespace Element;
 
-public static class MEPSystem
+public class MEPSystem
 {
+    private MEPSystem()
+    {
+        
+    }
     /// <summary>
     /// Terminal elements in the system.
     /// </summary>

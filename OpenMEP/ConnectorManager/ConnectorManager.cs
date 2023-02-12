@@ -4,14 +4,18 @@ using Revit.Elements;
 
 namespace ConnectorManager;
 
-public static class ConnectorManager
+public class ConnectorManager
 {
+    private ConnectorManager()
+    {
+        
+    }
     /// <summary>
     /// return connector manager of element
     /// </summary>
     /// <param name="element">element</param>
     /// <returns name="ConnectorManager">ConnectorManager</returns>
-    public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager(this Revit.Elements.Element? element)
+    public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager( Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.Element internalElement = element.InternalElement;
         if (internalElement is Autodesk.Revit.DB.FamilyInstance familyInstance)
@@ -37,7 +41,7 @@ public static class ConnectorManager
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">connectors</returns>
-    public static List<Autodesk.Revit.DB.Connector> UnusedConnectors( this 
+    public static List<Autodesk.Revit.DB.Connector> UnusedConnectors( 
         Autodesk.Revit.DB.ConnectorManager connectorManager)
     {
         List<Autodesk.Revit.DB.Connector> connectors = new List<Autodesk.Revit.DB.Connector>();
@@ -51,11 +55,11 @@ public static class ConnectorManager
     }
 
     /// <summary>
-    /// This property is used to retrieve the owner of the Connector Manager. 
+    ///  property is used to retrieve the owner of the Connector Manager. 
     /// </summary>
     /// <param name="connectorManager"></param>
     /// <returns name="element">element owner</returns>
-    public static Revit.Elements.Element Owner(this Autodesk.Revit.DB.ConnectorManager connectorManager)
+    public static Revit.Elements.Element Owner( Autodesk.Revit.DB.ConnectorManager connectorManager)
     {
         Autodesk.Revit.DB.Element element = connectorManager.Owner;
         Revit.Elements.Element dsType = element.ToDSType(true);
@@ -67,7 +71,7 @@ public static class ConnectorManager
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">a collections of connector manager</returns>
-    public static List<Autodesk.Revit.DB.Connector> Connectors(this Autodesk.Revit.DB.ConnectorManager connectorManager)
+    public static List<Autodesk.Revit.DB.Connector> Connectors( Autodesk.Revit.DB.ConnectorManager connectorManager)
     {
         List<Autodesk.Revit.DB.Connector> connectors = new List<Autodesk.Revit.DB.Connector>();
         ConnectorSet connectorSet = connectorManager.Connectors;
@@ -85,7 +89,7 @@ public static class ConnectorManager
     /// <param name="connectorManager">connector manager</param>
     /// <param name="index">index of connector</param>
     /// <returns name="connector">connector</returns>
-    public static Autodesk.Revit.DB.Connector LookUp(this Autodesk.Revit.DB.ConnectorManager connectorManager, int index)
+    public static Autodesk.Revit.DB.Connector LookUp( Autodesk.Revit.DB.ConnectorManager connectorManager, int index)
     {
         Autodesk.Revit.DB.Connector connector = connectorManager.Lookup(index);
         return connector;

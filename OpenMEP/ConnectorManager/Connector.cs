@@ -13,9 +13,12 @@ using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace ConnectorManager;
 
-public static class Connector
+public class Connector
 {
-    
+    private Connector()
+    {
+        
+    }
     /// <summary>
     /// return the radius of connector
     /// </summary>
@@ -47,7 +50,6 @@ public static class Connector
                 distance = distanceTo;
             }
         }
-
         return closet;
     }
 
@@ -210,7 +212,7 @@ public static class Connector
     public static List<Autodesk.Revit.DB.Connector?> GetConnectors( Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
-            element.GetConnectorManager();
+            global::ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetConnectors(connectorManager);
     }
@@ -223,7 +225,7 @@ public static class Connector
     public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors( Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
-            element.GetConnectorManager();
+            global::ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetUnusedConnectors(connectorManager);
     }
