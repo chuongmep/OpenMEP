@@ -37,9 +37,10 @@ public class ParameterUtils
     /// </summary>
     /// <param name="builtInParameter">The BuiltInParameter value.</param>
     /// <returns>Identifier of the parameter corresponding to the given BuiltInParameter value.</returns>
-    public static ForgeTypeId GetParameterTypeId(BuiltInParameter builtInParameter)
+    public static ForgeTypeId GetParameterTypeId(object builtInParameter)
     {
-        ForgeTypeId result = Autodesk.Revit.DB.ParameterUtils.GetParameterTypeId(builtInParameter);
+        BuiltInParameter bip = (BuiltInParameter)builtInParameter;
+        ForgeTypeId result = Autodesk.Revit.DB.ParameterUtils.GetParameterTypeId(bip);
         return result;
     }
     

@@ -1,5 +1,6 @@
 using Autodesk.Revit.DB;
 using Revit.Elements;
+
 namespace Utils;
 
 public class FamilyUtils
@@ -43,12 +44,14 @@ public class FamilyUtils
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
     ///    A non-optional argument was null
     /// </exception>
-    public static void FamilyCanConvertToFaceHostBased(Autodesk.Revit.DB.Document doc,int familyId)
+    /// <returns name="bool">return true if family can convert to face host based</returns>
+    public static bool FamilyCanConvertToFaceHostBased(Autodesk.Revit.DB.Document doc,int familyId)
     {
         using Transaction tran = new Autodesk.Revit.DB.Transaction (doc, "convert");
         tran.Start();
-        Autodesk.Revit.DB.FamilyUtils.FamilyCanConvertToFaceHostBased(doc,new ElementId(familyId));
+        bool result = Autodesk.Revit.DB.FamilyUtils.FamilyCanConvertToFaceHostBased(doc,new ElementId(familyId));
         tran.Commit();
+        return result;
     }
     
     
@@ -66,11 +69,12 @@ public class FamilyUtils
     ///    A value passed for an enumeration argument is not a member of that enumeration
     /// </exception>
     /// <since>2014</since>
-    public static IEnumerable<Revit.Elements.Element> GetProfileSymbols(Autodesk.Revit.DB.Document doc,ProfileFamilyUsage profileFamilyUsage,bool oneCurveLoopOnly)
+    public static IEnumerable<Revit.Elements.Element> GetProfileSymbols(Autodesk.Revit.DB.Document doc,object profileFamilyUsage,bool oneCurveLoopOnly)
     {
-        using Transaction tran = new Autodesk.Revit.DB.Transaction (doc, "convert");
+        using Transaction tran = new Autodesk.Revit.DB.Transaction (doc, "GetProfileSymbols");
         tran.Start();
-        ICollection<ElementId> profileSymbols = Autodesk.Revit.DB.FamilyUtils.GetProfileSymbols(doc,profileFamilyUsage,oneCurveLoopOnly);
+        ProfileFamilyUsage profile = (ProfileFamilyUsage)profileFamilyUsage;
+        ICollection<ElementId> profileSymbols = Autodesk.Revit.DB.FamilyUtils.GetProfileSymbols(doc,profile,oneCurveLoopOnly);
         foreach (ElementId elementId in profileSymbols)
         {
             yield return doc.GetElement(elementId).ToDSType(true);

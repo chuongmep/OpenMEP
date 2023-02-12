@@ -7,8 +7,9 @@
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <LangVersion>latest</LangVersion>
         <UseWPF>true</UseWPF>
-        <PlatformTarget>x64</PlatformTarget>
         <RootNamespace>OpenMEP</RootNamespace>
+        <AssemblyName>OpenMEP</AssemblyName>
+        <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23</Configurations>
@@ -44,7 +45,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R22'))">
         <DynamoVersion>2.12</DynamoVersion>
-        <DynamoOutput>2.12</DynamoOutput>
+        <DynamoOutput>2.10</DynamoOutput>
         <RevitVersion>2022</RevitVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
@@ -58,7 +59,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R23'))">
         <DynamoVersion>2.12</DynamoVersion>
-        <DynamoOutput>2.13</DynamoOutput>
+        <DynamoOutput>2.16</DynamoOutput>
         <RevitVersion>2023</RevitVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
@@ -66,7 +67,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Release R23'))">
         <DynamoVersion>2.12</DynamoVersion>
-        <DynamoOutput>2.13</DynamoOutput>
+        <DynamoOutput>2.16</DynamoOutput>
         <RevitVersion>2023</RevitVersion>
         <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
@@ -110,10 +111,9 @@
       </Compile>
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="MepModel" />
-      <Folder Include="MepSystem" />
-      <Folder Include="Revit" />
-      <Folder Include="System" />
+      <Folder Include="Application\Dynamo" />
+      <Folder Include="Application\Revit" />
+      <Folder Include="Application\Windows" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
@@ -127,8 +127,8 @@
         <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
         <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
         <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
+        <Message Text="Copied Completed" Importance="high" />
     </Target>
-
     <Target Name="GenerateCustomization" BeforeTargets="Build">
         <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v4.8">
             <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
