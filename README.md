@@ -1,10 +1,18 @@
-
 ![](docs/img/openmep.png)
 
 # Description
 
-This is a package support for engineer work with Automation in Dynamo Revit efficiently. It allow you easy collaborate
-with other engineer by Open Source. Main of package is focus on MEP engineer work with Dynamo Revit.
+The MEP Package integrates advanced MEP design and analysis capabilities, allowing construction professionals to quickly
+and accurately evaluate MEP systems, from concept to construction. The package includes tools for electrical load
+analysis, duct and pipe sizing, pressure drop calculations, and more. This makes it possible for you to quickly identify
+potential problems and make informed decisions about the best course of action.
+
+OpenMEP Package also includes a comprehensive library of MEP components, making it easy to select and incorporate the
+right components into your design. This library includes a wide range of mechanical, electrical, and plumbing
+components, including pipes, fittings, valves, ducts, electrical equipment, and more.
+
+We believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
+design process and ensure that their projects are completed on time and within budget.
 
 # Features
 
@@ -19,10 +27,10 @@ Some features of this package:
 - [x] Easy install, update, uninstall
 - [x] Cover more than Zero Touch Node MEP Engineer need.
 
-
 # Installation
 
-The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You can install it from there.
+The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
+can install it from there.
 
 # Copying
 
@@ -34,6 +42,7 @@ This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP
 
 # Contributing
 
-I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute, please read guideline [here](CONTRIBUTING.md).
+I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute,
+please read guideline [here](CONTRIBUTING.md).
 
 
