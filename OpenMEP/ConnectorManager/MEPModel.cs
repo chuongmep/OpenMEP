@@ -23,7 +23,8 @@ public class MEPModel
         }
         return null;
     }
-    
+
+#if !R20
     /// <summary>
     ///    Retrieves the electrical systems that are currently created using this MEPModel.
     /// </summary>
@@ -45,6 +46,7 @@ public class MEPModel
         }
         return electricSystems;
     }
+#endif
 
 #if !R20
      /// <summary>
