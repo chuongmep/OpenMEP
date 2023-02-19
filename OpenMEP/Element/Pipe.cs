@@ -119,8 +119,9 @@ public class Pipe
         TransactionManager.Instance.TransactionTaskDone();
         return dynampipe;
     }
-    
-    /// <summary>
+
+#if !R20
+     /// <summary>
     /// return information diameter of pipe
     /// </summary>
     /// <param name="pipe">pipe</param>
@@ -145,44 +146,7 @@ public class Pipe
             {"InsideDiameter", valueinsideDiameter}
         };
     }
-    /// <summary>
-    /// Return Family Symbol In Setting Of Pipe
-    /// </summary>
-    /// <param name="pipe">pipe setting</param>
-    /// <param name="size">size to check</param>
-    /// <param name="routingtype">type routing</param>
-    /// <returns></returns>
-    internal static FamilySymbol? GetSymbolByRouting(global::Revit.Elements.Element? pipe, double size,
-        RoutingPreferenceRuleGroupType routingtype)
-    {
-        Autodesk.Revit.DB.Plumbing.Pipe? internalElement = pipe!.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
-        PipeType? pipeType = internalElement?.PipeType;
-        RoutingPreferenceManager? routePrefManager = pipeType?.RoutingPreferenceManager;
-        RoutingConditions rou = new RoutingConditions(RoutingPreferenceErrorLevel.None);
-        //rou.PreferredJunctionType = PreferredJunctionType.Tee;
-        RoutingCondition rc = new RoutingCondition(size);
-        rou.AppendCondition(rc);
-        ElementId? id = routePrefManager?.GetMEPPartId(routingtype, rou);
-        Autodesk.Revit.DB.Element? e = internalElement?.Document.GetElement(id);
-        FamilySymbol? familySymbol = e as FamilySymbol;
-        return familySymbol;
-    }
-
-    /// <summary>
-    /// return system type of pipe
-    /// </summary>
-    /// <param name="pipe">pipe to get</param>
-    /// <returns name="systemtype">system type of pipe</returns>
-    public static global::Revit.Elements.Element? SystemType(global::Revit.Elements.Element pipe)
-    {
-        if (pipe == null) throw new ArgumentNullException(nameof(pipe));
-        Autodesk.Revit.DB.Plumbing.Pipe? element = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
-        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        ElementId systemTypeId = element!.get_Parameter(BuiltInParameter.RBS_PIPING_SYSTEM_TYPE_PARAM).AsElementId();
-        var systemType = doc.GetElement(systemTypeId).ToDynamoType();
-        return systemType;
-    }
-
+    
     /// <summary>
     /// return Junctions family of pipe get in routing setting
     /// </summary>
@@ -367,6 +331,46 @@ public class Pipe
         };
     }
 
+#endif
+    
+   
+    /// <summary>
+    /// Return Family Symbol In Setting Of Pipe
+    /// </summary>
+    /// <param name="pipe">pipe setting</param>
+    /// <param name="size">size to check</param>
+    /// <param name="routingtype">type routing</param>
+    /// <returns></returns>
+    internal static FamilySymbol? GetSymbolByRouting(global::Revit.Elements.Element? pipe, double size,
+        RoutingPreferenceRuleGroupType routingtype)
+    {
+        Autodesk.Revit.DB.Plumbing.Pipe? internalElement = pipe!.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
+        PipeType? pipeType = internalElement?.PipeType;
+        RoutingPreferenceManager? routePrefManager = pipeType?.RoutingPreferenceManager;
+        RoutingConditions rou = new RoutingConditions(RoutingPreferenceErrorLevel.None);
+        //rou.PreferredJunctionType = PreferredJunctionType.Tee;
+        RoutingCondition rc = new RoutingCondition(size);
+        rou.AppendCondition(rc);
+        ElementId? id = routePrefManager?.GetMEPPartId(routingtype, rou);
+        Autodesk.Revit.DB.Element? e = internalElement?.Document.GetElement(id);
+        FamilySymbol? familySymbol = e as FamilySymbol;
+        return familySymbol;
+    }
+
+    /// <summary>
+    /// return system type of pipe
+    /// </summary>
+    /// <param name="pipe">pipe to get</param>
+    /// <returns name="systemtype">system type of pipe</returns>
+    public static global::Revit.Elements.Element? SystemType(global::Revit.Elements.Element pipe)
+    {
+        if (pipe == null) throw new ArgumentNullException(nameof(pipe));
+        Autodesk.Revit.DB.Plumbing.Pipe? element = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        ElementId systemTypeId = element!.get_Parameter(BuiltInParameter.RBS_PIPING_SYSTEM_TYPE_PARAM).AsElementId();
+        var systemType = doc.GetElement(systemTypeId).ToDynamoType();
+        return systemType;
+    }
     /// <summary>
     ///  Return three points closest inside three pipes
     /// </summary>
