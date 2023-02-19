@@ -19,13 +19,11 @@ design process and ensure that their projects are completed on time and within b
 Some features of this package:
 
 - [x] Fast Delivery Package for MEP Engineer
-- [x] Easy to use
+- [x] Easy to use and interactive with Dynamo Revit
 - [x] Easy to collaborate with other engineer
-- [x] Easy to use with Dynamo Revit
 - [x] Easy to report bug
 - [x] Easy to maintain, support multiple version of Dynamo Revit
 - [x] Easy install, update, uninstall
-- [x] Cover more than Zero Touch Node MEP Engineer need.
 
 # Installation
 
@@ -34,11 +32,14 @@ can install it from there.
 
 # Copying
 
-This package is licensed under the [MIT License](LICENSE).
+This package is licensed under the [MIT License](LICENSE.md).
 
 # Sponsors
 
-This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP)
+- This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP), the best IDE for C# and Python
+  developer.
+
+- Icon chicken made by [Icon8](https://icons8.com/)
 
 # Contributing
 
