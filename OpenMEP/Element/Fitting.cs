@@ -182,7 +182,8 @@ public class Fitting
         return fitting;
     }
 
-    /// <summary>
+#if !R20
+     /// <summary>
     /// Set radius of fitting
     /// </summary>
     /// <param name="fitting">fitting will be set</param>
@@ -202,6 +203,8 @@ public class Fitting
         TransactionManager.Instance.TransactionTaskDone();
         return fitting;
     }
+#endif
+   
 
     /// <summary>
     /// Set Rotate of fitting
@@ -230,13 +233,13 @@ public class Fitting
     /// <param name="fitting">family instance</param>
     [MultiReturn("Size", "PartType")]
     [NodeCategory("Query")]
-    public static Dictionary<string, object> ConnectorInfo(global::Revit.Elements.Element fitting)
+    public static IDictionary ConnectorInfo(Revit.Elements.Element fitting)
     {
         List<Connector?> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(fitting);
         Autodesk.Revit.DB.FamilyInstance? element = fitting.InternalElement as Autodesk.Revit.DB.FamilyInstance;
         Autodesk.Revit.DB.MEPModel mepModel = element!.MEPModel;
         dynamic? partType = OpenMEP.ConnectorManager.MEPModel.PartType(mepModel);
-        return new Dictionary<string, object>()
+        return new Dictionary<string, object?>()
         {
             {"Size", connectors.Count},
             {"PartType", partType}

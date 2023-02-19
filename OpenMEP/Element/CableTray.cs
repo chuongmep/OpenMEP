@@ -14,7 +14,8 @@ public class CableTray
     {
     }
 
-    /// <summary>
+#if !R20
+     /// <summary>
     /// Creates a new instance of cable tray by start point and end point
     /// </summary>
     /// <param name="cableTrayType">The cable tray type. This must be a cable tray type accepted by isValidCableTrayType(). If the input cable tray type is InvalidElementId, the default cable tray type from the document will be used.</param>
@@ -44,8 +45,7 @@ public class CableTray
         TransactionManager.Instance.TransactionTaskDone();
         return familyInstance.ToDynamoType();
     }
-
-
+    
     /// <summary>
     /// create new cable tray by line
     /// </summary>
@@ -76,4 +76,6 @@ public class CableTray
         TransactionManager.Instance.TransactionTaskDone();
         return familyInstance.ToDynamoType();
     }
+#endif
+    
 }

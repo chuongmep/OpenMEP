@@ -30,7 +30,7 @@ Some features of this package:
 The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
 can install it from there.
 
-# Copying
+# Copyright
 
 This package is licensed under the [MIT License](LICENSE.md).
 

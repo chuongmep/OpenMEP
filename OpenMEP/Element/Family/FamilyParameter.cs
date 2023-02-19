@@ -91,7 +91,7 @@ public class FamilyParameter
         {
 #if R22 || R23
             dynamic? displayUnitType = familyParameter.GetUnitTypeId();
-#elif R21
+#elif R21 || R20
         dynamic? displayUnitType = familyParameter.DisplayUnitType;
 #endif
             return displayUnitType;
@@ -129,7 +129,7 @@ public class FamilyParameter
             bool? userModifiable = familyParameter?.UserModifiable;
             bool? canAssignFormula = familyParameter?.CanAssignFormula;
             bool? isReadOnly = familyParameter?.IsReadOnly;
-#if R21
+#if R20 || R21 
         object? displayUnitType = familyParameter.DisplayUnitType;
 #else
             object? displayUnitType = familyParameter?.GetUnitTypeId();
