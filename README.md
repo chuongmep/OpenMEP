@@ -93,6 +93,10 @@ Function Support (WIP) :
 # Copyright
 
 This package is licensed under the [MIT License](LICENSE.md).
+The MIT License is a permissive open-source software license that allows for the use, modification, and distribution of
+software, both commercially and non-commercially, with the only requirement being that the original copyright and
+license notice be included with any distribution. It is a popular choice among developers for its simplicity and
+permissiveness.
 
 # Sponsors
 
@@ -118,7 +122,8 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
 # Issues
 
 Now, I accept all idea and all issue, contribute from all people all the word.
-You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You can submit your own code to the Add-In Manager
+You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You
+can submit your own code to the Add-In Manager
 project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
 
 # FAQ
