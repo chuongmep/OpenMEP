@@ -120,11 +120,13 @@
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
+            <XmlCustomization Include="$(SolutionDir)docs\*.xml"/>
             <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
             <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
         </ItemGroup>
         <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
         <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin"/>
         <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
         <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
         <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
