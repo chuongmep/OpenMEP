@@ -18,27 +18,34 @@ design process and ensure that their projects are completed on time and within b
 
 Some features of this package:
 
-- [x] Fast Delivery Package for MEP Engineer
-- [x] Easy to use
+- [x] Fast delivery package for MEP Engineer
+- [x] Easy to use and interactive with Dynamo Revit
 - [x] Easy to collaborate with other engineer
-- [x] Easy to use with Dynamo Revit
 - [x] Easy to report bug
 - [x] Easy to maintain, support multiple version of Dynamo Revit
 - [x] Easy install, update, uninstall
-- [x] Cover more than Zero Touch Node MEP Engineer need.
 
 # Installation
 
 The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
 can install it from there.
 
-# Copying
+- OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
+- OpenMEP now Dynamo Version : 2.6, 2.12, 2.16
 
-This package is licensed under the [MIT License](LICENSE).
+![](docs/img/install.png)
+
+# Copyright
+
+This package is licensed under the [MIT License](LICENSE.md).
 
 # Sponsors
 
-This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP)
+- This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP), the best IDE for C# and Python
+  developer.
+- Chicken icon made by [icons8.com](https://icons8.com/)
+
+- [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech industries.
 
 # Contributing
 

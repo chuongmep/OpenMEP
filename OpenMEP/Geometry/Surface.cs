@@ -1,4 +1,4 @@
-﻿namespace Geometry;
+﻿namespace OpenMEP.Geometry;
 
 public  class Surface
 {

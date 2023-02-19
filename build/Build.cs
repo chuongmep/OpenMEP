@@ -123,7 +123,7 @@ class Build : NukeBuild
         .Requires(() => GitRepository)
         .Requires(() => GitVersion)
         .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
-        .OnlyWhenStatic(() => IsServerBuild)
+        // .OnlyWhenStatic(() => IsServerBuild)
         .TriggeredBy(CreateInstaller)
         .Executes(() =>
         {

@@ -2,7 +2,8 @@
 using Autodesk.Revit.DB;
 using Revit.Elements;
 using RevitServices.Persistence;
-namespace Parameter;
+
+namespace OpenMEP.Parameter;
 
 public class SharedParameter
 {
@@ -41,7 +42,11 @@ public class SharedParameter
         SharedParameterElement? sharedParameterElement =
             shareParameterElement.InternalElement as SharedParameterElement;
         string? guidValue = sharedParameterElement?.GuidValue.ToString();
+#if R20
+        string? versionGuid = String.Empty;
+        #else
         string? versionGuid = sharedParameterElement?.VersionGuid.ToString();
+#endif
         int? groupId = sharedParameterElement?.GroupId.IntegerValue;
         string? name = sharedParameterElement?.Name;
         int? id = sharedParameterElement?.Id?.IntegerValue;
@@ -63,7 +68,7 @@ public class SharedParameter
         };
     }
 
-#if R21
+#if R20 || R21
     // /// <summary>
     // /// Add a new parameter to share parameter file
     // /// </summary>

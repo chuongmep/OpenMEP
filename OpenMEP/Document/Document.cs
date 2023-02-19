@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using Autodesk.DesignScript.Runtime;
-using Core;
+using OpenMEP.Helpers;
 using RevitServices.Persistence;
 
-namespace Document;
+namespace OpenMEP.Document;
 
 public class Document
 {

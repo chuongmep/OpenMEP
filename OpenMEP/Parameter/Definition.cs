@@ -1,6 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 
-namespace Parameter;
+namespace OpenMEP.Parameter;
 
 public class Definition
 {

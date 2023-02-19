@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using Autodesk.Revit.DB;
-using Core;
+using OpenMEP.Helpers;
 
-namespace Parameter;
+namespace OpenMEP.Parameter;
 
 public class Parameter
 {
@@ -90,17 +90,19 @@ public class Parameter
         return storageType?.ToDynamoType();
     }
 
+#if !R20
     /// <summary>
     /// Gets the identifier of the unit quantifying the parameter value.
     /// </summary>
     /// <param name="parameter">parameter</param>
     /// <returns name="forgetypeid">forge typeid</returns>
-    public static Autodesk.Revit.DB.ForgeTypeId? GetUnitTypeId(Revit.Elements.Parameter? parameter)
+    public static ForgeTypeId? GetUnitTypeId(Revit.Elements.Parameter? parameter)
     {
         Autodesk.Revit.DB.Parameter? revitParameter = parameter?.ToRevitType();
-        Autodesk.Revit.DB.ForgeTypeId? unitTypeId = revitParameter?.GetUnitTypeId();
+        ForgeTypeId? unitTypeId = revitParameter?.GetUnitTypeId();
         return unitTypeId;
     }
+#endif
 
     /// <summary>
     /// Tests whether this parameter can be associated with the given global parameter.
@@ -135,7 +137,7 @@ public class Parameter
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public static string? GetTypeId(Elements.Parameter? parameter)
+        public static string? GetTypeId(Revit.Elements.Parameter? parameter)
         {
             Autodesk.Revit.DB.Parameter? revitParameter = parameter?.ToRevitType();
             Autodesk.Revit.DB.ForgeTypeId? storageType = revitParameter?.GetTypeId();

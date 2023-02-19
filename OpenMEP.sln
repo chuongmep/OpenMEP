@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 		docs\pkg.json = docs\pkg.json
 		CHANGELOG.md = CHANGELOG.md
+		docs\OpenMEP_DynamoCustomization.xml = docs\OpenMEP_DynamoCustomization.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeployInstaller", "DeployInstaller\DeployInstaller.csproj", "{C7835EFE-E1C7-48B2-90D0-E943D43A905D}"

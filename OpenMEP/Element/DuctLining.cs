@@ -1,4 +1,4 @@
-﻿namespace Element;
+﻿namespace OpenMEP.Element;
 
 public class DuctLining
 {

@@ -45,7 +45,7 @@ var project = new Project
 };
 MajorUpgrade.Default.AllowSameVersionUpgrades = true;
 // MajorUpgrade.Default.AllowDowngrades = true;
-project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.InstallDirDlg);
+project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.VerifyReadyDlg);
 string buildMsi = project.BuildMsi();
 FileInfo fileInfo = new FileInfo(buildMsi);
 // get version info 
@@ -79,7 +79,8 @@ WixEntity[] GenerateWixEntities()
             }
             else
                 Console.WriteLine("Add Files Dynamo Version: " + regex.Match(dynamoVersion).Value);
-                versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
+
+            versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
             var assemblies = Directory.GetFiles(directoryInfo.FullName, "*", SearchOption.AllDirectories);
             foreach (var assembly in assemblies) Console.WriteLine($"'{assembly}'");
         }
@@ -147,5 +148,3 @@ string GetDay()
     string Sub = hour + minute.ToString();
     return Sub;
 }
-
-

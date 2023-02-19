@@ -1,8 +1,8 @@
 ﻿namespace OpenMEP.Geometry;
 
-public class Point
+public class Plane
 {
-    private Point()
+    private Plane()
     {
         
     }

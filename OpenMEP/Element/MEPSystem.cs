@@ -1,6 +1,6 @@
-﻿using Core;
+﻿using OpenMEP.Helpers;
 
-namespace Element;
+namespace OpenMEP.Element;
 
 public class MEPSystem
 {
