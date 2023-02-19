@@ -1,4 +1,4 @@
-# Open MEP
+# Open MEP (WIP)
 
 ![Revit API](https://img.shields.io/badge/Revit%20API%202023-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -49,15 +49,16 @@ Some features of this package:
 - [x] Easy to maintain, support multiple version of Dynamo Revit
 - [x] Easy install, update, uninstall
 
-Function Support (WIP) : 
+Function Support (WIP) :
+
 - [x] Document
-  - [x] Revit Document 
-  - [x] Family Document
+    - [x] Revit Document
+    - [x] Family Document
 - [x] ConnectorManager
-  - [x] Connector
-  - [x] ConnectorSet
-  - [x] MEPConnectorInfo
-  - [x] MEPModel
+    - [x] Connector
+    - [x] ConnectorSet
+    - [x] MEPConnectorInfo
+    - [x] MEPModel
 - [x] Element
 - [x] Duct
 - [ ] Pipe
@@ -66,25 +67,25 @@ Function Support (WIP) :
 - [x] Flex Duct
 - [x] Flex Pipe
 - [x] Family
-  - [x] Family Manager
-  - [x] Family Parameter
-  - [x] Family Size Manager
-  - [x] Family Type
-- [x] MEP Curve 
-- [x] MEP Model 
+    - [x] Family Manager
+    - [x] Family Parameter
+    - [x] Family Size Manager
+    - [x] Family Type
+- [x] MEP Curve
+- [x] MEP Model
 - [x] Utils
 - [ ] Wire
 - [ ] Geometry
-  - [ ] Point 
-  - [ ] Line
-  - [ ] Plane
-  - [ ] Curve
-  - [ ] Surface
-  - [ ] Solid
-  - [ ] Mesh
-  - [ ] Brep
-  - [ ] Transform
-  - [ ] Vector
+    - [ ] Point
+    - [ ] Line
+    - [ ] Plane
+    - [ ] Curve
+    - [ ] Surface
+    - [ ] Solid
+    - [ ] Mesh
+    - [ ] Brep
+    - [ ] Transform
+    - [ ] Vector
 - [ ] Conduit
 - [ ] MEP Fabrication
 - [ ] ...
@@ -113,6 +114,12 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
 <a href = "https://github.com/chuongmep/openmep/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=chuongmep/openmep"/>
 </a>
+
+# Issues
+
+Now, I accept all idea and all issue, contribute from all people all the word.
+You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You can submit your own code to the Add-In Manager
+project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
 
 # FAQ
 
