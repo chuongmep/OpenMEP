@@ -2,7 +2,7 @@
 using Autodesk.Revit.DB;
 using RevitServices.Persistence;
 
-namespace Parameter;
+namespace OpenMEP.Parameter;
 
 public class ProjectParameter
 {

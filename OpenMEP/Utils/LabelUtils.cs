@@ -1,4 +1,4 @@
-﻿namespace Utils;
+﻿namespace OpenMEP.Utils;
 public class LabelUtils
 {
     private LabelUtils()

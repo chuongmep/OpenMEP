@@ -2,7 +2,8 @@
 using Autodesk.Revit.DB;
 using Revit.Elements;
 using RevitServices.Persistence;
-namespace Parameter;
+
+namespace OpenMEP.Parameter;
 
 public class SharedParameter
 {

@@ -1,7 +1,7 @@
 using Autodesk.Revit.DB;
 using Revit.Elements;
 
-namespace Utils;
+namespace OpenMEP.Utils;
 
 public class FamilyUtils
 {

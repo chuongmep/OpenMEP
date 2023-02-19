@@ -1,8 +1,7 @@
 ﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
-using Core;
-using Element;
+using OpenMEP.Helpers;
 using Revit.Elements;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
@@ -11,7 +10,7 @@ using FamilyInstance = Autodesk.Revit.DB.FamilyInstance;
 using MEPCurve = Autodesk.Revit.DB.MEPCurve;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
-namespace ConnectorManager;
+namespace OpenMEP.ConnectorManager;
 
 public class Connector
 {
@@ -125,7 +124,7 @@ public class Connector
     public static Autodesk.Revit.DB.Connector? GetConnectorCloset( Revit.Elements.Element? element, ConnectorSet? connectorSet)
     {
         Autodesk.Revit.DB.Connector? closet = null;
-        Point locationCenter = Element.Element.LocationCenter(element);
+        Point locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
         double distance = Double.MaxValue;
         foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
         {
@@ -212,7 +211,7 @@ public class Connector
     public static List<Autodesk.Revit.DB.Connector?> GetConnectors( Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
-            global::ConnectorManager.ConnectorManager.GetConnectorManager(element);
+            global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetConnectors(connectorManager);
     }
@@ -225,7 +224,7 @@ public class Connector
     public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors( Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
-            global::ConnectorManager.ConnectorManager.GetConnectorManager(element);
+            global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetUnusedConnectors(connectorManager);
     }

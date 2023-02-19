@@ -45,7 +45,7 @@ var project = new Project
 };
 MajorUpgrade.Default.AllowSameVersionUpgrades = true;
 // MajorUpgrade.Default.AllowDowngrades = true;
-project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.InstallDirDlg);
+project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.VerifyReadyDlg);
 string buildMsi = project.BuildMsi();
 FileInfo fileInfo = new FileInfo(buildMsi);
 // get version info 

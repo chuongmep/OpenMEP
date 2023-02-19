@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using Autodesk.Revit.DB;
-using Core;
+using OpenMEP.Helpers;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
-namespace Element;
+namespace OpenMEP.Element;
 
 public class MEPCurve
 {
@@ -23,8 +23,8 @@ public class MEPCurve
    {
       Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
       TransactionManager.Instance.EnsureInTransaction(doc);
-      Connector? c1 = ConnectorManager.Connector.GetConnectorCloset(mepCurve1, mepCurve2);
-      Connector? c2 = ConnectorManager.Connector.GetConnectorCloset(mepCurve2,mepCurve1);
+      Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorCloset(mepCurve1, mepCurve2);
+      Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorCloset(mepCurve2,mepCurve1);
       Autodesk.Revit.DB.FamilyInstance newUnionFitting = doc.Create.NewElbowFitting(c2, c1);
       TransactionManager.Instance.TransactionTaskDone();
       if (newUnionFitting == null) return null;
@@ -42,14 +42,14 @@ public class MEPCurve
    {
       Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
       TransactionManager.Instance.EnsureInTransaction(doc);
-      Connector? c1 = ConnectorManager.Connector.GetConnectorCloset(mepCurve1,mepCurve2);
-      Connector? c2 = ConnectorManager.Connector.GetConnectorCloset(mepCurve2,mepCurve1);
+      Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorCloset(mepCurve1,mepCurve2);
+      Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorCloset(mepCurve2,mepCurve1);
       Autodesk.Revit.DB.FamilyInstance newUnionFitting = doc.Create.NewUnionFitting(c2, c1);
       TransactionManager.Instance.TransactionTaskDone();
       if (newUnionFitting == null)
       {
-         List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(mepCurve1);
-         Connector? c11 = ConnectorManager.Connector.GetConnectorCloset(c1,connectors);
+         List<Connector?> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(mepCurve1);
+         Connector? c11 = OpenMEP.ConnectorManager.Connector.GetConnectorCloset(c1,connectors);
          ConnectorSet connectorSet = c11!.AllRefs;
          IEnumerator enumerator = connectorSet.GetEnumerator();
          while (enumerator.MoveNext())

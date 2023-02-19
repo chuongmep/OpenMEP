@@ -1,6 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 
-namespace Document;
+namespace OpenMEP.Document;
 
 public class FamilyDocument
 {

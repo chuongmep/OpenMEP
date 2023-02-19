@@ -1,4 +1,4 @@
-﻿namespace ConnectorManager;
+﻿namespace OpenMEP.ConnectorManager;
 
 public class MEPConnectorInfo
 {

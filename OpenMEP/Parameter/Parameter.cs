@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using Autodesk.Revit.DB;
-using Core;
+using OpenMEP.Helpers;
 
-namespace Parameter;
+namespace OpenMEP.Parameter;
 
 public class Parameter
 {

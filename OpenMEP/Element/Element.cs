@@ -2,7 +2,7 @@
 using Revit.GeometryConversion;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
-namespace Element;
+namespace OpenMEP.Element;
 
 public class Element
 {
