@@ -1,4 +1,4 @@
-# Open MEP (WIP)
+# Open MEP
 
 ![Revit API](https://img.shields.io/badge/Revit%20API%202023-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -29,7 +29,7 @@ The package installer is available on the [Open MEP Release](https://github.com/
 can install it from there.
 
 - OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
-- OpenMEP now Dynamo Version : 2.6, 2.12, 2.16
+- OpenMEP now Support Dynamo Version : 2.6, 2.12, 2.16
 
 Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 
@@ -143,6 +143,6 @@ Some project I recommend for you at [Dynamo Open Source](https://chuongmep.githu
 
 # FAQ
 
-Why this package not published on Dynamo Package Manager?
+- Why this package not published on Dynamo Package Manager?
 
-- Answer : It not support way I maintain with multiple version and release CI/CD with Dynamo Revit.
+Answer : It not support way I maintain with multiple version and release CI/CD with Dynamo Revit.
