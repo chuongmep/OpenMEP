@@ -38,6 +38,10 @@ can install it from there.
 
 ![](docs/img/install.png)
 
+# Documentation (TODO)
+- [x] [Getting Started](docs/getting-started.md)
+- [x] [](docs/dynamo-revit.md)
+
 # Features
 
 Some features of this package:
@@ -74,6 +78,10 @@ Function Support (WIP) :
 - [x] MEP Curve
 - [x] MEP Model
 - [x] Utils
+  - [x] FamilyUtils   
+  - [x] ParameterUtils
+  - [x] LabelUtils
+  - [x] UnitUtils
 - [ ] Wire
 - [ ] Geometry
     - [ ] Point
