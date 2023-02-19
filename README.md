@@ -35,7 +35,13 @@ Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-
 
 # Documentation (TODO)
 
-- [x] [Getting Started](docs/getting-started.md)
+- [How to Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
+- How to Use OpenMEP Package
+- How to Contribute OpenMEP Package
+- How to Report Bug
+- How to Update OpenMEP Package
+- How to Uninstall OpenMEP Package
+- How to write python script with OpenMEP Package
 
 # Features
 
@@ -130,6 +136,11 @@ can submit your own code to the Add-In Manager
 project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
 
 - Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
+
+# Open Source Recommend
+
+Some project I recommend for you at [Dynamo Open Source](https://chuongmep.github.io/Awesome-Dynamo/DynamoOpenSource/dynopensource.html)
+
 # FAQ
 
 Why this package not published on Dynamo Package Manager?
