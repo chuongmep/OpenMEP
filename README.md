@@ -52,4 +52,11 @@ This package is licensed under the [MIT License](LICENSE.md).
 I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute,
 please read guideline [here](CONTRIBUTING.md).
 
+# FAQ
+
+Why this package not published on Dynamo Package Manager?
+
+- Answer : It not support way I maintain with multiple version of Dynamo Revit.
+
+
 
