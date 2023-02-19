@@ -17,6 +17,6 @@ public class FamilyDocument
         {
             return doc.FamilyManager;
         }
-        throw new ArgumentException("just support family document");
+        throw new ArgumentException("input document require is family document");
     }
 }

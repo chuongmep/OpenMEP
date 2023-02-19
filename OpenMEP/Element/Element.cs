@@ -1,4 +1,7 @@
-﻿using Autodesk.Revit.DB;
+﻿using Autodesk.DesignScript.Runtime;
+using Autodesk.Revit.DB;
+using Dynamo.Graph.Nodes;
+using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
@@ -29,5 +32,20 @@ public class Element
         }
         BoundingBoxXYZ bb = element.InternalElement.get_BoundingBox(null);
         return bb.Max.Add(bb.Min).Divide(0.5).ToPoint();
-    } 
+    }
+    /// <summary>
+    /// Returns the Document in which the Element resides
+    /// </summary>
+    /// <param name="element"></param>
+    /// <returns></returns>
+    [NodeCategory("Query")]
+    [MultiReturn("Revit Document", "Dynamo Document")]
+    public static Dictionary<string,object?> GetDocument(global::Revit.Elements.Element element)
+    {
+        return new Dictionary<string, object?>
+        {
+            {"Revit Document", element.InternalElement.Document},
+            {"Dynamo Document", element.InternalElement.Document.ToDynamoType()}
+        };
+    }
 }
