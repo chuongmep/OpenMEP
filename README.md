@@ -38,8 +38,9 @@ This package is licensed under the [MIT License](LICENSE.md).
 
 - This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP), the best IDE for C# and Python
   developer.
+- Chicken icon made by [icons8.com](https://icons8.com/)
 
-- Icon chicken made by [Icon8](https://icons8.com/)
+- [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech industries.
 
 # Contributing
 
