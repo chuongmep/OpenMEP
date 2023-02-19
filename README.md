@@ -116,6 +116,15 @@ permissiveness.
 - [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech
   industries.
 
+# Issues
+
+Now, I accept all idea and all issue, contribute from all people all the word.
+You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You
+can submit your own code to the Open MEP
+project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
+
+- Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
+
 # Contributing
 
 I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute,
@@ -127,15 +136,6 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
 <a href = "https://github.com/chuongmep/openmep/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=chuongmep/openmep"/>
 </a>
-
-# Issues
-
-Now, I accept all idea and all issue, contribute from all people all the word.
-You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You
-can submit your own code to the Add-In Manager
-project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
-
-- Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
 
 # Open Source Recommend
 
