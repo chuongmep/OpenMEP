@@ -35,7 +35,7 @@ public class Connector
     /// <param name="point">origin</param>
     /// <param name="connectors">list connector to check</param>
     /// <returns name="connector">connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorCloset( Point? point,
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Point? point,
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? closet = null;
@@ -58,7 +58,7 @@ public class Connector
     /// <param name="c">first connector</param>
     /// <param name="connectors">an collection connectors to check</param>
     /// <returns name="connector">closet connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorCloset( Autodesk.Revit.DB.Connector? c,
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Autodesk.Revit.DB.Connector? c,
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? closet = null;
@@ -81,7 +81,7 @@ public class Connector
     /// <param name="element1">first element</param>
     /// <param name="element2">second element</param>
     /// <returns name="connector">closet connector of element1</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorCloset( Revit.Elements.Element? element1,
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Revit.Elements.Element? element1,
         Revit.Elements.Element? element2)
     {
         ConnectorSet? connectorSet = GetConnectorSet(element1);
@@ -89,7 +89,7 @@ public class Connector
         {
             return null;
         }
-        Autodesk.Revit.DB.Connector? connector = GetConnectorCloset(element2, connectorSet);
+        Autodesk.Revit.DB.Connector? connector = GetConnectorClosest(element2, connectorSet);
         return connector;
     }
     
@@ -121,7 +121,7 @@ public class Connector
     /// <param name="element">element to check</param>
     /// <param name="connectorSet">an collection connectors</param>
     /// <returns name="connector">closet connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorCloset( Revit.Elements.Element? element, ConnectorSet? connectorSet)
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Revit.Elements.Element? element, ConnectorSet? connectorSet)
     {
         Autodesk.Revit.DB.Connector? closet = null;
         Point locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);

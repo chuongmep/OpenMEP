@@ -79,7 +79,8 @@ WixEntity[] GenerateWixEntities()
             }
             else
                 Console.WriteLine("Add Files Dynamo Version: " + regex.Match(dynamoVersion).Value);
-                versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
+
+            versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
             var assemblies = Directory.GetFiles(directoryInfo.FullName, "*", SearchOption.AllDirectories);
             foreach (var assembly in assemblies) Console.WriteLine($"'{assembly}'");
         }
@@ -147,5 +148,3 @@ string GetDay()
     string Sub = hour + minute.ToString();
     return Sub;
 }
-
-
