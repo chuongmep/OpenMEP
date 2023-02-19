@@ -134,6 +134,7 @@ You can make suggestions or track and submit bugs via [OpenMEP](https://github.c
 can submit your own code to the Add-In Manager
 project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
 
+- Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
 # FAQ
 
 Why this package not published on Dynamo Package Manager?
