@@ -8,8 +8,9 @@ analysis, duct and pipe sizing, pressure drop calculations, and more. This makes
 potential problems and make informed decisions about the best course of action.
 
 OpenMEP Package also includes a comprehensive library of MEP components, making it easy to select and incorporate the
-right components into your design. This library includes a wide range of mechanical, electrical, and plumbing
-components, including pipes, fittings, valves, ducts, electrical equipment, and more.
+right components into your design.This library includes a wide range of mechanical, electrical, and plumbing components,
+including pipes, fittings, valves, ducts, electrical equipment, and more fully automate your design process in design,
+maintenance, calculation and analysis,...
 
 We believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
 design process and ensure that their projects are completed on time and within budget.
@@ -45,7 +46,8 @@ This package is licensed under the [MIT License](LICENSE.md).
   developer.
 - Chicken icon made by [icons8.com](https://icons8.com/)
 
-- [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech industries.
+- [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech
+  industries.
 
 # Contributing
 
