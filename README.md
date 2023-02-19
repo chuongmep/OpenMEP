@@ -15,11 +15,6 @@ alt="follow on Twitter"></a>
 
 # Description
 
-The MEP Package integrates advanced MEP design and analysis capabilities, allowing construction professionals to quickly
-and accurately evaluate MEP systems, from concept to construction. The package includes tools for electrical load
-analysis, duct and pipe sizing, pressure drop calculations, and more. This makes it possible for you to quickly identify
-potential problems and make informed decisions about the best course of action.
-
 OpenMEP Package also includes a comprehensive library of MEP components, making it easy to select and incorporate the
 right components into your design.This library includes a wide range of mechanical, electrical, and plumbing components,
 including pipes, fittings, valves, ducts, electrical equipment, and more fully automate your design process in design,
