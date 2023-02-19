@@ -67,8 +67,14 @@ This package is licensed under the [MIT License](LICENSE.md).
 I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute,
 please read guideline [here](CONTRIBUTING.md).
 
+Many Thanks all contributors for this repository. Feel free to contribute!
+Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+<a href = "https://github.com/chuongmep/openmep/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=chuongmep/openmep"/>
+</a>
 # FAQ
 
 Why this package not published on Dynamo Package Manager?
 
-- Answer : It not support way I maintain with multiple version of Dynamo Revit.
+- Answer : It not support way I maintain with multiple version and release CI/CD with Dynamo Revit.
