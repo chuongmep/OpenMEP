@@ -39,6 +39,42 @@ Some features of this package:
 - [x] Easy to maintain, support multiple version of Dynamo Revit
 - [x] Easy install, update, uninstall
 
+Function Support (WIP) : 
+
+- [x] ConnectorManager
+  - [x] Connector
+  - [x] ConnectorSet
+  - [x] MEPConnectorInfo
+  - [x] MEPModel
+- [x] Duct
+- [ ] Pipe
+- [x] Cable Tray
+- [x] Fitting
+- [x] Flex Duct
+- [x] Flex Pipe
+- [x] Family
+  - [x] Family Manager
+  - [x] Family Parameter
+  - [x] Family Size Manager
+  - [x] Family Type
+- [x] MEP Curve 
+- [x] MEP Model 
+- [x] Utils
+- [ ] Wire
+- [ ] Geometry
+  - [ ] Point 
+  - [ ] Line
+  - [ ] Plane
+  - [ ] Curve
+  - [ ] Surface
+  - [ ] Solid
+  - [ ] Mesh
+  - [ ] Brep
+  - [ ] Transform
+  - [ ] Vector
+- [ ] Conduit
+- [ ] MEP Fabrication
+- [ ] ...
 # Installation
 
 The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
