@@ -28,6 +28,16 @@ maintenance, calculation and analysis,...
 We believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
 design process and ensure that their projects are completed on time and within budget.
 
+# Installation
+
+The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
+can install it from there.
+
+- OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
+- OpenMEP now Dynamo Version : 2.6, 2.12, 2.16
+
+![](docs/img/install.png)
+
 # Features
 
 Some features of this package:
@@ -40,12 +50,15 @@ Some features of this package:
 - [x] Easy install, update, uninstall
 
 Function Support (WIP) : 
-
+- [x] Document
+  - [x] Revit Document 
+  - [x] Family Document
 - [x] ConnectorManager
   - [x] Connector
   - [x] ConnectorSet
   - [x] MEPConnectorInfo
   - [x] MEPModel
+- [x] Element
 - [x] Duct
 - [ ] Pipe
 - [x] Cable Tray
@@ -75,15 +88,6 @@ Function Support (WIP) :
 - [ ] Conduit
 - [ ] MEP Fabrication
 - [ ] ...
-# Installation
-
-The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
-can install it from there.
-
-- OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
-- OpenMEP now Dynamo Version : 2.6, 2.12, 2.16
-
-![](docs/img/install.png)
 
 # Copyright
 
