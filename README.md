@@ -1,4 +1,4 @@
-# Open MEP (WIP)
+# Open MEP
 
 ![Revit API](https://img.shields.io/badge/Revit%20API%202023-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -29,13 +29,19 @@ The package installer is available on the [Open MEP Release](https://github.com/
 can install it from there.
 
 - OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
-- OpenMEP now Dynamo Version : 2.6, 2.12, 2.16
+- OpenMEP now Support Dynamo Version : 2.6, 2.12, 2.16
 
-![](docs/img/install.png)
+Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 
 # Documentation (TODO)
-- [x] [Getting Started](docs/getting-started.md)
-- [x] [](docs/dynamo-revit.md)
+
+- [How to Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
+- How to Use OpenMEP Package
+- How to Contribute OpenMEP Package
+- How to Report Bug
+- How to Update OpenMEP Package
+- How to Uninstall OpenMEP Package
+- How to write python script with OpenMEP Package
 
 # Features
 
@@ -110,6 +116,15 @@ permissiveness.
 - [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech
   industries.
 
+# Issues
+
+Now, I accept all idea and all issue, contribute from all people all the word.
+You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You
+can submit your own code to the Open MEP
+project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
+
+- Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
+
 # Contributing
 
 I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute,
@@ -122,16 +137,12 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
   <img src = "https://contrib.rocks/image?repo=chuongmep/openmep"/>
 </a>
 
-# Issues
+# Open Source Recommend
 
-Now, I accept all idea and all issue, contribute from all people all the word.
-You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You
-can submit your own code to the Add-In Manager
-project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
+Some project I recommend for you at [Dynamo Open Source](https://chuongmep.github.io/Awesome-Dynamo/DynamoOpenSource/dynopensource.html)
 
-- Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
 # FAQ
 
-Why this package not published on Dynamo Package Manager?
+- Why this package not published on Dynamo Package Manager?
 
-- Answer : It not support way I maintain with multiple version and release CI/CD with Dynamo Revit.
+Answer : It not support way I maintain with multiple version and release CI/CD with Dynamo Revit.

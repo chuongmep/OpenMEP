@@ -1,7 +1,4 @@
-﻿using Autodesk.Revit.DB.Electrical;
-using OpenMEP.Helpers;
-
-namespace OpenMEP.ConnectorManager;
+﻿namespace OpenMEP.ConnectorManager;
 
 public class MEPModel
 {

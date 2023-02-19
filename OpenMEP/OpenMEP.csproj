@@ -97,7 +97,8 @@
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
         <Reference Include="System.Net.Http" />
-        <PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+        <PackageReference Include="GShark" Version="2.1.0" />
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Update="Resources\OpenMEPImages.resx">
