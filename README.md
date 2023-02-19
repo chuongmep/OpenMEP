@@ -65,7 +65,7 @@ Function Support (WIP) :
     - [x] MEPModel
 - [x] Element
 - [x] Duct
-- [ ] Pipe
+- [x] Pipe
 - [x] Cable Tray
 - [x] Fitting
 - [x] Flex Duct
