@@ -20,7 +20,9 @@ right components into your design.This library includes a wide range of mechanic
 including pipes, fittings, valves, ducts, electrical equipment, and more fully automate your design process in design,
 maintenance, calculation and analysis,...
 
-We believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
+![](docs/img/OpenMEPPackage.png)
+
+I believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
 design process and ensure that their projects are completed on time and within budget.
 
 # Installation
@@ -35,13 +37,13 @@ Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-
 
 # Documentation (TODO)
 
-- [How to Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
-- How to Use OpenMEP Package
-- How to Contribute OpenMEP Package
-- How to Report Bug
-- How to Update OpenMEP Package
-- How to Uninstall OpenMEP Package
-- How to write python script with OpenMEP Package
+- [How To Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
+- How To Uninstall OpenMEP Package
+- How To Update OpenMEP Package
+- How To Use OpenMEP Package
+- How To Report Bug
+- How To Contribute OpenMEP Package
+- How To Write Python Script With OpenMEP Package
 
 # Features
 
