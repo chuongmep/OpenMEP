@@ -12,7 +12,10 @@ namespace OpenMEP.Element;
 
 public class Pipe
 {
-    private Pipe(){}
+    private Pipe()
+    {
+    }
+
     /// <summary>
     /// create new pipe with connectors
     /// </summary>
@@ -22,7 +25,8 @@ public class Pipe
     /// <param name="connector2">second connector</param>
     /// <returns name="pipe">new pipe</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType, global::Revit.Elements.Element level,
+    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector connector1, Autodesk.Revit.DB.Connector connector2)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -33,7 +37,26 @@ public class Pipe
         TransactionManager.Instance.TransactionTaskDone();
         return pipe.ToDynamoType();
     }
-    
+
+    /// <summary>
+    /// create new pipe with connectors
+    /// </summary>
+    /// <param name="pipeType">type of pipe</param>
+    /// <param name="level">level</param>
+    /// <param name="connector1">first connector</param>
+    /// <param name="connector2">second connector</param>
+    /// <param name="diameter">size of pipe</param>
+    /// <returns name="pipe">new pipe</returns>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level,
+        Autodesk.Revit.DB.Connector connector1, Autodesk.Revit.DB.Connector connector2, double diameter)
+    {
+        Revit.Elements.Element? element = Create(pipeType, level, connector1, connector2);
+        Revit.Elements.Element? pipe = SetDiameter(element, diameter);
+        return pipe;
+    }
+
     /// <summary>
     /// create new pipe with start connector and end point
     /// </summary>
@@ -43,7 +66,8 @@ public class Pipe
     /// <param name="endPoint">end point to draw pipe</param>
     /// <returns name="pipe">new pipe</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType, global::Revit.Elements.Element level,
+    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector connector1, Autodesk.DesignScript.Geometry.Point endPoint)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -54,6 +78,25 @@ public class Pipe
                 endPoint.ToXyz());
         TransactionManager.Instance.TransactionTaskDone();
         return pipe.ToDynamoType();
+    }
+
+    /// <summary>
+    /// create new pipe with start connector and end point
+    /// </summary>
+    /// <param name="pipeType">the element type of pipe</param>
+    /// <param name="level">the element level</param>
+    /// <param name="connector1">first connector to define first pipe draw pipe</param>
+    /// <param name="endPoint">end point to draw pipe</param>
+    /// <param name="diameter">size of new pipe</param>
+    /// <returns name="pipe">new pipe</returns>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level,
+        Autodesk.Revit.DB.Connector connector1, Autodesk.DesignScript.Geometry.Point endPoint, double diameter)
+    {
+        Revit.Elements.Element? element = Create(pipeType, level, connector1, endPoint);
+        Revit.Elements.Element? pipe = SetDiameter(element, diameter);
+        return pipe;
     }
 
     /// <summary>
@@ -81,6 +124,27 @@ public class Pipe
     }
 
     /// <summary>
+    /// create new pipe with connectors
+    /// </summary>
+    /// <param name="systemType">The Element of the piping system type.</param>
+    /// <param name="pipeType">The Element of the pipe type.</param>
+    /// <param name="level">The Element level.</param>
+    /// <param name="startPoint">The start point of the pipe.</param>
+    /// <param name="endPoint">The end point of the pipe.</param>
+    /// <param name="diameter">size of new pipe</param>
+    /// <returns name="pipe">new pipe</returns>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Point startPoint,
+        Autodesk.DesignScript.Geometry.Point endPoint, double diameter)
+    {
+        Revit.Elements.Element? pipe = Create(systemType, pipeType, level, startPoint, endPoint);
+        Revit.Elements.Element? newPipe = SetDiameter(pipe, diameter);
+        return newPipe;
+    }
+
+    /// <summary>
     /// Create a new pipe by line
     /// </summary>
     /// <param name="systemType">the element of pipe system type</param>
@@ -101,13 +165,34 @@ public class Pipe
         TransactionManager.Instance.TransactionTaskDone();
         return pipe.ToDynamoType();
     }
+
+    /// <summary>
+    /// Create a new pipe by line
+    /// </summary>
+    /// <param name="systemType">the element of pipe system type</param>
+    /// <param name="pipeType">the element type of pipe</param>
+    /// <param name="level">element level</param>
+    /// <param name="line">line to draw pipe</param>
+    /// <param name="diameter">size of new pipe</param>
+    /// <returns name="Pipe">new pipe</returns>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Line line, double diameter)
+    {
+        Revit.Elements.Element? element = Create(systemType, pipeType, level, line);
+        Revit.Elements.Element? pipe = SetDiameter(element, diameter);
+        return pipe;
+    }
+
     /// <summary>
     /// split a pipe at a point
     /// </summary>
     /// <param name="pipe">pipe will be break</param>
     /// <param name="point">point on pipe to break</param>
     /// <returns name="pipe">new pipe has split</returns>
-    public static global::Revit.Elements.Element? Split(global::Revit.Elements.Element pipe, Autodesk.DesignScript.Geometry.Point point
+    public static global::Revit.Elements.Element? Split(global::Revit.Elements.Element pipe,
+        Autodesk.DesignScript.Geometry.Point point
     )
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -120,8 +205,33 @@ public class Pipe
         return dynampipe;
     }
 
-#if !R20
-     /// <summary>
+    /// <summary>
+    /// Set diameter of pipe
+    /// </summary>
+    /// <param name="pipe">pipe need to set</param>
+    /// <param name="diameter">diameter to set</param>
+    /// <returns name="pipe">pipe</returns>
+    /// <exception cref="Exception"></exception>
+    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element? pipe, double diameter)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        Autodesk.Revit.DB.Plumbing.Pipe? internalElement = pipe!.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
+        if (internalElement == null) throw new Exception("element request input is pipe");
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_PipeSize).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.PipeSize).GetUnitTypeId();
+        double value = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
+#endif
+
+        ConnectorManager.Connector.GetConnectors(pipe).ForEach(delegate(Connector? c) { c!.Radius = value / 2; });
+        TransactionManager.Instance.TransactionTaskDone();
+        return pipe;
+    }
+
+    /// <summary>
     /// return information diameter of pipe
     /// </summary>
     /// <param name="pipe">pipe</param>
@@ -131,9 +241,15 @@ public class Pipe
         Autodesk.Revit.DB.Element internalElement = pipe.InternalElement;
         string overallSize = internalElement.get_Parameter(BuiltInParameter.RBS_REFERENCE_OVERALLSIZE).AsString();
         double diameter = internalElement.get_Parameter(BuiltInParameter.RBS_PIPE_DIAMETER_PARAM).AsDouble();
+#if R20
+        DisplayUnitType unitTypeId =
+            internalElement.Document.GetUnits().GetFormatOptions(UnitType.UT_PipeSize).DisplayUnits;
+        double value = UnitUtils.ConvertFromInternalUnits(diameter, unitTypeId);
+#else
         Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             internalElement.Document.GetUnits().GetFormatOptions(SpecTypeId.PipeSize).GetUnitTypeId();
         double value = UnitUtils.ConvertFromInternalUnits(diameter, unitTypeId);
+#endif
         double outsideDiameter = internalElement.get_Parameter(BuiltInParameter.RBS_PIPE_OUTER_DIAMETER).AsDouble();
         double valueoutsideDiamter = UnitUtils.ConvertFromInternalUnits(outsideDiameter, unitTypeId);
         double insideDiameter = internalElement.get_Parameter(BuiltInParameter.RBS_PIPE_INNER_DIAM_PARAM).AsDouble();
@@ -146,7 +262,7 @@ public class Pipe
             {"InsideDiameter", valueinsideDiameter}
         };
     }
-    
+
     /// <summary>
     /// return Junctions family of pipe get in routing setting
     /// </summary>
@@ -158,8 +274,12 @@ public class Pipe
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Junctions);
@@ -169,7 +289,7 @@ public class Pipe
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
-
+    
     /// <summary>
     /// return Caps family of pipe get in routing setting
     /// </summary>
@@ -181,8 +301,12 @@ public class Pipe
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Caps);
@@ -192,7 +316,7 @@ public class Pipe
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
-
+    
     /// <summary>
     /// return Crosses family of pipe get in routing setting
     /// </summary>
@@ -204,8 +328,12 @@ public class Pipe
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Crosses);
@@ -216,7 +344,7 @@ public class Pipe
         };
     }
 
-    /// <summary>
+/// <summary>
     /// return Elbows family of pipe get in routing setting
     /// </summary>
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
@@ -227,8 +355,12 @@ public class Pipe
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Elbows);
@@ -248,10 +380,14 @@ public class Pipe
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolTransitionsByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius =ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Transitions);
@@ -273,8 +409,12 @@ public class Pipe
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Segments);
@@ -296,8 +436,12 @@ public class Pipe
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Undefined);
@@ -319,8 +463,12 @@ public class Pipe
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
+#else
+Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
+#endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         FamilySymbol? symbolByRouting =
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.MechanicalJoints);
@@ -331,9 +479,7 @@ public class Pipe
         };
     }
 
-#endif
-    
-   
+
     /// <summary>
     /// Return Family Symbol In Setting Of Pipe
     /// </summary>
@@ -371,6 +517,7 @@ public class Pipe
         var systemType = doc.GetElement(systemTypeId).ToDynamoType();
         return systemType;
     }
+
     /// <summary>
     ///  Return three points closest inside three pipes
     /// </summary>
@@ -409,8 +556,8 @@ public class Pipe
     public static Dictionary<string, object?> GetTwoConnectorClosest(global::Revit.Elements.Element pipe1,
         global::Revit.Elements.Element pipe2)
     {
-        Connector? connector1 = ConnectorManager.Connector.GetConnectorClosest(pipe1,pipe2);
-        Connector? connector2 =ConnectorManager.Connector.GetConnectorClosest(pipe2,pipe1);
+        Connector? connector1 = ConnectorManager.Connector.GetConnectorClosest(pipe1, pipe2);
+        Connector? connector2 = ConnectorManager.Connector.GetConnectorClosest(pipe2, pipe1);
         return new Dictionary<string, object?>()
         {
             {"Connector1", connector1},
@@ -548,6 +695,4 @@ public class Pipe
         TransactionManager.Instance.TransactionTaskDone();
         return pipe;
     }
-
-    
 }
