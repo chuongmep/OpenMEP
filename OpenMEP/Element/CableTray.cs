@@ -14,8 +14,7 @@ public class CableTray
     {
     }
 
-#if !R20
-     /// <summary>
+    /// <summary>
     /// Creates a new instance of cable tray by start point and end point
     /// </summary>
     /// <param name="cableTrayType">The cable tray type. This must be a cable tray type accepted by isValidCableTrayType(). If the input cable tray type is InvalidElementId, the default cable tray type from the document will be used.</param>
@@ -34,10 +33,18 @@ public class CableTray
         Autodesk.Revit.DB.Electrical.CableTray familyInstance = Autodesk.Revit.DB.Electrical.CableTray.Create(doc,
             new ElementId(cableTrayType.Id), startPoint.ToRevitType(true), endPoint.ToRevitType(true),
             new ElementId(level.Id));
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+#if R20
+        DisplayUnitType displayUnitType =
+            familyInstance.Document.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double realWidth = UnitUtils.ConvertFromInternalUnits(width, displayUnitType);
+        double realHeight = UnitUtils.ConvertFromInternalUnits(height, displayUnitType);
+#else
+         Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             familyInstance.Document.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
         double realWidth = UnitUtils.ConvertFromInternalUnits(width, unitTypeId);
         double realHeight = UnitUtils.ConvertFromInternalUnits(height, unitTypeId);
+#endif
+
         familyInstance.get_Parameter(BuiltInParameter.RBS_CABLETRAY_WIDTH_PARAM)
             .SetValueString(realWidth.ToString(CultureInfo.InvariantCulture));
         familyInstance.get_Parameter(BuiltInParameter.RBS_CABLETRAY_HEIGHT_PARAM)
@@ -45,7 +52,7 @@ public class CableTray
         TransactionManager.Instance.TransactionTaskDone();
         return familyInstance.ToDynamoType();
     }
-    
+
     /// <summary>
     /// create new cable tray by line
     /// </summary>
@@ -65,10 +72,18 @@ public class CableTray
         Autodesk.Revit.DB.Electrical.CableTray familyInstance = Autodesk.Revit.DB.Electrical.CableTray.Create(doc,
             new ElementId(cableTrayType.Id), line.StartPoint.ToXyz(), line.EndPoint.ToXyz(),
             new ElementId(level.Id));
+#if R20
+        DisplayUnitType displayUnitType =
+            familyInstance.Document.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double realWidth = UnitUtils.ConvertFromInternalUnits(width, displayUnitType);
+        double realHeight = UnitUtils.ConvertFromInternalUnits(height, displayUnitType);
+#else
         Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             familyInstance.Document.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
         double realWidth = UnitUtils.ConvertFromInternalUnits(width, unitTypeId);
         double realHeight = UnitUtils.ConvertFromInternalUnits(height, unitTypeId);
+#endif
+
         familyInstance.get_Parameter(BuiltInParameter.RBS_CABLETRAY_WIDTH_PARAM)
             .SetValueString(realWidth.ToString(CultureInfo.InvariantCulture));
         familyInstance.get_Parameter(BuiltInParameter.RBS_CABLETRAY_HEIGHT_PARAM)
@@ -76,6 +91,4 @@ public class CableTray
         TransactionManager.Instance.TransactionTaskDone();
         return familyInstance.ToDynamoType();
     }
-#endif
-    
 }
