@@ -517,53 +517,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
         var systemType = doc.GetElement(systemTypeId).ToDynamoType();
         return systemType;
     }
-
-    /// <summary>
-    ///  Return three points closest inside three pipes
-    /// </summary>
-    /// <param name="pipe1">first pipe</param>
-    /// <param name="pipe2">second pipe</param>
-    /// <param name="pipe3">three pipe</param>
-    [MultiReturn("Connector1", "Connector2", "Connector3")]
-    public static IDictionary<string, object?> GetThreeConnectorsClosest(global::Revit.Elements.Element? pipe1,
-        global::Revit.Elements.Element? pipe2, global::Revit.Elements.Element? pipe3)
-    {
-        List<Connector?> connectorsPipe1 = ConnectorManager.Connector.GetConnectors(pipe1);
-        if (!connectorsPipe1.Any()) throw new ArgumentException(nameof(pipe1));
-        List<Connector?> connectorsPipe2 = ConnectorManager.Connector.GetConnectors(pipe2);
-        if (!connectorsPipe2.Any()) throw new ArgumentException(nameof(pipe2));
-        List<Connector?> connectorsPipe3 = ConnectorManager.Connector.GetConnectors(pipe3);
-        if (!connectorsPipe3.Any()) throw new ArgumentException(nameof(pipe3));
-        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(pipe1, pipe2);
-        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(pipe2, pipe1);
-        Connector? c3 = ConnectorManager.Connector.GetConnectorClosest(pipe3, pipe1);
-        return new Dictionary<string, object?>()
-        {
-            {"Connector1", c1},
-            {"Connector2", c2},
-            {"Connector3", c3}
-        };
-    }
-
-    /// <summary>
-    /// return two connectors closet of two pipes
-    /// </summary>
-    /// <param name="pipe1">the first pipe</param>
-    /// <param name="pipe2">the second pipe</param>
-    /// <returns></returns>
-    [MultiReturn("Connector1", "Connector2")]
-    public static Dictionary<string, object?> GetTwoConnectorClosest(global::Revit.Elements.Element pipe1,
-        global::Revit.Elements.Element pipe2)
-    {
-        Connector? connector1 = ConnectorManager.Connector.GetConnectorClosest(pipe1, pipe2);
-        Connector? connector2 = ConnectorManager.Connector.GetConnectorClosest(pipe2, pipe1);
-        return new Dictionary<string, object?>()
-        {
-            {"Connector1", connector1},
-            {"Connector2", connector2}
-        };
-    }
-
+    
     /// <summary>
     /// Return Tee Of Pipe In Routing Preferences
     /// </summary>
@@ -693,5 +647,37 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
         pipeInternalElement?.SetSystemType(new ElementId(systemTypeId));
         TransactionManager.Instance.TransactionTaskDone();
         return pipe;
+    }
+
+    /// <summary>
+    ///    Places caps on the open connectors of the pipe curve, pipe fitting or pipe accessory.
+    /// </summary>
+    /// <remarks>
+    ///    In order to place the cap, the cap type should be defined in the routing preferences that associates with the pipe type of the given element.
+    ///    If the typeId is a valid element id, it will be used to override the pipe type that associates with the pipe type of the given element.
+    /// </remarks>
+    /// <param name="pipe">Element of pipe curve, pipe fitting or pipe accessory.</param>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The element elemId does not exist in the document
+    ///    -or-
+    ///    The element elemId is neither an object of pipe curve, pipe fitting, nor pipe accessory.
+    ///    -or-
+    ///    The element elemId has no opened piping connector.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
+    ///    this operation failed.
+    /// </exception>
+    /// <since>2014</since>
+    public static void EndCap(Revit.Elements.Element pipe)
+    {
+        if (pipe == null) throw new ArgumentNullException(nameof(pipe));
+        Autodesk.Revit.DB.Plumbing.Pipe? internalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        PlumbingUtils.PlaceCapOnOpenEnds(doc, internalElement?.Id, internalElement?.GetTypeId());
+        TransactionManager.Instance.TransactionTaskDone();
     }
 }
