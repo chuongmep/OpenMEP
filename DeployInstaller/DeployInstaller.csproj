@@ -9,6 +9,7 @@
 	    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 	    <LangVersion>latest</LangVersion>
         <Deterministic>false</Deterministic>
+        <ApplicationIcon>Resources\ShellIcon.ico</ApplicationIcon>
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="SharpZipLib" Version="1.4.0" />

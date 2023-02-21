@@ -5,6 +5,7 @@ using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
+using RevitServices.Persistence;
 using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
@@ -235,5 +236,78 @@ public class MEPCurve
         TransactionManager.Instance.TransactionTaskDone();
         if (newTakeoffFitting == null) return null;
         return newTakeoffFitting.ToDynamoType();
+    }
+    
+    /// <summary>The diameter of the MEP curve.</summary>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
+    /// Thrown when the MEP curve's Shape is not round.
+    /// </exception>
+    /// <remarks>This property is used to retrieve the diameter of the MEP curve.</remarks>
+    /// <returns name="double">diameter of mep curve</returns>
+    [NodeCategory("Query")]
+    public static double? Diameter(Revit.Elements.Element mepCurve)
+    {
+        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
+        return internalElement?.Diameter;
+    }
+    
+    /// <summary>The width of the MEP curve.</summary>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
+    /// Thrown when the MEP curve's shape is not rectangular.
+    /// </exception>
+    /// <remarks>This property is used to retrieve the width of the MEP curve.</remarks>
+    /// <returns name="double">width of mep curve</returns>
+    [NodeCategory("Query")]
+    public static double? Width(Revit.Elements.Element mepCurve)
+    {
+        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
+        return internalElement?.Width;
+    }
+    /// <summary>The height of the MEP curve.</summary>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
+    /// Thrown when the MEP curve's Shape is not rectangular.
+    /// </exception>
+    /// <remarks>This property is used to retrieve the height of the MEP curve.</remarks>
+    /// <returns name="double">The height of the MEP curve</returns>
+    [NodeCategory("Query")]
+    public static double? Height(Revit.Elements.Element mepCurve)
+    {
+        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
+        return internalElement?.Height;
+    }
+    
+    /// <summary>The offset of the MEP curve.</summary>
+    /// <remarks>This property is used to retrieve the offset of the MEP curve.
+    /// If the curve is not in a horizontal plane, this value will be the start point's offset.</remarks>
+    ///<returns name="double">Level offset</returns>
+    [NodeCategory("Query")]
+    public static double? LevelOffset(Revit.Elements.Element mepCurve)
+    {
+        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
+        return internalElement?.LevelOffset;
+    }
+    /// <summary>The reference level of the MEP curve.</summary>
+    /// <remarks>This property is used to retrieve the reference level of the MEP curve.
+    /// If the curve is not in a horizontal plane, this value will be the start point's reference level.</remarks>
+    [NodeCategory("Query")]
+    public static Revit.Elements.Element? ReferenceLevel(Revit.Elements.Element mepCurve)
+    {
+        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
+        return internalElement?.ReferenceLevel.ToDynamoType();
+    }
+    
+    /// <summary>The connector manager of this MEP curve</summary>
+    /// <returns name="connectorManager">The connector manager of this MEP curve</returns>
+    [NodeCategory("Query")]
+    public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager(Revit.Elements.Element mepCurve)
+    {
+        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
+        return internalElement?.ConnectorManager;
     }
 }
