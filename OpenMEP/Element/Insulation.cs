@@ -173,7 +173,7 @@ public class Insulation
 
         if (e is Autodesk.Revit.DB.FamilyInstance fam)
         {
-#if R20 || R21
+#if R20 || R21 || R22
             if (fam.Category.Id.IntegerValue == -2008010)
             {
                 return DuctInsulation
