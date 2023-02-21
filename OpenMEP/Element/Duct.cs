@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
+using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
@@ -11,6 +12,7 @@ public class Duct
     private Duct()
     {
     }
+
     /// <summary>Creates a new duct that connects to two connectors.</summary>
     /// <remarks>
     ///    The new duct will have the same diameter and system type as the start connector. The creation will also connect the new duct
@@ -22,7 +24,7 @@ public class Duct
     /// <param name="level">The level Element for the new duct.</param>
     /// <param name="startConnector">The first connector where the new duct starts.</param>
     /// <param name="endConnector">The second point of the new duct.</param>
-    /// <returns>The created duct.</returns>
+    /// <returns name="element">The created duct.</returns>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
     ///    The duct type ductTypeId is not valid duct type.
     ///    -or-
@@ -43,16 +45,64 @@ public class Duct
     /// </exception>
     /// <since>2017</since>
     [NodeCategory("Create")]
-    public static void Create(global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+        global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector startConnector, Autodesk.Revit.DB.Connector endConnector)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.Mechanical.Duct.Create(doc, new ElementId(ductType.Id), new ElementId(level.Id),
+        Autodesk.Revit.DB.Mechanical.Duct duct = Autodesk.Revit.DB.Mechanical.Duct.Create(doc,
+            new ElementId(ductType.Id), new ElementId(level.Id),
             startConnector, endConnector);
         TransactionManager.Instance.TransactionTaskDone();
+        return duct.ToDynamoType();
     }
-    
+
+    /// <summary>Creates a new duct that connects to two connectors.</summary>
+    /// <remarks>
+    ///    The new duct will have the same diameter and system type as the start connector. The creation will also connect the new duct
+    ///    to two component who owns the specified connectors. If necessary, additional fitting(s) are included to make a valid connection.
+    ///    If the new duct can not be connected to the next component (e.g., mismatched direction, no valid fitting, and etc), the new duct
+    ///    will still be created at the specified connector position, and an InvalidOperationException is thrown.
+    /// </remarks>
+    /// <param name="ductType">The Element of the new duct type.</param>
+    /// <param name="level">The level Element for the new duct.</param>
+    /// <param name="startConnector">The first connector where the new duct starts.</param>
+    /// <param name="endConnector">The second point of the new duct.</param>
+    /// <param name="width">new value width of duct</param>
+    /// <param name="height">new value height of duct</param>
+    /// <returns name="element">The created duct.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The duct type ductTypeId is not valid duct type.
+    ///    -or-
+    ///    The ElementId levelId is not a Level.
+    ///    -or-
+    ///    The connector's domain is not Domain.â€‹DomainHvac.
+    ///    -or-
+    ///    The points of startConnector and endConnector are too close: for MEPCurve, the minimum length is 1/10 inch.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.DisabledDisciplineException">
+    ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
+    ///    Thrown when the new duct fails to connect with the connector.
+    /// </exception>
+    /// <since>2017</since>
+    [NodeCategory("Create")]
+    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+        global::Revit.Elements.Element level,
+        Autodesk.Revit.DB.Connector startConnector, Autodesk.Revit.DB.Connector endConnector, double width,
+        double height)
+    {
+        Revit.Elements.Element? element = Create(ductType, level, startConnector, endConnector);
+        if (element != null) SetDiameter(element, width, height);
+        return element;
+    }
+
+
     /// <summary>Creates a new duct that connects to the connector.</summary>
     /// <remarks>
     ///    The new duct will have the same diameter and system type as the specified connector. The creation will also connect the new duct
@@ -64,7 +114,7 @@ public class Duct
     /// <param name="level">The level for the new duct.</param>
     /// <param name="startConnector">The first connector where the new duct starts.</param>
     /// <param name="endPoint">The second point of the new duct.</param>
-    /// <returns>The created duct.</returns>
+    /// <returns name="element">The created duct.</returns>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
     ///    The duct type ductTypeId is not valid duct type.
     ///    -or-
@@ -85,23 +135,69 @@ public class Duct
     /// </exception>
     /// <since>2017</since>
     [NodeCategory("Create")]
-    public static void Create(global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+        global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector startConnector, Autodesk.DesignScript.Geometry.Point endPoint)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.Mechanical.Duct.Create(doc, new ElementId(ductType.Id), new ElementId(level.Id),
-            startConnector, endPoint.ToXyz());
+        Revit.Elements.Element? element = Autodesk.Revit.DB.Mechanical.Duct.Create(doc, new ElementId(ductType.Id),
+            new ElementId(level.Id),
+            startConnector, endPoint.ToXyz()).ToDynamoType();
         TransactionManager.Instance.TransactionTaskDone();
+        return element;
     }
     
+    /// <summary>Creates a new duct that connects to the connector.</summary>
+    /// <remarks>
+    ///    The new duct will have the same diameter and system type as the specified connector. The creation will also connect the new duct
+    ///    to the component who owns the specified connector. If necessary, additional fitting(s) are included to make a valid connection.
+    ///    If the new duct can not be connected to the next component (e.g., mismatched direction, no valid fitting, and etc), the new duct
+    ///    will still be created at the specified connector position, and an InvalidOperationException is thrown.
+    /// </remarks>
+    /// <param name="ductType">The Element of the new duct type.</param>
+    /// <param name="level">The level for the new duct.</param>
+    /// <param name="startConnector">The first connector where the new duct starts.</param>
+    /// <param name="endPoint">The second point of the new duct.</param>
+    /// <param name="width">new value width of duct</param>
+    /// <param name="height">new value height of duct</param>
+    /// <returns name="element">The created duct.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The duct type ductTypeId is not valid duct type.
+    ///    -or-
+    ///    The ElementId levelId is not a Level.
+    ///    -or-
+    ///    The connector's domain is not Domain.â€‹DomainHvac.
+    ///    -or-
+    ///    The points of startConnector and endPoint are too close: for MEPCurve, the minimum length is 1/10 inch.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.DisabledDisciplineException">
+    ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
+    ///    Thrown when the new duct fails to connect with the connector.
+    /// </exception>
+    /// <since>2017</since>
+    [NodeCategory("Create")]
+    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+        global::Revit.Elements.Element level,
+        Autodesk.Revit.DB.Connector startConnector, Autodesk.DesignScript.Geometry.Point endPoint,double width,double height)
+    {
+        Revit.Elements.Element? element = Create(ductType, level, startConnector, endPoint);
+        if (element != null) SetDiameter(element, width, height);
+        return element;
+    }
+
     /// <summary>Creates a new duct from two points.</summary>
     /// <param name="systemType">The element of the HVAC system type.</param>
     /// <param name="ductType">The element of the duct type.</param>
     /// <param name="level">The level for the duct.</param>
     /// <param name="startPoint">The start point of the duct.</param>
     /// <param name="endPoint">The end point of the duct.</param>
-    /// <returns>The created duct.</returns>
+    /// <returns name="element">The created duct.</returns>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
     ///    The systemType is not valid HVAC system type.
     ///    -or-
@@ -119,23 +215,60 @@ public class Duct
     /// </exception>
     /// <since>2014</since>
     [NodeCategory("Create")]
-    public static void Create(global::Revit.Elements.Element systemType, global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+    public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.Mechanical.Duct.Create(doc,new ElementId(systemType.Id), new ElementId(ductType.Id), new ElementId(level.Id),
-            startPoint.ToXyz(), endPoint.ToXyz());
+        Revit.Elements.Element? duct = Autodesk.Revit.DB.Mechanical.Duct.Create(doc, new ElementId(systemType.Id),
+            new ElementId(ductType.Id), new ElementId(level.Id),
+            startPoint.ToXyz(), endPoint.ToXyz()).ToDynamoType();
         TransactionManager.Instance.TransactionTaskDone();
+        return duct;
     }
-    
+    /// <summary>Creates a new duct from two points.</summary>
+    /// <param name="systemType">The element of the HVAC system type.</param>
+    /// <param name="ductType">The element of the duct type.</param>
+    /// <param name="level">The level for the duct.</param>
+    /// <param name="startPoint">The start point of the duct.</param>
+    /// <param name="endPoint">The end point of the duct.</param>
+    /// <param name="width">new value width of duct</param>
+    /// <param name="height">new value height of duct</param>
+    /// <returns name="element">The created duct.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The systemType is not valid HVAC system type.
+    ///    -or-
+    ///    The duct type ductType is not valid duct type.
+    ///    -or-
+    ///    The Element level is not a Level.
+    ///    -or-
+    ///    The points of startPoint and endPoint are too close: for MEPCurve, the minimum length is 1/10 inch.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.DisabledDisciplineException">
+    ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
+    /// </exception>
+    /// <since>2014</since>
+    [NodeCategory("Create")]
+    public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+        Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,double width,double height)
+    {
+        Revit.Elements.Element? element = Create(systemType, ductType, level, startPoint, endPoint);
+        if (element != null) SetDiameter(element, width, height);
+        return element;
+    }
+
     /// <summary>Creates a new placeholder duct.</summary>
     /// <param name="systemType">The element of the HVAC system type.</param>
     /// <param name="ductType">The element of the duct type.</param>
     /// <param name="level">The element level for the duct.</param>
     /// <param name="startPoint">The first point of the placeholder line.</param>
     /// <param name="endPoint">The second point of the placeholder line.</param>
-    /// <returns>The created placeholder duct.</returns>
+    /// <returns name="element">The created placeholder duct.</returns>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
     ///    The systemType is not valid HVAC system type.
     ///    -or-
@@ -153,14 +286,80 @@ public class Duct
     /// </exception>
     /// <since>2014</since>
     [NodeCategory("Create")]
-    public static void CreatePlaceholder(global::Revit.Elements.Element systemType, global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+    public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.Mechanical.Duct.CreatePlaceholder(doc,new ElementId(systemType.Id), new ElementId(ductType.Id), new ElementId(level.Id),
+        Autodesk.Revit.DB.Mechanical.Duct duct = Autodesk.Revit.DB.Mechanical.Duct.CreatePlaceholder(doc,
+            new ElementId(systemType.Id), new ElementId(ductType.Id), new ElementId(level.Id),
             startPoint.ToXyz(), endPoint.ToXyz());
         TransactionManager.Instance.TransactionTaskDone();
+        return duct.ToDynamoType();
+    }
+
+    /// <summary>Creates a new placeholder duct.</summary>
+    /// <param name="systemType">The element of the HVAC system type.</param>
+    /// <param name="ductType">The element of the duct type.</param>
+    /// <param name="level">The element level for the duct.</param>
+    /// <param name="width">new value width of duct</param>
+    /// <param name="height">new value height of duct</param>
+    /// <param name="startPoint">The first point of the placeholder line.</param>
+    /// <param name="endPoint">The second point of the placeholder line.</param>
+    /// <returns name="element">The created placeholder duct.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The systemType is not valid HVAC system type.
+    ///    -or-
+    ///    The ductType is not valid duct type.
+    ///    -or-
+    ///    The Element level is not a Level.
+    ///    -or-
+    ///    The points of startPoint and endPoint are too close: for MEPCurve, the minimum length is 1/10 inch.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.DisabledDisciplineException">
+    ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
+    /// </exception>
+    /// <since>2014</since>
+    [NodeCategory("Create")]
+    public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+        Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,double width,double height)
+    {
+        Revit.Elements.Element? element = Create(systemType, ductType, level, startPoint, endPoint);
+        if (element != null) SetDiameter(element, width, height);
+        return element;
+    }
+
+    /// <summary>
+    /// Set new diameter for duct
+    /// </summary>
+    /// <param name="duct">the duct to set diameter</param>
+    /// <param name="width">new value width of duct</param>
+    /// <param name="height">new value height of duct</param>
+    /// <returns name="element">duct with new parameter diameter</returns>
+    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element duct, double width, double height)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        Autodesk.Revit.DB.Mechanical.Duct? internalElement = duct.InternalElement as Autodesk.Revit.DB.Mechanical.Duct;
+        // Set the diameter of the duct. 
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_HVAC_DuctSize).DisplayUnits;
+        double widthValue = UnitUtils.ConvertToInternalUnits(width, unitTypeId);
+        double heightValue = UnitUtils.ConvertToInternalUnits(height, unitTypeId);
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.DuctSize).GetUnitTypeId();
+        double widthValue = UnitUtils.ConvertToInternalUnits(width, unitTypeId);
+        double heightValue = UnitUtils.ConvertToInternalUnits(height, unitTypeId);
+#endif
+        internalElement?.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM).Set(widthValue);
+        internalElement?.get_Parameter(BuiltInParameter.RBS_CURVE_HEIGHT_PARAM).Set(heightValue);
+        TransactionManager.Instance.TransactionTaskDone();
+        return duct;
     }
 
     /// <summary>Updates the associated system type for the duct.</summary>
@@ -181,9 +380,11 @@ public class Duct
     /// <since>2017</since>
     /// <returns name="duct">duct changed systemType</returns>
     [NodeCategory("Action")]
-    public static global::Revit.Elements.Element SetSystemType(global::Revit.Elements.Element duct,global::Revit.Elements.Element systemType)
+    public static global::Revit.Elements.Element SetSystemType(global::Revit.Elements.Element duct,
+        global::Revit.Elements.Element systemType)
     {
-        Autodesk.Revit.DB.Mechanical.Duct? ductInternalElement = duct.InternalElement as Autodesk.Revit.DB.Mechanical.Duct;
+        Autodesk.Revit.DB.Mechanical.Duct? ductInternalElement =
+            duct.InternalElement as Autodesk.Revit.DB.Mechanical.Duct;
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
         ductInternalElement!.SetSystemType(new ElementId(systemType.Id));
@@ -200,9 +401,11 @@ public class Duct
     public static bool IsHvacSystemTypeId(global::Revit.Elements.Element systemType)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        bool isHvacSystemTypeId = Autodesk.Revit.DB.Mechanical.Duct.IsHvacSystemTypeId(doc, new ElementId(systemType.Id));
+        bool isHvacSystemTypeId =
+            Autodesk.Revit.DB.Mechanical.Duct.IsHvacSystemTypeId(doc, new ElementId(systemType.Id));
         return isHvacSystemTypeId;
     }
+
     /// <summary>
     /// Check if the element of duct is a valid duct type
     /// </summary>

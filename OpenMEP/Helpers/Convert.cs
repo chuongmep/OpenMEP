@@ -8,7 +8,10 @@ using dynCategory = Revit.Elements.Category;
 using dynDocument = Revit.Application.Document;
 using dynElement = Revit.Elements.Element;
 using dynElementSelector = Revit.Elements.ElementSelector;
+#if R20
+#else
 using dynFamilyParameter = Revit.Elements.FamilyParameter;
+#endif
 using dynParameter = Revit.Elements.Parameter;
 using Point = Autodesk.DesignScript.Geometry.Point;
 using rvtCategory = Autodesk.Revit.DB.Category;
@@ -23,7 +26,6 @@ namespace OpenMEP.Helpers
     [IsVisibleInDynamoLibrary(false)]
     internal static class Convert
     {
-
         /// <summary>
         /// convert Revit document to Dynamo document
         /// </summary>
@@ -110,6 +112,8 @@ namespace OpenMEP.Helpers
             return constructor!.Invoke(new object[] {item}) as dynParameter;
         }
 
+#if R20
+#else
         /// <summary>
         /// Convert Revit FamilyParameter to Dynamo FamilyParameter
         /// </summary>
@@ -123,6 +127,23 @@ namespace OpenMEP.Helpers
                 BindingFlags.NonPublic | BindingFlags.Instance).FirstOrDefault();
             return constructor!.Invoke(new object[] {item}) as dynFamilyParameter;
         }
+        
+        /// <summary>
+        /// Convert Dynamo FamilyParameter to Revit FamilyParameter
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        internal static rvtFamilyParameter? ToRevitType(this dynFamilyParameter item)
+        {
+            if (item == null) throw new ArgumentNullException(nameof(item));
+            var property = typeof(dynParameter)
+                .GetProperty("InternalFamilyParameter",
+                    BindingFlags.NonPublic | BindingFlags.Instance);
+            return property!.GetValue(item) as rvtFamilyParameter;
+        }
+
+#endif
 
         /// <summary>
         /// Convert Dynamo Parameter to Revit Parameter
@@ -139,21 +160,7 @@ namespace OpenMEP.Helpers
             return property!.GetValue(item) as rvtParameter;
         }
 
-        /// <summary>
-        /// Convert Dynamo FamilyParameter to Revit FamilyParameter
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        internal static rvtFamilyParameter? ToRevitType(this dynFamilyParameter item)
-        {
-            if (item == null) throw new ArgumentNullException(nameof(item));
-            var property = typeof(dynParameter)
-                .GetProperty("InternalFamilyParameter",
-                    BindingFlags.NonPublic | BindingFlags.Instance);
-            return property!.GetValue(item) as rvtFamilyParameter;
-        }
-
+        
 
         /// <summary>
         /// Convert Revit ElementId To Dynamo Element
