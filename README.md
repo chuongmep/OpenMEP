@@ -13,7 +13,7 @@ alt="follow on Twitter"></a>
 
 ![](docs/img/openmep.png)
 
-# Description
+# 📚 Description
 
 OpenMEP Package also includes a comprehensive library of MEP components, making it easy to select and incorporate the
 right components into your design.This library includes a wide range of mechanical, electrical, and plumbing components,
@@ -25,7 +25,7 @@ maintenance, calculation and analysis,...
 I believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
 design process and ensure that their projects are completed on time and within budget.
 
-# Installation
+# 🍴 Installation
 
 The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
 can install it from there.
@@ -35,15 +35,15 @@ can install it from there.
 
 Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 
-# Documentation (TODO)
+# 📜 Documentation (TODO)
 
 - [How To Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 - [How To Uninstall OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Uninstall-OpenMEP-Package)
-- How To Update OpenMEP Package
-- How To Use OpenMEP Package
+- [How To Update OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Update-OpenMEP-Package)
+- [How To Use OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Use-OpenMEP-Package)
 - [How To Write Python Script With OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
 
-# Features
+# 🦚 Features
 
 Some features of this package:
 
@@ -99,7 +99,7 @@ Function Support (WIP) :
 - [ ] MEP Fabrication
 - [ ] ...
 
-# Copyright
+# © Copyright
 
 This package is licensed under the [MIT License](LICENSE.md).
 The MIT License is a permissive open-source software license that allows for the use, modification, and distribution of
@@ -107,7 +107,7 @@ software, both commercially and non-commercially, with the only requirement bein
 license notice be included with any distribution. It is a popular choice among developers for its simplicity and
 permissiveness.
 
-# Sponsors
+# ⛑️ Sponsors
 
 - This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP), the best IDE for C# and Python
   developer.
@@ -116,7 +116,7 @@ permissiveness.
 - [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech
   industries.
 
-# Issues
+# 🛟 Issues
 
 Now, I accept all idea and all issue, contribute from all people all the word.
 You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You
@@ -125,7 +125,7 @@ project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
 
 - Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
 
-# Contributing
+# 👥 Contributing
 
 I have a lot of ideas for this package, but I don't have enough time to implement them. If you want to contribute,
 please read guideline [here](CONTRIBUTING.md).
@@ -137,11 +137,11 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
   <img src = "https://contrib.rocks/image?repo=chuongmep/openmep"/>
 </a>
 
-# Open Source Recommend
+# 🔓 Open Source Recommend
 
 Some project I recommend for you at [Dynamo Open Source](https://chuongmep.github.io/Awesome-Dynamo/DynamoOpenSource/dynopensource.html)
 
-# FAQ
+# 🙋‍♂️ FAQ
 
 - Why this package not published on Dynamo Package Manager?
 
