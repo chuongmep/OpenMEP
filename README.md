@@ -31,19 +31,17 @@ The package installer is available on the [Open MEP Release](https://github.com/
 can install it from there.
 
 - OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
-- OpenMEP now Support Dynamo Version : 2.6, 2.12, 2.16
+- OpenMEP now Support Dynamo Version : 2.3, 2.6, 2.12, 2.13 2.16
 
 Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 
 # Documentation (TODO)
 
 - [How To Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
-- How To Uninstall OpenMEP Package
+- [How To Uninstall OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Uninstall-OpenMEP-Package)
 - How To Update OpenMEP Package
 - How To Use OpenMEP Package
-- How To Report Bug
-- How To Contribute OpenMEP Package
-- How To Write Python Script With OpenMEP Package
+- [How To Write Python Script With OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
 
 # Features
 
@@ -147,4 +145,8 @@ Some project I recommend for you at [Dynamo Open Source](https://chuongmep.githu
 
 - Why this package not published on Dynamo Package Manager?
 
-Answer : It not support way I maintain with multiple version and release CI/CD with Dynamo Revit.
+Answer : It not support way I maintain with multiple version and release CI/CD with **Dynamo** Revit.
+
+- Can I write Python Script with OpenMEP Package?
+
+Answer : Yes, you can write Python Script with OpenMEP Package. You can read more about [How To Write Python Script With OpenMEP](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)

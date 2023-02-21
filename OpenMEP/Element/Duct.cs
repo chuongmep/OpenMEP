@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.DB;
+﻿using Autodesk.DesignScript.Runtime;
+using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
@@ -335,7 +336,7 @@ public class Duct
     }
 
     /// <summary>
-    /// Set new diameter for duct
+    /// Set new diameter for rectangular duct
     /// </summary>
     /// <param name="duct">the duct to set diameter</param>
     /// <param name="width">new value width of duct</param>
@@ -356,10 +357,86 @@ public class Duct
         double widthValue = UnitUtils.ConvertToInternalUnits(width, unitTypeId);
         double heightValue = UnitUtils.ConvertToInternalUnits(height, unitTypeId);
 #endif
-        internalElement?.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM).Set(widthValue);
-        internalElement?.get_Parameter(BuiltInParameter.RBS_CURVE_HEIGHT_PARAM).Set(heightValue);
+        internalElement?.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM)?.Set(widthValue);
+        internalElement?.get_Parameter(BuiltInParameter.RBS_CURVE_HEIGHT_PARAM)?.Set(heightValue);
         TransactionManager.Instance.TransactionTaskDone();
         return duct;
+    }
+    
+    /// <summary>
+    /// Set new diameter for round duct
+    /// </summary>
+    /// <param name="duct">the duct to set diameter</param>
+    /// <param name="diameter">new value diameter of duct</param>
+    /// <returns name="element">duct with new parameter diameter</returns>
+    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element duct, double diameter)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        Autodesk.Revit.DB.Mechanical.Duct? internalElement = duct.InternalElement as Autodesk.Revit.DB.Mechanical.Duct;
+        // Set the diameter of the duct. 
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_HVAC_DuctSize).DisplayUnits;
+        double diameterValue = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.DuctSize).GetUnitTypeId();
+        double diameterValue = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
+#endif
+        internalElement?.get_Parameter(BuiltInParameter.RBS_CURVE_DIAMETER_PARAM)?.Set(diameterValue);
+        TransactionManager.Instance.TransactionTaskDone();
+        return duct;
+    }
+
+    /// <summary>
+    /// return diameter of duct
+    /// </summary>
+    /// <param name="duct">the duct</param>
+    /// <returns></returns>
+    [MultiReturn("width", "height", "diameter")]
+    [NodeCategory("Query")]
+    public static Dictionary<string, object?> GetDiameter(Revit.Elements.Element duct)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        var internalElement = duct.InternalElement as Autodesk.Revit.DB.Mechanical.Duct;
+        if(internalElement == null) throw new ArgumentNullException(nameof(duct));
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_HVAC_DuctSize).DisplayUnits;
+        double? width = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM)?.AsDouble();
+        double? height = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_HEIGHT_PARAM)?.AsDouble();
+        double? diameter = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_DIAMETER_PARAM)?.AsDouble();
+        if (height == null || width == null  && diameter!=null)
+        {
+            diameter = UnitUtils.ConvertFromInternalUnits((double) diameter, unitTypeId);
+        }
+
+        if (height != null && width != null  && diameter==null)
+        {
+            width = UnitUtils.ConvertFromInternalUnits((double) width, unitTypeId);
+            height = UnitUtils.ConvertFromInternalUnits((double) height, unitTypeId);
+        }
+       
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.DuctSize).GetUnitTypeId();
+         double? width = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM)?.AsDouble();
+        double? height = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_HEIGHT_PARAM)?.AsDouble();
+        double? diameter = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_DIAMETER_PARAM)?.AsDouble();
+        if (height == null || width == null  && diameter!=null)
+        {
+            diameter = UnitUtils.ConvertFromInternalUnits((double) diameter, unitTypeId);
+        }
+
+        if (height != null && width != null  && diameter==null)
+        {
+            width = UnitUtils.ConvertFromInternalUnits((double) width, unitTypeId);
+            height = UnitUtils.ConvertFromInternalUnits((double) height, unitTypeId);
+        }
+#endif
+        return new Dictionary<string, object?>()
+        {
+            {"width", width},
+            {"height", height},
+            {"diameter", diameter}
+        };
     }
 
     /// <summary>Updates the associated system type for the duct.</summary>
@@ -390,6 +467,20 @@ public class Duct
         ductInternalElement!.SetSystemType(new ElementId(systemType.Id));
         TransactionManager.Instance.TransactionTaskDone();
         return duct;
+    }
+
+    /// <summary>
+    /// Get Shape Type of duct
+    /// </summary>
+    /// <param name="duct">the duct</param>
+    /// <returns name="shapeType">shape type of duct</returns>
+    [NodeCategory("Query")]
+    public static dynamic Shape(Revit.Elements.Element duct)
+    {
+        if(duct == null) throw new ArgumentNullException(nameof(duct));
+        Connector? connector = ConnectorManager.Connector.GetConnectors(duct).FirstOrDefault();
+        if (connector == null) return string.Empty;
+        return connector.Shape;
     }
 
     /// <summary>
