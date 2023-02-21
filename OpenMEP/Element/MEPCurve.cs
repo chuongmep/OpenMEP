@@ -1,13 +1,16 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Mechanical;
 using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
+using GShark.Geometry;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
+using Line = Autodesk.Revit.DB.Line;
 
 namespace OpenMEP.Element;
 
@@ -41,7 +44,6 @@ public class MEPCurve
                 return mCurve.Document.GetElement(id).ToDynamoType();
             }
         }
-
         TransactionManager.Instance.TransactionTaskDone();
         return null;
     }
@@ -54,15 +56,18 @@ public class MEPCurve
     /// <returns></returns>
     private static ElementId BreakCurve(Autodesk.Revit.DB.MEPCurve? mepCurve, XYZ? ptBreak)
     {
-        if (mepCurve is Pipe || mepCurve is FlexPipe)
+        if(mepCurve==null) throw new ArgumentNullException(nameof(mepCurve));
+        if(ptBreak==null) throw new ArgumentNullException(nameof(ptBreak));
+        if (mepCurve is Autodesk.Revit.DB.Plumbing.Pipe || mepCurve is Autodesk.Revit.DB.Plumbing.FlexPipe)
         {
             return PlumbingUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
         }
-        if (mepCurve is Duct || mepCurve is FlexDuct)
+        if (mepCurve is Autodesk.Revit.DB.Mechanical.Duct || mepCurve is Autodesk.Revit.DB.Mechanical.FlexDuct)
         {
             return MechanicalUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
         }
-        if (mepCurve is Conduit || mepCurve is CableTray)
+
+        if (mepCurve is Autodesk.Revit.DB.Electrical.Conduit || mepCurve is Autodesk.Revit.DB.Electrical.CableTray)
         {
             ElementId elementId = BreakConduitCableTray(mepCurve.Document, mepCurve.Id, ptBreak);
             return elementId;
@@ -171,8 +176,10 @@ public class MEPCurve
         Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
         Connector? c4 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve4, mepCurve3);
-        bool flag1 = c1!.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c2!.CoordinateSystem.BasisZ.ToDynamoVector());
-        bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c3!.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag1 = c1!.CoordinateSystem.BasisZ.ToDynamoVector()
+            .IsParallel(c2!.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector()
+            .IsParallel(c3!.CoordinateSystem.BasisZ.ToDynamoVector());
         Autodesk.Revit.DB.FamilyInstance newCrossFitting;
         // resolve problem of cross fitting with side-side-main-main input
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -188,6 +195,7 @@ public class MEPCurve
         {
             newCrossFitting = doc.Create.NewCrossFitting(c1, c4, c2, c3);
         }
+
         TransactionManager.Instance.TransactionTaskDone();
         if (newCrossFitting == null) return null;
         return newCrossFitting.ToDynamoType();

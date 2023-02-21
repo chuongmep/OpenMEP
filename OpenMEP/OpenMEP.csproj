@@ -110,9 +110,9 @@
         <PackageReference Include="DynamoVisualProgramming.Revit" Version="$(DynamoVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-        <Reference Include="System.Net.Http"/>
-        <PackageReference Include="GShark" Version="2.1.0"/>
-        <PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+        <Reference Include="System.Net.Http" />
+        <PackageReference Include="GShark" Version="2.1.0" />
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Update="Resources\OpenMEPImages.resx">
@@ -128,31 +128,31 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="Application\Dynamo"/>
-        <Folder Include="Application\Revit"/>
-        <Folder Include="Application\Windows"/>
+        <Folder Include="Application\Dynamo" />
+        <Folder Include="Application\Revit" />
+        <Folder Include="Application\Windows" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
-            <AssemblyFiles Include="$(TargetDir)*.*"/>
-            <PgkDefinition Include="$(SolutionDir)docs\pkg.json"/>
-            <XmlCustomization Include="$(SolutionDir)docs\*.xml"/>
-            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*"/>
-            <DyfFiles Include="$(SolutionDir)docs\dyf\*.*"/>
+            <AssemblyFiles Include="$(TargetDir)*.*" />
+            <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
+            <XmlCustomization Include="$(SolutionDir)docs\*.xml" />
+            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
+            <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
         </ItemGroup>
-        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high"/>
-        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin"/>
-        <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin"/>
-        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)"/>
-        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra"/>
-        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf"/>
-        <Message Text="Copied Completed" Importance="high"/>
+        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
+        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
+        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
+        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
+        <Message Text="Copied Completed" Importance="high" />
     </Target>
     <Target Name="GenerateCustomization" BeforeTargets="Build">
         <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v4.8">
-            <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath"/>
+            <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
         </GetReferenceAssemblyPaths>
-        <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\Resources\OpenMEPimages.resx" OutputResources="$(ProjectDir)\Resources\OpenMEPimages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll"/>
-        <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\Resources\OpenMEPimages.resources" OutputAssembly="$(TargetDir)OpenMEP.customization.dll"/>
+        <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\Resources\OpenMEPimages.resx" OutputResources="$(ProjectDir)\Resources\OpenMEPimages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
+        <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\Resources\OpenMEPimages.resources" OutputAssembly="$(TargetDir)OpenMEP.customization.dll" />
     </Target>
 </Project>
