@@ -67,6 +67,60 @@ public class Conduit
         return conduit.ToDynamoType();
     }
     
+    /// <summary>Creates a new instance of conduit.</summary>
+    /// <remarks>This method will regenerate the document.</remarks>
+    /// <param name="conduitType">
+    ///    The conduit type.  This must be a conduit type accepted by isValidConduitType().
+    ///    If the input conduit type is InvalidElementId, the default conduit type from the document will be used.
+    /// </param>
+    /// <param name="firstConnector">The first connector to get start point</param>
+    /// <param name="secondConnector">The second connector to get endpoint</param>
+    /// <param name="level">
+    ///    The element of the level which this conduit based.
+    ///    If the input level id is invalidElementId = -1, the nearest level will be used.
+    /// </param>
+    /// <returns>The newly created conduit.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    This conduit type is invalid.
+    ///    -or-
+    ///    This level id is invalid.
+    ///    -or-
+    ///    The points of startPoint and endPoint are too close: for MEPCurve, the minimum length is 1/10 inch.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.DisabledDisciplineException">
+    ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
+    ///    The document is in failure mode: an operation has failed,
+    ///    and Revit requires the user to either cancel the operation
+    ///    or fix the problem (usually by deleting certain elements).
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ModificationForbiddenException">
+    ///    The document is in failure mode: an operation has failed,
+    ///    and Revit requires the user to either cancel the operation
+    ///    or fix the problem (usually by deleting certain elements).
+    ///    -or-
+    ///    The document is being loaded, or is in the midst of another
+    ///    sensitive process.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ModificationOutsideTransactionException">
+    ///    The document has no open transaction.
+    /// </exception>
+    [NodeCategory("Create")]
+    public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,Autodesk.Revit.DB.Connector firstConnector,Autodesk.Revit.DB.Connector secondConnector,Revit.Elements.Element level)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.ForceCloseTransaction();
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        Autodesk.Revit.DB.Electrical.Conduit conduit = Autodesk.Revit.DB.Electrical.Conduit.Create(doc, new ElementId(conduitType.Id), firstConnector.Origin,
+            secondConnector.Origin, new ElementId(level.Id));
+        TransactionManager.Instance.TransactionTaskDone();
+        return conduit.ToDynamoType();
+    }
+    
     /// <summary>
     /// Create a conduit by line
     /// </summary>

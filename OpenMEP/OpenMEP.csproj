@@ -14,7 +14,7 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
-        <NoWarn>CS1591;CS0168;CS8618;CS1591</NoWarn>
+        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419</NoWarn>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
@@ -132,7 +132,7 @@
       <Folder Include="Application\Revit" />
       <Folder Include="Application\Windows" />
     </ItemGroup>
-    <Target Name="CopyFiles" AfterTargets="CoreBuild">
+    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(IsDesktopBuild)'==True">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
@@ -148,7 +148,7 @@
         <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
         <Message Text="Copied Completed" Importance="high" />
     </Target>
-    <Target Name="GenerateCustomization" BeforeTargets="Build">
+    <Target Name="GenerateCustomization" BeforeTargets="Build" Condition="'$(IsDesktopBuild)'==True">
         <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v4.8">
             <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
         </GetReferenceAssemblyPaths>

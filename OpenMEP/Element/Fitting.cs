@@ -84,7 +84,7 @@ public class Fitting
         TransactionManager.Instance.EnsureInTransaction(doc);
         bool flag1 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c2.CoordinateSystem.BasisZ.ToDynamoVector());
         bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c3.CoordinateSystem.BasisZ.ToDynamoVector());
-        Autodesk.Revit.DB.FamilyInstance newCrossFitting = null;
+        Autodesk.Revit.DB.FamilyInstance newCrossFitting;
         // resolve problem of cross fitting with side-side-main-main input
         TransactionManager.Instance.EnsureInTransaction(doc);
         if (flag1)
@@ -191,7 +191,7 @@ public class Fitting
         TransactionManager.Instance.EnsureInTransaction(doc);
         List<Autodesk.Revit.DB.Connector?> connectors =
             OpenMEP.ConnectorManager.Connector.GetConnectors(fitting);
-        connectors.FirstOrDefault(x => x.Angle != 0).Angle = angle * Math.PI / 180;
+        connectors.FirstOrDefault(x => x!.Angle != 0)!.Angle = angle * Math.PI / 180;
         TransactionManager.Instance.TransactionTaskDone();
         return fitting;
     }
