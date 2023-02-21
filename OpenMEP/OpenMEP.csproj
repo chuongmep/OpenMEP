@@ -97,21 +97,6 @@
         <FolderPackages>$(Appdata)\Dynamo\Dynamo Revit\$(BuildOutput)\packages\OpenMEP\</FolderPackages>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug R20' ">
-      <DefineConstants>TRACE;R20;DEBUG;</DefineConstants>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug R21' ">
-      <DefineConstants>TRACE;R21;DEBUG;</DefineConstants>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug R22' ">
-      <DefineConstants>TRACE;R22;DEBUG;</DefineConstants>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug R23' ">
-      <DefineConstants>TRACE;R23;DEBUG;</DefineConstants>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug R23.1' ">
-      <DefineConstants>TRACE;R23;R23;DEBUG;</DefineConstants>
-    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Chuongmep.Revit.Api.RevitAPI" Version="$(RevitVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
