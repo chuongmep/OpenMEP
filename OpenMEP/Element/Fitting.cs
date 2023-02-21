@@ -69,8 +69,6 @@ public class Fitting
 
     /// <summary>
     /// Add a new family instance of a cross fitting into the Autodesk Revit document, using four connectors.
-    /// Please Input order of connectors as below: Main-Main-Side-Side
-    /// https://adndevblog.typepad.com/aec/2015/06/revitiapi-crossfitting-creation-problem-invalidoperationexception-failed-to-insert-cross.html
     /// </summary>
     /// <param name="c1"> The first connector to be connected to the cross.</param>
     /// <param name="c2"> The second connector to be connected to the cross.</param>
