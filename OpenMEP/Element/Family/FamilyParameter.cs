@@ -130,19 +130,19 @@ public class FamilyParameter
         bool? canAssignFormula = familyParameter?.CanAssignFormula;
         bool? isReadOnly = familyParameter?.IsReadOnly;
 #if R20 || R21
-        object? displayUnitType = familyParameter.DisplayUnitType;
+        object? displayUnitType = familyParameter?.DisplayUnitType;
 #else
             object? displayUnitType = familyParameter?.GetUnitTypeId();
 #endif
         bool? isReporting = familyParameter?.IsReporting;
         Guid? guid = null;
-        if (familyParameter.IsShared)
+        if (familyParameter!.IsShared)
         {
             guid = familyParameter.GUID;
         }
 
         bool isDeterminedByFormula = familyParameter.IsDeterminedByFormula;
-        foreach (Autodesk.Revit.DB.Parameter p in parameterSet)
+        foreach (Autodesk.Revit.DB.Parameter p in parameterSet!)
         {
             global::Revit.Elements.Parameter? dynamoType = p.ToDynamoType();
             associatedParameters.Add(dynamoType);

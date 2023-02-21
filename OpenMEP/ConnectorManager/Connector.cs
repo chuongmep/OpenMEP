@@ -124,15 +124,18 @@ public class Connector
     public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Revit.Elements.Element? element, ConnectorSet? connectorSet)
     {
         Autodesk.Revit.DB.Connector? closet = null;
-        Point locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
+        Point? locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
         double distance = Double.MaxValue;
         foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
         {
-            double distanceTo = locationCenter.DistanceTo(connector!.Origin.ToPoint());
-            if (distanceTo <= distance)
+            if (locationCenter != null)
             {
-                closet = connector;
-                distance = distanceTo;
+                double distanceTo = locationCenter.DistanceTo(connector!.Origin.ToPoint());
+                if (distanceTo <= distance)
+                {
+                    closet = connector;
+                    distance = distanceTo;
+                }
             }
         }
         return closet;

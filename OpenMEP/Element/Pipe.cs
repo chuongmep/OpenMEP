@@ -272,7 +272,7 @@ public class Pipe
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolJunctionsByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
@@ -299,7 +299,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolCapsByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
@@ -326,7 +326,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolCrossesByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
@@ -353,7 +353,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolElbowsByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
@@ -380,7 +380,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolTransitionsByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
@@ -407,7 +407,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolSegmentsByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
@@ -434,7 +434,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolUndefinedByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
@@ -461,7 +461,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolMechanicalJointsByRouting(global::Revit.Elements.Element? pipe)
     {
-        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x.Radius).FirstOrDefault();
+        double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;

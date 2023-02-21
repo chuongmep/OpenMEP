@@ -17,7 +17,7 @@ public class ConnectorManager
     /// <returns name="ConnectorManager">ConnectorManager</returns>
     public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager( Revit.Elements.Element? element)
     {
-        Autodesk.Revit.DB.Element internalElement = element.InternalElement;
+        Autodesk.Revit.DB.Element? internalElement = element?.InternalElement;
         if (internalElement is Autodesk.Revit.DB.FamilyInstance familyInstance)
         {
             return familyInstance.MEPModel.ConnectorManager;

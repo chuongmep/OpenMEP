@@ -58,16 +58,15 @@ public class MEPCurve
         {
             return PlumbingUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
         }
-        else if (mepCurve is Duct || mepCurve is FlexDuct)
+        if (mepCurve is Duct || mepCurve is FlexDuct)
         {
             return MechanicalUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
         }
-        else if (mepCurve is Conduit || mepCurve is CableTray)
+        if (mepCurve is Conduit || mepCurve is CableTray)
         {
             ElementId elementId = BreakConduitCableTray(mepCurve.Document, mepCurve.Id, ptBreak);
             return elementId;
         }
-
         return ElementId.InvalidElementId;
     }
 
@@ -76,7 +75,7 @@ public class MEPCurve
         var conduit = doc.GetElement(conduitId);
         //copy mepCurveToOptimize as newPipe and move to brkPoint
         var location = conduit.Location as LocationCurve;
-        var start = location.Curve.GetEndPoint(0);
+        var start = location!.Curve.GetEndPoint(0);
         var end = location.Curve.GetEndPoint(1);
         var copiedEls = ElementTransformUtils.CopyElement(doc, conduit.Id, breakPoint - start);
         var newId = copiedEls.First();
@@ -90,12 +89,8 @@ public class MEPCurve
 
     private static void AdjustMepCurve(Autodesk.Revit.DB.Element mepCurve, XYZ p1, XYZ p2)
     {
-        // if (disconnect)
-        //     Disconnect(mepCurve);
-
         var location = mepCurve.Location as LocationCurve;
-
-        location.Curve = Line.CreateBound(p1, p2);
+        location!.Curve = Line.CreateBound(p1, p2);
     }
 
     /// <summary>
@@ -176,9 +171,9 @@ public class MEPCurve
         Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
         Connector? c4 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve4, mepCurve3);
-        bool flag1 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c2.CoordinateSystem.BasisZ.ToDynamoVector());
-        bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c3.CoordinateSystem.BasisZ.ToDynamoVector());
-        Autodesk.Revit.DB.FamilyInstance newCrossFitting = null;
+        bool flag1 = c1!.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c2!.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c3!.CoordinateSystem.BasisZ.ToDynamoVector());
+        Autodesk.Revit.DB.FamilyInstance newCrossFitting;
         // resolve problem of cross fitting with side-side-main-main input
         TransactionManager.Instance.EnsureInTransaction(doc);
         if (flag1)
