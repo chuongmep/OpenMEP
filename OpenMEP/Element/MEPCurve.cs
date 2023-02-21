@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Mechanical;
 using Autodesk.Revit.DB.Plumbing;
@@ -309,5 +310,83 @@ public class MEPCurve
         if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         return internalElement?.ConnectorManager;
+    }
+    
+    /// <summary>
+    /// return two connectors closet of two pipes
+    /// </summary>
+    /// <param name="mepCurve1">the first mepCurve</param>
+    /// <param name="mepCurve2">the second mepCurve</param>
+    /// <returns></returns>
+    [MultiReturn("Connector1", "Connector2")]
+    public static Dictionary<string, object?> GetTwoConnectorClosest(global::Revit.Elements.Element mepCurve1,
+        global::Revit.Elements.Element mepCurve2)
+    {
+        Connector? connector1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? connector2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        return new Dictionary<string, object?>()
+        {
+            {"Connector1", connector1},
+            {"Connector2", connector2}
+        };
+    }
+    
+    /// <summary>
+    ///  Return three points closest inside three mep curves
+    /// </summary>
+    /// <param name="mepCurve1">the first mepCurve</param>
+    /// <param name="mepCurve2">the second mepCurve</param>
+    /// <param name="mepCurve3">the three mepCurve</param>
+    [MultiReturn("Connector1", "Connector2", "Connector3")]
+    public static IDictionary<string, object?> GetThreeConnectorsClosest(global::Revit.Elements.Element? mepCurve1,
+        global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3)
+    {
+        List<Connector?> connectorsPipe1 = ConnectorManager.Connector.GetConnectors(mepCurve1);
+        if (!connectorsPipe1.Any()) throw new ArgumentException(nameof(mepCurve1));
+        List<Connector?> connectorsPipe2 = ConnectorManager.Connector.GetConnectors(mepCurve2);
+        if (!connectorsPipe2.Any()) throw new ArgumentException(nameof(mepCurve2));
+        List<Connector?> connectorsPipe3 = ConnectorManager.Connector.GetConnectors(mepCurve3);
+        if (!connectorsPipe3.Any()) throw new ArgumentException(nameof(mepCurve3));
+        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c3 = ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        return new Dictionary<string, object?>()
+        {
+            {"Connector1", c1},
+            {"Connector2", c2},
+            {"Connector3", c3}
+        };
+    }
+
+    /// <summary>
+    ///  Return four points closest inside four mep curves
+    /// </summary>
+    /// <param name="mepCurve1">the first mepCurve</param>
+    /// <param name="mepCurve2">the second mepCurve</param>
+    /// <param name="mepCurve3">the three mepCurve</param>
+    /// <param name="mepCurve4">the four mepCurve</param>
+    [MultiReturn("Connector1", "Connector2", "Connector3", "Connector4")]
+    public static IDictionary<string, object?> GetFourConnectorsClosest(global::Revit.Elements.Element? mepCurve1,
+        global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3,global::Revit.Elements.Element? mepCurve4)
+    {
+        List<Connector?> connectors1 = ConnectorManager.Connector.GetConnectors(mepCurve1);
+        if (!connectors1.Any()) throw new ArgumentException(nameof(mepCurve1));
+        List<Connector?> connectors2 = ConnectorManager.Connector.GetConnectors(mepCurve2);
+        if (!connectors2.Any()) throw new ArgumentException(nameof(mepCurve2));
+        List<Connector?> connectors3 = ConnectorManager.Connector.GetConnectors(mepCurve3);
+        if (!connectors3.Any()) throw new ArgumentException(nameof(mepCurve3));
+        List<Connector?> connectors4 = ConnectorManager.Connector.GetConnectors(mepCurve3);
+        if (!connectors4.Any()) throw new ArgumentException(nameof(mepCurve4));
+        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c3 = ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve2);
+        Connector? c4 = ConnectorManager.Connector.GetConnectorClosest(mepCurve4, mepCurve3);
+        return new Dictionary<string, object?>()
+        {
+            {"Connector1", c1},
+            {"Connector2", c2},
+            {"Connector3", c3},
+            {"Connector4", c4}
+        };
     }
 }
