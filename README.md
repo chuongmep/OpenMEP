@@ -71,6 +71,7 @@ Function Support (WIP) :
 - [x] Pipe
 - [x] Cable Tray
 - [x] Fitting
+- [x] Conduit
 - [x] Flex Duct
 - [x] Flex Pipe
 - [x] Family
@@ -85,7 +86,7 @@ Function Support (WIP) :
   - [x] ParameterUtils
   - [x] LabelUtils
   - [x] UnitUtils
-- [ ] Wire
+- [x] Wire
 - [ ] Geometry
     - [ ] Point
     - [ ] Line
@@ -97,7 +98,6 @@ Function Support (WIP) :
     - [ ] Brep
     - [ ] Transform
     - [ ] Vector
-- [ ] Conduit
 - [ ] MEP Fabrication
 - [ ] ...
 

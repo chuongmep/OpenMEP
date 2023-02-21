@@ -10,6 +10,7 @@ using dynElement = Revit.Elements.Element;
 using dynElementSelector = Revit.Elements.ElementSelector;
 using dynFamilyParameter = Revit.Elements.FamilyParameter;
 using dynParameter = Revit.Elements.Parameter;
+using Point = Autodesk.DesignScript.Geometry.Point;
 using rvtCategory = Autodesk.Revit.DB.Category;
 using rvtDocument = Autodesk.Revit.DB.Document;
 using rvtElement = Autodesk.Revit.DB.Element;
@@ -247,7 +248,7 @@ namespace OpenMEP.Helpers
         /// <param name="item"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        internal static Autodesk.DesignScript.Geometry.Point ToDynamoType(this XYZ item)
+        internal static Point? ToDynamoType(this XYZ item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(item.X, item.Y, item.Z);
