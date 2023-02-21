@@ -38,12 +38,10 @@ Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-
 # Documentation (TODO)
 
 - [How To Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
-- How To Uninstall OpenMEP Package
+- [How To Uninstall OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Uninstall-OpenMEP-Package)
 - How To Update OpenMEP Package
 - How To Use OpenMEP Package
-- How To Report Bug
-- How To Contribute OpenMEP Package
-- How To Write Python Script With OpenMEP Package
+- [How To Write Python Script With OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
 
 # Features
 
