@@ -524,7 +524,6 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// <param name="pipe1">first pipe</param>
     /// <param name="pipe2">second pipe</param>
     /// <param name="pipe3">three pipe</param>
-    /// <returns name="connectors">return an collection list connectors closet check by 3 pipe</returns>
     [MultiReturn("Connector1", "Connector2", "Connector3")]
     public static IDictionary<string, object?> GetThreeConnectorsClosest(global::Revit.Elements.Element? pipe1,
         global::Revit.Elements.Element? pipe2, global::Revit.Elements.Element? pipe3)
