@@ -84,10 +84,26 @@ public class Fitting
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewCrossFitting(c1, c2, c3, c4);
+        bool flag1 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c2.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c3.CoordinateSystem.BasisZ.ToDynamoVector());
+        Autodesk.Revit.DB.FamilyInstance newCrossFitting = null;
+        // resolve problem of cross fitting with side-side-main-main input
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        if (flag1)
+        {
+            newCrossFitting = doc.Create.NewCrossFitting(c1, c2, c3, c4);
+        }
+        else if (flag2)
+        {
+            newCrossFitting = doc.Create.NewCrossFitting(c1, c3, c2, c4);
+        }
+        else
+        {
+            newCrossFitting = doc.Create.NewCrossFitting(c1, c4, c2, c3);
+        }
         TransactionManager.Instance.TransactionTaskDone();
-        if (familyInstance == null) return null;
-        return familyInstance.ToDynamoType();
+        if (newCrossFitting == null) return null;
+        return newCrossFitting.ToDynamoType();
     }
 
     /// <summary>

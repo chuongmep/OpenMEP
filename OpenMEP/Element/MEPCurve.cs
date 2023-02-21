@@ -13,10 +13,10 @@ namespace OpenMEP.Element;
 
 public class MEPCurve
 {
-   private MEPCurve()
-   {
-      
-   }
+    private MEPCurve()
+    {
+    }
+
     /// <summary>
     /// break mep curve at point
     /// </summary>
@@ -24,7 +24,8 @@ public class MEPCurve
     /// <param name="point">location to break on mep curve</param>
     /// <returns name="element">new element break from mep curve</returns>
     [NodeCategory("Action")]
-    public static global::Revit.Elements.Element? BreakCurve(global::Revit.Elements.Element mepCurve, Autodesk.DesignScript.Geometry.Point point)
+    public static global::Revit.Elements.Element? BreakCurve(global::Revit.Elements.Element mepCurve,
+        Autodesk.DesignScript.Geometry.Point point)
     {
         if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         if (point == null) throw new ArgumentNullException(nameof(point));
@@ -34,65 +35,70 @@ public class MEPCurve
         if (internalElement is Autodesk.Revit.DB.MEPCurve mCurve)
         {
             XYZ location = point.ToXyz();
-            ElementId id = BreakCurve(mCurve,location);
+            ElementId id = BreakCurve(mCurve, location);
             if (id != ElementId.InvalidElementId)
             {
                 return mCurve.Document.GetElement(id).ToDynamoType();
             }
         }
+
         TransactionManager.Instance.TransactionTaskDone();
         return null;
     }
-   /// <summary>
-   /// Break MEP curve at given point
-   /// </summary>
-   /// <param name="mepCurve">Autodesk.Revit.DB.MEPCurve</param>
-   /// <param name="ptBreak">point to break</param>
-   /// <returns></returns>
-   private static ElementId BreakCurve(Autodesk.Revit.DB.MEPCurve? mepCurve, XYZ? ptBreak)
-   {
-       if (mepCurve is Pipe || mepCurve is FlexPipe)
-       {
-           return PlumbingUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
-       }
-       else if (mepCurve is Duct || mepCurve is FlexDuct)
-       {
-           return MechanicalUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
-       }
-       else if (mepCurve is Conduit || mepCurve is CableTray)
-       {
-           ElementId elementId = BreakConduitCableTray(mepCurve.Document, mepCurve.Id, ptBreak);
-           return elementId;
-       }
-       return ElementId.InvalidElementId;
-   } 
-   private static ElementId BreakConduitCableTray(Autodesk.Revit.DB.Document doc, ElementId conduitId, XYZ breakPoint)
-   {
-       var conduit = doc.GetElement(conduitId);
-       //copy mepCurveToOptimize as newPipe and move to brkPoint
-       var location = conduit.Location as LocationCurve;
-       var start = location.Curve.GetEndPoint(0);
-       var end = location.Curve.GetEndPoint(1);
-       var copiedEls = ElementTransformUtils.CopyElement(doc, conduit.Id, breakPoint - start);
-       var newId = copiedEls.First();
 
-       //shorten mepCurveToOptimize and newPipe (adjust endpoints)
-       AdjustMepCurve(conduit, start, breakPoint);
-       AdjustMepCurve(doc.GetElement(newId), breakPoint, end);
+    /// <summary>
+    /// Break MEP curve at given point
+    /// </summary>
+    /// <param name="mepCurve">Autodesk.Revit.DB.MEPCurve</param>
+    /// <param name="ptBreak">point to break</param>
+    /// <returns></returns>
+    private static ElementId BreakCurve(Autodesk.Revit.DB.MEPCurve? mepCurve, XYZ? ptBreak)
+    {
+        if (mepCurve is Pipe || mepCurve is FlexPipe)
+        {
+            return PlumbingUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
+        }
+        else if (mepCurve is Duct || mepCurve is FlexDuct)
+        {
+            return MechanicalUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
+        }
+        else if (mepCurve is Conduit || mepCurve is CableTray)
+        {
+            ElementId elementId = BreakConduitCableTray(mepCurve.Document, mepCurve.Id, ptBreak);
+            return elementId;
+        }
 
-       return newId;
-   }
+        return ElementId.InvalidElementId;
+    }
 
-   private static void AdjustMepCurve(Autodesk.Revit.DB.Element mepCurve, XYZ p1, XYZ p2)
-   {
-       // if (disconnect)
-       //     Disconnect(mepCurve);
+    private static ElementId BreakConduitCableTray(Autodesk.Revit.DB.Document doc, ElementId conduitId, XYZ breakPoint)
+    {
+        var conduit = doc.GetElement(conduitId);
+        //copy mepCurveToOptimize as newPipe and move to brkPoint
+        var location = conduit.Location as LocationCurve;
+        var start = location.Curve.GetEndPoint(0);
+        var end = location.Curve.GetEndPoint(1);
+        var copiedEls = ElementTransformUtils.CopyElement(doc, conduit.Id, breakPoint - start);
+        var newId = copiedEls.First();
 
-       var location = mepCurve.Location as LocationCurve;
+        //shorten mepCurveToOptimize and newPipe (adjust endpoints)
+        AdjustMepCurve(conduit, start, breakPoint);
+        AdjustMepCurve(doc.GetElement(newId), breakPoint, end);
 
-       location.Curve = Line.CreateBound(p1, p2);
-   }
-   /// <summary>
+        return newId;
+    }
+
+    private static void AdjustMepCurve(Autodesk.Revit.DB.Element mepCurve, XYZ p1, XYZ p2)
+    {
+        // if (disconnect)
+        //     Disconnect(mepCurve);
+
+        var location = mepCurve.Location as LocationCurve;
+
+        location.Curve = Line.CreateBound(p1, p2);
+    }
+
+    /// <summary>
     /// create a union fitting from two mepcurve
     /// </summary>
     /// <param name="mepCurve1">A curve object for duct or pipe blend first elements.</param>
@@ -106,13 +112,13 @@ public class MEPCurve
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
         Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2,mepCurve1);
+        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Autodesk.Revit.DB.FamilyInstance newUnionFitting = doc.Create.NewUnionFitting(c2, c1);
         TransactionManager.Instance.TransactionTaskDone();
         if (newUnionFitting == null)
         {
             List<Connector?> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(mepCurve1);
-            Connector? c11 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(c1,connectors);
+            Connector? c11 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(c1, connectors);
             ConnectorSet connectorSet = c11!.AllRefs;
             IEnumerator enumerator = connectorSet.GetEnumerator();
             while (enumerator.MoveNext())
@@ -125,6 +131,7 @@ public class MEPCurve
                 return dynamoType;
             }
         }
+
         return newUnionFitting.ToDynamoType();
     }
 
@@ -141,35 +148,12 @@ public class MEPCurve
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1,mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2,mepCurve1);
+        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Autodesk.Revit.DB.FamilyInstance newElbowFitting = doc.Create.NewElbowFitting(c2, c1);
         TransactionManager.Instance.TransactionTaskDone();
         if (newElbowFitting == null) return null;
         return newElbowFitting.ToDynamoType();
-    }
-
-    /// <summary>
-    /// Add a new family instance of a tee fitting into the Autodesk Revit document,
-    /// using three mep curves.
-    /// </summary>
-    /// <param name="mepCurve1">A curve object for duct or pipe blend first elements.</param>
-    /// <param name="mepCurve2">A curve object for duct or pipe blend second elements.</param>
-    /// <param name="mepCurve3">A curve object for duct or pipe blend three elements.</param>
-    /// <returns name="familyinstance">new tee fitting</returns>
-    [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewTeeFitting(global::Revit.Elements.Element mepCurve1,global::Revit.Elements.Element mepCurve2,global::Revit.Elements.Element mepCurve3)
-    {
-        TransactionManager.Instance.ForceCloseTransaction();
-        Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
-        TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1,mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2,mepCurve1);
-        Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3,mepCurve1);
-        Autodesk.Revit.DB.FamilyInstance newTeeFitting = doc.Create.NewTeeFitting(c2, c1,c3);
-        TransactionManager.Instance.TransactionTaskDone();
-        if (newTeeFitting == null) return null;
-        return newTeeFitting.ToDynamoType();
     }
 
     /// <summary>
@@ -182,22 +166,62 @@ public class MEPCurve
     /// <param name="mepCurve4">the four mepCurve(Pipe/Duct/CableTray)</param>
     /// <returns name="familyinstance">new cross fitting</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewCrossFitting(global::Revit.Elements.Element mepCurve1,global::Revit.Elements.Element mepCurve2,global::Revit.Elements.Element mepCurve3,global::Revit.Elements.Element mepCurve4)
+    public static global::Revit.Elements.Element? NewCrossFitting(global::Revit.Elements.Element mepCurve1,
+        global::Revit.Elements.Element mepCurve2, global::Revit.Elements.Element mepCurve3,
+        global::Revit.Elements.Element mepCurve4)
     {
-        
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
+        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        Connector? c4 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve4, mepCurve3);
+        bool flag1 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c2.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c3.CoordinateSystem.BasisZ.ToDynamoVector());
+        Autodesk.Revit.DB.FamilyInstance newCrossFitting = null;
+        // resolve problem of cross fitting with side-side-main-main input
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1,mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2,mepCurve1);
-        Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3,mepCurve1);
-        Connector? c4 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve4,mepCurve3);
-        Autodesk.Revit.DB.FamilyInstance newCrossFitting = doc.Create.NewCrossFitting(c2, c1,c3,c4);
+        if (flag1)
+        {
+            newCrossFitting = doc.Create.NewCrossFitting(c1, c2, c3, c4);
+        }
+        else if (flag2)
+        {
+            newCrossFitting = doc.Create.NewCrossFitting(c1, c3, c2, c4);
+        }
+        else
+        {
+            newCrossFitting = doc.Create.NewCrossFitting(c1, c4, c2, c3);
+        }
         TransactionManager.Instance.TransactionTaskDone();
         if (newCrossFitting == null) return null;
         return newCrossFitting.ToDynamoType();
     }
-    
+
+    /// <summary>
+    /// Add a new family instance of a tee fitting into the Autodesk Revit document,
+    /// using three mep curves.
+    /// </summary>
+    /// <param name="mepCurve1">A curve object for duct or pipe blend first elements.</param>
+    /// <param name="mepCurve2">A curve object for duct or pipe blend second elements.</param>
+    /// <param name="mepCurve3">A curve object for duct or pipe blend three elements.</param>
+    /// <returns name="familyinstance">new tee fitting</returns>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? NewTeeFitting(global::Revit.Elements.Element mepCurve1,
+        global::Revit.Elements.Element mepCurve2, global::Revit.Elements.Element mepCurve3)
+    {
+        TransactionManager.Instance.ForceCloseTransaction();
+        Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        Autodesk.Revit.DB.FamilyInstance newTeeFitting = doc.Create.NewTeeFitting(c2, c1, c3);
+        TransactionManager.Instance.TransactionTaskDone();
+        if (newTeeFitting == null) return null;
+        return newTeeFitting.ToDynamoType();
+    }
+
     /// <summary>
     /// Add a new family instance of an transition fitting into the Autodesk Revit document,
     /// using two connectors.
@@ -206,19 +230,20 @@ public class MEPCurve
     /// <param name="mepCurve2">the second mepCurve(Pipe/Duct/CableTray)</param>
     /// <returns name="family instance">new transition</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewTransitionFitting(global::Revit.Elements.Element mepCurve1,global::Revit.Elements.Element mepCurve2)
+    public static global::Revit.Elements.Element? NewTransitionFitting(global::Revit.Elements.Element mepCurve1,
+        global::Revit.Elements.Element mepCurve2)
     {
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1,mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2,mepCurve1);
+        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Autodesk.Revit.DB.FamilyInstance newTransitionFitting = doc.Create.NewTransitionFitting(c2, c1);
         TransactionManager.Instance.TransactionTaskDone();
         if (newTransitionFitting == null) return null;
         return newTransitionFitting.ToDynamoType();
     }
-    
+
     /// <summary>
     /// Add a new family instance of an takeoff fitting into the Autodesk Revit document,
     /// using one connector and one MEP curve.
@@ -227,7 +252,8 @@ public class MEPCurve
     /// <param name="mepCurve">mepCurve connect to create Takeoff</param>
     /// <returns name="familyinstance">new takeoff fitting</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewTakeoffFitting(Autodesk.Revit.DB.Connector connector,global::Revit.Elements.Element mepCurve)
+    public static global::Revit.Elements.Element? NewTakeoffFitting(Autodesk.Revit.DB.Connector connector,
+        global::Revit.Elements.Element mepCurve)
     {
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve.InternalElement.Document;
@@ -238,7 +264,7 @@ public class MEPCurve
         if (newTakeoffFitting == null) return null;
         return newTakeoffFitting.ToDynamoType();
     }
-    
+
     /// <summary>The diameter of the MEP curve.</summary>
     /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
     /// Thrown when the MEP curve's Shape is not round.
@@ -248,11 +274,11 @@ public class MEPCurve
     [NodeCategory("Query")]
     public static double? Diameter(Revit.Elements.Element mepCurve)
     {
-        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         return internalElement?.Diameter;
     }
-    
+
     /// <summary>The width of the MEP curve.</summary>
     /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
     /// Thrown when the MEP curve's shape is not rectangular.
@@ -262,10 +288,11 @@ public class MEPCurve
     [NodeCategory("Query")]
     public static double? Width(Revit.Elements.Element mepCurve)
     {
-        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         return internalElement?.Width;
     }
+
     /// <summary>The height of the MEP curve.</summary>
     /// <exception cref="T:Autodesk.Revit.Exceptions.InvalidOperationException">
     /// Thrown when the MEP curve's Shape is not rectangular.
@@ -275,11 +302,11 @@ public class MEPCurve
     [NodeCategory("Query")]
     public static double? Height(Revit.Elements.Element mepCurve)
     {
-        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         return internalElement?.Height;
     }
-    
+
     /// <summary>The offset of the MEP curve.</summary>
     /// <remarks>This property is used to retrieve the offset of the MEP curve.
     /// If the curve is not in a horizontal plane, this value will be the start point's offset.</remarks>
@@ -287,31 +314,32 @@ public class MEPCurve
     [NodeCategory("Query")]
     public static double? LevelOffset(Revit.Elements.Element mepCurve)
     {
-        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         return internalElement?.LevelOffset;
     }
+
     /// <summary>The reference level of the MEP curve.</summary>
     /// <remarks>This property is used to retrieve the reference level of the MEP curve.
     /// If the curve is not in a horizontal plane, this value will be the start point's reference level.</remarks>
     [NodeCategory("Query")]
     public static Revit.Elements.Element? ReferenceLevel(Revit.Elements.Element mepCurve)
     {
-        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         return internalElement?.ReferenceLevel.ToDynamoType();
     }
-    
+
     /// <summary>The connector manager of this MEP curve</summary>
     /// <returns name="connectorManager">The connector manager of this MEP curve</returns>
     [NodeCategory("Query")]
     public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager(Revit.Elements.Element mepCurve)
     {
-        if(mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         return internalElement?.ConnectorManager;
     }
-    
+
     /// <summary>
     /// return two connectors closet of two pipes
     /// </summary>
@@ -330,7 +358,7 @@ public class MEPCurve
             {"Connector2", connector2}
         };
     }
-    
+
     /// <summary>
     ///  Return three points closest inside three mep curves
     /// </summary>
@@ -367,7 +395,8 @@ public class MEPCurve
     /// <param name="mepCurve4">the four mepCurve</param>
     [MultiReturn("Connector1", "Connector2", "Connector3", "Connector4")]
     public static IDictionary<string, object?> GetFourConnectorsClosest(global::Revit.Elements.Element? mepCurve1,
-        global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3,global::Revit.Elements.Element? mepCurve4)
+        global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3,
+        global::Revit.Elements.Element? mepCurve4)
     {
         List<Connector?> connectors1 = ConnectorManager.Connector.GetConnectors(mepCurve1);
         if (!connectors1.Any()) throw new ArgumentException(nameof(mepCurve1));
