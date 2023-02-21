@@ -86,7 +86,7 @@ Function Support (WIP) :
   - [x] ParameterUtils
   - [x] LabelUtils
   - [x] UnitUtils
-- [ ] Wire
+- [x] Wire
 - [ ] Geometry
     - [ ] Point
     - [ ] Line
