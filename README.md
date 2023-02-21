@@ -31,7 +31,7 @@ The package installer is available on the [Open MEP Release](https://github.com/
 can install it from there.
 
 - OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
-- OpenMEP now Support Dynamo Version : 2.6, 2.12, 2.16
+- OpenMEP now Support Dynamo Version : 2.3, 2.6, 2.12, 2.13 2.16
 
 Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 
