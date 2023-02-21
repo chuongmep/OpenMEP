@@ -143,10 +143,20 @@ Some project I recommend for you at [Dynamo Open Source](https://chuongmep.githu
 
 # 🙋‍♂️ FAQ
 
-- Why this package not published on Dynamo Package Manager?
+<details><summary>Why this package not published on Dynamo Package Manager ?</summary>
 
-Answer : It not support way I maintain with multiple version and release CI/CD with **Dynamo** Revit.
+It not support way I maintain with multiple version and release CI/CD with Dynamo Revit.
 
-- Can I write Python Script with OpenMEP Package?
+</details>
 
-Answer : Yes, you can write Python Script with OpenMEP Package. You can read more about [How To Write Python Script With OpenMEP](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
+<details><summary>Can I use this package with Dynamo Sandbox ?</summary>
+
+At the moment, this package is not supported with Dynamo Sandbox. You can use this package with Dynamo Revit.
+
+</details>
+
+<details><summary>Can I write Python Script with OpenMEP Package ?</summary>
+
+Yes, you can write Python Script with OpenMEP Package. You can read more about [How To Write Python Script With OpenMEP](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
+
+</details>
