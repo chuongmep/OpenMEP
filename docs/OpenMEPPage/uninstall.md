@@ -1,1 +1,1 @@
-# Uninstall
+# How to Uninstall OpenMEP package

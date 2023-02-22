@@ -1,1 +1,1 @@
-# Installation
+# How to install OpenMEP package

@@ -17,12 +17,12 @@ parts:
 - caption: Tutorial
   maxdepth: 3  # The displayed Table of Contents will only have two levels
   chapters:
-  - file: application
+  - file: Application
     sections:
     - file: revit
     - file: dynamo
     - file: windows
-  - file: document
+  - file: Document
   - file: connectormanager
     sections:
     - file: connector
@@ -38,7 +38,7 @@ parts:
     - file: cabletray
     - file: conduit
     - file: duct
-    - file: fitting
+    - file: Fitting
     - file: mepcurve
     - file: pipe
   - file: geometry
