@@ -8,6 +8,12 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
 options:
   numbered: True
 parts:
+- caption: Getting Started
+  maxdepth: 3
+  chapters:
+  - file: installation
+  - file : uninstall
+  - file: upgrade
 - caption: Tutorial
   maxdepth: 3  # The displayed Table of Contents will only have two levels
   chapters:
@@ -42,3 +48,8 @@ parts:
     - file: curve
     - file: plane
     - file: surface
+- caption: Advanced
+  maxdepth: 3
+  chapters:
+  - file: createcustomnode
+  - file : python
