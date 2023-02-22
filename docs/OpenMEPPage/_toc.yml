@@ -8,7 +8,23 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
 options:
   numbered: True
 chapters:
-- file: Application
-- file: Fitting
-- file: MepCurve
+- file: application
+- file: document
+- file: connectormanager
+  sections:
+  - file: connector
+  - file: mepconnectorinfo
+- file: element
+  sections:
+  - file: family
+    sections:
+    - file: familymanager
+    - file: familyparameter
+    - file: familysizemanager
+    - file: familytype
+  - file: cabletray
+  - file: conduit
+  - file: duct
+  - file: fitting
+  - file: mepcurve
 
