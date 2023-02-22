@@ -11,7 +11,7 @@ In Autodesk Revit, a duct fitting refers to a building component used in HVAC (h
 
 ![](dyn/pic/Fitting.NewCrossFitting.png)
 
-- Download:  [Fitting.NewCrossFitting.dyn](dyn/Fitting.NewCrossFitting.dyn)
+[Fitting.NewCrossFitting.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/dyn/Fitting.NewCrossFitting.dyn)
 
 ## Transition Duct Fitting
 

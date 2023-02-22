@@ -390,7 +390,7 @@ public class MEPCurve
     }
 
     /// <summary>
-    ///  Return four points closest inside four mep curves
+    ///  Return four connector closest inside four mep curves
     /// </summary>
     /// <param name="mepCurve1">the first mepCurve</param>
     /// <param name="mepCurve2">the second mepCurve</param>
