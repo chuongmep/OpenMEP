@@ -7,24 +7,38 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
 options:
   numbered: True
-chapters:
-- file: application
-- file: document
-- file: connectormanager
-  sections:
-  - file: connector
-  - file: mepconnectorinfo
-- file: element
-  sections:
-  - file: family
+parts:
+- caption: Tutorial
+  maxdepth: 3  # The displayed Table of Contents will only have two levels
+  chapters:
+  - file: application
     sections:
-    - file: familymanager
-    - file: familyparameter
-    - file: familysizemanager
-    - file: familytype
-  - file: cabletray
-  - file: conduit
-  - file: duct
-  - file: fitting
-  - file: mepcurve
-
+    - file: revit
+    - file: dynamo
+    - file: windows
+  - file: document
+  - file: connectormanager
+    sections:
+    - file: connector
+    - file: mepconnectorinfo
+  - file: element
+    sections:
+    - file: family
+      sections:
+      - file: familymanager
+      - file: familyparameter
+      - file: familysizemanager
+      - file: familytype
+    - file: cabletray
+    - file: conduit
+    - file: duct
+    - file: fitting
+    - file: mepcurve
+    - file: pipe
+  - file: geometry
+    sections:
+    - file: point
+    - file: line
+    - file: curve
+    - file: plane
+    - file: surface

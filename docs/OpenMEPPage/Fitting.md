@@ -4,6 +4,9 @@
 ![](dyn/pic/Fitting.png)
 
 
+```{contents}
+```
+
 ## Pipe Fitting
 
 Pipe fittings are components used in piping systems to connect, control, and redirect the flow of liquids, gases, and other materials. They are used to join pipes of different sizes or shapes, change the direction of flow, regulate or control fluid pressure, and isolate or block off sections of a piping system.
