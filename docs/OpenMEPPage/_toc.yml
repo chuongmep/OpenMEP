@@ -23,10 +23,11 @@ parts:
     - file: dynamo
     - file: windows
   - file: Document
-  - file: connectormanager
+  - file: connectormanager/connectormanager
     sections:
-    - file: connector
-    - file: mepconnectorinfo
+    - file: connectormanager/connector
+    - file: connectormanager/mepconnectorinfo
+    - file: connectormanager/mepmodel
   - file: element
     sections:
     - file: family
