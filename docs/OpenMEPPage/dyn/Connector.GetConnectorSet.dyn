@@ -1,0 +1,154 @@
+{
+  "Uuid": "f928cf34-4e6a-4040-a79c-862d96f0353a",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Connector.GetConnectorSet",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "36d61c2272d340e291bc2edf7169cf86",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9df9e54412cc4d38a3d755c16db4f048",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectorSet@Revit.Elements.Element",
+      "Id": "43589233c0fc4eb28cbc6132c9ea2572",
+      "Inputs": [
+        {
+          "Id": "702c1ff9e491433587f757116443ccc0",
+          "Name": "element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "082ed1465bcd49c7becd4b3d20bf2ab7",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return connector set of element\n\nConnector.GetConnectorSet (element: Element): var"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9df9e54412cc4d38a3d755c16db4f048",
+      "End": "702c1ff9e491433587f757116443ccc0",
+      "Id": "cd421acc2a00447aa2d6bfc8ad1cfad0",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "43589233c0fc4eb28cbc6132c9ea2572"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "36d61c2272d340e291bc2edf7169cf86",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 265.60000000000008,
+        "Y": 343.2
+      },
+      {
+        "Name": "Connector.GetConnectorSet",
+        "ShowGeometry": true,
+        "Id": "43589233c0fc4eb28cbc6132c9ea2572",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 596.79999999999984,
+        "Y": 342.4
+      }
+    ],
+    "Annotations": [],
+    "X": 102.40000000000003,
+    "Y": -0.79999999999995453,
+    "Zoom": 1.0
+  }
+}
