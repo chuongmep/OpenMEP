@@ -2,7 +2,7 @@
   "Uuid": "6d65bda8-f8ca-4f40-bc4b-8058de2601f7",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Connector.Radius",
+  "Name": "Connector.VelocityPressure",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -63,13 +63,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.Radius@var",
-      "Id": "9aa3507259cc4c2c835fbde7f49b13a2",
+      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.VelocityPressure@var",
+      "Id": "97e6d196d7544f25b90bfa67ce73abb0",
       "Inputs": [
         {
-          "Id": "ea1487ca209c49bfa42ac721c4406816",
+          "Id": "edd05518746b4cdbb362c2994389a7e2",
           "Name": "connector",
-          "Description": "connector\n\nvar",
+          "Description": "Connector\n\nvar",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -78,9 +78,9 @@
       ],
       "Outputs": [
         {
-          "Id": "8bf7ab6cd1404924901a29af36af5179",
-          "Name": "radius",
-          "Description": "radius",
+          "Id": "0a83c27af0404b3fa2ef5d74dcc4f3c1",
+          "Name": "VelocityPressure",
+          "Description": "VelocityPressure",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -88,7 +88,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "return the radius of connector\n\nConnector.Radius (connector: var): double"
+      "Description": "The velocity pressure of the connector.\n\nConnector.VelocityPressure (connector: var): double"
     }
   ],
   "Connectors": [
@@ -100,8 +100,8 @@
     },
     {
       "Start": "b0fea31109414b11afaef391c74d2dab",
-      "End": "ea1487ca209c49bfa42ac721c4406816",
-      "Id": "f9a53169ee3549e486059ce727648172",
+      "End": "edd05518746b4cdbb362c2994389a7e2",
+      "Id": "9140d6be2bce4af499f6500fd32971d4",
       "IsHidden": "False"
     }
   ],
@@ -113,7 +113,7 @@
       "ReferenceType": "Package",
       "Nodes": [
         "c0a3ef1b22154022947b351251d99f91",
-        "9aa3507259cc4c2c835fbde7f49b13a2"
+        "97e6d196d7544f25b90bfa67ce73abb0"
       ]
     }
   ],
@@ -185,19 +185,19 @@
         "Y": 56.631109061797645
       },
       {
-        "Name": "Connector.Radius",
+        "Name": "Connector.VelocityPressure",
         "ShowGeometry": true,
-        "Id": "9aa3507259cc4c2c835fbde7f49b13a2",
+        "Id": "97e6d196d7544f25b90bfa67ce73abb0",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 873.86322880350735,
-        "Y": 74.802494359240114
+        "X": 889.32196940348535,
+        "Y": 63.63784837036718
       }
     ],
     "Annotations": [],
-    "X": -168.73692765675617,
-    "Y": 276.6812475481014,
+    "X": -216.73692765675617,
+    "Y": 309.6812475481014,
     "Zoom": 1.164389808056264
   }
 }
