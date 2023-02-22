@@ -21,6 +21,10 @@ In Autodesk Revit, a duct fitting refers to a building component used in HVAC (h
 
 # Cable Tray Fitting
 
+Cable tray fittings are components used in cable management systems to provide support, routing, and protection for electrical cables, wires, and other communication cables. Cable trays are used in a wide variety of applications, including commercial and industrial buildings, power plants, data centers, and transportation infrastructure.
+
+![](dyn/pic/photo-Steel-Cable-Ladder.jpg)
+
 # Create Cross Fitting (Duct/Pipe)
 
 ![](dyn/pic/Fitting.NewCrossFitting.png)
