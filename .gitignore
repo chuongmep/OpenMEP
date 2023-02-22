@@ -355,3 +355,4 @@ MigrationBackup/
 # ignore output msi
 output/
 wix/
+_build
