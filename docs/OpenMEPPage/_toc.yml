@@ -3,6 +3,10 @@
 
 format: jb-book
 root: intro
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+options:
+  numbered: True
 chapters:
 - file: Application
 - file: Fitting

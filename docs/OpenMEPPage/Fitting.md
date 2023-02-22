@@ -31,5 +31,15 @@ Cable tray fittings are components used in cable management systems to provide s
 
 [Fitting.NewCrossFitting.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/dyn/Fitting.NewCrossFitting.dyn)
 
+# Create Elbow Fitting (Duct/Pipe)
+
+# Create Take Off Fitting (Duct)
+
+# Create Tee Fitting (Duct/Pipe)
+
+# Create Transition Fitting (Duct/Pipe)
+
+# Create Unions Fitting (Duct/Pipe)
+
 
 
