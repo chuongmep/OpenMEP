@@ -1,11 +1,8 @@
-
+```{contents}
+```
 # Fitting
 
 ![](dyn/pic/Fitting.png)
-
-
-```{contents}
-```
 
 ## Pipe Fitting
 

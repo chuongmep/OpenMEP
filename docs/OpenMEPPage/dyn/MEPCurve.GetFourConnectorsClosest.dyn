@@ -154,7 +154,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Return four points closest inside four mep curves\n\nMEPCurve.GetFourConnectorsClosest (mepCurve1: Element, mepCurve2: Element, mepCurve3: Element, mepCurve4: Element): var[]..[]"
+      "Description": "Return four connector closest inside four mep curves\n\nMEPCurve.GetFourConnectorsClosest (mepCurve1: Element, mepCurve2: Element, mepCurve3: Element, mepCurve4: Element): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
@@ -550,8 +550,8 @@
       }
     ],
     "Annotations": [],
-    "X": -205.25483686943869,
-    "Y": -333.81575870823951,
+    "X": -219.25483686943869,
+    "Y": -323.81575870823951,
     "Zoom": 0.62800971104015124
   }
 }
