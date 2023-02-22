@@ -1,0 +1,275 @@
+{
+  "Uuid": "6d65bda8-f8ca-4f40-bc4b-8058de2601f7",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Connector.GetConnectorInfo",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+      ],
+      "Id": "933da09ce5494d8e8ff9a9e935c8266f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bc3d8a2f13064925b0f7243b7ab8d156",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.GetConnectors@Revit.Elements.Element",
+      "Id": "c0a3ef1b22154022947b351251d99f91",
+      "Inputs": [
+        {
+          "Id": "ae916d96e5ce4778be2392d3b237227e",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b0fea31109414b11afaef391c74d2dab",
+          "Name": "connectors",
+          "Description": "connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector from element\n\nConnector.GetConnectors (element: Element): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.GetConnectorInfo@var",
+      "Id": "f904b9c38936461ebc4b81092c71407f",
+      "Inputs": [
+        {
+          "Id": "0e8f3616f0b94282bce34bace87421a2",
+          "Name": "connector",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fa82d32637ca49ea98154ed9b36d8203",
+          "Name": "RefsSize",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3b5ed74ece0f49bb8ffc2f6c6b3bcef2",
+          "Name": "Angle",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6f6ba56f49984d3dae714d46d9cb00da",
+          "Name": "FlowRate",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "304dbcadbce9494693953e9df457faa3",
+          "Name": "FlowRateMax",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7fb15d1036a94ff69f7933660aeef4fb",
+          "Name": "Demand",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c29d342f1ad7431cb371dfee781cb3b9",
+          "Name": "Height",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "53c858189ff34178af0c3374f53b8cb3",
+          "Name": "Utility",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b30c6d28eb014afb80405f24cb6bb23a",
+          "Name": "IsConnected",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bdc28457a4ef4e91bd62dd39c6b61ed8",
+          "Name": "IsMovable",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return overall information of connector\n\nConnector.GetConnectorInfo (connector: var): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "bc3d8a2f13064925b0f7243b7ab8d156",
+      "End": "ae916d96e5ce4778be2392d3b237227e",
+      "Id": "4aba55632c3e4661b811261b296e3ea2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b0fea31109414b11afaef391c74d2dab",
+      "End": "0e8f3616f0b94282bce34bace87421a2",
+      "Id": "5075e9c34ba3411e8a44e2fb26ed8bd5",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Exyte",
+      "Version": "1.0.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "c0a3ef1b22154022947b351251d99f91",
+        "f904b9c38936461ebc4b81092c71407f"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "933da09ce5494d8e8ff9a9e935c8266f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 323.15066508295,
+        "Y": 47.66857901662172
+      },
+      {
+        "Name": "Connector.GetConnectors",
+        "ShowGeometry": true,
+        "Id": "c0a3ef1b22154022947b351251d99f91",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 583.23847837729556,
+        "Y": 56.631109061797645
+      },
+      {
+        "Name": "Connector.GetConnectorInfo",
+        "ShowGeometry": true,
+        "Id": "f904b9c38936461ebc4b81092c71407f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 877.752519694365,
+        "Y": 55.79203771901399
+      }
+    ],
+    "Annotations": [],
+    "X": -315.68967427309019,
+    "Y": 125.91770839408963,
+    "Zoom": 1.1917937712929563
+  }
+}

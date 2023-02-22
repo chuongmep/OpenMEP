@@ -9,7 +9,21 @@ D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.Coefficient.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.ConnectorManager.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.ConnectTo.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.CoordinateSystem.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.Direction.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.DistanceTo.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.GetConnectorClosest.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.GetConnectorConnectedWith.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.GetConnectorFarthest.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.GetConnectorInfo.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.GetConnectors.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.IsConnected.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.Origin.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.Owner.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.Radius.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.SetAngle.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.SetOrigin.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.SystemType.dyn
+D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Connector.Width.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\ConnectorManager.Connectors.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\ConnectorManager.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\ConnectorManager.GetConnectorManager.dyn
@@ -18,4 +32,4 @@ D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\ConnectorManager.Owner.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\ConnectorManager.UnusedConnectors.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\Fitting.NewCrossFitting.dyn
 D:\API\Dynamo\OpenMEP\docs\OpenMEPPage\dyn\MEPCurve.GetFourConnectorsClosest.dyn
-Successfully exported 20 images.
+Successfully exported 34 images.
