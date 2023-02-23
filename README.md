@@ -40,7 +40,7 @@ Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-
 - [How To Install OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 - [How To Uninstall OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Uninstall-OpenMEP-Package)
 - [How To Update OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Update-OpenMEP-Package)
-- [How To Use OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Use-OpenMEP-Package)
+- [How To Use OpenMEP Package](https://chuongmep.github.io/OpenMEP/intro.html)
 - [How To Write Python Script With OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
 
 # 🦚 Features
@@ -158,5 +158,11 @@ At the moment, this package is not supported with Dynamo Sandbox. You can use th
 <details><summary>Can I write Python Script with OpenMEP Package ?</summary>
 
 Yes, you can write Python Script with OpenMEP Package. You can read more about [How To Write Python Script With OpenMEP](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
+
+</details>
+
+<details><summary>What is MEPCurve ?</summary>
+
+**[MEPCurve](https://www.revitapidocs.com/2015/38714847-0f40-7021-aa79-2884c3a02ce2.htm)** is a curve object for duct or pipe blend elements, it mean input require **Duct** or **Pipe** element.
 
 </details>

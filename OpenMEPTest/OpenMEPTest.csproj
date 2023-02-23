@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    </PropertyGroup>
+    <ItemGroup>
+      <Reference Include="RevitTestFrameworkTypes">
+        <HintPath>Lib\RevitTestFrameworkTypes.dll</HintPath>
+      </Reference>
+      <Reference Include="RTFRevit">
+        <HintPath>Lib\RTFRevit.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Http" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Chuongmep.Revit.Api.RevitAPI" Version="2023.1.1.2" />
+      <PackageReference Include="Chuongmep.Revit.Api.RevitAPIUI" Version="2023.1.1.2" />
+      <PackageReference Include="NUnit" Version="2.6.3" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Lib" />
+      <Folder Include="Resources" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="Resources\bricks.rfa">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

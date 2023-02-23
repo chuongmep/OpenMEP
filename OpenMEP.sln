@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeployInstaller", "DeployIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_build", "build\_build.csproj", "{47C2ECE9-1C28-4E63-A376-A2DE72DF37B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMEPTest", "OpenMEPTest\OpenMEPTest.csproj", "{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 								Debug R20|Any CPU = Debug R20|Any CPU
@@ -74,5 +76,16 @@ Global
 		{47C2ECE9-1C28-4E63-A376-A2DE72DF37B9}.Release R20|Any CPU.ActiveCfg = Release|Any CPU
 		{47C2ECE9-1C28-4E63-A376-A2DE72DF37B9}.Debug R23.1|Any CPU.ActiveCfg = Debug|Any CPU
 		{47C2ECE9-1C28-4E63-A376-A2DE72DF37B9}.Release R23.1|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Debug R20|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Debug R21|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Debug R22|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Debug R23|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Debug R23.1|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Release R20|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Release R21|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Release R22|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Release R23|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Release R23.1|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7A7CC-2B34-4359-B16E-F8F2082CB840}.Installer|Any CPU.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

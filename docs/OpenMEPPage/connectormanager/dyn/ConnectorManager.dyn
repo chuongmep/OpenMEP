@@ -1,0 +1,291 @@
+{
+  "Uuid": "7d501b7b-18d4-44b0-b614-7a1215a5a8ac",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "ConnectorManager",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Exyte.Revit.MEPModel.ConnectorManager.Connectors@var",
+      "Id": "37b018c8268a4756b78d98370ca5c7cb",
+      "Inputs": [
+        {
+          "Id": "82fce1d8155f4bfaaa96e9180ba7f601",
+          "Name": "connectorManager",
+          "Description": "connector manager\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7324d392fe164d6ca5fc22ae6287aa45",
+          "Name": "element",
+          "Description": "element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return all the Connectors of the Connector Manager.\n\nConnectorManager.Connectors (connectorManager: var): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Exyte.Revit.MEPModel.ConnectorManager.GetConnectorManager@Revit.Elements.Element",
+      "Id": "c2025b1c7ecf42dcbeb806fb28def2c9",
+      "Inputs": [
+        {
+          "Id": "76b7b3c42f204b168779c13508be9e4a",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c565902d5e4c4bf9a2d7ae127c676d7e",
+          "Name": "ConnectorManager",
+          "Description": "ConnectorManager",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return connector manager of element\n\nConnectorManager.GetConnectorManager (element: Element): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Exyte.Revit.MEPModel.ConnectorManager.LookUp@var,int",
+      "Id": "a94b4435140a4b748845fd55b6c0beba",
+      "Inputs": [
+        {
+          "Id": "cc3e29762813489d8d853052f78c616b",
+          "Name": "connectorManager",
+          "Description": "connector manager\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c44a5387b8314dffb43270791401bc0e",
+          "Name": "index",
+          "Description": "index of connector\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2f6e0bf3ec954a779327ca41521e0c46",
+          "Name": "connector",
+          "Description": "connector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return connector by index\n\nConnectorManager.LookUp (connectorManager: var, index: int): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Exyte.Revit.MEPModel.ConnectorManager.Owner@var",
+      "Id": "1dc3f6363e36467193ecb1bfcab393ae",
+      "Inputs": [
+        {
+          "Id": "29b58e0ad76e40af99e8e7870cd9248a",
+          "Name": "connectorManager",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dc12fc08bfe245eaa959ec61fc6b16c8",
+          "Name": "element",
+          "Description": "element owner",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This property is used to retrieve the owner of the Connector Manager.\n\nConnectorManager.Owner (connectorManager: var): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Exyte.Revit.MEPModel.ConnectorManager.UnusedConnectors@var",
+      "Id": "597496e404274d7dbf6459abcae707e2",
+      "Inputs": [
+        {
+          "Id": "a55f60709ef749a7b06f9597b8f04fbe",
+          "Name": "connectorManager",
+          "Description": "connector manager\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a44fc2dc9501488481724a3f808ad64b",
+          "Name": "connectors",
+          "Description": "connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return UnusedConnectors from connector manager\n\nConnectorManager.UnusedConnectors (connectorManager: var): var[]"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Exyte",
+      "Version": "1.0.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "37b018c8268a4756b78d98370ca5c7cb",
+        "c2025b1c7ecf42dcbeb806fb28def2c9",
+        "a94b4435140a4b748845fd55b6c0beba",
+        "1dc3f6363e36467193ecb1bfcab393ae",
+        "597496e404274d7dbf6459abcae707e2"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "ConnectorManager.Connectors",
+        "ShowGeometry": true,
+        "Id": "37b018c8268a4756b78d98370ca5c7cb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 576.065354745118,
+        "Y": 463.05617536591689
+      },
+      {
+        "Name": "ConnectorManager.GetConnectorManager",
+        "ShowGeometry": true,
+        "Id": "c2025b1c7ecf42dcbeb806fb28def2c9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 572.35909004322571,
+        "Y": 606.67393256424987
+      },
+      {
+        "Name": "ConnectorManager.LookUp",
+        "ShowGeometry": true,
+        "Id": "a94b4435140a4b748845fd55b6c0beba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 912.40887644185932,
+        "Y": 439.89202097908907
+      },
+      {
+        "Name": "ConnectorManager.Owner",
+        "ShowGeometry": true,
+        "Id": "1dc3f6363e36467193ecb1bfcab393ae",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 979.12164107592366,
+        "Y": 602.0411016868843
+      },
+      {
+        "Name": "ConnectorManager.UnusedConnectors",
+        "ShowGeometry": true,
+        "Id": "597496e404274d7dbf6459abcae707e2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1238.5601702083957,
+        "Y": 449.15768273382014
+      }
+    ],
+    "Annotations": [],
+    "X": -448.68336867622179,
+    "Y": -227.71779042543216,
+    "Zoom": 1.0792537289518345
+  }
+}
