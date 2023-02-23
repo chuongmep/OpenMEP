@@ -4,6 +4,9 @@
     <name>OpenMEP</name>
   </assembly>
   <namespaces>
+    <namespace name="OpenMEP.Application">
+      <category>OpenMEP.Application</category>
+    </namespace>
     <namespace name="OpenMEP.ConnectorManager">
       <category>OpenMEP.ConnectorManager</category>
     </namespace>

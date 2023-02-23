@@ -127,11 +127,6 @@
             <DependentUpon>OpenMEPImages.resx</DependentUpon>
         </Compile>
     </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Application\Dynamo" />
-        <Folder Include="Application\Revit" />
-        <Folder Include="Application\Windows" />
-    </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
