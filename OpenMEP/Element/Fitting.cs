@@ -166,6 +166,7 @@ public class Fitting
     /// </summary>
     /// <param name="fitting">fitting to get</param>
     /// <returns name="systemtype">system type of fitting</returns>
+    [NodeCategory("Query")]
     public static global::Revit.Elements.Element? SystemType(global::Revit.Elements.Element fitting)
     {
         Autodesk.Revit.DB.Element element = fitting.InternalElement;

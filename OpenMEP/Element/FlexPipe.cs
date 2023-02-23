@@ -1,4 +1,5 @@
 ﻿using Autodesk.Revit.DB;
+using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
@@ -109,6 +110,7 @@ public class FlexPipe
     /// The set operation will fail if the modification makes the connection invalid.
     /// </remarks>
     ///<returns name="points">list point of flex pipe</returns>
+    [NodeCategory("Query")]
     public static List<Autodesk.DesignScript.Geometry.Point> Points(Autodesk.Revit.DB.Plumbing.FlexPipe flexPipe)
     {
         return flexPipe.Points.Select(x=>x.ToPoint()).ToList();

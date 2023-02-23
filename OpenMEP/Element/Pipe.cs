@@ -508,6 +508,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe to get</param>
     /// <returns name="systemtype">system type of pipe</returns>
+    [NodeCategory("Query")]
     public static global::Revit.Elements.Element? SystemType(global::Revit.Elements.Element pipe)
     {
         if (pipe == null) throw new ArgumentNullException(nameof(pipe));
@@ -601,6 +602,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe to get shape</param>
     /// <returns name="connectorProfileType">connectorProfileType</returns>
+    [NodeCategory("Query")]
     public static dynamic? Shape(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -616,6 +618,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     ///<remarks>
     /// If the curve does not belong to any systems, the value will be <see langword="null" />.
     /// If the curve belongs to more than one system, the first available value is returned. </remarks>
+    [NodeCategory("Query")]
     public static global::Revit.Elements.Element? MEPSystem(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;

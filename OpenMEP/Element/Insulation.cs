@@ -59,6 +59,7 @@ public class Insulation
     /// </summary>
     /// <param name="element">the element to check</param>
     /// <returns name="bool">true if element is insulation</returns>
+    [NodeCategory("Query")]
     public bool IsAddInsulationOrLining(Revit.Elements.Element element)
     {
         Autodesk.Revit.DB.Element e = element.InternalElement;
