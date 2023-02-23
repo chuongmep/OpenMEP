@@ -45,14 +45,16 @@ parts:
     - file: element/fitting
     - file: element/mepcurve
     - file: element/pipe
+- caption: Geometry
+  maxdepth: 3
+  chapters:
   - file: geometry/geometry
-    sections:
-    - file: geometry/point
-    - file: geometry/line
-    - file: geometry/curve
-    - file: geometry/plane
-    - file: geometry/surface
-- caption: geometryAdvanced
+  - file: geometry/point
+  - file: geometry/line
+  - file: geometry/curve
+  - file: geometry/plane
+  - file: geometry/surface  
+- caption: Advanced
   maxdepth: 3
   chapters:
   - file: createcustomnode
