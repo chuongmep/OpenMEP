@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.DB;
+﻿using GShark.Geometry;
+using OpenMEP.Helpers;
 
 namespace OpenMEP.Geometry;
 
@@ -46,5 +47,27 @@ public class Point
             z += point.Z;
         }
         return Autodesk.DesignScript.Geometry.Point.ByCoordinates( x / points.Count, y / points.Count, z / points.Count );
+    }
+
+    /// <summary>Test whether a point lies on a line.</summary>
+    /// <param name="point">a point to check</param>
+    /// <param name="line">The line to test against.</param>
+    /// <param name="tolerance">Default is use 1e-6</param>
+    /// <returns name="bool">Returns true if point is on line.</returns>
+    public static bool IsOnLine(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Line line,double tolerance = 0.001)
+    {
+        Point3 point3 = new Point3(point.X, point.Y,point.Z);
+        return point3.IsOnLine(line.ToGSharkType(), tolerance);
+    }
+
+    /// <summary>Test whether a point lies on a plane.</summary>
+    /// <param name="point">point to check</param>
+    /// <param name="plane">The plane to test against.</param>
+    /// <param name="tolerance">Default is use 1e-6</param>
+    /// <returns>Returns true if point is on plane.</returns>
+    public static bool IsOnPlane(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Plane plane,double tolerance = 0.001)
+    {
+        Point3 point3 = new Point3(point.X, point.Y,point.Z);
+        return point3.IsOnPlane(plane.ToGSharkType(), tolerance);
     }
 }

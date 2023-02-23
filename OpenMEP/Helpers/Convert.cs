@@ -1,9 +1,11 @@
 ﻿using System.Reflection;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
+using GShark.Geometry;
 using Revit.Elements;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
+using Arc = Autodesk.Revit.DB.Arc;
 using dynCategory = Revit.Elements.Category;
 using dynDocument = Revit.Application.Document;
 using dynElement = Revit.Elements.Element;
@@ -13,6 +15,8 @@ using dynElementSelector = Revit.Elements.ElementSelector;
 using dynFamilyParameter = Revit.Elements.FamilyParameter;
 #endif
 using dynParameter = Revit.Elements.Parameter;
+using Line = Autodesk.Revit.DB.Line;
+using Plane = Autodesk.Revit.DB.Plane;
 using Point = Autodesk.DesignScript.Geometry.Point;
 using rvtCategory = Autodesk.Revit.DB.Category;
 using rvtDocument = Autodesk.Revit.DB.Document;
@@ -20,6 +24,7 @@ using rvtElement = Autodesk.Revit.DB.Element;
 using rvtFamilyParameter = Autodesk.Revit.DB.FamilyParameter;
 using rvtParameter = Autodesk.Revit.DB.Parameter;
 using Surface = Autodesk.DesignScript.Geometry.Surface;
+using Vector = Autodesk.DesignScript.Geometry.Vector;
 
 namespace OpenMEP.Helpers
 {
@@ -425,6 +430,39 @@ namespace OpenMEP.Helpers
             if (item == null) throw new ArgumentNullException(nameof(item));
             IEnumerable<Surface> surfaces = item.ToProtoType();
             return surfaces;
+        }
+
+        internal static Autodesk.DesignScript.Geometry.Vector ToDynamoType(this GShark.Geometry.Vector3 vector3)
+        {
+            return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(vector3.X, vector3.Y, vector3.Z);
+        }
+        internal static GShark.Geometry.Vector3 ToGSharkType(this Autodesk.DesignScript.Geometry.Vector vector)
+        {
+            return new Vector3(vector.X, vector.Y, vector.Z);
+        }
+        internal static Autodesk.DesignScript.Geometry.Point ToDynamoType(this Point3 point3)
+        {
+            return Autodesk.DesignScript.Geometry.Point.ByCoordinates(point3.X, point3.Y, point3.Z);
+        }
+        internal static Point3 ToGSharkType(this Autodesk.DesignScript.Geometry.Point point)
+        {
+            return new Point3(point.X, point.Y, point.Z);
+        }
+        internal static Autodesk.DesignScript.Geometry.Line ToDynamoType(this GShark.Geometry.Line line)
+        {
+           return Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(ToDynamoType(line.StartPoint), ToDynamoType(line.EndPoint));
+        }
+        internal static GShark.Geometry.Line ToGSharkType(this Autodesk.DesignScript.Geometry.Line line)
+        {
+            return new GShark.Geometry.Line(ToGSharkType(line.StartPoint), ToGSharkType(line.EndPoint));
+        }
+        internal static Autodesk.DesignScript.Geometry.Plane ToDynamoType(this GShark.Geometry.Plane plane)
+        {
+            return Autodesk.DesignScript.Geometry.Plane.ByOriginNormal(plane.Origin.ToDynamoType(), plane.ZAxis.ToDynamoType());
+        }
+        internal static GShark.Geometry.Plane ToGSharkType(this Autodesk.DesignScript.Geometry.Plane plane)
+        {
+            return new GShark.Geometry.Plane(plane.Origin.ToGSharkType(), plane.Normal.ToGSharkType());
         }
     }
 }
