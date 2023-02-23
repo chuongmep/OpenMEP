@@ -137,6 +137,11 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
   <img src = "https://contrib.rocks/image?repo=chuongmep/openmep"/>
 </a>
 
+# Dependencies
+
+- This package use [NUnit](https://nunit.org/) for test framework.
+- The [Revit Test Framework](https://github.com/DynamoDS/RevitTestFramework) (RTF) allows for remote testing on Revit. RTF creates a journal file for running Revit, specifies a model for it to open, and a specific test or fixture of tests to run. A model can also be specified to open before testing to run several tests with.
+- This package use [G-Shark](https://github.com/GSharker/G-Shark) - A free and open-source geometry library designed for computational designers and software developers in the Architecture, Engineering, and Construction (AEC) industry. 
 # 🔓 Open Source Recommend
 
 Some project I recommend for you at [Dynamo Open Source](https://chuongmep.github.io/Awesome-Dynamo/DynamoOpenSource/dynopensource.html)
