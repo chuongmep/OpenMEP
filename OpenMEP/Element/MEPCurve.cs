@@ -1,14 +1,11 @@
 ﻿using System.Collections;
-using System.Diagnostics;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Mechanical;
 using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
-using GShark.Geometry;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
-using RevitServices.Persistence;
 using RevitServices.Transactions;
 using Line = Autodesk.Revit.DB.Line;
 

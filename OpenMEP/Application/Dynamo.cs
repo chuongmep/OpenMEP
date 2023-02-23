@@ -7,7 +7,6 @@ public class Dynamo
 {
     private Dynamo()
     {
-        
     }
 
     /// <summary>
@@ -20,7 +19,11 @@ public class Dynamo
         Version version = assembly.GetName().Version;
         return version.ToString();
     }
-    /// <summary>
+
+#if R20
+
+#else
+/// <summary>
     /// return current file name of script opening
     /// </summary>
     /// <returns></returns>
@@ -37,4 +40,6 @@ public class Dynamo
             return string.Empty;
         }
     }
+#endif
+    
 }
