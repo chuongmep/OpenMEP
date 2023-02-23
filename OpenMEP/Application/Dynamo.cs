@@ -21,9 +21,8 @@ public class Dynamo
     }
 
 #if R20
-
 #else
-/// <summary>
+    /// <summary>
     /// return current file name of script opening
     /// </summary>
     /// <returns></returns>
@@ -41,5 +40,4 @@ public class Dynamo
         }
     }
 #endif
-    
 }

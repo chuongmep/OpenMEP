@@ -1,0 +1,683 @@
+{
+  "Uuid": "dea79531-866c-4b5f-bbae-66a6e5f8ca07",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.ProjectOntoPlane",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Geometry.Point.ProjectOntoPlane@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector",
+      "Id": "9db3e3d8f1ad49d28f05fec994f69872",
+      "Inputs": [
+        {
+          "Id": "98c560b82ae24e6e92a461070549289e",
+          "Name": "point",
+          "Description": "point need to project\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9af7f920466e41b387f8a556477b36e3",
+          "Name": "planeNormal",
+          "Description": "vector normal of plane\n\nVector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "56d2f4c2bcc443efa27bcb211f9f23b6",
+          "Name": "point",
+          "Description": "new point projected on plane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Project a point onto a plane\n\nPoint.ProjectOntoPlane (point: Point, planeNormal: Vector): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Plane.ByOriginNormal@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector",
+      "Id": "c1a2dbda9b91437f89e4515ff2ae897b",
+      "Inputs": [
+        {
+          "Id": "0a67e5f48e1b40968a59cfad202b3c67",
+          "Name": "origin",
+          "Description": "Origin point of plane\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dc0bc441b1ad47338760ad5e5062d36a",
+          "Name": "normal",
+          "Description": "Normal direction vector of plane\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "454a75a42d3c42b18ee00233d7cf1b67",
+          "Name": "Plane",
+          "Description": "Plane created by origin and normal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Plane centered at root Point, with input normal Vector.\n\nPlane.ByOriginNormal (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Plane"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Plane.Normal",
+      "Id": "c6fc306c64a04296a760a0606fc7a9c4",
+      "Inputs": [
+        {
+          "Id": "d50a9d47e78b4ad78a7baa93250c505a",
+          "Name": "plane",
+          "Description": "Autodesk.DesignScript.Geometry.Plane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f8a6a9b046994e76875664888b6536c1",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the normal direction of the Plane.\n\nPlane.Normal: Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "470da233c4cc4a27a64ad7089fd5c662",
+      "Inputs": [
+        {
+          "Id": "ad62c3c7366e4ce0a84d6a6e5ddfd995",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e0086bb2eab543b9b4aeaa28332f5571",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "08362fda7b72472d82605985acd02d93",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "699967768ea546babf1ccca4f0ad9bb0",
+          "Name": "Point",
+          "Description": "Point created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.Cross@Autodesk.DesignScript.Geometry.Vector",
+      "Id": "ff5d04026c9b4c00805ae4c8d48acc1a",
+      "Inputs": [
+        {
+          "Id": "b80a377ed531426c8ede82da93be6760",
+          "Name": "vector",
+          "Description": "Autodesk.DesignScript.Geometry.Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "965b1fd48484472ab543371b6d0da81f",
+          "Name": "cross",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "72dfec5f3fc6404a955ce9ae4695e132",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form the cross product of two vectors\n\nVector.Cross (cross: Vector): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.XAxis",
+      "Id": "2ffd67b704b34d29b18e3852faed9c48",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9c34b419197142d680e60f583e9f7881",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical X axis Vector (1,0,0)\n\nVector.XAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 50.0,
+      "MinimumValue": -50.0,
+      "StepValue": 3.0,
+      "InputValue": -50.0,
+      "Id": "608440d5091d4503b9152928cc9ae629",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "eb890b80d7aa4c868c251b8178f01620",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces numeric values."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Circle.ByPlaneRadius@Autodesk.DesignScript.Geometry.Plane,double",
+      "Id": "ac63d31d97ad4de9a1e4f7aaad928111",
+      "Inputs": [
+        {
+          "Id": "8c62bb281e6341bda84d1b212715d35a",
+          "Name": "plane",
+          "Description": "Root of plane used to center circle\n\nPlane\nDefault value : Autodesk.DesignScript.Geometry.Plane.XY()",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0e0a2084c516430483f9be63f5baa41a",
+          "Name": "radius",
+          "Description": "Radius\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "437726f34cfe43428a5bea40d4984565",
+          "Name": "Circle",
+          "Description": "Circle created with plane and radius",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Circle centered at the input Plane origin (root), lying in the input Plane, with given radius.\n\nCircle.ByPlaneRadius (plane: Plane = Autodesk.DesignScript.Geometry.Plane.XY(), radius: double = 1): Circle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Plane.ByOriginNormal@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector",
+      "Id": "942f1646d84a42c189027d37ad5191d7",
+      "Inputs": [
+        {
+          "Id": "23939fafe9f245d487431d7c942d8b68",
+          "Name": "origin",
+          "Description": "Origin point of plane\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b8bb0edd7fb54b5b8efc1d10b8352931",
+          "Name": "normal",
+          "Description": "Normal direction vector of plane\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b16a76c0322f414297f703018b7bcef5",
+          "Name": "Plane",
+          "Description": "Plane created by origin and normal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Plane centered at root Point, with input normal Vector.\n\nPlane.ByOriginNormal (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Plane"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "20;",
+      "Id": "38fecbadfd114d35af64a6aa18951269",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9824a939f9644fcf980d5395b3fb189d",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.ByPatch@Autodesk.DesignScript.Geometry.Curve",
+      "Id": "a19c70f027264e13bf422917a6eeeacf",
+      "Inputs": [
+        {
+          "Id": "084d90b3903141f0818188ee6f56baed",
+          "Name": "closedCurve",
+          "Description": "Closed curve used as surface boundary\n\nCurve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d13492f3e53f4b8590bf9033a29b34f1",
+          "Name": "Surface",
+          "Description": "Surface created by patch",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Surface by filling in the interior of a closed boundary defined by input Curves.\n\nSurface.ByPatch (closedCurve: Curve): Surface"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "e1b75bffb3b841a48943e40832fefd4c",
+      "Inputs": [
+        {
+          "Id": "32ddfc87ecb74824847ca89fd3d64090",
+          "Name": "startPoint",
+          "Description": "Line start point\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2f3b84065de445518f4f8369d9b8e881",
+          "Name": "endPoint",
+          "Description": "Line end point\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "052c2a3fdb60490bb8cc291d000c8861",
+          "Name": "Line",
+          "Description": "Line from start and end point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "56d2f4c2bcc443efa27bcb211f9f23b6",
+      "End": "2f3b84065de445518f4f8369d9b8e881",
+      "Id": "dda6443bf0044d53ad365981f8f92a09",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "454a75a42d3c42b18ee00233d7cf1b67",
+      "End": "d50a9d47e78b4ad78a7baa93250c505a",
+      "Id": "66c4f1297ac6407dbef95c1049abe6f8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f8a6a9b046994e76875664888b6536c1",
+      "End": "b80a377ed531426c8ede82da93be6760",
+      "Id": "9ca666b2758b47208a51e64777eb162b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "699967768ea546babf1ccca4f0ad9bb0",
+      "End": "98c560b82ae24e6e92a461070549289e",
+      "Id": "24b30cdbb01b4fcfabb8d7b27ca32afe",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "699967768ea546babf1ccca4f0ad9bb0",
+      "End": "32ddfc87ecb74824847ca89fd3d64090",
+      "Id": "932a7f613a8e4fb5834546590f4e97e4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "72dfec5f3fc6404a955ce9ae4695e132",
+      "End": "9af7f920466e41b387f8a556477b36e3",
+      "Id": "ce14c96b748f42059d01b6705efc4ac0",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "72dfec5f3fc6404a955ce9ae4695e132",
+      "End": "b8bb0edd7fb54b5b8efc1d10b8352931",
+      "Id": "d1812284f1fa4bc19aee493dce59df8e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9c34b419197142d680e60f583e9f7881",
+      "End": "965b1fd48484472ab543371b6d0da81f",
+      "Id": "19199c04ede84288872972f375073bd0",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "eb890b80d7aa4c868c251b8178f01620",
+      "End": "ad62c3c7366e4ce0a84d6a6e5ddfd995",
+      "Id": "213c426b941b400398c256b5f422b614",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "eb890b80d7aa4c868c251b8178f01620",
+      "End": "e0086bb2eab543b9b4aeaa28332f5571",
+      "Id": "bb1a81a15aa74a468382712a04a1e632",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "437726f34cfe43428a5bea40d4984565",
+      "End": "084d90b3903141f0818188ee6f56baed",
+      "Id": "f71a6766e29542f1bc92bd20f99cb3b6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b16a76c0322f414297f703018b7bcef5",
+      "End": "8c62bb281e6341bda84d1b212715d35a",
+      "Id": "331b229ac64c4641987d3d4cb42393c2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9824a939f9644fcf980d5395b3fb189d",
+      "End": "0e0a2084c516430483f9be63f5baa41a",
+      "Id": "1208a2e5f0824d02bce50ff44d791236",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "9db3e3d8f1ad49d28f05fec994f69872"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -161.9678955078125,
+      "EyeY": 31.990095138549805,
+      "EyeZ": -17.784633636474609,
+      "LookX": 152.30952453613281,
+      "LookY": -50.175067901611328,
+      "LookZ": 31.512321472167969,
+      "UpX": 0.0938582792878151,
+      "UpY": 0.99539625644683838,
+      "UpZ": 0.019418973475694656
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Point.ProjectOntoPlane",
+        "ShowGeometry": true,
+        "Id": "9db3e3d8f1ad49d28f05fec994f69872",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 811.4982940821186,
+        "Y": 390.03398229037487
+      },
+      {
+        "Name": "Plane.ByOriginNormal",
+        "ShowGeometry": true,
+        "Id": "c1a2dbda9b91437f89e4515ff2ae897b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 49.748829680541007,
+        "Y": 481.23182533851963
+      },
+      {
+        "Name": "Plane.Normal",
+        "ShowGeometry": true,
+        "Id": "c6fc306c64a04296a760a0606fc7a9c4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 324.47421110579057,
+        "Y": 491.24464720193009
+      },
+      {
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
+        "Id": "470da233c4cc4a27a64ad7089fd5c662",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 451.52934300314666,
+        "Y": 255.40163994739919
+      },
+      {
+        "Name": "Vector.Cross",
+        "ShowGeometry": true,
+        "Id": "ff5d04026c9b4c00805ae4c8d48acc1a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 553.7645881648823,
+        "Y": 554.87791623670523
+      },
+      {
+        "Name": "Vector.XAxis",
+        "ShowGeometry": true,
+        "Id": "2ffd67b704b34d29b18e3852faed9c48",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 249.61026001457469,
+        "Y": 652.42641399762613
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "608440d5091d4503b9152928cc9ae629",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 42.710258991333262,
+        "Y": 249.66850687394765
+      },
+      {
+        "Name": "Circle.ByPlaneRadius",
+        "ShowGeometry": true,
+        "Id": "ac63d31d97ad4de9a1e4f7aaad928111",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1291.8849003759137,
+        "Y": 504.74281278602808
+      },
+      {
+        "Name": "Plane.ByOriginNormal",
+        "ShowGeometry": true,
+        "Id": "942f1646d84a42c189027d37ad5191d7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 827.26338706003753,
+        "Y": 603.10580714252228
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "38fecbadfd114d35af64a6aa18951269",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1138.4091017790661,
+        "Y": 695.74764333674648
+      },
+      {
+        "Name": "Surface.ByPatch",
+        "ShowGeometry": true,
+        "Id": "a19c70f027264e13bf422917a6eeeacf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1613.6161229094805,
+        "Y": 503.89724499905662
+      },
+      {
+        "Name": "Line.ByStartPointEndPoint",
+        "ShowGeometry": true,
+        "Id": "e1b75bffb3b841a48943e40832fefd4c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1157.936846891899,
+        "Y": 193.88232011086296
+      }
+    ],
+    "Annotations": [],
+    "X": -175.87196129548,
+    "Y": 28.740945903824695,
+    "Zoom": 0.79397968142532194
+  }
+}

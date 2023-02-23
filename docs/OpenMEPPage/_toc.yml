@@ -48,12 +48,12 @@ parts:
 - caption: Geometry
   maxdepth: 3
   chapters:
-  - file: geometry/geometry
   - file: geometry/point
   - file: geometry/line
   - file: geometry/curve
   - file: geometry/plane
-  - file: geometry/surface  
+  - file: geometry/surface
+  - file: geometry/geometry  
 - caption: Advanced
   maxdepth: 3
   chapters:
