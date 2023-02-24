@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		CHANGELOG.md = CHANGELOG.md
 		docs\OpenMEP_DynamoCustomization.xml = docs\OpenMEP_DynamoCustomization.xml
 		docs\OpenMEPSandbox_DynamoCustomization.xml = docs\OpenMEPSandbox_DynamoCustomization.xml
+		docs\sandbox\pkg.json = docs\sandbox\pkg.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeployInstaller", "DeployInstaller\DeployInstaller.csproj", "{C7835EFE-E1C7-48B2-90D0-E943D43A905D}"
@@ -28,6 +29,7 @@ Global
 								Debug R22|Any CPU = Debug R22|Any CPU
 								Debug R23|Any CPU = Debug R23|Any CPU
 								Debug R23.1|Any CPU = Debug R23.1|Any CPU
+								Debug R24|Any CPU = Debug R24|Any CPU
 								Release R20|Any CPU = Release R20|Any CPU
 								Release R21|Any CPU = Release R21|Any CPU
 								Release R22|Any CPU = Release R22|Any CPU
@@ -56,6 +58,8 @@ Global
 		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R23.1|Any CPU.Build.0 = Debug R23.1|Any CPU
 		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R23.1|Any CPU.ActiveCfg = Release R23.1|Any CPU
 		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Release R23.1|Any CPU.Build.0 = Release R23.1|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R24|Any CPU.ActiveCfg = Debug R24|Any CPU
+		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R24|Any CPU.Build.0 = Debug R24|Any CPU
 		{C7835EFE-E1C7-48B2-90D0-E943D43A905D}.Debug R21|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7835EFE-E1C7-48B2-90D0-E943D43A905D}.Debug R22|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7835EFE-E1C7-48B2-90D0-E943D43A905D}.Debug R23|Any CPU.ActiveCfg = Debug|Any CPU
@@ -110,5 +114,7 @@ Global
 		{5FDD66F2-49B5-4896-B6FB-79B1CC457904}.Release R23|Any CPU.Build.0 = Release R23|Any CPU
 		{5FDD66F2-49B5-4896-B6FB-79B1CC457904}.Release R23.1|Any CPU.ActiveCfg = Release R23.1|Any CPU
 		{5FDD66F2-49B5-4896-B6FB-79B1CC457904}.Release R23.1|Any CPU.Build.0 = Release R23.1|Any CPU
+		{5FDD66F2-49B5-4896-B6FB-79B1CC457904}.Debug R24|Any CPU.ActiveCfg = Debug R24|Any CPU
+		{5FDD66F2-49B5-4896-B6FB-79B1CC457904}.Debug R24|Any CPU.Build.0 = Debug R24|Any CPU
 	EndGlobalSection
 EndGlobal

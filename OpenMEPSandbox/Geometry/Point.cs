@@ -97,13 +97,13 @@ public class Point
         };
     }
 
-
-    //TODO : Got some bug from G-Shark Library
+    //
+    // //TODO : Got some bug from G-Shark Library
     // /// <summary>
     // /// Tests whether a point is inside, outside, or coincident with a polygon.
     // /// </summary>
     // /// <returns name="double">Returns -1 if point is outside the polygon, 0 if it is coincident with a polygon edge, or 1 if it is inside the polygon.</returns>
-    // public static double IsInPolygon(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Polygon polygon)
+    // public static double IsInPolygon2(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Polygon polygon)
     // {
     //     if (point == null) throw new ArgumentNullException(nameof(point));
     //     if (polygon == null) throw new ArgumentNullException(nameof(polygon));
