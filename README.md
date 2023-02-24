@@ -77,10 +77,10 @@ Function Support (WIP) :
 - [x] MEP Curve
 - [x] MEP Model
 - [x] Utils
-  - [x] FamilyUtils   
-  - [x] ParameterUtils
-  - [x] LabelUtils
-  - [x] UnitUtils
+    - [x] FamilyUtils
+    - [x] ParameterUtils
+    - [x] LabelUtils
+    - [x] UnitUtils
 - [x] Wire
 - [ ] Geometry
     - [ ] Point
@@ -108,7 +108,8 @@ permissiveness.
 
 - [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech
   industries.
-- [RFR-Group](https://rfr-group.vn/index.html) -  RFR Group delivering complex projects for since 2011 and are constantly innovating to stay at the forefront of the construction environment. 
+- [RFR-Group](https://rfr-group.vn/index.html) - RFR Group delivering complex projects for since 2011 and are constantly
+  innovating to stay at the forefront of the construction environment.
 - This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP), the best IDE for C# and Python
   developer.
 - Chicken icon made by [icons8.com](https://icons8.com/)
@@ -120,7 +121,8 @@ You can make suggestions or track and submit bugs via [OpenMEP](https://github.c
 can submit your own code to the Open MEP
 project via a Github pull [request](https://github.com/chuongmep/OpenMEP/pulls).
 
-- Discuss In Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
+- Discuss In
+  Forum : [Open MEP Package Feedback Thread](https://forum.dynamobim.com/t/openmep-package-feedback-thread/86350)
 
 # 👥 Contributing
 
@@ -137,11 +139,16 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
 # Dependencies
 
 - This package use [NUnit](https://nunit.org/) for test framework.
-- The [Revit Test Framework](https://github.com/DynamoDS/RevitTestFramework) (RTF) allows for remote testing on Revit. RTF creates a journal file for running Revit, specifies a model for it to open, and a specific test or fixture of tests to run. A model can also be specified to open before testing to run several tests with.
-- This package use [G-Shark](https://github.com/GSharker/G-Shark) - A free and open-source geometry library designed for computational designers and software developers in the Architecture, Engineering, and Construction (AEC) industry. 
+- The [Revit Test Framework](https://github.com/DynamoDS/RevitTestFramework) (RTF) allows for remote testing on Revit.
+  RTF creates a journal file for running Revit, specifies a model for it to open, and a specific test or fixture of
+  tests to run. A model can also be specified to open before testing to run several tests with.
+- This package use [G-Shark](https://github.com/GSharker/G-Shark) - A free and open-source geometry library designed for
+  computational designers and software developers in the Architecture, Engineering, and Construction (AEC) industry.
+
 # 🔓 Open Source Recommend
 
-Some project I recommend for you at [Dynamo Open Source](https://chuongmep.github.io/Awesome-Dynamo/DynamoOpenSource/dynopensource.html)
+Some project I recommend for you
+at [Dynamo Open Source](https://chuongmep.github.io/Awesome-Dynamo/DynamoOpenSource/dynopensource.html)
 
 # 🙋‍♂️ FAQ
 
@@ -153,18 +160,21 @@ It not support way I maintain with multiple version and release CI/CD with Dynam
 
 <details><summary>Can I use this package with Dynamo Sandbox ?</summary>
 
-At the moment, this package is not supported with Dynamo Sandbox. You can use this package with Dynamo Revit.
+At the moment, this package is not supported with Dynamo Sandbox. You can use this package with Dynamo Revit, but in
+feature I will support Geometry can use with Dynamo Sandbox.
 
 </details>
 
 <details><summary>Can I write Python Script with OpenMEP Package ?</summary>
 
-Yes, you can write Python Script with OpenMEP Package. You can read more about [How To Write Python Script With OpenMEP](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
+Yes, you can write Python Script with OpenMEP Package. You can read more
+about [How To Write Python Script With OpenMEP](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
 
 </details>
 
 <details><summary>What is MEPCurve ?</summary>
 
-**[MEPCurve](https://www.revitapidocs.com/2015/38714847-0f40-7021-aa79-2884c3a02ce2.htm)** is a curve object for duct or pipe blend elements, it mean input require **Duct** or **Pipe** element.
+**[MEPCurve](https://www.revitapidocs.com/2015/38714847-0f40-7021-aa79-2884c3a02ce2.htm)** is a curve object for duct or
+pipe blend elements, it mean input require **Duct** or **Pipe** element.
 
 </details>
