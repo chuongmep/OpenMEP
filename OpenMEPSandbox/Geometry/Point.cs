@@ -117,6 +117,7 @@ public class Point
     /// <param name="polygon">the polygon</param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
+    [NodeCategory("Query")]
     public static bool IsInPolygon(Autodesk.DesignScript.Geometry.Point point,
         Autodesk.DesignScript.Geometry.Polygon polygon)
     {

@@ -22,3 +22,8 @@
 ## IsOnLine
 
 ![IsOnLine](dyn/pic/Point.IsOnLine.gif)
+
+
+## IsInPolygon
+
+![IsInPolygon](dyn/pic/Point.IsInPolygon.gif)
