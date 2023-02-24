@@ -4,15 +4,16 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
-        <AssemblyVersion>1.0.0.*</AssemblyVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyVersion>1.0.0.*</AssemblyVersion>
         <AssemblyName>OpenMEPSandbox</AssemblyName>
         <RootNamespace>OpenMEPSandbox</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1</Configurations>
-        <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
+        <Configurations>Debug 2.3;Debug 2.6;Debug 2.12;Debug 2.13;Debug 2.16;Debug 2.18;</Configurations>
+        <Configurations>Release 2.3;Release 2.6;Release 2.12;Release 2.13;Release 2.16;Release 2.18;</Configurations>
         <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;NU1701</NoWarn>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug 2.3'))">
         <DynamoVersion>2.3</DynamoVersion>
@@ -25,13 +26,13 @@
         <DynamoOutput>2.3</DynamoOutput>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug 2.6'))">
-        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoVersion>2.6</DynamoVersion>
         <DynamoOutput>2.6</DynamoOutput>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Release 2.6'))">
-        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoVersion>2.6</DynamoVersion>
         <DynamoOutput>2.6</DynamoOutput>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug 2.12'))">
@@ -88,7 +89,7 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynamoVersion).*">
+        <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
     </ItemGroup>

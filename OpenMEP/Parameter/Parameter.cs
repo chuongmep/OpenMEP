@@ -22,7 +22,7 @@ public class Parameter
         return revitPra?.Element.ToDynamoType();
     }
 
-#if R21
+#if R20 || R21 || R22
     /// <summary>
     /// Return information value of parameter
     /// </summary>
