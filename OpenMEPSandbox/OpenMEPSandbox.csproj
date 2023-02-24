@@ -1,20 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>true</ImplicitUsings>
-        <AssemblyVersion>1.0.0.*</AssemblyVersion>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <LangVersion>latest</LangVersion>
-        <UseWPF>true</UseWPF>
-        <RootNamespace>OpenMEP</RootNamespace>
-        <AssemblyName>OpenMEP</AssemblyName>
+        <Nullable>enable</Nullable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyVersion>1.0.0.*</AssemblyVersion>
+        <AssemblyName>OpenMEPSandbox</AssemblyName>
+        <RootNamespace>OpenMEPSandbox</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
-        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;MSB3277</NoWarn>
+        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;NU1701</NoWarn>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
@@ -94,41 +93,14 @@
         <Copyright>MIT</Copyright>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>dynamo</PackageTags>
-        <FolderPackages>$(Appdata)\Dynamo\Dynamo Revit\$(BuildOutput)\packages\OpenMEP\</FolderPackages>
+        <FolderPackages>$(Appdata)\Dynamo\Dynamo Core\$(DynVersion)\packages\OpenMEP\</FolderPackages>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Chuongmep.Revit.Api.RevitAPI" Version="$(RevitVersion).*">
-            <ExcludeAssets>runtime</ExcludeAssets>
-        </PackageReference>
-        <PackageReference Include="Chuongmep.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*">
-            <ExcludeAssets>runtime</ExcludeAssets>
-        </PackageReference>
+        <PackageReference Include="GShark" Version="2.2.0" />
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-        <PackageReference Include="DynamoVisualProgramming.Revit" Version="$(DynVersion).*">
-            <ExcludeAssets>runtime</ExcludeAssets>
-        </PackageReference>
-        <Reference Include="System.Net.Http" />
-        <PackageReference Include="GShark" Version="2.2.0" />
-        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    </ItemGroup>
-    <ItemGroup>
-        <EmbeddedResource Update="Resources\OpenMEPImages.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>OpenMEPImages.Designer.cs</LastGenOutput>
-        </EmbeddedResource>
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Update="Resources\OpenMEPImages.Designer.cs">
-            <DesignTime>True</DesignTime>
-            <AutoGen>True</AutoGen>
-            <DependentUpon>OpenMEPImages.resx</DependentUpon>
-        </Compile>
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\OpenMEPSandbox\OpenMEPSandbox.csproj" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
@@ -145,12 +117,5 @@
         <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
         <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
         <Message Text="Copied Completed" Importance="high" />
-    </Target>
-    <Target Name="GenerateCustomization" BeforeTargets="Build">
-        <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v4.8">
-            <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
-        </GetReferenceAssemblyPaths>
-        <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\Resources\OpenMEPimages.resx" OutputResources="$(ProjectDir)\Resources\OpenMEPimages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
-        <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\Resources\OpenMEPimages.resources" OutputAssembly="$(TargetDir)OpenMEP.customization.dll" />
     </Target>
 </Project>

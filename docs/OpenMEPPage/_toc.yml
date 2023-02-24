@@ -9,13 +9,13 @@ options:
   numbered: True
 parts:
 - caption: Getting Started
-  maxdepth: 3
+  maxdepth: 2
   chapters:
   - file: tutorial/installation
   - file : tutorial/uninstall
   - file: tutorial/upgrade
 - caption: Tutorial
-  maxdepth: 3  # The displayed Table of Contents will only have two levels
+  maxdepth: 2  # The displayed Table of Contents will only have two levels
   chapters:
   - file: application/application
     sections:

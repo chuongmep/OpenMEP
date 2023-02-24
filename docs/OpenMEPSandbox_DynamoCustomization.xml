@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpenMEPSandbox</name>
+  </assembly>
+  <namespaces>
+    <namespace name="OpenMEPSandbox.Geometry">
+      <category>OpenMEP.Geometry</category>
+    </namespace>
+  </namespaces>
+</doc>
