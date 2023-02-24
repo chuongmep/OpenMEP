@@ -1,6 +1,6 @@
 # ConnectorManager
 
-```{contents}
+```{tableofcontents}
 ```
 
 ![](dyn/pic/ConnectorManager.png)
