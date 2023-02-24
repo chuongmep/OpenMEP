@@ -26,4 +26,4 @@
 
 ## IsInPolygon
 
-![IsInPolygon](dyn/pic/Point.IsInPolygon.gif)
+![IsInPolygon](dyn/pic/Point.IsInPolygons.gif)
