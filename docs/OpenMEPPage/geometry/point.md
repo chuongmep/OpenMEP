@@ -11,6 +11,10 @@
 
 ![Centroid](dyn/pic/Point.Centroid.gif)
 
+## Deconstruct 
+
+![Deconstruct](dyn/pic/Point.Deconstruct.png)
+
 ## IsOnPlane
 
 ![IsOnPlane](dyn/pic/Point.IsOnPlane.gif)

@@ -214,7 +214,7 @@ public class Fitting
         // Get Current Unit 
         FormatOptions units = doc.GetUnits().GetFormatOptions(SpecTypeId.PipeSize);
         double value = UnitUtils.ConvertToInternalUnits(radius, units.GetUnitTypeId());
-        connectors.ForEach(x => x.Radius = value);
+        connectors.ForEach(x => x!.Radius = value);
         TransactionManager.Instance.TransactionTaskDone();
         return fitting;
     }

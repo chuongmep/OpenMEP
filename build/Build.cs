@@ -25,7 +25,7 @@ class Build : NukeBuild
     ///   - Microsoft VSCode           https://nuke.build/vscode
     readonly string[] Projects =
     {
-        "OpenMEP"
+        "OpenMEP",
     };
 
     const string ArtifactsFolder = "output";
