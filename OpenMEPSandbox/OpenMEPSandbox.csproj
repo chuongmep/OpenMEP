@@ -10,72 +10,80 @@
         <RootNamespace>OpenMEPSandbox</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <Configurations>Debug 2.3;Debug 2.6;Debug 2.12;Debug 2.13;Debug 2.16;Debug 2.18;</Configurations>
-        <Configurations>Release 2.3;Release 2.6;Release 2.12;Release 2.13;Release 2.16;Release 2.18;</Configurations>
+        <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1</Configurations>
+        <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
         <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;NU1701</NoWarn>
         <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.3'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
         <DynamoOutput>2.3</DynamoOutput>
+        <RevitVersion>2020</RevitVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R20</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Release 2.3'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Release R20'))">
         <DynamoVersion>2.3</DynamoVersion>
         <DynamoOutput>2.3</DynamoOutput>
+        <RevitVersion>2020</RevitVersion>
+        <DefineConstants>$(DefineConstants);R20</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.6'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R21'))">
         <DynamoVersion>2.6</DynamoVersion>
         <DynamoOutput>2.6</DynamoOutput>
+        <RevitVersion>2021</RevitVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Release 2.6'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Release R21'))">
         <DynamoVersion>2.6</DynamoVersion>
         <DynamoOutput>2.6</DynamoOutput>
+        <RevitVersion>2021</RevitVersion>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.12'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R22'))">
         <DynamoVersion>2.12</DynamoVersion>
         <DynamoOutput>2.12</DynamoOutput>
+        <RevitVersion>2022</RevitVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Release 2.12'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Release R22'))">
         <DynamoVersion>2.12</DynamoVersion>
         <DynamoOutput>2.12</DynamoOutput>
+        <RevitVersion>2022</RevitVersion>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.13'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R23'))">
         <DynamoVersion>2.13</DynamoVersion>
         <DynamoOutput>2.13</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.13'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Release R23'))">
         <DynamoVersion>2.13</DynamoVersion>
         <DynamoOutput>2.13</DynamoOutput>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
+        <RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.16'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R23.1'))">
         <DynamoVersion>2.16</DynamoVersion>
         <DynamoOutput>2.16</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Release 2.16'))">
+    <PropertyGroup Condition="$(Configuration.Contains('Release R23.1'))">
         <DynamoVersion>2.16</DynamoVersion>
         <DynamoOutput>2.16</DynamoOutput>
-    </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.18'))">
-        <DynamoVersion>2.18</DynamoVersion>
-        <DynamoOutput>2.18</DynamoOutput>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-    </PropertyGroup>
-    <PropertyGroup Condition="$(Configuration.Contains('Release 2.18'))">
-        <DynamoVersion>2.18</DynamoVersion>
-        <DynamoOutput>2.18</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
     <PropertyGroup>
         <DynVersion>$(DynamoVersion)</DynVersion>
@@ -85,10 +93,11 @@
         <Copyright>MIT</Copyright>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>dynamo</PackageTags>
-        <FolderPackages>$(Appdata)\Dynamo\Dynamo Core\$(BuildOutput)\packages\OpenMEP\</FolderPackages>
+        <FolderPackages>$(Appdata)\Dynamo\Dynamo Core\$(DynVersion)\packages\OpenMEP\</FolderPackages>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="GShark" Version="2.2.0" />
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
