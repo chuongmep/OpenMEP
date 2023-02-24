@@ -1,11 +1,4 @@
 # Application
 
-```{contents}
+```{tableofcontents}
 ```
-
-## Dynamo 
-
-## Revit 
-
-## Windows
-
