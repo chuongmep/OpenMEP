@@ -1,0 +1,111 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <AssemblyVersion>1.0.0.*</AssemblyVersion>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyName>OpenMEPSandbox</AssemblyName>
+        <RootNamespace>OpenMEPSandbox</RootNamespace>
+        <PlatformTarget>x64</PlatformTarget>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1</Configurations>
+        <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
+        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;NU1701</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.3'))">
+        <DynamoVersion>2.3</DynamoVersion>
+        <DynamoOutput>2.3</DynamoOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release 2.3'))">
+        <DynamoVersion>2.3</DynamoVersion>
+        <DynamoOutput>2.3</DynamoOutput>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.6'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release 2.6'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.12'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release 2.12'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.13'))">
+        <DynamoVersion>2.13</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.13'))">
+        <DynamoVersion>2.13</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.16'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.16</DynamoOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release 2.16'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.16</DynamoOutput>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug 2.18'))">
+        <DynamoVersion>2.18</DynamoVersion>
+        <DynamoOutput>2.18</DynamoOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release 2.18'))">
+        <DynamoVersion>2.18</DynamoVersion>
+        <DynamoOutput>2.18</DynamoOutput>
+    </PropertyGroup>
+    <PropertyGroup>
+        <DynVersion>$(DynamoVersion)</DynVersion>
+        <BuildOutput>$(DynamoOutput)</BuildOutput>
+        <PublishSingleFile>true</PublishSingleFile>
+        <PublishTrimmed>true</PublishTrimmed>
+        <Copyright>MIT</Copyright>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>dynamo</PackageTags>
+        <FolderPackages>$(Appdata)\Dynamo\Dynamo Core\$(BuildOutput)\packages\OpenMEP\</FolderPackages>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynamoVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    <Target Name="CopyFiles" AfterTargets="CoreBuild">
+        <ItemGroup>
+            <AssemblyFiles Include="$(TargetDir)*.*" />
+            <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
+            <XmlCustomization Include="$(SolutionDir)docs\*.xml" />
+            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
+            <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
+        </ItemGroup>
+        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
+        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
+        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
+        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
+        <Message Text="Copied Completed" Importance="high" />
+    </Target>
+</Project>

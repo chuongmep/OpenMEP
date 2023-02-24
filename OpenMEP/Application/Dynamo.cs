@@ -20,7 +20,7 @@ public class Dynamo
         return version.ToString();
     }
 
-#if R20
+#if R20 || R21
 #else
     /// <summary>
     /// return current file name of script opening

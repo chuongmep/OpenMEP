@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using OpenMEP.Helpers;
 
@@ -21,18 +22,20 @@ public class Parameter
         return revitPra?.Element.ToDynamoType();
     }
 
+#if R21
     /// <summary>
     /// Return information value of parameter
     /// </summary>
     /// <param name="parameter"></param>
     /// <returns></returns>
-    public static IDictionary? GetParameterInformation(Revit.Elements.Parameter parameter)
+    [MultiReturn("Group", "Name", "ParameterType", "StorageType", "UnitType", "Id", "Value", "IsReadOnly", "HasValue", "IsShared")]
+    public static Dictionary<string,object?> GetParameterInformation(Revit.Elements.Parameter parameter)
     {
         string Group = parameter.Group;
-        string Name = parameter.Name;
         string ParameterType = parameter.ParameterType;
+        string UnitType = parameter.UnitType; 
+        string Name = parameter.Name;
         string StorageType = parameter.StorageType;
-        string UnitType = parameter.UnitType;
         int Id = parameter.Id;
         object Value = parameter.Value;
         bool IsReadOnly = parameter.IsReadOnly;
@@ -52,6 +55,42 @@ public class Parameter
             {nameof(IsShared), IsShared},
         };
     }
+#else
+    /// <summary>
+    /// Return information value of parameter
+    /// </summary>
+    /// <param name="parameter"></param>
+    /// <returns></returns>
+    [MultiReturn("GroupTypeId", "Name", "SpecType", "StorageType", "UnitType", "Id", "Value", "IsReadOnly", "HasValue",
+        "IsShared")]
+    public static Dictionary<string, object?> GetParameterInformation(Revit.Elements.Parameter parameter)
+    {
+        string GroupTypeId = parameter.GroupType.TypeId;
+        string Name = parameter.Name; 
+        var SpecType = parameter.SpecType;
+        string StorageType = parameter.StorageType;
+        var UnitType = parameter.Unit;
+        int Id = parameter.Id;
+        object Value = parameter.Value;
+        bool IsReadOnly = parameter.IsReadOnly;
+        bool HasValue = parameter.HasValue;
+        bool IsShared = parameter.IsShared;
+        return new Dictionary<string, object?>()
+        {
+            {nameof(GroupTypeId), GroupTypeId},
+            {nameof(Name), Name},
+            {nameof(SpecType), SpecType},
+            {nameof(StorageType), StorageType},
+            {nameof(UnitType), UnitType},
+            {nameof(Id), Id},
+            {nameof(Value), Value},
+            {nameof(IsReadOnly), IsReadOnly},
+            {nameof(HasValue), HasValue},
+            {nameof(IsShared), IsShared},
+        };
+    }
+#endif
+
 
     /// <summary>
     /// Describes the type that is used internally within the parameter to store its value.
@@ -132,16 +171,16 @@ public class Parameter
     }
 
 #if R22 || R23
-        /// <summary>
-        /// Gets the identifier of the parameter.
-        /// </summary>
-        /// <param name="parameter"></param>
-        /// <returns></returns>
-        public static string? GetTypeId(Revit.Elements.Parameter? parameter)
-        {
-            Autodesk.Revit.DB.Parameter? revitParameter = parameter?.ToRevitType();
-            Autodesk.Revit.DB.ForgeTypeId? storageType = revitParameter?.GetTypeId();
-            return storageType?.TypeId;
-        }
+    /// <summary>
+    /// Gets the identifier of the parameter.
+    /// </summary>
+    /// <param name="parameter"></param>
+    /// <returns></returns>
+    public static string? GetTypeId(Revit.Elements.Parameter? parameter)
+    {
+        Autodesk.Revit.DB.Parameter? revitParameter = parameter?.ToRevitType();
+        Autodesk.Revit.DB.ForgeTypeId? storageType = revitParameter?.GetTypeId();
+        return storageType?.TypeId;
+    }
 #endif
 }
