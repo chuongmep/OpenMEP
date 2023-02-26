@@ -2,4 +2,5 @@
 
 ## Version
 
-![](dyn/pic/Dynamo.Version.jpg)
+![](dyn/pic/Dynamo.Version.png)
+

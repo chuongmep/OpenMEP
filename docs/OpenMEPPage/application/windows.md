@@ -2,4 +2,4 @@
 
 ## Version 
 
-![](dyn/pic/Windows.Version.jpg)
+![](dyn/pic/Windows.Version.png)

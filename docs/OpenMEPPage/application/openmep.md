@@ -2,4 +2,4 @@
 
 ## Version
 
-![](dyn/pic/OpenMEP.Version.jpg)
+![](dyn/pic/OpenMEP.Version.png)

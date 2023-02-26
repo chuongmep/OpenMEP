@@ -31,75 +31,6 @@
       "Replication": "Disabled"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.GetConnectors@Revit.Elements.Element",
-      "Id": "c0a3ef1b22154022947b351251d99f91",
-      "Inputs": [
-        {
-          "Id": "ae916d96e5ce4778be2392d3b237227e",
-          "Name": "element",
-          "Description": "element\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "b0fea31109414b11afaef391c74d2dab",
-          "Name": "connectors",
-          "Description": "connectors",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "return list connector from element\n\nConnector.GetConnectors (element: Element): var[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.SetAngle@var,double",
-      "Id": "dfe5125739c3440482942aa56c2e6d02",
-      "Inputs": [
-        {
-          "Id": "dfbe62f738fb4b66bb3db1a3bfba53de",
-          "Name": "connector",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "b14cba7a506549aa90c8059c61909162",
-          "Name": "angle",
-          "Description": "double",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "ca079dc707f24b5a8f6cab94946227e2",
-          "Name": "void",
-          "Description": "void",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "set new angle for connector\n\nConnector.SetAngle (connector: var, angle: double): void"
-    },
-    {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
       "Code": "30;",
@@ -118,37 +49,142 @@
       ],
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectors@Revit.Elements.Element",
+      "Id": "14d812bb09a348aca32e6103c2798bcf",
+      "Inputs": [
+        {
+          "Id": "455e7bbd92ad47a1affe0f8f6172be22",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6a02a6ca53084c1a8f2a4468d2a4f76e",
+          "Name": "connectors",
+          "Description": "connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector from element\n\nConnector.GetConnectors (element: Element): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FirstItem@var[]..[]",
+      "Id": "de3b87e9dba64bc0a0fafdea35bedefb",
+      "Inputs": [
+        {
+          "Id": "2c3bd36328104473ab9adc65970ba30e",
+          "Name": "list",
+          "Description": "List to get the first item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e37a21410b5e416d9dd5b8dd5be5d763",
+          "Name": "item",
+          "Description": "First item in the list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the first item in a list.\n\nList.FirstItem (list: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.SetAngle@var,double",
+      "Id": "a515e91abf4d43139da7c041ba7f0258",
+      "Inputs": [
+        {
+          "Id": "fd353e2923654dba99a5efc4cba761e4",
+          "Name": "connector",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f04a5bb835344d7bbb8b913cf4db7c00",
+          "Name": "angle",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "46c30afe3f8b4de985f9298fe37a4567",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "set new angle for connector\n\nConnector.SetAngle (connector: var, angle: double): void"
     }
   ],
   "Connectors": [
     {
       "Start": "bc3d8a2f13064925b0f7243b7ab8d156",
-      "End": "ae916d96e5ce4778be2392d3b237227e",
-      "Id": "4aba55632c3e4661b811261b296e3ea2",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "b0fea31109414b11afaef391c74d2dab",
-      "End": "dfbe62f738fb4b66bb3db1a3bfba53de",
-      "Id": "7fe2c8b97868489ba2b5b46fc81d3c1c",
+      "End": "455e7bbd92ad47a1affe0f8f6172be22",
+      "Id": "ab475c00d4c049998185a5f38b6b8c2d",
       "IsHidden": "False"
     },
     {
       "Start": "91c793bffacb455285504b7f46be83d2",
-      "End": "b14cba7a506549aa90c8059c61909162",
-      "Id": "7f7114188cf44305bca44d3d47985125",
+      "End": "f04a5bb835344d7bbb8b913cf4db7c00",
+      "Id": "ca86e14c213543a2badeaf3c76178c3c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6a02a6ca53084c1a8f2a4468d2a4f76e",
+      "End": "2c3bd36328104473ab9adc65970ba30e",
+      "Id": "99fe77373ed5444593c055b2d18b7468",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e37a21410b5e416d9dd5b8dd5be5d763",
+      "End": "fd353e2923654dba99a5efc4cba761e4",
+      "Id": "158b8929d22b493f89ad16ec0f50662a",
       "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [
     {
-      "Name": "Exyte",
-      "Version": "1.0.1",
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "c0a3ef1b22154022947b351251d99f91",
-        "dfe5125739c3440482942aa56c2e6d02"
+        "14d812bb09a348aca32e6103c2798bcf",
+        "a515e91abf4d43139da7c041ba7f0258"
       ]
     }
   ],
@@ -210,39 +246,49 @@
         "Y": 47.66857901662172
       },
       {
-        "Name": "Connector.GetConnectors",
-        "ShowGeometry": true,
-        "Id": "c0a3ef1b22154022947b351251d99f91",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 583.23847837729556,
-        "Y": 56.631109061797645
-      },
-      {
-        "Name": "Connector.SetAngle",
-        "ShowGeometry": true,
-        "Id": "dfe5125739c3440482942aa56c2e6d02",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 903.76373132065942,
-        "Y": 68.378107860769092
-      },
-      {
         "Name": "Code Block",
         "ShowGeometry": true,
         "Id": "92db1fabbfab4d868d4edb068964e4fb",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 709.0,
-        "Y": 179.0
+        "X": 890.55131112932054,
+        "Y": 83.74662151510995
+      },
+      {
+        "Name": "Connector.GetConnectors",
+        "ShowGeometry": true,
+        "Id": "14d812bb09a348aca32e6103c2798bcf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 589.44760631389454,
+        "Y": -70.404292235650672
+      },
+      {
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
+        "Id": "de3b87e9dba64bc0a0fafdea35bedefb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 886.4702096294086,
+        "Y": -98.605741383089082
+      },
+      {
+        "Name": "Connector.SetAngle",
+        "ShowGeometry": true,
+        "Id": "a515e91abf4d43139da7c041ba7f0258",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1157.3249345530389,
+        "Y": 3.5298044898698038
       }
     ],
     "Annotations": [],
-    "X": -291.68967427309019,
-    "Y": 235.91770839408963,
-    "Zoom": 1.1917937712929563
+    "X": -220.73786883106476,
+    "Y": 353.85635812107876,
+    "Zoom": 0.982642311367965
   }
 }

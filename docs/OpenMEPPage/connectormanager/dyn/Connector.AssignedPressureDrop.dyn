@@ -13,7 +13,7 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+        "be616ece-f29c-41ea-90be-1913ce942448-0009414b"
       ],
       "Id": "933da09ce5494d8e8ff9a9e935c8266f",
       "Inputs": [],
@@ -63,11 +63,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.AssignedPressureDrop@var",
-      "Id": "807b9908f4c8445082ec7ea740eac1ec",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedPressureDrop@var",
+      "Id": "20dacfb0c38e45848fac8f93195e90b3",
       "Inputs": [
         {
-          "Id": "ba69a6ecaf264d76b6f598c313bbc671",
+          "Id": "33ffb82f862348bc982c3ea925aae1e7",
           "Name": "connector",
           "Description": "Connector\n\nvar",
           "UsingDefaultValue": false,
@@ -78,7 +78,7 @@
       ],
       "Outputs": [
         {
-          "Id": "85ff08ba0f4646adb6cfb879f3f6a900",
+          "Id": "7eb3dd9a6d784a149baa837059e3fac1",
           "Name": "AssignedPressureDrop",
           "Description": "AssignedPressureDrop",
           "UsingDefaultValue": false,
@@ -100,8 +100,8 @@
     },
     {
       "Start": "d547a3cef1f44a10a4e6fdd3610988dc",
-      "End": "ba69a6ecaf264d76b6f598c313bbc671",
-      "Id": "31611f76370f4388aa897c0f7694f978",
+      "End": "33ffb82f862348bc982c3ea925aae1e7",
+      "Id": "c45a288430b34f5c978a6ef78ac8a7db",
       "IsHidden": "False"
     }
   ],
@@ -112,15 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "e70c4a4f55ea427a89f73822996719c1"
-      ]
-    },
-    {
-      "Name": "Exyte",
-      "Version": "1.0.1",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "807b9908f4c8445082ec7ea740eac1ec"
+        "e70c4a4f55ea427a89f73822996719c1",
+        "20dacfb0c38e45848fac8f93195e90b3"
       ]
     }
   ],
@@ -194,17 +187,17 @@
       {
         "Name": "Connector.AssignedPressureDrop",
         "ShowGeometry": true,
-        "Id": "807b9908f4c8445082ec7ea740eac1ec",
+        "Id": "20dacfb0c38e45848fac8f93195e90b3",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 861.73063190023731,
-        "Y": 235.2827072169249
+        "X": 876.97463401123264,
+        "Y": 204.64525199384582
       }
     ],
     "Annotations": [],
-    "X": -336.1064231911447,
-    "Y": -54.774233882289366,
-    "Zoom": 1.33823125
+    "X": -167.33212111546322,
+    "Y": 121.5949236938184,
+    "Zoom": 0.9540429248828125
   }
 }

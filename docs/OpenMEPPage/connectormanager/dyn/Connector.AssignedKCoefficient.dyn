@@ -13,7 +13,7 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+        "be616ece-f29c-41ea-90be-1913ce942448-0009414b"
       ],
       "Id": "933da09ce5494d8e8ff9a9e935c8266f",
       "Inputs": [],
@@ -63,11 +63,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.AssignedKCoefficient@var",
-      "Id": "6be8b15736e14112adcddf0cdee5f951",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedKCoefficient@var",
+      "Id": "c84420472e3349b38b71ba20e6fd65b9",
       "Inputs": [
         {
-          "Id": "46de79fa99404c0b851e8bcf3de2a4d6",
+          "Id": "c564b5962bd64d99a5eb77351d126c4b",
           "Name": "connector",
           "Description": "Connector\n\nvar",
           "UsingDefaultValue": false,
@@ -78,7 +78,7 @@
       ],
       "Outputs": [
         {
-          "Id": "56eafc5740974d19b4b5b55e6737d6d1",
+          "Id": "cb29c84feba149e08aea78a422dae657",
           "Name": "AssignedKCoefficient",
           "Description": "AssignedKCoefficient",
           "UsingDefaultValue": false,
@@ -100,8 +100,8 @@
     },
     {
       "Start": "d547a3cef1f44a10a4e6fdd3610988dc",
-      "End": "46de79fa99404c0b851e8bcf3de2a4d6",
-      "Id": "c0c7cc5238374ed7a7294207f95f021d",
+      "End": "c564b5962bd64d99a5eb77351d126c4b",
+      "Id": "700a6f632b68439f8734c13063812765",
       "IsHidden": "False"
     }
   ],
@@ -112,15 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "e70c4a4f55ea427a89f73822996719c1"
-      ]
-    },
-    {
-      "Name": "Exyte",
-      "Version": "1.0.1",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "6be8b15736e14112adcddf0cdee5f951"
+        "e70c4a4f55ea427a89f73822996719c1",
+        "c84420472e3349b38b71ba20e6fd65b9"
       ]
     }
   ],
@@ -194,17 +187,17 @@
       {
         "Name": "Connector.AssignedKCoefficient",
         "ShowGeometry": true,
-        "Id": "6be8b15736e14112adcddf0cdee5f951",
+        "Id": "c84420472e3349b38b71ba20e6fd65b9",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 864.71965192200116,
-        "Y": 240.51349225501144
+        "X": 893.41424413093364,
+        "Y": 156.07367664018409
       }
     ],
     "Annotations": [],
-    "X": -334.1064231911447,
-    "Y": -65.774233882289366,
-    "Zoom": 1.33823125
+    "X": -191.40893320869873,
+    "Y": 158.63832407566017,
+    "Zoom": 0.9540429248828125
   }
 }
