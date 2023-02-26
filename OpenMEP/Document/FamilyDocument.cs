@@ -9,13 +9,13 @@ public class FamilyDocument
     /// <summary>
     /// The family manager object provides access to family types and parameters.
     /// </summary>
-    /// <param name="doc">family document</param>
+    /// <param name="familyDocument">family document</param>
     /// <returns name="familyManager">family manager</returns>
-    public static FamilyManager FamilyManager(Autodesk.Revit.DB.Document doc)
+    public static FamilyManager FamilyManager(Autodesk.Revit.DB.Document familyDocument)
     {
-        if (doc.IsFamilyDocument)
+        if (familyDocument.IsFamilyDocument)
         {
-            return doc.FamilyManager;
+            return familyDocument.FamilyManager;
         }
         throw new ArgumentException("input document require is family document");
     }
