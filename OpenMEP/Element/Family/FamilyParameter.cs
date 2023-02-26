@@ -89,10 +89,11 @@ public class FamilyParameter
     /// <returns name="forgeTypeId">forgeTypeId</returns>
     public static dynamic GetUnitTypeId(Autodesk.Revit.DB.FamilyParameter familyParameter)
     {
-#if R22 || R23
-            dynamic? displayUnitType = familyParameter.GetUnitTypeId();
-#elif R21 || R20
+#if R20 || R21
         dynamic? displayUnitType = familyParameter.DisplayUnitType;
+            
+#else
+        dynamic? displayUnitType = familyParameter.GetUnitTypeId();
 #endif
         return displayUnitType;
     }

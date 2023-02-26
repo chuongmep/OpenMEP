@@ -83,7 +83,8 @@ Function Support (WIP) :
     - [x] UnitUtils
 - [x] Wire
 - [ ] Geometry
-    - [ ] Point
+    - [x] Vector
+    - [x] Point
     - [ ] Line
     - [ ] Plane
     - [ ] Curve

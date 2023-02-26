@@ -17,21 +17,21 @@ public class Fitting
     /// <summary>
     /// Add a new family instance of an union fitting into the Autodesk Revit document, using two connectors.
     /// </summary>
-    /// <param name="c1"> The first connector to be connected to the union.</param>
-    /// <param name="c2"> The second connector to be connected to the union.</param>
+    /// <param name="firstConnector"> The first connector to be connected to the union.</param>
+    /// <param name="secondConnector"> The second connector to be connected to the union.</param>
     /// <returns name="familyinstance">If creation was successful then an family instance to the new object is returned, otherwise an exception with failure information will be thrown.</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewUnionFitting(Autodesk.Revit.DB.Connector c1,
-        Autodesk.Revit.DB.Connector c2)
+    public static global::Revit.Elements.Element? NewUnionFitting(Autodesk.Revit.DB.Connector firstConnector,
+        Autodesk.Revit.DB.Connector secondConnector)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.ForceCloseTransaction();
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.FamilyInstance unionFitting = doc.Create.NewUnionFitting(c1, c2);
+        Autodesk.Revit.DB.FamilyInstance unionFitting = doc.Create.NewUnionFitting(firstConnector, secondConnector);
         TransactionManager.Instance.TransactionTaskDone();
         if (unionFitting == null)
         {
-            ConnectorSet connectorSet = c1.AllRefs;
+            ConnectorSet connectorSet = firstConnector.AllRefs;
             IEnumerator enumerator = connectorSet.GetEnumerator();
             while (enumerator.MoveNext())
             {
@@ -70,34 +70,34 @@ public class Fitting
     /// <summary>
     /// Add a new family instance of a cross fitting into the Autodesk Revit document, using four connectors.
     /// </summary>
-    /// <param name="c1"> The first connector to be connected to the cross.</param>
-    /// <param name="c2"> The second connector to be connected to the cross.</param>
-    /// <param name="c3">The third connector to be connected to the cross.</param>
-    /// <param name="c4">The fourth connector to be connected to the cross</param>
-    ///<returns name="familyInstance">If creation was successful then an family instance to the new object is returned, and the transition fitting will be added at the connectors' end if necessary, otherwise an exception with failure information will be thrown.</returns>
+    /// <param name="connector1"> The first connector to be connected to the cross.</param>
+    /// <param name="connector2"> The second connector to be connected to the cross.</param>
+    /// <param name="connector3">The third connector to be connected to the cross.</param>
+    /// <param name="connector4">The fourth connector to be connected to the cross</param>
+    ///<returns name="familyinstance">If creation was successful then an family instance to the new object is returned, and the transition fitting will be added at the connectors' end if necessary, otherwise an exception with failure information will be thrown.</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewCrossFitting(Autodesk.Revit.DB.Connector c1,
-        Autodesk.Revit.DB.Connector c2,
-        Autodesk.Revit.DB.Connector c3, Autodesk.Revit.DB.Connector c4)
+    public static global::Revit.Elements.Element? NewCrossFitting(Autodesk.Revit.DB.Connector connector1,
+        Autodesk.Revit.DB.Connector connector2,
+        Autodesk.Revit.DB.Connector connector3, Autodesk.Revit.DB.Connector connector4)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        bool flag1 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c2.CoordinateSystem.BasisZ.ToDynamoVector());
-        bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(c3.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag1 = connector1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(connector2.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag2 = connector1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(connector3.CoordinateSystem.BasisZ.ToDynamoVector());
         Autodesk.Revit.DB.FamilyInstance newCrossFitting;
         // resolve problem of cross fitting with side-side-main-main input
         TransactionManager.Instance.EnsureInTransaction(doc);
         if (flag1)
         {
-            newCrossFitting = doc.Create.NewCrossFitting(c1, c2, c3, c4);
+            newCrossFitting = doc.Create.NewCrossFitting(connector1, connector2, connector3, connector4);
         }
         else if (flag2)
         {
-            newCrossFitting = doc.Create.NewCrossFitting(c1, c3, c2, c4);
+            newCrossFitting = doc.Create.NewCrossFitting(connector1, connector3, connector2, connector4);
         }
         else
         {
-            newCrossFitting = doc.Create.NewCrossFitting(c1, c4, c2, c3);
+            newCrossFitting = doc.Create.NewCrossFitting(connector1, connector4, connector2, connector3);
         }
         TransactionManager.Instance.TransactionTaskDone();
         if (newCrossFitting == null) return null;
@@ -107,18 +107,18 @@ public class Fitting
     /// <summary>
     /// Add a new family instance of a tee fitting into the Autodesk Revit document, using three connectors.
     /// </summary>
-    /// <param name="c1">The first connector to be connected to the tee</param>
-    /// <param name="c2">The second connector to be connected to the tee.</param>
-    /// <param name="c3">The third connector to be connected to the tee. This should be connected to the branch of the tee.</param>
+    /// <param name="connector1">The first connector to be connected to the tee</param>
+    /// <param name="connector2">The second connector to be connected to the tee.</param>
+    /// <param name="connector3">The third connector to be connected to the tee. This should be connected to the branch of the tee.</param>
     /// <returns name="familyinstance">If creation was successful then an family instance to the new object is returned, and the transition fitting will be added at the connectors' end if necessary, otherwise an exception with failure information will be thrown</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewTeeFitting(Autodesk.Revit.DB.Connector c1,
-        Autodesk.Revit.DB.Connector c2,
-        Autodesk.Revit.DB.Connector c3)
+    public static global::Revit.Elements.Element? NewTeeFitting(Autodesk.Revit.DB.Connector connector1,
+        Autodesk.Revit.DB.Connector connector2,
+        Autodesk.Revit.DB.Connector connector3)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewTeeFitting(c1, c2, c3);
+        Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewTeeFitting(connector1, connector2, connector3);
         TransactionManager.Instance.TransactionTaskDone();
         if (familyInstance == null) return null;
         return familyInstance.ToDynamoType();
@@ -129,7 +129,7 @@ public class Fitting
     /// </summary>
     /// <param name="connector">The connector to be connected to the takeoff.</param>
     /// <param name="mepCurve">The duct or pipe which is the trunk for the takeoff.</param>
-    /// <returns></returns>
+    /// <returns name="familyinstance">new takeoff</returns>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTakeoffFitting(Autodesk.Revit.DB.Connector connector,
         global::Revit.Elements.Element mepCurve)
@@ -146,16 +146,16 @@ public class Fitting
     /// <summary>
     /// Add a new family instance of an transition fitting into the Autodesk Revit document, using two connectors.
     /// </summary>
-    /// <param name="c1">The first connector to be connected to the transition.</param>
-    /// <param name="c2">The second connector to be connected to the transition.</param>
-    /// <returns></returns>
+    /// <param name="connector1">The first connector to be connected to the transition.</param>
+    /// <param name="connector2">The second connector to be connected to the transition.</param>
+    /// <returns name="familyinsntace">new transition</returns>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewTransitionFitting(Autodesk.Revit.DB.Connector c1,
-        Autodesk.Revit.DB.Connector c2)
+    public static global::Revit.Elements.Element? NewTransitionFitting(Autodesk.Revit.DB.Connector connector1,
+        Autodesk.Revit.DB.Connector connector2)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewTransitionFitting(c1, c2);
+        Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewTransitionFitting(connector1, connector2);
         TransactionManager.Instance.TransactionTaskDone();
         if (familyInstance == null) return null;
         return familyInstance.ToDynamoType();

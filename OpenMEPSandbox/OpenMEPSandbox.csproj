@@ -10,7 +10,7 @@
         <RootNamespace>OpenMEPSandbox</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1</Configurations>
+        <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
         <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;NU1701</NoWarn>
         <Platforms>AnyCPU</Platforms>
@@ -85,6 +85,12 @@
         <RevitVersion>2023</RevitVersion>
         <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.18</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
     <PropertyGroup>
         <DynVersion>$(DynamoVersion)</DynVersion>
         <BuildOutput>$(DynamoOutput)</BuildOutput>
@@ -93,7 +99,7 @@
         <Copyright>MIT</Copyright>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>dynamo</PackageTags>
-        <FolderPackages>$(Appdata)\Dynamo\Dynamo Core\$(DynVersion)\packages\OpenMEP\</FolderPackages>
+        <FolderPackages>$(Appdata)\Dynamo\Dynamo Core\$(DynamoOutput)\packages\OpenMEP\</FolderPackages>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
@@ -105,7 +111,7 @@
     <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
-            <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
+            <PgkDefinition Include="$(SolutionDir)docs\sandbox\pkg.json" />
             <XmlCustomization Include="$(SolutionDir)docs\*.xml" />
             <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
             <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
