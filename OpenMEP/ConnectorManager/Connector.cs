@@ -285,16 +285,28 @@ public class Connector
     }
 
     /// <summary>
-    /// return list connector from element
+    /// return list connector unused from element
     /// </summary>
     /// <param name="element">element</param>
-    /// <returns name="connectors">connectors</returns>
+    /// <returns name="connectors">unused connectors</returns>
     public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors(Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
             global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetUnusedConnectors(connectorManager);
+    }
+    
+    /// <summary>
+    /// return list connector used from element
+    /// </summary>
+    /// <param name="element">element</param>
+    /// <returns name="connectors">unused connectors</returns>
+    public static List<Autodesk.Revit.DB.Connector?> GetUsedConnectors(Revit.Elements.Element? element)
+    {
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        if (GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
+        return GetConnectors(element).Where(x=>x!.IsConnected).ToList();
     }
 
     /// <summary>
