@@ -50,6 +50,7 @@ parts:
 - caption: Geometry
   maxdepth: 3
   chapters:
+  - file: geometry/vector
   - file: geometry/point
   - file: geometry/line
   - file: geometry/curve
