@@ -301,7 +301,7 @@ public class Connector
     /// return list connector used from element
     /// </summary>
     /// <param name="element">element</param>
-    /// <returns name="connectors">unused connectors</returns>
+    /// <returns name="connectors">used connectors</returns>
     public static List<Autodesk.Revit.DB.Connector?> GetUsedConnectors(Revit.Elements.Element? element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
