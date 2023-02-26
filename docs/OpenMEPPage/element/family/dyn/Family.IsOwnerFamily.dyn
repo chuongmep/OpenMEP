@@ -1,0 +1,268 @@
+{
+  "Uuid": "521d7a21-5ec8-4fd9-b444-ac6bdb9b1110",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Family.IsOwnerFamily",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+      ],
+      "Id": "20e9b13f00d54ce99a3231256dae0785",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "14d71371736e4eabbde917cac879379e",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.FamilyType.Family",
+      "Id": "e7c3604866124a27a69700d3096128a1",
+      "Inputs": [
+        {
+          "Id": "3c982f0a2d9643698505073a49ad144d",
+          "Name": "familyType",
+          "Description": "Revit.Elements.FamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "44ad2cfa7b1a461a8199495889feae8e",
+          "Name": "Family",
+          "Description": "Family",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the parent family of this FamilyType\n\nFamilyType.Family: Family"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.ElementType",
+      "Id": "e85a7fc8267b4a668cb672413a8a4279",
+      "Inputs": [
+        {
+          "Id": "8c08cf7924df4af4aff146815d18c1a8",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0725547b5c054a3b930f17aa04379ad4",
+          "Name": "ElementType",
+          "Description": "Element Type or Null.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the ElementType for this Element. Returns null if the Element cannot have an ElementType assigned.\n\nElement.ElementType: ElementType"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "// Select a family instance",
+      "Id": "4511c87b54004986aa3b691650511678",
+      "Inputs": [],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Family.Family.IsOwnerFamily@Revit.Elements.Family",
+      "Id": "5c372fadd4dd4b7d87bf3a181c1f1997",
+      "Inputs": [
+        {
+          "Id": "f7a6ad84f026448995da6eef42125723",
+          "Name": "family",
+          "Description": "family\n\nFamily",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "032f045b045440a4a29b1e7381834df6",
+          "Name": "bool",
+          "Description": "result",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "True if the family is the owner family for its own editable document, false otherwise.\n\nFamily.IsOwnerFamily (family: Family): bool"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "14d71371736e4eabbde917cac879379e",
+      "End": "8c08cf7924df4af4aff146815d18c1a8",
+      "Id": "4b77f95cb2c248d9a3c0ed6a6794a127",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "44ad2cfa7b1a461a8199495889feae8e",
+      "End": "f7a6ad84f026448995da6eef42125723",
+      "Id": "448efac2d09c4a88879180ea2647d092",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0725547b5c054a3b930f17aa04379ad4",
+      "End": "3c982f0a2d9643698505073a49ad144d",
+      "Id": "0ec963dc805046958a17e093ba8edab8",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "5c372fadd4dd4b7d87bf3a181c1f1997"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "20e9b13f00d54ce99a3231256dae0785",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -78.387059341578265,
+        "Y": 115.78266454501278
+      },
+      {
+        "Name": "FamilyType.Family",
+        "ShowGeometry": true,
+        "Id": "e7c3604866124a27a69700d3096128a1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 444.43264032711392,
+        "Y": 104.1874599075565
+      },
+      {
+        "Name": "Element.ElementType",
+        "ShowGeometry": true,
+        "Id": "e85a7fc8267b4a668cb672413a8a4279",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 224.04870190454756,
+        "Y": 270.23898353606091
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "4511c87b54004986aa3b691650511678",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -75.4994092649157,
+        "Y": -15.453721631031897
+      },
+      {
+        "Name": "Family.IsOwnerFamily",
+        "ShowGeometry": true,
+        "Id": "5c372fadd4dd4b7d87bf3a181c1f1997",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 736.65808277364715,
+        "Y": 71.641431135387222
+      }
+    ],
+    "Annotations": [],
+    "X": 160.91997109508577,
+    "Y": 205.5045655931649,
+    "Zoom": 0.83273793691306519
+  }
+}
