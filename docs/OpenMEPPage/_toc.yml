@@ -9,13 +9,13 @@ options:
   numbered: True
 parts:
 - caption: Getting Started
-  maxdepth: 2
+  maxdepth: 3
   chapters:
   - file: tutorial/installation
   - file : tutorial/uninstall
   - file: tutorial/upgrade
 - caption: Tutorial
-  maxdepth: 2  # The displayed Table of Contents will only have two levels
+  maxdepth: 3  # The displayed Table of Contents will only have two levels
   chapters:
   - file: application/application
     sections:
@@ -40,8 +40,10 @@ parts:
       - file: element/family/familysizemanager
       - file: element/family/familytype
     - file: element/cabletray
+    - file: element/familyinstance
     - file: element/conduit
     - file: element/duct
+    - file: element/insulation
     - file: element/fitting
     - file: element/mepcurve
     - file: element/pipe
@@ -57,5 +59,5 @@ parts:
 - caption: Advanced
   maxdepth: 3
   chapters:
-  - file: createcustomnode
-  - file : python
+  - file: advanced/createcustomnode
+  - file : advanced/python

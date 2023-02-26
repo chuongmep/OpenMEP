@@ -115,7 +115,7 @@ public class Point
     /// </summary>
     /// <param name="point">the point</param>
     /// <param name="polygon">the polygon</param>
-    /// <returns></returns>
+    /// <returns name="bool">true if point is in polygon</returns>
     /// <exception cref="ArgumentNullException"></exception>
     [NodeCategory("Query")]
     public static bool IsInPolygon(Autodesk.DesignScript.Geometry.Point point,
@@ -125,4 +125,26 @@ public class Point
         if (polygon == null) throw new ArgumentNullException(nameof(polygon));
         return polygon.ContainmentTest(point);
     }
+
+    /// <summary>
+    ///     Gets a point with X,Y,Z = 0
+    /// </summary>
+    /// <returns name="point">point</returns>
+    public static Autodesk.DesignScript.Geometry.Point Origin()
+    {
+        return Autodesk.DesignScript.Geometry.Point.ByCoordinates(0,0,0);
+    }
+    
+    /// <summary>
+    /// Offset a point by a distance and a direction
+    /// </summary>
+    /// <param name="point">point to offset</param>
+    /// <param name="distance">distance from start point to end point</param>
+    /// <param name="direction">direction to direct to</param>
+    /// <returns name="point">new point</returns>
+    public static Autodesk.DesignScript.Geometry.Point Offset(Autodesk.DesignScript.Geometry.Point point,double distance, Autodesk.DesignScript.Geometry.Vector direction)
+    {
+        return point.Add(direction.ToGSharkType().Amplify(distance).ToDynamoType());
+    }
+    
 }
