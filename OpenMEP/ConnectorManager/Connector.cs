@@ -137,7 +137,7 @@ public class Connector
     /// <param name="element">element to check</param>
     /// <param name="connectorSet">an collection connectors</param>
     /// <returns name="connector">closet connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(Revit.Elements.Element? element,
+    internal static Autodesk.Revit.DB.Connector? GetConnectorClosest(Revit.Elements.Element? element,
         ConnectorSet? connectorSet)
     {
         Autodesk.Revit.DB.Connector? closet = null;
@@ -205,6 +205,52 @@ public class Connector
         }
 
         return Farthest;
+    }
+    
+    /// <summary>
+    /// Return Farthest Connector between element1 from element2
+    /// </summary>
+    /// <param name="element1">first element</param>
+    /// <param name="element2">second element</param>
+    /// <returns name="connector">Farthest connector of element1</returns>
+    public static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element1,
+        Revit.Elements.Element? element2)
+    {
+        ConnectorSet? connectorSet = GetConnectorSet(element1);
+        if (connectorSet == null)
+        {
+            return null;
+        }
+
+        Autodesk.Revit.DB.Connector? connector = GetConnectorFarthest(element2, connectorSet);
+        return connector;
+    }
+    
+    /// <summary>
+    /// Get Farthest Connector With Element
+    /// </summary>
+    /// <param name="element">element to check</param>
+    /// <param name="connectorSet">an collection connectors</param>
+    /// <returns name="connector">farthest connector</returns>
+    internal static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element,
+        ConnectorSet? connectorSet)
+    {
+        Autodesk.Revit.DB.Connector? farthest = null;
+        Point? locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
+        double distance = Double.MaxValue;
+        foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
+        {
+            if (locationCenter != null)
+            {
+                double distanceTo = locationCenter.DistanceTo(connector!.Origin.ToPoint());
+                if (distanceTo >= distance)
+                {
+                    farthest = connector;
+                    distance = distanceTo;
+                }
+            }
+        }
+        return farthest;
     }
 
     /// <summary>
