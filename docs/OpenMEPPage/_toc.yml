@@ -40,6 +40,7 @@ parts:
       - file: element/family/familysizemanager
       - file: element/family/familytype
     - file: element/cabletray
+    - file: element/wire
     - file: element/familyinstance
     - file: element/conduit
     - file: element/duct
