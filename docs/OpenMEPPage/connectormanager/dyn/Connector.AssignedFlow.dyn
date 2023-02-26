@@ -13,7 +13,7 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+        "be616ece-f29c-41ea-90be-1913ce942448-0009414b"
       ],
       "Id": "933da09ce5494d8e8ff9a9e935c8266f",
       "Inputs": [],
@@ -63,11 +63,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.AssignedFlow@var",
-      "Id": "ff76a640908342b8b41b459e01a1596c",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedFlow@var",
+      "Id": "6fb773b504ca476786a0a0f9ba1176d8",
       "Inputs": [
         {
-          "Id": "6ae7cba327954412a62a87c812c4e1d7",
+          "Id": "50ac3104459141958526965210074abf",
           "Name": "connector",
           "Description": "Connector\n\nvar",
           "UsingDefaultValue": false,
@@ -78,7 +78,7 @@
       ],
       "Outputs": [
         {
-          "Id": "b6b0f1690a824ffb851095c2c5c88ffe",
+          "Id": "77109be9752645fcb3ee14dd1c777469",
           "Name": "AssignedFlow",
           "Description": "AssignedFlow",
           "UsingDefaultValue": false,
@@ -100,8 +100,8 @@
     },
     {
       "Start": "d547a3cef1f44a10a4e6fdd3610988dc",
-      "End": "6ae7cba327954412a62a87c812c4e1d7",
-      "Id": "9c694dc4c13e48068328e11671257a68",
+      "End": "50ac3104459141958526965210074abf",
+      "Id": "21c608eb88554de0b0ce777932d986ca",
       "IsHidden": "False"
     }
   ],
@@ -112,15 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "e70c4a4f55ea427a89f73822996719c1"
-      ]
-    },
-    {
-      "Name": "Exyte",
-      "Version": "1.0.1",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "ff76a640908342b8b41b459e01a1596c"
+        "e70c4a4f55ea427a89f73822996719c1",
+        "6fb773b504ca476786a0a0f9ba1176d8"
       ]
     }
   ],
@@ -194,17 +187,17 @@
       {
         "Name": "Connector.AssignedFlow",
         "ShowGeometry": true,
-        "Id": "ff76a640908342b8b41b459e01a1596c",
+        "Id": "6fb773b504ca476786a0a0f9ba1176d8",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 866.96141693832385,
-        "Y": 236.77721722780666
+        "X": 874.88231999599816,
+        "Y": 230.64972618319098
       }
     ],
     "Annotations": [],
-    "X": -338.1064231911447,
-    "Y": -60.774233882289366,
-    "Zoom": 1.33823125
+    "X": -160.95562044443113,
+    "Y": 124.24082155285745,
+    "Zoom": 0.93181152849833082
   }
 }

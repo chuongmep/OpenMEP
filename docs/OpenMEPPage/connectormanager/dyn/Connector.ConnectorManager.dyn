@@ -63,11 +63,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.ConnectorManager@var",
-      "Id": "35543074e1aa44619b7ca692c0c31a0f",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.ConnectorManager@var",
+      "Id": "1b01f4c38b63492085c39dd305db0291",
       "Inputs": [
         {
-          "Id": "9129dfb68fcf467b8e144096dd7b9c2c",
+          "Id": "71c9e8cf908540b6b64aaf01dbae12c8",
           "Name": "connector",
           "Description": "Connector\n\nvar",
           "UsingDefaultValue": false,
@@ -78,7 +78,7 @@
       ],
       "Outputs": [
         {
-          "Id": "ea0ca3558fb94890bfe495b5387b4855",
+          "Id": "0c6dd24d043c4c8da7f770f6a43ec75e",
           "Name": "ConnectorManager",
           "Description": "ConnectorManager",
           "UsingDefaultValue": false,
@@ -100,8 +100,8 @@
     },
     {
       "Start": "d547a3cef1f44a10a4e6fdd3610988dc",
-      "End": "9129dfb68fcf467b8e144096dd7b9c2c",
-      "Id": "e523a9ef3fdd4bc4a702db55ddf47706",
+      "End": "71c9e8cf908540b6b64aaf01dbae12c8",
+      "Id": "8a6ab5a269e34739a42dea19b0f4d2b7",
       "IsHidden": "False"
     }
   ],
@@ -112,15 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "e70c4a4f55ea427a89f73822996719c1"
-      ]
-    },
-    {
-      "Name": "Exyte",
-      "Version": "1.0.1",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "35543074e1aa44619b7ca692c0c31a0f"
+        "e70c4a4f55ea427a89f73822996719c1",
+        "1b01f4c38b63492085c39dd305db0291"
       ]
     }
   ],
@@ -194,17 +187,17 @@
       {
         "Name": "Connector.ConnectorManager",
         "ShowGeometry": true,
-        "Id": "35543074e1aa44619b7ca692c0c31a0f",
+        "Id": "1b01f4c38b63492085c39dd305db0291",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 863.97239691656023,
-        "Y": 242.00800226589331
+        "X": 864.82335298955354,
+        "Y": 236.1808155278232
       }
     ],
     "Annotations": [],
-    "X": -303.1064231911447,
-    "Y": -58.774233882289366,
-    "Zoom": 1.33823125
+    "X": -196.52079878844654,
+    "Y": 25.574673962708175,
+    "Zoom": 1.130842140625
   }
 }

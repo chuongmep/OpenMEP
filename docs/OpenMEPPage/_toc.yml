@@ -40,6 +40,7 @@ parts:
       - file: element/family/familysizemanager
       - file: element/family/familytype
     - file: element/cabletray
+    - file: element/wire
     - file: element/familyinstance
     - file: element/conduit
     - file: element/duct
@@ -47,9 +48,15 @@ parts:
     - file: element/fitting
     - file: element/mepcurve
     - file: element/pipe
+  - file: parameter/parameter
+    sections:
+    - file: parameter/definition
+    - file: parameter/projectparameter
+    - file: parameter/sharedparameter
 - caption: Geometry
   maxdepth: 3
   chapters:
+  - file: geometry/vector
   - file: geometry/point
   - file: geometry/line
   - file: geometry/curve

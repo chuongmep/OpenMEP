@@ -33,41 +33,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.Direction@var",
-      "Id": "600112e234f1482e8e0ae261264c1050",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectors@Revit.Elements.Element",
+      "Id": "82d2adb3a0b741c6aba5541f401d1f0f",
       "Inputs": [
         {
-          "Id": "d3e0efa85d664a2195a6f79aa66132eb",
-          "Name": "connector",
-          "Description": "connector\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "656ec085cff549efbd17c69060bb12b4",
-          "Name": "vector",
-          "Description": "direction of connector by CoordinateSystem",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Get direction of connector\n\nConnector.Direction (connector: var): Vector"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.GetConnectors@Revit.Elements.Element",
-      "Id": "c0a3ef1b22154022947b351251d99f91",
-      "Inputs": [
-        {
-          "Id": "ae916d96e5ce4778be2392d3b237227e",
+          "Id": "72f5572534cc495b83aa0a8be0001ae0",
           "Name": "element",
           "Description": "element\n\nElement",
           "UsingDefaultValue": false,
@@ -78,7 +48,7 @@
       ],
       "Outputs": [
         {
-          "Id": "b0fea31109414b11afaef391c74d2dab",
+          "Id": "0a744bd90520454eadc8c448193e3324",
           "Name": "connectors",
           "Description": "connectors",
           "UsingDefaultValue": false,
@@ -89,31 +59,61 @@
       ],
       "Replication": "Auto",
       "Description": "return list connector from element\n\nConnector.GetConnectors (element: Element): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Direction@var",
+      "Id": "89d413dff93e43a5a2e9ab2b98e57d8d",
+      "Inputs": [
+        {
+          "Id": "4cc429ed5e37473bb15505ff880c6708",
+          "Name": "connector",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "99c8b92b31ea448ca646f1e87930a739",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get direction of connector\n\nConnector.Direction (connector: var): Point"
     }
   ],
   "Connectors": [
     {
       "Start": "bc3d8a2f13064925b0f7243b7ab8d156",
-      "End": "ae916d96e5ce4778be2392d3b237227e",
-      "Id": "4aba55632c3e4661b811261b296e3ea2",
+      "End": "72f5572534cc495b83aa0a8be0001ae0",
+      "Id": "bd6ee728091747f784f6b6442854b112",
       "IsHidden": "False"
     },
     {
-      "Start": "b0fea31109414b11afaef391c74d2dab",
-      "End": "d3e0efa85d664a2195a6f79aa66132eb",
-      "Id": "77ede899a581451f9f842600fc6e5480",
+      "Start": "0a744bd90520454eadc8c448193e3324",
+      "End": "4cc429ed5e37473bb15505ff880c6708",
+      "Id": "8349e26855e94118979dbc9d887d36b7",
       "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [
     {
-      "Name": "Exyte",
-      "Version": "1.0.1",
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "600112e234f1482e8e0ae261264c1050",
-        "c0a3ef1b22154022947b351251d99f91"
+        "82d2adb3a0b741c6aba5541f401d1f0f",
+        "89d413dff93e43a5a2e9ab2b98e57d8d"
       ]
     }
   ],
@@ -175,29 +175,29 @@
         "Y": 47.66857901662172
       },
       {
-        "Name": "Connector.Direction",
-        "ShowGeometry": true,
-        "Id": "600112e234f1482e8e0ae261264c1050",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 901.246517292308,
-        "Y": 62.5046084612834
-      },
-      {
         "Name": "Connector.GetConnectors",
         "ShowGeometry": true,
-        "Id": "c0a3ef1b22154022947b351251d99f91",
+        "Id": "82d2adb3a0b741c6aba5541f401d1f0f",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 583.23847837729556,
-        "Y": 56.631109061797645
+        "X": 589.9510491195648,
+        "Y": 59.6517658958189
+      },
+      {
+        "Name": "Connector.Direction",
+        "ShowGeometry": true,
+        "Id": "89d413dff93e43a5a2e9ab2b98e57d8d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 880.60536225982992,
+        "Y": 63.679308341180587
       }
     ],
     "Annotations": [],
-    "X": -244.68967427309019,
-    "Y": 156.91770839408963,
-    "Zoom": 1.1917937712929563
+    "X": -235.89085313600549,
+    "Y": 252.59128534765176,
+    "Zoom": 1.0060041900272452
   }
 }

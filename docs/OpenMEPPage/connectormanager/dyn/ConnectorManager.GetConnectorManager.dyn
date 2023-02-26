@@ -10,36 +10,6 @@
   "Outputs": [],
   "Nodes": [
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.ConnectorManager.GetConnectorManager@Revit.Elements.Element",
-      "Id": "29d232a483d447098b6d98e72831081d",
-      "Inputs": [
-        {
-          "Id": "eb56d14657034a69bf45bdb2ca8ec23d",
-          "Name": "element",
-          "Description": "element\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "a3c77bbc60f84df29a0a86dea73e79a9",
-          "Name": "ConnectorManager",
-          "Description": "ConnectorManager",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "return connector manager of element\n\nConnectorManager.GetConnectorManager (element: Element): var"
-    },
-    {
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
@@ -59,24 +29,54 @@
         }
       ],
       "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager@Revit.Elements.Element",
+      "Id": "928d32c1bda547a49d03e7cee43e1f20",
+      "Inputs": [
+        {
+          "Id": "71780885c1c34f8c9ee18ddc63035a26",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b8026c47b0454197a3ae9c7e768dbaa4",
+          "Name": "ConnectorManager",
+          "Description": "ConnectorManager",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return connector manager of element\n\nConnectorManager.GetConnectorManager (element: Element): var"
     }
   ],
   "Connectors": [
     {
       "Start": "71fa7134e39b4db1afc849cfe4fc6245",
-      "End": "eb56d14657034a69bf45bdb2ca8ec23d",
-      "Id": "3fef5e7508784d08a4487cc73b0ed6a3",
+      "End": "71780885c1c34f8c9ee18ddc63035a26",
+      "Id": "8fbfc67ea0cc4f638e9f50d2c7988bdf",
       "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [
     {
-      "Name": "Exyte",
-      "Version": "1.0.1",
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "29d232a483d447098b6d98e72831081d"
+        "928d32c1bda547a49d03e7cee43e1f20"
       ]
     }
   ],
@@ -128,16 +128,6 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "ConnectorManager.GetConnectorManager",
-        "ShowGeometry": true,
-        "Id": "29d232a483d447098b6d98e72831081d",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 860.117205789536,
-        "Y": 549.540906077879
-      },
-      {
         "Name": "Select Model Element",
         "ShowGeometry": true,
         "Id": "242497a6c4084d61a5c543ae732d3bf6",
@@ -146,11 +136,21 @@
         "Excluded": false,
         "X": 551.048068007344,
         "Y": 522.356410596196
+      },
+      {
+        "Name": "ConnectorManager.GetConnectorManager",
+        "ShowGeometry": true,
+        "Id": "928d32c1bda547a49d03e7cee43e1f20",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 854.69151448163052,
+        "Y": 445.67596113956245
       }
     ],
     "Annotations": [],
-    "X": -361.68336867622179,
-    "Y": -245.71779042543216,
-    "Zoom": 1.0792537289518345
+    "X": -516.12879891588875,
+    "Y": -249.28955420861394,
+    "Zoom": 1.0298856394709859
   }
 }

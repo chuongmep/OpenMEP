@@ -12,7 +12,9 @@
     {
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
-      "InstanceId": [],
+      "InstanceId": [
+        "be616ece-f29c-41ea-90be-1913ce942448-0009414b"
+      ],
       "Id": "36d61c2272d340e291bc2edf7169cf86",
       "Inputs": [],
       "Outputs": [
@@ -57,13 +59,49 @@
       ],
       "Replication": "Auto",
       "Description": "The demand of the connector.\n\nConnector.Demand (connector: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectors@Revit.Elements.Element",
+      "Id": "ae666e088fd846edaad2ab2cbc50fcc8",
+      "Inputs": [
+        {
+          "Id": "ced35b3a30bc4968a410ae32ff047b5a",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "85d209a19e1d45b887b977da0e1478f0",
+          "Name": "connectors",
+          "Description": "connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector from element\n\nConnector.GetConnectors (element: Element): var[]"
     }
   ],
   "Connectors": [
     {
       "Start": "9df9e54412cc4d38a3d755c16db4f048",
+      "End": "ced35b3a30bc4968a410ae32ff047b5a",
+      "Id": "2cdb13be55984914aad0d184dbf02310",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "85d209a19e1d45b887b977da0e1478f0",
       "End": "c038eda3aa4c4318a030b07dffa9e538",
-      "Id": "2ffb18bd275a4570a6b1cb48ed47ca77",
+      "Id": "e2769b45664f438a8db6b3568813353e",
       "IsHidden": "False"
     }
   ],
@@ -74,7 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "b34382f995d54ca481cf82564fd7203b"
+        "b34382f995d54ca481cf82564fd7203b",
+        "ae666e088fd846edaad2ab2cbc50fcc8"
       ]
     }
   ],
@@ -105,7 +144,7 @@
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
-      "HasRunWithoutCrash": false,
+      "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.16.1.2727",
       "RunType": "Manual",
@@ -142,13 +181,23 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 546.4000000000002,
-        "Y": 340.0
+        "X": 857.60000000000025,
+        "Y": 324.0
+      },
+      {
+        "Name": "Connector.GetConnectors",
+        "ShowGeometry": true,
+        "Id": "ae666e088fd846edaad2ab2cbc50fcc8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 561.2,
+        "Y": 336.8
       }
     ],
     "Annotations": [],
-    "X": 53.599999999999852,
-    "Y": 12.0,
+    "X": -144.80000000000024,
+    "Y": 26.400000000000034,
     "Zoom": 1.0
   }
 }

@@ -147,4 +147,5 @@ public class Point
         return point.Add(direction.ToGSharkType().Amplify(distance).ToDynamoType());
     }
     
+    
 }

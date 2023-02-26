@@ -13,7 +13,7 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+        "be616ece-f29c-41ea-90be-1913ce942448-0009414b"
       ],
       "Id": "933da09ce5494d8e8ff9a9e935c8266f",
       "Inputs": [],
@@ -63,11 +63,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.AssignedFlowFactor@var",
-      "Id": "25b82c0bb20e4648a835791532cb1878",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedFlowFactor@var",
+      "Id": "878afba7a1d54ca494021c98fe56360f",
       "Inputs": [
         {
-          "Id": "05a183b1128f4ff3929e5071492dfa21",
+          "Id": "18f43507cd8e4da99b6c06c9fa98a1de",
           "Name": "connector",
           "Description": "Connector\n\nvar",
           "UsingDefaultValue": false,
@@ -78,7 +78,7 @@
       ],
       "Outputs": [
         {
-          "Id": "2f57a15a155243d8bc0d67e3b20e8298",
+          "Id": "55c5c66db35a4779b2c9312aa98085f9",
           "Name": "AssignedFlowFactor",
           "Description": "AssignedFlowFactor",
           "UsingDefaultValue": false,
@@ -88,7 +88,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "The assigned flow factor of this connector.\n\nConnector.AssignedFlowFactor (connector: var): double"
+      "Description": "The assigned flow factor of connector.\n\nConnector.AssignedFlowFactor (connector: var): double"
     }
   ],
   "Connectors": [
@@ -100,8 +100,8 @@
     },
     {
       "Start": "d547a3cef1f44a10a4e6fdd3610988dc",
-      "End": "05a183b1128f4ff3929e5071492dfa21",
-      "Id": "366d4ea69cca46efbae37c0c772d05ba",
+      "End": "18f43507cd8e4da99b6c06c9fa98a1de",
+      "Id": "86d3b0a0a6fd4586aa295b0e4a5bd723",
       "IsHidden": "False"
     }
   ],
@@ -112,15 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "e70c4a4f55ea427a89f73822996719c1"
-      ]
-    },
-    {
-      "Name": "Exyte",
-      "Version": "1.0.1",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "25b82c0bb20e4648a835791532cb1878"
+        "e70c4a4f55ea427a89f73822996719c1",
+        "878afba7a1d54ca494021c98fe56360f"
       ]
     }
   ],
@@ -194,17 +187,17 @@
       {
         "Name": "Connector.AssignedFlowFactor",
         "ShowGeometry": true,
-        "Id": "25b82c0bb20e4648a835791532cb1878",
+        "Id": "878afba7a1d54ca494021c98fe56360f",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 885.64279207434811,
-        "Y": 223.32662712986959
+        "X": 866.51306393505945,
+        "Y": 242.60580627024615
       }
     ],
     "Annotations": [],
-    "X": -338.1064231911447,
-    "Y": -60.774233882289366,
-    "Zoom": 1.33823125
+    "X": -186.4740190601928,
+    "Y": 112.59511841867902,
+    "Zoom": 0.9540429248828125
   }
 }

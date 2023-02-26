@@ -1,6 +1,7 @@
 ﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
+using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 using Revit.Elements;
 using Revit.GeometryConversion;
@@ -16,17 +17,27 @@ public class Connector
 {
     private Connector()
     {
-        
+
     }
+
     /// <summary>
     /// return the radius of connector
     /// </summary>
     /// <param name="connector">connector</param>
     /// <returns name="radius">radius</returns>
-    public static double Radius(  Autodesk.Revit.DB.Connector connector)
+    public static double Radius(Autodesk.Revit.DB.Connector connector)
     {
         double radius = connector.Radius;
-        return radius;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_PipeSize).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(radius, unitTypeId);
+        return value;
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.PipeSize).GetUnitTypeId();
+        double value = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
+        return value;
+#endif
     }
 
     /// <summary>
@@ -35,7 +46,7 @@ public class Connector
     /// <param name="point">origin</param>
     /// <param name="connectors">list connector to check</param>
     /// <returns name="connector">connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Point? point,
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(Point? point,
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? closet = null;
@@ -49,6 +60,7 @@ public class Connector
                 distance = distanceTo;
             }
         }
+
         return closet;
     }
 
@@ -58,7 +70,7 @@ public class Connector
     /// <param name="c">first connector</param>
     /// <param name="connectors">an collection connectors to check</param>
     /// <returns name="connector">closet connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Autodesk.Revit.DB.Connector? c,
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(Autodesk.Revit.DB.Connector? c,
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? closet = null;
@@ -72,16 +84,17 @@ public class Connector
                 distance = distanceTo;
             }
         }
+
         return closet;
     }
-    
+
     /// <summary>
     /// Return Closet Connector between element1 from element2
     /// </summary>
     /// <param name="element1">first element</param>
     /// <param name="element2">second element</param>
     /// <returns name="connector">closet connector of element1</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Revit.Elements.Element? element1,
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(Revit.Elements.Element? element1,
         Revit.Elements.Element? element2)
     {
         ConnectorSet? connectorSet = GetConnectorSet(element1);
@@ -89,16 +102,17 @@ public class Connector
         {
             return null;
         }
+
         Autodesk.Revit.DB.Connector? connector = GetConnectorClosest(element2, connectorSet);
         return connector;
     }
-    
+
     /// <summary>
     /// return connector set of element
     /// </summary>
     /// <param name="element"></param>
     /// <returns></returns>
-    public static ConnectorSet? GetConnectorSet( Revit.Elements.Element? element)
+    public static ConnectorSet? GetConnectorSet(Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.Element e = element!.InternalElement;
         if (e is MEPCurve)
@@ -113,15 +127,18 @@ public class Connector
                 .ConnectorManager?
                 .Connectors;
         }
+
         return null;
     }
+
     /// <summary>
     /// Get Closet Connector With Element
     /// </summary>
     /// <param name="element">element to check</param>
     /// <param name="connectorSet">an collection connectors</param>
     /// <returns name="connector">closet connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorClosest( Revit.Elements.Element? element, ConnectorSet? connectorSet)
+    internal static Autodesk.Revit.DB.Connector? GetConnectorClosest(Revit.Elements.Element? element,
+        ConnectorSet? connectorSet)
     {
         Autodesk.Revit.DB.Connector? closet = null;
         Point? locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
@@ -138,15 +155,17 @@ public class Connector
                 }
             }
         }
+
         return closet;
     }
+
     /// <summary>
     /// return connector farthest with point current
     /// </summary>
     /// <param name="point"></param>
     /// <param name="connectors"></param>
     /// <returns></returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorFarthest( Point? point,
+    public static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Point? point,
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? Farthest = null;
@@ -170,7 +189,7 @@ public class Connector
     /// <param name="c">origin connector</param>
     /// <param name="connectors">an collection connector to check</param>
     /// <returns></returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorFarthest( Autodesk.Revit.DB.Connector? c,
+    public static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Autodesk.Revit.DB.Connector? c,
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? Farthest = null;
@@ -187,13 +206,59 @@ public class Connector
 
         return Farthest;
     }
+    
+    /// <summary>
+    /// Return Farthest Connector between element1 from element2
+    /// </summary>
+    /// <param name="element1">first element</param>
+    /// <param name="element2">second element</param>
+    /// <returns name="connector">Farthest connector of element1</returns>
+    public static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element1,
+        Revit.Elements.Element? element2)
+    {
+        ConnectorSet? connectorSet = GetConnectorSet(element1);
+        if (connectorSet == null)
+        {
+            return null;
+        }
+
+        Autodesk.Revit.DB.Connector? connector = GetConnectorFarthest(element2, connectorSet);
+        return connector;
+    }
+    
+    /// <summary>
+    /// Get Farthest Connector With Element
+    /// </summary>
+    /// <param name="element">element to check</param>
+    /// <param name="connectorSet">an collection connectors</param>
+    /// <returns name="connector">farthest connector</returns>
+    internal static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element,
+        ConnectorSet? connectorSet)
+    {
+        Autodesk.Revit.DB.Connector? farthest = null;
+        Point? locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
+        double distance = Double.MaxValue;
+        foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
+        {
+            if (locationCenter != null)
+            {
+                double distanceTo = locationCenter.DistanceTo(connector!.Origin.ToPoint());
+                if (distanceTo >= distance)
+                {
+                    farthest = connector;
+                    distance = distanceTo;
+                }
+            }
+        }
+        return farthest;
+    }
 
     /// <summary>
     /// return list connector from connector manager
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">connectors</returns>
-    public static List<Autodesk.Revit.DB.Connector?> GetConnectors(  
+    public static List<Autodesk.Revit.DB.Connector?> GetConnectors(
         Autodesk.Revit.DB.ConnectorManager? connectorManager)
     {
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
@@ -211,7 +276,7 @@ public class Connector
     /// </summary>
     /// <param name="element">element</param>
     /// <returns name="connectors">connectors</returns>
-    public static List<Autodesk.Revit.DB.Connector?> GetConnectors( Revit.Elements.Element? element)
+    public static List<Autodesk.Revit.DB.Connector?> GetConnectors(Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
             global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
@@ -220,16 +285,28 @@ public class Connector
     }
 
     /// <summary>
-    /// return list connector from element
+    /// return list connector unused from element
     /// </summary>
     /// <param name="element">element</param>
-    /// <returns name="connectors">connectors</returns>
-    public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors( Revit.Elements.Element? element)
+    /// <returns name="connectors">unused connectors</returns>
+    public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors(Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
             global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetUnusedConnectors(connectorManager);
+    }
+    
+    /// <summary>
+    /// return list connector used from element
+    /// </summary>
+    /// <param name="element">element</param>
+    /// <returns name="connectors">used connectors</returns>
+    public static List<Autodesk.Revit.DB.Connector?> GetUsedConnectors(Revit.Elements.Element? element)
+    {
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        if (GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
+        return GetConnectors(element).Where(x=>x!.IsConnected).ToList();
     }
 
     /// <summary>
@@ -237,7 +314,7 @@ public class Connector
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">connectors</returns>
-    public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors(  
+    public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors(
         Autodesk.Revit.DB.ConnectorManager? connectorManager)
     {
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
@@ -249,7 +326,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">connector</param>
     /// <returns name="domain">domain</returns>
-    public static dynamic? SystemType( Autodesk.Revit.DB.Connector connector)
+    public static dynamic? SystemType(Autodesk.Revit.DB.Connector connector)
     {
         Domain domain = connector.Domain;
         if (domain == Autodesk.Revit.DB.Domain.DomainHvac)
@@ -275,7 +352,7 @@ public class Connector
     /// </summary>
     /// <param name="connector"></param>
     /// <returns></returns>
-    public static Point? Direction( Autodesk.Revit.DB.Connector? connector)
+    public static Point? Direction(Autodesk.Revit.DB.Connector? connector)
     {
         Transform? t = connector?.CoordinateSystem;
         if (t == null) return null;
@@ -283,11 +360,11 @@ public class Connector
     }
 
     /// <summary>
-    /// Get direction of connector
+    /// Get origin of connector
     /// </summary>
-    /// <param name="connector"></param>
-    /// <returns></returns>
-    public static Point? Origin( Autodesk.Revit.DB.Connector? connector)
+    /// <param name="connector">the connector</param>
+    /// <returns name="point">location origin of connector</returns>
+    public static Point? Origin(Autodesk.Revit.DB.Connector? connector)
     {
         return connector?.Origin?.ToPoint();
     }
@@ -295,9 +372,10 @@ public class Connector
     /// <summary>
     /// check connector is connected or not
     /// </summary>
-    /// <param name="connector"></param>
-    /// <returns></returns>
-    public static bool? IsConnected( Autodesk.Revit.DB.Connector? connector)
+    /// <param name="connector">the connector</param>
+    /// <returns name="bool">true if connector is connected</returns>
+    [NodeCategory("Query")]
+    public static bool? IsConnected(Autodesk.Revit.DB.Connector? connector)
     {
         return connector?.IsConnected;
     }
@@ -306,10 +384,10 @@ public class Connector
     /// <summary>
     /// return distance between one connector with another point
     /// </summary>
-    /// <param name="connector"></param>
-    /// <param name="point"></param>
-    /// <returns></returns>
-    public static double? DistanceTo( Autodesk.Revit.DB.Connector? connector,
+    /// <param name="connector">the connector</param>
+    /// <param name="point">point to get distance from this to the connector</param>
+    /// <returns name="double">distance from connector to point</returns>
+    public static double? DistanceTo(Autodesk.Revit.DB.Connector? connector,
         Autodesk.DesignScript.Geometry.Point? point)
     {
         return connector?.Origin.DistanceTo(point.ToXyz()) ?? null;
@@ -321,7 +399,7 @@ public class Connector
     /// <param name="connector1"></param>
     /// <param name="connector2"></param>
     /// <returns></returns>
-    public static double? DistanceTo( Autodesk.Revit.DB.Connector? connector1,
+    public static double? DistanceTo(Autodesk.Revit.DB.Connector? connector1,
         Autodesk.Revit.DB.Connector? connector2)
     {
         XYZ? origin = connector1?.Origin;
@@ -336,7 +414,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">connector</param>
     /// <returns name="element">element</returns>
-    public static Revit.Elements.Element Owner( Autodesk.Revit.DB.Connector connector)
+    public static Revit.Elements.Element Owner(Autodesk.Revit.DB.Connector connector)
     {
         Revit.Elements.Element dsType = connector.Owner.ToDSType(true);
         return dsType;
@@ -346,8 +424,8 @@ public class Connector
     /// return id of connector
     /// </summary>
     /// <param name="connector">connector</param>
-    /// <returns name="Id">Id</returns>
-    public static double Id( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">Id of connector</returns>
+    public static double Id(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Id;
     }
@@ -356,8 +434,8 @@ public class Connector
     /// return angle of connector
     /// </summary>
     /// <param name="connector">connector</param>
-    /// <returns name="angle">angle</returns>
-    public static double Angle( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">radian</returns>
+    public static double Angle(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Angle;
     }
@@ -366,8 +444,8 @@ public class Connector
     /// The coefficient of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Coefficient">Coefficient</returns>
-    public static double Coefficient( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">Coefficient</returns>
+    public static double Coefficient(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Coefficient;
     }
@@ -376,8 +454,8 @@ public class Connector
     /// The demand of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Demand">Demand</returns>
-    public static double Demand( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">Demand</returns>
+    public static double Demand(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Demand;
     }
@@ -386,8 +464,8 @@ public class Connector
     /// The Flow of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Flow">Flow</returns>
-    public static double Flow( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">Flow of connector</returns>
+    public static double Flow(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Flow;
     }
@@ -396,28 +474,46 @@ public class Connector
     /// The height of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Height">Height</returns>
-    public static double Height( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">Height</returns>
+    public static double Height(Autodesk.Revit.DB.Connector connector)
     {
-        return connector.Height;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(connector.Height, unitTypeId);
+        return value;
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
+        double value = UnitUtils.ConvertFromInternalUnits(connector.Height, unitTypeId);
+        return value;
+#endif
     }
 
     /// <summary>
     /// The Width of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Width">Width</returns>
-    public static double Width( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">the width of connector</returns>
+    public static double Width(Autodesk.Revit.DB.Connector connector)
     {
-        return connector.Width;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(connector.Width, unitTypeId);
+        return value;
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
+        double value = UnitUtils.ConvertFromInternalUnits(connector.Width, unitTypeId);
+        return value;
+#endif
     }
 
     /// <summary>
     /// The assigned flow of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="AssignedFlow">AssignedFlow</returns>
-    public static double AssignedFlow( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">AssignedFlow</returns>
+    public static double AssignedFlow(Autodesk.Revit.DB.Connector connector)
     {
         return connector.AssignedFlow;
     }
@@ -426,8 +522,8 @@ public class Connector
     /// Connector engagement length
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Connector engagement length">Connector engagement length</returns>
-    public static double EngagementLength( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">Connector engagement length</returns>
+    public static double EngagementLength(Autodesk.Revit.DB.Connector connector)
     {
         return connector.EngagementLength;
     }
@@ -436,8 +532,8 @@ public class Connector
     /// The pressure drop of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="PressureDrop">PressureDrop</returns>
-    public static double PressureDrop( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">PressureDrop</returns>
+    public static double PressureDrop(Autodesk.Revit.DB.Connector connector)
     {
         return connector.PressureDrop;
     }
@@ -447,7 +543,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">connector</param>
     /// <returns name="connectors">A set of connectors that the connectors is connected to, including both physical connection and logical connection.</returns>
-    public static List<Autodesk.Revit.DB.Connector> AllRefs( Autodesk.Revit.DB.Connector connector)
+    public static List<Autodesk.Revit.DB.Connector> AllRefs(Autodesk.Revit.DB.Connector connector)
     {
         return connector.AllRefs.Cast<Autodesk.Revit.DB.Connector>().ToList();
     }
@@ -456,8 +552,8 @@ public class Connector
     /// The domain of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Domain">Domain</returns>
-    public static dynamic Domain( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="Autodesk.Revit.DB.Domain">Domain</returns>
+    public static dynamic Domain(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Domain;
     }
@@ -466,8 +562,8 @@ public class Connector
     /// The velocity pressure of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="VelocityPressure">VelocityPressure</returns>
-    public static double VelocityPressure( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">VelocityPressure</returns>
+    public static double VelocityPressure(Autodesk.Revit.DB.Connector connector)
     {
         return connector.VelocityPressure;
     }
@@ -476,8 +572,8 @@ public class Connector
     /// The assigned fixture units of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="AssignedFixtureUnits">AssignedFixtureUnits</returns>
-    public static double AssignedFixtureUnits( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">AssignedFixtureUnits</returns>
+    public static double AssignedFixtureUnits(Autodesk.Revit.DB.Connector connector)
     {
         return connector.AssignedFixtureUnits;
     }
@@ -486,8 +582,8 @@ public class Connector
     /// The assigned flow factor of  connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="AssignedFlowFactor">AssignedFlowFactor</returns>
-    public static double AssignedFlowFactor( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">AssignedFlowFactor</returns>
+    public static double AssignedFlowFactor(Autodesk.Revit.DB.Connector connector)
     {
         return connector.AssignedFlowFactor;
     }
@@ -496,8 +592,8 @@ public class Connector
     /// The assigned kCoefficient of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="AssignedKCoefficient">AssignedKCoefficient</returns>
-    public static double AssignedKCoefficient( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">AssignedKCoefficient</returns>
+    public static double AssignedKCoefficient(Autodesk.Revit.DB.Connector connector)
     {
         return connector.AssignedKCoefficient;
     }
@@ -506,8 +602,8 @@ public class Connector
     /// return element connected with  connector
     /// </summary>
     /// <param name="connector">connector</param>
-    /// <returns name="element">element has connected with connecter</returns>
-    public static Revit.Elements.Element? GetElementConnectedWith( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="element">element has connected with connector</returns>
+    public static Revit.Elements.Element? GetElementConnectedWith(Autodesk.Revit.DB.Connector connector)
     {
         if (connector.IsConnected)
         {
@@ -522,7 +618,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">connector</param>
     /// <returns name="element">element has connected with connector</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorConnectedWith( Autodesk.Revit.DB.Connector connector)
+    public static Autodesk.Revit.DB.Connector? GetConnectorConnectedWith(Autodesk.Revit.DB.Connector connector)
     {
         if (connector.IsConnected)
         {
@@ -536,8 +632,8 @@ public class Connector
     /// The assigned loss coefficient of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="AssignedLossCoefficient">AssignedLossCoefficient</returns>
-    public static double AssignedLossCoefficient( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">AssignedLossCoefficient</returns>
+    public static double AssignedLossCoefficient(Autodesk.Revit.DB.Connector connector)
     {
         return connector.AssignedLossCoefficient;
     }
@@ -546,8 +642,8 @@ public class Connector
     /// The assigned pressure drop of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="AssignedPressureDrop">AssignedPressureDrop</returns>
-    public static double AssignedPressureDrop( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">AssignedPressureDrop</returns>
+    public static double AssignedPressureDrop(Autodesk.Revit.DB.Connector connector)
     {
         return connector.AssignedPressureDrop;
     }
@@ -556,8 +652,8 @@ public class Connector
     /// The description of the connector.
     /// </summary>
     /// <param name="connector">Connector</param>
-    /// <returns name="Description">Description</returns>
-    public static string Description( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="string">Description</returns>
+    public static string Description(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Description;
     }
@@ -567,7 +663,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">Connector</param>
     /// <returns name="ConnectorProfileType">ConnectorProfileType</returns>
-    public static dynamic Shape( Autodesk.Revit.DB.Connector connector)
+    public static dynamic Shape(Autodesk.Revit.DB.Connector connector)
     {
         return connector.Shape;
     }
@@ -580,7 +676,7 @@ public class Connector
     /// <returns></returns>
     [MultiReturn("Origin", "BasisX", "BasisY", "BasisZ", "Determinant", "Scale", "HasReflection", "IsConformal",
         "IsTranslation", "IsIdentity")]
-    public static Dictionary<string, object?> CoordinateSystem( Autodesk.Revit.DB.Connector connector)
+    public static Dictionary<string, object?> CoordinateSystem(Autodesk.Revit.DB.Connector connector)
     {
         if (connector == null) throw new ArgumentNullException(nameof(connector));
         Transform transform;
@@ -644,7 +740,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">Connector</param>
     /// <returns name="ConnectorManager">ConnectorManager</returns>
-    public static Autodesk.Revit.DB.ConnectorManager ConnectorManager( Autodesk.Revit.DB.Connector connector)
+    public static Autodesk.Revit.DB.ConnectorManager ConnectorManager(Autodesk.Revit.DB.Connector connector)
     {
         return connector.ConnectorManager;
     }
@@ -653,8 +749,8 @@ public class Connector
     /// Get area of connector
     /// </summary>
     /// <param name="connector">connector</param>
-    /// <returns name="area">area of connector</returns>
-    public static double GetArea( Autodesk.Revit.DB.Connector connector)
+    /// <returns name="double">area of connector</returns>
+    public static double GetArea(Autodesk.Revit.DB.Connector connector)
     {
         switch (connector.Shape)
         {
@@ -674,7 +770,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">Connector</param>
     /// <returns name="MEPConnectorInfo">Returns null if there is no MEP connector information associated</returns>
-    public static Autodesk.Revit.DB.MEPConnectorInfo GetMEPConnectorInfo( Autodesk.Revit.DB.Connector connector)
+    public static Autodesk.Revit.DB.MEPConnectorInfo GetMEPConnectorInfo(Autodesk.Revit.DB.Connector connector)
     {
         Autodesk.Revit.DB.MEPConnectorInfo mepConnectorInfo = connector.GetMEPConnectorInfo();
         return mepConnectorInfo;
@@ -683,9 +779,9 @@ public class Connector
     /// <summary>
     /// set new angle for connector
     /// </summary>
-    /// <param name="connector"></param>
-    /// <param name="angle"></param>
-    public static void SetAngle( Autodesk.Revit.DB.Connector connector, double angle)
+    /// <param name="connector">connector</param>
+    /// <param name="angle">angle</param>
+    public static void SetAngle(Autodesk.Revit.DB.Connector connector, double angle)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.ForceCloseTransaction();
@@ -700,7 +796,7 @@ public class Connector
     /// </summary>
     /// <param name="connector">connector</param>
     /// <param name="origin">new point</param>
-    public static void SetOrigin( Autodesk.Revit.DB.Connector connector, Autodesk.DesignScript.Geometry.Point origin)
+    public static void SetOrigin(Autodesk.Revit.DB.Connector connector, Autodesk.DesignScript.Geometry.Point origin)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.ForceCloseTransaction();
@@ -716,7 +812,7 @@ public class Connector
     /// <param name="connector">connect need disconnect</param>
     /// <param name="connectorFrom">Indicate the connector, connection will be removed from.</param>
     /// <returns name="connector">connector need disconnect</returns>
-    public static Autodesk.Revit.DB.Connector DisConnectFrom( Autodesk.Revit.DB.Connector connector,
+    public static Autodesk.Revit.DB.Connector DisConnectFrom(Autodesk.Revit.DB.Connector connector,
         Autodesk.Revit.DB.Connector connectorFrom)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -734,7 +830,7 @@ public class Connector
     /// <param name="connector">connect need connect</param>
     /// <param name="connectorFrom">Indicate the connector, connection will be removed from.</param>
     /// <returns name="connector">connect need connect</returns>
-    public static Autodesk.Revit.DB.Connector ConnectTo( Autodesk.Revit.DB.Connector connector,
+    public static Autodesk.Revit.DB.Connector ConnectTo(Autodesk.Revit.DB.Connector connector,
         Autodesk.Revit.DB.Connector connectorFrom)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;

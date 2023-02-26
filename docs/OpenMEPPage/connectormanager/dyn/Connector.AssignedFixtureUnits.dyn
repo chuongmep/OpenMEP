@@ -13,7 +13,7 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+        "be616ece-f29c-41ea-90be-1913ce942448-0009414b"
       ],
       "Id": "933da09ce5494d8e8ff9a9e935c8266f",
       "Inputs": [],
@@ -63,11 +63,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.AssignedFixtureUnits@var",
-      "Id": "2fc6b9ed0d1b4097bacf823c2e21614e",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedFixtureUnits@var",
+      "Id": "0626fa0d65614b4e9b42230468611d97",
       "Inputs": [
         {
-          "Id": "f8ad0e90c76a4f17b0a4b092b861b8c1",
+          "Id": "5714c1227c984df2805602a24ea78b06",
           "Name": "connector",
           "Description": "Connector\n\nvar",
           "UsingDefaultValue": false,
@@ -78,7 +78,7 @@
       ],
       "Outputs": [
         {
-          "Id": "214c766a35dd44d7b71003224619f14a",
+          "Id": "d72b866a1349467fbdbb07127f1e50c3",
           "Name": "AssignedFixtureUnits",
           "Description": "AssignedFixtureUnits",
           "UsingDefaultValue": false,
@@ -100,8 +100,8 @@
     },
     {
       "Start": "d547a3cef1f44a10a4e6fdd3610988dc",
-      "End": "f8ad0e90c76a4f17b0a4b092b861b8c1",
-      "Id": "a8f9fd067f684d46a1f8f60bd5b6b5ef",
+      "End": "5714c1227c984df2805602a24ea78b06",
+      "Id": "cee5fe80ab634d7d8faf7d6f099acd27",
       "IsHidden": "False"
     }
   ],
@@ -112,15 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "e70c4a4f55ea427a89f73822996719c1"
-      ]
-    },
-    {
-      "Name": "Exyte",
-      "Version": "1.0.1",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "2fc6b9ed0d1b4097bacf823c2e21614e"
+        "e70c4a4f55ea427a89f73822996719c1",
+        "0626fa0d65614b4e9b42230468611d97"
       ]
     }
   ],
@@ -194,17 +187,17 @@
       {
         "Name": "Connector.AssignedFixtureUnits",
         "ShowGeometry": true,
-        "Id": "2fc6b9ed0d1b4097bacf823c2e21614e",
+        "Id": "0626fa0d65614b4e9b42230468611d97",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 872.93945698185155,
-        "Y": 226.31564715163353
+        "X": 876.217150949494,
+        "Y": 185.28688016228787
       }
     ],
     "Annotations": [],
-    "X": -242.1064231911447,
-    "Y": -71.774233882289366,
-    "Zoom": 1.33823125
+    "X": -186.45091976848073,
+    "Y": 144.72621666341882,
+    "Zoom": 0.9540429248828125
   }
 }
