@@ -1,9 +1,7 @@
+
+# Fitting
 ```{contents}
 ```
-# Fitting
-
-![](dyn/pic/Fitting.png)
-
 ## Pipe Fitting
 
 Pipe fittings are components used in piping systems to connect, control, and redirect the flow of liquids, gases, and other materials. They are used to join pipes of different sizes or shapes, change the direction of flow, regulate or control fluid pressure, and isolate or block off sections of a piping system.
@@ -29,7 +27,7 @@ Cable tray fittings are components used in cable management systems to provide s
 
 ![](dyn/pic/Fitting.NewCrossFitting.png)
 
-[Fitting.NewCrossFitting.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/dyn/Fitting.NewCrossFitting.dyn)
+[Fitting.NewCrossFitting.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/element/dyn/Fitting.NewCrossFitting.dyn)
 
 ## Create Elbow Fitting (Duct/Pipe)
 

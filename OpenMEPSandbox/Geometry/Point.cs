@@ -97,13 +97,13 @@ public class Point
         };
     }
 
-
-    //TODO : Got some bug from G-Shark Library
+    //
+    // //TODO : Got some bug from G-Shark Library
     // /// <summary>
     // /// Tests whether a point is inside, outside, or coincident with a polygon.
     // /// </summary>
     // /// <returns name="double">Returns -1 if point is outside the polygon, 0 if it is coincident with a polygon edge, or 1 if it is inside the polygon.</returns>
-    // public static double IsInPolygon(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Polygon polygon)
+    // public static double IsInPolygon2(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Polygon polygon)
     // {
     //     if (point == null) throw new ArgumentNullException(nameof(point));
     //     if (polygon == null) throw new ArgumentNullException(nameof(polygon));
@@ -115,7 +115,7 @@ public class Point
     /// </summary>
     /// <param name="point">the point</param>
     /// <param name="polygon">the polygon</param>
-    /// <returns></returns>
+    /// <returns name="bool">true if point is in polygon</returns>
     /// <exception cref="ArgumentNullException"></exception>
     [NodeCategory("Query")]
     public static bool IsInPolygon(Autodesk.DesignScript.Geometry.Point point,
@@ -125,4 +125,26 @@ public class Point
         if (polygon == null) throw new ArgumentNullException(nameof(polygon));
         return polygon.ContainmentTest(point);
     }
+
+    /// <summary>
+    ///     Gets a point with X,Y,Z = 0
+    /// </summary>
+    /// <returns name="point">point</returns>
+    public static Autodesk.DesignScript.Geometry.Point Origin()
+    {
+        return Autodesk.DesignScript.Geometry.Point.ByCoordinates(0,0,0);
+    }
+    
+    /// <summary>
+    /// Offset a point by a distance and a direction
+    /// </summary>
+    /// <param name="point">point to offset</param>
+    /// <param name="distance">distance from start point to end point</param>
+    /// <param name="direction">direction to direct to</param>
+    /// <returns name="point">new point</returns>
+    public static Autodesk.DesignScript.Geometry.Point Offset(Autodesk.DesignScript.Geometry.Point point,double distance, Autodesk.DesignScript.Geometry.Vector direction)
+    {
+        return point.Add(direction.ToGSharkType().Amplify(distance).ToDynamoType());
+    }
+    
 }
