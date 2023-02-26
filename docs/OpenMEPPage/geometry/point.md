@@ -33,6 +33,9 @@
 
 ![Centroid](dyn/pic/Point.Centroid.gif)
 
+
+[Centroid.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Point.Centroid.dyn)
+
 ## Deconstruct
 
 ```xml
@@ -47,6 +50,8 @@
 
 ![Deconstruct](dyn/pic/Point.Deconstruct.png)
 
+[Deconstruct.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Point.Deconstruct.dyn)
+
 ## IsOnPlane
 
 ```xml
@@ -59,6 +64,8 @@
 
 ![IsOnPlane](dyn/pic/Point.IsOnPlane.gif)
 
+[IsOnPlane.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Point.IsOnPlane.dyn)
+
 ## IsOnLine
 
 ```xml
@@ -70,6 +77,8 @@
 ```
 
 ![IsOnLine](dyn/pic/Point.IsOnLine.gif)
+
+[IsOnLine.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Point.IsOnLine.dyn)
 
 ## IsInPolygon
 
@@ -86,3 +95,35 @@
 ```
 
 ![IsInPolygon](dyn/pic/Point.IsInPolygons.gif)
+
+
+[IsInPolygon.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Point.IsInPolygon.dyn)
+
+## Origin
+
+```xml
+/// <summary>
+///     Gets a point with X,Y,Z = 0
+/// </summary>
+/// <returns name="point">point</returns>
+```
+
+![](dyn/pic/Point.Origin.png)
+
+[Origin.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Point.Origin.dyn)
+
+## Offset
+
+```xml
+/// <summary>
+/// Offset a point by a distance and a direction
+/// </summary>
+/// <param name="point">point to offset</param>
+/// <param name="distance">distance from start point to end point</param>
+/// <param name="direction">direction to direct to</param>
+/// <returns name="point">new point</returns>
+```
+
+![Offset](dyn/pic/Point.Offset.gif)
+
+[Offset.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Point.Offset.dyn)
