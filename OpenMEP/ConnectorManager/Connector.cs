@@ -188,7 +188,7 @@ public class Connector
     /// </summary>
     /// <param name="c">origin connector</param>
     /// <param name="connectors">an collection connector to check</param>
-    /// <returns></returns>
+    /// <returns name="connector">connector</returns>
     public static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Autodesk.Revit.DB.Connector? c,
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
@@ -208,7 +208,7 @@ public class Connector
     }
     
     /// <summary>
-    /// Return Farthest Connector between element1 from element2
+    /// Return Farthest Connector between element1 with element2
     /// </summary>
     /// <param name="element1">first element</param>
     /// <param name="element2">second element</param>
@@ -216,12 +216,7 @@ public class Connector
     public static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element1,
         Revit.Elements.Element? element2)
     {
-        ConnectorSet? connectorSet = GetConnectorSet(element1);
-        if (connectorSet == null)
-        {
-            return null;
-        }
-
+        List<Autodesk.Revit.DB.Connector?> connectorSet = GetConnectors(element1);
         Autodesk.Revit.DB.Connector? connector = GetConnectorFarthest(element2, connectorSet);
         return connector;
     }
@@ -230,15 +225,15 @@ public class Connector
     /// Get Farthest Connector With Element
     /// </summary>
     /// <param name="element">element to check</param>
-    /// <param name="connectorSet">an collection connectors</param>
+    /// <param name="connectors">an collection connectors</param>
     /// <returns name="connector">farthest connector</returns>
     internal static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element,
-        ConnectorSet? connectorSet)
+        List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? farthest = null;
         Point? locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
-        double distance = Double.MaxValue;
-        foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
+        double distance = Double.MinValue;
+        foreach (Autodesk.Revit.DB.Connector? connector in connectors!)
         {
             if (locationCenter != null)
             {
@@ -605,11 +600,14 @@ public class Connector
     /// <returns name="element">element has connected with connector</returns>
     public static Revit.Elements.Element? GetElementConnectedWith(Autodesk.Revit.DB.Connector connector)
     {
+        if (connector == null) throw new ArgumentNullException(nameof(connector));
         if (connector.IsConnected)
         {
-            return connector.AllRefs.Cast<Autodesk.Revit.DB.Connector>().First().Owner.ToDynamoType();
+            return connector.AllRefs.Cast<Autodesk.Revit.DB.Connector>()
+                .Where(x=>x.Owner.Id!=connector.Owner.Id)
+                .Where(x => x.ConnectorType != ConnectorType.Logical)
+                .Select(x => x.Owner.ToDynamoType()).FirstOrDefault();
         }
-
         return null;
     }
 
