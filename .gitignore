@@ -356,3 +356,5 @@ MigrationBackup/
 output/
 wix/
 _build
+
+*.0001.rvt
