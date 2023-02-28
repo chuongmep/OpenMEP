@@ -1,5 +1,5 @@
 {
-  "Uuid": "82349e98-2b63-4a70-b71f-53b864354fad",
+  "Uuid": "650ed0a3-aa62-4778-95c6-7b3067d4b68c",
   "IsCustomNode": false,
   "Description": "",
   "Name": "Connector.Display",
@@ -13,13 +13,13 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "a4d9d330-8a2c-439f-b026-cca1450d2c6e-000a79b2"
+        "be616ece-f29c-41ea-90be-1913ce942448-00094146"
       ],
-      "Id": "e3ec67424a9740f2938e2316f6f92f06",
+      "Id": "13661bfd457a4d62ba2c10f87ad7c850",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "230f7bd1597045538c6a9af3560f8799",
+          "Id": "5dd05e22e4dc4b1c9568f6d4d1415e32",
           "Name": "Element",
           "Description": "The selected elements.",
           "UsingDefaultValue": false,
@@ -33,41 +33,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Revit.Elements.Element.Geometry",
-      "Id": "56db736fa14949d59051c3de3004e5ff",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectors@Revit.Elements.Element",
+      "Id": "a8a8f4476cbd4c1ca5f3219aa1eff8d5",
       "Inputs": [
         {
-          "Id": "a84a03c0db524d058105fd6a1ca71e1a",
-          "Name": "element",
-          "Description": "Revit.Elements.Element",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "88e4123325a44e45841662539e465869",
-          "Name": "var[]",
-          "Description": "var[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Get all of the Geometry associated with this object\n\nElement.Geometry ( ): var[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Exyte.Revit.MEPModel.Connector.GetConnectors@Revit.Elements.Element",
-      "Id": "f8f95ce66d024b7c8020708b4e284886",
-      "Inputs": [
-        {
-          "Id": "801104d148f24019a771d16498673282",
+          "Id": "a59a0fbebfd34fbcbc9c167cec0a7596",
           "Name": "element",
           "Description": "element\n\nElement",
           "UsingDefaultValue": false,
@@ -78,7 +48,7 @@
       ],
       "Outputs": [
         {
-          "Id": "b9b47b7e46ac418f9eadbaba169a64fc",
+          "Id": "7fc7b38cd8ce419da293329bf2e65d17",
           "Name": "connectors",
           "Description": "connectors",
           "UsingDefaultValue": false,
@@ -94,10 +64,10 @@
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Display@var,double",
-      "Id": "5508463a447744ceb0903bde3be2639e",
+      "Id": "a90dd890a0f54e9aa68753c303a00cb4",
       "Inputs": [
         {
-          "Id": "0019631ef6594647917f4b0ea2fc49c8",
+          "Id": "3d22a02c85244640a87d8d979163d6ab",
           "Name": "connector",
           "Description": "Autodesk.Revit.DB.Connector\n\nvar",
           "UsingDefaultValue": false,
@@ -106,7 +76,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "dee3af5867064f88a2a51b3539ca2fb8",
+          "Id": "af3ab1c267b74b06b1eb2688ce90d878",
           "Name": "length",
           "Description": "double\n\ndouble\nDefault value : 1000",
           "UsingDefaultValue": true,
@@ -117,16 +87,16 @@
       ],
       "Outputs": [
         {
-          "Id": "dde286f60e674a249f0d40f7c2e19c61",
+          "Id": "8b136087a9b44a0596f08befc368b77c",
           "Name": "Display",
-          "Description": "GeometryColor",
+          "Description": "GeometryColor order by x,y,z",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "b5eef8dec94f4c9fae576a43dab413bd",
+          "Id": "cd3fe2985a4f4f81a547c92d6459da2c",
           "Name": "Origin",
           "Description": "Point",
           "UsingDefaultValue": false,
@@ -135,54 +105,54 @@
           "KeepListStructure": false
         },
         {
-          "Id": "d2e930ff4a304379a7b90fac95a463d4",
+          "Id": "528e7ef16aff465c832d9ec4ebd63039",
           "Name": "XAxis",
-          "Description": "Vector",
+          "Description": "Vector(Red color)",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "dddecf891ac344f19e82f90cd6b53516",
+          "Id": "c5046625c30c4acb9b27894156c321ec",
           "Name": "YAxis",
-          "Description": "Vector",
+          "Description": "Vector(Green color)",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "7c07e1941e8043cbbb629eb2b96e121a",
+          "Id": "4560cf4032264a9a9621028e16c39d7b",
           "Name": "ZAxis",
-          "Description": "Vector",
+          "Description": "Vector(Blue color)",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "3340256637134410b1fa59188c4990d3",
+          "Id": "7857abdc2da44b4798ab5d0f61bb28ea",
           "Name": "XYPlane",
-          "Description": "Plane",
+          "Description": "Plane(Red-Green color)",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "3cfda8e8885f4dbf9cd2d8ddd0fd5f7b",
+          "Id": "64f710b0a67e49d580033b54ecc544c8",
           "Name": "YZPlane",
-          "Description": "Plane",
+          "Description": "Plane(Green-Blue color)",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "64eb66a7e2714de08ff6dd72f307bb9f",
+          "Id": "849ecccb40ba45fd9b2847669e1a5b22",
           "Name": "ZXPlane",
-          "Description": "Plane",
+          "Description": "Plane(Blue-Red color)",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -193,16 +163,50 @@
       "Description": "Shows scalable lines representing the CoordinateSystem of a Connector.\n\nConnector.Display (connector: var, length: double = 1000): var[]..[]"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "NodeType": "CodeBlockNode",
-      "Code": "1000;",
-      "Id": "87e51b3b455b4e35889e2ab19f4dfb5c",
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Geometry",
+      "Id": "1e99e1f1df864683bd597d2503c0d579",
+      "Inputs": [
+        {
+          "Id": "eedb6141096141bead4be6a06935230b",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ef343b86f91b495bb1203be6ab78922c",
+          "Name": "var[]",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get all of the Geometry associated with this object\n\nElement.Geometry ( ): var[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 1,
+      "MaximumValue": 1,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "394247f7d9de4473ba2e19c8293ada96",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "3fc9fab77fc648efabf743b2f2c3ec8c",
+          "Id": "6535cb84ab7049e0a7fcc8bb16b3916e",
           "Name": "",
-          "Description": "Value of expression at line 1",
+          "Description": "Int64",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -210,48 +214,27 @@
         }
       ],
       "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly"
+      "Description": "A slider that produces integer values."
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "a[1];",
-      "Id": "b991d7196ad34011b121bd0691b35a3f",
+      "Code": "a[0..n];",
+      "Id": "e18c0f018f414e8492a7a7790b6211c1",
       "Inputs": [
         {
-          "Id": "5206065baa474b709461b8eb53096969",
+          "Id": "e0e75a9374964b4b8a6ffc132868e4e8",
           "Name": "a",
           "Description": "a",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
+        },
         {
-          "Id": "50d87d86d0cf45b1bec20def768d564c",
-          "Name": "",
-          "Description": "Value of expression at line 1",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "NodeType": "CodeBlockNode",
-      "Code": "x;",
-      "Id": "0f208a598993472f96c32b6fb4937591",
-      "Inputs": [
-        {
-          "Id": "9b47dc34cf7d4e49a626881a9e4b236d",
-          "Name": "x",
-          "Description": "x",
+          "Id": "a5000a6fbc2c431aad8b87c92a442f0f",
+          "Name": "n",
+          "Description": "n",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -260,7 +243,7 @@
       ],
       "Outputs": [
         {
-          "Id": "70feb70d7f654261b9ab0bbe6bf2bca6",
+          "Id": "2c9299a9b8d54d5f9ffbcae3bd4cdb21",
           "Name": "",
           "Description": "Value of expression at line 1",
           "UsingDefaultValue": false,
@@ -275,58 +258,45 @@
   ],
   "Connectors": [
     {
-      "Start": "230f7bd1597045538c6a9af3560f8799",
-      "End": "a84a03c0db524d058105fd6a1ca71e1a",
-      "Id": "8a89501fb29d449db357c24bb279bc13",
+      "Start": "5dd05e22e4dc4b1c9568f6d4d1415e32",
+      "End": "a59a0fbebfd34fbcbc9c167cec0a7596",
+      "Id": "cccf662cfdf84975aa1cb91d06bbfd5b",
       "IsHidden": "False"
     },
     {
-      "Start": "230f7bd1597045538c6a9af3560f8799",
-      "End": "801104d148f24019a771d16498673282",
-      "Id": "0d6f0dd7b93342f1a37af5b53ce419ff",
+      "Start": "5dd05e22e4dc4b1c9568f6d4d1415e32",
+      "End": "eedb6141096141bead4be6a06935230b",
+      "Id": "175d7e395bb44100b2c52b5507b649f9",
       "IsHidden": "False"
     },
     {
-      "Start": "b9b47b7e46ac418f9eadbaba169a64fc",
-      "End": "5206065baa474b709461b8eb53096969",
-      "Id": "68746329d9c342b293ec534d5bb945be",
+      "Start": "7fc7b38cd8ce419da293329bf2e65d17",
+      "End": "e0e75a9374964b4b8a6ffc132868e4e8",
+      "Id": "fc1dbdfb285b43dabfd8935b70032f2a",
       "IsHidden": "False"
     },
     {
-      "Start": "3340256637134410b1fa59188c4990d3",
-      "End": "9b47dc34cf7d4e49a626881a9e4b236d",
-      "Id": "4094a4d4ca11445ab93effc766af7213",
+      "Start": "6535cb84ab7049e0a7fcc8bb16b3916e",
+      "End": "a5000a6fbc2c431aad8b87c92a442f0f",
+      "Id": "c0bc85f8d20346dd8622609ef651472b",
       "IsHidden": "False"
     },
     {
-      "Start": "3fc9fab77fc648efabf743b2f2c3ec8c",
-      "End": "dee3af5867064f88a2a51b3539ca2fb8",
-      "Id": "7495a3cec51b4f7685b6ab99cc32e816",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "50d87d86d0cf45b1bec20def768d564c",
-      "End": "0019631ef6594647917f4b0ea2fc49c8",
-      "Id": "4013c13fb8ef4038a29c2801dc9721b8",
+      "Start": "2c9299a9b8d54d5f9ffbcae3bd4cdb21",
+      "End": "3d22a02c85244640a87d8d979163d6ab",
+      "Id": "0338702eba0345759ab7677e09c68fca",
       "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [
     {
-      "Name": "Exyte",
-      "Version": "1.0.1",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "f8f95ce66d024b7c8020708b4e284886"
-      ]
-    },
-    {
       "Name": "OpenMEP",
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "5508463a447744ceb0903bde3be2639e"
+        "a8a8f4476cbd4c1ca5f3219aa1eff8d5",
+        "a90dd890a0f54e9aa68753c303a00cb4"
       ]
     }
   ],
@@ -360,97 +330,87 @@
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.16.1.2727",
-      "RunType": "Manual",
+      "RunType": "Automatic",
       "RunPeriod": "1000"
     },
     "Camera": {
       "Name": "Background Preview",
-      "EyeX": -12241.2666015625,
-      "EyeY": 7763.08642578125,
-      "EyeZ": -6119.80322265625,
-      "LookX": 469.95703125,
-      "LookY": -308.6171875,
-      "LookZ": -537.01220703125,
-      "UpX": 0.12571892142295837,
-      "UpY": 0.98162710666656494,
-      "UpZ": -0.1435377448797226
+      "EyeX": 7286.015625,
+      "EyeY": 4974.8984375,
+      "EyeZ": 14152.8408203125,
+      "LookX": 1257.33837890625,
+      "LookY": -1383.52783203125,
+      "LookZ": -1783.0927734375,
+      "UpX": 0.19709953665733337,
+      "UpY": 0.93969243764877319,
+      "UpZ": -0.27951720356941223
     },
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Select Model Element",
+        "Name": "Select Pipe",
         "ShowGeometry": true,
-        "Id": "e3ec67424a9740f2938e2316f6f92f06",
+        "Id": "13661bfd457a4d62ba2c10f87ad7c850",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -92.0,
-        "Y": 41.0
-      },
-      {
-        "Name": "Element.Geometry",
-        "ShowGeometry": true,
-        "Id": "56db736fa14949d59051c3de3004e5ff",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 247.0,
-        "Y": 34.0
+        "X": 462.75666453984991,
+        "Y": 225.08185724950727
       },
       {
         "Name": "Connector.GetConnectors",
         "ShowGeometry": true,
-        "Id": "f8f95ce66d024b7c8020708b4e284886",
+        "Id": "a8a8f4476cbd4c1ca5f3219aa1eff8d5",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 178.42547158684931,
-        "Y": 264.80777537796973
+        "X": 994.936058540427,
+        "Y": 202.25746123166124
       },
       {
         "Name": "Connector.Display",
         "ShowGeometry": true,
-        "Id": "5508463a447744ceb0903bde3be2639e",
+        "Id": "a90dd890a0f54e9aa68753c303a00cb4",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 749.2400446873354,
-        "Y": 182.73781200211931
+        "X": 1510.6970795851907,
+        "Y": 227.49540636110288
+      },
+      {
+        "Name": "Element.Geometry",
+        "ShowGeometry": true,
+        "Id": "1e99e1f1df864683bd597d2503c0d579",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 760.18796424072866,
+        "Y": 197.32337442171942
+      },
+      {
+        "Name": "Integer Slider",
+        "ShowGeometry": true,
+        "Id": "394247f7d9de4473ba2e19c8293ada96",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 916.68932844872927,
+        "Y": 457.97043302881451
       },
       {
         "Name": "Code Block",
         "ShowGeometry": true,
-        "Id": "87e51b3b455b4e35889e2ab19f4dfb5c",
+        "Id": "e18c0f018f414e8492a7a7790b6211c1",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 529.67452446022537,
-        "Y": 302.1645989576765
-      },
-      {
-        "Name": "Code Block",
-        "ShowGeometry": true,
-        "Id": "b991d7196ad34011b121bd0691b35a3f",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 522.67400196412382,
-        "Y": 183.26174310868214
-      },
-      {
-        "Name": "Code Block",
-        "ShowGeometry": true,
-        "Id": "0f208a598993472f96c32b6fb4937591",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1141.1925512470648,
-        "Y": 582.0
+        "X": 1320.5335654816536,
+        "Y": 271.44204513246967
       }
     ],
     "Annotations": [],
-    "X": 153.85744843049844,
-    "Y": 86.84087656388192,
-    "Zoom": 0.785106736384787
+    "X": -276.09399721350928,
+    "Y": -39.56909498494997,
+    "Zoom": 0.81809919567547273
   }
 }

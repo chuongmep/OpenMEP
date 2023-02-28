@@ -587,6 +587,4 @@
 /// <returns name="ZXPlane">Plane(Blue-Red color)</returns>
 ```
 
-![](dyn/pic/Connector.Display.png)
-
-[Connector.Display.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Display.dyn)
+![](dyn/pic/Connector.Display.gif)
