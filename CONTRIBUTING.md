@@ -13,7 +13,8 @@
 
 Debugging:
 
-- Run **Debug Profile** in Visual Studio or **Run Configuration** in JetBrains Rider. The required files have been added. All project files will be automatically copied to the Revit plugins folder.
+- Run **Debug Profile** in Visual Studio or **Run Configuration** in JetBrains Rider. The required files have been
+  added. All project files will be automatically copied to the Revit plugins folder.
 
 Creating a package:
 
@@ -23,6 +24,23 @@ Creating a package:
 - The generated package will be in the **output** folder.
 
 ---
+
+### Documentation and comments
+
+- Document your code write with English language and use [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) to
+  generate the documentation. Please use branch.
+  **docs** to collaborate with the documentation.
+
+### Unit tests
+
+- The [Revit Test Framework](https://github.com/DynamoDS/RevitTestFramework) (RTF) allows for remote testing on Revit.
+  RTF creates a journal file for running Revit, specifies a model for it to open, and a specific test or fixture of
+  tests to run. A model can also be specified to open before testing to run several tests with.
+- Write unit tests for your code. Please use branch **dev** to collaborate with the tests and write them in the
+  **OpenMEPTest** project.
+
+![](docs/img/RevitTestFrameworkGUI.png)
+
 #### Please avoid:
 
 - Lots of unrelated changes in one commit.

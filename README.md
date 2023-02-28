@@ -105,6 +105,8 @@ software, both commercially and non-commercially, with the only requirement bein
 license notice be included with any distribution. It is a popular choice among developers for its simplicity and
 permissiveness.
 
+A part of Geometry Display Dependency is licensed under the [Miscellany Package](https://github.com/thomascorrie/Miscellany)
+
 # ⛑️ Sponsors
 
 - [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech

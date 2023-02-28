@@ -58,6 +58,7 @@ parts:
   chapters:
   - file: geometry/vector
   - file: geometry/point
+  - file: geometry/coordinatesystem
   - file: geometry/line
   - file: geometry/curve
   - file: geometry/plane

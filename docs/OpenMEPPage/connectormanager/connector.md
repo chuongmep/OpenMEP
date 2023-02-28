@@ -17,6 +17,8 @@
 
 ![](dyn/pic/Connector.Radius.jpg)
 
+[Connector.Radius.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Radius.dyn)
+
 ## GetConnectorClosest
 
 ```xml
@@ -30,6 +32,7 @@
 
 ![](dyn/pic/Connector.GetConnectorClosest.jpg)
 
+[Connector.GetConnectorClosest.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetConnectorClosest.dyn)
 ## GetConnectorSet
 
 ```xml
@@ -40,6 +43,8 @@
 /// <returns></returns>
 ```
 ![](dyn/pic/Connector.GetConnectorSet.jpg)
+
+[Connector.GetConnectorSet.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetConnectorSet.dyn)
 ## GetConnectorFarthest
 
 ```xml
@@ -53,6 +58,8 @@
 
 ![](dyn/pic/Connector.GetConnectorFarthest.jpg)
 
+[Connector.GetConnectorFarthest.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetConnectorFarthest.dyn)
+
 ## GetConnectors
 
 ```xml
@@ -64,6 +71,9 @@
 ```
 
 ![](dyn/pic/Connector.GetConnectors.jpg)
+
+[Connector.GetConnectors.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetConnectors.dyn)
+
 ## GetUnusedConnectors
 
 ```xml
@@ -75,6 +85,8 @@
 ```
 
 ![](dyn/pic/Connector.GetUnusedConnectors.jpg)
+
+[Connector.GetUnusedConnectors.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetUnusedConnectors.dyn)
 ## SystemType
 
 ```xml
@@ -86,6 +98,8 @@
 ```
 
 ![](dyn/pic/Connector.SystemType.jpg)
+
+[Connector.SystemType.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.SystemType.dyn)
 
 ## Direction
 
@@ -99,6 +113,8 @@
 
 ![](dyn/pic/Connector.Direction.jpg)
 
+[Connector.Direction.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Direction.dyn)
+
 ## Origin
 
 ```xml
@@ -110,6 +126,8 @@
 ```
 
 ![](dyn/pic/Connector.Origin.jpg)
+
+[Connector.Origin.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Origin.dyn)
 ## IsConnected
 
 ```xml
@@ -121,6 +139,8 @@
 ```
 
 ![](dyn/pic/Connector.IsConnected.jpg)
+
+[Connector.IsConnected.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.IsConnected.dyn)
 
 ## DistanceTo
 
@@ -135,6 +155,8 @@
 
 ![](dyn/pic/Connector.DistanceTo.jpg)
 
+[Connector.DistanceTo.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.DistanceTo.dyn)
+
 ## Owner
 
 ```xml
@@ -148,6 +170,8 @@
 
 ![](dyn/pic/Connector.Owner.jpg)
 
+[Connector.Owner.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Owner.dyn)
+
 ## Id
 
 ```xml
@@ -159,6 +183,8 @@
 ```
 
 ![](dyn/pic/Connector.Id.jpg)
+
+[Connector.Id.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Id.dyn)
 
 ## Angle
 
@@ -172,6 +198,8 @@
 
 ![](dyn/pic/Connector.Angle.jpg)
 
+[Connector.Angle.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Angle.dyn)
+
 ## Coefficient
 
 ```xml
@@ -183,6 +211,8 @@
 ```
 
 ![](dyn/pic/Connector.Coefficient.jpg)
+
+[Connector.Coefficient.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Coefficient.dyn)
 
 ## Demand
 
@@ -196,6 +226,7 @@
 
 ![](dyn/pic/Connector.Demand.jpg)
 
+[Connector.Demand.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Demand.dyn)
 ## Flow
 
 ```xml
@@ -207,6 +238,8 @@
 ```
 
 ![](dyn/pic/Connector.Flow.jpg)
+
+[Connector.Flow.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Flow.dyn)
 
 ## Height
 
@@ -220,6 +253,8 @@
 
 ![](dyn/pic/Connector.Height.jpg)
 
+[Connector.Height.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Height.dyn)
+
 ## Width
 
 ```xml
@@ -231,6 +266,7 @@
 ```
 ![](dyn/pic/Connector.Width.jpg)
 
+[Connector.Width.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Width.dyn)
 ## AssignedFlow
 
 ```xml
@@ -243,6 +279,7 @@
 
 ![](dyn/pic/Connector.AssignedFlow.jpg)
 
+[Connector.AssignedFlow.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.AssignedFlow.dyn)
 ## EngagementLength
 
 ```xml
@@ -254,6 +291,8 @@
 ```
 
 ![](dyn/pic/Connector.EngagementLength.jpg)
+
+[Connector.EngagementLength.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.EngagementLength.dyn)
 ## PressureDrop
 
 ```xml
@@ -263,7 +302,9 @@
 /// <param name="connector">Connector</param>
 /// <returns name="double">PressureDrop</returns>
 ```
+![](dyn/pic/Connector.PressureDrop.png)
 
+[Connector.PressureDrop.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.PressureDrop.dyn)
 
 ## AllRefs
 
@@ -277,6 +318,8 @@
 
 ![](dyn/pic/Connector.AllRefs.jpg)
 
+[Connector.AllRefs.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.AllRefs.dyn)
+
 ## Domain
 
 ```xml
@@ -289,6 +332,8 @@
 
 ![](dyn/pic/Connector.Domain.jpg)
 
+[Connector.Domain.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Domain.dyn)
+
 ## VelocityPressure
 
 ```xml
@@ -300,6 +345,8 @@
 ```
 
 ![](dyn/pic/Connector.VelocityPressure.jpg)
+
+[Connector.VelocityPressure.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.VelocityPressure.dyn)
 ## AssignedFixtureUnits
 
 ```xml
@@ -312,6 +359,8 @@
 
 ![](dyn/pic/Connector.AssignedFixtureUnits.jpg)
 
+[Connector.AssignedFixtureUnits.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.AssignedFixtureUnits.dyn)
+
 ## AssignedFlowFactor
 
 ```xml
@@ -323,6 +372,8 @@
 ```
 
 ![](dyn/pic/Connector.AssignedFlowFactor.jpg)
+
+[Connector.AssignedFlowFactor.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.AssignedFlowFactor.dyn)
 ## AssignedKCoefficient
 
 ```xml
@@ -335,6 +386,8 @@
 
 ![](dyn/pic/Connector.AssignedKCoefficient.jpg)
 
+[Connector.AssignedKCoefficient.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.AssignedKCoefficient.dyn)
+
 ## GetElementConnectedWith
 
 ```xml
@@ -346,6 +399,9 @@
 ```
 
 ![](dyn/pic/Connector.GetElementConnectedWith.jpg)
+
+[Connector.GetElementConnectedWith.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetElementConnectedWith.dyn)
+
 ## AssignedLossCoefficient
 
 ```xml
@@ -357,6 +413,8 @@
 ```
 
 ![](dyn/pic/Connector.AssignedKCoefficient.jpg)
+
+[Connector.AssignedKCoefficient.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.AssignedKCoefficient.dyn)
 
 ## AssignedPressureDrop
 
@@ -370,6 +428,8 @@
 
 ![](dyn/pic/Connector.AssignedPressureDrop.jpg)
 
+[Connector.AssignedPressureDrop.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.AssignedPressureDrop.dyn)
+
 ## Description
 
 ```xml
@@ -380,6 +440,9 @@
 /// <returns name="string">Description</returns>
 ```
 ![](dyn/pic/Connector.Description.jpg)
+
+[Connector.Description.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Description.dyn)
+
 ## Shape
 
 ```xml
@@ -392,6 +455,8 @@
 
 ![](dyn/pic/Connector.Shape.jpg)
 
+[Connector.Shape.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.Shape.dyn)
+
 ## CoordinateSystem
 
 ```xml
@@ -403,6 +468,8 @@
 ```
 
 ![](dyn/pic/Connector.CoordinateSystem.jpg)
+
+[Connector.CoordinateSystem.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.CoordinateSystem.dyn)
 ## ConnectorManager
 
 ```xml
@@ -415,6 +482,8 @@
 ```
 ![](dyn/pic/Connector.ConnectorManager.jpg)
 
+[Connector.ConnectorManager.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.ConnectorManager.dyn)
+
 ## GetArea
 
 ```xml
@@ -425,6 +494,8 @@
 /// <returns name="double">area of connector</returns>
 ```
 ![](dyn/pic/Connector.GetArea.jpg)
+
+[Connector.GetArea.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetArea.dyn)
 ## GetMEPConnectorInfo
 
 ```xml
@@ -437,6 +508,8 @@
 
 ![](dyn/pic/Connector.GetMEPConnectorInfo.jpg)
 
+[Connector.GetMEPConnectorInfo.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.GetMEPConnectorInfo.dyn)
+
 ## SetAngle
 
 ```xml
@@ -448,6 +521,9 @@
 ```
 
 ![](dyn/pic/Connector.SetAngle.jpg)
+
+[Connector.SetAngle.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.SetAngle.dyn)
+
 ## SetOrigin
 
 ```xml
@@ -459,6 +535,9 @@
 ```
 
 ![](dyn/pic/Connector.SetOrigin.jpg)
+
+[Connector.SetOrigin.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.SetOrigin.dyn)
+
 ## DisConnectFrom
 
 ```xml
@@ -472,6 +551,8 @@
 
 ![](dyn/pic/Connector.DisConnectFrom.jpg)
 
+[Connector.DisConnectFrom.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.DisConnectFrom.dyn)
+
 ## ConnectTo
 
 ```xml
@@ -484,3 +565,26 @@
 ```
 
 ![](dyn/pic/Connector.ConnectTo.jpg)
+
+[Connector.ConnectTo.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.ConnectTo.dyn)
+
+
+## Display
+
+```xml
+/// <summary>
+/// Shows scalable lines representing the CoordinateSystem of a Connector.
+/// </summary>
+/// <param name="connector">Autodesk.Revit.DB.Connector</param>
+/// <param name="length">double</param>
+/// <returns name="Display">GeometryColor order by x,y,z</returns>
+/// <returns name="Origin">Point</returns>
+/// <returns name="XAxis">Vector(Red color)</returns>
+/// <returns name="YAxis">Vector(Green color)</returns>
+/// <returns name="ZAxis">Vector(Blue color)</returns>
+/// <returns name="XYPlane">Plane(Red-Green color)</returns>
+/// <returns name="YZPlane">Plane(Green-Blue color)</returns>
+/// <returns name="ZXPlane">Plane(Blue-Red color)</returns>
+```
+
+![](dyn/pic/Connector.Display.png)

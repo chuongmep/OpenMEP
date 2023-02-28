@@ -32,3 +32,22 @@
 ![IsOppositeDirection](dyn/pic/Vector.IsOppositeDirection.gif)
 
 [IsOppositeDirection.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Vector.IsOppositeDirection.dyn)
+
+## Display
+
+```xml
+/// <summary>
+/// Shows a scalable line representing a Vector from a chosen starting point
+/// </summary>
+/// <param name="vector">Autodesk.DesignScript.Geometry.Vector</param>
+/// <param name="startPoint">Autodesk.DesignScript.Geometry.Point</param>
+/// <param name="scale">value scale start from 1</param>
+/// <returns name="Display">GeometryColor</returns>
+/// <returns name="X">double</returns>
+/// <returns name="Y">double</returns>
+/// <returns name="Z">double</returns>
+/// <returns name="Length">double</returns>
+
+```
+
+![Display](dyn/pic/Vector.Display.png)
