@@ -587,4 +587,4 @@
 /// <returns name="ZXPlane">Plane(Blue-Red color)</returns>
 ```
 
-![](dyn/pic/Connector.Display.png)
+![](dyn/pic/Connector.Display.gif)

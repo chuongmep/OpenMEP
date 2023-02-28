@@ -2,6 +2,7 @@
 using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
+using Revit.Elements;
 using Revit.GeometryConversion;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
@@ -20,6 +21,7 @@ public class Element
     /// <returns></returns>
     public static Point? LocationCenter(Revit.Elements.Element? element)
     {
+        
         if(element == null)
             throw new ArgumentNullException(nameof(element));
         if (element.InternalElement.Location is LocationPoint)

@@ -96,26 +96,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ZAxis",
-      "Id": "e6c6ee32caf1497a9bdf0e3093b87640",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "9b52360dc0db44a1ae71f498b93087da",
-          "Name": "Vector",
-          "Description": "Vector",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Vector.ZAxis ( ): Vector"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEPSandbox.Geometry.Point.Origin",
       "Id": "61b31de895874329a773f18731b1b1a1",
       "Inputs": [],
@@ -134,16 +114,20 @@
       "Description": "Gets a point with X,Y,Z = 0\n\nPoint.Origin ( ): Point"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "NodeType": "CodeBlockNode",
-      "Code": "1000;",
-      "Id": "041b2e0530b44bc8979abe742c63d20e",
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 100.0,
+      "MinimumValue": 0.0,
+      "StepValue": 2.0,
+      "InputValue": 0.0,
+      "Id": "14dcb4d33558406c860b5f7c7741cfdd",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "5f8395e6b3e145b7a8544089eabefbc5",
+          "Id": "6524e00190364820b6dd24d5b229516c",
           "Name": "",
-          "Description": "Value of expression at line 1",
+          "Description": "Double",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -151,16 +135,50 @@
         }
       ],
       "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly"
+      "Description": "A slider that produces numeric values."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.YAxis",
+      "Id": "5723fd73840b4f1a96ae8ad5960c2129",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b0b8240e380b499588ccab2953b5941f",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Vector.YAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ZAxis",
+      "Id": "ceba4d36fc8044efa8329fdb83169f23",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f11bd7802dce4140b4eb8335f255d6d6",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Vector.ZAxis ( ): Vector"
     }
   ],
   "Connectors": [
-    {
-      "Start": "9b52360dc0db44a1ae71f498b93087da",
-      "End": "b57ca0538a6c4174ad294ad7a3b3b5c6",
-      "Id": "d9c607dca65e4a488f6a9537f86fcc29",
-      "IsHidden": "False"
-    },
     {
       "Start": "aca8195a2f0d4838a94fe279be7f0c99",
       "End": "a75bdd7b04cc4f8390d355324ee65a0a",
@@ -168,9 +186,15 @@
       "IsHidden": "False"
     },
     {
-      "Start": "5f8395e6b3e145b7a8544089eabefbc5",
+      "Start": "6524e00190364820b6dd24d5b229516c",
       "End": "40489d8fa169417f9a5bb4674115210e",
-      "Id": "e612ab42753b4318bbba139e466111d0",
+      "Id": "0b5cdb0e9af54669b93e756006084f8b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f11bd7802dce4140b4eb8335f255d6d6",
+      "End": "b57ca0538a6c4174ad294ad7a3b3b5c6",
+      "Id": "5e91111ad5404170b4e66a7edfea1577",
       "IsHidden": "False"
     }
   ],
@@ -221,15 +245,15 @@
     },
     "Camera": {
       "Name": "Background Preview",
-      "EyeX": 60.770929336547852,
-      "EyeY": 74.602878570556641,
-      "EyeZ": 120.89630889892578,
-      "LookX": 3.2568340301513672,
-      "LookY": -44.633693695068359,
-      "LookZ": -156.86692810058594,
-      "UpX": 0.0012672542361542583,
-      "UpY": 0.9981347918510437,
-      "UpZ": -0.061035282909870148
+      "EyeX": 5.7078986167907715,
+      "EyeY": 5.074333667755127,
+      "EyeZ": -0.22291696071624756,
+      "LookX": -5.1464991569519043,
+      "LookY": -4.3393058776855469,
+      "LookZ": -2.1517097949981689,
+      "UpX": -0.3971935510635376,
+      "UpY": 0.90258526802062988,
+      "UpZ": -0.16606375575065613
     },
     "ConnectorPins": [],
     "NodeViews": [
@@ -244,16 +268,6 @@
         "Y": 423.98902002176374
       },
       {
-        "Name": "Vector.ZAxis",
-        "ShowGeometry": true,
-        "Id": "e6c6ee32caf1497a9bdf0e3093b87640",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 329.0,
-        "Y": 402.0
-      },
-      {
         "Name": "Point.Origin",
         "ShowGeometry": true,
         "Id": "61b31de895874329a773f18731b1b1a1",
@@ -264,19 +278,39 @@
         "Y": 539.0
       },
       {
-        "Name": "Code Block",
+        "Name": "Number Slider",
         "ShowGeometry": true,
-        "Id": "041b2e0530b44bc8979abe742c63d20e",
+        "Id": "14dcb4d33558406c860b5f7c7741cfdd",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 344.26331398254229,
-        "Y": 677.61570076173314
+        "X": 115.62336224098721,
+        "Y": 710.49680543148133
+      },
+      {
+        "Name": "Vector.YAxis",
+        "ShowGeometry": true,
+        "Id": "5723fd73840b4f1a96ae8ad5960c2129",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 278.61045495179576,
+        "Y": 387.39238816520253
+      },
+      {
+        "Name": "Vector.ZAxis",
+        "ShowGeometry": true,
+        "Id": "ceba4d36fc8044efa8329fdb83169f23",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 15.14592780942462,
+        "Y": 456.04893189259013
       }
     ],
     "Annotations": [],
-    "X": 90.369335433397,
-    "Y": -246.29523890095118,
-    "Zoom": 1.164389808056264
+    "X": 171.53053751581206,
+    "Y": -78.539699671744984,
+    "Zoom": 0.96556678260774254
   }
 }

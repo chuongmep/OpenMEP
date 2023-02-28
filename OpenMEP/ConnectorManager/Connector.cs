@@ -126,7 +126,12 @@ public class Connector
                 .ConnectorManager?
                 .Connectors;
         }
-
+        if (e is FabricationPart)
+        {
+            return ((FabricationPart) e)?
+                .ConnectorManager?
+                .Connectors;
+        }
         return null;
     }
 
@@ -300,7 +305,7 @@ public class Connector
     public static List<Autodesk.Revit.DB.Connector?> GetUsedConnectors(Revit.Elements.Element? element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
-        if (GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
+        if (!GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
         return GetConnectors(element).Where(x => x!.IsConnected).ToList();
     }
 
@@ -883,4 +888,60 @@ public class Connector
         CoordinateSystem coordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(point, X, Y, Z);
         return OpenMEPSandbox.Geometry.CoordinateSystem.Display(coordinateSystem,length);
     }
+
+    /// <summary>
+    /// Identifies if the connector is connected to the specified connector.
+    /// </summary>
+    /// <param name="connector">the connector to check</param>
+    /// <param name="connectorOther">the second connector to identifies</param>
+    /// <returns name="bool">true if connector is connected to other</returns>
+    public static bool IsConnectedTo(Autodesk.Revit.DB.Connector connector,Autodesk.Revit.DB.Connector connectorOther)
+    {
+        return connector.IsConnectedTo(connectorOther);
+    }
+
+    // /// <summary>Gets fabrication connectivity information.</summary>
+    // /// <para name="connector">the connector</para>
+    // /// <since>2016</since>
+    // [MultiReturn("BodyConnectorId", "DoubleWallConnectorId", "FabricationIndex", "IsBodyConnectorLocked",
+    //     "IsDoubleWallConnectorLocked", "HasDoubleWallConnector", "IsValid")]
+    // public static Dictionary<string, object?> GetFabricationConnectorInfo(Autodesk.Revit.DB.Connector connector)
+    // {
+    //     if (connector == null) throw new ArgumentException(nameof(connector));
+    //     FabricationConnectorInfo fabricationConnectorInfo = connector.GetFabricationConnectorInfo();
+    //     if (fabricationConnectorInfo == null)
+    //     {
+    //         return new Dictionary<string, object?>
+    //         {
+    //             {"BodyConnectorId", null},
+    //             {"DoubleWallConnectorId", null},
+    //             {"FabricationIndex", null},
+    //             {"IsBodyConnectorLocked", null},
+    //             {"IsDoubleWallConnectorLocked", null},
+    //             {"HasDoubleWallConnector", null},
+    //             {"IsValid", null}
+    //         };
+    //     }
+    //     int? DoubleWallConnectorId = null;
+    //     bool? IsDoubleWallConnectorLocked = null;
+    //     try
+    //     {
+    //         DoubleWallConnectorId = fabricationConnectorInfo.DoubleWallConnectorId;
+    //         IsDoubleWallConnectorLocked = fabricationConnectorInfo.IsDoubleWallConnectorLocked;
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         //TODO: no things
+    //     }
+    //     return new Dictionary<string, object?>
+    //     {
+    //         {"BodyConnectorId", fabricationConnectorInfo.BodyConnectorId},
+    //         {"DoubleWallConnectorId",DoubleWallConnectorId },
+    //         {"FabricationIndex", fabricationConnectorInfo.FabricationIndex},
+    //         {"IsBodyConnectorLocked", fabricationConnectorInfo.IsBodyConnectorLocked},
+    //         {"IsDoubleWallConnectorLocked",IsDoubleWallConnectorLocked },
+    //         {"HasDoubleWallConnector", fabricationConnectorInfo.HasDoubleWallConnector()},
+    //         {"IsValid", fabricationConnectorInfo.IsValid()},
+    //     };
+    // }
 }
