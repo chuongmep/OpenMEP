@@ -567,3 +567,24 @@
 ![](dyn/pic/Connector.ConnectTo.jpg)
 
 [Connector.ConnectTo.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/connectormanager/dyn/Connector.ConnectTo.dyn)
+
+
+## Display
+
+```xml
+/// <summary>
+/// Shows scalable lines representing the CoordinateSystem of a Connector.
+/// </summary>
+/// <param name="connector">Autodesk.Revit.DB.Connector</param>
+/// <param name="length">double</param>
+/// <returns name="Display">GeometryColor order by x,y,z</returns>
+/// <returns name="Origin">Point</returns>
+/// <returns name="XAxis">Vector(Red color)</returns>
+/// <returns name="YAxis">Vector(Green color)</returns>
+/// <returns name="ZAxis">Vector(Blue color)</returns>
+/// <returns name="XYPlane">Plane(Red-Green color)</returns>
+/// <returns name="YZPlane">Plane(Green-Blue color)</returns>
+/// <returns name="ZXPlane">Plane(Blue-Red color)</returns>
+```
+
+![](dyn/pic/Connector.Display.png)

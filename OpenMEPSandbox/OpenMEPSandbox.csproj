@@ -104,6 +104,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="GShark" Version="2.2.0" />
+        <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="$(DynVersion).*" />
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>

@@ -17,7 +17,6 @@ public class Connector
 {
     private Connector()
     {
-
     }
 
     /// <summary>
@@ -206,7 +205,7 @@ public class Connector
 
         return Farthest;
     }
-    
+
     /// <summary>
     /// Return Farthest Connector between element1 with element2
     /// </summary>
@@ -220,7 +219,7 @@ public class Connector
         Autodesk.Revit.DB.Connector? connector = GetConnectorFarthest(element2, connectorSet);
         return connector;
     }
-    
+
     /// <summary>
     /// Get Farthest Connector With Element
     /// </summary>
@@ -245,6 +244,7 @@ public class Connector
                 }
             }
         }
+
         return farthest;
     }
 
@@ -291,7 +291,7 @@ public class Connector
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetUnusedConnectors(connectorManager);
     }
-    
+
     /// <summary>
     /// return list connector used from element
     /// </summary>
@@ -301,7 +301,7 @@ public class Connector
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
         if (GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
-        return GetConnectors(element).Where(x=>x!.IsConnected).ToList();
+        return GetConnectors(element).Where(x => x!.IsConnected).ToList();
     }
 
     /// <summary>
@@ -604,10 +604,11 @@ public class Connector
         if (connector.IsConnected)
         {
             return connector.AllRefs.Cast<Autodesk.Revit.DB.Connector>()
-                .Where(x=>x.Owner.Id!=connector.Owner.Id)
+                .Where(x => x.Owner.Id != connector.Owner.Id)
                 .Where(x => x.ConnectorType != ConnectorType.Logical)
                 .Select(x => x.Owner.ToDynamoType()).FirstOrDefault();
         }
+
         return null;
     }
 
@@ -837,5 +838,41 @@ public class Connector
         connector.ConnectTo(connectorFrom);
         TransactionManager.Instance.TransactionTaskDone();
         return connector;
+    }
+
+    /// <summary>
+    /// Shows scalable lines representing the CoordinateSystem of a Connector.
+    /// </summary>
+    /// <param name="connector">Autodesk.Revit.DB.Connector</param>
+    /// <param name="length">double</param>
+    /// <returns name="Display">GeometryColor order by x,y,z</returns>
+    /// <returns name="Origin">Point</returns>
+    /// <returns name="XAxis">Vector(Red color)</returns>
+    /// <returns name="YAxis">Vector(Green color)</returns>
+    /// <returns name="ZAxis">Vector(Blue color)</returns>
+    /// <returns name="XYPlane">Plane(Red-Green color)</returns>
+    /// <returns name="YZPlane">Plane(Green-Blue color)</returns>
+    /// <returns name="ZXPlane">Plane(Blue-Red color)</returns>
+    [MultiReturn(new[] {"Display", "Origin", "XAxis", "YAxis", "ZAxis", "XYPlane", "YZPlane", "ZXPlane"})]
+    public static Dictionary<string, object?> Display(Autodesk.Revit.DB.Connector? connector, double length = 1000)
+    {
+        if (length <= 0)
+        {
+            length = 1;
+        }
+
+        if (connector == null) return new Dictionary<string, object?>();
+        var origin = connector.Origin.ToDynamoType();
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
+        double xUnits = UnitUtils.ConvertFromInternalUnits(origin.X, unitTypeId);
+        double yUnits = UnitUtils.ConvertFromInternalUnits(origin.Y, unitTypeId);
+        double zUnits = UnitUtils.ConvertFromInternalUnits(origin.Z, unitTypeId);
+        Point point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(xUnits, yUnits, zUnits);
+        var X = connector.CoordinateSystem.BasisX.ToDynamoVector();
+        var Y = connector.CoordinateSystem.BasisY.ToDynamoVector();
+        var Z = connector.CoordinateSystem.BasisZ.ToDynamoVector();
+        CoordinateSystem coordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(point, X, Y, Z);
+        return OpenMEPSandbox.Geometry.CoordinateSystem.Display(coordinateSystem,length);
     }
 }
