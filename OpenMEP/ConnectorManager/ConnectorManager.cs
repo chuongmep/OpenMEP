@@ -75,15 +75,14 @@ public class ConnectorManager
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">a collections of connector manager</returns>
-    public static List<Autodesk.Revit.DB.Connector> Connectors( Autodesk.Revit.DB.ConnectorManager? connectorManager)
+    public static List<Autodesk.Revit.DB.Connector?> Connectors( Autodesk.Revit.DB.ConnectorManager? connectorManager)
     {
-        List<Autodesk.Revit.DB.Connector> connectors = new List<Autodesk.Revit.DB.Connector>();
-        ConnectorSet connectorSet = connectorManager.Connectors;
-        foreach (Autodesk.Revit.DB.Connector connector in connectorSet)
+        List<Autodesk.Revit.DB.Connector?> connectors = new List<Autodesk.Revit.DB.Connector?>();
+        ConnectorSet? connectorSet = connectorManager?.Connectors;
+        foreach (Autodesk.Revit.DB.Connector connector in connectorSet!)
         {
             connectors.Add(connector);
         }
-
         return connectors;
     }
 

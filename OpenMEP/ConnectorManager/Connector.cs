@@ -888,4 +888,39 @@ public class Connector
         CoordinateSystem coordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(point, X, Y, Z);
         return OpenMEPSandbox.Geometry.CoordinateSystem.Display(coordinateSystem,length);
     }
+
+    /// <summary>
+    /// Identifies if the connector is connected to the specified connector.
+    /// </summary>
+    /// <param name="connector">the connector to check</param>
+    /// <param name="connectorOther">the second connector to identifies</param>
+    /// <returns name="bool">true if connector is connected to other</returns>
+    public static bool IsConnectedTo(Autodesk.Revit.DB.Connector connector,Autodesk.Revit.DB.Connector connectorOther)
+    {
+        return connector.IsConnectedTo(connectorOther);
+    }
+
+    /// <summary>Gets fabrication connectivity information.</summary>
+    /// <para name="connector">the connector</para>
+    /// <returns>
+    ///    Returns <see langword="null" /> if there is no fabrication connector information associated.
+    /// </returns>
+    /// <since>2016</since>
+    public static Dictionary<string, object?> GetFabricationConnectorInfo(Autodesk.Revit.DB.Connector connector)
+    {
+        
+        if (connector == null) throw new ArgumentException(nameof(connector));
+        FabricationConnectorInfo fabricationConnectorInfo = connector.GetFabricationConnectorInfo();
+        if (fabricationConnectorInfo == null) return new Dictionary<string, object?>();
+        return new Dictionary<string, object?>
+        {
+            {"BodyConnectorId", fabricationConnectorInfo.BodyConnectorId},
+            {"DoubleWallConnectorId", fabricationConnectorInfo.DoubleWallConnectorId},
+            {"FabricationIndex", fabricationConnectorInfo.FabricationIndex},
+            {"IsBodyConnectorLocked", fabricationConnectorInfo.IsBodyConnectorLocked},
+            {"IsDoubleWallConnectorLocked", fabricationConnectorInfo.IsDoubleWallConnectorLocked},
+            {"HasDoubleWallConnector", fabricationConnectorInfo.HasDoubleWallConnector()},
+            {"IsValid", fabricationConnectorInfo.IsValid()},
+        };
+    }
 }
