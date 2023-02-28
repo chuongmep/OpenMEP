@@ -18,3 +18,5 @@
 /// <returns name="Normal">Vector</returns>
 ```
 ![Display](dyn/pic/Plane.Display.gif)
+
+[Display.dyn](https://github.com/chuongmep/OpenMEP/blob/dev/docs/OpenMEPPage/geometry/dyn/Plane.Display.dyn)
