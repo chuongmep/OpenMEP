@@ -2,7 +2,7 @@
   "Uuid": "f928cf34-4e6a-4040-a79c-862d96f0353a",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Connector.GetElementConnectedWith",
+  "Name": "Connector.PressureDrop",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -10,16 +10,46 @@
   "Outputs": [],
   "Nodes": [
     {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.PressureDrop@var",
+      "Id": "6810879d9aea4c539972729df97d55c6",
+      "Inputs": [
+        {
+          "Id": "e5a0a1266d7d4da8b54571d80d1e7437",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "04835c95e930469f8a306439250fb22c",
+          "Name": "double",
+          "Description": "PressureDrop",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The pressure drop of the connector.\n\nConnector.PressureDrop (connector: var): double"
+    },
+    {
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "e5b8d4d3-122d-4ea0-bbd3-26614c917825-00093c35"
+        "be616ece-f29c-41ea-90be-1913ce942448-0009415a"
       ],
-      "Id": "36d61c2272d340e291bc2edf7169cf86",
+      "Id": "c79ab7b2cd2a4346aeac0584e9dee7d0",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "9df9e54412cc4d38a3d755c16db4f048",
+          "Id": "34bd4861c43a4c75b7418395858876cf",
           "Name": "Element",
           "Description": "The selected elements.",
           "UsingDefaultValue": false,
@@ -33,41 +63,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetElementConnectedWith@var",
-      "Id": "c8bb9ca5d0a54f77995264542d61c3b3",
-      "Inputs": [
-        {
-          "Id": "7ac3d75809e0402288f9b4af07ce3441",
-          "Name": "connector",
-          "Description": "connector\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "64fb8672c1a14ed69b00fc2a909d84d1",
-          "Name": "element",
-          "Description": "element has connected with connector",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "return element connected with connector\n\nConnector.GetElementConnectedWith (connector: var): Element"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectors@Revit.Elements.Element",
-      "Id": "8ba510b7776744cc8dc068f9865fda35",
+      "Id": "3f6070f192c44f1594a93ceba4a65cee",
       "Inputs": [
         {
-          "Id": "e0435ecdffed4f05afdbda9d8b5a912a",
+          "Id": "9e12e0f9f760468ca74f9fcca107a0e8",
           "Name": "element",
           "Description": "element\n\nElement",
           "UsingDefaultValue": false,
@@ -78,7 +78,7 @@
       ],
       "Outputs": [
         {
-          "Id": "91ed37fd92ca4e41b35766ffe39fedbd",
+          "Id": "77a8608265d74c48a513cf3b860ec985",
           "Name": "connectors",
           "Description": "connectors",
           "UsingDefaultValue": false,
@@ -93,15 +93,15 @@
   ],
   "Connectors": [
     {
-      "Start": "9df9e54412cc4d38a3d755c16db4f048",
-      "End": "e0435ecdffed4f05afdbda9d8b5a912a",
-      "Id": "29d2a69b822b408c8c9adc895b832878",
+      "Start": "34bd4861c43a4c75b7418395858876cf",
+      "End": "9e12e0f9f760468ca74f9fcca107a0e8",
+      "Id": "59c2c7213adb4f1588fc50cc0a5f7efa",
       "IsHidden": "False"
     },
     {
-      "Start": "91ed37fd92ca4e41b35766ffe39fedbd",
-      "End": "7ac3d75809e0402288f9b4af07ce3441",
-      "Id": "5c44e4dbc851401e8a4ec82eb27659a4",
+      "Start": "77a8608265d74c48a513cf3b860ec985",
+      "End": "e5a0a1266d7d4da8b54571d80d1e7437",
+      "Id": "06ed0d5e54d947a09acafe5a88450925",
       "IsHidden": "False"
     }
   ],
@@ -112,8 +112,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "c8bb9ca5d0a54f77995264542d61c3b3",
-        "8ba510b7776744cc8dc068f9865fda35"
+        "6810879d9aea4c539972729df97d55c6",
+        "3f6070f192c44f1594a93ceba4a65cee"
       ]
     }
   ],
@@ -147,7 +147,7 @@
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.16.1.2727",
-      "RunType": "Manual",
+      "RunType": "Automatic",
       "RunPeriod": "1000"
     },
     "Camera": {
@@ -165,39 +165,39 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Select Model Element",
+        "Name": "Connector.PressureDrop",
         "ShowGeometry": true,
-        "Id": "36d61c2272d340e291bc2edf7169cf86",
+        "Id": "6810879d9aea4c539972729df97d55c6",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 247.2000000000001,
-        "Y": 306.40000000000003
+        "X": 595.5,
+        "Y": 273.0
       },
       {
-        "Name": "Connector.GetElementConnectedWith",
+        "Name": "Select Model Element",
         "ShowGeometry": true,
-        "Id": "c8bb9ca5d0a54f77995264542d61c3b3",
+        "Id": "c79ab7b2cd2a4346aeac0584e9dee7d0",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 902.52199007090621,
-        "Y": 279.55674131204228
+        "X": 54.5,
+        "Y": 282.0
       },
       {
         "Name": "Connector.GetConnectors",
         "ShowGeometry": true,
-        "Id": "8ba510b7776744cc8dc068f9865fda35",
+        "Id": "3f6070f192c44f1594a93ceba4a65cee",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 554.96681592669552,
-        "Y": 279.38900464800827
+        "X": 316.5,
+        "Y": 277.0
       }
     ],
     "Annotations": [],
-    "X": -520.43776444435343,
-    "Y": 51.401472854783378,
-    "Zoom": 0.83780161710767143
+    "X": -0.50999999999999091,
+    "Y": 70.37,
+    "Zoom": 0.8425
   }
 }
