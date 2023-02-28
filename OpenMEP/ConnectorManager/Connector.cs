@@ -864,10 +864,18 @@ public class Connector
         if (connector == null) return new Dictionary<string, object?>();
         var origin = connector.Origin.ToDynamoType();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+#if R20  
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double xUnits = UnitUtils.ConvertFromInternalUnits(origin.X, unitTypeId);
+        double yUnits = UnitUtils.ConvertFromInternalUnits(origin.Y, unitTypeId);
+        double zUnits = UnitUtils.ConvertFromInternalUnits(origin.Z, unitTypeId);
+        #else
         ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
         double xUnits = UnitUtils.ConvertFromInternalUnits(origin.X, unitTypeId);
         double yUnits = UnitUtils.ConvertFromInternalUnits(origin.Y, unitTypeId);
         double zUnits = UnitUtils.ConvertFromInternalUnits(origin.Z, unitTypeId);
+#endif
+        
         Point point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(xUnits, yUnits, zUnits);
         var X = connector.CoordinateSystem.BasisX.ToDynamoVector();
         var Y = connector.CoordinateSystem.BasisY.ToDynamoVector();
