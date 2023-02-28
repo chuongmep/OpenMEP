@@ -130,22 +130,24 @@ void CompressFile(string filePath, string OutputFilePath, int compressLevel = 9)
 string GetDayInYear()
 {
     // Get Day Current Of Year
-    DateTime now = DateTime.UtcNow;
+    DateTime now = DateTime.UtcNow.ToUniversalTime();
     DateTime startOfYear = new DateTime(now.Year, 1, 1);
     return (now - startOfYear).Days.ToString();
+    //get date time at london 
+    // DateTime now = DateTime.UtcNow;
+    // DateTime londonTime = now.ToUniversalTime().AddHours(7);
 }
 
 string GetLastTwoDigitOfYear()
 {
-    DateTime now = DateTime.UtcNow;
+    DateTime now = DateTime.UtcNow.ToUniversalTime();
     return now.Year.ToString().Substring(2, 2);
 }
 
 string GetDay()
 {
-    int hour = DateTime.UtcNow.Hour;
-    Console.WriteLine(hour);
-    int minute = DateTime.UtcNow.Minute;
+    int hour = DateTime.UtcNow.ToUniversalTime().Hour;
+    int minute = DateTime.UtcNow.ToUniversalTime().Minute;
     string Sub = hour + minute.ToString();
     return Sub;
 }
