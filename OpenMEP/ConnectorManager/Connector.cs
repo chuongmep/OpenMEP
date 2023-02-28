@@ -900,27 +900,48 @@ public class Connector
         return connector.IsConnectedTo(connectorOther);
     }
 
-    /// <summary>Gets fabrication connectivity information.</summary>
-    /// <para name="connector">the connector</para>
-    /// <returns>
-    ///    Returns <see langword="null" /> if there is no fabrication connector information associated.
-    /// </returns>
-    /// <since>2016</since>
-    public static Dictionary<string, object?> GetFabricationConnectorInfo(Autodesk.Revit.DB.Connector connector)
-    {
-        
-        if (connector == null) throw new ArgumentException(nameof(connector));
-        FabricationConnectorInfo fabricationConnectorInfo = connector.GetFabricationConnectorInfo();
-        if (fabricationConnectorInfo == null) return new Dictionary<string, object?>();
-        return new Dictionary<string, object?>
-        {
-            {"BodyConnectorId", fabricationConnectorInfo.BodyConnectorId},
-            {"DoubleWallConnectorId", fabricationConnectorInfo.DoubleWallConnectorId},
-            {"FabricationIndex", fabricationConnectorInfo.FabricationIndex},
-            {"IsBodyConnectorLocked", fabricationConnectorInfo.IsBodyConnectorLocked},
-            {"IsDoubleWallConnectorLocked", fabricationConnectorInfo.IsDoubleWallConnectorLocked},
-            {"HasDoubleWallConnector", fabricationConnectorInfo.HasDoubleWallConnector()},
-            {"IsValid", fabricationConnectorInfo.IsValid()},
-        };
-    }
+    // /// <summary>Gets fabrication connectivity information.</summary>
+    // /// <para name="connector">the connector</para>
+    // /// <since>2016</since>
+    // [MultiReturn("BodyConnectorId", "DoubleWallConnectorId", "FabricationIndex", "IsBodyConnectorLocked",
+    //     "IsDoubleWallConnectorLocked", "HasDoubleWallConnector", "IsValid")]
+    // public static Dictionary<string, object?> GetFabricationConnectorInfo(Autodesk.Revit.DB.Connector connector)
+    // {
+    //     if (connector == null) throw new ArgumentException(nameof(connector));
+    //     FabricationConnectorInfo fabricationConnectorInfo = connector.GetFabricationConnectorInfo();
+    //     if (fabricationConnectorInfo == null)
+    //     {
+    //         return new Dictionary<string, object?>
+    //         {
+    //             {"BodyConnectorId", null},
+    //             {"DoubleWallConnectorId", null},
+    //             {"FabricationIndex", null},
+    //             {"IsBodyConnectorLocked", null},
+    //             {"IsDoubleWallConnectorLocked", null},
+    //             {"HasDoubleWallConnector", null},
+    //             {"IsValid", null}
+    //         };
+    //     }
+    //     int? DoubleWallConnectorId = null;
+    //     bool? IsDoubleWallConnectorLocked = null;
+    //     try
+    //     {
+    //         DoubleWallConnectorId = fabricationConnectorInfo.DoubleWallConnectorId;
+    //         IsDoubleWallConnectorLocked = fabricationConnectorInfo.IsDoubleWallConnectorLocked;
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         //TODO: no things
+    //     }
+    //     return new Dictionary<string, object?>
+    //     {
+    //         {"BodyConnectorId", fabricationConnectorInfo.BodyConnectorId},
+    //         {"DoubleWallConnectorId",DoubleWallConnectorId },
+    //         {"FabricationIndex", fabricationConnectorInfo.FabricationIndex},
+    //         {"IsBodyConnectorLocked", fabricationConnectorInfo.IsBodyConnectorLocked},
+    //         {"IsDoubleWallConnectorLocked",IsDoubleWallConnectorLocked },
+    //         {"HasDoubleWallConnector", fabricationConnectorInfo.HasDoubleWallConnector()},
+    //         {"IsValid", fabricationConnectorInfo.IsValid()},
+    //     };
+    // }
 }
