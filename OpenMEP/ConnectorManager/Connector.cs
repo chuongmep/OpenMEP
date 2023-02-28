@@ -126,7 +126,12 @@ public class Connector
                 .ConnectorManager?
                 .Connectors;
         }
-
+        if (e is FabricationPart)
+        {
+            return ((FabricationPart) e)?
+                .ConnectorManager?
+                .Connectors;
+        }
         return null;
     }
 
@@ -300,7 +305,7 @@ public class Connector
     public static List<Autodesk.Revit.DB.Connector?> GetUsedConnectors(Revit.Elements.Element? element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
-        if (GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
+        if (!GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
         return GetConnectors(element).Where(x => x!.IsConnected).ToList();
     }
 

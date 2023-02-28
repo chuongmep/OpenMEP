@@ -14,7 +14,7 @@ public class ConnectorManager
     /// return connector manager of element
     /// </summary>
     /// <param name="element">element</param>
-    /// <returns name="ConnectorManager">ConnectorManager</returns>
+    /// <returns name="ConnectorManager">Autodesk.Revit.DB.ConnectorManager</returns>
     public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager( Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.Element? internalElement = element?.InternalElement;
@@ -31,6 +31,10 @@ public class ConnectorManager
         if (internalElement is MEPCurve mepCurve)
         {
             return mepCurve.ConnectorManager;
+        }
+        if(internalElement is Autodesk.Revit.DB.FabricationPart fabricationPart)
+        {
+            return fabricationPart.ConnectorManager;
         }
 
         return null;
