@@ -20,7 +20,7 @@ public class Element
     /// Return A Location Of Element
     /// </summary>
     /// <param name="element"></param>
-    /// <returns></returns>
+    /// <returns name="point">location of element</returns>
     public static Autodesk.DesignScript.Geometry.Point? GetLocation(Revit.Elements.Element? element)
     {
         if (element == null)
@@ -43,7 +43,7 @@ public class Element
     /// <summary>
     /// Returns the Document in which the Element resides
     /// </summary>
-    /// <param name="element"></param>
+    /// <param name="element">the element</param>
     /// <returns></returns>
     [NodeCategory("Query")]
     [MultiReturn("Revit Document", "Dynamo Document")]
