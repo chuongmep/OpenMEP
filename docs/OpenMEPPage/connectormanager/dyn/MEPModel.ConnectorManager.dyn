@@ -1,0 +1,203 @@
+{
+  "Uuid": "bdaf8f11-89b6-4e6c-82cf-01b2268c03b2",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MEPModel.ConnectorManager",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "b09dffb9-3b4b-4377-9202-9dca3441933d-000a5d06"
+      ],
+      "Id": "072670fb86fa4d9e9f4e33f49ff3d262",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "203bd092dbd447ba9572d70adf626f35",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.MEPModel.ConnectorManager@var",
+      "Id": "0a2213edbd524d68a0a24bbc49332e3a",
+      "Inputs": [
+        {
+          "Id": "1fc79bf65e184065aedf238823f46dae",
+          "Name": "mepModel",
+          "Description": "Autodesk.Revit.DB.MEPModel\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8102702301cf4730addb4d5252096545",
+          "Name": "ConnectorManager",
+          "Description": "ConnectorManager",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the Connector Manager from this MEPModel.\n\nMEPModel.ConnectorManager (mepModel: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.FamilyInstance.GetMEPModel@Revit.Elements.Element",
+      "Id": "72929d4b4379435ba7f2a04e7e6b81ad",
+      "Inputs": [
+        {
+          "Id": "0fde2ad82bc947edba33121449da1d24",
+          "Name": "familyInstance",
+          "Description": "the element to get MepModel\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "361eaf2168c140488f7268c1f2ed29bc",
+          "Name": "mepModel",
+          "Description": "Autodesk.Revit.DB.MEPModel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the MEP model for the family instance.\n\nFamilyInstance.GetMEPModel (familyInstance: Element): var"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "203bd092dbd447ba9572d70adf626f35",
+      "End": "0fde2ad82bc947edba33121449da1d24",
+      "Id": "ad7c672dbb164eb38f96f90681d37eca",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "361eaf2168c140488f7268c1f2ed29bc",
+      "End": "1fc79bf65e184065aedf238823f46dae",
+      "Id": "644ed2780ef446e69bde74b80596ab71",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "0a2213edbd524d68a0a24bbc49332e3a",
+        "72929d4b4379435ba7f2a04e7e6b81ad"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "072670fb86fa4d9e9f4e33f49ff3d262",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 238.39999999999998,
+        "Y": 244.79999999999995
+      },
+      {
+        "Name": "MEPModel.ConnectorManager",
+        "ShowGeometry": true,
+        "Id": "0a2213edbd524d68a0a24bbc49332e3a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 880.96636229307524,
+        "Y": 172.73493065028632
+      },
+      {
+        "Name": "FamilyInstance.GetMEPModel",
+        "ShowGeometry": true,
+        "Id": "72929d4b4379435ba7f2a04e7e6b81ad",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 511.59548237214517,
+        "Y": 239.37982947394039
+      }
+    ],
+    "Annotations": [],
+    "X": -110.42047099819183,
+    "Y": 57.03639304139972,
+    "Zoom": 0.86797750764901571
+  }
+}
