@@ -1,0 +1,156 @@
+{
+  "Uuid": "592e50c6-3696-4cf1-8f6e-921b8ab8a0fb",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "FamilyInstance.GetMEPModel",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+      ],
+      "Id": "c846a89ae68243d3b045e42fafa8efea",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1e04e187365d42acb5814aadaf79b336",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.FamilyInstance.GetMEPModel@Revit.Elements.Element",
+      "Id": "0c54acb29cce4d5ca96a6ba4b25fa076",
+      "Inputs": [
+        {
+          "Id": "2ae97b4f11654b468f9c0d1107de0cc8",
+          "Name": "familyInstance",
+          "Description": "the element to get MepModel\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "49d5c01536d44e46beea69b357e309ff",
+          "Name": "mepModel",
+          "Description": "Autodesk.Revit.DB.MEPModel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the MEP model for the family instance.\n\nFamilyInstance.GetMEPModel (familyInstance: Element): var"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "1e04e187365d42acb5814aadaf79b336",
+      "End": "2ae97b4f11654b468f9c0d1107de0cc8",
+      "Id": "babc7df2e42e4dea94e71c33c155af1c",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "0c54acb29cce4d5ca96a6ba4b25fa076"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -15073.398806948924,
+      "EyeY": 100.12623946973248,
+      "EyeZ": -6071.2150112052022,
+      "LookX": 5.496463198923732,
+      "LookY": -5.9545017988340421,
+      "LookZ": -26.566238794798036,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "c846a89ae68243d3b045e42fafa8efea",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 239.19999999999993,
+        "Y": 269.6
+      },
+      {
+        "Name": "FamilyInstance.GetMEPModel",
+        "ShowGeometry": true,
+        "Id": "0c54acb29cce4d5ca96a6ba4b25fa076",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 542.85010799136046,
+        "Y": 284.86997840172774
+      }
+    ],
+    "Annotations": [],
+    "X": -117.024,
+    "Y": -84.8119999999999,
+    "Zoom": 1.1575
+  }
+}
