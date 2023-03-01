@@ -10,9 +10,7 @@
     "mep",
     "mepexpert"
   ],
-  "dependencies": [
-    "GShark, Version=2.2.0.0,Culture=neutral, PublicKeyToken=null"
-  ],
+  "dependencies": [],
   "contents": "",
   "engine_version": "2.1.0.7733",
   "engine": "dynamo",

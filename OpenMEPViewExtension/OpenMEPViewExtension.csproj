@@ -6,12 +6,11 @@
         <Nullable>enable</Nullable>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AssemblyVersion>1.0.0.*</AssemblyVersion>
-        <AssemblyName>OpenMEPSandbox</AssemblyName>
-        <RootNamespace>OpenMEPSandbox</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
+        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;NU1701;MSB3277</NoWarn>
         <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
@@ -102,8 +101,7 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="GShark" Version="2.2.0" />
-        <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="$(DynVersion).*">
+        <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
@@ -111,22 +109,16 @@
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\OpenMEPViewExtension\OpenMEPViewExtension.csproj" />
+      <Reference Include="System.Net.Http" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
-            <PgkDefinition Include="$(SolutionDir)docs\sandbox\pkg.json" />
-            <XmlCustomization Include="$(SolutionDir)docs\OpenMEPSandbox_DynamoCustomization.xml" />
-            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
-            <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
+            <ExtralFiles Include="$(SolutionDir)docs\extra\OpenMEP_ViewExtensionDefinition.xml" />
         </ItemGroup>
         <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
         <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
         <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
-        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
         <Message Text="Copied Completed" Importance="high" />
     </Target>
 </Project>
