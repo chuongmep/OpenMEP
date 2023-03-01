@@ -13,6 +13,7 @@
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1</Configurations>
         <Platforms>AnyCPU</Platforms>
+        <NoWarn>MSB3277;MSB4121;CS1591</NoWarn>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
