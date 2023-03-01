@@ -15,7 +15,7 @@ public class PipingSystem
     /// </summary>
     /// <param name="toggle">flag true or false to fresh</param>
     /// <returns name="pipeingSystemTypes">pipePingSystemTypes</returns>
-    public static IEnumerable<Revit.Elements.Element?> All(bool toggle)
+    public static IEnumerable<Revit.Elements.Element?> GetAllPipeSystemTypes(bool toggle)
     {
         // filter for all piping systems
         Autodesk.Revit.DB.FilteredElementCollector collector = new Autodesk.Revit.DB.FilteredElementCollector(DocumentManager.Instance.CurrentDBDocument);

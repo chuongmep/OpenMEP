@@ -491,7 +491,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
         RoutingPreferenceRuleGroupType routingtype)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? internalElement = pipe!.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
-        PipeType? pipeType = internalElement?.PipeType;
+        Autodesk.Revit.DB.Plumbing.PipeType? pipeType = internalElement?.PipeType;
         RoutingPreferenceManager? routePrefManager = pipeType?.RoutingPreferenceManager;
         RoutingConditions rou = new RoutingConditions(RoutingPreferenceErrorLevel.None);
         //rou.PreferredJunctionType = PreferredJunctionType.Tee;
