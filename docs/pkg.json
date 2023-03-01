@@ -16,7 +16,7 @@
   "engine": "dynamo",
   "engine_metadata": "",
   "site_url": "https://chuongmep.com/",
-  "repository_url": "mailto:chuongpqvn@gmail.com?subject=DynaMEP%20Error%20Node&body=%2F%2FContent%3A",
+  "repository_url": "mailto:chuongpqvn@gmail.com?subject=OpenMEP%20Error%20Node&body=%2F%2FContent%3A",
   "contains_binaries": true,
   "node_libraries": [
     "OpenMEP, Version=1.0.0.*, Culture=neutral, PublicKeyToken=null",

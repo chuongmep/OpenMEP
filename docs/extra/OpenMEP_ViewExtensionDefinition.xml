@@ -1,0 +1,4 @@
+﻿<ViewExtensionDefinition>
+  <AssemblyPath>..\bin\OpenMEPViewExtension.dll</AssemblyPath>
+  <TypeName>OpenMEPViewExtension.OpenMEPViewExtension</TypeName>
+</ViewExtensionDefinition>

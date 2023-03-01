@@ -2,8 +2,10 @@
 using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
-using Revit.Elements;
 using Revit.GeometryConversion;
+using RevitServices.Persistence;
+using RevitServices.Transactions;
+using Level = Autodesk.Revit.DB.Level;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEP.Element;
@@ -12,39 +14,40 @@ public class Element
 {
     private Element()
     {
-        
     }
+
     /// <summary>
-    /// Return A Location Center Of Element
+    /// Return A Location Of Element
     /// </summary>
     /// <param name="element"></param>
-    /// <returns></returns>
-    public static Point? LocationCenter(Revit.Elements.Element? element)
+    /// <returns name="point">location of element</returns>
+    public static Autodesk.DesignScript.Geometry.Point? GetLocation(Revit.Elements.Element? element)
     {
-        
-        if(element == null)
+        if (element == null)
             throw new ArgumentNullException(nameof(element));
         if (element.InternalElement.Location is LocationPoint)
         {
             LocationPoint? lc = element.InternalElement.Location as LocationPoint;
             return lc?.Point.ToPoint();
         }
+
         if (element.InternalElement.Location is LocationCurve)
         {
             LocationCurve? lc = element.InternalElement.Location as LocationCurve;
-            return lc?.Curve.Evaluate(0.5,false).ToPoint();
+            return lc?.Curve.Evaluate(0.5, false).ToPoint();
         }
         BoundingBoxXYZ bb = element.InternalElement.get_BoundingBox(null);
         return bb.Max.Add(bb.Min).Divide(0.5).ToPoint();
     }
+
     /// <summary>
     /// Returns the Document in which the Element resides
     /// </summary>
-    /// <param name="element"></param>
+    /// <param name="element">the element</param>
     /// <returns></returns>
     [NodeCategory("Query")]
     [MultiReturn("Revit Document", "Dynamo Document")]
-    public static Dictionary<string,object?> GetDocument(global::Revit.Elements.Element element)
+    public static Dictionary<string, object?> GetDocument(global::Revit.Elements.Element element)
     {
         return new Dictionary<string, object?>
         {
@@ -52,4 +55,80 @@ public class Element
             {"Dynamo Document", element.InternalElement.Document.ToDynamoType()}
         };
     }
+
+    /// <summary>
+    /// Move element to new location
+    /// </summary>
+    /// <param name="element">element to move</param>
+    /// <param name="newLocation">translate</param>
+    /// <returns name="element">family instance</returns>
+    public static global::Revit.Elements.Element MoveElement(global::Revit.Elements.Element element, Point newLocation)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        ElementTransformUtils.MoveElement(doc, element.InternalElement.Id,
+            newLocation.ToXyz().Subtract(GetLocation(element).ToXyz()));
+        TransactionManager.Instance.TransactionTaskDone();
+        return element;
+    }
+    
+    /// <summary>
+    /// Return Level Of Element
+    /// </summary>
+    /// <param name="element">element to get level</param>
+    /// <returns name="level">level of element</returns>
+    public static global::Revit.Elements.Element? GetLevel(global::Revit.Elements.Element element)
+    {
+        return GetLevel(element.InternalElement).ToDynamoType();
+    }
+
+    internal static Level? GetLevel(Autodesk.Revit.DB.Element element)
+    {
+        var doc = element.Document;
+        ElementId levelId = element.LevelId;
+        if (doc.GetElement(levelId) == null)
+        {
+            var levelPara = element.get_Parameter(BuiltInParameter.RBS_START_LEVEL_PARAM);
+            if (levelPara == null)
+            {
+                levelPara = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM);
+            }
+            if (levelPara != null)
+            {
+                levelId = levelPara.AsElementId();
+            }
+            if (levelId.IntegerValue == -1)
+            {
+                // General get level method
+                var bbox = element.get_BoundingBox(null);
+                double zValue = (bbox.Min.Z + bbox.Max.Z) / 2;
+
+                FilteredElementCollector levelFilter = new FilteredElementCollector(doc);
+                List<Level> levels = levelFilter.OfClass(typeof(Level)).ToElements().Cast<Level>().ToList();
+                levels.Sort((a, b) => a.Elevation.CompareTo(b.Elevation));
+                if (zValue <= levels.FirstOrDefault()?.Elevation)
+                {
+                    return levels.FirstOrDefault();
+                }
+
+                if (zValue >= levels.LastOrDefault()?.Elevation)
+                {
+                    return levels.LastOrDefault();
+                }
+
+                for (int i = 0; i < levels.Count; i++)
+                {
+                    if (levels[i].Elevation >= zValue)
+                    {
+                        return levels[i - 1];
+                    }
+                }
+            }
+        }
+
+        return doc.GetElement(levelId) as Autodesk.Revit.DB.Level;
+    }
+    
+    
+
 }

@@ -99,16 +99,18 @@ public class Point
 
     //
     // //TODO : Got some bug from G-Shark Library
-    // /// <summary>
-    // /// Tests whether a point is inside, outside, or coincident with a polygon.
-    // /// </summary>
-    // /// <returns name="double">Returns -1 if point is outside the polygon, 0 if it is coincident with a polygon edge, or 1 if it is inside the polygon.</returns>
-    // public static double IsInPolygon2(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Polygon polygon)
-    // {
-    //     if (point == null) throw new ArgumentNullException(nameof(point));
-    //     if (polygon == null) throw new ArgumentNullException(nameof(polygon));
-    //    return point.ToGSharkType().InPolygon(polygon.ToGSharkType());
-    // }
+    /// <summary>
+    /// Tests whether a point is inside, outside, or coincident with a polygon.
+    /// </summary>
+    /// <returns name="double">Returns -1 if point is outside the polygon, 0 if it is coincident with a polygon edge, or 1 if it is inside the polygon.</returns>
+    public static double IsInPolygon2(Autodesk.DesignScript.Geometry.Point point,Autodesk.DesignScript.Geometry.Polygon polygon)
+    {
+        if (point == null) throw new ArgumentNullException(nameof(point));
+        if (polygon == null) throw new ArgumentNullException(nameof(polygon));
+        Point3 point3 = point.ToGSharkType();
+        Polygon polyGshark = polygon.ToGSharkType();
+        return point3.InPolygon(polyGshark);
+    }
 
     /// <summary>
     /// Returns whether an input point is contained within the polygon. If the polygon is not planar then the point will be projected onto the best-fit plane and the containment will be computed using the projection of the polygon onto the best-fit plane. This will return a failed status if the polygon self-intersects.

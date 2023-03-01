@@ -126,25 +126,28 @@ void CompressFile(string filePath, string OutputFilePath, int compressLevel = 9)
         Console.WriteLine("Exception during processing {0}", ex);
     }
 }
-
+// https://learn.microsoft.com/en-us/previous-versions/dotnet/articles/ms973825(v=msdn.10)?redirectedfrom=MSDN
 string GetDayInYear()
 {
     // Get Day Current Of Year
-    DateTime now = DateTime.Now;
+    DateTime now = DateTime.UtcNow.ToUniversalTime();
     DateTime startOfYear = new DateTime(now.Year, 1, 1);
     return (now - startOfYear).Days.ToString();
+    //get date time at london 
+    // DateTime now = DateTime.UtcNow;
+    // DateTime londonTime = now.ToUniversalTime().AddHours(7);
 }
 
 string GetLastTwoDigitOfYear()
 {
-    DateTime now = DateTime.Now;
+    DateTime now = DateTime.UtcNow.ToUniversalTime();
     return now.Year.ToString().Substring(2, 2);
 }
 
 string GetDay()
 {
-    int hour = DateTime.Now.Hour;
-    int minute = DateTime.Now.Minute;
+    int hour = DateTime.UtcNow.ToUniversalTime().Hour;
+    int minute = DateTime.UtcNow.ToUniversalTime().Minute;
     string Sub = hour + minute.ToString();
     return Sub;
 }

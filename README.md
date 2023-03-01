@@ -163,8 +163,7 @@ It not support way I maintain with multiple version and release CI/CD with Dynam
 
 <details><summary>Can I use this package with Dynamo Sandbox ?</summary>
 
-At the moment, this package is not supported with Dynamo Sandbox. You can use this package with Dynamo Revit, but in
-feature I will support Geometry can use with Dynamo Sandbox.
+Just one of part library generic supported with Dynamo Sandbox.
 
 </details>
 
