@@ -17,11 +17,11 @@ public class Element
     }
 
     /// <summary>
-    /// Return A Location Center Of Element
+    /// Return A Location Of Element
     /// </summary>
     /// <param name="element"></param>
     /// <returns></returns>
-    public static Autodesk.DesignScript.Geometry.Point? LocationCenter(Revit.Elements.Element? element)
+    public static Autodesk.DesignScript.Geometry.Point? GetLocation(Revit.Elements.Element? element)
     {
         if (element == null)
             throw new ArgumentNullException(nameof(element));
@@ -36,7 +36,6 @@ public class Element
             LocationCurve? lc = element.InternalElement.Location as LocationCurve;
             return lc?.Curve.Evaluate(0.5, false).ToPoint();
         }
-
         BoundingBoxXYZ bb = element.InternalElement.get_BoundingBox(null);
         return bb.Max.Add(bb.Min).Divide(0.5).ToPoint();
     }
@@ -68,7 +67,7 @@ public class Element
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
         ElementTransformUtils.MoveElement(doc, element.InternalElement.Id,
-            newLocation.ToXyz().Subtract(LocationCenter(element).ToXyz()));
+            newLocation.ToXyz().Subtract(GetLocation(element).ToXyz()));
         TransactionManager.Instance.TransactionTaskDone();
         return element;
     }

@@ -145,7 +145,7 @@ public class Connector
         ConnectorSet? connectorSet)
     {
         Autodesk.Revit.DB.Connector? closet = null;
-        Point? locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
+        Point? locationCenter = global::OpenMEP.Element.Element.GetLocation(element);
         double distance = Double.MaxValue;
         foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
         {
@@ -235,7 +235,7 @@ public class Connector
         List<Autodesk.Revit.DB.Connector?> connectors)
     {
         Autodesk.Revit.DB.Connector? farthest = null;
-        Point? locationCenter = global::OpenMEP.Element.Element.LocationCenter(element);
+        Point? locationCenter = global::OpenMEP.Element.Element.GetLocation(element);
         double distance = Double.MinValue;
         foreach (Autodesk.Revit.DB.Connector? connector in connectors!)
         {
