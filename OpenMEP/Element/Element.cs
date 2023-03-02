@@ -30,7 +30,6 @@ public class Element
             LocationPoint? lc = element.InternalElement.Location as LocationPoint;
             return lc?.Point.ToPoint();
         }
-
         if (element.InternalElement.Location is LocationCurve)
         {
             LocationCurve? lc = element.InternalElement.Location as LocationCurve;
@@ -129,6 +128,40 @@ public class Element
         return doc.GetElement(levelId) as Autodesk.Revit.DB.Level;
     }
     
+    /// <summary>
+    /// The system of the MEP element belong to.
+    /// </summary>
+    /// <param name="element">the element to get system</param>
+    /// <returns name="system">mep system of element</returns>
+    public static global::Revit.Elements.Element? System(global::Revit.Elements.Element element)
+    {
+        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(element);
+        if (connectors == null) throw new ArgumentNullException(nameof(element));
+        return connectors.Select(x => x!.MEPSystem.ToDynamoType()).FirstOrDefault();
+    }
+
+    /// <summary>
+    /// return type of MEP System
+    /// </summary>
+    /// <param name="element">the element of mep</param>
+    /// <returns name="systemType">system type of element from connector</returns>
+    public static global::Revit.Elements.Element SystemType(global::Revit.Elements.Element element)
+    {
+        global::Revit.Elements.Element? system = System(element);
+        return system!.ElementType;
+    }
+
+    /// <summary>
+    /// Returns the MEP System Type from connectors of the element
+    /// </summary>
+    /// <param name="element">the element of mep</param>
+    /// <returns name="systemType">system type from connector of element</returns>
+    public static dynamic? ConnectorSystemType(global::Revit.Elements.Element element)
+    {
+        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(element);
+        dynamic? systemType = connectors.Select(x => ConnectorManager.Connector.SystemType(x)).FirstOrDefault();
+        return systemType;
+    }
     
 
 }
