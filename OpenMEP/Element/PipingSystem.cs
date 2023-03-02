@@ -33,4 +33,14 @@ public class PipingSystem
         }
     }
     
+    /// <summary>
+    /// return pipe system type by name
+    /// </summary>
+    /// <param name="typeName">name of pipe system type</param>
+    /// <returns name="pipeSystemType">the element system type</returns>
+    public static Revit.Elements.Element? GetPipeSystemTypeByName(string typeName)
+    {
+        return GetAllPipeSystemTypes(true).FirstOrDefault(x => x!.Name == typeName);
+    }
+
 }
