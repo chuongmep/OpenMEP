@@ -15,20 +15,16 @@ public class Point
     /// Project a point onto a plane
     /// </summary>
     /// <param name="point">point need to project</param>
-    /// <param name="planeNormal">vector normal of plane</param>
+    /// <param name="plane">plane to be project</param>
     /// <returns name="point">new point projected on plane</returns>
     public static Autodesk.DesignScript.Geometry.Point ProjectOntoPlane(
         Autodesk.DesignScript.Geometry.Point point,
-        Autodesk.DesignScript.Geometry.Vector planeNormal)
+        Autodesk.DesignScript.Geometry.Plane plane)
     {
-        double a = planeNormal.X;
-        double b = planeNormal.Y;
-        double c = planeNormal.Z;
-
-        double dx = (b * b + c * c) * point.X - (a * b) * point.Y - (a * c) * point.Z;
-        double dy = -(b * a) * point.X + (a * a + c * c) * point.Y - (b * c) * point.Z;
-        double dz = -(c * a) * point.X - (c * b) * point.Y + (a * a + b * b) * point.Z;
-        return Autodesk.DesignScript.Geometry.Point.ByCoordinates(dx, dy, dz);
+        Point3 point3 = point.ToGSharkType();
+        GShark.Geometry.Plane plane1 = plane.ToGSharkType();
+        Point3 projectedPoint = point3.ProjectToPlan(plane1);
+        return Autodesk.DesignScript.Geometry.Point.ByCoordinates(projectedPoint.X, projectedPoint.Y, projectedPoint.Z);
     }
 
     /// <summary>
