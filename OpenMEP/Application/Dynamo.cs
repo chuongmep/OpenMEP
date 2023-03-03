@@ -13,6 +13,9 @@ public class Dynamo
     /// return current version of dynamo
     /// </summary>
     /// <returns name="version">version</returns>
+    /// <example>
+    /// [!INCLUDE [Image](../../docs/OpenMEPPage/application/dynamo.md)]
+    /// </example>
     public static string Version()
     {
         Assembly assembly = Assembly.Load("DynamoCore");
