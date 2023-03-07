@@ -14,7 +14,7 @@ public class Dynamo
     /// </summary>
     /// <returns name="version">version</returns>
     /// <example>
-    /// [!INCLUDE [Image](../../docs/OpenMEPPage/application/dynamo.md)]
+    /// ![alt text](../../docs/OpenMEPPage/application/dyn/pic/Dynamo.Version.png "Dynamo")
     /// </example>
     public static string Version()
     {
