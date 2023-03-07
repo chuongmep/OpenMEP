@@ -29,6 +29,9 @@ public class Dynamo
     /// return current file name of script opening
     /// </summary>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/application/dyn/pic/Dynamo.CurrentFileName.png)
+    /// </example>
     public static string CurrentFileName()
     {
         try
