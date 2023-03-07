@@ -2,7 +2,9 @@
 using Dynamo.Applications;
 
 namespace OpenMEP.Application;
-
+/// <summary>
+/// Class Contains Dynamo Application Methods
+/// </summary>
 public class Dynamo
 {
     private Dynamo()
