@@ -15,6 +15,9 @@ public class MEPModel
     /// </summary>
     /// <param name="mepModel">Autodesk.Revit.DB.MEPModel</param>
     /// <returns name="partType">part type</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/MEPModel.PartType.png)
+    /// </example>
     public static dynamic? PartType(Autodesk.Revit.DB.MEPModel mepModel)
     {
         if (mepModel is Autodesk.Revit.DB.Mechanical.MechanicalFitting m)
@@ -36,6 +39,9 @@ public class MEPModel
     /// <para name="mepModel">Autodesk.Revit.DB.MEPModel</para>
     /// <returns name="electricSystems">electricSystems</returns>
     /// <since>2021</since>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/MEPModel.GetElectricalSystems.png)
+    /// </example>
     public static List<Revit.Elements.Element?> GetElectricalSystems(Autodesk.Revit.DB.MEPModel? mepModel)
     {
         List<ElectricalSystem>? electricalSystems = mepModel?.GetElectricalSystems().ToList();
@@ -60,7 +66,10 @@ public class MEPModel
     /// </remarks>
     /// <returns name="assignedElectricalSystems">assignedElectricalSystems</returns>
     /// <since>2021</since>
-    public static List<Revit.Elements.Element?> GetAssignedElectricalSystems(Autodesk.Revit.DB.MEPModel? mepModel)
+     /// <example>
+     /// ![](../OpenMEPPage/connectormanager/dyn/pic/MEPModel.GetAssignedElectricalSystems.png)
+     /// </example>
+     public static List<Revit.Elements.Element?> GetAssignedElectricalSystems(Autodesk.Revit.DB.MEPModel? mepModel)
     {
         List<ElectricalSystem>? assignedElectricalSystems = mepModel?.GetAssignedElectricalSystems().ToList();
         List<Revit.Elements.Element?> electricSystems = new List<Revit.Elements.Element?>();
@@ -77,6 +86,9 @@ public class MEPModel
     /// </summary>
     /// <param name="mepModel">Autodesk.Revit.DB.MEPModel</param>
     /// <returns name="ConnectorManager">ConnectorManager</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/MEPModel.ConnectorManager.png)
+    /// </example>
     public static Autodesk.Revit.DB.ConnectorManager? ConnectorManager(Autodesk.Revit.DB.MEPModel? mepModel)
     {
         return mepModel?.ConnectorManager;

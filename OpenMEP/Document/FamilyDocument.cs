@@ -11,6 +11,9 @@ public class FamilyDocument
     /// </summary>
     /// <param name="familyDocument">family document</param>
     /// <returns name="familyManager">family manager</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/FamilyDocument.FamilyManager.png)
+    /// </example>
     public static FamilyManager FamilyManager(Autodesk.Revit.DB.Document familyDocument)
     {
         if (familyDocument.IsFamilyDocument)
