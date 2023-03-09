@@ -1,0 +1,42 @@
+name: Build docs
+
+env:
+  # Stop wasting time caching packages
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Disable sending usage data to Microsoft
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+
+on:
+  push:
+    branches:
+        - dev
+
+jobs:
+  build-docs:
+    runs-on: windows-latest
+
+    steps:
+      - name: 🛎 Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 🚧 Setup .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: 🚧 Setup docfx
+        run: choco install docfx -y
+
+      - name: 📚 Build Docs
+        working-directory: docs
+        run: docfx docfx.json
+        continue-on-error: false
+        
+      - name: 🚀 Publish
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_site
+          force_orphan: true

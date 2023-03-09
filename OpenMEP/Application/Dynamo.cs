@@ -13,6 +13,9 @@ public class Dynamo
     /// return current version of dynamo
     /// </summary>
     /// <returns name="version">version</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/application/dyn/pic/Dynamo.Version.png)
+    /// </example>
     public static string Version()
     {
         Assembly assembly = Assembly.Load("DynamoCore");
@@ -26,6 +29,9 @@ public class Dynamo
     /// return current file name of script opening
     /// </summary>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/application/dyn/pic/Dynamo.CurrentFileName.png)
+    /// </example>
     public static string CurrentFileName()
     {
         try

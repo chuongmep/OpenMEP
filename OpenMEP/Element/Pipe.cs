@@ -523,7 +523,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// Return Tee Of Pipe In Routing Preferences
     /// </summary>
     /// <param name="pipe">pipe</param>
-    /// <returns name="tee">tee</returns>
+    /// <returns name="familyType">tee</returns>
     public static global::Revit.Elements.Element? GetTee(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -536,7 +536,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// Return Union Of Pipe In Routing Preferences
     /// </summary>
     /// <param name="pipe">pipe</param>
-    /// <returns name="union">union</returns>
+    /// <returns name="familyType">union</returns>
     public static global::Revit.Elements.Element? GetUnion(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -549,7 +549,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// Return Cross Of Pipe In Routing Preferences
     /// </summary>
     /// <param name="pipe">pipe</param>
-    /// <returns name="cross">cross</returns>
+    /// <returns name="familyType">cross</returns>
     public static global::Revit.Elements.Element? GetCross(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -562,7 +562,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// Return Tap Of Pipe In Routing Preferences
     /// </summary>
     /// <param name="pipe">pipe</param>
-    /// <returns name="tap">tap</returns>
+    /// <returns name="familyType">tap</returns>
     public static global::Revit.Elements.Element? GetTap(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -576,7 +576,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// Return Transition Of Pipe In Routing Preferences
     /// </summary>
     /// <param name="pipe">pipe</param>
-    /// <returns name="transition">transition</returns>
+    /// <returns name="familyType">transition</returns>
     public static global::Revit.Elements.Element? GetTransition(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
