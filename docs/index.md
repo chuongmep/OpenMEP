@@ -11,7 +11,7 @@
 <img src="https://img.shields.io/twitter/follow/chuongmep?style=social&logo=twitter"
 alt="follow on Twitter"></a>
 
-![](docs/img/openmep.png)
+![](../docs/img/openmep.png)
 
 # 📚 Description
 
@@ -20,7 +20,7 @@ right components into your design.This library includes a wide range of mechanic
 including pipes, fittings, valves, ducts, electrical equipment, and more fully automate your design process in design,
 maintenance, calculation and analysis,...
 
-![](docs/img/OpenMEPPackage.png)
+![](../docs/img/OpenMEPPackage.png)
 
 I believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
 design process and ensure that their projects are completed on time and within budget.
@@ -39,63 +39,6 @@ Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-
 
 - [How To Use OpenMEP Package](https://chuongmep.github.io/OpenMEP/api/index.html)
 - [How To Write Python Script With OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
-
-# 🦚 Features
-
-Some features of this package:
-
-- [x] Fast delivery package for MEP Engineer
-- [x] Easy to use and interactive with Dynamo Revit
-- [x] Easy to collaborate with other engineer
-- [x] Easy to report bug
-- [x] Easy to maintain, support multiple version of Dynamo Revit
-- [x] Easy install, update, uninstall
-
-Function Support (WIP) :
-
-- [x] Document
-    - [x] Revit Document
-    - [x] Family Document
-- [x] ConnectorManager
-    - [x] Connector
-    - [x] ConnectorSet
-    - [x] MEPConnectorInfo
-    - [x] MEPModel
-- [x] Element
-- [x] Duct
-- [x] Pipe
-- [x] Cable Tray
-- [x] Fitting
-- [x] Conduit
-- [x] Flex Duct
-- [x] Flex Pipe
-- [x] Family
-    - [x] Family Manager
-    - [x] Family Parameter
-    - [x] Family Size Manager
-    - [x] Family Type
-- [x] MEP Curve
-- [x] MEP Model
-- [x] Utils
-    - [x] FamilyUtils
-    - [x] ParameterUtils
-    - [x] LabelUtils
-    - [x] UnitUtils
-- [x] Wire
-- [ ] Geometry
-    - [x] Vector
-    - [x] Point
-    - [ ] Line
-    - [ ] Plane
-    - [ ] Curve
-    - [ ] Surface
-    - [ ] Solid
-    - [ ] Mesh
-    - [ ] Brep
-    - [ ] Transform
-    - [ ] Vector
-- [ ] MEP Fabrication
-- [ ] ...
 
 # © Copyright
 
