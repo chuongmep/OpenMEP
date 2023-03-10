@@ -162,6 +162,7 @@ public class Element
         dynamic? systemType = connectors.Select(x => ConnectorManager.Connector.SystemType(x)).FirstOrDefault();
         return systemType;
     }
+
     
 
 }

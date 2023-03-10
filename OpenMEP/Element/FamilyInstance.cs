@@ -1,4 +1,9 @@
-﻿namespace OpenMEP.Element;
+﻿using Autodesk.DesignScript.Runtime;
+using Autodesk.Revit.DB;
+using OpenMEPSandbox.Geometry;
+using Revit.GeometryConversion;
+
+namespace OpenMEP.Element;
 
 public class FamilyInstance
 {
@@ -22,5 +27,27 @@ public class FamilyInstance
             return fam.MEPModel;
         }
         return null;
+    }
+
+    /// <summary>
+    /// Shows scalable lines representing the CoordinateSystem of family instance axes and rectangles for the planes
+    /// </summary>
+    /// <param name="familyInstance">the family instance</param>
+    /// <param name="length">double</param>
+    /// <returns name="Display">GeometryColor</returns>
+    /// <returns name="Origin">Point</returns>
+    /// <returns name="XAxis">Vector</returns>
+    /// <returns name="YAxis">Vector</returns>
+    /// <returns name="ZAxis">Vector</returns>
+    /// <returns name="XYPlane">Plane</returns>
+    /// <returns name="YZPlane">Plane</returns>
+    /// <returns name="ZXPlane">Plane</returns>
+    [MultiReturn(new[] {"Display", "Origin", "XAxis", "YAxis", "ZAxis", "XYPlane", "YZPlane", "ZXPlane"})]
+    public static Dictionary<string, object?> Display(Revit.Elements.Element familyInstance,double length=1000)
+    {
+        Autodesk.Revit.DB.FamilyInstance? internalElement = familyInstance.InternalElement as Autodesk.Revit.DB.FamilyInstance;
+        if (internalElement == null) throw new ArgumentNullException(nameof(familyInstance));
+        Transform transform = internalElement.GetTotalTransform();
+        return CoordinateSystem.Display(transform.ToCoordinateSystem(), length);
     }
 }
