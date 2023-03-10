@@ -297,6 +297,7 @@ public class Point
                 cost[i, j] = manhattan;
             }
         }
+        // TODO : Array Matching Index 
         int[,]? originCost = cost.Clone() as int[,];
         List<int> assignment = cost.FindAssignments().ToList();
         // fin min cost
