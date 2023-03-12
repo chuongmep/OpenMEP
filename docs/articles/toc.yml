@@ -8,6 +8,10 @@
     href: uninstall.md
   - name: Upgrading
     href: upgrade.md
+- name: Use OpenMEP Package
+  items:
+  - name: Search Node
+    href: searchnode.md  
 - name: Advanced
   items:
   - name: Write Python Script with OpenMEP
