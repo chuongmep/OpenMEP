@@ -75,6 +75,9 @@ public class Fitting
     /// <param name="connector3">The third connector to be connected to the cross.</param>
     /// <param name="connector4">The fourth connector to be connected to the cross</param>
     ///<returns name="familyinstance">If creation was successful then an family instance to the new object is returned, and the transition fitting will be added at the connectors' end if necessary, otherwise an exception with failure information will be thrown.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.NewCrossFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewCrossFitting(Autodesk.Revit.DB.Connector connector1,
         Autodesk.Revit.DB.Connector connector2,

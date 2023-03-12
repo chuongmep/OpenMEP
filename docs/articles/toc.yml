@@ -1,0 +1,14 @@
+- name: Getting Started
+  items:
+  - name: Introduction
+    href: ../index.md
+  - name: Installation
+    href: installation.md
+  - name: Uninstall
+    href: uninstall.md
+  - name: Upgrading
+    href: upgrade.md
+- name: Advanced
+  items:
+  - name: Write Python Script with OpenMEP
+    href: python.md  

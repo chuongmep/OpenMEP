@@ -39,6 +39,8 @@
 			{
 				"files": [
 					"images/**",
+					"articles/**.png",
+					"articles/**.jpg",
 					"OpenMEPPage/**"
 				]
 			}
@@ -65,6 +67,14 @@
 		"postProcessors": [],
 		"noLangKeyword": false,
 		"keepFileLink": false,
-		"disableGitFeatures": false
+		"disableGitFeatures": false,
+		"globalMetadata": {
+			"_appTitle": "Open MEP",
+			"_appLogoPath": "images/logo.png",
+			"_gitContribute": {
+			  "repo": "https://github.com/chuongmep/openmep",
+			  "branch": "dev"
+			}
+		}
 	}
 }
