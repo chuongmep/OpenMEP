@@ -11,7 +11,7 @@
 <img src="https://img.shields.io/twitter/follow/chuongmep?style=social&logo=twitter"
 alt="follow on Twitter"></a>
 
-![](docs/img/openmep.png)
+![](docs/images/openmep.png)
 
 # 📚 Description
 
@@ -20,7 +20,7 @@ right components into your design.This library includes a wide range of mechanic
 including pipes, fittings, valves, ducts, electrical equipment, and more fully automate your design process in design,
 maintenance, calculation and analysis,...
 
-![](docs/img/OpenMEPPackage.png)
+![](docs/images/OpenMEPPackage.png)
 
 I believe that the MEP Package will be a valuable asset to construction professionals looking to streamline the MEP
 design process and ensure that their projects are completed on time and within budget.
