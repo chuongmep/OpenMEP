@@ -391,6 +391,18 @@ public class Connector
         if (t == null) return null;
         return Autodesk.DesignScript.Geometry.Point.ByCoordinates(t.BasisX.X, t.BasisX.Y, t.BasisX.Z);
     }
+    
+    /// <summary>
+    /// Get direction BasisZ of connector
+    /// </summary>
+    /// <param name="connector"></param>
+    /// <returns></returns>
+    public static Point? GetDirection(Autodesk.Revit.DB.Connector? connector)
+    {
+        Transform? t = connector?.CoordinateSystem;
+        if (t == null) return null;
+        return Autodesk.DesignScript.Geometry.Point.ByCoordinates(t.BasisX.X, t.BasisX.Y, t.BasisX.Z);
+    }
 
     /// <summary>
     /// Get origin of connector
