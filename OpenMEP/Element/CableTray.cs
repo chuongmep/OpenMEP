@@ -23,6 +23,9 @@ public class CableTray
     /// <param name="level">The element id of the level which this cable tray based. If the input level id is invalidElementId = -1, the nearest level will be used.</param>
     /// <param name="width">with of cable tray</param>
     /// <param name="height">height of cable tray</param>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/CableTray.CreateByPoint.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element cableTrayType,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,
@@ -62,6 +65,9 @@ public class CableTray
     /// <param name="width">with value of cable tray</param>
     /// <param name="height">height value of cable tray</param>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/CableTray.CreateByLine.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element cableTrayType,
         Autodesk.DesignScript.Geometry.Line line,
