@@ -40,6 +40,20 @@ public class Vector
     }
     
     /// <summary>
+    /// Evaluate whether two Vector is perpendicular or not
+    /// </summary>
+    /// <param name="v1">first vector</param>
+    /// <param name="v2">second vector</param>
+    /// <returns name="bool">true if two vector is perpendicular</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.IsPerpendicular.png)
+    /// </example>
+    public static bool IsPerpendicular(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
+    {
+        return v1.Normalized().Dot(v2.Normalized()).Equals(0);
+    }
+    
+    /// <summary>
     /// Shows a scalable line representing a Vector from a chosen starting point
     /// </summary>
     /// <param name="vector">Autodesk.DesignScript.Geometry.Vector</param>
