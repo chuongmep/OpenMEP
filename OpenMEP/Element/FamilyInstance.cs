@@ -1,7 +1,10 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
+using Dynamo.Graph.Nodes;
 using OpenMEPSandbox.Geometry;
 using Revit.GeometryConversion;
+using RevitServices.Persistence;
+using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
 
@@ -9,7 +12,6 @@ public class FamilyInstance
 {
     private FamilyInstance()
     {
-        
     }
     /// <summary>
     /// Retrieves the MEP model for the family instance.</summary>
@@ -26,6 +28,7 @@ public class FamilyInstance
         {
             return fam.MEPModel;
         }
+
         return null;
     }
 
@@ -43,9 +46,10 @@ public class FamilyInstance
     /// <returns name="YZPlane">Plane</returns>
     /// <returns name="ZXPlane">Plane</returns>
     [MultiReturn(new[] {"Display", "Origin", "XAxis", "YAxis", "ZAxis", "XYPlane", "YZPlane", "ZXPlane"})]
-    public static Dictionary<string, object?> Display(Revit.Elements.Element familyInstance,double length=1000)
+    public static Dictionary<string, object?> Display(Revit.Elements.Element familyInstance, double length = 1000)
     {
-        Autodesk.Revit.DB.FamilyInstance? internalElement = familyInstance.InternalElement as Autodesk.Revit.DB.FamilyInstance;
+        Autodesk.Revit.DB.FamilyInstance? internalElement =
+            familyInstance.InternalElement as Autodesk.Revit.DB.FamilyInstance;
         if (internalElement == null) throw new ArgumentNullException(nameof(familyInstance));
         Transform transform = internalElement.GetTotalTransform();
         return CoordinateSystem.Display(transform.ToCoordinateSystem(), length);
