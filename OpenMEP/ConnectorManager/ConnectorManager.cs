@@ -15,6 +15,9 @@ public class ConnectorManager
     /// </summary>
     /// <param name="element">element</param>
     /// <returns name="ConnectorManager">Autodesk.Revit.DB.ConnectorManager</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/ConnectorManager.GetConnectorManager.png)
+    /// </example>
     public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager( Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.Element? internalElement = element?.InternalElement;
@@ -45,6 +48,9 @@ public class ConnectorManager
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">connectors</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/ConnectorManager.UnusedConnectors.png)
+    /// </example>
     public static List<Autodesk.Revit.DB.Connector> UnusedConnectors( 
         Autodesk.Revit.DB.ConnectorManager connectorManager)
     {
@@ -63,6 +69,9 @@ public class ConnectorManager
     /// </summary>
     /// <param name="connectorManager"></param>
     /// <returns name="element">element owner</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/ConnectorManager.Owner.png)
+    /// </example>
     public static Revit.Elements.Element Owner( Autodesk.Revit.DB.ConnectorManager connectorManager)
     {
         Autodesk.Revit.DB.Element element = connectorManager.Owner;
@@ -75,6 +84,9 @@ public class ConnectorManager
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">a collections of connector manager</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/ConnectorManager.Connectors.png)
+    /// </example>
     public static List<Autodesk.Revit.DB.Connector?> Connectors( Autodesk.Revit.DB.ConnectorManager? connectorManager)
     {
         List<Autodesk.Revit.DB.Connector?> connectors = new List<Autodesk.Revit.DB.Connector?>();
@@ -92,6 +104,9 @@ public class ConnectorManager
     /// <param name="connectorManager">connector manager</param>
     /// <param name="index">index of connector</param>
     /// <returns name="connector">connector</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/ConnectorManager.LookUp.png)
+    /// </example>
     public static Autodesk.Revit.DB.Connector LookUp( Autodesk.Revit.DB.ConnectorManager connectorManager, int index)
     {
         Autodesk.Revit.DB.Connector connector = connectorManager.Lookup(index);

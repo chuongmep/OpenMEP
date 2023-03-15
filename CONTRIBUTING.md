@@ -39,7 +39,7 @@ Creating a package:
 - Write unit tests for your code. Please use branch **dev** to collaborate with the tests and write them in the
   **OpenMEPTest** project.
 
-![](docs/img/RevitTestFrameworkGUI.png)
+![](docs/images/RevitTestFrameworkGUI.png)
 
 #### Please avoid:
 

@@ -7,6 +7,7 @@ using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Transactions;
+using Curve = Autodesk.DesignScript.Geometry.Curve;
 using Line = Autodesk.Revit.DB.Line;
 
 namespace OpenMEP.Element;
@@ -417,5 +418,24 @@ public class MEPCurve
             {"Connector3", c3},
             {"Connector4", c4}
         };
+    }
+
+    /// <summary>
+    /// Return the slope of mepCurve
+    /// </summary>
+    /// <param name="mepCurve">The element mepCurve</param>
+    /// <param name="digit">Number of fractional digits in the return value</param>
+    /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.Slope.png)
+    /// </example>
+    [MultiReturn("Percent", "Degrees", "Ratio")]
+    [NodeCategory("Query")]
+    public static Dictionary<string, object?> Slope(Revit.Elements.Element mepCurve,double digit =0)
+    {
+        if(mepCurve==null) throw new ArgumentNullException(nameof(mepCurve));
+        Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
+        LocationCurve? locationCurve = internalElement!.Location as LocationCurve;
+       return OpenMEPSandbox.Geometry.Line.Slope(locationCurve?.Curve.ToDynamoType(), digit);
     }
 }

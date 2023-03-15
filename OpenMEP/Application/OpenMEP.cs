@@ -11,6 +11,9 @@ public class OpenMEP
     /// <summary>
     /// Return Current Version Installed In Computer
     /// </summary>
+    /// <example>
+    /// ![](../OpenMEPPage/application/dyn/pic/OpenMEP.Version.png)
+    /// </example>
     public static string? Version
     {
         get

@@ -21,6 +21,9 @@ public class Element
     /// </summary>
     /// <param name="element"></param>
     /// <returns name="point">location of element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.GetLocation.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Point? GetLocation(Revit.Elements.Element? element)
     {
         if (element == null)
@@ -44,6 +47,9 @@ public class Element
     /// </summary>
     /// <param name="element">the element</param>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.GetDocument.png)
+    /// </example>
     [NodeCategory("Query")]
     [MultiReturn("Revit Document", "Dynamo Document")]
     public static Dictionary<string, object?> GetDocument(global::Revit.Elements.Element element)
@@ -61,6 +67,9 @@ public class Element
     /// <param name="element">element to move</param>
     /// <param name="newLocation">translate</param>
     /// <returns name="element">family instance</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.MoveElement.png)
+    /// </example>
     public static global::Revit.Elements.Element MoveElement(global::Revit.Elements.Element element, Point newLocation)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -76,12 +85,15 @@ public class Element
     /// </summary>
     /// <param name="element">element to get level</param>
     /// <returns name="level">level of element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.GetLevel.png)
+    /// </example>
     public static global::Revit.Elements.Element? GetLevel(global::Revit.Elements.Element element)
     {
         return GetLevel(element.InternalElement).ToDynamoType();
     }
 
-    internal static Level? GetLevel(Autodesk.Revit.DB.Element element)
+    private static Level? GetLevel(Autodesk.Revit.DB.Element element)
     {
         var doc = element.Document;
         ElementId levelId = element.LevelId;
@@ -162,6 +174,7 @@ public class Element
         dynamic? systemType = connectors.Select(x => ConnectorManager.Connector.SystemType(x)).FirstOrDefault();
         return systemType;
     }
+
     
 
 }

@@ -15,8 +15,13 @@ public class Document
     /// Get Document Current
     /// </summary>
     /// <param name="toggle">toggle true to get current document</param>
+    /// <returns name="RevitDocument">Document of Revit Project</returns>
+    /// <returns name="DynamoDocument">Document of Dynamo Wrap</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Document.Current.png)
+    /// </example>
     [MultiReturn("RevitDocument","DynamoDocument")]
-    public static IDictionary Current(bool toggle = true)
+    public static Dictionary<string,object?> Current(bool toggle = true)
     {
         Autodesk.Revit.DB.Document? RevitDocument = null;
         Revit.Application.Document? DynamoDocument = null;

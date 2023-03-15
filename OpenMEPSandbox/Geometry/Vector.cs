@@ -16,6 +16,9 @@ public class Vector
     /// <param name="v1">the first vector</param>
     /// <param name="v2">the second vector</param>
     /// <returns name="bool">true if two vector is same direction</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.IsSameDirection.gif)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsSameDirection(Autodesk.DesignScript.Geometry.Vector v1,Autodesk.DesignScript.Geometry.Vector v2)
     {
@@ -27,10 +30,27 @@ public class Vector
     /// <param name="v1">the first vector</param>
     /// <param name="v2">the second vector</param>
     /// <returns name="bool">true if two vector is opposite</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.IsOppositeDirection.gif)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsOppositeDirection(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
     {
         return (v1.Normalized().Dot(v2.Normalized())).Equals(-1);
+    }
+    
+    /// <summary>
+    /// Evaluate whether two Vector is perpendicular or not
+    /// </summary>
+    /// <param name="v1">first vector</param>
+    /// <param name="v2">second vector</param>
+    /// <returns name="bool">true if two vector is perpendicular</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.IsPerpendicular.png)
+    /// </example>
+    public static bool IsPerpendicular(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
+    {
+        return v1.Normalized().Dot(v2.Normalized()).Equals(0);
     }
     
     /// <summary>
@@ -44,6 +64,9 @@ public class Vector
     /// <returns name="Y">double</returns>
     /// <returns name="Z">double</returns>
     /// <returns name="Length">double</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Display.gif)
+    /// </example>
     [MultiReturn(new[] { "Display", "X", "Y", "Z", "Length" })]
     public static Dictionary<string, object?> Display(Autodesk.DesignScript.Geometry.Vector vector, Autodesk.DesignScript.Geometry.Point startPoint, double scale = 1000)
     {

@@ -16,6 +16,9 @@ public class Family
     /// </summary>
     /// <param name="family">family</param>
     /// <returns name="family document">family document</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/family/dyn/pic/Family.EditFamily.png)
+    /// </example>
     public static Autodesk.Revit.DB.Document EditFamily(global::Revit.Elements.Family family)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -31,6 +34,9 @@ public class Family
     /// </summary>
     /// <param name="family">family</param>
     /// <returns name="category">category</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/family/dyn/pic/Family.FamilyCategory.png)
+    /// </example>
     public static Revit.Elements.Category? FamilyCategory(global::Revit.Elements.Family? family)
     {
         Autodesk.Revit.DB.Family? internalFamily = family?.InternalElement as Autodesk.Revit.DB.Family;
@@ -42,6 +48,9 @@ public class Family
     /// </summary>
     /// <param name="family">family</param>
     /// <returns name="bool">result</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/family/dyn/pic/Family.IsOwnerFamily.png)
+    /// </example>
     [NodeCategory("Query")]
     public static bool? IsOwnerFamily(global::Revit.Elements.Family? family)
     {
