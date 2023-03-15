@@ -308,7 +308,7 @@ namespace OpenMEP.Helpers
         /// <param name="item"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        internal static Autodesk.DesignScript.Geometry.Curve ToDynamoType(this Curve item)
+        internal static Autodesk.DesignScript.Geometry.Curve? ToDynamoType(this Curve item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
             return item.ToProtoType();
