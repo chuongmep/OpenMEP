@@ -177,6 +177,6 @@ about [How To Write Python Script With OpenMEP](https://github.com/chuongmep/Ope
 <details><summary>What is MEPCurve ?</summary>
 
 **[MEPCurve](https://www.revitapidocs.com/2015/38714847-0f40-7021-aa79-2884c3a02ce2.htm)** is a curve object for duct or
-pipe blend elements, it mean input require **Duct** or **Pipe** element.
+pipe blend elements, it mean input require **Duct** or **Pipe** or **Cable Tray** element.
 
 </details>
