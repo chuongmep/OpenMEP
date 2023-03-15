@@ -19,6 +19,9 @@ public class Plane
     /// <returns name="XAxis">Vector</returns>
     /// <returns name="YAxis">Vector</returns>
     /// <returns name="Normal">Vector</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Plane.Display.gif)
+    /// </example>
     [MultiReturn(new[] {"Display", "Origin", "XAxis", "YAxis", "Normal"})]
     public static Dictionary<string, object?> Display(Autodesk.DesignScript.Geometry.Plane? plane, double length = 1000)
     {

@@ -19,6 +19,9 @@ public class Point
     /// <param name="point">point need to project</param>
     /// <param name="plane">plane to be project</param>
     /// <returns name="point">new point projected on plane</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.ProjectOntoPlane.gif)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Point ProjectOntoPlane(
         Autodesk.DesignScript.Geometry.Point point,
         Autodesk.DesignScript.Geometry.Plane plane)
@@ -34,6 +37,9 @@ public class Point
     /// </summary>
     /// <param name="points">list of points</param>
     /// <returns name="point">centroid</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Centroid.gif)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Point Centroid(List<Autodesk.DesignScript.Geometry.Point> points)
     {
         double x = 0;
@@ -54,6 +60,9 @@ public class Point
     /// <param name="line">The line to test against.</param>
     /// <param name="tolerance">Default is use 1e-6</param>
     /// <returns name="bool">Returns true if point is on line.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.IsOnLine.gif)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsOnLine(Autodesk.DesignScript.Geometry.Point point, Autodesk.DesignScript.Geometry.Line line,
         double tolerance = 0.001)
@@ -67,6 +76,9 @@ public class Point
     /// <param name="plane">The plane to test against.</param>
     /// <param name="tolerance">Default is use 1e-6</param>
     /// <returns>Returns true if point is on plane.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.IsOnPlane.gif)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsOnPlane(Autodesk.DesignScript.Geometry.Point point, Autodesk.DesignScript.Geometry.Plane plane,
         double tolerance = 0.001)
@@ -83,6 +95,9 @@ public class Point
     /// <returns name="X">X point</returns>
     /// <returns name="Y">Y point</returns>
     /// <returns name="Z">Z point</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Deconstruct.png)
+    /// </example>
     [MultiReturn("X", "Y", "Z")]
     public static Dictionary<string, object?> Deconstruct ([DefaultArgument("Autodesk.DesignScript.Geometry.Point.ByCoordinates(0,0,0)")] Autodesk.DesignScript.Geometry.Point point)
     {
@@ -119,6 +134,9 @@ public class Point
     /// <param name="polygon">the polygon</param>
     /// <returns name="bool">true if point is in polygon</returns>
     /// <exception cref="ArgumentNullException"></exception>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.IsInPolygons.gif)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsInPolygon(Autodesk.DesignScript.Geometry.Point point,
         Autodesk.DesignScript.Geometry.Polygon polygon)
@@ -132,6 +150,9 @@ public class Point
     ///     Gets a point with X,Y,Z = 0
     /// </summary>
     /// <returns name="point">point</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Origin.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Point Origin()
     {
         return Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0);
@@ -144,6 +165,9 @@ public class Point
     /// <param name="distance">distance from start point to end point</param>
     /// <param name="direction">direction to direct to</param>
     /// <returns name="point">new point</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Offset.gif)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Point Offset(Autodesk.DesignScript.Geometry.Point point,
         double distance, Autodesk.DesignScript.Geometry.Vector direction)
     {
