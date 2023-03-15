@@ -426,13 +426,16 @@ public class MEPCurve
     /// <param name="mepCurve">The element mepCurve</param>
     /// <param name="digit">Number of fractional digits in the return value</param>
     /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.Slope.png)
+    /// </example>
     [MultiReturn("Percent", "Degrees", "Ratio")]
-    public static Dictionary<string, object> Slope(Revit.Elements.Element mepCurve,double digit)
+    [NodeCategory("Query")]
+    public static Dictionary<string, object?> Slope(Revit.Elements.Element mepCurve,double digit =0)
     {
         if(mepCurve==null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         LocationCurve? locationCurve = internalElement!.Location as LocationCurve;
-        OpenMEPSandbox.Geometry.Line.Slope(locationCurve?.Curve.ToDynamoType(), digit);
+       return OpenMEPSandbox.Geometry.Line.Slope(locationCurve?.Curve.ToDynamoType(), digit);
     }
 }
