@@ -346,4 +346,23 @@ public class Point
             {"mincost", minCost},
         };
     }
+
+    /// <summary>
+    ///  Reflect Point by Plane
+    /// </summary>
+    /// <param name="point">point need to reflect</param>
+    /// <param name="plane">plane to reflect point</param>
+    /// <returns name="point">point has reflected</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Reflect.gif)
+    /// </example>
+    public static Autodesk.DesignScript.Geometry.Point Reflect(Autodesk.DesignScript.Geometry.Point point,
+        Autodesk.DesignScript.Geometry.Plane plane)
+    {
+        Autodesk.DesignScript.Geometry.Vector v1 = point.AsVector();
+        double dot = v1.Dot(plane.Normal);
+        Autodesk.DesignScript.Geometry.Vector v2 = plane.Normal.Scale(2 * dot);
+        Autodesk.DesignScript.Geometry.Vector v3 = v1.Subtract(v2);
+        return v3.AsPoint();
+    }
 }
