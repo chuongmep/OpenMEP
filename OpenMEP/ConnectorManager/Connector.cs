@@ -347,6 +347,28 @@ public class Connector
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return connectorManager.UnusedConnectors.Cast<Autodesk.Revit.DB.Connector>().ToList()!;
     }
+    
+    /// <summary>
+    /// return all connectors of element except connector same id with connector input
+    /// </summary>
+    /// <param name="element">the element</param>
+    /// <param name="connector">connector</param>
+    /// <returns name="connectors">list of connectors</returns>
+    public static List<Autodesk.Revit.DB.Connector?> GetRemainingConnector(Revit.Elements.Element? element ,Autodesk.Revit.DB.Connector connector)
+    {
+        return GetConnectors(element).Where(c => c!.Id != connector.Id).ToList();
+    }
+
+    /// <summary>
+    /// return all connectors of list connectors except connector same id with connector input
+    /// </summary>
+    /// <param name="connectors">list connectors need to check</param>
+    /// <param name="connector">connector need to remove</param>
+    /// <returns name="connectors">list of connectors</returns>
+    public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(List<Autodesk.Revit.DB.Connector> connectors,Autodesk.Revit.DB.Connector connector)
+    {
+        return connectors.Where(c => c!.Id != connector.Id).ToList();
+    }
 
     /// <summary>
     /// return system type of connector
