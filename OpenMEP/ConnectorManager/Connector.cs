@@ -354,6 +354,9 @@ public class Connector
     /// <param name="element">the element</param>
     /// <param name="connector">connector</param>
     /// <returns name="connectors">list of connectors</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector.png)
+    /// </example>
     public static List<Autodesk.Revit.DB.Connector?> GetRemainingConnector(Revit.Elements.Element? element ,Autodesk.Revit.DB.Connector connector)
     {
         return GetConnectors(element).Where(c => c!.Id != connector.Id).ToList();
@@ -365,6 +368,9 @@ public class Connector
     /// <param name="connectors">list connectors need to check</param>
     /// <param name="connector">connector need to remove</param>
     /// <returns name="connectors">list of connectors</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector2.png)
+    /// </example>
     public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(List<Autodesk.Revit.DB.Connector> connectors,Autodesk.Revit.DB.Connector connector)
     {
         return connectors.Where(c => c!.Id != connector.Id).ToList();
