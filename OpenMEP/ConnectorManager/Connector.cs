@@ -762,7 +762,7 @@ public class Connector
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedContinuous.png)
     /// </example>
-    public static List<Revit.Elements.Element> GetElementConnectedContinuous(Revit.Elements.Element element)
+    public static List<Revit.Elements.Element> GetElementConnectedContinuous(Revit.Elements.Element? element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
         Dictionary<string, Revit.Elements.Element> OutElements =
@@ -770,9 +770,25 @@ public class Connector
         List<Revit.Elements.Element> collector = Collector(element, OutElements);
         return collector;
     }
-    
+    /// <summary>
+    /// Return All Element Connected Continuous In Branch
+    /// Be careful, because this node require recursive to check all connected.
+    /// </summary>
+    /// <param name="connector">element</param>
+    /// <returns name="elements">list element connected Continuous from element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedContinuous.png)
+    /// </example>
+    public static List<Revit.Elements.Element> GetElementConnectedContinuous(Autodesk.Revit.DB.Connector connector)
+    {
+        if (connector == null) throw new ArgumentNullException(nameof(connector));
+        Dictionary<string, Revit.Elements.Element> OutElements =
+            new Dictionary<string, Revit.Elements.Element>();
+        List<Revit.Elements.Element> collector = Collector(connector.Owner.ToDynamoType(), OutElements);
+        return collector;
+    }
     //recursive element from e to end branch side by side other
-    private static List<Revit.Elements.Element> Collector(Revit.Elements.Element e,
+    private static List<Revit.Elements.Element> Collector(Revit.Elements.Element? e,
         Dictionary<string, Revit.Elements.Element> OutElements)
     {
         double count = 0;
