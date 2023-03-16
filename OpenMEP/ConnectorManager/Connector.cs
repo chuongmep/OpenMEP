@@ -347,6 +347,34 @@ public class Connector
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return connectorManager.UnusedConnectors.Cast<Autodesk.Revit.DB.Connector>().ToList()!;
     }
+    
+    /// <summary>
+    /// return all connectors of element except connector same id with connector input
+    /// </summary>
+    /// <param name="element">the element</param>
+    /// <param name="connector">connector</param>
+    /// <returns name="connectors">list of connectors</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector.png)
+    /// </example>
+    public static List<Autodesk.Revit.DB.Connector?> GetRemainingConnector(Revit.Elements.Element? element ,Autodesk.Revit.DB.Connector connector)
+    {
+        return GetConnectors(element).Where(c => c!.Id != connector.Id).ToList();
+    }
+
+    /// <summary>
+    /// return all connectors of list connectors except connector same id with connector input
+    /// </summary>
+    /// <param name="connectors">list connectors need to check</param>
+    /// <param name="connector">connector need to remove</param>
+    /// <returns name="connectors">list of connectors</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector2.png)
+    /// </example>
+    public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(List<Autodesk.Revit.DB.Connector> connectors,Autodesk.Revit.DB.Connector connector)
+    {
+        return connectors.Where(c => c!.Id != connector.Id).ToList();
+    }
 
     /// <summary>
     /// return system type of connector
@@ -711,7 +739,7 @@ public class Connector
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedWith.png)
     /// </example>
-    public static Revit.Elements.Element? GetElementConnectedWith(Autodesk.Revit.DB.Connector connector)
+    public static Revit.Elements.Element? GetElementConnectedWith(Autodesk.Revit.DB.Connector? connector)
     {
         if (connector == null) throw new ArgumentNullException(nameof(connector));
         if (connector.IsConnected)
@@ -724,7 +752,67 @@ public class Connector
 
         return null;
     }
-
+    
+    /// <summary>
+    /// Return All Element Connected Continuous In Branch
+    /// Be careful, because this node require recursive to check all connected.
+    /// </summary>
+    /// <param name="element">element</param>
+    /// <returns name="elements">list element connected Continuous from element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedContinuous.png)
+    /// </example>
+    public static List<Revit.Elements.Element> GetElementConnectedContinuous(Revit.Elements.Element? element)
+    {
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        Dictionary<string, Revit.Elements.Element> OutElements =
+            new Dictionary<string, Revit.Elements.Element>();
+        List<Revit.Elements.Element> collector = Collector(element, OutElements);
+        return collector;
+    }
+    /// <summary>
+    /// Return All Element Connected Continuous In Branch
+    /// Be careful, because this node require recursive to check all connected.
+    /// </summary>
+    /// <param name="connector">element</param>
+    /// <returns name="elements">list element connected Continuous from element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedContinuous.png)
+    /// </example>
+    public static List<Revit.Elements.Element> GetElementConnectedContinuous(Autodesk.Revit.DB.Connector connector)
+    {
+        if (connector == null) throw new ArgumentNullException(nameof(connector));
+        Dictionary<string, Revit.Elements.Element> OutElements =
+            new Dictionary<string, Revit.Elements.Element>();
+        List<Revit.Elements.Element> collector = Collector(connector.Owner.ToDynamoType(), OutElements);
+        return collector;
+    }
+    //recursive element from e to end branch side by side other
+    private static List<Revit.Elements.Element> Collector(Revit.Elements.Element? e,
+        Dictionary<string, Revit.Elements.Element> OutElements)
+    {
+        double count = 0;
+        List<Revit.Elements.Element?> elements = GetConnectors(e).Select(GetElementConnectedWith).ToList();
+        foreach (var item in elements)
+        {
+            if(item==null) continue;
+            if (OutElements.ContainsKey(item.Id.ToString()))
+            {
+                count += 1;
+            }
+            else
+            {
+                OutElements[item.Id.ToString()] = item;
+                Collector(item, OutElements);
+            }
+        }
+        if (System.Math.Abs(count - elements.Count) < 0.0001)
+        {
+            return new List<Revit.Elements.Element>(OutElements.Values);
+        }
+        return new List<Revit.Elements.Element>(OutElements.Values);
+    }
+    
     /// <summary>
     /// return element connected with  connector
     /// </summary>

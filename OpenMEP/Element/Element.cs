@@ -80,6 +80,54 @@ public class Element
         return element;
     }
     
+     /// <summary>
+    /// Set Rotate of fitting
+    /// </summary>
+    /// <param name="element">the element</param>
+    /// <param name="Axis">Line Axis</param>
+    /// <param name="angle">angle to rotate(Degrees)</param>
+    /// <returns name="fitting">family instance</returns>
+    [NodeCategory("Action")]
+    public static global::Revit.Elements.Element Rotate(global::Revit.Elements.Element element,
+        Autodesk.DesignScript.Geometry.Line Axis,
+        double angle)
+    {
+        TransactionManager.Instance.ForceCloseTransaction();
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        double degree2Radian = angle * Math.PI / 180;
+        ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
+            (Autodesk.Revit.DB.Line) Axis.ToRevitType(), degree2Radian);
+        TransactionManager.Instance.TransactionTaskDone();
+        return element;
+    }
+
+    /// <summary>
+    /// Set Rotate of fitting
+    /// </summary>
+    /// <param name="element">the element</param>
+    /// <param name="Axis">Direction Axis</param>
+    /// <param name="angle">angle to rotate(Degrees)</param>
+    /// <returns name="fitting">family instance</returns>
+    [NodeCategory("Action")]
+    public static global::Revit.Elements.Element Rotate(global::Revit.Elements.Element element,
+        Autodesk.DesignScript.Geometry.Vector Axis,
+        double angle)
+    {
+        TransactionManager.Instance.ForceCloseTransaction();
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        double degree2Radian = angle * Math.PI / 180;
+        LocationPoint? locationPoint = element.InternalElement.Location as LocationPoint;
+        var location = locationPoint?.Point;
+        Autodesk.Revit.DB.Line line =
+            Autodesk.Revit.DB.Line.CreateBound(location!.Add(Axis.ToRevitType().Multiply(2)), location);
+        ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
+            (Autodesk.Revit.DB.Line) line, degree2Radian);
+        TransactionManager.Instance.TransactionTaskDone();
+        return element;
+    }
+    
     /// <summary>
     /// Return Level Of Element
     /// </summary>
