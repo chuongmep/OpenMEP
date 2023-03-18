@@ -21,6 +21,9 @@ public class FamilyInstance
     /// This property will only function with the Autodesk Revit MEP product.</remarks>
     /// <param name="familyInstance">the element to get MepModel</param>
     /// <returns name="mepModel">Autodesk.Revit.DB.MEPModel</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FamilyInstance.GetMEPModel.png)
+    /// </example>
     public static Autodesk.Revit.DB.MEPModel? GetMEPModel(global::Revit.Elements.Element familyInstance)
     {
         Autodesk.Revit.DB.Element internalElement = familyInstance.InternalElement;
@@ -45,6 +48,9 @@ public class FamilyInstance
     /// <returns name="XYPlane">Plane</returns>
     /// <returns name="YZPlane">Plane</returns>
     /// <returns name="ZXPlane">Plane</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FamilyInstance.Display.png)
+    /// </example>
     [MultiReturn(new[] {"Display", "Origin", "XAxis", "YAxis", "ZAxis", "XYPlane", "YZPlane", "ZXPlane"})]
     public static Dictionary<string, object?> Display(Revit.Elements.Element familyInstance, double length = 1000)
     {

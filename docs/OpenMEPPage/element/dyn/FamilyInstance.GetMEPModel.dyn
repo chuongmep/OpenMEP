@@ -1,5 +1,5 @@
 {
-  "Uuid": "592e50c6-3696-4cf1-8f6e-921b8ab8a0fb",
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
   "IsCustomNode": false,
   "Description": "",
   "Name": "FamilyInstance.GetMEPModel",
@@ -13,13 +13,13 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000d9ea5"
       ],
-      "Id": "c846a89ae68243d3b045e42fafa8efea",
+      "Id": "d3536533d7cc4faa9d9752aedbced9a0",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "1e04e187365d42acb5814aadaf79b336",
+          "Id": "3cde5a3dea4641e8a4c94262f83dc7d6",
           "Name": "Element",
           "Description": "The selected elements.",
           "UsingDefaultValue": false,
@@ -34,10 +34,10 @@
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.Element.FamilyInstance.GetMEPModel@Revit.Elements.Element",
-      "Id": "0c54acb29cce4d5ca96a6ba4b25fa076",
+      "Id": "f688b95f62bb4fc591a1aeb7bdb12487",
       "Inputs": [
         {
-          "Id": "2ae97b4f11654b468f9c0d1107de0cc8",
+          "Id": "4e130232cf34478ebc2ebe1310aad7a7",
           "Name": "familyInstance",
           "Description": "the element to get MepModel\n\nElement",
           "UsingDefaultValue": false,
@@ -48,7 +48,7 @@
       ],
       "Outputs": [
         {
-          "Id": "49d5c01536d44e46beea69b357e309ff",
+          "Id": "725118ffb30046b98abfa63540ee286c",
           "Name": "mepModel",
           "Description": "Autodesk.Revit.DB.MEPModel",
           "UsingDefaultValue": false,
@@ -63,9 +63,9 @@
   ],
   "Connectors": [
     {
-      "Start": "1e04e187365d42acb5814aadaf79b336",
-      "End": "2ae97b4f11654b468f9c0d1107de0cc8",
-      "Id": "babc7df2e42e4dea94e71c33c155af1c",
+      "Start": "3cde5a3dea4641e8a4c94262f83dc7d6",
+      "End": "4e130232cf34478ebc2ebe1310aad7a7",
+      "Id": "740f2212fa19499ea9a7bc896c0e523e",
       "IsHidden": "False"
     }
   ],
@@ -76,7 +76,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "0c54acb29cce4d5ca96a6ba4b25fa076"
+        "f688b95f62bb4fc591a1aeb7bdb12487"
       ]
     }
   ],
@@ -110,17 +110,17 @@
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.16.1.2727",
-      "RunType": "Automatic",
+      "RunType": "Manual",
       "RunPeriod": "1000"
     },
     "Camera": {
       "Name": "Background Preview",
-      "EyeX": -15073.398806948924,
-      "EyeY": 100.12623946973248,
-      "EyeZ": -6071.2150112052022,
-      "LookX": 5.496463198923732,
-      "LookY": -5.9545017988340421,
-      "LookZ": -26.566238794798036,
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
       "UpX": 0.0,
       "UpY": 1.0,
       "UpZ": 0.0
@@ -130,27 +130,27 @@
       {
         "Name": "Select Model Element",
         "ShowGeometry": true,
-        "Id": "c846a89ae68243d3b045e42fafa8efea",
+        "Id": "d3536533d7cc4faa9d9752aedbced9a0",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 239.19999999999993,
-        "Y": 269.6
+        "X": -120.20868202972679,
+        "Y": 146.90451180873825
       },
       {
         "Name": "FamilyInstance.GetMEPModel",
         "ShowGeometry": true,
-        "Id": "0c54acb29cce4d5ca96a6ba4b25fa076",
+        "Id": "f688b95f62bb4fc591a1aeb7bdb12487",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 542.85010799136046,
-        "Y": 284.86997840172774
+        "X": 181.3528884894846,
+        "Y": 166.10365723570982
       }
     ],
     "Annotations": [],
-    "X": -117.024,
-    "Y": -84.8119999999999,
-    "Zoom": 1.1575
+    "X": 218.99408048053084,
+    "Y": 77.595202584662786,
+    "Zoom": 1.2198072017254968
   }
 }
