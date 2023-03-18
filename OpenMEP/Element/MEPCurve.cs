@@ -420,7 +420,7 @@ public class MEPCurve
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         if (internalElement == null) throw new Exception("The element is not a MEP curve");
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        double w = internalElement.Height;
+        double w = internalElement.Width;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
         double value = UnitUtils.ConvertToInternalUnits(w, unitTypeId);
@@ -465,17 +465,34 @@ public class MEPCurve
     /// <remarks>This property is used to retrieve the offset of the MEP curve.
     /// If the curve is not in a horizontal plane, this value will be the start point's offset.</remarks>
     ///<returns name="double">Level offset</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.LevelOffset.png)
+    /// </example>
     [NodeCategory("Query")]
     public static double? LevelOffset(Revit.Elements.Element mepCurve)
     {
         if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
-        return internalElement?.LevelOffset;
+        if (internalElement == null) throw new Exception("The element is not a MEP curve");
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        double offset = internalElement.LevelOffset;
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(offset, unitTypeId);
+        return value;
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
+        double value = UnitUtils.ConvertFromInternalUnits(offset, unitTypeId);
+        return value;
+#endif
     }
 
     /// <summary>The reference level of the MEP curve.</summary>
     /// <remarks>This property is used to retrieve the reference level of the MEP curve.
     /// If the curve is not in a horizontal plane, this value will be the start point's reference level.</remarks>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.ReferenceLevel.png)
+    /// </example>
     [NodeCategory("Query")]
     public static Revit.Elements.Element? ReferenceLevel(Revit.Elements.Element mepCurve)
     {
