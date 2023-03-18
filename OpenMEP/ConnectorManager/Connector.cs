@@ -32,11 +32,11 @@ public class Connector
         double radius = connector.Radius;
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
-        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_PipeSize).DisplayUnits;
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
         double value = UnitUtils.ConvertToInternalUnits(radius, unitTypeId);
         return value;
 #else
-        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.PipeSize).GetUnitTypeId();
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
         double value = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
         return value;
 #endif

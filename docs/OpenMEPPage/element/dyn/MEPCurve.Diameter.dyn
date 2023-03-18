@@ -13,7 +13,7 @@
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e02"
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e7f"
       ],
       "Id": "e0ebb668225f448787851cb671eb923b",
       "Inputs": [],
@@ -34,10 +34,10 @@
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.Element.MEPCurve.Diameter@Revit.Elements.Element",
-      "Id": "117f4c1e936643b2acf0c6c728ffabff",
+      "Id": "1279dab3bff4472b92e3ae923a303fa3",
       "Inputs": [
         {
-          "Id": "4fffce62191e474c8ad5657446a5aac3",
+          "Id": "c2092650db744273a2adf258a70afc50",
           "Name": "mepCurve",
           "Description": "Element",
           "UsingDefaultValue": false,
@@ -48,7 +48,7 @@
       ],
       "Outputs": [
         {
-          "Id": "c8c0a96300af43df8a0eb395467d82be",
+          "Id": "527c4935a37543feb1b805f1bbb7b8df",
           "Name": "double",
           "Description": "diameter of mep curve",
           "UsingDefaultValue": false,
@@ -64,8 +64,8 @@
   "Connectors": [
     {
       "Start": "296a0e69e3444d2390fba5a97d9bf00c",
-      "End": "4fffce62191e474c8ad5657446a5aac3",
-      "Id": "fc8a34ffe5214c0c884b0a9263e56376",
+      "End": "c2092650db744273a2adf258a70afc50",
+      "Id": "5d7f340c25dd41baa5e2882ece888c22",
       "IsHidden": "False"
     }
   ],
@@ -76,7 +76,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "117f4c1e936643b2acf0c6c728ffabff"
+        "1279dab3bff4472b92e3ae923a303fa3"
       ]
     }
   ],
@@ -140,17 +140,17 @@
       {
         "Name": "MEPCurve.Diameter",
         "ShowGeometry": true,
-        "Id": "117f4c1e936643b2acf0c6c728ffabff",
+        "Id": "1279dab3bff4472b92e3ae923a303fa3",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 469.09418982011175,
-        "Y": 64.448480129431942
+        "X": 481.38779012568227,
+        "Y": 80.3525344966402
       }
     ],
     "Annotations": [],
-    "X": 38.696710001874521,
-    "Y": 206.30289295798866,
-    "Zoom": 0.75227829102354549
+    "X": -91.285110557182691,
+    "Y": 135.4674459088917,
+    "Zoom": 1.1179878830423848
   }
 }

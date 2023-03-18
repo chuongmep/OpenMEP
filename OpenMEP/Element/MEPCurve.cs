@@ -381,12 +381,27 @@ public class MEPCurve
     /// </exception>
     /// <remarks>This property is used to retrieve the diameter of the MEP curve.</remarks>
     /// <returns name="double">diameter of mep curve</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.Diameter.png)
+    /// </example>
     [NodeCategory("Query")]
     public static double? Diameter(Revit.Elements.Element mepCurve)
     {
         if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
-        return internalElement?.Diameter;
+        if(internalElement == null) throw new Exception("The element is not a MEP curve");
+        double dia=  internalElement.Diameter;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(dia, unitTypeId);
+        return value;
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
+        double value = UnitUtils.ConvertFromInternalUnits(dia, unitTypeId);
+        return value;
+#endif
+        
     }
 
     /// <summary>The width of the MEP curve.</summary>
