@@ -215,6 +215,9 @@ public class Pipe
     /// <param name="pipe">pipe will be break</param>
     /// <param name="point">point on pipe to break</param>
     /// <returns name="pipe">new pipe has split</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.Split.png)
+    /// </example>
     [Obsolete("This node is deprecated, please use the new node named 'MepCurve.BreakCurve' instead.")]
     public static global::Revit.Elements.Element? Split(global::Revit.Elements.Element pipe,
         Autodesk.DesignScript.Geometry.Point point
