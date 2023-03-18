@@ -37,8 +37,8 @@ Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-
 
 # 📜 Documentation (TODO)
 
-- [How To Use OpenMEP Package](https://chuongmep.github.io/OpenMEP/api/index.html)
-- [How To Write Python Script With OpenMEP Package](https://github.com/chuongmep/OpenMEP/wiki/How-To-Write-Python-Script-With-OpenMEP-Package)
+- [How To Use OpenMEP Package](https://chuongmep.github.io/OpenMEP/index.html)
+- [How To Write Python Script With OpenMEP Package](https://chuongmep.github.io/OpenMEP/articles/python.html)
 
 # 🦚 Features
 
