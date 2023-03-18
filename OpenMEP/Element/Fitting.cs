@@ -93,8 +93,10 @@ public class Fitting
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        bool flag1 = connector1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(connector2.CoordinateSystem.BasisZ.ToDynamoVector());
-        bool flag2 = connector1.CoordinateSystem.BasisZ.ToDynamoVector().IsParallel(connector3.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag1 = connector1.CoordinateSystem.BasisZ.ToDynamoVector()
+            .IsParallel(connector2.CoordinateSystem.BasisZ.ToDynamoVector());
+        bool flag2 = connector1.CoordinateSystem.BasisZ.ToDynamoVector()
+            .IsParallel(connector3.CoordinateSystem.BasisZ.ToDynamoVector());
         Autodesk.Revit.DB.FamilyInstance newCrossFitting;
         // resolve problem of cross fitting with side-side-main-main input
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -110,6 +112,7 @@ public class Fitting
         {
             newCrossFitting = doc.Create.NewCrossFitting(connector1, connector4, connector2, connector3);
         }
+
         TransactionManager.Instance.TransactionTaskDone();
         if (newCrossFitting == null) return null;
         return newCrossFitting.ToDynamoType();
@@ -130,16 +133,17 @@ public class Fitting
         Connector? connector2,
         Connector? connector3)
     {
-        if(connector1==null) throw new ArgumentNullException(nameof(connector1));
-        if(connector2==null) throw new ArgumentNullException(nameof(connector2));
-        if(connector3==null) throw new ArgumentNullException(nameof(connector3));
+        if (connector1 == null) throw new ArgumentNullException(nameof(connector1));
+        if (connector2 == null) throw new ArgumentNullException(nameof(connector2));
+        if (connector3 == null) throw new ArgumentNullException(nameof(connector3));
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
         // sort connectors main-main-branch
         Connector? c1;
         Connector? c2;
         Connector? c3;
-        bool flag = Vector.IsPerpendicular(connector1.CoordinateSystem.BasisZ.ToVector(), connector2!.CoordinateSystem.BasisZ.ToVector());
+        bool flag = Vector.IsPerpendicular(connector1.CoordinateSystem.BasisZ.ToVector(),
+            connector2!.CoordinateSystem.BasisZ.ToVector());
         if (flag)
         {
             c1 = connector1;
@@ -152,6 +156,7 @@ public class Fitting
             c2 = connector2;
             c3 = connector3;
         }
+
         Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewTeeFitting(c1, c2, c3);
         TransactionManager.Instance.TransactionTaskDone();
         if (familyInstance == null) return null;
@@ -164,6 +169,9 @@ public class Fitting
     /// <param name="connector">The connector to be connected to the takeoff.</param>
     /// <param name="mepCurve">The duct or pipe which is the trunk for the takeoff.</param>
     /// <returns name="familyinstance">new takeoff</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.NewTakeoffFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTakeoffFitting(Autodesk.Revit.DB.Connector connector,
         global::Revit.Elements.Element mepCurve)
@@ -183,6 +191,9 @@ public class Fitting
     /// <param name="connector1">The first connector to be connected to the transition.</param>
     /// <param name="connector2">The second connector to be connected to the transition.</param>
     /// <returns name="familyinsntace">new transition</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.NewTransitionFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTransitionFitting(Autodesk.Revit.DB.Connector connector1,
         Autodesk.Revit.DB.Connector connector2)
@@ -196,29 +207,15 @@ public class Fitting
     }
 
     /// <summary>
-    /// return system type of fitting
-    /// </summary>
-    /// <param name="fitting">fitting to get</param>
-    /// <returns name="systemtype">system type of fitting</returns>
-    [NodeCategory("Query")]
-    public static global::Revit.Elements.Element? SystemType(global::Revit.Elements.Element fitting)
-    {
-        Autodesk.Revit.DB.Element element = fitting.InternalElement;
-        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        ElementId systemTypeId =
-            element!.get_Parameter(BuiltInParameter.RBS_PIPING_SYSTEM_TYPE_PARAM).AsElementId();
-        if (systemTypeId == null) return null;
-        var systemType = doc.GetElement(systemTypeId).ToDynamoType();
-        return systemType;
-    }
-
-    /// <summary>
     /// Set Angle of tee fitting
     /// </summary>
     /// <remarks>this function just apply for tee have two connector</remarks>
     /// <param name="fitting">fitting need to change angle</param>
     /// <param name="angle">angle to set (degrees)</param>
     /// <returns name="fitting">fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.SetAngle.png)
+    /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element? SetAngle(global::Revit.Elements.Element? fitting, double angle)
     {
@@ -232,12 +229,15 @@ public class Fitting
     }
 
 #if !R20
-     /// <summary>
+    /// <summary>
     /// Set radius of fitting
     /// </summary>
     /// <param name="fitting">fitting will be set</param>
     /// <param name="radius">value radius</param>
     /// <returns name="fitting">fitting</returns> 
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.SetRadius.png)
+    /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element? SetRadius(global::Revit.Elements.Element? fitting, double radius)
     {
@@ -253,33 +253,14 @@ public class Fitting
         return fitting;
     }
 #endif
-   
-
-    /// <summary>
-    /// Set Rotate of fitting
-    /// </summary>
-    /// <param name="fitting">family instance</param>
-    /// <param name="Axis">Line Axis</param>
-    /// <param name="angle">angle to rotate(Degrees)</param>
-    /// <returns name="fitting">family instance</returns>
-    [NodeCategory("Action")]
-    public static global::Revit.Elements.Element Rotate(global::Revit.Elements.Element fitting, Autodesk.DesignScript.Geometry.Line Axis,
-        double angle)
-    {
-        TransactionManager.Instance.ForceCloseTransaction();
-        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        TransactionManager.Instance.EnsureInTransaction(doc);
-        double degree2Radian = angle * System.Math.PI / 180.0;
-        ElementTransformUtils.RotateElement(doc, fitting.InternalElement.Id,
-            (Autodesk.Revit.DB.Line) Axis.ToRevitType(), degree2Radian);
-        TransactionManager.Instance.TransactionTaskDone();
-        return fitting;
-    }
 
     /// <summary>
     /// return information connector of fitting
     /// </summary>
     /// <param name="fitting">family instance</param>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.ConnectorInfo.png)
+    /// </example>
     [MultiReturn("Size", "PartType")]
     [NodeCategory("Query")]
     public static IDictionary ConnectorInfo(Revit.Elements.Element fitting)
