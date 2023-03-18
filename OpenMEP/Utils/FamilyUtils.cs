@@ -3,6 +3,7 @@ using Revit.Elements;
 
 namespace OpenMEP.Utils;
 
+/// <summary>Contains utilities related to family operations.</summary>
 public class FamilyUtils
 {
     private FamilyUtils(){}

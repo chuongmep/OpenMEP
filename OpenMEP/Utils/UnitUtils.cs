@@ -1,7 +1,8 @@
 ﻿using Autodesk.Revit.DB;
 
 namespace OpenMEP.Utils;
-
+/// <summary>A utility class of functions related to units.</summary>
+/// <since>2014</since>
 public class UnitUtils
 {
     private UnitUtils()
