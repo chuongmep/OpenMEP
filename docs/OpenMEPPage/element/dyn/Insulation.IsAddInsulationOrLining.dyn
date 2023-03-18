@@ -94,19 +94,10 @@
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.Element.Insulation.IsAddInsulationOrLining@Revit.Elements.Element",
-      "Id": "2bbf59af769a474aa2dcec979049d2fa",
+      "Id": "e6f62393f67642b681e9d7a3ffc87b90",
       "Inputs": [
         {
-          "Id": "74b338680ab5421e8f5bce3c538af72a",
-          "Name": "insulation",
-          "Description": "OpenMEP.Element.Insulation",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "7e8395febcb64bbd98bcd765f664d94a",
+          "Id": "29deb92f2b454ad9ba3d86751aac6e4e",
           "Name": "element",
           "Description": "the element to check\n\nElement",
           "UsingDefaultValue": false,
@@ -117,7 +108,7 @@
       ],
       "Outputs": [
         {
-          "Id": "107d4a728e0f46e287476b21a1e01003",
+          "Id": "049b490a5d7f467fa3dd856b3a5e2b91",
           "Name": "bool",
           "Description": "true if element is insulation",
           "UsingDefaultValue": false,
@@ -139,20 +130,14 @@
     },
     {
       "Start": "9004fe7e5f2a4f59a6aa603f72a46b97",
-      "End": "7e8395febcb64bbd98bcd765f664d94a",
-      "Id": "5a0c419a519c49c487eca681f271efd6",
+      "End": "29deb92f2b454ad9ba3d86751aac6e4e",
+      "Id": "43ad5e8f52c34683862038fe13a61b7c",
       "IsHidden": "False"
     },
     {
       "Start": "8829d0bcb7fe479e87edb008153767d0",
       "End": "1928d5ff6db14d3e9f0381d99f456e7e",
       "Id": "713245a80a304286a54f011195bfa967",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "8829d0bcb7fe479e87edb008153767d0",
-      "End": "74b338680ab5421e8f5bce3c538af72a",
-      "Id": "4900993e6bbf4fc4b148266d485a74b3",
       "IsHidden": "False"
     }
   ],
@@ -165,7 +150,7 @@
       "Nodes": [
         "4f2c0a9cabfe4d3092442c04b7c8e02a",
         "99844b48aabc4f2b8a4ef73fd60e1658",
-        "2bbf59af769a474aa2dcec979049d2fa"
+        "e6f62393f67642b681e9d7a3ffc87b90"
       ]
     }
   ],
@@ -249,17 +234,17 @@
       {
         "Name": "Insulation.IsAddInsulationOrLining",
         "ShowGeometry": true,
-        "Id": "2bbf59af769a474aa2dcec979049d2fa",
+        "Id": "e6f62393f67642b681e9d7a3ffc87b90",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 1160.7413543611967,
-        "Y": 214.9471344055134
+        "X": 1115.6397408207342,
+        "Y": 202.76198704103652
       }
     ],
     "Annotations": [],
-    "X": -217.83053608700459,
-    "Y": 66.519334359526113,
-    "Zoom": 0.78436932804482706
+    "X": -193.08958505091266,
+    "Y": 13.793806478625527,
+    "Zoom": 0.82269535937499993
   }
 }

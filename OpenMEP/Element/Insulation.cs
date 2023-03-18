@@ -71,11 +71,9 @@ public class Insulation
     [NodeCategory("Query")]
     public static bool IsAddInsulationOrLining(Revit.Elements.Element element)
     {
-        Autodesk.Revit.DB.Element e = element.InternalElement;
-        if (e is InsulationLiningBase)
-        {
-            return true;
-        }
+        List<Revit.Elements.Element?> insulation = GetInsulation(element);
+        List<Revit.Elements.Element?> lining = GetLining(element);
+        if (insulation.Count > 0 || lining.Count > 0) return true;
         return false;
     }
 
