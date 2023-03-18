@@ -3,6 +3,8 @@ using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
+using OpenMEPSandbox.Geometry;
+using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
@@ -20,6 +22,9 @@ public class Fitting
     /// <param name="firstConnector"> The first connector to be connected to the union.</param>
     /// <param name="secondConnector"> The second connector to be connected to the union.</param>
     /// <returns name="familyinstance">If creation was successful then an family instance to the new object is returned, otherwise an exception with failure information will be thrown.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.NewUnionFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewUnionFitting(Autodesk.Revit.DB.Connector firstConnector,
         Autodesk.Revit.DB.Connector secondConnector)
@@ -55,6 +60,9 @@ public class Fitting
     /// <param name="firstConnector"> The first connector to be connected to the union.</param>
     /// <param name="secondConnector"> The second connector to be connected to the union.</param>
     /// <returns name="familyinstance">If creation was successful then an family instance to the new object is returned, otherwise an exception with failure information will be thrown.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.NewElbowFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewElbowFitting(Autodesk.Revit.DB.Connector firstConnector,
         Autodesk.Revit.DB.Connector secondConnector)
@@ -114,14 +122,37 @@ public class Fitting
     /// <param name="connector2">The second connector to be connected to the tee.</param>
     /// <param name="connector3">The third connector to be connected to the tee. This should be connected to the branch of the tee.</param>
     /// <returns name="familyinstance">If creation was successful then an family instance to the new object is returned, and the transition fitting will be added at the connectors' end if necessary, otherwise an exception with failure information will be thrown</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Fitting.NewTeeFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTeeFitting(Autodesk.Revit.DB.Connector connector1,
         Connector? connector2,
         Connector? connector3)
     {
+        if(connector1==null) throw new ArgumentNullException(nameof(connector1));
+        if(connector2==null) throw new ArgumentNullException(nameof(connector2));
+        if(connector3==null) throw new ArgumentNullException(nameof(connector3));
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewTeeFitting(connector1, connector2, connector3);
+        // sort connectors main-main-branch
+        Connector? c1;
+        Connector? c2;
+        Connector? c3;
+        bool flag = Vector.IsPerpendicular(connector1.CoordinateSystem.BasisZ.ToVector(), connector2!.CoordinateSystem.BasisZ.ToVector());
+        if (flag)
+        {
+            c1 = connector1;
+            c2 = connector3;
+            c3 = connector2;
+        }
+        else
+        {
+            c1 = connector1;
+            c2 = connector2;
+            c3 = connector3;
+        }
+        Autodesk.Revit.DB.FamilyInstance familyInstance = doc.Create.NewTeeFitting(c1, c2, c3);
         TransactionManager.Instance.TransactionTaskDone();
         if (familyInstance == null) return null;
         return familyInstance.ToDynamoType();
