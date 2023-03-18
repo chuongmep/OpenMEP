@@ -116,8 +116,8 @@ public class Fitting
     /// <returns name="familyinstance">If creation was successful then an family instance to the new object is returned, and the transition fitting will be added at the connectors' end if necessary, otherwise an exception with failure information will be thrown</returns>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTeeFitting(Autodesk.Revit.DB.Connector connector1,
-        Autodesk.Revit.DB.Connector connector2,
-        Autodesk.Revit.DB.Connector connector3)
+        Connector? connector2,
+        Connector? connector3)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);

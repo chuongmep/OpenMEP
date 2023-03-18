@@ -1,0 +1,202 @@
+{
+  "Uuid": "68c7fafb-c9ef-4d5d-b8ad-ed2ed0a644c8",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MEPCurve.NewTeeFitting",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.MEPCurve.NewTeeFitting@Revit.Elements.Element,Revit.Elements.Element",
+      "Id": "77b701e5fa494a4cbe7ebf79d2f13b35",
+      "Inputs": [
+        {
+          "Id": "f421f00e6b204e4d9d215f112957d730",
+          "Name": "MepCurve1",
+          "Description": "the first element mep curve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "18d295ead9684ad7bc376a2ef0e490ee",
+          "Name": "MepCurve2",
+          "Description": "the second element mep curve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e70f0192d8264bdcaf9db1dd91969210",
+          "Name": "familyinstance",
+          "Description": "the element family instance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a new tee fitting 90 degrees by two mep curve\n\nMEPCurve.NewTeeFitting (MepCurve1: Element, MepCurve2: Element): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "ae2bc04f-25d9-41dd-99b5-0c4788ce76a2-000d9ecc"
+      ],
+      "Id": "67ec0c060b5d4d87895c6cd457942c9a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ccfe90dc6d7c4c018fcf3bff4b7f7f8f",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "ae2bc04f-25d9-41dd-99b5-0c4788ce76a2-000d9edd"
+      ],
+      "Id": "6daa057f19ce4cc9ae27847a12243fe2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a2f7a6341e7041edbd2dd6899ce5e0aa",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ccfe90dc6d7c4c018fcf3bff4b7f7f8f",
+      "End": "18d295ead9684ad7bc376a2ef0e490ee",
+      "Id": "0c7f93e67dcc4081919e6f600bb4395a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a2f7a6341e7041edbd2dd6899ce5e0aa",
+      "End": "f421f00e6b204e4d9d215f112957d730",
+      "Id": "6f0dba91c6064ac8a520718291d73ef7",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "77b701e5fa494a4cbe7ebf79d2f13b35"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "MEPCurve.NewTeeFitting",
+        "ShowGeometry": true,
+        "Id": "77b701e5fa494a4cbe7ebf79d2f13b35",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 525.3542627499728,
+        "Y": 276.979867546608
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "67ec0c060b5d4d87895c6cd457942c9a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 207.15956789979305,
+        "Y": 210.65682751455071
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "6daa057f19ce4cc9ae27847a12243fe2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 206.56176389544032,
+        "Y": 383.4221847724985
+      }
+    ],
+    "Annotations": [],
+    "X": -132.12192800565981,
+    "Y": -72.06579096584079,
+    "Zoom": 1.13758205229474
+  }
+}

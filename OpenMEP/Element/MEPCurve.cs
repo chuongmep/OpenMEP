@@ -8,6 +8,7 @@ using Dynamo.Graph.Nodes;
 using GShark.Geometry;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
+using RevitServices.Persistence;
 using RevitServices.Transactions;
 using Curve = Autodesk.DesignScript.Geometry.Curve;
 using Line = Autodesk.Revit.DB.Line;
@@ -229,8 +230,71 @@ public class MEPCurve
         return newTeeFitting.ToDynamoType();
     }
 
-    
-    
+    /// <summary>
+    /// Create a new tee fitting 90 degrees by two mep curve
+    /// </summary>
+    /// <param name="MepCurve1">the first element mep curve</param>
+    /// <param name="MepCurve2">the second element mep curve</param>
+    /// <returns name="familyinstance">the element family instance</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewTeeFitting2.png)
+    /// </example>
+    public static Revit.Elements.Element? NewTeeFitting(Revit.Elements.Element MepCurve1,
+        Revit.Elements.Element MepCurve2)
+    {
+        if(MepCurve1==null) throw new ArgumentNullException(nameof(MepCurve1));
+        if(MepCurve2==null) throw new ArgumentNullException(nameof(MepCurve2));
+        //review is perpendicular
+        Autodesk.Revit.DB.Element e1 = MepCurve1.InternalElement;
+        LocationCurve? lc1 = e1.Location as LocationCurve;
+        Autodesk.Revit.DB.Curve curve1 = lc1!.Curve;
+        Autodesk.Revit.DB.Element e2 = MepCurve2.InternalElement;
+        LocationCurve? lc2 = e2.Location as LocationCurve;
+        Autodesk.Revit.DB.Curve curve2 = lc2!.Curve;
+        Autodesk.Revit.DB.XYZ vector = curve1.GetEndPoint(1) - curve1.GetEndPoint(0);
+        Autodesk.Revit.DB.XYZ vector2 = curve2.GetEndPoint(1) - curve2.GetEndPoint(0);
+        bool flag = vector.Normalize().DotProduct(vector2.Normalize()).Equals(0);
+        if (flag) throw new Exception("The two curves are not perpendicular");
+        // review main pipe branch
+        XYZ firstPoint = curve1.GetEndPoint(0);
+        XYZ secondPoint = curve2.GetEndPoint(0);
+        Autodesk.DesignScript.Geometry.Line? protoType = curve2.ToProtoType(false) as Autodesk.DesignScript.Geometry.Line;
+        Autodesk.DesignScript.Geometry.Point pointProjected = Point.ProjectOnToLine(firstPoint.ToPoint(false),protoType
+            );
+        Revit.Elements.Element? mainMEPCurve = null;
+        Revit.Elements.Element? branchMEPCurve = null;
+        bool isOnLine = Point.IsOnLine(pointProjected,protoType);
+        if (isOnLine)
+        {
+            mainMEPCurve = MepCurve2;
+            branchMEPCurve = MepCurve1;
+        }
+        else
+        {
+            mainMEPCurve = MepCurve1;
+            branchMEPCurve = MepCurve2;
+            protoType = curve1.ToProtoType(false) as Autodesk.DesignScript.Geometry.Line;
+            pointProjected = Point.ProjectOnToLine(secondPoint.ToPoint(false),protoType);
+            isOnLine = Point.IsOnLine(pointProjected,protoType);
+            if(!isOnLine) throw new Exception("The two curves are can't create a tee fitting");
+        }
+        // create tee
+        TransactionManager.Instance.ForceCloseTransaction();
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        protoType = mainMEPCurve.GetLocation() as Autodesk.DesignScript.Geometry.Line;
+        Autodesk.DesignScript.Geometry.Line? line = branchMEPCurve.GetLocation() as Autodesk.DesignScript.Geometry.Line;
+        pointProjected = Point.ProjectOnToLine(line.StartPoint,protoType);
+        Revit.Elements.Element? newMepCurve = MEPCurve.BreakCurve(mainMEPCurve,pointProjected);
+        TransactionManager.Instance.TransactionTaskDone();
+        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(newMepCurve,mainMEPCurve);
+        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mainMEPCurve,branchMEPCurve);
+        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(branchMEPCurve);
+        Connector? c3 = ConnectorManager.Connector.GetConnectorClosest(c1.Origin.ToPoint(), connectors);
+        Revit.Elements.Element? teeFitting = Fitting.NewTeeFitting(c1, c2, c3);
+        return teeFitting;
+    }
+
     /// <summary>
     /// Add a new family instance of an transition fitting into the Autodesk Revit document,
     /// using two connectors.

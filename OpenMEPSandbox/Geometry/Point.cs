@@ -41,8 +41,8 @@ public class Point
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Point.ProjectOnToLine.gif)
     /// </example>
-    public static Autodesk.DesignScript.Geometry.Point ProjectOnToLine(Autodesk.DesignScript.Geometry.Point point,
-        Autodesk.DesignScript.Geometry.Line line)
+    public static Autodesk.DesignScript.Geometry.Point ProjectOnToLine(Autodesk.DesignScript.Geometry.Point? point,
+        Autodesk.DesignScript.Geometry.Line? line)
     {
         Autodesk.DesignScript.Geometry.Vector lineDirection = line.Direction.Normalized();
         Autodesk.DesignScript.Geometry.Point start = line.StartPoint;
@@ -52,7 +52,6 @@ public class Point
         return ProjectedPoint;
     }
     
-
     /// <summary>
     /// Get the centroid of a list of points
     /// </summary>

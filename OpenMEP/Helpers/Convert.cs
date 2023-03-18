@@ -314,7 +314,6 @@ namespace OpenMEP.Helpers
             return item.ToProtoType();
             ;
         }
-
         /// <summary>
         /// Convert Dynamo Curve to Revit Line
         /// </summary>
