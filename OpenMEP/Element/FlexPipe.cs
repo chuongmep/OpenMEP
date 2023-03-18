@@ -16,7 +16,7 @@ public class FlexPipe
     
     /// <summary>Adds a new flexible pipe into the document,
     /// using two connector, and flexible pipe type.</summary>
-    /// <param name="connector"> The first connector to be connected to the pipe. </param>
+    /// <param name="connector1"> The first connector to be connected to the pipe. </param>
     /// <param name="connector2"> The second connector to be connected to the pipe. </param>
     /// <param name="pipeType"> The type of the flexible pipe. </param>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
@@ -34,12 +34,16 @@ public class FlexPipe
     /// does not match the one of the input connectors, no connection will be established.</remarks>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">Thrown if the flexible pipe type does not exist in the given document.</exception>
     /// <returns name="element">flex pipe</returns>
-    public static global::Revit.Elements.Element? NewFlexPipe(Autodesk.Revit.DB.Connector connector,Autodesk.Revit.DB.Connector connector2,global::Revit.Elements.Element pipeType)
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexPipe.NewFlexPipeByTwoConnector.png)
+    /// </example>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? NewFlexPipe(global::Revit.Elements.Element pipeType,Autodesk.Revit.DB.Connector connector1,Autodesk.Revit.DB.Connector connector2)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
         Autodesk.Revit.DB.Plumbing.FlexPipeType? flexPipeType = pipeType.InternalElement as Autodesk.Revit.DB.Plumbing.FlexPipeType;
-        Autodesk.Revit.DB.Plumbing.FlexPipe newUnionFitting = doc.Create.NewFlexPipe(connector,connector2,flexPipeType);
+        Autodesk.Revit.DB.Plumbing.FlexPipe newUnionFitting = doc.Create.NewFlexPipe(connector1,connector2,flexPipeType);
         TransactionManager.Instance.TransactionTaskDone();
         if (newUnionFitting == null) return null;
         return newUnionFitting.ToDynamoType();
@@ -47,7 +51,7 @@ public class FlexPipe
 
     /// <summary>Adds a new flexible pipe into the document,
     /// using a connector, point array and pipe type.</summary>
-    /// <param name="connector"> The connector to be connected to the flexible pipe, including the end points. </param>
+    /// <param name="connector1"> The connector to be connected to the flexible pipe, including the end points. </param>
     /// <param name="points">The point array indicating the path of the flexible pipe.</param>
     /// <param name="pipeType"> The type of the flexible pipe. </param>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
@@ -65,13 +69,16 @@ public class FlexPipe
     /// does not match the one of the input connector, no connection will be established.</remarks>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">Thrown if the flexible pipe type does not exist in the given document.</exception>
     /// <returns name="element">flex pipe</returns>
-    public static global::Revit.Elements.Element? NewFlexPipe(Autodesk.Revit.DB.Connector connector,List<Autodesk.DesignScript.Geometry.Point> points,global::Revit.Elements.Element pipeType)
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexPipe.NewFlexPipeByConnectorAndPoints.png)
+    /// </example>
+    public static global::Revit.Elements.Element? NewFlexPipe(global::Revit.Elements.Element pipeType,Autodesk.Revit.DB.Connector connector1,List<Autodesk.DesignScript.Geometry.Point> points)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
         Autodesk.Revit.DB.Plumbing.FlexPipeType? flexPipeType = pipeType.InternalElement as Autodesk.Revit.DB.Plumbing.FlexPipeType;
         List<XYZ> xyzes = points.Select(x => x.ToXyz()).ToList();
-        Autodesk.Revit.DB.Plumbing.FlexPipe newUnionFitting = doc.Create.NewFlexPipe(connector,xyzes,flexPipeType);
+        Autodesk.Revit.DB.Plumbing.FlexPipe newUnionFitting = doc.Create.NewFlexPipe(connector1,xyzes,flexPipeType);
         TransactionManager.Instance.TransactionTaskDone();
         if (newUnionFitting == null) return null;
         return newUnionFitting.ToDynamoType();
@@ -92,7 +99,10 @@ public class FlexPipe
     /// otherwise an exception with failure information will be thrown.</returns>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">Thrown if the flexible pipe type does not exist in the given document.</exception>
     /// <returns name="element">flex pipe</returns>
-    public static global::Revit.Elements.Element? NewFlexPipe(List<Autodesk.DesignScript.Geometry.Point> points,global::Revit.Elements.Element pipeType)
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexPipe.NewFlexPipeByPoints.png)
+    /// </example>
+    public static global::Revit.Elements.Element? NewFlexPipe(global::Revit.Elements.Element pipeType,List<Autodesk.DesignScript.Geometry.Point> points)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -110,9 +120,13 @@ public class FlexPipe
     /// The set operation will fail if the modification makes the connection invalid.
     /// </remarks>
     ///<returns name="points">list point of flex pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexPipe.Points.png)
+    /// </example>
     [NodeCategory("Query")]
-    public static List<Autodesk.DesignScript.Geometry.Point> Points(Autodesk.Revit.DB.Plumbing.FlexPipe flexPipe)
+    public static List<Autodesk.DesignScript.Geometry.Point> Points(Revit.Elements.Element flexPipe)
     {
-        return flexPipe.Points.Select(x=>x.ToPoint()).ToList();
+        Autodesk.Revit.DB.Plumbing.FlexPipe? flexPipe1 = flexPipe.InternalElement as Autodesk.Revit.DB.Plumbing.FlexPipe;
+        return flexPipe1.Points.Select(x=>x.ToPoint()).ToList();
     }
 }
