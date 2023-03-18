@@ -45,6 +45,9 @@ public class Duct
     ///    Thrown when the new duct fails to connect with the connector.
     /// </exception>
     /// <since>2017</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoConnector.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
@@ -92,6 +95,9 @@ public class Duct
     ///    Thrown when the new duct fails to connect with the connector.
     /// </exception>
     /// <since>2017</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoConnectorSize.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
@@ -135,6 +141,9 @@ public class Duct
     ///    Thrown when the new duct fails to connect with the connector.
     /// </exception>
     /// <since>2017</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByConnectorAndPoint.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
@@ -182,6 +191,9 @@ public class Duct
     ///    Thrown when the new duct fails to connect with the connector.
     /// </exception>
     /// <since>2017</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByConnectorAndPointSize.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
@@ -215,6 +227,9 @@ public class Duct
     ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
     /// </exception>
     /// <since>2014</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoPoint.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
@@ -253,6 +268,9 @@ public class Duct
     ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
     /// </exception>
     /// <since>2014</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoPointSize.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
@@ -286,6 +304,9 @@ public class Duct
     ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
     /// </exception>
     /// <since>2014</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByTwoPoint.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
@@ -325,6 +346,9 @@ public class Duct
     ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
     /// </exception>
     /// <since>2014</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByTwoPointSize.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
@@ -342,6 +366,9 @@ public class Duct
     /// <param name="width">new value width of duct</param>
     /// <param name="height">new value height of duct</param>
     /// <returns name="element">duct with new parameter diameter</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.SetDiameterSize.png)
+    /// </example>
     public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element duct, double width, double height)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -369,6 +396,9 @@ public class Duct
     /// <param name="duct">the duct to set diameter</param>
     /// <param name="diameter">new value diameter of duct</param>
     /// <returns name="element">duct with new parameter diameter</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.SetDiameter.png)
+    /// </example>
     public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element duct, double diameter)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -392,11 +422,15 @@ public class Duct
     /// </summary>
     /// <param name="duct">the duct</param>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.GetDiameter.png)
+    /// </example>
     [MultiReturn("width", "height", "diameter")]
     [NodeCategory("Query")]
     public static Dictionary<string, object?> GetDiameter(Revit.Elements.Element duct)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        doc.Regenerate();
         var internalElement = duct.InternalElement as Autodesk.Revit.DB.Mechanical.Duct;
         if(internalElement == null) throw new ArgumentNullException(nameof(duct));
 #if R20
@@ -456,6 +490,9 @@ public class Duct
     /// </exception>
     /// <since>2017</since>
     /// <returns name="duct">duct changed systemType</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.SetSystemType.png)
+    /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element SetSystemType(global::Revit.Elements.Element duct,
         global::Revit.Elements.Element systemType)
@@ -474,6 +511,9 @@ public class Duct
     /// </summary>
     /// <param name="duct">the duct</param>
     /// <returns name="shapeType">shape type of duct</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.Shape.png)
+    /// </example>
     [NodeCategory("Query")]
     public static dynamic Shape(Revit.Elements.Element duct)
     {
@@ -488,6 +528,9 @@ public class Duct
     /// </summary>
     /// <param name="systemType">the element of system type</param>
     /// <returns name="bool">true if is HvacSystemTypeId</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.IsHvacSystemTypeId.png)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsHvacSystemTypeId(global::Revit.Elements.Element systemType)
     {
@@ -502,6 +545,9 @@ public class Duct
     /// </summary>
     /// <param name="systemType">the system type of duct</param>
     /// <returns name="bool">true if is duct type id</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.IsDuctTypeId.png)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsDuctTypeId(global::Revit.Elements.Element systemType)
     {
