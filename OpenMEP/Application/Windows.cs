@@ -2,6 +2,9 @@
 
 namespace OpenMEP.Application;
 
+/// <summary>
+/// A class to get information about Windows
+/// </summary>
 public class Windows
 {
     private Windows()

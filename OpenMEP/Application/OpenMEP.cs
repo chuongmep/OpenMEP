@@ -2,6 +2,9 @@
 
 namespace OpenMEP.Application;
 
+/// <summary>
+///  a class to to get information about OpenMEP
+/// </summary>
 public class OpenMEP
 {
     private OpenMEP()

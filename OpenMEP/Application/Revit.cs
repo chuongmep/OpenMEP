@@ -2,6 +2,9 @@
 
 namespace OpenMEP.Application;
 
+/// <summary>
+/// A class to get information about Revit
+/// </summary>
 public class Revit
 {
     private Revit()
