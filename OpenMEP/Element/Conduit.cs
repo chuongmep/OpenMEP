@@ -55,6 +55,9 @@ public class Conduit
     /// <exception cref="T:Autodesk.Revit.Exceptions.ModificationOutsideTransactionException">
     ///    The document has no open transaction.
     /// </exception>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByTwoPoint.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,Autodesk.DesignScript.Geometry.Point startPoint,Autodesk.DesignScript.Geometry.Point endPoint,Revit.Elements.Element level)
     {
@@ -109,6 +112,9 @@ public class Conduit
     /// <exception cref="T:Autodesk.Revit.Exceptions.ModificationOutsideTransactionException">
     ///    The document has no open transaction.
     /// </exception>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByTwoConnector.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,Autodesk.Revit.DB.Connector firstConnector,Autodesk.Revit.DB.Connector secondConnector,Revit.Elements.Element level)
     {
@@ -131,6 +137,9 @@ public class Conduit
     /// <param name="line">the line define to draw conduit from start point to end point</param>
     /// <param name="level">the element of level</param>
     ///<returns name="conduit">new conduit</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByLine.png)
+    /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,Autodesk.DesignScript.Geometry.Line line,Revit.Elements.Element level)
     {
@@ -141,5 +150,30 @@ public class Conduit
             line.EndPoint.ToRevitType(), new ElementId(level.Id));
         TransactionManager.Instance.TransactionTaskDone();
         return conduit.ToDynamoType();
+    }
+    /// <summary>
+    /// Set diameter of conduit
+    /// </summary>
+    /// <param name="conduit">conduit need to set</param>
+    /// <param name="diameter">diameter to set</param>
+    /// <returns name="element">conduit</returns>
+    /// <exception cref="Exception"></exception>
+    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element? conduit, double diameter)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        Autodesk.Revit.DB.Electrical.Conduit? internalElement = conduit!.InternalElement as Autodesk.Revit.DB.Electrical.Conduit;
+        if (internalElement == null) throw new Exception("element request input is conduit");
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Electrical_ConduitSize).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.ConduitSize).GetUnitTypeId();
+        double value = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
+#endif
+
+        ConnectorManager.Connector.GetConnectors(conduit).ForEach(delegate(Connector? c) { c!.Radius = value / 2; });
+        TransactionManager.Instance.TransactionTaskDone();
+        return conduit;
     }
 }
