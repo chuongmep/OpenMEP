@@ -1,0 +1,265 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Insulation.IsAddInsulationOrLining",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000da13a"
+      ],
+      "Id": "97f71e91a81f41539942090882b59e4d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "68b39443455a4abbaa88a3ef90dc4e10",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Insulation.HostElement@Revit.Elements.Element",
+      "Id": "4f2c0a9cabfe4d3092442c04b7c8e02a",
+      "Inputs": [
+        {
+          "Id": "1928d5ff6db14d3e9f0381d99f456e7e",
+          "Name": "element",
+          "Description": "the insulation element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9004fe7e5f2a4f59a6aa603f72a46b97",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The the host element for the insulation or lining element.\n\nInsulation.HostElement (element: Element): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Insulation.GetInsulation@Revit.Elements.Element",
+      "Id": "99844b48aabc4f2b8a4ef73fd60e1658",
+      "Inputs": [
+        {
+          "Id": "fef434f8f0b24bb09cda8bd599536755",
+          "Name": "element",
+          "Description": "The element.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8829d0bcb7fe479e87edb008153767d0",
+          "Name": "Element[]",
+          "Description": "A collection of the insulation elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the insulation elements associated to a given element.\n\nInsulation.GetInsulation (element: Element): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Insulation.IsAddInsulationOrLining@Revit.Elements.Element",
+      "Id": "2bbf59af769a474aa2dcec979049d2fa",
+      "Inputs": [
+        {
+          "Id": "74b338680ab5421e8f5bce3c538af72a",
+          "Name": "insulation",
+          "Description": "OpenMEP.Element.Insulation",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7e8395febcb64bbd98bcd765f664d94a",
+          "Name": "element",
+          "Description": "the element to check\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "107d4a728e0f46e287476b21a1e01003",
+          "Name": "bool",
+          "Description": "true if element is insulation",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Checks if the element is added insulation or added lining.\n\nInsulation.IsAddInsulationOrLining (element: Element): bool"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "68b39443455a4abbaa88a3ef90dc4e10",
+      "End": "fef434f8f0b24bb09cda8bd599536755",
+      "Id": "04d71cb7e8b24577a68291b3e3fbe108",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9004fe7e5f2a4f59a6aa603f72a46b97",
+      "End": "7e8395febcb64bbd98bcd765f664d94a",
+      "Id": "5a0c419a519c49c487eca681f271efd6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8829d0bcb7fe479e87edb008153767d0",
+      "End": "1928d5ff6db14d3e9f0381d99f456e7e",
+      "Id": "713245a80a304286a54f011195bfa967",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8829d0bcb7fe479e87edb008153767d0",
+      "End": "74b338680ab5421e8f5bce3c538af72a",
+      "Id": "4900993e6bbf4fc4b148266d485a74b3",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "4f2c0a9cabfe4d3092442c04b7c8e02a",
+        "99844b48aabc4f2b8a4ef73fd60e1658",
+        "2bbf59af769a474aa2dcec979049d2fa"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "97f71e91a81f41539942090882b59e4d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 282.4,
+        "Y": 307.41771058315334
+      },
+      {
+        "Name": "Insulation.HostElement",
+        "ShowGeometry": true,
+        "Id": "4f2c0a9cabfe4d3092442c04b7c8e02a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 837.3892008639308,
+        "Y": 331.59740820734334
+      },
+      {
+        "Name": "Insulation.GetInsulation",
+        "ShowGeometry": true,
+        "Id": "99844b48aabc4f2b8a4ef73fd60e1658",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 559.95939524837991,
+        "Y": 291.22850971922219
+      },
+      {
+        "Name": "Insulation.IsAddInsulationOrLining",
+        "ShowGeometry": true,
+        "Id": "2bbf59af769a474aa2dcec979049d2fa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1160.7413543611967,
+        "Y": 214.9471344055134
+      }
+    ],
+    "Annotations": [],
+    "X": -217.83053608700459,
+    "Y": 66.519334359526113,
+    "Zoom": 0.78436932804482706
+  }
+}

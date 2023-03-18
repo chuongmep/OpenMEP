@@ -24,6 +24,9 @@ public class Insulation
     /// </exception>
     /// <since>2012</since>
     ///<returns name="elements">Insulation Elements</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Insulation.GetInsulation.png)
+    /// </example>
     public static List<Revit.Elements.Element?> GetInsulation(Revit.Elements.Element element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
@@ -44,6 +47,9 @@ public class Insulation
     /// </exception>
     /// <since>2012</since>
     /// <returns name="elements">lining elements</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Insulation.GetLining.png)
+    /// </example>
     public static List<Revit.Elements.Element?> GetLining(Revit.Elements.Element element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
@@ -59,8 +65,11 @@ public class Insulation
     /// </summary>
     /// <param name="element">the element to check</param>
     /// <returns name="bool">true if element is insulation</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Insulation.IsAddInsulationOrLining.png)
+    /// </example>
     [NodeCategory("Query")]
-    public bool IsAddInsulationOrLining(Revit.Elements.Element element)
+    public static bool IsAddInsulationOrLining(Revit.Elements.Element element)
     {
         Autodesk.Revit.DB.Element e = element.InternalElement;
         if (e is InsulationLiningBase)
@@ -110,6 +119,9 @@ public class Insulation
     ///    The document has no open transaction.
     /// </exception>
     /// <since>2012</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Insulation.AddInsulation.png)
+    /// </example>
     public static Revit.Elements.Element? AddInsulation(Revit.Elements.Element element,
         Revit.Elements.Element insulationType, double thickness)
     {
@@ -213,6 +225,9 @@ public class Insulation
     /// </summary>
     /// <param name="element">the insulation element</param>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Insulation.HostElement.png)
+    /// </example>
     [NodeCategory("Query")]
     public static Revit.Elements.Element? HostElement(Revit.Elements.Element element)
     {
@@ -227,6 +242,12 @@ public class Insulation
     /// </summary>
     /// <param name="element"></param>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Insulation.Thickness.png)
+    /// </example>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Insulation.Thickness.png)
+    /// </example>
     [NodeCategory("Query")]
     public static double? Thickness(Revit.Elements.Element element)
     {
