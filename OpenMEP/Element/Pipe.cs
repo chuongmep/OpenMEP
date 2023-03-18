@@ -9,7 +9,8 @@ using RevitServices.Persistence;
 using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
-
+/// <summary>A pipe in the Autodesk Revit MEP product.</summary>
+/// <remarks>The pipe is only available in the Autodesk Revit MEP product.</remarks>
 public class Pipe
 {
     private Pipe()

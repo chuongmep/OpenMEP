@@ -7,7 +7,7 @@ using RevitServices.Persistence;
 using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
-
+/// <summary>This class represents a cable tray in Autodesk Revit.</summary>
 public class CableTray
 {
     private CableTray()

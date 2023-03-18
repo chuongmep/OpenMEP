@@ -1,5 +1,7 @@
 ﻿namespace OpenMEP.ConnectorManager;
 
+/// <summary>MEP connector information.</summary>
+/// <since>2016</since>
 public class MEPConnectorInfo
 {
     private MEPConnectorInfo()

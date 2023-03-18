@@ -4,6 +4,9 @@ using Revit.Elements;
 
 namespace OpenMEP.ConnectorManager;
 
+/// <summary>
+/// Provides access to the Connector Manager
+/// </summary>
 public class ConnectorManager
 {
     private ConnectorManager()

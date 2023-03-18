@@ -6,7 +6,7 @@ using RevitServices.Transactions;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEP.Element;
-
+/// <summary>Electrical wire element.</summary>
 public class Wire
 {
     private Wire()

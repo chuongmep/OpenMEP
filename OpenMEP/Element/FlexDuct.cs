@@ -8,7 +8,7 @@ using RevitServices.Transactions;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEP.Element;
-
+/// <summary>A flex duct in the Autodesk Revit MEP product.</summary>
 public class FlexDuct
 {
     private FlexDuct()

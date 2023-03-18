@@ -13,7 +13,9 @@ using Line = Autodesk.Revit.DB.Line;
 using Point = OpenMEPSandbox.Geometry.Point;
 
 namespace OpenMEP.Element;
-
+/// <summary>
+/// A class can use for DuctType, PipeType, CableTrayType, ConduitType, WireType, MEPCurveType
+/// </summary>
 public class MEPCurve
 {
     private MEPCurve()

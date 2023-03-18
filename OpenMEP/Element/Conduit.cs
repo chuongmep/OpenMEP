@@ -5,7 +5,7 @@ using RevitServices.Persistence;
 using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
-
+/// <summary>This class represents a conduit in Autodesk Revit.</summary>
 public class Conduit
 {
     private Conduit()

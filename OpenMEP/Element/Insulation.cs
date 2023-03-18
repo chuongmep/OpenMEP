@@ -7,6 +7,10 @@ using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
 
+/// <summary>
+///    Acts as the base class for duct insulation, pipe insulation and duct lining elements.
+/// </summary>
+/// <since>2012</since>
 public class Insulation
 {
     private Insulation()

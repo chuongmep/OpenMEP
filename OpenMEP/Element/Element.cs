@@ -10,6 +10,15 @@ using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEP.Element;
 
+/// <summary>Base class for most persistent data within a Revit document.</summary>
+/// <remarks>
+///    The data in a Revit document consists primarily of a collection of
+///    elements.  An element usually corresponds to a single component of a
+///    building or drawing, such as a wall, door, or dimension, but it can
+///    also be something more abstract, like a wall type or a view.
+///    Every element in a document has a unique ID, represented by the
+///    ElementId class.
+/// </remarks>
 public class Element
 {
     private Element()

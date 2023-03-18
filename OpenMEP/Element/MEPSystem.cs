@@ -3,6 +3,12 @@ using OpenMEP.Helpers;
 
 namespace OpenMEP.Element;
 
+/// <summary>A system in the Autodesk Revit MEP product.</summary>
+/// <remarks>
+///    This is the base class for electrical, mechanical and piping systems,
+///    available only in the Autodesk Revit MEP product.
+/// </remarks>
+/// <since>2011</since>
 public class MEPSystem
 {
     private MEPSystem()

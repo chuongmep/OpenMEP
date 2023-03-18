@@ -8,9 +8,8 @@ using RevitServices.Transactions;
 
 namespace OpenMEP.Element.Family
 {
-    /// <summary>
-    /// Re
-    /// </summary>
+    /// <summary>Contains size information for a family.</summary>
+    /// <since>2014</since>
     public class FamilySizeManage
     {
         private FamilySizeManage()

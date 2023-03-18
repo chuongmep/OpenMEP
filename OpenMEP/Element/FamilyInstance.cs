@@ -1,13 +1,18 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
-using Dynamo.Graph.Nodes;
 using OpenMEPSandbox.Geometry;
 using Revit.GeometryConversion;
-using RevitServices.Persistence;
-using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
-
+/// <summary>
+///    This object represents a single instance of a family type, such as a single I beam.
+/// </summary>
+/// <remarks>
+///    Examples of FamilyInstance objects within Autodesk Revit are Beams, Columns,
+///    Braces and Desks. The FamilyInstance object provides more detailed properties that
+///    enable the type of the family instance to be changed, thus changing their appearance
+///    within the project.
+/// </remarks>
 public class FamilyInstance
 {
     private FamilyInstance()

@@ -6,7 +6,8 @@ using RevitServices.Persistence;
 using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
-
+/// <summary>A flex pipe in the Autodesk Revit MEP product.</summary>
+/// <remarks>The flex pipe is only available in the Autodesk Revit MEP product.</remarks>
 public class FlexPipe
 {
     private FlexPipe()

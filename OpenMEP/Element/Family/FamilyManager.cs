@@ -5,6 +5,7 @@ using RevitServices.Persistence;
 
 namespace OpenMEP.Element.Family;
 
+/// <summary>The family manager object to manage the family types and parameters in family document.</summary>
 public class FamilyManager
 {
     private FamilyManager()

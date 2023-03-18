@@ -5,6 +5,7 @@ using OpenMEP.Helpers;
 
 namespace OpenMEP.Element.Family;
 
+/// <summary>The family parameter object.</summary>
 public class FamilyParameter
 {
     private FamilyParameter()

@@ -3,6 +3,9 @@ using OpenMEP.Helpers;
 
 namespace OpenMEP.ConnectorManager;
 
+/// <summary>
+///    Supports all MEP models that are persistent within the Autodesk Revit project.
+/// </summary>
 public class MEPModel
 {
     private MEPModel()

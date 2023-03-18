@@ -4,8 +4,9 @@ using OpenMEP.Helpers;
 
 namespace OpenMEP.Element;
 
+
 /// <summary>
-/// A class can use for DuctType, PipeType, CableTrayType, ConduitType, WireType, MEPCurveType
+///    The base type class for MEP curves, such as ducts, pipes, cable trays and conduits.
 /// </summary>
 public class MEPCurveType
 {

@@ -7,7 +7,8 @@ using RevitServices.Persistence;
 using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
-
+/// <summary>A duct in the Autodesk Revit MEP product.</summary>
+/// <remarks>The duct is only available in the Autodesk Revit MEP product.</remarks>
 public class Duct
 {
     private Duct()

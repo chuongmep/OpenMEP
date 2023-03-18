@@ -2,6 +2,12 @@
 
 namespace OpenMEP.Document;
 
+/// <summary>An object that represents an open Family In Autodesk Revit project.</summary>
+/// <remarks>
+///    The Document object represents an Autodesk Revit project. Revit can have multiple
+///    projects open and multiple views to those projects. The active or top most view will be the
+///    active project and hence the active document which is available from the Application object.
+/// </remarks>
 public class FamilyDocument
 {
     private FamilyDocument(){}

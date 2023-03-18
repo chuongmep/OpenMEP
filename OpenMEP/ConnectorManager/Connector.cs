@@ -13,6 +13,12 @@ using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEP.ConnectorManager;
 
+/// <summary>A connector in an Autodesk Revit MEP project document.</summary>
+/// <remarks>
+///    This connector is an item that is a part of another element (duct, pipe, fitting, or equipment etc.).
+///    This connector does not represent the connector element that can be created inside a family;
+///    for that element, refer to <see cref="T:Autodesk.Revit.DB.ConnectorElement" />.
+/// </remarks>
 public class Connector
 {
     private Connector()
