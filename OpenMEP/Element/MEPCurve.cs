@@ -410,12 +410,26 @@ public class MEPCurve
     /// </exception>
     /// <remarks>This property is used to retrieve the width of the MEP curve.</remarks>
     /// <returns name="double">width of mep curve</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.Width.png)
+    /// </example>
     [NodeCategory("Query")]
     public static double? Width(Revit.Elements.Element mepCurve)
     {
         if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
-        return internalElement?.Width;
+        if (internalElement == null) throw new Exception("The element is not a MEP curve");
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        double w = internalElement.Height;
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(w, unitTypeId);
+        return value;
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
+        double value = UnitUtils.ConvertFromInternalUnits(w, unitTypeId);
+        return value;
+#endif
     }
 
     /// <summary>The height of the MEP curve.</summary>
@@ -424,6 +438,9 @@ public class MEPCurve
     /// </exception>
     /// <remarks>This property is used to retrieve the height of the MEP curve.</remarks>
     /// <returns name="double">The height of the MEP curve</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.Height.png)
+    /// </example>
     [NodeCategory("Query")]
     public static double? Height(Revit.Elements.Element mepCurve)
     {
