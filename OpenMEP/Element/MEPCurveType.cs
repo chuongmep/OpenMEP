@@ -1,4 +1,5 @@
 ﻿using System.Security.Policy;
+using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 
 namespace OpenMEP.Element;
@@ -20,6 +21,10 @@ public class MEPCurveType
     /// Use <see cref="T:Autodesk.Revit.DB.RoutingPreferenceManager" /> to set this property for PipeType MEPCurves.
     /// </remarks>
     /// <returns name="familyType">Cross fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.Cross.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static Revit.Elements.Element? Cross(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -35,6 +40,10 @@ public class MEPCurveType
     /// Use <see cref="T:Autodesk.Revit.DB.RoutingPreferenceManager" /> to set this property for PipeType MEPCurves.
     /// </remarks>
     /// <returns name="familyType">Elbow fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.Elbow.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static Revit.Elements.Element? Elbow(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -50,6 +59,10 @@ public class MEPCurveType
     /// Use <see cref="T:Autodesk.Revit.DB.RoutingPreferenceManager" /> to set this property for PipeType MEPCurves.
     /// </remarks>
     /// <returns name="familyType">Tap fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.Tap.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static Revit.Elements.Element? Tap(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -65,6 +78,10 @@ public class MEPCurveType
     /// Use <see cref="T:Autodesk.Revit.DB.RoutingPreferenceManager" /> to set this property for PipeType MEPCurves.
     /// </remarks>
     /// <returns name="familyType">union fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.Union.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static Revit.Elements.Element? Union(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -80,6 +97,10 @@ public class MEPCurveType
     /// Use <see cref="T:Autodesk.Revit.DB.RoutingPreferenceManager" /> to set this property for PipeType MEPCurves.
     /// </remarks>
     /// <returns name="familyType">transition fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.Transition.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static Revit.Elements.Element? Transition(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -95,6 +116,10 @@ public class MEPCurveType
     /// Use <see cref="T:Autodesk.Revit.DB.RoutingPreferenceManager" /> to set this property for PipeType MEPCurves.
     /// </remarks>
     /// <returns name="familyType"> multi shape transition fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.MultiShapeTransition.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static Revit.Elements.Element? MultiShapeTransition(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -107,6 +132,10 @@ public class MEPCurveType
     /// <para name="mepcurvetype">type of mep curve</para>
     /// <since>2019</since>
     /// <returns name="Autodesk.Revit.DB.ConnectorProfileType">ConnectorProfileType</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.Shape.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static dynamic Shape(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -117,6 +146,10 @@ public class MEPCurveType
     /// <summary>The roughness of the MEP curve type.  For PipeTypes, please use Segment::Roughness</summary>
     /// <para name="mepcurvetype">type of mep curve</para>
     /// <returns name="double">Roughness</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.Roughness.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static double Roughness(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
@@ -127,6 +160,10 @@ public class MEPCurveType
     /// <summary>The preferred junction type of the MEP curve type.</summary>
     /// <para name="mepcurvetype">type of mep curve</para>
     /// <remarks>Use <see cref="T:Autodesk.Revit.DB.RoutingPreferenceManager" /> to set this property for PipeType MEPCurves.</remarks>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurveType.PreferredJunctionType.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static dynamic PreferredJunctionType(Revit.Elements.Element mepcurvetype)
     {
         if (mepcurvetype == null) throw new ArgumentNullException(nameof(mepcurvetype));
