@@ -2,7 +2,7 @@
   "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Pipe.CreateByLine",
+  "Name": "Pipe.CreateByTwoPoint",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -245,6 +245,72 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Pipe.Create@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "596a0aa2373040c8a8ee57df78dff7a6",
+      "Inputs": [
+        {
+          "Id": "106714719f4a4bbbabcb58126c781a75",
+          "Name": "systemType",
+          "Description": "The Element of the piping system type.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cd044f82c8744ed3bdf3fca1152dd4f7",
+          "Name": "pipeType",
+          "Description": "The Element of the pipe type.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bac682781e134463ab1d3d41a7956d67",
+          "Name": "level",
+          "Description": "The Element level.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e906804415c54f2e86be6a818859ac0d",
+          "Name": "startPoint",
+          "Description": "The start point of the pipe.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bd8759e0548f406f8695e81afb54bb46",
+          "Name": "endPoint",
+          "Description": "The end point of the pipe.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "835df7f48d6544e1a85f1991d97c8ba9",
+          "Name": "pipe",
+          "Description": "new pipe",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "create new pipe with connectors\n\nPipe.Create (systemType: Element, pipeType: Element, level: Element, startPoint: Point, endPoint: Point): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Origin@var",
       "Id": "448723334d6146ffa63a1a075fe0601e",
       "Inputs": [
@@ -351,162 +417,6 @@
       ],
       "Replication": "Disabled",
       "Description": "All element subclasses."
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Radius@var",
-      "Id": "9f5fb85eb9384743aa97e3c22ed47ac5",
-      "Inputs": [
-        {
-          "Id": "a8d490501fe446dea019a423475e89b5",
-          "Name": "connector",
-          "Description": "connector\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "0913e0a9bbac48de9013bc0530c834d2",
-          "Name": "radius",
-          "Description": "radius",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "return the radius of connector\n\nConnector.Radius (connector: var): double"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "NodeType": "CodeBlockNode",
-      "Code": "x*2;",
-      "Id": "bcc331b986244abfa357b3772082b9dc",
-      "Inputs": [
-        {
-          "Id": "41a1e6effe424c38ac6d474a008a29c7",
-          "Name": "x",
-          "Description": "x",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "244755b6b11d4154b3184bf90951a17d",
-          "Name": "",
-          "Description": "Value of expression at line 1",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Pipe.Create@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Line",
-      "Id": "30aa9fae7038459fab0da257019d4a05",
-      "Inputs": [
-        {
-          "Id": "119774caf5884353abeced4514d3934f",
-          "Name": "systemType",
-          "Description": "the element of pipe system type\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "9d9809a2e8db4dfaa6f4531cc5a54064",
-          "Name": "pipeType",
-          "Description": "the element type of pipe\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "af7dfd81df8b42329f64925a6922653c",
-          "Name": "level",
-          "Description": "element level\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "bb5427dd366c47bd82e641dfee92e62b",
-          "Name": "line",
-          "Description": "line to draw pipe\n\nLine",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "06b78dd98f384a82b3cb2bd1bd3d77d3",
-          "Name": "Pipe",
-          "Description": "new pipe",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Create a new pipe by line\n\nPipe.Create (systemType: Element, pipeType: Element, level: Element, line: Line): Element"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
-      "Id": "4bf32f2e74754d70be6e5caa6f01d540",
-      "Inputs": [
-        {
-          "Id": "92d01474ad944dc8a8802209fd3a813a",
-          "Name": "startPoint",
-          "Description": "Line start point\n\nPoint",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "a262259d74104d4dafb4e28211efde35",
-          "Name": "endPoint",
-          "Description": "Line end point\n\nPoint",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "a3559ab04e3d4644bf0e0f90df483d71",
-          "Name": "Line",
-          "Description": "Line from start and end point",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
     }
   ],
   "Connectors": [
@@ -529,12 +439,6 @@
       "IsHidden": "False"
     },
     {
-      "Start": "f4d62cbe04364a53a024521ddbb2d643",
-      "End": "a8d490501fe446dea019a423475e89b5",
-      "Id": "6eeee8e8fab44e2c9a2e011f80a784a1",
-      "IsHidden": "False"
-    },
-    {
       "Start": "f17dde513d1342daa67d806e1652fded",
       "End": "2c53a1f77eb241b197f565cce1549550",
       "Id": "f6ab2c51e3504621a545ed235c725f2a",
@@ -542,8 +446,8 @@
     },
     {
       "Start": "2b10928f11ad4b94a388d6eda9b4aab4",
-      "End": "af7dfd81df8b42329f64925a6922653c",
-      "Id": "9704acd2cec24b1ca51881a6aba0c39e",
+      "End": "bac682781e134463ab1d3d41a7956d67",
+      "Id": "84b0d0850f6f4625b26a5e89825f5aa6",
       "IsHidden": "False"
     },
     {
@@ -560,26 +464,26 @@
     },
     {
       "Start": "20c2198c48dd4e2498c3ed418c30a10a",
-      "End": "9d9809a2e8db4dfaa6f4531cc5a54064",
-      "Id": "1fa7782423a9410a89a1d09508786327",
+      "End": "cd044f82c8744ed3bdf3fca1152dd4f7",
+      "Id": "66f1594a785f4a67b0cc172be25ace41",
       "IsHidden": "False"
     },
     {
       "Start": "63200c31fe7e444eb9879943fef0a565",
-      "End": "a262259d74104d4dafb4e28211efde35",
-      "Id": "b0acc4b2c45d4d7390366b277b2f87be",
+      "End": "bd8759e0548f406f8695e81afb54bb46",
+      "Id": "3521380712c44e1288787f68e393a5f3",
       "IsHidden": "False"
     },
     {
       "Start": "943bebc6382b4ba09828b2c77658b410",
-      "End": "92d01474ad944dc8a8802209fd3a813a",
-      "Id": "f872436610a84814875ddb19559e0ec9",
+      "End": "e906804415c54f2e86be6a818859ac0d",
+      "Id": "cf8c66fc46b74efa833e2c4855915aa7",
       "IsHidden": "False"
     },
     {
       "Start": "a5db7dbcb7be4838944ecf60fe9460d2",
-      "End": "119774caf5884353abeced4514d3934f",
-      "Id": "c9144338f63847a6bc3f32c563d7c99f",
+      "End": "106714719f4a4bbbabcb58126c781a75",
+      "Id": "53047f95e9fd4bd1bd24ef7a9a5f9f3a",
       "IsHidden": "False"
     },
     {
@@ -593,18 +497,6 @@
       "End": "71d420c5496e48c1bcd0a3998c5e1aba",
       "Id": "803e3064800f406799beb0002f007581",
       "IsHidden": "False"
-    },
-    {
-      "Start": "0913e0a9bbac48de9013bc0530c834d2",
-      "End": "41a1e6effe424c38ac6d474a008a29c7",
-      "Id": "9bb8969ef90d4cb997dfc111fd7e5ef9",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "a3559ab04e3d4644bf0e0f90df483d71",
-      "End": "bb5427dd366c47bd82e641dfee92e62b",
-      "Id": "fd181393ad9842ee88b104495c262109",
-      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -617,9 +509,8 @@
         "0ce65096b93c4868b03f6cb8ae154cce",
         "366e83efbe95449688a7089c21e8cde1",
         "88370cc32adf479ca88da2639511dae5",
-        "448723334d6146ffa63a1a075fe0601e",
-        "9f5fb85eb9384743aa97e3c22ed47ac5",
-        "30aa9fae7038459fab0da257019d4a05"
+        "596a0aa2373040c8a8ee57df78dff7a6",
+        "448723334d6146ffa63a1a075fe0601e"
       ]
     }
   ],
@@ -761,6 +652,16 @@
         "Y": 396.12962131298082
       },
       {
+        "Name": "Pipe.Create",
+        "ShowGeometry": true,
+        "Id": "596a0aa2373040c8a8ee57df78dff7a6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1441.5997601338604,
+        "Y": 17.201997169832225
+      },
+      {
         "Name": "Connector.Origin",
         "ShowGeometry": true,
         "Id": "448723334d6146ffa63a1a075fe0601e",
@@ -799,51 +700,11 @@
         "Excluded": false,
         "X": 451.52209202595839,
         "Y": -235.75553515110323
-      },
-      {
-        "Name": "Connector.Radius",
-        "ShowGeometry": true,
-        "Id": "9f5fb85eb9384743aa97e3c22ed47ac5",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1119.2174773883146,
-        "Y": 536.15018792070623
-      },
-      {
-        "Name": "Code Block",
-        "ShowGeometry": true,
-        "Id": "bcc331b986244abfa357b3772082b9dc",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1396.0,
-        "Y": 442.0
-      },
-      {
-        "Name": "Pipe.Create",
-        "ShowGeometry": true,
-        "Id": "30aa9fae7038459fab0da257019d4a05",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1649.2164623453154,
-        "Y": -10.56070138169963
-      },
-      {
-        "Name": "Line.ByStartPointEndPoint",
-        "ShowGeometry": true,
-        "Id": "4bf32f2e74754d70be6e5caa6f01d540",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1462.0264508072287,
-        "Y": 248.86661160485562
       }
     ],
     "Annotations": [],
-    "X": -239.33720587414052,
-    "Y": 194.36067456531794,
-    "Zoom": 0.64686561309241442
+    "X": -201.77232972220384,
+    "Y": 235.0612191019633,
+    "Zoom": 0.66275978056840579
   }
 }

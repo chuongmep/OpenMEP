@@ -24,6 +24,9 @@ public class Pipe
     /// <param name="connector1">first connector</param>
     /// <param name="connector2">second connector</param>
     /// <returns name="pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoConnector.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
@@ -47,6 +50,9 @@ public class Pipe
     /// <param name="connector2">second connector</param>
     /// <param name="diameter">size of pipe</param>
     /// <returns name="pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoConnectorDiameter.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
@@ -65,6 +71,9 @@ public class Pipe
     /// <param name="connector1">first connector to define first pipe draw pipe</param>
     /// <param name="endPoint">end point to draw pipe</param>
     /// <returns name="pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByConnectorAndPoint.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
@@ -89,6 +98,9 @@ public class Pipe
     /// <param name="endPoint">end point to draw pipe</param>
     /// <param name="diameter">size of new pipe</param>
     /// <returns name="pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByConnectorAndPointDiameter.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
@@ -100,7 +112,7 @@ public class Pipe
     }
 
     /// <summary>
-    /// create new pipe with connectors
+    /// create new pipe with two points
     /// </summary>
     /// <param name="systemType">The Element of the piping system type.</param>
     /// <param name="pipeType">The Element of the pipe type.</param>
@@ -108,6 +120,9 @@ public class Pipe
     /// <param name="startPoint">The start point of the pipe.</param>
     /// <param name="endPoint">The end point of the pipe.</param>
     /// <returns name="pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoPoint.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
@@ -124,7 +139,7 @@ public class Pipe
     }
 
     /// <summary>
-    /// create new pipe with connectors
+    /// create new pipe with two points
     /// </summary>
     /// <param name="systemType">The Element of the piping system type.</param>
     /// <param name="pipeType">The Element of the pipe type.</param>
@@ -133,6 +148,9 @@ public class Pipe
     /// <param name="endPoint">The end point of the pipe.</param>
     /// <param name="diameter">size of new pipe</param>
     /// <returns name="pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoPointDiameter.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
@@ -152,6 +170,9 @@ public class Pipe
     /// <param name="level">element level</param>
     /// <param name="line">line to draw pipe</param>
     /// <returns name="Pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByLine.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
@@ -175,6 +196,9 @@ public class Pipe
     /// <param name="line">line to draw pipe</param>
     /// <param name="diameter">size of new pipe</param>
     /// <returns name="Pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByLineDiameter.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
@@ -191,6 +215,7 @@ public class Pipe
     /// <param name="pipe">pipe will be break</param>
     /// <param name="point">point on pipe to break</param>
     /// <returns name="pipe">new pipe has split</returns>
+    [Obsolete("This node is deprecated, please use the new node named 'MepCurve.BreakCurve' instead.")]
     public static global::Revit.Elements.Element? Split(global::Revit.Elements.Element pipe,
         Autodesk.DesignScript.Geometry.Point point
     )
@@ -212,6 +237,9 @@ public class Pipe
     /// <param name="diameter">diameter to set</param>
     /// <returns name="pipe">pipe</returns>
     /// <exception cref="Exception"></exception>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.SetDiameter.png)
+    /// </example>
     public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element? pipe, double diameter)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -235,6 +263,9 @@ public class Pipe
     /// return information diameter of pipe
     /// </summary>
     /// <param name="pipe">pipe</param>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetDiameter.png)
+    /// </example>
     [MultiReturn("OverallSize", "Diameter", "OutsideDiameter", "InsideDiameter")]
     public static Dictionary<string, object?> GetDiameter(global::Revit.Elements.Element pipe)
     {
@@ -269,6 +300,9 @@ public class Pipe
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolJunctionsByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolJunctionsByRouting(global::Revit.Elements.Element? pipe)
     {
@@ -277,7 +311,7 @@ public class Pipe
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -289,13 +323,16 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
-    
+
     /// <summary>
     /// return Caps family of pipe get in routing setting
     /// </summary>
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolCapsByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolCapsByRouting(global::Revit.Elements.Element? pipe)
     {
@@ -304,7 +341,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -316,13 +353,16 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
-    
+
     /// <summary>
     /// return Crosses family of pipe get in routing setting
     /// </summary>
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolCrossesByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolCrossesByRouting(global::Revit.Elements.Element? pipe)
     {
@@ -331,7 +371,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -344,12 +384,15 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
         };
     }
 
-/// <summary>
+    /// <summary>
     /// return Elbows family of pipe get in routing setting
     /// </summary>
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolElbowsByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolElbowsByRouting(global::Revit.Elements.Element? pipe)
     {
@@ -358,7 +401,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -377,6 +420,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolTransitionsByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolTransitionsByRouting(global::Revit.Elements.Element? pipe)
     {
@@ -385,7 +431,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -404,6 +450,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolSegmentsByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolSegmentsByRouting(global::Revit.Elements.Element? pipe)
     {
@@ -412,7 +461,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -431,6 +480,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolUndefinedByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
     public static IDictionary? GetFamilySymbolUndefinedByRouting(global::Revit.Elements.Element? pipe)
     {
@@ -439,7 +491,7 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -458,15 +510,18 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// <remarks>it will be help you get correct family junction in setting map with size of pipe</remarks>
     /// <param name="pipe">pipe to get family routing</param>
     /// <returns name="familysymbol">family symbol</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolMechanicalJointsByRouting.png)
+    /// </example>
     [MultiReturn("FamilySymbol", "Family")]
-    public static IDictionary? GetFamilySymbolMechanicalJointsByRouting(global::Revit.Elements.Element? pipe)
+    public static Dictionary<string,object?> GetFamilySymbolMechanicalJointsByRouting(global::Revit.Elements.Element? pipe)
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Pipe_Dimension).DisplayUnits;
 #else
-Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             doc.GetUnits().GetFormatOptions(SpecTypeId.PipeDimension).GetUnitTypeId();
 #endif
         double raInternalUnits = UnitUtils.ConvertFromInternalUnits(radius, unitTypeId);
@@ -508,6 +563,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe to get</param>
     /// <returns name="systemtype">system type of pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.SystemType.png)
+    /// </example>
     [NodeCategory("Query")]
     public static global::Revit.Elements.Element? SystemType(global::Revit.Elements.Element pipe)
     {
@@ -518,12 +576,15 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
         var systemType = doc.GetElement(systemTypeId).ToDynamoType();
         return systemType;
     }
-    
+
     /// <summary>
     /// Return Tee Of Pipe In Routing Preferences
     /// </summary>
     /// <param name="pipe">pipe</param>
     /// <returns name="familyType">tee</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetTee.png)
+    /// </example>
     public static global::Revit.Elements.Element? GetTee(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -537,6 +598,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe</param>
     /// <returns name="familyType">union</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetUnion.png)
+    /// </example>
     public static global::Revit.Elements.Element? GetUnion(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -550,6 +614,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe</param>
     /// <returns name="familyType">cross</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetCross.png)
+    /// </example>
     public static global::Revit.Elements.Element? GetCross(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -563,6 +630,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe</param>
     /// <returns name="familyType">tap</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetTap.png)
+    /// </example>
     public static global::Revit.Elements.Element? GetTap(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -577,6 +647,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe</param>
     /// <returns name="familyType">transition</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetTransition.png)
+    /// </example>
     public static global::Revit.Elements.Element? GetTransition(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -590,6 +663,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe</param>
     /// <returns name="roughness">roughness</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetRoughness.png)
+    /// </example>
     public static double GetRoughness(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -602,6 +678,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     /// </summary>
     /// <param name="pipe">pipe to get shape</param>
     /// <returns name="connectorProfileType">connectorProfileType</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.Shape.png)
+    /// </example>
     [NodeCategory("Query")]
     public static dynamic? Shape(global::Revit.Elements.Element pipe)
     {
@@ -618,6 +697,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     ///<remarks>
     /// If the curve does not belong to any systems, the value will be <see langword="null" />.
     /// If the curve belongs to more than one system, the first available value is returned. </remarks>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.MEPSystem.png)
+    /// </example>
     [NodeCategory("Query")]
     public static global::Revit.Elements.Element? MEPSystem(global::Revit.Elements.Element pipe)
     {
@@ -642,6 +724,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
     /// </exception>
     /// <since>2015</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.SetSystemType.png)
+    /// </example>
     public static global::Revit.Elements.Element SetSystemType(global::Revit.Elements.Element pipe, int systemTypeId)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
@@ -674,6 +759,9 @@ Autodesk.Revit.DB.ForgeTypeId unitTypeId =
     ///    this operation failed.
     /// </exception>
     /// <since>2014</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.EndCap.png)
+    /// </example>
     public static void EndCap(Revit.Elements.Element pipe)
     {
         if (pipe == null) throw new ArgumentNullException(nameof(pipe));

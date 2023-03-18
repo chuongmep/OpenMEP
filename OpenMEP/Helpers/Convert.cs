@@ -194,10 +194,9 @@ namespace OpenMEP.Helpers
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
         internal static dynElement? ToDynamoType(this rvtElement? item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item == null) return null;
             return item.ToDSType(true);
         }
 
@@ -206,10 +205,10 @@ namespace OpenMEP.Helpers
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        internal static IEnumerable<dynElement> ToDynamoType(this IEnumerable<rvtElement> items)
+        internal static IEnumerable<dynElement?> ToDynamoType(this IEnumerable<rvtElement>? items)
         {
-            if (!items.Any()) throw new ArgumentNullException(nameof(items));
+            if(items==null) yield return null;
+            if(items.Any()==false) yield return null;
             foreach (var item in items)
             {
                 yield return item.ToDSType(true);
