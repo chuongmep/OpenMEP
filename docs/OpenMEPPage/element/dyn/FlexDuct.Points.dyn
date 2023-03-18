@@ -2,7 +2,7 @@
   "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Fitting.ConnectorInfo",
+  "Name": "FlexDuct.Points",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -12,13 +12,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Fitting.ConnectorInfo@Revit.Elements.Element",
-      "Id": "e3ee116f7c25471b942f94c19c80d482",
+      "FunctionSignature": "OpenMEP.Element.FlexDuct.Points@Revit.Elements.Element",
+      "Id": "43c37b2cf9a24edba49829b870f1aeb7",
       "Inputs": [
         {
-          "Id": "6e024e12f7ba479ba6463aa1bd6d8ab7",
-          "Name": "fitting",
-          "Description": "family instance\n\nElement",
+          "Id": "cecee8cbad6d405ea3aa72c54a4e00bd",
+          "Name": "flexDuct",
+          "Description": "Element",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -27,18 +27,9 @@
       ],
       "Outputs": [
         {
-          "Id": "7dbdc39d6082410b9945c6071fecca80",
-          "Name": "Size",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "4a66cb0da5e8498286346f1cf4605126",
-          "Name": "PartType",
-          "Description": "var",
+          "Id": "199167f42ece4aef9258fc8303dca55f",
+          "Name": "Point[]",
+          "Description": "Point[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -46,19 +37,19 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "return information connector of fitting\n\nFitting.ConnectorInfo (fitting: Element): var[]..[]"
+      "Description": "The points of the flex duct.\n\nFlexDuct.Points (flexDuct: Element): Point[]"
     },
     {
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
-        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000d9e7f"
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000da10d"
       ],
-      "Id": "e0de0a44a44c49489ff8213857f72487",
+      "Id": "909dc8ed8613447e92b46e4c7ab881c5",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "20cb7a8eddb640f6bee2eda65c90047d",
+          "Id": "6a967e2a40c74400aea7a73754a84a1e",
           "Name": "Element",
           "Description": "The selected elements.",
           "UsingDefaultValue": false,
@@ -72,9 +63,9 @@
   ],
   "Connectors": [
     {
-      "Start": "20cb7a8eddb640f6bee2eda65c90047d",
-      "End": "6e024e12f7ba479ba6463aa1bd6d8ab7",
-      "Id": "8e4a06c8103d42a3b69691f8c0798558",
+      "Start": "6a967e2a40c74400aea7a73754a84a1e",
+      "End": "cecee8cbad6d405ea3aa72c54a4e00bd",
+      "Id": "0a57554e83df40b798e89714d4fcf32a",
       "IsHidden": "False"
     }
   ],
@@ -85,7 +76,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "e3ee116f7c25471b942f94c19c80d482"
+        "43c37b2cf9a24edba49829b870f1aeb7"
       ]
     }
   ],
@@ -119,7 +110,7 @@
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.16.1.2727",
-      "RunType": "Automatic",
+      "RunType": "Manual",
       "RunPeriod": "1000"
     },
     "Camera": {
@@ -137,29 +128,29 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Fitting.ConnectorInfo",
+        "Name": "FlexDuct.Points",
         "ShowGeometry": true,
-        "Id": "e3ee116f7c25471b942f94c19c80d482",
+        "Id": "43c37b2cf9a24edba49829b870f1aeb7",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 496.00000000000011,
-        "Y": 252.79999999999995
+        "X": 524.00000000000023,
+        "Y": 257.6
       },
       {
         "Name": "Select Model Element",
         "ShowGeometry": true,
-        "Id": "e0de0a44a44c49489ff8213857f72487",
+        "Id": "909dc8ed8613447e92b46e4c7ab881c5",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 209.60000000000002,
-        "Y": 253.60000000000002
+        "X": 210.40000000000009,
+        "Y": 260.0
       }
     ],
     "Annotations": [],
-    "X": -140.76000000000022,
-    "Y": -97.896000000000129,
-    "Zoom": 1.1575
+    "X": -31.200000000000045,
+    "Y": 12.800000000000068,
+    "Zoom": 1.0
   }
 }

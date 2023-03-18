@@ -1,0 +1,221 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "FlexPipe.NewFlexPipeByTwoConnector",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.FlexPipe.NewFlexPipe@var,var,Revit.Elements.Element",
+      "Id": "37c3cd52b8094d55a9a17ac17f1f3fa5",
+      "Inputs": [
+        {
+          "Id": "548d1a43319c4f64b4f180a79606a441",
+          "Name": "connector",
+          "Description": "The first connector to be connected to the pipe.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "febf777bde534260aa18740f8860d775",
+          "Name": "connector2",
+          "Description": "The second connector to be connected to the pipe.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cd3e456cc0f94b83bb8c4e9ef5b257a4",
+          "Name": "pipeType",
+          "Description": "The type of the flexible pipe.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ab93a7ea5e1f475684fcc422043c0eea",
+          "Name": "Element",
+          "Description": "If creation was successful then a new flexible pipe is returned, otherwise an exception with failure information will be thrown.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Adds a new flexible pipe into the document, using two connector, and flexible pipe type.\n\nFlexPipe.NewFlexPipe (connector: var, connector2: var, pipeType: Element): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000da0b5"
+      ],
+      "Id": "098b20b264374344aca6107c432151cd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "41bc93fe9e7243db9d8552a75420d80f",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetUnusedConnectors@Revit.Elements.Element",
+      "Id": "c1cb0a2d735d4d4aaa90d25a09181114",
+      "Inputs": [
+        {
+          "Id": "3674ec57b4414f99aeb82d56ea018990",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bc39746cdac04f7cb68fccba9b715971",
+          "Name": "connectors",
+          "Description": "unused connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector unused from element\n\nConnector.GetUnusedConnectors (element: Element): var[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "41bc93fe9e7243db9d8552a75420d80f",
+      "End": "3674ec57b4414f99aeb82d56ea018990",
+      "Id": "86ffd6e2fb744a1abec35724d3afa88f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bc39746cdac04f7cb68fccba9b715971",
+      "End": "548d1a43319c4f64b4f180a79606a441",
+      "Id": "e0da4b1a1d1c4bd6bc5163dc4133203e",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "37c3cd52b8094d55a9a17ac17f1f3fa5",
+        "c1cb0a2d735d4d4aaa90d25a09181114"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "FlexPipe.NewFlexPipe",
+        "ShowGeometry": true,
+        "Id": "37c3cd52b8094d55a9a17ac17f1f3fa5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 690.40000000000009,
+        "Y": 288.8
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "098b20b264374344aca6107c432151cd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 70.399999999999977,
+        "Y": 267.20000000000005
+      },
+      {
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
+        "Id": "c1cb0a2d735d4d4aaa90d25a09181114",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 323.20000000000005,
+        "Y": 264.80000000000007
+      }
+    ],
+    "Annotations": [],
+    "X": -17.60000000000025,
+    "Y": -49.60000000000008,
+    "Zoom": 1.0
+  }
+}

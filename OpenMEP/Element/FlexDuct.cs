@@ -34,8 +34,11 @@ public class FlexDuct
     /// at the connector(s) if necessary. If the connector's type, domain,
     /// does not match the one of the input connector, no connection will be established.</remarks>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">Thrown if the flexible duct type does not exist in the given document.</exception>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexDuct.NewFlexDuctByTwoConnector.png)
+    /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewFlexDuct(Autodesk.Revit.DB.Connector connector1,Autodesk.Revit.DB.Connector connector2,global::Revit.Elements.Element ductType)
+    public static global::Revit.Elements.Element? NewFlexDuct(global::Revit.Elements.Element ductType,Autodesk.Revit.DB.Connector connector1,Autodesk.Revit.DB.Connector connector2)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -60,8 +63,11 @@ public class FlexDuct
     /// <returns> If creation was successful then a new flexible duct is returned,
     /// otherwise an exception with failure information will be thrown.</returns>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">Thrown if the flexible duct type does not exist in the given document.</exception>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexDuct.NewFlexDuctByListPoint.png)
+    /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewFlexDuct(List<Autodesk.DesignScript.Geometry.Point> points,global::Revit.Elements.Element ductType)
+    public static global::Revit.Elements.Element? NewFlexDuct(global::Revit.Elements.Element ductType,List<Autodesk.DesignScript.Geometry.Point> points)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -92,6 +98,9 @@ public class FlexDuct
     /// at the connector(s) if necessary. If the connector's type, domain,
     /// does not match the one of the input connector, no connection will be established.</remarks>
     /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">Thrown if the flexible duct type does not exist in the given document.</exception>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexDuct.NewFlexDuctByConnectorAndPoints.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewFlexDuct(Autodesk.Revit.DB.Connector connector,List<Autodesk.DesignScript.Geometry.Point> points,global::Revit.Elements.Element ductType)
     {
@@ -111,6 +120,9 @@ public class FlexDuct
     /// The set operation will fail if the modification makes the connection invalid.
     ///<para name="flexDuct">flex Duct</para>
     /// </remarks>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/FlexDuct.Points.png)
+    /// </example>
     [NodeCategory("Query")]
     public static IEnumerable<Point> Points(global::Revit.Elements.Element flexDuct)
     {
