@@ -33,11 +33,13 @@ public class Element
             LocationPoint? lc = element.InternalElement.Location as LocationPoint;
             return lc?.Point.ToPoint();
         }
+
         if (element.InternalElement.Location is LocationCurve)
         {
             LocationCurve? lc = element.InternalElement.Location as LocationCurve;
             return lc?.Curve.Evaluate(0.5, false).ToPoint();
         }
+
         BoundingBoxXYZ bb = element.InternalElement.get_BoundingBox(null);
         return bb.Max.Add(bb.Min).Divide(0.5).ToPoint();
     }
@@ -79,14 +81,17 @@ public class Element
         TransactionManager.Instance.TransactionTaskDone();
         return element;
     }
-    
-     /// <summary>
+
+    /// <summary>
     /// Set Rotate of fitting
     /// </summary>
     /// <param name="element">the element</param>
     /// <param name="Axis">Line Axis</param>
     /// <param name="angle">angle to rotate(Degrees)</param>
     /// <returns name="fitting">family instance</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateByLine.png)
+    /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element Rotate(global::Revit.Elements.Element element,
         Autodesk.DesignScript.Geometry.Line Axis,
@@ -109,6 +114,9 @@ public class Element
     /// <param name="Axis">Direction Axis</param>
     /// <param name="angle">angle to rotate(Degrees)</param>
     /// <returns name="fitting">family instance</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateByDirection.png)
+    /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element Rotate(global::Revit.Elements.Element element,
         Autodesk.DesignScript.Geometry.Vector Axis,
@@ -127,7 +135,7 @@ public class Element
         TransactionManager.Instance.TransactionTaskDone();
         return element;
     }
-    
+
     /// <summary>
     /// Return Level Of Element
     /// </summary>
@@ -152,10 +160,12 @@ public class Element
             {
                 levelPara = element.get_Parameter(BuiltInParameter.SCHEDULE_LEVEL_PARAM);
             }
+
             if (levelPara != null)
             {
                 levelId = levelPara.AsElementId();
             }
+
             if (levelId.IntegerValue == -1)
             {
                 // General get level method
@@ -187,17 +197,28 @@ public class Element
 
         return doc.GetElement(levelId) as Autodesk.Revit.DB.Level;
     }
-    
+
     /// <summary>
     /// The system of the MEP element belong to.
     /// </summary>
     /// <param name="element">the element to get system</param>
     /// <returns name="system">mep system of element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.System.png)
+    /// </example>
     public static global::Revit.Elements.Element? System(global::Revit.Elements.Element element)
     {
         List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(element);
         if (connectors == null) throw new ArgumentNullException(nameof(element));
-        return connectors.Select(x => x!.MEPSystem.ToDynamoType()).FirstOrDefault();
+        foreach (Connector connector in connectors)
+        {
+            if (connector == null) continue;
+            if (connector.MEPSystem != null)
+            {
+                return connector.MEPSystem.ToDynamoType();
+            }
+        }
+        return null;
     }
 
     /// <summary>
@@ -205,9 +226,13 @@ public class Element
     /// </summary>
     /// <param name="element">the element of mep</param>
     /// <returns name="systemType">system type of element from connector</returns>
-    public static global::Revit.Elements.Element SystemType(global::Revit.Elements.Element element)
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.SystemType.png)
+    /// </example>
+    public static global::Revit.Elements.Element? SystemType(global::Revit.Elements.Element element)
     {
         global::Revit.Elements.Element? system = System(element);
+        if (system == null) return null;
         return system!.ElementType;
     }
 
@@ -216,13 +241,13 @@ public class Element
     /// </summary>
     /// <param name="element">the element of mep</param>
     /// <returns name="systemType">system type from connector of element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.ConnectorSystemType.png)
+    /// </example>
     public static dynamic? ConnectorSystemType(global::Revit.Elements.Element element)
     {
         List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(element);
         dynamic? systemType = connectors.Select(x => ConnectorManager.Connector.SystemType(x)).FirstOrDefault();
         return systemType;
     }
-
-    
-
 }
