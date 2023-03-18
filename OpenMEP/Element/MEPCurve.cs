@@ -1,14 +1,17 @@
 ﻿using System.Collections;
+using System.Runtime.CompilerServices;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Mechanical;
 using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
+using GShark.Geometry;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Transactions;
 using Curve = Autodesk.DesignScript.Geometry.Curve;
 using Line = Autodesk.Revit.DB.Line;
+using Point = OpenMEPSandbox.Geometry.Point;
 
 namespace OpenMEP.Element;
 
@@ -42,6 +45,7 @@ public class MEPCurve
                 return mCurve.Document.GetElement(id).ToDynamoType();
             }
         }
+
         TransactionManager.Instance.TransactionTaskDone();
         return null;
     }
@@ -54,12 +58,13 @@ public class MEPCurve
     /// <returns></returns>
     private static ElementId BreakCurve(Autodesk.Revit.DB.MEPCurve? mepCurve, XYZ? ptBreak)
     {
-        if(mepCurve==null) throw new ArgumentNullException(nameof(mepCurve));
-        if(ptBreak==null) throw new ArgumentNullException(nameof(ptBreak));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
+        if (ptBreak == null) throw new ArgumentNullException(nameof(ptBreak));
         if (mepCurve is Autodesk.Revit.DB.Plumbing.Pipe || mepCurve is Autodesk.Revit.DB.Plumbing.FlexPipe)
         {
             return PlumbingUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
         }
+
         if (mepCurve is Autodesk.Revit.DB.Mechanical.Duct || mepCurve is Autodesk.Revit.DB.Mechanical.FlexDuct)
         {
             return MechanicalUtils.BreakCurve(mepCurve.Document, mepCurve.Id, ptBreak);
@@ -70,6 +75,7 @@ public class MEPCurve
             ElementId elementId = BreakConduitCableTray(mepCurve.Document, mepCurve.Id, ptBreak);
             return elementId;
         }
+
         return ElementId.InvalidElementId;
     }
 
@@ -223,6 +229,8 @@ public class MEPCurve
         return newTeeFitting.ToDynamoType();
     }
 
+    
+    
     /// <summary>
     /// Add a new family instance of an transition fitting into the Autodesk Revit document,
     /// using two connectors.
@@ -431,11 +439,11 @@ public class MEPCurve
     /// </example>
     [MultiReturn("Percent", "Degrees", "Ratio")]
     [NodeCategory("Query")]
-    public static Dictionary<string, object?> Slope(Revit.Elements.Element mepCurve,double digit =0)
+    public static Dictionary<string, object?> Slope(Revit.Elements.Element mepCurve, double digit = 0)
     {
-        if(mepCurve==null) throw new ArgumentNullException(nameof(mepCurve));
+        if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
         LocationCurve? locationCurve = internalElement!.Location as LocationCurve;
-       return OpenMEPSandbox.Geometry.Line.Slope(locationCurve?.Curve.ToDynamoType(), digit);
+        return OpenMEPSandbox.Geometry.Line.Slope(locationCurve?.Curve.ToDynamoType(), digit);
     }
 }

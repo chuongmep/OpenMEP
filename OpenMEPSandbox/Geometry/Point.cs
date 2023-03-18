@@ -33,6 +33,27 @@ public class Point
     }
 
     /// <summary>
+    /// Project a point onto a line
+    /// </summary>
+    /// <param name="point">Point need to project</param>
+    /// <param name="line">Line to project the point</param>
+    /// <returns name="point">projected point</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.ProjectOnToLine.gif)
+    /// </example>
+    public static Autodesk.DesignScript.Geometry.Point ProjectOnToLine(Autodesk.DesignScript.Geometry.Point point,
+        Autodesk.DesignScript.Geometry.Line line)
+    {
+        Autodesk.DesignScript.Geometry.Vector lineDirection = line.Direction.Normalized();
+        Autodesk.DesignScript.Geometry.Point start = line.StartPoint;
+        Autodesk.DesignScript.Geometry.Vector vector = point.AsVector().Subtract(start.AsVector());
+        double projectionLength  = lineDirection.Dot(vector);
+        var ProjectedPoint = start.Add(lineDirection.Scale(projectionLength));
+        return ProjectedPoint;
+    }
+    
+
+    /// <summary>
     /// Get the centroid of a list of points
     /// </summary>
     /// <param name="points">list of points</param>
@@ -99,9 +120,10 @@ public class Point
     /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Deconstruct.png)
     /// </example>
     [MultiReturn("X", "Y", "Z")]
-    public static Dictionary<string, object?> Deconstruct ([DefaultArgument("Autodesk.DesignScript.Geometry.Point.ByCoordinates(0,0,0)")] Autodesk.DesignScript.Geometry.Point point)
+    public static Dictionary<string, object?> Deconstruct(
+        [DefaultArgument("Autodesk.DesignScript.Geometry.Point.ByCoordinates(0,0,0)")]
+        Autodesk.DesignScript.Geometry.Point point)
     {
-        
         if (point == null) throw new ArgumentNullException(nameof(point));
         return new Dictionary<string, object?>
         {
@@ -240,8 +262,7 @@ public class Point
     {
         return Euclidean(p1.X, p2.X, p1.Y, p2.Y, p1.Z, p2.Z);
     }
-    
-    
+
 
     /// <summary>
     /// return distance between two points by Euclidean distance
@@ -311,7 +332,7 @@ public class Point
     /// <returns name="Permutation">Permutation of list index matching optimize</returns>
     /// <returns name="mincost">minimum cost can optimize</returns>
     /// <returns name="assignment">index optimize can assignment</returns>
-    [MultiReturn("assignment","mincost")]
+    [MultiReturn("assignment", "mincost")]
     public static Dictionary<string, object?> AssignmentMatching(List<Autodesk.DesignScript.Geometry.Point> lcMachines,
         List<Autodesk.DesignScript.Geometry.Point> lcDevices)
     {
@@ -324,6 +345,7 @@ public class Point
                 cost[i, j] = manhattan;
             }
         }
+
         // TODO : Array Matching Index 
         int[,]? originCost = cost.Clone() as int[,];
         List<int> assignment = cost.FindAssignments().ToList();
@@ -333,6 +355,7 @@ public class Point
         {
             mincost += originCost[i, assignment[i]];
         }
+
         return new Dictionary<string, object?>()
         {
             {"assignment", assignment},
@@ -347,8 +370,8 @@ public class Point
     /// <param name="lcDevices">list location of devices</param>
     /// <returns name="mincost">minimum cost can optimize</returns>
     /// <returns name="assignment">index optimize can assignment</returns>
-    [MultiReturn("assignment","mincost")]
-    public static Dictionary<string,object?> BruteForceMatching(List<Autodesk.DesignScript.Geometry.Point> lcMachines,
+    [MultiReturn("assignment", "mincost")]
+    public static Dictionary<string, object?> BruteForceMatching(List<Autodesk.DesignScript.Geometry.Point> lcMachines,
         List<Autodesk.DesignScript.Geometry.Point> lcDevices)
     {
         int[,] cost = new int[lcMachines.Count, lcDevices.Count];
@@ -360,6 +383,7 @@ public class Point
                 cost[i, j] = manhattan;
             }
         }
+
         BruteForceMethod bruteForceMethod = new BruteForceMethod();
         (int minCost, IEnumerable<int> minAssignment) result = bruteForceMethod.BruteForce(cost);
         IEnumerable<int> assignment = result.minAssignment;
