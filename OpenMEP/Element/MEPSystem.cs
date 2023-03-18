@@ -1,4 +1,5 @@
-﻿using OpenMEP.Helpers;
+﻿using Dynamo.Graph.Nodes;
+using OpenMEP.Helpers;
 
 namespace OpenMEP.Element;
 
@@ -12,7 +13,12 @@ public class MEPSystem
     /// Terminal elements in the system.
     /// </summary>
     /// <param name="mepSystem">mep system</param>
+    /// 
     /// <returns name="elements">The return value is a read only collection and doesn't include the base equipment or panel.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPSystem.Elements.png)
+    /// </example>
+    [NodeCategory("Query")]
     public static List<Revit.Elements.Element?> Elements(Revit.Elements.Element mepSystem)
     {
         List<Revit.Elements.Element?> elements = new List<Revit.Elements.Element?>();
@@ -34,12 +40,17 @@ public class MEPSystem
     /// </summary>
     /// <param name="mepSystem">mep system</param>
     /// <returns name="BaseEquipment">The base panel or equipment of the system.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPSystem.BaseEquipment.png)
+    /// </example>
     public static Revit.Elements.Element? BaseEquipment(Revit.Elements.Element? mepSystem)
     {
         Autodesk.Revit.DB.Element? element = mepSystem?.InternalElement;
         if (element is Autodesk.Revit.DB.MEPSystem m)
         {
-            return m.BaseEquipment.ToDynamoType();
+            Autodesk.Revit.DB.FamilyInstance baseEquipment = m.BaseEquipment;
+            if (baseEquipment == null) return null;
+            return baseEquipment.ToDynamoType();
         }
         return null;
     }
