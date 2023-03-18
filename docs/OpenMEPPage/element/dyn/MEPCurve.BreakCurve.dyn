@@ -2,7 +2,7 @@
   "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "MEPCurve.GetFourConnectorsClosest",
+  "Name": "MEPCurve.BreakCurve",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -33,40 +33,22 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.MEPCurve.GetFourConnectorsClosest@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element",
-      "Id": "c5579ea12bf147d38fdcc2c34d1af979",
+      "FunctionSignature": "OpenMEP.Element.MEPCurve.BreakCurve@Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point",
+      "Id": "f6f4ab67d08043dba5c1da8531c55c68",
       "Inputs": [
         {
-          "Id": "7e1ffbf09b384152a876c21d4b9bbc4b",
-          "Name": "mepCurve1",
-          "Description": "the first mepCurve\n\nElement",
+          "Id": "0184da9d4a674a6e8ee26216011bb8f6",
+          "Name": "mepCurve",
+          "Description": "A curve object for duct or pipe blend elements.\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "dc0771cdd2e64f13af5ae7939580d25d",
-          "Name": "mepCurve2",
-          "Description": "the second mepCurve\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "ec9f1bf34c364f58b43edb2a989d5ebb",
-          "Name": "mepCurve3",
-          "Description": "the three mepCurve\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "61814b399b154082b5be9577ee482a73",
-          "Name": "mepCurve4",
-          "Description": "the four mepCurve\n\nElement",
+          "Id": "8292373a1819403a87be251521616be9",
+          "Name": "point",
+          "Description": "location to break on mep curve\n\nPoint",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -75,36 +57,9 @@
       ],
       "Outputs": [
         {
-          "Id": "0fafc2622ec148648db6566668f52488",
-          "Name": "Connector1",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "934a6bd3fad540a090a094512a192c72",
-          "Name": "Connector2",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "ba2e4ab4f701407a9bd8fdadd1e35ee0",
-          "Name": "Connector3",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "095821ee6bec44c0a93fc0271d12b772",
-          "Name": "Connector4",
-          "Description": "var",
+          "Id": "cae00049db564501a715a5da05800147",
+          "Name": "element",
+          "Description": "new element break from mep curve",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -112,95 +67,127 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Return four connector closest inside four mep curves\n\nMEPCurve.GetFourConnectorsClosest (mepCurve1: Element, mepCurve2: Element, mepCurve3: Element, mepCurve4: Element): var[]..[]"
+      "Description": "break mep curve at point\n\nMEPCurve.BreakCurve (mepCurve: Element, point: Point): Element"
     },
     {
-      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
-      "NodeType": "ExtensionNode",
-      "InstanceId": [
-        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e25"
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.PointAtParameter@double",
+      "Id": "25501b0f660444e9ad17d67947ede520",
+      "Inputs": [
+        {
+          "Id": "eabe13c1a2894a84a2e6a9964e97c2fd",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3280ca3339604ca99ab4ca65c2f698c9",
+          "Name": "param",
+          "Description": "The parameter at which to evaluate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
       ],
-      "Id": "e7caddf2be4a45eb8d54a5bab5c9fcd8",
-      "Inputs": [],
       "Outputs": [
         {
-          "Id": "f1d5ecabc0154f848fbd5f0e856d7fba",
-          "Name": "Element",
-          "Description": "The selected elements.",
+          "Id": "85d419c963984dad8f870b81a0f12a0b",
+          "Name": "Point",
+          "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "Replication": "Disabled"
+      "Replication": "Auto",
+      "Description": "Get a Point on the Curve at a specified parameter between StartParameter() and EndParameter()\n\nCurve.PointAtParameter (param: double = 0): Point"
     },
     {
-      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
-      "NodeType": "ExtensionNode",
-      "InstanceId": [
-        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e16"
-      ],
-      "Id": "ed0d9f6918824fe887079934bb49de8b",
-      "Inputs": [],
-      "Outputs": [
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.GetLocation",
+      "Id": "2954ad07173c4a64ae44bbe1f0d3d77c",
+      "Inputs": [
         {
-          "Id": "ed51dc12bde144528be590d6e28601a5",
-          "Name": "Element",
-          "Description": "The selected elements.",
+          "Id": "4cf08b6f56964a9eba523da3687d007c",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "Replication": "Disabled"
-    },
-    {
-      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
-      "NodeType": "ExtensionNode",
-      "InstanceId": [
-        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e32"
-      ],
-      "Id": "be4b81efb645489c9659a6e641b3389e",
-      "Inputs": [],
       "Outputs": [
         {
-          "Id": "7ddb8cab1cc248e5a800b8810664adee",
-          "Name": "Element",
-          "Description": "The selected elements.",
+          "Id": "8200f1161ba2455490f85e58fdd725c9",
+          "Name": "Geometry",
+          "Description": "Location Geometry",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "Replication": "Disabled"
+      "Replication": "Auto",
+      "Description": "Get an existing element's location\n\nElement.GetLocation ( ): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0.5;",
+      "Id": "e8bbe224ea9c46b98d0ed6e7d08e4bc4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "17ec1d63ff0d43d98b1310b796017414",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
     }
   ],
   "Connectors": [
     {
       "Start": "296a0e69e3444d2390fba5a97d9bf00c",
-      "End": "7e1ffbf09b384152a876c21d4b9bbc4b",
-      "Id": "fffc343d58b04e35bee1bba04e510e12",
+      "End": "0184da9d4a674a6e8ee26216011bb8f6",
+      "Id": "4e79ce5e165746da91124c45f479d72f",
       "IsHidden": "False"
     },
     {
-      "Start": "f1d5ecabc0154f848fbd5f0e856d7fba",
-      "End": "dc0771cdd2e64f13af5ae7939580d25d",
-      "Id": "9e599292b67c4a1ea211fa7850c1b12c",
+      "Start": "296a0e69e3444d2390fba5a97d9bf00c",
+      "End": "4cf08b6f56964a9eba523da3687d007c",
+      "Id": "2448faea9e41483b81203c7a3bec40b6",
       "IsHidden": "False"
     },
     {
-      "Start": "ed51dc12bde144528be590d6e28601a5",
-      "End": "ec9f1bf34c364f58b43edb2a989d5ebb",
-      "Id": "70103c6fbc224dfa9d9d5f15ef8c5b26",
+      "Start": "85d419c963984dad8f870b81a0f12a0b",
+      "End": "8292373a1819403a87be251521616be9",
+      "Id": "8be071c91db5473a996cf3d4022e0f26",
       "IsHidden": "False"
     },
     {
-      "Start": "7ddb8cab1cc248e5a800b8810664adee",
-      "End": "61814b399b154082b5be9577ee482a73",
-      "Id": "eea10a046870419690cafb700bf21a12",
+      "Start": "8200f1161ba2455490f85e58fdd725c9",
+      "End": "eabe13c1a2894a84a2e6a9964e97c2fd",
+      "Id": "ac216ac1d4c5487ab3e8e167986fec32",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "17ec1d63ff0d43d98b1310b796017414",
+      "End": "3280ca3339604ca99ab4ca65c2f698c9",
+      "Id": "77e1177cc58e4909bec8b578b44eff42",
       "IsHidden": "False"
     }
   ],
@@ -211,7 +198,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "c5579ea12bf147d38fdcc2c34d1af979"
+        "f6f4ab67d08043dba5c1da8531c55c68"
       ]
     }
   ],
@@ -269,53 +256,53 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 180.94198642781271,
-        "Y": 60.852436515976621
+        "X": 237.73768545994085,
+        "Y": 103.66765578635014
       },
       {
-        "Name": "MEPCurve.GetFourConnectorsClosest",
+        "Name": "MEPCurve.BreakCurve",
         "ShowGeometry": true,
-        "Id": "c5579ea12bf147d38fdcc2c34d1af979",
+        "Id": "f6f4ab67d08043dba5c1da8531c55c68",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 589.3777750839256,
-        "Y": 250.00316828816048
+        "X": 893.07400281624086,
+        "Y": 190.20994707004843
       },
       {
-        "Name": "Select Model Element",
+        "Name": "Curve.PointAtParameter",
         "ShowGeometry": true,
-        "Id": "e7caddf2be4a45eb8d54a5bab5c9fcd8",
+        "Id": "25501b0f660444e9ad17d67947ede520",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 193.17490621934803,
-        "Y": 225.99685370170317
+        "X": 588.3037430561958,
+        "Y": 258.56082507568425
       },
       {
-        "Name": "Select Model Element",
+        "Name": "Element.GetLocation",
         "ShowGeometry": true,
-        "Id": "ed0d9f6918824fe887079934bb49de8b",
+        "Id": "2954ad07173c4a64ae44bbe1f0d3d77c",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 173.07796656182563,
-        "Y": 364.05409134903005
+        "X": 506.1319999148493,
+        "Y": 77.022619736154837
       },
       {
-        "Name": "Select Model Element",
+        "Name": "Code Block",
         "ShowGeometry": true,
-        "Id": "be4b81efb645489c9659a6e641b3389e",
+        "Id": "e8bbe224ea9c46b98d0ed6e7d08e4bc4",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 174.82552653204505,
-        "Y": 544.92654826673049
+        "X": 258.0,
+        "Y": 370.0
       }
     ],
     "Annotations": [],
-    "X": 19.779430258050809,
-    "Y": 41.19568959929552,
-    "Zoom": 0.77051684820224564
+    "X": -174.59017691386509,
+    "Y": 93.728413650483276,
+    "Zoom": 0.91556228528122652
   }
 }

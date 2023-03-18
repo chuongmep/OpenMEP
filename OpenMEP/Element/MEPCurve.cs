@@ -26,6 +26,9 @@ public class MEPCurve
     /// <param name="mepCurve">A curve object for duct or pipe blend elements.</param>
     /// <param name="point">location to break on mep curve</param>
     /// <returns name="element">new element break from mep curve</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.BreakCurve.png)
+    /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element? BreakCurve(global::Revit.Elements.Element mepCurve,
         Autodesk.DesignScript.Geometry.Point point)
@@ -107,6 +110,9 @@ public class MEPCurve
     /// <param name="mepCurve1">A curve object for duct or pipe blend first elements.</param>
     /// <param name="mepCurve2">A curve object for duct or pipe blend second elements.</param>
     /// <returns name="family instance">union fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewUnionFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewUnionFitting(global::Revit.Elements.Element mepCurve1,
         global::Revit.Elements.Element mepCurve2)
@@ -144,6 +150,9 @@ public class MEPCurve
     /// <param name="mepCurve1">A curve object for duct or pipe blend first elements.</param>
     /// <param name="mepCurve2">A curve object for duct or pipe second elements.</param>
     /// <returns name="family instance">elbow fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewElbowFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewElbowFitting(global::Revit.Elements.Element mepCurve1,
         global::Revit.Elements.Element mepCurve2)
@@ -216,7 +225,7 @@ public class MEPCurve
     /// <param name="mepCurve3">A curve object for duct or pipe blend three elements.</param>
     /// <returns name="familyinstance">new tee fitting</returns>
     /// <example>
-    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewTeeFitting.png)
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewTeeFitting3.png)
     /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTeeFitting(global::Revit.Elements.Element mepCurve1,
@@ -324,6 +333,9 @@ public class MEPCurve
     /// <param name="mepCurve1">the first mepCurve(Pipe/Duct/CableTray)</param>
     /// <param name="mepCurve2">the second mepCurve(Pipe/Duct/CableTray)</param>
     /// <returns name="family instance">new transition</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewTransitionFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTransitionFitting(global::Revit.Elements.Element mepCurve1,
         global::Revit.Elements.Element mepCurve2)
@@ -346,6 +358,9 @@ public class MEPCurve
     /// <param name="connector">connector to be connector</param>
     /// <param name="mepCurve">mepCurve connect to create Takeoff</param>
     /// <returns name="familyinstance">new takeoff fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewTakeoffFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTakeoffFitting(Autodesk.Revit.DB.Connector connector,
         global::Revit.Elements.Element mepCurve)
@@ -441,6 +456,9 @@ public class MEPCurve
     /// <param name="mepCurve1">the first mepCurve</param>
     /// <param name="mepCurve2">the second mepCurve</param>
     /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.GetTwoConnectorClosest.png)
+    /// </example>
     [MultiReturn("Connector1", "Connector2")]
     public static Dictionary<string, object?> GetTwoConnectorClosest(global::Revit.Elements.Element mepCurve1,
         global::Revit.Elements.Element mepCurve2)
@@ -460,6 +478,9 @@ public class MEPCurve
     /// <param name="mepCurve1">the first mepCurve</param>
     /// <param name="mepCurve2">the second mepCurve</param>
     /// <param name="mepCurve3">the three mepCurve</param>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.GetThreeConnectorsClosest.png)
+    /// </example>
     [MultiReturn("Connector1", "Connector2", "Connector3")]
     public static IDictionary<string, object?> GetThreeConnectorsClosest(global::Revit.Elements.Element? mepCurve1,
         global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3)
@@ -488,6 +509,9 @@ public class MEPCurve
     /// <param name="mepCurve2">the second mepCurve</param>
     /// <param name="mepCurve3">the three mepCurve</param>
     /// <param name="mepCurve4">the four mepCurve</param>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.GetFourConnectorsClosest.png)
+    /// </example>
     [MultiReturn("Connector1", "Connector2", "Connector3", "Connector4")]
     public static IDictionary<string, object?> GetFourConnectorsClosest(global::Revit.Elements.Element? mepCurve1,
         global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3,
