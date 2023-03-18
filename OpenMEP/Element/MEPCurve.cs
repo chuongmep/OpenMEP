@@ -429,7 +429,19 @@ public class MEPCurve
     {
         if (mepCurve == null) throw new ArgumentNullException(nameof(mepCurve));
         Autodesk.Revit.DB.MEPCurve? internalElement = mepCurve.InternalElement as Autodesk.Revit.DB.MEPCurve;
-        return internalElement?.Height;
+        if (internalElement == null) throw new Exception("The element is not a MEP curve");
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        double h = internalElement.Height;
+#if R20
+        DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
+        double value = UnitUtils.ConvertToInternalUnits(h, unitTypeId);
+        return value;
+#else
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
+        double value = UnitUtils.ConvertFromInternalUnits(h, unitTypeId);
+        return value;
+#endif
+        
     }
 
     /// <summary>The offset of the MEP curve.</summary>
