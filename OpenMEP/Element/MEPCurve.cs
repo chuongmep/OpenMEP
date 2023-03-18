@@ -5,6 +5,7 @@ using Autodesk.Revit.DB.Mechanical;
 using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
+using OpenMEPSandbox.Geometry;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
@@ -167,6 +168,9 @@ public class MEPCurve
     /// <param name="mepCurve3">the three mepCurve(Pipe/Duct/CableTray)</param>
     /// <param name="mepCurve4">the four mepCurve(Pipe/Duct/CableTray)</param>
     /// <returns name="familyinstance">new cross fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewCrossFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewCrossFitting(global::Revit.Elements.Element mepCurve1,
         global::Revit.Elements.Element mepCurve2, global::Revit.Elements.Element mepCurve3,
@@ -211,6 +215,9 @@ public class MEPCurve
     /// <param name="mepCurve2">A curve object for duct or pipe blend second elements.</param>
     /// <param name="mepCurve3">A curve object for duct or pipe blend three elements.</param>
     /// <returns name="familyinstance">new tee fitting</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.NewTeeFitting.png)
+    /// </example>
     [NodeCategory("Create")]
     public static global::Revit.Elements.Element? NewTeeFitting(global::Revit.Elements.Element mepCurve1,
         global::Revit.Elements.Element mepCurve2, global::Revit.Elements.Element mepCurve3)
@@ -218,9 +225,27 @@ public class MEPCurve
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
-        Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        Connector? connector1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? connector2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? connector3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        // sort connectors main-main-branch
+        Connector? c1;
+        Connector? c2;
+        Connector? c3;
+        bool flag = Vector.IsPerpendicular(connector1.CoordinateSystem.BasisZ.ToVector(),
+            connector2!.CoordinateSystem.BasisZ.ToVector());
+        if (flag)
+        {
+            c1 = connector1;
+            c2 = connector3;
+            c3 = connector2;
+        }
+        else
+        {
+            c1 = connector1;
+            c2 = connector2;
+            c3 = connector3;
+        }
         Autodesk.Revit.DB.FamilyInstance newTeeFitting = doc.Create.NewTeeFitting(c2, c1, c3);
         TransactionManager.Instance.TransactionTaskDone();
         if (newTeeFitting == null) return null;

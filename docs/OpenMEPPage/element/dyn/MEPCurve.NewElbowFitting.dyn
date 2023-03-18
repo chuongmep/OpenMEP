@@ -2,7 +2,7 @@
   "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "MEPCurve.NewTeeFitting",
+  "Name": "MEPCurve.NewElbowFitting",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -54,11 +54,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.MEPCurve.NewTeeFitting@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element",
-      "Id": "0971dfe5ad234dfa9ec2ddfd54425d25",
+      "FunctionSignature": "OpenMEP.Element.MEPCurve.NewElbowFitting@Revit.Elements.Element,Revit.Elements.Element",
+      "Id": "7a5048e1907343dfbde12f8b24ac1ea9",
       "Inputs": [
         {
-          "Id": "ce212d854ecd48f9a803b0d969d57906",
+          "Id": "7ea0f9cf0ef04fd980a72b7007650594",
           "Name": "mepCurve1",
           "Description": "A curve object for duct or pipe blend first elements.\n\nElement",
           "UsingDefaultValue": false,
@@ -67,18 +67,9 @@
           "KeepListStructure": false
         },
         {
-          "Id": "22bf4382094f4a0b91f5e9c013ceb788",
+          "Id": "3336c29780d94d188fa8e1508ec3aeee",
           "Name": "mepCurve2",
-          "Description": "A curve object for duct or pipe blend second elements.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "5ef7b0ed58fc4e858d99599dff3b7463",
-          "Name": "mepCurve3",
-          "Description": "A curve object for duct or pipe blend three elements.\n\nElement",
+          "Description": "A curve object for duct or pipe second elements.\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -87,9 +78,9 @@
       ],
       "Outputs": [
         {
-          "Id": "ac7225421d694a1e84cca04961bc3d15",
-          "Name": "familyinstance",
-          "Description": "new tee fitting",
+          "Id": "9374558a76a34b9c87b392369e215f63",
+          "Name": "family instance",
+          "Description": "elbow fitting",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -97,47 +88,20 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Add a new family instance of a tee fitting into the Autodesk Revit document, using three mep curves.\n\nMEPCurve.NewTeeFitting (mepCurve1: Element, mepCurve2: Element, mepCurve3: Element): Element"
-    },
-    {
-      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
-      "NodeType": "ExtensionNode",
-      "InstanceId": [
-        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e16"
-      ],
-      "Id": "1c7874c9e96a4ffd87f268520b85003d",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "1a9ed2ccb2af432cbb67e6cff229d2c6",
-          "Name": "Element",
-          "Description": "The selected elements.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled"
+      "Description": "create a elbow fitting from two mep curve\n\nMEPCurve.NewElbowFitting (mepCurve1: Element, mepCurve2: Element): Element"
     }
   ],
   "Connectors": [
     {
       "Start": "296a0e69e3444d2390fba5a97d9bf00c",
-      "End": "ce212d854ecd48f9a803b0d969d57906",
-      "Id": "27c647d17d344a94908b5150feeb52ee",
+      "End": "7ea0f9cf0ef04fd980a72b7007650594",
+      "Id": "2958c8f7b688408bbe7f99d26d61464a",
       "IsHidden": "False"
     },
     {
       "Start": "89847d25a99647708047e3a1fa3af664",
-      "End": "22bf4382094f4a0b91f5e9c013ceb788",
-      "Id": "fbbc29dfb97e40c3921ded7a3949a533",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "1a9ed2ccb2af432cbb67e6cff229d2c6",
-      "End": "5ef7b0ed58fc4e858d99599dff3b7463",
-      "Id": "636b675121a840a4b63ff8e946b14103",
+      "End": "3336c29780d94d188fa8e1508ec3aeee",
+      "Id": "c9ac602137634b53905b86898e8328e6",
       "IsHidden": "False"
     }
   ],
@@ -148,7 +112,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "0971dfe5ad234dfa9ec2ddfd54425d25"
+        "7a5048e1907343dfbde12f8b24ac1ea9"
       ]
     }
   ],
@@ -206,8 +170,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 237.73768545994085,
-        "Y": 103.66765578635014
+        "X": 108.59821958456985,
+        "Y": 99.869436201780417
       },
       {
         "Name": "Select Model Element",
@@ -216,33 +180,23 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 240.76276001800613,
-        "Y": 273.28611820653919
+        "X": 95.304451038575735,
+        "Y": 274.58753709198805
       },
       {
-        "Name": "MEPCurve.NewTeeFitting",
+        "Name": "MEPCurve.NewElbowFitting",
         "ShowGeometry": true,
-        "Id": "0971dfe5ad234dfa9ec2ddfd54425d25",
+        "Id": "7a5048e1907343dfbde12f8b24ac1ea9",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 648.57030316410578,
-        "Y": 224.51088464038696
-      },
-      {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
-        "Id": "1c7874c9e96a4ffd87f268520b85003d",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 241.78268771200976,
-        "Y": 415.05606767305494
+        "X": 541.62967359050492,
+        "Y": 193.35905044510383
       }
     ],
     "Annotations": [],
-    "X": -31.537119284900882,
-    "Y": 116.28208187362861,
-    "Zoom": 0.78436932804482706
+    "X": 3.55199999999968,
+    "Y": 28.169999999999959,
+    "Zoom": 0.8425
   }
 }
