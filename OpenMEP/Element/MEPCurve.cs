@@ -503,6 +503,9 @@ public class MEPCurve
 
     /// <summary>The connector manager of this MEP curve</summary>
     /// <returns name="connectorManager">The connector manager of this MEP curve</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.GetConnectorManager.png)
+    /// </example>
     [NodeCategory("Query")]
     public static Autodesk.Revit.DB.ConnectorManager? GetConnectorManager(Revit.Elements.Element mepCurve)
     {
