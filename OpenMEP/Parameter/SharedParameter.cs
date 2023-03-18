@@ -4,7 +4,15 @@ using Revit.Elements;
 using RevitServices.Persistence;
 
 namespace OpenMEP.Parameter;
-
+/// <summary>
+///    An element that stores the definition of a shared parameter which is loaded into the document.
+/// </summary>
+/// <remarks>
+///    Shared parameters are user-defined parameters that can be shared by multiple
+///    Revit documents. A shared parameter is identified by a GUID.
+///    Basic information of the shared parameter are accessed through GetDefinition().
+/// </remarks>
+/// <since>2016</since>
 public class SharedParameter
 {
     private SharedParameter()
