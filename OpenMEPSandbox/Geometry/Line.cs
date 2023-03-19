@@ -82,5 +82,6 @@ public class Line
         if (startPoint.Z < endPoint.Z) return startPoint;
         return endPoint;
     }
+    
 }
 

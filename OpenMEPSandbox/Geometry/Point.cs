@@ -412,4 +412,20 @@ public class Point
         Autodesk.DesignScript.Geometry.Vector v3 = v1.Subtract(v2);
         return v3.AsPoint();
     }
+    /// <summary>
+    /// Compares this a point with another point.
+    /// 0: if this is identical to other
+    /// 1: if this is greater than other
+    /// -1: if this is less than other
+    /// <para>Component evaluation priority is first X, then Y, then Z.</para>
+    /// </summary>
+    /// <param name="point1">the first point to use in comparison</param>
+    /// <param name="point2">the second point to use in comparison</param>
+    /// <returns name="double">value compare</returns>
+    public static double CompareTo(Autodesk.DesignScript.Geometry.Point point1,
+        Autodesk.DesignScript.Geometry.Point point2)
+    {
+        int compareTo = point1.ToGSharkType().CompareTo(point2.ToGSharkType());
+        return compareTo;
+    }
 }
