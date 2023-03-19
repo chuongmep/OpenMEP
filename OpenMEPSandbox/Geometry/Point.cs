@@ -422,6 +422,10 @@ public class Point
     /// <param name="point1">the first point to use in comparison</param>
     /// <param name="point2">the second point to use in comparison</param>
     /// <returns name="double">value compare</returns>
+    /// <returns>The extended line.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.CompareTo.png)
+    /// </example>
     public static double CompareTo(Autodesk.DesignScript.Geometry.Point point1,
         Autodesk.DesignScript.Geometry.Point point2)
     {

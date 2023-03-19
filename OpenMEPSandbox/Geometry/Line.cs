@@ -82,6 +82,19 @@ public class Line
         if (startPoint.Z < endPoint.Z) return startPoint;
         return endPoint;
     }
+
+    /// <summary>Extends the line by lengths on both side.</summary>
+    /// <param name="line">the line need to extend</param>
+    /// <param name="startLength">Length to extend the line at the start point.</param>
+    /// <param name="endLength">Length to extend the line at the end point.</param>
+    /// <returns>The extended line.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Line.Extend.png)
+    /// </example>
+    public static Autodesk.DesignScript.Geometry.Line Extend(Autodesk.DesignScript.Geometry.Line line,double startLength,double endLength)
+    {
+       return line.ToGSharkType().Extend(startLength, endLength).ToDynamoType();
+    }
     
 }
 
