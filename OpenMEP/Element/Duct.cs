@@ -287,6 +287,39 @@ public class Duct
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
+    /// <summary>Creates a new duct from Line.</summary>
+    /// <param name="systemType">The element of the HVAC system type.</param>
+    /// <param name="ductType">The element of the duct type.</param>
+    /// <param name="level">The level for the duct.</param>
+    /// <param name="line">the line to draw new duct</param>
+    /// <returns name="element">The created duct.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The systemType is not valid HVAC system type.
+    ///    -or-
+    ///    The duct type ductType is not valid duct type.
+    ///    -or-
+    ///    The Element level is not a Level.
+    ///    -or-
+    ///    The points of startPoint and endPoint are too close: for MEPCurve, the minimum length is 1/10 inch.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.DisabledDisciplineException">
+    ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
+    /// </exception>
+    /// <since>2014</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByLine.png)
+    /// </example>
+    [NodeCategory("Create")]
+    public static Revit.Elements.Element? CreateByLine(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+        Autodesk.DesignScript.Geometry.Line line)
+    {
+        Revit.Elements.Element? element = CreateByTwoPoint(systemType, ductType, level, line.StartPoint, line.EndPoint);
+        return element;
+    }
 
     /// <summary>Creates a new duct from Line.</summary>
     /// <param name="systemType">The element of the HVAC system type.</param>
@@ -313,10 +346,10 @@ public class Duct
     /// </exception>
     /// <since>2014</since>
     /// <example>
-    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoPointSize.png)
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByLine.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? CreateByTwoPoint(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreateByLine(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Line line, double width,
         double height)
@@ -353,7 +386,7 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByTwoPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreatePlaceholderByTwoPoint(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint)
     {
@@ -392,11 +425,11 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByLine.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreatePlaceholderByLine(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Line line)
     {
-        return CreatePlaceholder(systemType, ductType, level, line.StartPoint, line.EndPoint);
+        return CreatePlaceholderByTwoPoint(systemType, ductType, level, line.StartPoint, line.EndPoint);
     }
 
     /// <summary>Creates a new placeholder duct.</summary>
@@ -428,7 +461,7 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByTwoPointSize.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreatePlaceholderByTwoPoint(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint, double width,
         double height)
@@ -470,12 +503,12 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByLineSize.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreatePlaceholderByLine(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Line line, double width,
         double height)
     {
-        Revit.Elements.Element? element = CreatePlaceholder(systemType, ductType, level, line.StartPoint, line.EndPoint);
+        Revit.Elements.Element? element = CreatePlaceholderByTwoPoint(systemType, ductType, level, line.StartPoint, line.EndPoint);
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
