@@ -51,7 +51,7 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoConnector.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+    public static Revit.Elements.Element? CreateByTwoConnector(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector startConnector, Autodesk.Revit.DB.Connector endConnector)
     {
@@ -101,12 +101,12 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoConnectorSize.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+    public static Revit.Elements.Element? CreateByTwoConnector(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector startConnector, Autodesk.Revit.DB.Connector endConnector, double width,
         double height)
     {
-        Revit.Elements.Element? element = Create(ductType, level, startConnector, endConnector);
+        Revit.Elements.Element? element = CreateByTwoConnector(ductType, level, startConnector, endConnector);
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
@@ -147,7 +147,7 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByConnectorAndPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+    public static Revit.Elements.Element? CreateByConnectorAndPoint(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector startConnector, Autodesk.DesignScript.Geometry.Point endPoint)
     {
@@ -197,12 +197,12 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByConnectorAndPointSize.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
+    public static Revit.Elements.Element? CreateByConnectorAndPoint(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector startConnector, Autodesk.DesignScript.Geometry.Point endPoint, double width,
         double height)
     {
-        Revit.Elements.Element? element = Create(ductType, level, startConnector, endPoint);
+        Revit.Elements.Element? element = CreateByConnectorAndPoint(ductType, level, startConnector, endPoint);
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
@@ -236,7 +236,7 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreateByTwoPoint(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint)
     {
@@ -278,12 +278,12 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoPointSize.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreateByTwoPoint(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint, double width,
         double height)
     {
-        Revit.Elements.Element? element = Create(systemType, ductType, level, startPoint, endPoint);
+        Revit.Elements.Element? element = CreateByTwoPoint(systemType, ductType, level, startPoint, endPoint);
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
@@ -316,12 +316,12 @@ public class Duct
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreateByTwoPointSize.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+    public static Revit.Elements.Element? CreateByTwoPoint(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
         Autodesk.DesignScript.Geometry.Line line, double width,
         double height)
     {
-        Revit.Elements.Element? element = Create(systemType, ductType, level, line.StartPoint, line.EndPoint);
+        Revit.Elements.Element? element = CreateByTwoPoint(systemType, ductType, level, line.StartPoint, line.EndPoint);
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
@@ -433,9 +433,13 @@ public class Duct
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint, double width,
         double height)
     {
-        Revit.Elements.Element? element = Create(systemType, ductType, level, startPoint, endPoint);
-        if (element != null) SetDiameter(element, width, height);
-        return element;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        var placeholder = Autodesk.Revit.DB.Mechanical.Duct.CreatePlaceholder(doc, new ElementId(systemType.Id),
+            new ElementId(ductType.Id), new ElementId(level.Id), startPoint.ToXyz(), endPoint.ToXyz());
+        if (placeholder != null) SetDiameter(placeholder.ToDynamoType(), width, height);
+        TransactionManager.Instance.TransactionTaskDone();
+        return placeholder.ToDynamoType();
     }
 
     /// <summary>Creates a new placeholder duct.</summary>
@@ -471,7 +475,7 @@ public class Duct
         Autodesk.DesignScript.Geometry.Line line, double width,
         double height)
     {
-        Revit.Elements.Element? element = Create(systemType, ductType, level, line.StartPoint, line.EndPoint);
+        Revit.Elements.Element? element = CreatePlaceholder(systemType, ductType, level, line.StartPoint, line.EndPoint);
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
@@ -486,7 +490,7 @@ public class Duct
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.SetDiameterSize.png)
     /// </example>
-    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element duct, double width, double height)
+    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element? duct, double width, double height)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
