@@ -5,8 +5,10 @@ using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
+using Point = OpenMEPSandbox.Geometry.Point;
 
 namespace OpenMEP.Element;
+
 /// <summary>This class represents a cable tray in Autodesk Revit.</summary>
 public class CableTray
 {
@@ -27,7 +29,7 @@ public class CableTray
     /// ![](../OpenMEPPage/element/dyn/pic/CableTray.CreateByPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element cableTrayType,
+    public static global::Revit.Elements.Element? CreateByTwoPoint(global::Revit.Elements.Element cableTrayType,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,
         global::Revit.Elements.Level level, double width, double height)
     {
@@ -42,7 +44,7 @@ public class CableTray
         double realWidth = UnitUtils.ConvertFromInternalUnits(width, displayUnitType);
         double realHeight = UnitUtils.ConvertFromInternalUnits(height, displayUnitType);
 #else
-         Autodesk.Revit.DB.ForgeTypeId unitTypeId =
+        Autodesk.Revit.DB.ForgeTypeId unitTypeId =
             familyInstance.Document.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
         double realWidth = UnitUtils.ConvertFromInternalUnits(width, unitTypeId);
         double realHeight = UnitUtils.ConvertFromInternalUnits(height, unitTypeId);
@@ -57,6 +59,30 @@ public class CableTray
     }
 
     /// <summary>
+    /// Creates a new instance of cable tray Point and Direction
+    /// </summary>
+    /// <param name="cableTrayType">The cable tray type. This must be a cable tray type accepted by isValidCableTrayType(). If the input cable tray type is InvalidElementId, the default cable tray type from the document will be used.</param>
+    /// <param name="startPoint">The start point of the cable tray location line</param>
+    /// <param name="direction">direction of cable tray</param>
+    /// <param name="length">length of cable tray</param>
+    /// <param name="level">The element id of the level which this cable tray based. If the input level id is invalidElementId = -1, the nearest level will be used.</param>
+    /// <param name="width">with of cable tray</param>
+    /// <param name="height">height of cable tray</param>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/CableTray.CreateByPointAndDirection.png)
+    /// </example>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? CreateByPointAndDirection(
+        global::Revit.Elements.Element cableTrayType,
+        Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Vector direction, double length,
+        global::Revit.Elements.Level level, double width, double height)
+    {
+        var endPoint = Point.Offset(startPoint, length, direction);
+        return CreateByTwoPoint(cableTrayType, startPoint, endPoint, level, width, height);
+    }
+
+
+    /// <summary>
     /// create new cable tray by line
     /// </summary>
     /// <param name="cableTrayType">The cable tray type. This must be a cable tray type accepted by isValidCableTrayType(). If the input cable tray type is InvalidElementId, the default cable tray type from the document will be used.</param>
@@ -69,7 +95,7 @@ public class CableTray
     /// ![](../OpenMEPPage/element/dyn/pic/CableTray.CreateByLine.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element cableTrayType,
+    public static global::Revit.Elements.Element? CreateByLine(global::Revit.Elements.Element cableTrayType,
         Autodesk.DesignScript.Geometry.Line line,
         global::Revit.Elements.Level level, double width, double height)
     {

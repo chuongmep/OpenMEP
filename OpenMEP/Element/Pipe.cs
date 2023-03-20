@@ -7,6 +7,7 @@ using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
+using Point = OpenMEPSandbox.Geometry.Point;
 
 namespace OpenMEP.Element;
 /// <summary>A pipe in the Autodesk Revit MEP product.</summary>
@@ -29,7 +30,7 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoConnector.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+    public static global::Revit.Elements.Element? CreateByTwoConnector(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector connector1, Autodesk.Revit.DB.Connector connector2)
     {
@@ -55,11 +56,11 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoConnectorDiameter.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+    public static global::Revit.Elements.Element? CreateByTwoConnector(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector connector1, Autodesk.Revit.DB.Connector connector2, double diameter)
     {
-        Revit.Elements.Element? element = Create(pipeType, level, connector1, connector2);
+        Revit.Elements.Element? element = CreateByTwoConnector(pipeType, level, connector1, connector2);
         Revit.Elements.Element? pipe = SetDiameter(element, diameter);
         return pipe;
     }
@@ -76,7 +77,7 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByConnectorAndPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+    public static global::Revit.Elements.Element? CreateByConnectorAndPoint(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector connector1, Autodesk.DesignScript.Geometry.Point endPoint)
     {
@@ -103,11 +104,11 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByConnectorAndPointDiameter.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element pipeType,
+    public static global::Revit.Elements.Element? CreateByConnectorAndPoint(global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level,
         Autodesk.Revit.DB.Connector connector1, Autodesk.DesignScript.Geometry.Point endPoint, double diameter)
     {
-        Revit.Elements.Element? element = Create(pipeType, level, connector1, endPoint);
+        Revit.Elements.Element? element = CreateByConnectorAndPoint(pipeType, level, connector1, endPoint);
         Revit.Elements.Element? pipe = SetDiameter(element, diameter);
         return pipe;
     }
@@ -125,7 +126,7 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+    public static global::Revit.Elements.Element? CreateByTwoPoint(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Point startPoint,
         Autodesk.DesignScript.Geometry.Point endPoint)
@@ -153,12 +154,38 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByTwoPointDiameter.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+    public static global::Revit.Elements.Element? CreateByTwoPoint(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Point startPoint,
         Autodesk.DesignScript.Geometry.Point endPoint, double diameter)
     {
-        Revit.Elements.Element? pipe = Create(systemType, pipeType, level, startPoint, endPoint);
+        Revit.Elements.Element? pipe = CreateByTwoPoint(systemType, pipeType, level, startPoint, endPoint);
+        Revit.Elements.Element? newPipe = SetDiameter(pipe, diameter);
+        return newPipe;
+    }
+
+    /// <summary>
+    /// create new pipe by direction and length
+    /// </summary>
+    /// <param name="systemType">The Element of the piping system type.</param>
+    /// <param name="pipeType">The Element of the pipe type.</param>
+    /// <param name="level">The Element level.</param>
+    /// <param name="startPoint">The start point of the pipe.</param>
+    /// <param name="length"></param>
+    /// <param name="diameter">size of new pipe</param>
+    /// <param name="direction">direction of new pipe</param>
+    /// <returns name="pipe">new pipe</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByPointAndDirection.png)
+    /// </example>
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? CreateByPointAndDirection(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Point startPoint,
+        Autodesk.DesignScript.Geometry.Vector direction,double length, double diameter)
+    {
+        var endPoint = Point.Offset(startPoint, length, direction);
+        Revit.Elements.Element? pipe = CreateByTwoPoint(systemType, pipeType, level, startPoint, endPoint);
         Revit.Elements.Element? newPipe = SetDiameter(pipe, diameter);
         return newPipe;
     }
@@ -175,7 +202,7 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByLine.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+    public static global::Revit.Elements.Element? CreateByLine(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Line line)
     {
@@ -201,11 +228,11 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateByLineDiameter.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
+    public static global::Revit.Elements.Element? CreateByLine(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Line line, double diameter)
     {
-        Revit.Elements.Element? element = Create(systemType, pipeType, level, line);
+        Revit.Elements.Element? element = CreateByLine(systemType, pipeType, level, line);
         Revit.Elements.Element? pipe = SetDiameter(element, diameter);
         return pipe;
     }
@@ -262,6 +289,7 @@ public class Pipe
         TransactionManager.Instance.TransactionTaskDone();
         return pipe;
     }
+    
 
     /// <summary>
     /// return information diameter of pipe
