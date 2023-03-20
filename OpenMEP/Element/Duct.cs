@@ -389,7 +389,7 @@ public class Duct
     /// </exception>
     /// <since>2014</since>
     /// <example>
-    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByTwoPoint.png)
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByLine.png)
     /// </example>
     [NodeCategory("Create")]
     public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
@@ -434,6 +434,44 @@ public class Duct
         double height)
     {
         Revit.Elements.Element? element = Create(systemType, ductType, level, startPoint, endPoint);
+        if (element != null) SetDiameter(element, width, height);
+        return element;
+    }
+
+    /// <summary>Creates a new placeholder duct.</summary>
+    /// <param name="systemType">The element of the HVAC system type.</param>
+    /// <param name="ductType">The element of the duct type.</param>
+    /// <param name="level">The element level for the duct.</param>
+    /// <param name="line">the line to draw duct from start point to end point</param>
+    /// <param name="width">new value width of duct</param>
+    /// <param name="height">new value height of duct</param>
+    /// <returns name="element">The created placeholder duct.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The systemType is not valid HVAC system type.
+    ///    -or-
+    ///    The ductType is not valid duct type.
+    ///    -or-
+    ///    The Element level is not a Level.
+    ///    -or-
+    ///    The points of startPoint and endPoint are too close: for MEPCurve, the minimum length is 1/10 inch.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.DisabledDisciplineException">
+    ///    None of the following disciplines is enabled: Mechanical Electrical Piping.
+    /// </exception>
+    /// <since>2014</since>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Duct.CreatePlaceholderByLineSize.png)
+    /// </example>
+    [NodeCategory("Create")]
+    public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
+        Autodesk.DesignScript.Geometry.Line line, double width,
+        double height)
+    {
+        Revit.Elements.Element? element = Create(systemType, ductType, level, line.StartPoint, line.EndPoint);
         if (element != null) SetDiameter(element, width, height);
         return element;
     }
