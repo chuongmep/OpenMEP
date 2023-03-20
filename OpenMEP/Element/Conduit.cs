@@ -58,7 +58,7 @@ public class Conduit
     /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByTwoPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,
+    public static Revit.Elements.Element? CreateByTwoPoint(Revit.Elements.Element conduitType,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,
         Revit.Elements.Element level)
     {
@@ -119,11 +119,11 @@ public class Conduit
     /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByTwoPointDiameter.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,
+    public static Revit.Elements.Element? CreateByTwoPoint(Revit.Elements.Element conduitType,
         Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,
         Revit.Elements.Element level,double diameter)
     {
-        Revit.Elements.Element? conduit = Create(conduitType, startPoint, endPoint, level);
+        Revit.Elements.Element? conduit = CreateByTwoPoint(conduitType, startPoint, endPoint, level);
         return SetDiameter(conduit,diameter);
     }
 
@@ -173,7 +173,7 @@ public class Conduit
     /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByTwoConnector.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,
+    public static Revit.Elements.Element? CreateByTwoConnector(Revit.Elements.Element conduitType,
         Autodesk.Revit.DB.Connector firstConnector, Autodesk.Revit.DB.Connector secondConnector,
         Revit.Elements.Element level)
     {
@@ -234,11 +234,11 @@ public class Conduit
     /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByTwoConnectorDiameter.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,
+    public static Revit.Elements.Element? CreateByTwoConnector(Revit.Elements.Element conduitType,
         Autodesk.Revit.DB.Connector firstConnector, Autodesk.Revit.DB.Connector secondConnector,
         Revit.Elements.Element level,double diameter)
     {
-        var conduit = Create(conduitType, firstConnector, secondConnector, level, diameter);
+        var conduit = CreateByTwoConnector(conduitType, firstConnector, secondConnector, level, diameter);
         return SetDiameter(conduit,diameter);
     }
 
@@ -256,7 +256,7 @@ public class Conduit
     /// ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByLine.png)
     /// </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,
+    public static Revit.Elements.Element? CreateByLine(Revit.Elements.Element conduitType,
         Autodesk.DesignScript.Geometry.Line line, Revit.Elements.Element level)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -284,10 +284,10 @@ public class Conduit
     ///  ![](../OpenMEPPage/element/dyn/pic/Conduit.CreateByLineDiameter.png)
     ///  </example>
     [NodeCategory("Create")]
-    public static Revit.Elements.Element? Create(Revit.Elements.Element conduitType,
+    public static Revit.Elements.Element? CreateByLine(Revit.Elements.Element conduitType,
         Autodesk.DesignScript.Geometry.Line line, Revit.Elements.Element level,double diameter)
     {
-        var conduit = Create(conduitType, line, level);
+        var conduit = CreateByLine(conduitType, line, level);
         return SetDiameter(conduit, diameter);
     }
 
