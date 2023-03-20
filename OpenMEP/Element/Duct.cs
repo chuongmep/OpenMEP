@@ -7,6 +7,7 @@ using RevitServices.Persistence;
 using RevitServices.Transactions;
 
 namespace OpenMEP.Element;
+
 /// <summary>A duct in the Autodesk Revit MEP product.</summary>
 /// <remarks>The duct is only available in the Autodesk Revit MEP product.</remarks>
 public class Duct
@@ -158,7 +159,7 @@ public class Duct
         TransactionManager.Instance.TransactionTaskDone();
         return element;
     }
-    
+
     /// <summary>Creates a new duct that connects to the connector.</summary>
     /// <remarks>
     ///    The new duct will have the same diameter and system type as the specified connector. The creation will also connect the new duct
@@ -198,7 +199,8 @@ public class Duct
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element ductType,
         global::Revit.Elements.Element level,
-        Autodesk.Revit.DB.Connector startConnector, Autodesk.DesignScript.Geometry.Point endPoint,double width,double height)
+        Autodesk.Revit.DB.Connector startConnector, Autodesk.DesignScript.Geometry.Point endPoint, double width,
+        double height)
     {
         Revit.Elements.Element? element = Create(ductType, level, startConnector, endPoint);
         if (element != null) SetDiameter(element, width, height);
@@ -244,6 +246,7 @@ public class Duct
         TransactionManager.Instance.TransactionTaskDone();
         return duct;
     }
+
     /// <summary>Creates a new duct from two points.</summary>
     /// <param name="systemType">The element of the HVAC system type.</param>
     /// <param name="ductType">The element of the duct type.</param>
@@ -275,7 +278,8 @@ public class Duct
     [NodeCategory("Create")]
     public static Revit.Elements.Element? Create(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
-        Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,double width,double height)
+        Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint, double width,
+        double height)
     {
         Revit.Elements.Element? element = Create(systemType, ductType, level, startPoint, endPoint);
         if (element != null) SetDiameter(element, width, height);
@@ -353,7 +357,8 @@ public class Duct
     [NodeCategory("Create")]
     public static Revit.Elements.Element? CreatePlaceholder(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element ductType, global::Revit.Elements.Element level,
-        Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint,double width,double height)
+        Autodesk.DesignScript.Geometry.Point startPoint, Autodesk.DesignScript.Geometry.Point endPoint, double width,
+        double height)
     {
         Revit.Elements.Element? element = Create(systemType, ductType, level, startPoint, endPoint);
         if (element != null) SetDiameter(element, width, height);
@@ -390,7 +395,7 @@ public class Duct
         TransactionManager.Instance.TransactionTaskDone();
         return duct;
     }
-    
+
     /// <summary>
     /// Set new diameter for round duct
     /// </summary>
@@ -433,7 +438,7 @@ public class Duct
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         doc.Regenerate();
         var internalElement = duct.InternalElement as Autodesk.Revit.DB.Mechanical.Duct;
-        if(internalElement == null) throw new ArgumentNullException(nameof(duct));
+        if (internalElement == null) throw new ArgumentNullException(nameof(duct));
 #if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_HVAC_DuctSize).DisplayUnits;
         double? width = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM)?.AsDouble();
@@ -449,18 +454,18 @@ public class Duct
             width = UnitUtils.ConvertFromInternalUnits((double) width, unitTypeId);
             height = UnitUtils.ConvertFromInternalUnits((double) height, unitTypeId);
         }
-       
+
 #else
         Autodesk.Revit.DB.ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.DuctSize).GetUnitTypeId();
-         double? width = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM)?.AsDouble();
+        double? width = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_WIDTH_PARAM)?.AsDouble();
         double? height = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_HEIGHT_PARAM)?.AsDouble();
         double? diameter = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_DIAMETER_PARAM)?.AsDouble();
-        if (height == null || width == null  && diameter!=null)
+        if (height == null || width == null && diameter != null)
         {
             diameter = UnitUtils.ConvertFromInternalUnits((double) diameter, unitTypeId);
         }
 
-        if (height != null && width != null  && diameter==null)
+        if (height != null && width != null && diameter == null)
         {
             width = UnitUtils.ConvertFromInternalUnits((double) width, unitTypeId);
             height = UnitUtils.ConvertFromInternalUnits((double) height, unitTypeId);
@@ -518,7 +523,7 @@ public class Duct
     [NodeCategory("Query")]
     public static dynamic Shape(Revit.Elements.Element duct)
     {
-        if(duct == null) throw new ArgumentNullException(nameof(duct));
+        if (duct == null) throw new ArgumentNullException(nameof(duct));
         Connector? connector = ConnectorManager.Connector.GetConnectors(duct).FirstOrDefault();
         if (connector == null) return string.Empty;
         return connector.Shape;
@@ -581,12 +586,46 @@ public class Duct
     /// <since>2014</since>
     public static bool ConnectAirTerminalOnDuct(Revit.Elements.Element airTerminal, Revit.Elements.Element duct)
     {
-        if(airTerminal == null) throw new ArgumentNullException(nameof(airTerminal));
+        if (airTerminal == null) throw new ArgumentNullException(nameof(airTerminal));
         if (duct == null) throw new ArgumentNullException(nameof(duct));
         var doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        bool result = Autodesk.Revit.DB.Mechanical.MechanicalUtils.ConnectAirTerminalOnDuct(doc, airTerminal.InternalElement.Id, duct.InternalElement.Id);
+        bool result =
+            Autodesk.Revit.DB.Mechanical.MechanicalUtils.ConnectAirTerminalOnDuct(doc, airTerminal.InternalElement.Id,
+                duct.InternalElement.Id);
         TransactionManager.Instance.TransactionTaskDone();
         return result;
+    }
+
+    /// <summary>Converts a collection of duct placeholder elements into duct elements.</summary>
+    /// <remarks>
+    ///    Once conversion succeeds, the duct placeholder elements are deleted.
+    ///    The new duct and fitting elements are created and connections are established.
+    /// </remarks>
+    /// <param name="ductPlaceholder">A collection of element of duct placeholder.</param>
+    /// <returns>A collection of element IDs of ducts and fittings.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The given element id set is empty.
+    ///    -or-
+    ///    The given element IDs (placeholderIds) are not duct placeholders.
+    ///    -or-
+    ///    The elements belong to different types of system.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <since>2012</since>
+    public static IEnumerable<Revit.Elements.Element?> ConvertPlaceholdersToDucts(Revit.Elements.Element ductPlaceholder)
+    {
+        var doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        ICollection<ElementId> elementIds =
+            Autodesk.Revit.DB.Mechanical.MechanicalUtils.ConvertDuctPlaceholders(doc,
+                new List<ElementId>() {ductPlaceholder.InternalElement.Id});
+        foreach (ElementId elementId in elementIds)
+        {
+            yield return doc.GetElement(elementId).ToDynamoType();
+        }
+        TransactionManager.Instance.TransactionTaskDone();
     }
 }
