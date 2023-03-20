@@ -4,7 +4,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
-        <AssemblyVersion>1.0.0.*</AssemblyVersion>
+        <AssemblyVersion>2.0.0.*</AssemblyVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <LangVersion>latest</LangVersion>
         <UseWPF>true</UseWPF>

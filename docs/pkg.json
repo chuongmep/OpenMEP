@@ -19,7 +19,7 @@
   "repository_url": "mailto:chuongpqvn@gmail.com?subject=OpenMEP%20Error%20Node&body=%2F%2FContent%3A",
   "contains_binaries": true,
   "node_libraries": [
-    "OpenMEP, Version=1.0.0.*, Culture=neutral, PublicKeyToken=null",
+    "OpenMEP, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
     "OpenMEPSandbox, Version=1.0.0.*, Culture=neutral, PublicKeyToken=null",
     "OpenMEP.customization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   ]
