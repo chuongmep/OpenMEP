@@ -39,7 +39,7 @@ public class FlexPipe
     /// ![](../OpenMEPPage/element/dyn/pic/FlexPipe.NewFlexPipeByTwoConnector.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewFlexPipe(global::Revit.Elements.Element pipeType,Autodesk.Revit.DB.Connector connector1,Autodesk.Revit.DB.Connector connector2)
+    public static global::Revit.Elements.Element? CreateByTwoConnector(global::Revit.Elements.Element pipeType,Autodesk.Revit.DB.Connector connector1,Autodesk.Revit.DB.Connector connector2)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -73,7 +73,8 @@ public class FlexPipe
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/FlexPipe.NewFlexPipeByConnectorAndPoints.png)
     /// </example>
-    public static global::Revit.Elements.Element? NewFlexPipe(global::Revit.Elements.Element pipeType,Autodesk.Revit.DB.Connector connector1,List<Autodesk.DesignScript.Geometry.Point> points)
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? CreateByConnectorAndPoints(global::Revit.Elements.Element pipeType,Autodesk.Revit.DB.Connector connector1,List<Autodesk.DesignScript.Geometry.Point> points)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -103,7 +104,8 @@ public class FlexPipe
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/FlexPipe.NewFlexPipeByPoints.png)
     /// </example>
-    public static global::Revit.Elements.Element? NewFlexPipe(global::Revit.Elements.Element pipeType,List<Autodesk.DesignScript.Geometry.Point> points)
+    [NodeCategory("Create")]
+    public static global::Revit.Elements.Element? CreateByPoints(global::Revit.Elements.Element pipeType,List<Autodesk.DesignScript.Geometry.Point> points)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
