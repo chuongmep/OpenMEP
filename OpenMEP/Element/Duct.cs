@@ -555,4 +555,38 @@ public class Duct
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         return Autodesk.Revit.DB.Mechanical.Duct.IsDuctTypeId(doc, new ElementId(systemType.Id));
     }
+
+    /// <summary>
+    ///    Connects an air terminal to a duct directly (without the need for a tee or takeoff).
+    /// </summary>
+    /// <remarks>
+    ///    The current location of the air terminal will be projected to the duct centerline, and if the point can be successfully projected,
+    ///    the air terminal will be placed on the most suitable face of the duct.
+    /// </remarks>
+    /// <param name="airTerminal">The air terminal element.</param>
+    /// <param name="duct">The duct curve element.</param>
+    /// <returns name="bool">True if connection succeeds, false otherwise.</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    The familyinstance is not air terminal.
+    ///    -or-
+    ///    The element is not duct curve.
+    ///    -or-
+    ///    The air terminal already has physical connection.
+    ///    -or-
+    ///    The air terminal connector origin doesn't project within the center line of the duct.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <since>2014</since>
+    public static bool ConnectAirTerminalOnDuct(Revit.Elements.Element airTerminal, Revit.Elements.Element duct)
+    {
+        if(airTerminal == null) throw new ArgumentNullException(nameof(airTerminal));
+        if (duct == null) throw new ArgumentNullException(nameof(duct));
+        var doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        bool result = Autodesk.Revit.DB.Mechanical.MechanicalUtils.ConnectAirTerminalOnDuct(doc, airTerminal.InternalElement.Id, duct.InternalElement.Id);
+        TransactionManager.Instance.TransactionTaskDone();
+        return result;
+    }
 }
