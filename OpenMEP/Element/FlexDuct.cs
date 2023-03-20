@@ -38,7 +38,7 @@ public class FlexDuct
     /// ![](../OpenMEPPage/element/dyn/pic/FlexDuct.NewFlexDuctByTwoConnector.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewFlexDuct(global::Revit.Elements.Element ductType,Autodesk.Revit.DB.Connector connector1,Autodesk.Revit.DB.Connector connector2)
+    public static global::Revit.Elements.Element? CreateByTwoConnector(global::Revit.Elements.Element ductType,Autodesk.Revit.DB.Connector connector1,Autodesk.Revit.DB.Connector connector2)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -67,7 +67,7 @@ public class FlexDuct
     /// ![](../OpenMEPPage/element/dyn/pic/FlexDuct.NewFlexDuctByListPoint.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewFlexDuct(global::Revit.Elements.Element ductType,List<Autodesk.DesignScript.Geometry.Point> points)
+    public static global::Revit.Elements.Element? CreateByListPoint(global::Revit.Elements.Element ductType,List<Autodesk.DesignScript.Geometry.Point> points)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
@@ -102,7 +102,7 @@ public class FlexDuct
     /// ![](../OpenMEPPage/element/dyn/pic/FlexDuct.NewFlexDuctByConnectorAndPoints.png)
     /// </example>
     [NodeCategory("Create")]
-    public static global::Revit.Elements.Element? NewFlexDuct(Autodesk.Revit.DB.Connector connector,List<Autodesk.DesignScript.Geometry.Point> points,global::Revit.Elements.Element ductType)
+    public static global::Revit.Elements.Element? CreateByConnectorAndPoints(Autodesk.Revit.DB.Connector connector,List<Autodesk.DesignScript.Geometry.Point> points,global::Revit.Elements.Element ductType)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
