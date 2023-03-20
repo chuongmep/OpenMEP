@@ -107,7 +107,7 @@ Please refer to the [CONTRIBUTING](CONTRIBUTING.md) for details.
 Some project I recommend for you
 at [Dynamo Open Source](https://chuongmep.github.io/Awesome-Dynamo/DynamoOpenSource/dynopensource.html)
 
-# 🙋‍♂️ FAQ
+# 🙋‍♂️ Frequently Asked Questions
 
 <details><summary>Why this package not published on Dynamo Package Manager ?</summary>
 
