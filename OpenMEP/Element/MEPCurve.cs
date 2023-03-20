@@ -32,6 +32,7 @@ public class MEPCurve
     /// ![](../OpenMEPPage/element/dyn/pic/MEPCurve.BreakCurve.png)
     /// </example>
     [NodeCategory("Action")]
+    [NodeSearchTags("split", "cut", "divide")]
     public static global::Revit.Elements.Element? BreakCurve(global::Revit.Elements.Element mepCurve,
         Autodesk.DesignScript.Geometry.Point point)
     {
@@ -107,7 +108,7 @@ public class MEPCurve
     }
 
     /// <summary>
-    /// create a union fitting from two mepcurve
+    /// create a union fitting from two mep curve
     /// </summary>
     /// <param name="mepCurve1">A curve object for duct or pipe blend first elements.</param>
     /// <param name="mepCurve2">A curve object for duct or pipe blend second elements.</param>
