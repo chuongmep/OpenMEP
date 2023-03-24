@@ -7,5 +7,8 @@
     <namespace name="OpenMEPSandbox.Geometry">
       <category>OpenMEP.Geometry</category>
     </namespace>
+    <namespace name="OpenMEPSandbox.Display">
+      <category>OpenMEP.Display</category>
+    </namespace>
   </namespaces>
 </doc>
