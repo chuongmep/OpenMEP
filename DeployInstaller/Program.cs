@@ -14,7 +14,7 @@ const string projectName = "OpenMEP";
 const string outputName = "OpenMEP";
 string folderPackageName = "OpenMEP";
 const string outputDir = "output";
-string Version = $"1.0.{GetLastTwoDigitOfYear()}.{GetDayInYear()}{GetDay()}";
+string Version = $"2.0.{GetLastTwoDigitOfYear()}.{GetDayInYear()}{GetDay()}";
 var fileName = new StringBuilder().Append(outputName).Append("-").Append(Version);
 
 var project = new Project
