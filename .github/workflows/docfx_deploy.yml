@@ -28,6 +28,9 @@ jobs:
       - name: 🚧 Setup docfx
         run: dotnet tool update -g docfx
 
+      - name: 🚧 Restore dependencies
+        run: dotnet restore
+
       - name: 📚 Build Docs
         working-directory: docs
         run: docfx docfx.json
