@@ -10,63 +10,6 @@
   "Outputs": [],
   "Nodes": [
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Conduit.Create@Revit.Elements.Element,var,var,Revit.Elements.Element",
-      "Id": "abc641c7ac264f409b8bb23e086a8f2c",
-      "Inputs": [
-        {
-          "Id": "eeba8a7124784fd28dd05730e693a715",
-          "Name": "conduitType",
-          "Description": "The conduit type. This must be a conduit type accepted by isValidConduitType(). If the input conduit type is InvalidElementId, the default conduit type from the document will be used.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "88f7cb71557a495c84996efcbf510572",
-          "Name": "firstConnector",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "b4fad478024940ce862644f2d4f47ad0",
-          "Name": "secondConnector",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "c850628587b24288bcebf81301bfb3c3",
-          "Name": "level",
-          "Description": "The element of the level which this conduit based. If the input level id is invalidElementId = -1, the nearest level will be used.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "0364317325f949fc81bfa8cd9f344034",
-          "Name": "Element",
-          "Description": "The newly created conduit.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Creates a new instance of conduit.\n\nConduit.Create (conduitType: Element, firstConnector: var, secondConnector: var, level: Element): Element"
-    },
-    {
       "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
       "NodeType": "ExtensionNode",
       "InstanceId": [
@@ -268,6 +211,63 @@
       ],
       "Replication": "Auto",
       "Description": "return list connector unused from element\n\nConnector.GetUnusedConnectors (element: Element): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Conduit.CreateByTwoConnector@Revit.Elements.Element,var,var,Revit.Elements.Element",
+      "Id": "6dc90648137a4e78b5d128229a5d3ed7",
+      "Inputs": [
+        {
+          "Id": "cc6025d0bf444122a5b0f7b0b64e32d3",
+          "Name": "conduitType",
+          "Description": "The conduit type. This must be a conduit type accepted by isValidConduitType(). If the input conduit type is InvalidElementId, the default conduit type from the document will be used.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9d11e4a45aa047548ef9ee4f0192aa12",
+          "Name": "firstConnector",
+          "Description": "The first connector to get start point\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a1449bf5438347b192ffaa2a6b295bf5",
+          "Name": "secondConnector",
+          "Description": "The second connector to get endpoint\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0d9de18ce56042eebeff4099acf731f4",
+          "Name": "level",
+          "Description": "The element of the level which this conduit based. If the input level id is invalidElementId = -1, the nearest level will be used.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "45bb331ae9ee4d12a18f4a93bdb73975",
+          "Name": "Element",
+          "Description": "The newly created conduit.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new instance of conduit.\n\nConduit.CreateByTwoConnector (conduitType: Element, firstConnector: var, secondConnector: var, level: Element): Element"
     }
   ],
   "Connectors": [
@@ -297,26 +297,26 @@
     },
     {
       "Start": "72b3e2b2e8fd40cb90275a5d4ddf7643",
-      "End": "eeba8a7124784fd28dd05730e693a715",
-      "Id": "09aa8e12d3d5422d96f593a3496b3d22",
+      "End": "cc6025d0bf444122a5b0f7b0b64e32d3",
+      "Id": "bf0ca56dd7b74279ad25792d3323d3ba",
       "IsHidden": "False"
     },
     {
       "Start": "fd8564ed3d2f401e810161ad185a5662",
-      "End": "c850628587b24288bcebf81301bfb3c3",
-      "Id": "abeaf0a93c3944029998db36aa38d303",
+      "End": "0d9de18ce56042eebeff4099acf731f4",
+      "Id": "74f26188dcac403e9553b3ebdfcfa67a",
       "IsHidden": "False"
     },
     {
       "Start": "065cc00a4a54484b84598e0d6e8eb552",
-      "End": "88f7cb71557a495c84996efcbf510572",
-      "Id": "493ccb68c0f0459d839ae7b0cdda46cd",
+      "End": "9d11e4a45aa047548ef9ee4f0192aa12",
+      "Id": "e534385e6c4e4f94ba1d47004a083e35",
       "IsHidden": "False"
     },
     {
       "Start": "203b3ba4f2bb4a00bf600728d6ba4716",
-      "End": "b4fad478024940ce862644f2d4f47ad0",
-      "Id": "73e01e6e86824284a9149585fb9e038a",
+      "End": "a1449bf5438347b192ffaa2a6b295bf5",
+      "Id": "83713a8e0c49413d8a87d3823bfc798f",
       "IsHidden": "False"
     }
   ],
@@ -327,9 +327,9 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "abc641c7ac264f409b8bb23e086a8f2c",
         "beb483aff1d943b79331aeb33e9a67d6",
-        "ab9fe16f448a46f4b9541745bebcc2ba"
+        "ab9fe16f448a46f4b9541745bebcc2ba",
+        "6dc90648137a4e78b5d128229a5d3ed7"
       ]
     }
   ],
@@ -381,99 +381,99 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Conduit.Create",
-        "ShowGeometry": true,
-        "Id": "abc641c7ac264f409b8bb23e086a8f2c",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1080.3333504444154,
-        "Y": 159.771533596871
-      },
-      {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "b6294247ed004f0095b7aebfc7df7b1c",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 127.99999999999989,
         "Y": 223.19999999999993
       },
       {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "20d134b266114a6dbceb0e7048c94573",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 119.99999999999989,
         "Y": 371.99999999999994
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "efd08fcde3cb400aaca32f485fe5bde6",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 380.00000000000011,
         "Y": 69.599999999999966
       },
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "0032ae26df3d402dae26099374949708",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 75.999999999999886,
         "Y": 73.599999999999909
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "feea51cf352d4888bc774359f3c1dfdc",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 662.32414520540476,
         "Y": 140.78616784467016
       },
       {
-        "Name": "Levels",
-        "ShowGeometry": true,
         "Id": "9ad7383da621437bb39b7db4ebe46b77",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 795.88734548552418,
         "Y": 361.974158493864
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "beb483aff1d943b79331aeb33e9a67d6",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 445.14320300313341,
         "Y": 268.62602530361175
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "ab9fe16f448a46f4b9541745bebcc2ba",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 394.14681830294796,
         "Y": 386.93763780804215
+      },
+      {
+        "Id": "6dc90648137a4e78b5d128229a5d3ed7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Conduit.CreateByTwoConnector",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1066.9325652905254,
+        "Y": 160.94689055436368
       }
     ],
     "Annotations": [],
-    "X": -34.105847805634767,
-    "Y": 141.61914315153606,
-    "Zoom": 0.72995082527078592
+    "X": -41.011337763084725,
+    "Y": 210.31681896177363,
+    "Zoom": 0.48701859631834332
   }
 }

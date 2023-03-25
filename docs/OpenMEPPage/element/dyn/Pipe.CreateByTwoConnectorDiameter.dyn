@@ -215,72 +215,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Pipe.Create@Revit.Elements.Element,Revit.Elements.Element,var,var,double",
-      "Id": "3cdb683c60d5490288a8de4c2b0a3bfd",
-      "Inputs": [
-        {
-          "Id": "f020cdc2cb134919a0f1c6c594bde4c8",
-          "Name": "pipeType",
-          "Description": "type of pipe\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "a9d33ef3fb794f26878df163b010957c",
-          "Name": "level",
-          "Description": "level\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "ed37e69a703a4b128fb0717cf2c66e6b",
-          "Name": "connector1",
-          "Description": "first connector\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "b733e63fbab44787b3786bc30a7a6927",
-          "Name": "connector2",
-          "Description": "second connector\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "065af6fcff7548c388096a47f03f0af0",
-          "Name": "diameter",
-          "Description": "double",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "d14c11c8ac07492b92befe77ee3163d4",
-          "Name": "pipe",
-          "Description": "new pipe",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "create new pipe with connectors\n\nPipe.Create (pipeType: Element, level: Element, connector1: var, connector2: var, diameter: double): Element"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Radius@var",
       "Id": "4fdbaaaa88a748e1882c91ffac60a5f1",
       "Inputs": [
@@ -337,6 +271,72 @@
       ],
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Pipe.CreateByTwoConnector@Revit.Elements.Element,Revit.Elements.Element,var,var,double",
+      "Id": "c8c12ca905b6435cba234e90d5b2b154",
+      "Inputs": [
+        {
+          "Id": "4a7f40a376e94a01829d91dd71451b41",
+          "Name": "pipeType",
+          "Description": "type of pipe\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c240ff3c6f724d04a372b4589ea9d1d3",
+          "Name": "level",
+          "Description": "level\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "049351f947834cf2b6e5d9e1007fd34c",
+          "Name": "connector1",
+          "Description": "first connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dc49f27e166b46d989bfb762b00d13ef",
+          "Name": "connector2",
+          "Description": "second connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ccbf820bb5964d00942eb1b6d1a2e4fc",
+          "Name": "diameter",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e3ead4d5223245f0b6a125ee480a8e93",
+          "Name": "pipe",
+          "Description": "new pipe",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "create new pipe with connectors\n\nPipe.CreateByTwoConnector (pipeType: Element, level: Element, connector1: var, connector2: var, diameter: double): Element"
     }
   ],
   "Connectors": [
@@ -348,20 +348,20 @@
     },
     {
       "Start": "8ca63f6cb07942c087cbc494aae413ac",
-      "End": "ed37e69a703a4b128fb0717cf2c66e6b",
-      "Id": "431fb4ecdb4f44d59709d218cc82525a",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "f4d62cbe04364a53a024521ddbb2d643",
-      "End": "b733e63fbab44787b3786bc30a7a6927",
-      "Id": "99c985dd906f48f6a41ef97ef1d9f826",
+      "End": "049351f947834cf2b6e5d9e1007fd34c",
+      "Id": "3297343a698b4b0eaa1fc476c61b2b35",
       "IsHidden": "False"
     },
     {
       "Start": "f4d62cbe04364a53a024521ddbb2d643",
       "End": "1cda9864a7eb4497bb75bc9cec37c745",
       "Id": "3a355c7561a44b049feecf2a74620efe",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f4d62cbe04364a53a024521ddbb2d643",
+      "End": "dc49f27e166b46d989bfb762b00d13ef",
+      "Id": "cbe6c0520c3c400798cdb6d67c6d52ba",
       "IsHidden": "False"
     },
     {
@@ -372,8 +372,8 @@
     },
     {
       "Start": "2b10928f11ad4b94a388d6eda9b4aab4",
-      "End": "a9d33ef3fb794f26878df163b010957c",
-      "Id": "873d20e3eedc4290885d6b7927b57e19",
+      "End": "c240ff3c6f724d04a372b4589ea9d1d3",
+      "Id": "5ec252409b8b45aaaa68216123efc998",
       "IsHidden": "False"
     },
     {
@@ -390,8 +390,8 @@
     },
     {
       "Start": "20c2198c48dd4e2498c3ed418c30a10a",
-      "End": "f020cdc2cb134919a0f1c6c594bde4c8",
-      "Id": "a7e91681417b48abbd2d0230bc70320b",
+      "End": "4a7f40a376e94a01829d91dd71451b41",
+      "Id": "220d7b25c94a4cb98d8c89ffd46cce62",
       "IsHidden": "False"
     },
     {
@@ -402,8 +402,8 @@
     },
     {
       "Start": "e18632f6e7714021852b1f2d844cda70",
-      "End": "065af6fcff7548c388096a47f03f0af0",
-      "Id": "855f0766fc664f2cb25b837fbb716109",
+      "End": "ccbf820bb5964d00942eb1b6d1a2e4fc",
+      "Id": "710a2a0c372e47eca6d4425c37017faa",
       "IsHidden": "False"
     }
   ],
@@ -416,8 +416,8 @@
       "Nodes": [
         "0ce65096b93c4868b03f6cb8ae154cce",
         "366e83efbe95449688a7089c21e8cde1",
-        "3cdb683c60d5490288a8de4c2b0a3bfd",
-        "4fdbaaaa88a748e1882c91ffac60a5f1"
+        "4fdbaaaa88a748e1882c91ffac60a5f1",
+        "c8c12ca905b6435cba234e90d5b2b154"
       ]
     }
   ],
@@ -469,119 +469,119 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "8f8d11aa5d074b9ba171e8cd732648c4",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 460.48664688427289,
         "Y": 229.65697329376849
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "0ce65096b93c4868b03f6cb8ae154cce",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 723.51335311572689,
         "Y": 228.70741839762616
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "366e83efbe95449688a7089c21e8cde1",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 715.91691394658744,
         "Y": 401.52640949554893
       },
       {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "c4ad89fc1fef451ca5e71dec70b8c5f9",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 452.89020771513344,
         "Y": 402.47596439169092
       },
       {
-        "Name": "Levels",
-        "ShowGeometry": true,
         "Id": "98afe84d29094310ab3a76aa26afe736",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 832.71216617210689,
         "Y": 99.567952522255268
       },
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "d95ad481a1594527bcebc6bde11739de",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 462.38575667655789,
         "Y": -57.108605341246317
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "486bd560d18a4d53998725efdae6e531",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 788.08308605341233,
         "Y": -107.43501483679523
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "b0d25358049847789e5be6c4c9dbf519",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 1053.0089020771511,
         "Y": -91.292581602373957
       },
       {
-        "Name": "Pipe.Create",
-        "ShowGeometry": true,
-        "Id": "3cdb683c60d5490288a8de4c2b0a3bfd",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1531.3574928841497,
-        "Y": 132.42397925224236
-      },
-      {
-        "Name": "Connector.Radius",
-        "ShowGeometry": true,
         "Id": "4fdbaaaa88a748e1882c91ffac60a5f1",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.Radius",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 1051.5905081467533,
         "Y": 365.07678258811927
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "a78e5d58954446d09aa88603e206e723",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 1304.216924749509,
         "Y": 316.02620769821317
+      },
+      {
+        "Id": "c8c12ca905b6435cba234e90d5b2b154",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Pipe.CreateByTwoConnector",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1584.2911927795185,
+        "Y": 48.854192388710771
       }
     ],
     "Annotations": [],
-    "X": -191.67281950643718,
-    "Y": 210.56641313122287,
-    "Zoom": 0.5688538392752992
+    "X": -287.27323547217804,
+    "Y": 247.96699436859291,
+    "Zoom": 0.52819794974068068
   }
 }

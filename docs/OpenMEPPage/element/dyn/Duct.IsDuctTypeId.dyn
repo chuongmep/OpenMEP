@@ -163,31 +163,31 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "de27fca33ae3428daceda163831e34a4",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 274.67579964496719,
         "Y": 132.72315978737387
       },
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "9e89c311b7f74c1fbf4ef29742426fc6",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": -50.796539929785013,
         "Y": 130.95893739391889
       },
       {
-        "Name": "Duct.IsDuctTypeId",
-        "ShowGeometry": true,
         "Id": "3d66678a7ceb4be9ad08ce0e2beee3be",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Duct.IsDuctTypeId",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 557.59976419290047,
         "Y": 145.29862992098981

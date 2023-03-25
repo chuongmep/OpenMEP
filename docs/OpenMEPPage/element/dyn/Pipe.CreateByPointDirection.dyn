@@ -10,90 +10,6 @@
   "Outputs": [],
   "Nodes": [
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Pipe.Create@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector,double,double",
-      "Id": "4516ee312022462a8b8fb1a79aa90f7c",
-      "Inputs": [
-        {
-          "Id": "e31107cebb6a4563be21a56230af3bba",
-          "Name": "systemType",
-          "Description": "The Element of the piping system type.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "7dea77499a6c469ea82988eb0e049891",
-          "Name": "pipeType",
-          "Description": "The Element of the pipe type.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "6076521b4566450684120ebc34ad622e",
-          "Name": "level",
-          "Description": "The Element level.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "caf63079accd4b40944060d607f9201a",
-          "Name": "startPoint",
-          "Description": "The start point of the pipe.\n\nPoint",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "ed7549769a2c41e7a2e22fb79a63af80",
-          "Name": "direction",
-          "Description": "direction of new pipe\n\nVector",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "2013dd96d575483fae8137487f9d1663",
-          "Name": "length",
-          "Description": "double",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "9c9d93c717ec48debb01b9e40cca46f7",
-          "Name": "diameter",
-          "Description": "size of new pipe\n\ndouble",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "7b794c91385c4a82b059705f44d87431",
-          "Name": "pipe",
-          "Description": "new pipe",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "create new pipe by direction and length\n\nPipe.Create (systemType: Element, pipeType: Element, level: Element, startPoint: Point, direction: Vector, length: double, diameter: double): Element"
-    },
-    {
       "ConcreteType": "DSRevitNodesUI.ElementTypes, DSRevitNodesUI",
       "SelectedIndex": 254,
       "SelectedString": "PipingSystemType",
@@ -391,15 +307,93 @@
       ],
       "Replication": "Auto",
       "Description": "Get an existing element's location\n\nElement.GetLocation ( ): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Pipe.CreateByPointAndDirection@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector,double,double",
+      "Id": "765756b1577c4695ad17e1f8c05d883c",
+      "Inputs": [
+        {
+          "Id": "3a105050a7a644bab604d89a32ad4a05",
+          "Name": "systemType",
+          "Description": "The Element of the piping system type.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f7c3dacb4abe4627a0384c2b37098889",
+          "Name": "pipeType",
+          "Description": "The Element of the pipe type.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fd4b030c29414f1faee607b40c7fecfc",
+          "Name": "level",
+          "Description": "The Element level.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "be9ecaf352534bcabfea0d6ee8b5f1d9",
+          "Name": "startPoint",
+          "Description": "The start point of the pipe.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "36786881877f4f82842264d919d0dead",
+          "Name": "direction",
+          "Description": "direction of new pipe\n\nVector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4ca297fa929f4f77b8d973bdfca38d01",
+          "Name": "length",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7b5214bc662c413596bf2b64af6f0788",
+          "Name": "diameter",
+          "Description": "size of new pipe\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "44022bbecf3f418495ead883a3f64966",
+          "Name": "pipe",
+          "Description": "new pipe",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "create new pipe by direction and length\n\nPipe.CreateByPointAndDirection (systemType: Element, pipeType: Element, level: Element, startPoint: Point, direction: Vector, length: double, diameter: double): Element"
     }
   ],
   "Connectors": [
-    {
-      "Start": "7b794c91385c4a82b059705f44d87431",
-      "End": "bcb580453002409d8f5270f2cd63e556",
-      "Id": "7a87cdb64cef4f9e94f847c00d45ace7",
-      "IsHidden": "False"
-    },
     {
       "Start": "61e0d87448a84e61a2038d7c56a1b7a8",
       "End": "61b7164220144c80b7e24c6159be242f",
@@ -414,8 +408,8 @@
     },
     {
       "Start": "2fe4bbd67d95447e9d9f2a949ae553da",
-      "End": "e31107cebb6a4563be21a56230af3bba",
-      "Id": "6e2b5eebbf894ababfd93dbe97837cdd",
+      "End": "3a105050a7a644bab604d89a32ad4a05",
+      "Id": "85c3099d77ca4ab88ee93f629cf61cd1",
       "IsHidden": "False"
     },
     {
@@ -426,8 +420,8 @@
     },
     {
       "Start": "51b27bbefd894432bf8469c8742cb166",
-      "End": "7dea77499a6c469ea82988eb0e049891",
-      "Id": "724b9c2f683642928ba8d63c75743126",
+      "End": "f7c3dacb4abe4627a0384c2b37098889",
+      "Id": "161c1e46d8db4baba8ff4b158b012aad",
       "IsHidden": "False"
     },
     {
@@ -438,32 +432,38 @@
     },
     {
       "Start": "2323a7c2e6ca498ca710dd55b27f4bf9",
-      "End": "6076521b4566450684120ebc34ad622e",
-      "Id": "69cc0a8b2f534146b0407a4510beee99",
+      "End": "fd4b030c29414f1faee607b40c7fecfc",
+      "Id": "d99284f57ebe4572a99862cd2f640417",
       "IsHidden": "False"
     },
     {
       "Start": "38e6b08baaf8481d88f2150534d797c6",
-      "End": "caf63079accd4b40944060d607f9201a",
-      "Id": "f9c9d7d4a9064f278459662b7cdfb7a0",
+      "End": "be9ecaf352534bcabfea0d6ee8b5f1d9",
+      "Id": "3f2c7ea3e65e4cf1897fe169c2815452",
       "IsHidden": "False"
     },
     {
       "Start": "7427379b41e142869ebf18e27858f62e",
-      "End": "2013dd96d575483fae8137487f9d1663",
-      "Id": "32dd670b04884d0f876ec990239ede2e",
+      "End": "4ca297fa929f4f77b8d973bdfca38d01",
+      "Id": "3a9e4c94ef084c7e86d453b93d9b6752",
       "IsHidden": "False"
     },
     {
       "Start": "7427379b41e142869ebf18e27858f62e",
-      "End": "9c9d93c717ec48debb01b9e40cca46f7",
-      "Id": "5a28fc2cdaf342bfb37ed678843fc86b",
+      "End": "7b5214bc662c413596bf2b64af6f0788",
+      "Id": "972a1ab672df4be3b78ac5adaf8ebfcf",
       "IsHidden": "False"
     },
     {
       "Start": "06820866f2b94013a6f44a16aff6f7b8",
-      "End": "ed7549769a2c41e7a2e22fb79a63af80",
-      "Id": "053d226127d246259a0674114de3b2fa",
+      "End": "36786881877f4f82842264d919d0dead",
+      "Id": "f63af9da26b24627b9ac8b3d85b409a8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "44022bbecf3f418495ead883a3f64966",
+      "End": "bcb580453002409d8f5270f2cd63e556",
+      "Id": "8333fb7b20674cd1baa1eb3016fb5bb5",
       "IsHidden": "False"
     }
   ],
@@ -474,7 +474,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "4516ee312022462a8b8fb1a79aa90f7c"
+        "765756b1577c4695ad17e1f8c05d883c"
       ]
     }
   ],
@@ -526,129 +526,129 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Pipe.Create",
-        "ShowGeometry": true,
-        "Id": "4516ee312022462a8b8fb1a79aa90f7c",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 741.57952407351752,
-        "Y": 260.85428474202138
-      },
-      {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "2ea2b801e57f4395a96e47656a591a8f",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": -76.399999999999977,
         "Y": 188.0
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "5e0404e17d5e4346aebf18994527456d",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 235.70217722268831,
         "Y": 162.82977619331174
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "7477fedea2b846afb813e362de7cff3d",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 482.49379532668854,
         "Y": 155.05625884195777
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "1e92e66f5e014606bb636bddd561f932",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 210.8044384735353,
         "Y": 292.46972623200293
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "cc5f1583ed514df0b74e1037b26a46dc",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 457.59605657753627,
         "Y": 284.6962088806489
       },
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "d91fee732d0c4ee89843e2655a2e7db8",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": -101.2977387491527,
         "Y": 317.63995003869093
       },
       {
-        "Name": "Levels",
-        "ShowGeometry": true,
         "Id": "fab6552ef603458e803b942f257a517a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 407.95748028195976,
         "Y": 417.10895866975909
       },
       {
-        "Name": "Point.ByCoordinates",
-        "ShowGeometry": true,
         "Id": "2cc765b278134396ad583e473e703218",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 19.757221572399089,
         "Y": 457.3448572341307
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "73413d6196854bdeb3cc46c47465a89d",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": -195.88543747925598,
         "Y": 723.62653704318336
       },
       {
-        "Name": "Vector.ZAxis",
-        "ShowGeometry": true,
         "Id": "e4ea58c2c08b484d96f97309646de92e",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Vector.ZAxis",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 334.05108010670574,
         "Y": 580.8503617608086
       },
       {
-        "Name": "Element.GetLocation",
-        "ShowGeometry": true,
         "Id": "6249f905c1604bc389c028d2c06c0d5c",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element.GetLocation",
+        "ShowGeometry": true,
         "Excluded": false,
-        "X": 1057.0050869154823,
-        "Y": 274.65316132444309
+        "X": 1168.0955619232457,
+        "Y": 232.01237293762472
+      },
+      {
+        "Id": "765756b1577c4695ad17e1f8c05d883c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Pipe.CreateByPointAndDirection",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 804.87147237385784,
+        "Y": 205.06808657520082
       }
     ],
     "Annotations": [],
-    "X": 135.73442153993972,
-    "Y": 19.353694496813375,
-    "Zoom": 0.71293240932190671
+    "X": 106.87877672946297,
+    "Y": 138.59315574645026,
+    "Zoom": 0.41591162936767151
   }
 }

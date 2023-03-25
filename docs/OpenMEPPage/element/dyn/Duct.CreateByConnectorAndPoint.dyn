@@ -215,63 +215,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Duct.Create@Revit.Elements.Element,Revit.Elements.Element,var,Autodesk.DesignScript.Geometry.Point",
-      "Id": "6081808e2b014f8ca716e535780bdd24",
-      "Inputs": [
-        {
-          "Id": "c14b2a44bb4642cdac9e638c0d115452",
-          "Name": "ductType",
-          "Description": "The Element of the new duct type.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "96b7f43046004c02b18de6ef0a2e85ff",
-          "Name": "level",
-          "Description": "The level Element for the new duct.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "ab05aca4992e47fdaa563a591c9b8756",
-          "Name": "startConnector",
-          "Description": "The first connector where the new duct starts.\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "b0a52af39c984cca9be2343e1d890289",
-          "Name": "endPoint",
-          "Description": "Point",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "47a5507c40a5463c988eb1f1705e127a",
-          "Name": "element",
-          "Description": "The created duct.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Creates a new duct that connects to two connectors.\n\nDuct.Create (ductType: Element, level: Element, startConnector: var, endPoint: Point): Element"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Origin@var",
       "Id": "d5498e2f3d9b4702b51030d939afd795",
       "Inputs": [
@@ -298,6 +241,63 @@
       ],
       "Replication": "Auto",
       "Description": "Get origin of connector\n\nConnector.Origin (connector: var): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Duct.CreateByConnectorAndPoint@Revit.Elements.Element,Revit.Elements.Element,var,Autodesk.DesignScript.Geometry.Point",
+      "Id": "ca8658af49ce411a89549a94702084d4",
+      "Inputs": [
+        {
+          "Id": "c6a75c65558c4690bac30ea84c46f5d4",
+          "Name": "ductType",
+          "Description": "The Element of the new duct type.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ff90e29e6912492ca65103535cdd4899",
+          "Name": "level",
+          "Description": "The level for the new duct.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7f06e1c146074b02bbc189549b3fcb4a",
+          "Name": "startConnector",
+          "Description": "The first connector where the new duct starts.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e3a3ff72a96c4f75bb375f737d2fe221",
+          "Name": "endPoint",
+          "Description": "The second point of the new duct.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4b2de9987a2e4272b29e271647d3ac03",
+          "Name": "element",
+          "Description": "The created duct.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new duct that connects to the connector.\n\nDuct.CreateByConnectorAndPoint (ductType: Element, level: Element, startConnector: var, endPoint: Point): Element"
     }
   ],
   "Connectors": [
@@ -315,20 +315,20 @@
     },
     {
       "Start": "450ad2ca859d44fe9de66b264d7ce2a5",
-      "End": "c14b2a44bb4642cdac9e638c0d115452",
-      "Id": "2cf42a2633374a0984a9e226ad94953d",
+      "End": "c6a75c65558c4690bac30ea84c46f5d4",
+      "Id": "36d836ea084e4c90bda91aa239e5f873",
       "IsHidden": "False"
     },
     {
       "Start": "7bd0f8c61c5642acb3f869b3f74b485e",
-      "End": "96b7f43046004c02b18de6ef0a2e85ff",
-      "Id": "f1b9c8f92d3948278693ecb59d42ddf1",
+      "End": "ff90e29e6912492ca65103535cdd4899",
+      "Id": "06d1a8d16d604ff996b84f61268d1c67",
       "IsHidden": "False"
     },
     {
       "Start": "99551ab6b17f477084b458ac7ead40f9",
-      "End": "ab05aca4992e47fdaa563a591c9b8756",
-      "Id": "fce4f62b533a4516a9ee0117a2d2330d",
+      "End": "7f06e1c146074b02bbc189549b3fcb4a",
+      "Id": "7d335855f3b6431697837019aa9a0f96",
       "IsHidden": "False"
     },
     {
@@ -351,8 +351,8 @@
     },
     {
       "Start": "d978c566c6c746a191b966ca51d0d370",
-      "End": "b0a52af39c984cca9be2343e1d890289",
-      "Id": "2a23c93f49a54c219fbb466621431ed0",
+      "End": "e3a3ff72a96c4f75bb375f737d2fe221",
+      "Id": "10c43ea42d6d443985dc2fa4cc867fe4",
       "IsHidden": "False"
     }
   ],
@@ -365,8 +365,8 @@
       "Nodes": [
         "5eb20473b20d4172a6adbcc217d2e117",
         "eb22656653434be1a4230e7cd9f972cc",
-        "6081808e2b014f8ca716e535780bdd24",
-        "d5498e2f3d9b4702b51030d939afd795"
+        "d5498e2f3d9b4702b51030d939afd795",
+        "ca8658af49ce411a89549a94702084d4"
       ]
     }
   ],
@@ -418,109 +418,109 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "ece3694a83144855b4c367220f2f3ad7",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 44.429732637517304,
         "Y": 293.59257144144709
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "af986b3659ea46fb9f6d0d1f2f196a78",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 322.8239149879854,
         "Y": 291.076961359967
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "326c7ff4b46541108413757a188cb791",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 624.80419148291287,
         "Y": 290.34549138345079
       },
       {
-        "Name": "Levels",
-        "ShowGeometry": true,
         "Id": "14a6636410f94718848205b606816e15",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 597.26706764905634,
         "Y": 421.03408717274368
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "5eb20473b20d4172a6adbcc217d2e117",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 299.50272030196231,
         "Y": 553.25856712269592
       },
       {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "a4b07425084b4e2a80db99f7c1af1f94",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": -9.4436487771247357,
         "Y": 482.674419179848
       },
       {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "1e1b5749c5494b5eb4e59ca34a0c81fd",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 2.5759492397075974,
         "Y": 699.02718348282917
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "eb22656653434be1a4230e7cd9f972cc",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 284.20100470167711,
         "Y": 701.31646184633291
       },
       {
-        "Name": "Duct.Create",
-        "ShowGeometry": true,
-        "Id": "6081808e2b014f8ca716e535780bdd24",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 929.0143867886444,
-        "Y": 420.04795454471349
-      },
-      {
-        "Name": "Connector.Origin",
-        "ShowGeometry": true,
         "Id": "d5498e2f3d9b4702b51030d939afd795",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.Origin",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 663.9117208215589,
         "Y": 673.87497616349015
+      },
+      {
+        "Id": "ca8658af49ce411a89549a94702084d4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Duct.CreateByConnectorAndPoint",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 955.02445083315979,
+        "Y": 415.76436748401477
       }
     ],
     "Annotations": [],
-    "X": 43.597975137734124,
-    "Y": -96.651479316593452,
-    "Zoom": 0.747692817123325
+    "X": 95.617299645389721,
+    "Y": 134.27615934485652,
+    "Zoom": 0.4264555541006167
   }
 }

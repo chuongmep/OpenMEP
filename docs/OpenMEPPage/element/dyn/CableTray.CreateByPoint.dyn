@@ -249,11 +249,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.CableTray.Create@Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Revit.Elements.Level,double,double",
-      "Id": "f9c89130f7494af0ae4daee4e09154c6",
+      "FunctionSignature": "OpenMEP.Element.CableTray.CreateByTwoPoint@Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Revit.Elements.Level,double,double",
+      "Id": "91165cfcc1a14eaab76783420d8355fc",
       "Inputs": [
         {
-          "Id": "2a10c032d1cb44c28da197dd3b8af646",
+          "Id": "455e706e90cf43e186219fa54a4e3444",
           "Name": "cableTrayType",
           "Description": "The cable tray type. This must be a cable tray type accepted by isValidCableTrayType(). If the input cable tray type is InvalidElementId, the default cable tray type from the document will be used.\n\nElement",
           "UsingDefaultValue": false,
@@ -262,7 +262,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "54372daeb53e406197cc9c9b116ab963",
+          "Id": "f07134610ae049088e43a55b47faaa1f",
           "Name": "startPoint",
           "Description": "The start point of the cable tray location line\n\nPoint",
           "UsingDefaultValue": false,
@@ -271,7 +271,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "b5022e1eec0e4686a64f730329d582e0",
+          "Id": "619b91aea98647b9b67590f7c1096147",
           "Name": "endPoint",
           "Description": "The end point of the cable tray location line\n\nPoint",
           "UsingDefaultValue": false,
@@ -280,7 +280,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "43c6d5aec24e47ccb1c7cbab2366b637",
+          "Id": "d9a098d89e7c471aa1267888e584b2b8",
           "Name": "level",
           "Description": "The element id of the level which this cable tray based. If the input level id is invalidElementId = -1, the nearest level will be used.\n\nLevel",
           "UsingDefaultValue": false,
@@ -289,7 +289,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "9031e797d02747c3ac6788da17fd4bf4",
+          "Id": "c329906b455247fda44e3eb206553a4b",
           "Name": "width",
           "Description": "with of cable tray\n\ndouble",
           "UsingDefaultValue": false,
@@ -298,7 +298,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "80bc3d1a432c4a60bf9785fcd21cbc4e",
+          "Id": "beb7983569d045248a66a9be442e5325",
           "Name": "height",
           "Description": "height of cable tray\n\ndouble",
           "UsingDefaultValue": false,
@@ -309,7 +309,7 @@
       ],
       "Outputs": [
         {
-          "Id": "e149bc29def24269a9954d9c2caf1bb8",
+          "Id": "cc47401a19b1486da59a2fa2b5afd6a6",
           "Name": "Element",
           "Description": "Element",
           "UsingDefaultValue": false,
@@ -319,7 +319,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Creates a new instance of cable tray by start point and end point\n\nCableTray.Create (cableTrayType: Element, startPoint: Point, endPoint: Point, level: Level, width: double, height: double): Element"
+      "Description": "Creates a new instance of cable tray by start point and end point\n\nCableTray.CreateByTwoPoint (cableTrayType: Element, startPoint: Point, endPoint: Point, level: Level, width: double, height: double): Element"
     }
   ],
   "Connectors": [
@@ -337,20 +337,20 @@
     },
     {
       "Start": "d2b37dbc6d0f4ba3884b14dc46247e6b",
-      "End": "2a10c032d1cb44c28da197dd3b8af646",
-      "Id": "e78519b2598d4ddd9973e2ff4028fde7",
+      "End": "455e706e90cf43e186219fa54a4e3444",
+      "Id": "aa85c31dc50740a3aa8fe594c691952e",
       "IsHidden": "False"
     },
     {
       "Start": "9c0a2a9f54fd486fbbd29beda1ca1358",
-      "End": "54372daeb53e406197cc9c9b116ab963",
-      "Id": "69572a9060ca4182b5f8267a2f243f74",
+      "End": "f07134610ae049088e43a55b47faaa1f",
+      "Id": "33a5db9298574ce48a84b7f52c7fd4f5",
       "IsHidden": "False"
     },
     {
       "Start": "20af03bdcbde42e3823ee25036d46613",
-      "End": "b5022e1eec0e4686a64f730329d582e0",
-      "Id": "df00776a87ae49de86b47aa775ca1d1a",
+      "End": "619b91aea98647b9b67590f7c1096147",
+      "Id": "3027bbd869b84eb1bf29e41639ddc458",
       "IsHidden": "False"
     },
     {
@@ -361,20 +361,20 @@
     },
     {
       "Start": "f5abd2ea0af546d6960fb23a030c2375",
-      "End": "43c6d5aec24e47ccb1c7cbab2366b637",
-      "Id": "1f3f084e6bdd4197a99afa7f1d5510c4",
+      "End": "d9a098d89e7c471aa1267888e584b2b8",
+      "Id": "3d0614f2583a4c90ae0d9f11193f78cd",
       "IsHidden": "False"
     },
     {
       "Start": "031db22fd2884e9a8e0b3dcb8ed47778",
-      "End": "80bc3d1a432c4a60bf9785fcd21cbc4e",
-      "Id": "28fb2201dc744f23a9a3725dc5b3c4ba",
+      "End": "c329906b455247fda44e3eb206553a4b",
+      "Id": "04fc156425804221a3cdedcd93599e17",
       "IsHidden": "False"
     },
     {
       "Start": "031db22fd2884e9a8e0b3dcb8ed47778",
-      "End": "9031e797d02747c3ac6788da17fd4bf4",
-      "Id": "d4c418f7e8a74402bf53ca439a3dc814",
+      "End": "beb7983569d045248a66a9be442e5325",
+      "Id": "a886ef02cad248db91c7e5337d2184b0",
       "IsHidden": "False"
     }
   ],
@@ -385,7 +385,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "f9c89130f7494af0ae4daee4e09154c6"
+        "91165cfcc1a14eaab76783420d8355fc"
       ]
     }
   ],
@@ -437,99 +437,99 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "fea5c9d65bf140b5931fddaaecf1a71c",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 261.29805615550754,
         "Y": 333.60043196544291
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "4db46800a2424580ab3fe8371242d7c7",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 556.76241900647949,
         "Y": 328.41684665226796
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "82a3951733b54f328fa68c0953e2ee6a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 843.84881209503249,
         "Y": 287.19870410367167
       },
       {
-        "Name": "Point.ByCoordinates",
-        "ShowGeometry": true,
         "Id": "90536eb167b4402db66e37ef760f9b5e",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 499.20417615300744,
         "Y": 465.17951151122236
       },
       {
-        "Name": "Point.ByCoordinates",
-        "ShowGeometry": true,
         "Id": "90ae8523220144b0bf5951802d404cbf",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 515.64670225684677,
         "Y": 649.82733864908812
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "8e4270117ea0438f88828feff0e5542a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 281.3486503926672,
         "Y": 701.70628879780463
       },
       {
-        "Name": "Levels",
-        "ShowGeometry": true,
         "Id": "c18c2d95d44c402f90fb74ec1bd5883e",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 778.161732306954,
         "Y": 670.722915726686
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "8c96bcb18d954614992de7eca0391a49",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 1007.0,
         "Y": 667.0
       },
       {
-        "Name": "CableTray.Create",
-        "ShowGeometry": true,
-        "Id": "f9c89130f7494af0ae4daee4e09154c6",
+        "Id": "91165cfcc1a14eaab76783420d8355fc",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "CableTray.CreateByTwoPoint",
+        "ShowGeometry": true,
         "Excluded": false,
-        "X": 1295.03008879792,
-        "Y": 368.142125532669
+        "X": 1220.1583097193372,
+        "Y": 330.81153187120793
       }
     ],
     "Annotations": [],
-    "X": -147.67051936462565,
-    "Y": -21.510147717201448,
-    "Zoom": 0.78916103292481576
+    "X": -6.2117780918907783,
+    "Y": 102.71323690131061,
+    "Zoom": 0.44028875215393004
   }
 }

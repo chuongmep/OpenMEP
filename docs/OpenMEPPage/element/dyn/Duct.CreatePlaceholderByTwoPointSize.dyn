@@ -353,90 +353,6 @@
       "Description": "All element subclasses."
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Duct.CreatePlaceholder@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
-      "Id": "9389a246467c41059c3468f17da8d54f",
-      "Inputs": [
-        {
-          "Id": "8db52c3c14f146aa832801b1aac8bf30",
-          "Name": "systemType",
-          "Description": "The element of the HVAC system type.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "436f974ff44141f1908d4f9faf750759",
-          "Name": "ductType",
-          "Description": "The element of the duct type.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "42d2c3dcc47b4f25bda39c2113eca71c",
-          "Name": "level",
-          "Description": "The element level for the duct.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "acc34cac2e404dd184579464e44b397b",
-          "Name": "startPoint",
-          "Description": "The first point of the placeholder line.\n\nPoint",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "18803a303bb84ef48a90ed63528ba8c4",
-          "Name": "endPoint",
-          "Description": "The second point of the placeholder line.\n\nPoint",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "0d82092602c143ca8b87a412357f32c4",
-          "Name": "width",
-          "Description": "new value width of duct\n\ndouble",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "4510d4f363fa4849817a94ad0ce3fbed",
-          "Name": "height",
-          "Description": "new value height of duct\n\ndouble",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "d6306c44b6f24fc6b36995da229d4b37",
-          "Name": "element",
-          "Description": "The created placeholder duct.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Creates a new placeholder duct.\n\nDuct.CreatePlaceholder (systemType: Element, ductType: Element, level: Element, startPoint: Point, endPoint: Point, width: double, height: double): Element"
-    },
-    {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
       "Code": "300;\n200;",
@@ -464,6 +380,90 @@
       ],
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Duct.CreatePlaceholderByTwoPoint@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
+      "Id": "d81545a82d584231a5c74311b9faeafa",
+      "Inputs": [
+        {
+          "Id": "26ec385b38e549d6961eb9f8a7819789",
+          "Name": "systemType",
+          "Description": "The element of the HVAC system type.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "252abc0ab297489b97335f7e198422ca",
+          "Name": "ductType",
+          "Description": "The element of the duct type.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "131861cb48d2474283df94552d0e6400",
+          "Name": "level",
+          "Description": "The element level for the duct.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4cc59a6d71ec426db6ac465b38468529",
+          "Name": "startPoint",
+          "Description": "The first point of the placeholder line.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2d40c072a35e4573b90a09497ec25bd0",
+          "Name": "endPoint",
+          "Description": "The second point of the placeholder line.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c054d28085074b83a5908c1c48254cff",
+          "Name": "width",
+          "Description": "new value width of duct\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "62af9a4e36bc4e8da8f983bd0ae962cb",
+          "Name": "height",
+          "Description": "new value height of duct\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0f264044aed0454288fc99788ebe1880",
+          "Name": "element",
+          "Description": "The created placeholder duct.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new placeholder duct.\n\nDuct.CreatePlaceholderByTwoPoint (systemType: Element, ductType: Element, level: Element, startPoint: Point, endPoint: Point, width: double, height: double): Element"
     }
   ],
   "Connectors": [
@@ -481,14 +481,14 @@
     },
     {
       "Start": "450ad2ca859d44fe9de66b264d7ce2a5",
-      "End": "436f974ff44141f1908d4f9faf750759",
-      "Id": "1c5091165cc84b0a86ae9ca8f94ce9b4",
+      "End": "252abc0ab297489b97335f7e198422ca",
+      "Id": "c46e03b7f13445d8a8598db9ef980d4f",
       "IsHidden": "False"
     },
     {
       "Start": "7bd0f8c61c5642acb3f869b3f74b485e",
-      "End": "42d2c3dcc47b4f25bda39c2113eca71c",
-      "Id": "9088c953db4746039167fe4453212780",
+      "End": "131861cb48d2474283df94552d0e6400",
+      "Id": "de37f00beefd4c3191f24807b1147a67",
       "IsHidden": "False"
     },
     {
@@ -517,20 +517,20 @@
     },
     {
       "Start": "d978c566c6c746a191b966ca51d0d370",
-      "End": "18803a303bb84ef48a90ed63528ba8c4",
-      "Id": "b96a06f4e5284c059041af1dede70116",
+      "End": "2d40c072a35e4573b90a09497ec25bd0",
+      "Id": "24bbc7188e0a4f67abd7bc9c07960084",
       "IsHidden": "False"
     },
     {
       "Start": "e4e2b61f9e344893ada5f3a568d0b8a9",
-      "End": "acc34cac2e404dd184579464e44b397b",
-      "Id": "2de16031d77544a5be2ae49aecd3d586",
+      "End": "4cc59a6d71ec426db6ac465b38468529",
+      "Id": "be964217214a40efa84e944c9aa40e8a",
       "IsHidden": "False"
     },
     {
       "Start": "cf31758af38c464bb9e7a30936561d8a",
-      "End": "8db52c3c14f146aa832801b1aac8bf30",
-      "Id": "02a73f33f3f0488e927700b612059f75",
+      "End": "26ec385b38e549d6961eb9f8a7819789",
+      "Id": "e22f3b62c7a840ddbc292dfd223b7111",
       "IsHidden": "False"
     },
     {
@@ -547,14 +547,14 @@
     },
     {
       "Start": "6db10be5489a403ca36f7d561339d896",
-      "End": "0d82092602c143ca8b87a412357f32c4",
-      "Id": "95c1fda9204c4182965d91b6dc1c366d",
+      "End": "c054d28085074b83a5908c1c48254cff",
+      "Id": "c92cc6780a934cafa7a5f2636bdf9c92",
       "IsHidden": "False"
     },
     {
       "Start": "0364fe9cb65942558925751132e9be01",
-      "End": "4510d4f363fa4849817a94ad0ce3fbed",
-      "Id": "a0e5eeb4ba524780aaf7826babe4377b",
+      "End": "62af9a4e36bc4e8da8f983bd0ae962cb",
+      "Id": "c51e3effe6c44148836975f91058cb38",
       "IsHidden": "False"
     }
   ],
@@ -569,7 +569,7 @@
         "eb22656653434be1a4230e7cd9f972cc",
         "d5498e2f3d9b4702b51030d939afd795",
         "ba33851bfb504bafba7fa08789527742",
-        "9389a246467c41059c3468f17da8d54f"
+        "d81545a82d584231a5c74311b9faeafa"
       ]
     }
   ],
@@ -621,159 +621,159 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "ece3694a83144855b4c367220f2f3ad7",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 44.429732637517304,
         "Y": 293.59257144144709
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "af986b3659ea46fb9f6d0d1f2f196a78",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 322.8239149879854,
         "Y": 291.076961359967
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "326c7ff4b46541108413757a188cb791",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 624.80419148291287,
         "Y": 290.34549138345079
       },
       {
-        "Name": "Levels",
-        "ShowGeometry": true,
         "Id": "14a6636410f94718848205b606816e15",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 597.26706764905634,
         "Y": 421.03408717274368
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "5eb20473b20d4172a6adbcc217d2e117",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 299.50272030196231,
         "Y": 553.25856712269592
       },
       {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "a4b07425084b4e2a80db99f7c1af1f94",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": -9.4436487771247357,
         "Y": 482.674419179848
       },
       {
-        "Name": "Select Model Element",
-        "ShowGeometry": true,
         "Id": "1e1b5749c5494b5eb4e59ca34a0c81fd",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 2.5759492397075974,
         "Y": 699.02718348282917
       },
       {
-        "Name": "Connector.GetUnusedConnectors",
-        "ShowGeometry": true,
         "Id": "eb22656653434be1a4230e7cd9f972cc",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 284.20100470167711,
         "Y": 701.31646184633291
       },
       {
-        "Name": "Connector.Origin",
-        "ShowGeometry": true,
         "Id": "d5498e2f3d9b4702b51030d939afd795",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.Origin",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 651.07222339675468,
         "Y": 711.32351031917085
       },
       {
-        "Name": "Connector.Origin",
-        "ShowGeometry": true,
         "Id": "ba33851bfb504bafba7fa08789527742",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Connector.Origin",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 659.63188834662446,
         "Y": 566.87916429011648
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "de1a5b73a59b4c4c97e9129391b4db77",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 577.72603425862883,
         "Y": 141.6213128794615
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "de27fca33ae3428daceda163831e34a4",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 274.67579964496719,
         "Y": 132.72315978737387
       },
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "9e89c311b7f74c1fbf4ef29742426fc6",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": -50.796539929785013,
         "Y": 130.95893739391889
       },
       {
-        "Name": "Duct.CreatePlaceholder",
-        "ShowGeometry": true,
-        "Id": "9389a246467c41059c3468f17da8d54f",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1077.7989629733838,
-        "Y": 354.37237970751329
-      },
-      {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "eb97e56a308642c7b52cd0db728eb874",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 643.67788210637991,
         "Y": 846.66105894681016
+      },
+      {
+        "Id": "d81545a82d584231a5c74311b9faeafa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Duct.CreatePlaceholderByTwoPoint",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1105.3674327307649,
+        "Y": 328.34950921532607
       }
     ],
     "Annotations": [],
-    "X": 90.554674076776337,
-    "Y": 0.39272162481199757,
-    "Zoom": 0.5974870948157861
+    "X": -15.4563353803469,
+    "Y": 103.46036376306517,
+    "Zoom": 0.47799973494454168
   }
 }

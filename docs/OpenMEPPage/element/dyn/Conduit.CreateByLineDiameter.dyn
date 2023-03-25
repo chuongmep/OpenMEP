@@ -249,63 +249,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEP.Element.Conduit.Create@Revit.Elements.Element,Autodesk.DesignScript.Geometry.Line,Revit.Elements.Element,double",
-      "Id": "ac8fe639c10a4f509971b26a184c778f",
-      "Inputs": [
-        {
-          "Id": "c99db8d7f8fe4bde9b9901a0974ba38d",
-          "Name": "conduitType",
-          "Description": "The conduit type. This must be a conduit type accepted by isValidConduitType(). If the input conduit type is InvalidElementId, the default conduit type from the document will be used.\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "e6dcd6d1e2a2484491f63ac1d354a2fe",
-          "Name": "line",
-          "Description": "the line define to draw conduit from start point to end point\n\nLine",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "ee5c4cc52345485dbcf984a4eb55ac0a",
-          "Name": "level",
-          "Description": "the element of level\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "e1f711d543294aa18a363a4a391561d8",
-          "Name": "diameter",
-          "Description": "the value diameter of conduit\n\ndouble",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "0e5e87238e874e89898d2443af6ff1c3",
-          "Name": "conduit",
-          "Description": "new conduit",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Create a conduit by line\n\nConduit.Create (conduitType: Element, line: Line, level: Element, diameter: double): Element"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
       "Id": "506d06cb443e4f3facc9d8c06a71476a",
       "Inputs": [
@@ -341,6 +284,63 @@
       ],
       "Replication": "Auto",
       "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Conduit.CreateByLine@Revit.Elements.Element,Autodesk.DesignScript.Geometry.Line,Revit.Elements.Element,double",
+      "Id": "7b52eaf0075648b4ab84ac3504218db4",
+      "Inputs": [
+        {
+          "Id": "7e7be229f6224fbfaff1977f7a918794",
+          "Name": "conduitType",
+          "Description": "The conduit type. This must be a conduit type accepted by isValidConduitType(). If the input conduit type is InvalidElementId, the default conduit type from the document will be used.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "807f4a99de0e43a3b46b1580af5a3c64",
+          "Name": "line",
+          "Description": "the line define to draw conduit from start point to end point\n\nLine",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1c0871e67d394fcabd5a989efd026412",
+          "Name": "level",
+          "Description": "the element of level\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b0ce40a56cea42d99d7259a8102f2d06",
+          "Name": "diameter",
+          "Description": "the value diameter of conduit\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ebb660392d5b44b48b62d0683e52eaaa",
+          "Name": "conduit",
+          "Description": "new conduit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a conduit by line\n\nConduit.CreateByLine (conduitType: Element, line: Line, level: Element, diameter: double): Element"
     }
   ],
   "Connectors": [
@@ -358,8 +358,8 @@
     },
     {
       "Start": "d23d6e2fc2754ebbbc359bb2f811c3bd",
-      "End": "c99db8d7f8fe4bde9b9901a0974ba38d",
-      "Id": "9782ac7ee2f74a68b8a3f55380b03834",
+      "End": "7e7be229f6224fbfaff1977f7a918794",
+      "Id": "55486440e5064ee6a5a07605748020f2",
       "IsHidden": "False"
     },
     {
@@ -382,20 +382,20 @@
     },
     {
       "Start": "6a32759e3b0442bca35db7038e288ee5",
-      "End": "ee5c4cc52345485dbcf984a4eb55ac0a",
-      "Id": "2920a81b52da4d5489f5102bf889bd93",
+      "End": "1c0871e67d394fcabd5a989efd026412",
+      "Id": "068e7188f71447609ddd74450067b005",
       "IsHidden": "False"
     },
     {
       "Start": "f4f230923824438ca6afa2e5b6807d5d",
-      "End": "e1f711d543294aa18a363a4a391561d8",
-      "Id": "68bd4c07e8ab498bbb162890b7064760",
+      "End": "b0ce40a56cea42d99d7259a8102f2d06",
+      "Id": "696f52d427b44a9b9125a0e2914a88a6",
       "IsHidden": "False"
     },
     {
       "Start": "c7bb460ec2ef4dd585ad3a7cce452498",
-      "End": "e6dcd6d1e2a2484491f63ac1d354a2fe",
-      "Id": "6e4cfa80fd9e48428d24f9a6f6f3f702",
+      "End": "807f4a99de0e43a3b46b1580af5a3c64",
+      "Id": "ee43ecb522b047169686ae8fc97e8865",
       "IsHidden": "False"
     }
   ],
@@ -406,7 +406,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "ac8fe639c10a4f509971b26a184c778f"
+        "7b52eaf0075648b4ab84ac3504218db4"
       ]
     }
   ],
@@ -458,109 +458,109 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Element Classes",
-        "ShowGeometry": true,
         "Id": "4ab7c5b65e9a41919b07d46add644562",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Element Classes",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 32.800000000000296,
         "Y": 241.59999999999997
       },
       {
-        "Name": "All Elements of Class",
-        "ShowGeometry": true,
         "Id": "653b6f7fec3d4b5e89c22a4793c11b06",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 311.20000000000027,
         "Y": 228.0
       },
       {
-        "Name": "List.FirstItem",
-        "ShowGeometry": true,
         "Id": "b546afa0543849f78142c840fdcc8bd2",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 564.373384843786,
         "Y": 209.11783758816858
       },
       {
-        "Name": "Point.ByCoordinates",
-        "ShowGeometry": true,
         "Id": "add560e1ecbe480181df9c25e9c9fac2",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 208.73631989225339,
         "Y": 404.13670136375623
       },
       {
-        "Name": "Point.ByCoordinates",
-        "ShowGeometry": true,
         "Id": "ec7828789a1744f4a62096ceeba7e1b6",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 205.74872436447095,
         "Y": 624.2229052437367
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "99c8f07d8d37417cb66394bc226d0e1a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 2.9586517592750852,
         "Y": 652.34256297247475
       },
       {
-        "Name": "Levels",
-        "ShowGeometry": true,
         "Id": "1fbbd093138b4682842961acec90e4fa",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 531.63778321176051,
         "Y": 361.620423619709
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
         "Id": "e1dc758aa3ed4b52885df6ca4880c79a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 587.57864263810575,
         "Y": 703.22110602688542
       },
       {
-        "Name": "Conduit.Create",
-        "ShowGeometry": true,
-        "Id": "ac8fe639c10a4f509971b26a184c778f",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 872.0347908272546,
-        "Y": 341.75205581554042
-      },
-      {
-        "Name": "Line.ByStartPointEndPoint",
-        "ShowGeometry": true,
         "Id": "506d06cb443e4f3facc9d8c06a71476a",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
+        "Name": "Line.ByStartPointEndPoint",
+        "ShowGeometry": true,
         "Excluded": false,
         "X": 491.5822162459765,
         "Y": 503.37492072606733
+      },
+      {
+        "Id": "7b52eaf0075648b4ab84ac3504218db4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Conduit.CreateByLine",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 869.15336855554369,
+        "Y": 348.50499028355131
       }
     ],
     "Annotations": [],
-    "X": 60.33802369723935,
-    "Y": -25.850554289483057,
-    "Zoom": 0.93181152849833082
+    "X": -207.51466617835081,
+    "Y": 4.8131652428343727,
+    "Zoom": 0.76582939285155183
   }
 }
