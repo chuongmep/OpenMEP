@@ -3,7 +3,7 @@
         <TargetFramework>net48</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
-        <AssemblyVersion>2.0.0.*</AssemblyVersion>
+        <AssemblyVersion>2.0.0.1</AssemblyVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <LangVersion>latest</LangVersion>
         <UseWPF>true</UseWPF>
