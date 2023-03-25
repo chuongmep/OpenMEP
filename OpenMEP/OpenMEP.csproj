@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+        <TargetFramework>net48</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
         <AssemblyVersion>2.0.0.*</AssemblyVersion>
@@ -119,7 +118,6 @@
         <PackageReference Include="DynamoVisualProgramming.Revit" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
         <Reference Include="System.Net.Http" />
         <PackageReference Include="GShark" Version="2.2.0" />
         <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

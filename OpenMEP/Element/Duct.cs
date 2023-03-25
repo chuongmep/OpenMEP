@@ -523,7 +523,7 @@ public class Duct
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Duct.SetDiameterSize.png)
     /// </example>
-    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element? duct, double width, double height)
+    public static Revit.Elements.Element? SetDiameter(Revit.Elements.Element duct, double width, double height)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
