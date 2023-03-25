@@ -155,8 +155,8 @@
         <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
         <Message Text="Copied Completed" Importance="high" />
     </Target>
-    <Target Name="GenerateCustomization" BeforeTargets="Build">
-        <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\Resources\OpenMEPimages.resx" OutputResources="$(ProjectDir)\Resources\OpenMEPimages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
-        <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\Resources\OpenMEPimages.resources" OutputAssembly="$(TargetDir)OpenMEP.customization.dll" />
-    </Target>
+<!--    <Target Name="GenerateCustomization" BeforeTargets="Build">-->
+<!--        <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\Resources\OpenMEPimages.resx" OutputResources="$(ProjectDir)\Resources\OpenMEPimages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />-->
+<!--        <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\Resources\OpenMEPimages.resources" OutputAssembly="$(TargetDir)OpenMEP.customization.dll" />-->
+<!--    </Target>-->
 </Project>
