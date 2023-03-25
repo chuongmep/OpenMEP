@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
-        <AssemblyVersion>2.0.0.1</AssemblyVersion>
+        <AssemblyVersion>2.0.0.*</AssemblyVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <LangVersion>latest</LangVersion>
         <UseWPF>true</UseWPF>
@@ -136,25 +137,25 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\OpenMEPSandbox\OpenMEPSandbox.csproj" />
+      <ProjectReference Include="..\OpenMEPSandbox\OpenMEPSandbox.csproj" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
             <XmlCustomization Include="$(SolutionDir)docs\*.xml" />
-            <!--            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />-->
+<!--            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />-->
             <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
         </ItemGroup>
         <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
         <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
         <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
         <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
-        <!--        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />-->
+<!--        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />-->
         <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
         <Message Text="Copied Completed" Importance="high" />
     </Target>
-    <Target Name="GenerateCustomization" BeforeTargets="Build" Condition=" '$(OS)' != 'Unix' ">
+    <Target Name="GenerateCustomization" BeforeTargets="Build">
         <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\Resources\OpenMEPimages.resx" OutputResources="$(ProjectDir)\Resources\OpenMEPimages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
         <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\Resources\OpenMEPimages.resources" OutputAssembly="$(TargetDir)OpenMEP.customization.dll" />
     </Target>
