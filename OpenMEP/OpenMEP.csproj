@@ -139,7 +139,7 @@
     <ItemGroup>
       <ProjectReference Include="..\OpenMEPSandbox\OpenMEPSandbox.csproj" />
     </ItemGroup>
-    <Target Name="CopyFiles" AfterTargets="CoreBuild">
+    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />

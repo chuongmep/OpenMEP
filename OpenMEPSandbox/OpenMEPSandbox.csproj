@@ -114,7 +114,7 @@
     <ItemGroup>
       <ProjectReference Include="..\OpenMEPViewExtension\OpenMEPViewExtension.csproj" />
     </ItemGroup>
-    <Target Name="CopyFiles" AfterTargets="CoreBuild">
+    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\sandbox\pkg.json" />
