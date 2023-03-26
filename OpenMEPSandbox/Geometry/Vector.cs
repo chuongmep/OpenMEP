@@ -86,6 +86,28 @@ public class Vector
         d.Add("Length", vector.Length);
         return d;
     }
+
+    /// <summary>
+    /// Compares this a vector with another vector.
+    /// 0: if this is identical to other
+    /// 1: if this is greater than other
+    /// -1: if this is less than other
+    /// </summary>
+    /// <param name="v1">the first vector</param>
+    /// <param name="v2">the second vector</param>
+    /// <param name="tolerance">the tolerance compare two vector</param>
+    /// <returns name="double">value compare between two vector</returns>
+    public static double CompareTo(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2,double tolerance = 0.001)
+    {
+        if (Math.Abs(v1.X - v2.X) > tolerance)
+            return v1.X < v2.X ? -1 : 1;
+        if (Math.Abs(v1.Y - v2.Y) > tolerance)
+            return v1.Y < v2.Y ? -1 : 1;
+        if (Math.Abs(v1.Z - v2.Z) > tolerance)
+            return v1.Z < v2.Z ? -1 : 1;
+        return 0;
+    }
+    
     
     
 }
