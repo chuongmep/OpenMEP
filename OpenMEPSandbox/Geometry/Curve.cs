@@ -54,7 +54,7 @@ public class Curve
     /// </summary>
     /// <param name="curve">The input curve to be split.</param>
     /// <param name="segmentLength">A number that represents the length of each segment to split the curve into, or a list of numbers that represent the lengths of the segments to split the curve into.</param>
-    /// <returns name="curves">A list of curves that result from splitting the input curve at the specified segment lengths. The list includes the original curve and the newly created segments.</returns>
+    /// <returns name="curves">A list of curves that result from splitting the input curve at the specified segment lengths.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.SplitBySegmentsLength.png)
     /// </example>
@@ -81,7 +81,7 @@ public class Curve
     /// </summary>
     /// <param name="curve">The input curve to be split.</param>
     /// <param name="segmentLengths"> A list of numbers that represent the lengths of the segments to split the curve into. </param>
-    /// <returns name="curves">A list of curves that result from splitting the input curve at the specified segment lengths. The list includes the original curve and the newly created segments.</returns>
+    /// <returns name="curves">A list of curves that result from splitting the input curve at the specified segment lengths.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.SplitBySegmentsLengths.png)
     /// </example>
