@@ -1,0 +1,225 @@
+{
+  "Uuid": "ed60bf4d-6490-4b9f-ae7e-7542b428ce3d",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Geometry.BottomSurfaces",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "803669dd9d684e4caf61cd169ed7345f",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "8575570dacc34ceeaf11639cb86440ac",
+          "Name": "width",
+          "Description": "Width of cuboid\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0c9e49cb450b4e2d818754d895ece07e",
+          "Name": "length",
+          "Description": "Length of cuboid\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2f49ee291aa24dec95132767584c39d0",
+          "Name": "height",
+          "Description": "Height of cuboid\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bff59104c71549e1affb95c397bbdcb1",
+          "Name": "Cuboid",
+          "Description": "Cuboid created by lengths",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByLengths@double,double,double",
+      "Replication": "Auto",
+      "Description": "Create a Cuboid centered at WCS origin, with width, length, and height.\n\nCuboid.ByLengths (width: double = 1, length: double = 1, height: double = 1): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "036702ab4cb942df981a83c0a75a7260",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "062f7b4cd35d4e53a95265f9fb456ea9",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "10;"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "cf8085e99f3f4c31afdde54764bf4e24",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "923e304cf0c146f48dd0cff466527952",
+          "Name": "geometry",
+          "Description": "The geometry to extract the bottom surface from.\n\nGeometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8073a314caf544079abfb9a4393d9b84",
+          "Name": "surfaces",
+          "Description": "A list of the bottom surface(s) of the geometry.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Geometry.BottomSurfaces@Autodesk.DesignScript.Geometry.Geometry",
+      "Replication": "Auto",
+      "Description": "Returns the bottom surface of the provided geometry.\n\nGeometry.BottomSurfaces (geometry: Geometry): Surface[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "bff59104c71549e1affb95c397bbdcb1",
+      "End": "923e304cf0c146f48dd0cff466527952",
+      "Id": "eb6c27c31ccc4a1ba1fbf4fe579ad8d3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "062f7b4cd35d4e53a95265f9fb456ea9",
+      "End": "8575570dacc34ceeaf11639cb86440ac",
+      "Id": "43e98ebc1acf46d392d4f4e326d3327b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "062f7b4cd35d4e53a95265f9fb456ea9",
+      "End": "0c9e49cb450b4e2d818754d895ece07e",
+      "Id": "3295f4d009dc4ad0a063cb5c6fe71588",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "062f7b4cd35d4e53a95265f9fb456ea9",
+      "End": "2f49ee291aa24dec95132767584c39d0",
+      "Id": "3caf6340a47d4ef1ad5883fd5228e097",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "cf8085e99f3f4c31afdde54764bf4e24"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.0.4470",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "803669dd9d684e4caf61cd169ed7345f",
+        "Name": "Cuboid.ByLengths",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": false,
+        "X": 430.0,
+        "Y": 268.0
+      },
+      {
+        "Id": "036702ab4cb942df981a83c0a75a7260",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 194.0,
+        "Y": 286.0
+      },
+      {
+        "Id": "cf8085e99f3f4c31afdde54764bf4e24",
+        "Name": "Geometry.BottomSurfaces",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 678.95464362850964,
+        "Y": 295.64794816414684
+      }
+    ],
+    "Annotations": [],
+    "X": -50.264999999999986,
+    "Y": -107.08749999999998,
+    "Zoom": 1.1575
+  }
+}
