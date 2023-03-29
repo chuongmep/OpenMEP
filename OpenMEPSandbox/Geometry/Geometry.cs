@@ -11,6 +11,9 @@ public class Geometry
     /// </summary>
     /// <param name="geometry">The geometry to extract the top surface from.</param>
     /// <returns name="surfaces">A list of the top surface(s) of the geometry.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Geometry.TopSurfaces.png)
+    /// </example>
     public static List<Autodesk.DesignScript.Geometry.Surface> TopSurfaces(
         Autodesk.DesignScript.Geometry.Geometry geometry)
     {
@@ -34,6 +37,9 @@ public class Geometry
     /// </summary>
     /// <param name="geometry">The geometry to extract the bottom surface from.</param>
     /// <returns name="surfaces">A list of the bottom surface(s) of the geometry.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Geometry.BottomSurfaces.png)
+    /// </example>
     public static List<Autodesk.DesignScript.Geometry.Surface> BottomSurfaces(
         Autodesk.DesignScript.Geometry.Geometry geometry)
     {
@@ -57,6 +63,9 @@ public class Geometry
     /// </summary>
     /// <param name="geometry">The geometry to extract side surfaces from.</param>
     /// <returns name="surface">A list of side surfaces of the geometry.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Geometry.SideSurface.png)
+    /// </example>
     public static List<Autodesk.DesignScript.Geometry.Surface> SideSurface(
         Autodesk.DesignScript.Geometry.Geometry geometry)
     {
