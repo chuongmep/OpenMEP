@@ -432,4 +432,27 @@ public class Point
         int compareTo = point1.ToGSharkType().CompareTo(point2.ToGSharkType());
         return compareTo;
     }
+    
+    /// <summary>
+    /// takes a list of 3D points as input and returns the shortest route that visits each point exactly once'
+    /// https://en.wikipedia.org/wiki/Travelling_salesman_problem
+    /// </summary>
+    /// <param name="points">the list 3d points</param>
+    /// <returns name="lines"> shortest route</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.FindShortestRoute.gif)
+    /// </example>
+    public static List<Autodesk.DesignScript.Geometry.Line> FindShortestRoute(List<Autodesk.DesignScript.Geometry.Point> points)
+    {
+        List<Autodesk.DesignScript.Geometry.Point> shortestRoute = TravellingSalesman.FindShortestRoute(points);
+        // connect line 
+        List<Autodesk.DesignScript.Geometry.Line> lines = new List<Autodesk.DesignScript.Geometry.Line>();
+        for (int i = 0; i < shortestRoute.Count - 1; i++)
+        {
+            Autodesk.DesignScript.Geometry.Line line =
+                Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(shortestRoute[i], shortestRoute[i + 1]);
+            lines.Add(line);
+        }
+        return lines;
+    }
 }
