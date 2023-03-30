@@ -19,35 +19,6 @@
   "Outputs": [],
   "Nodes": [
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "Id": "e0075be3ab034cd693484aa9fa62b8d9",
-      "NodeType": "CodeBlockNode",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "b353564c15684ca99bcb2f28f3313dd2",
-          "Name": "",
-          "Description": "start",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "1d097edeb25747b8aa39022dcce66bca",
-          "Name": "",
-          "Description": "end",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly",
-      "Code": "start = Autodesk.Point.ByCoordinates(0,0);\nend = Autodesk.Point.ByCoordinates(3,4);"
-    },
-    {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "Id": "01fbafcb0d5647779ffe2f80e084bec4",
       "NodeType": "FunctionNode",
@@ -341,19 +312,72 @@
       ],
       "Replication": "Disabled",
       "Description": "Makes a new list from the given inputs"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "2e863bb7355c42c1beecd1c4ece6ccea",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "3d644d55d1464245be49ca94b08fa112",
+          "Name": "centerPoint",
+          "Description": "Center point of circle\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "52077d5ed6b642eeb10bced784c423cb",
+          "Name": "radius",
+          "Description": "Radius\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "21056ca7ed04483cb35b01d448856318",
+          "Name": "Circle",
+          "Description": "Circle created with center point and radius",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Circle.ByCenterPointRadius@Autodesk.DesignScript.Geometry.Point,double",
+      "Replication": "Auto",
+      "Description": "Creates a Circle with input center Point and radius in the world XY plane, with world Z as normal.\n\nCircle.ByCenterPointRadius (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1): Circle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "3657479fa0dd4343894fe360f8400393",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9913adcb006547bdbd4251e603327a68",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "0.5;"
     }
   ],
   "Connectors": [
     {
-      "Start": "b353564c15684ca99bcb2f28f3313dd2",
-      "End": "983da155c7384128871c8e6bde515b4a",
-      "Id": "0a9f4a91685f4a23bae424eb7b6a1c45",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "1d097edeb25747b8aa39022dcce66bca",
-      "End": "1838654d2c4c466c9944ef005b2d7205",
-      "Id": "746759f4fb45429981140860d6eb0f02",
+      "Start": "195427b5ff5e4990b52b707374474b9f",
+      "End": "3d644d55d1464245be49ca94b08fa112",
+      "Id": "59ce8a7bc09a42e78969cda187ad4662",
       "IsHidden": "False"
     },
     {
@@ -366,6 +390,12 @@
       "Start": "5c2f18e58919427bb9a9bdece4f6e027",
       "End": "28e8ac54b9284c8785b93f4d6f2dc288",
       "Id": "7c0801c0769f4acba1d6dca3c3e9c28c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5c2f18e58919427bb9a9bdece4f6e027",
+      "End": "983da155c7384128871c8e6bde515b4a",
+      "Id": "220865116df84f50a3938c3bf14c5f4b",
       "IsHidden": "False"
     },
     {
@@ -405,6 +435,12 @@
       "IsHidden": "False"
     },
     {
+      "Start": "eb3c1d3fefec475cab3dab02c7d14f0c",
+      "End": "1838654d2c4c466c9944ef005b2d7205",
+      "Id": "f905ce651c174e7a95f25cc32304571a",
+      "IsHidden": "False"
+    },
+    {
       "Start": "1dcf6c80e84c422c99176cea642f22cb",
       "End": "230dcba9e59442df84ec4f9b53fc24ab",
       "Id": "3a9702ad6f144e889cd579923704f2c7",
@@ -413,13 +449,19 @@
     {
       "Start": "4690232e0d88406ab3f2cd11db516bce",
       "End": "d2ac080afd8f45f6baec6a649dd64ad1",
-      "Id": "8787964402ba4a18847995e9e0aea7d5",
+      "Id": "4c0fad8902044699bd09e43cb8e1d0d4",
       "IsHidden": "False"
     },
     {
       "Start": "c3b94846900d466091d24118497a53fc",
       "End": "176423cb3e2748ce8fd5459ee14197d9",
       "Id": "f04225ea5e89456ea57d1fa508f37eae",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9913adcb006547bdbd4251e603327a68",
+      "End": "52077d5ed6b642eeb10bced784c423cb",
+      "Id": "5be3f6b55679433bbb71d46fcf8435fd",
       "IsHidden": "False"
     }
   ],
@@ -464,37 +506,27 @@
     },
     "Camera": {
       "Name": "_Background Preview",
-      "EyeX": -17.0,
-      "EyeY": 24.0,
-      "EyeZ": 50.0,
-      "LookX": 12.0,
-      "LookY": -13.0,
-      "LookZ": -58.0,
-      "UpX": 0.0,
-      "UpY": 1.0,
-      "UpZ": 0.0
+      "EyeX": 0.1541820615530014,
+      "EyeY": 8.2332773208618164,
+      "EyeZ": 2.6181364059448242,
+      "LookX": 0.00015226006507873535,
+      "LookY": -0.3313446044921875,
+      "LookZ": -0.097648859024047852,
+      "UpX": 0.0013666818849742413,
+      "UpY": 0.48175317049026489,
+      "UpZ": -0.87630593776702881
     },
     "ConnectorPins": [],
     "NodeViews": [
-      {
-        "Id": "e0075be3ab034cd693484aa9fa62b8d9",
-        "Name": "Code Block",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 26.571714414979738,
-        "Y": 244.03192055827532
-      },
       {
         "Id": "01fbafcb0d5647779ffe2f80e084bec4",
         "Name": "Graph.ShortestPath",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": true,
+        "ShowGeometry": false,
         "X": 952.01714956890191,
-        "Y": 382.50327142504244
+        "Y": 381.47132049706005
       },
       {
         "Id": "64ec4cb85bdc474d9267ee3087cd64a4",
@@ -502,7 +534,7 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": true,
+        "ShowGeometry": false,
         "X": 663.83520802186308,
         "Y": 299.44780183381084
       },
@@ -513,8 +545,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": -42.129776648295831,
-        "Y": 424.76089545008193
+        "X": -61.736844279959712,
+        "Y": 342.20482121149757
       },
       {
         "Id": "576970fc3c7a42b38dc95486a92206f2",
@@ -523,8 +555,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": -49.8555858680125,
-        "Y": 622.66047007820725
+        "X": -88.037770203357638,
+        "Y": 619.5646172942603
       },
       {
         "Id": "89c194a0b6f64004b005d9c6dbaac79f",
@@ -533,8 +565,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 354.48039658405247,
-        "Y": 378.69915110197371
+        "X": 376.080764247555,
+        "Y": 315.44093151600214
       },
       {
         "Id": "34bec30838e842bdac6e1778017d7656",
@@ -543,13 +575,33 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 350.74580983293339,
-        "Y": 605.264080669861
+        "X": 371.55338431312276,
+        "Y": 730.02244629165216
+      },
+      {
+        "Id": "2e863bb7355c42c1beecd1c4ece6ccea",
+        "Name": "Circle.ByCenterPointRadius",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1441.173072604538,
+        "Y": 553.29089402022817
+      },
+      {
+        "Id": "3657479fa0dd4343894fe360f8400393",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1294.9182399879396,
+        "Y": 702.72884544974875
       }
     ],
     "Annotations": [],
-    "X": 28.437981075295397,
-    "Y": -71.62051168434607,
-    "Zoom": 0.915562285281226
+    "X": 73.972268584481014,
+    "Y": -127.97143735358884,
+    "Zoom": 0.594053315602365
   }
 }
