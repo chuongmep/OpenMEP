@@ -108,6 +108,25 @@ public class Vector
         return 0;
     }
     
+    /// <summary>
+    /// Multiply two vector
+    /// </summary>
+    /// <param name="v1">the first vector</param>
+    /// <param name="v2">the second vector</param>
+    /// <returns name="vector"></returns>
+    public static Autodesk.DesignScript.Geometry.Vector Multiply(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
+    {
+        return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z);
+    }
     
-    
+    /// <summary>
+    ///  Divide two vector
+    /// </summary>
+    /// <param name="v1">the first vector</param>
+    /// <param name="v2">the second vector</param>
+    /// <returns name="vector"></returns>
+    public static Autodesk.DesignScript.Geometry.Vector Divide(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
+    {
+        return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z);
+    }
 }

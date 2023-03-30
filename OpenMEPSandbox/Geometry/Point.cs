@@ -5,6 +5,7 @@ using GShark.Geometry;
 using Microsoft.Expression.Interactivity.Media;
 using OpenMEPSandbox.Algo;
 using OpenMEPSandbox.Helpers;
+using Circle = Autodesk.DesignScript.Geometry.Circle;
 
 namespace OpenMEPSandbox.Geometry;
 
@@ -660,5 +661,132 @@ public class Point
 
         return lines;
     }
+
+    /// <summary>
+    /// Generates a given number of random points within a sphere of the given radius.
+    /// </summary>
+    /// <param name="radius">The radius of the sphere.</param>
+    /// <param name="numPoints">The number of random points to generate.</param>
+    /// <returns>A list of randomly generated points within the sphere.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsInSphere.png)
+    /// </example>
+    public static List<Autodesk.DesignScript.Geometry.Point> GenerateRandomPointsInSphere(double radius, int numPoints)
+    {
+        List<Autodesk.DesignScript.Geometry.Point> points = new List<Autodesk.DesignScript.Geometry.Point>();
+
+        for (int i = 0; i < numPoints; i++)
+        {
+            // Generate random coordinates within a unit sphere
+            double u = RandomNumber(-1.0, 1.0);
+            double v = RandomNumber(-1.0, 1.0);
+            double w = RandomNumber(-1.0, 1.0);
+
+            double x = Math.Sqrt(1 - Math.Pow(w, 2)) * Math.Sin(2 * Math.PI * u);
+            double y = Math.Sqrt(1 - Math.Pow(w, 2)) * Math.Cos(2 * Math.PI * u);
+            double z = w;
+
+            x *= radius;
+            y *= radius;
+            z *= radius;
+
+            points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z));
+        }
+        return points;
+    }
+    /// <summary>
+    /// Generates a given number of random points within a rectangular prism (i.e., a cube with different dimensions) of the given size.
+    /// </summary>
+    /// <param name="width">The width of the rectangular prism (i.e., the length of the x-axis).</param>
+    /// <param name="height">The height of the rectangular prism (i.e., the length of the y-axis).</param>
+    /// <param name="length">The length of the rectangular prism (i.e., the length of the z-axis).</param>
+    /// <param name="numPoints">The number of random points to generate.</param>
+    /// <returns>A list of randomly generated points within the rectangular prism.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsInCube.png)
+    /// </example>
+    public static List<Autodesk.DesignScript.Geometry.Point> GenerateRandomPointsInCube(double width, double height, double length, int numPoints)
+    {
+        List<Autodesk.DesignScript.Geometry.Point> points = new List<Autodesk.DesignScript.Geometry.Point>();
+
+        for (int i = 0; i < numPoints; i++)
+        {
+            double x = RandomNumber(-width / 2, width / 2);
+            double y = RandomNumber(-height / 2, height / 2);
+            double z = RandomNumber(-length / 2, length / 2);
+
+            points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z));
+        }
+        return points;
+    }
     
+    /// <summary>
+    /// Generates an array of random 3D points on the circumference of a specified circle.
+    /// </summary>
+    /// <param name="circle">The circle to generate points on the circumference of.</param>
+    /// <param name="numPoints">The number of random points to generate.</param>
+    /// <returns>An array of Point3d objects representing the generated random points.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsOnCircle.png)
+    /// </example>
+    public static List<Autodesk.DesignScript.Geometry.Point> GenerateRandomPointsOnCircle(Circle circle,double numPoints)
+    {
+        List<Autodesk.DesignScript.Geometry.Point> points = new List<Autodesk.DesignScript.Geometry.Point>();
+
+        // Generate random points on the circle
+        Random random = new Random();
+        for (int i = 0; i < numPoints; i++)
+        {
+            double theta = random.NextDouble() * 2 * Math.PI;
+            var n = circle.Normal;
+            var radius = circle.Radius;
+            var center = circle.CenterPoint;
+            var u = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0,-n.Z,n.Y);
+            var v = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(Math.Pow(n.Y,2)+Math.Pow(n.Z,2), -n.X*n.Y,-n.X*n.Z);
+            var x = center.X+ radius* v.X* Math.Cos(theta) + radius* u.X* Math.Sin(theta);
+            var y = center.Y+ radius* v.Y* Math.Cos(theta) + radius* u.Y* Math.Sin(theta);
+            var z = center.Z+ radius* v.Z* Math.Cos(theta) + radius* u.Z* Math.Sin(theta);
+            points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z));
+        }
+        return points;
+    }
+    
+    /// <summary>
+    /// Generates an array of random 3D points inside a specified circle.
+    /// </summary>
+    /// <param name="circle">The circle to generate points inside of.</param>
+    /// <param name="numPoints">The number of random points to generate.</param>
+    /// <returns>An array of Point3d objects representing the generated random points.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointInCircle.png)
+    /// </example>
+    public static Autodesk.DesignScript.Geometry.Point[] GenerateRandomPointInCircle(Circle circle, int numPoints)
+    {
+        Random random = new Random();
+        Autodesk.DesignScript.Geometry.Point[] points = new Autodesk.DesignScript.Geometry.Point[numPoints];
+
+        for (int i = 0; i < numPoints; i++)
+        {
+            double radius = circle.Radius * Math.Sqrt(random.NextDouble()); // random radius between 0 and circle radius
+            double angle = 2 * Math.PI * random.NextDouble(); // random angle between 0 and 2π radians
+
+            double x = circle.CenterPoint.X + radius * Math.Cos(angle); // x-coordinate of the point
+            double y = circle.CenterPoint.Y + radius * Math.Sin(angle); // y-coordinate of the point
+
+            // calculate the z-coordinate of the point by generating a random value between -1 and 1
+            // and scaling it by the distance from the circle's center to the point in the x-y plane
+            double z = circle.CenterPoint.Z + 2 * (random.NextDouble() - 0.5) * Math.Sqrt(circle.Radius * circle.Radius - radius * radius);
+            Autodesk.DesignScript.Geometry.Point coordinates = Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
+            Autodesk.DesignScript.Geometry.Point point = ProjectOntoPlane(coordinates, Autodesk.DesignScript.Geometry.Plane.ByOriginNormal(circle.CenterPoint, circle.Normal));
+            points[i] = point;
+        }
+
+        return points;
+    }
+    private static Random random = new Random();
+    private static double RandomNumber(double min, double max)
+    {
+        
+        return random.NextDouble() * (max - min) + min;
+    }
 }
