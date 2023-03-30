@@ -457,6 +457,7 @@ public class Point
             double z = double.Parse(match.Groups["z"].Value);
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
         }
+
         // pattern to match format: Point(X = 0.000, Y = 0.000)
         pattern = @"Point\(X = (?<x>.*), Y = (?<y>.*)\)";
         match = Regex.Match(str, pattern);
@@ -466,6 +467,7 @@ public class Point
             double y = double.Parse(match.Groups["y"].Value);
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
         }
+
         // pattern to match format: (X = 0.000, Y = 0.000, Z = 0.000)
         pattern = @"\((X = (?<x>.*), Y = (?<y>.*), Z = (?<z>.*))\)";
         match = Regex.Match(str, pattern);
@@ -476,6 +478,7 @@ public class Point
             double z = double.Parse(match.Groups["z"].Value);
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
         }
+
         // pattern to match format: (X = 0.000, Y = 0.000)
         pattern = @"\((X = (?<x>.*), Y = (?<y>.*))\)";
         match = Regex.Match(str, pattern);
@@ -485,6 +488,7 @@ public class Point
             double y = double.Parse(match.Groups["y"].Value);
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
         }
+
         // pattern to match format: X = 0.000, Y = 0.000, Z = 0.000
         pattern = @"^X\s=\s\d+\.\d+,\sY\s=\s\d+\.\d+,\sZ\s=\s\d+\.\d+$";
         match = Regex.Match(str, pattern);
@@ -496,6 +500,7 @@ public class Point
             double z = double.Parse(split[2].Split('=')[1].Trim());
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
         }
+
         // pattern to match format: X = 0.000, Y = 0.000
         pattern = @"^X\s=\s\d+\.\d+,\sY\s=\s\d+\.\d+$";
         match = Regex.Match(str, pattern);
@@ -506,6 +511,7 @@ public class Point
             double y = double.Parse(split[1].Split('=')[1].Trim());
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
         }
+
         // pattern to match format: (5.5,4.5,6.8)
         pattern = @"\((?<x>.*),(?<y>.*),(?<z>.*)\)";
         match = Regex.Match(str, pattern);
@@ -516,6 +522,7 @@ public class Point
             double z = double.Parse(match.Groups["z"].Value);
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
         }
+
         // pattern to match format: (5.5,4.5)
         pattern = @"\((?<x>.*),(?<y>.*)\)";
         match = Regex.Match(str, pattern);
@@ -567,6 +574,7 @@ public class Point
             double y = double.Parse(match.Groups["y"].Value);
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
         }
+
         // pattern to match format: (0-9-1)
         pattern = @"^\(\d-\d-\d\)$|^\(\d{1,2}-\d{1,2}-\d{1,2}\)$";
         match = Regex.Match(str, pattern);
@@ -578,6 +586,7 @@ public class Point
             double z = double.Parse(xyz[2].Substring(0, xyz[2].Length - 1));
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
         }
+
         // pattern to match format: (0-9)
         pattern = @"^\(\d-\d\)$|^\(\d{1,2}-\d{1,2}\)$";
         match = Regex.Match(str, pattern);
@@ -588,6 +597,7 @@ public class Point
             double y = double.Parse(xyz[1].Substring(0, xyz[1].Length - 1));
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
         }
+
         // pattern to match format: (0.5-9.5-1.8)
         pattern = @"^\(\d+(\.\d+)?-\d+(\.\d+)?-\d+(\.\d+)?\)$";
         match = Regex.Match(str, pattern);
@@ -599,6 +609,7 @@ public class Point
             double z = double.Parse(xyz[2].Substring(0, xyz[2].Length - 1));
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
         }
+
         // pattern to match format: (0.5-9.5)
         pattern = @"^\(\d+(\.\d+)?-\d+(\.\d+)?\)$";
         match = Regex.Match(str, pattern);
@@ -609,7 +620,30 @@ public class Point
             double y = double.Parse(xyz[1].Substring(0, xyz[1].Length - 1));
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
         }
-        
+
         return null;
+    }
+
+    /// <summary>
+    /// takes a list of 3D points as input and returns the shortest route that visits each point exactly once'
+    /// https://en.wikipedia.org/wiki/Travelling_salesman_problem
+    /// </summary>
+    /// <param name="points">the list 3d points</param>
+    /// <returns name="lines"> shortest route</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.FindShortestRoute.gif)
+    /// </example>
+    public static List<Autodesk.DesignScript.Geometry.Line> FindShortestRoute(List<Autodesk.DesignScript.Geometry.Point> points)
+    {
+        List<Autodesk.DesignScript.Geometry.Point> shortestRoute = TravellingSalesman.FindShortestRoute(points);
+        // connect line 
+        List<Autodesk.DesignScript.Geometry.Line> lines = new List<Autodesk.DesignScript.Geometry.Line>();
+        for (int i = 0; i < shortestRoute.Count - 1; i++)
+        {
+            Autodesk.DesignScript.Geometry.Line line =
+                Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(shortestRoute[i], shortestRoute[i + 1]);
+            lines.Add(line);
+        }
+        return lines;
     }
 }
