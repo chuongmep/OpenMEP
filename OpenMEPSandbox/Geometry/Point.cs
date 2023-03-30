@@ -533,6 +533,18 @@ public class Point
             return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
         }
 
+        //pattern to match format: (5.5,4.5) after that is character or string
+        pattern = @"^\(\d+(\.\d+)?,\d+(\.\d+)?\)+$ (?:\s+\S+)";
+        match = Regex.Match(str, pattern);
+        if (match.Success)
+        {
+            string[] split = str.Split(' ');
+            double x = double.Parse(split[0].Split(',')[0].Trim('(', ')'));
+            double y = double.Parse(split[0].Split(',')[1].Trim('(', ')'));
+            return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y);
+        }
+
+
         // pattern to match format: [5.5,4.5,6.8]
         pattern = @"\[(?<x>.*),(?<y>.*),(?<z>.*)\]";
         match = Regex.Match(str, pattern);
@@ -633,7 +645,8 @@ public class Point
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Point.FindShortestRoute.gif)
     /// </example>
-    public static List<Autodesk.DesignScript.Geometry.Line> FindShortestRoute(List<Autodesk.DesignScript.Geometry.Point> points)
+    public static List<Autodesk.DesignScript.Geometry.Line> FindShortestRoute(
+        List<Autodesk.DesignScript.Geometry.Point> points)
     {
         List<Autodesk.DesignScript.Geometry.Point> shortestRoute = TravellingSalesman.FindShortestRoute(points);
         // connect line 
@@ -644,6 +657,8 @@ public class Point
                 Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(shortestRoute[i], shortestRoute[i + 1]);
             lines.Add(line);
         }
+
         return lines;
     }
+    
 }
