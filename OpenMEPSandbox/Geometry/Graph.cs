@@ -10,8 +10,7 @@ public class Graph
         
     }
 
-    /// <summary>
-    /// Creates a new `BellmanFord` instance with edges defined by the given source, target, and weight lists, and returns the instance.
+    /// <summary>ges defined by the given source, target, and weight lists, and returns the instance.
     /// The `v` and `e` parameters specify the number of vertices and edges in the graph, respectively.
     /// The `source`, `target`, and `weight` lists define the source, destination, and weight of each edge, respectively.
     /// </summary>
@@ -20,6 +19,7 @@ public class Graph
     /// <param name="weights">A list of weights for each edge.</param>
     /// <returns>A new `BellmanFord` instance with the specified edges.</returns>
     /// <example>
+    /// Creates a new `BellmanFord` instance with ed
     /// ![](../OpenMEPPage/geometry/dyn/pic/Graph.AddEdge.png)
     /// </example>
     public static BellmanFord AddEdge(List<double> sources, List<double> destinations, List<double> weights)
@@ -32,14 +32,6 @@ public class Graph
         var vertex = uniqueSources.Union(uniqueTargets).Count();
         var edge = sources.Count;
         BellmanFord bf = new BellmanFord(vertex, edge);
-        //greatest common divisor of sources and targets
-        var gcd = GCD(sources, destinations);
-        // new sources and targets
-        for (int i = 0; i < edge; i++)
-        {
-            sources[i] = sources[i] / gcd;
-            destinations[i] = destinations[i] / gcd;
-        }
         // add edge
         for (int i = 0; i < edge; i++)
         {
@@ -47,24 +39,6 @@ public class Graph
         }
         return bf;
     }
-    private static double GCD(List<double> sources, List<double> destinations)
-    {
-        // greatest common divisor of sources and targets
-        double gcd = 1;
-        for (int i = 0; i < sources.Count; i++)
-        {
-            gcd = GCD(sources[i], destinations[i]);
-        }
-        return gcd;
-    }
-    private static double GCD(double a, double b)
-    {
-        // greatest common divisor of sources and targets
-        if (a == 0)
-            return b;
-        return GCD(b % a, a);
-    }
-
     /// <summary>
     /// Get shortest path and distance from start node to end node By Bellman-Ford algorithm
     /// </summary>
