@@ -10,5 +10,8 @@
     <namespace name="OpenMEPSandbox.Display">
       <category>OpenMEP.Display</category>
     </namespace>
+    <namespace name="OpenMEPSandbox.List">
+      <category>OpenMEP.List</category>
+    </namespace>
   </namespaces>
 </doc>
