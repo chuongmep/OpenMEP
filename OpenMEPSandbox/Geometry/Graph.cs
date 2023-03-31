@@ -82,7 +82,7 @@ public class Graph
     {
        
         // check start node and end node is integer
-        if (Math.Abs(startNode - Math.Floor(startNode)) > 0.001 || Math.Abs(endNode - Math.Floor(endNode)) > 0.001)
+        if (System.Math.Abs(startNode - System.Math.Floor(startNode)) > 0.001 || System.Math.Abs(endNode - System.Math.Floor(endNode)) > 0.001)
         {
             throw new Exception("Start node and end node must be integer");
         }
