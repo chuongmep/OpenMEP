@@ -26,7 +26,7 @@ public static class HungarianAlgorithm
 
             for (var j = 0; j < w; j++)
             {
-                min = Math.Min(min, costs[i, j]);
+                min = System.Math.Min(min, costs[i, j]);
             }
             for (var j = 0; j < w; j++)
             {
@@ -268,7 +268,7 @@ public static class HungarianAlgorithm
             for (var j = 0; j < w; j++)
             {
                 if (!rowsCovered[i] && !colsCovered[j])
-                    minValue = Math.Min(minValue, costs[i, j]);
+                    minValue = System.Math.Min(minValue, costs[i, j]);
             }
         }
 

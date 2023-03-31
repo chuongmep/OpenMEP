@@ -219,7 +219,7 @@ public class Point
                 lcDevices[index].Z);
             if (distance <= min)
             {
-                if (Math.Abs(limit - double.MaxValue) < 0.001) continue;
+                if (System.Math.Abs(limit - double.MaxValue) < 0.001) continue;
 
                 min = distance;
                 result = lcDevices[index];
@@ -240,7 +240,7 @@ public class Point
 
     internal static double Manhattan(double x1, double x2, double y1, double y2, double z1, double z2)
     {
-        return Math.Abs(x1 - x2) + Math.Abs(y1 - y2) + Math.Abs(z1 - z2);
+        return System.Math.Abs(x1 - x2) + System.Math.Abs(y1 - y2) + System.Math.Abs(z1 - z2);
     }
 
     /// <summary>
@@ -250,7 +250,7 @@ public class Point
     /// <returns name="double">manhattan distance between two point</returns>
     public static double Manhattan(Autodesk.DesignScript.Geometry.Point p1, Autodesk.DesignScript.Geometry.Point p2)
     {
-        return Math.Abs(p1.X - p2.X) + Math.Abs(p1.Y - p2.Y) + Math.Abs(p1.Z - p2.Z);
+        return System.Math.Abs(p1.X - p2.X) + System.Math.Abs(p1.Y - p2.Y) + System.Math.Abs(p1.Z - p2.Z);
     }
 
     /// <summary>
@@ -277,7 +277,7 @@ public class Point
     /// <returns></returns>
     internal static double Euclidean(double x1, double x2, double y1, double y2, double z1, double z2)
     {
-        return Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1 - z2, 2));
+        return System.Math.Sqrt(System.Math.Pow(x1 - x2, 2) + System.Math.Pow(y1 - y2, 2) + System.Math.Pow(z1 - z2, 2));
     }
 
     /// <summary>
@@ -682,8 +682,8 @@ public class Point
             double v = RandomNumber(-1.0, 1.0);
             double w = RandomNumber(-1.0, 1.0);
 
-            double x = Math.Sqrt(1 - Math.Pow(w, 2)) * Math.Sin(2 * Math.PI * u);
-            double y = Math.Sqrt(1 - Math.Pow(w, 2)) * Math.Cos(2 * Math.PI * u);
+            double x = System.Math.Sqrt(1 - System.Math.Pow(w, 2)) * System.Math.Sin(2 * System.Math.PI * u);
+            double y = System.Math.Sqrt(1 - System.Math.Pow(w, 2)) * System.Math.Cos(2 * System.Math.PI * u);
             double z = w;
 
             x *= radius;
@@ -737,15 +737,15 @@ public class Point
         Random random = new Random();
         for (int i = 0; i < numPoints; i++)
         {
-            double theta = random.NextDouble() * 2 * Math.PI;
+            double theta = random.NextDouble() * 2 * System.Math.PI;
             var n = circle.Normal;
             var radius = circle.Radius;
             var center = circle.CenterPoint;
             var u = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0,-n.Z,n.Y);
-            var v = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(Math.Pow(n.Y,2)+Math.Pow(n.Z,2), -n.X*n.Y,-n.X*n.Z);
-            var x = center.X+ radius* v.X* Math.Cos(theta) + radius* u.X* Math.Sin(theta);
-            var y = center.Y+ radius* v.Y* Math.Cos(theta) + radius* u.Y* Math.Sin(theta);
-            var z = center.Z+ radius* v.Z* Math.Cos(theta) + radius* u.Z* Math.Sin(theta);
+            var v = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(System.Math.Pow(n.Y,2)+System.Math.Pow(n.Z,2), -n.X*n.Y,-n.X*n.Z);
+            var x = center.X+ radius* v.X* System.Math.Cos(theta) + radius* u.X* System.Math.Sin(theta);
+            var y = center.Y+ radius* v.Y* System.Math.Cos(theta) + radius* u.Y* System.Math.Sin(theta);
+            var z = center.Z+ radius* v.Z* System.Math.Cos(theta) + radius* u.Z* System.Math.Sin(theta);
             points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z));
         }
         return points;
@@ -767,15 +767,15 @@ public class Point
 
         for (int i = 0; i < numPoints; i++)
         {
-            double radius = circle.Radius * Math.Sqrt(random.NextDouble()); // random radius between 0 and circle radius
-            double angle = 2 * Math.PI * random.NextDouble(); // random angle between 0 and 2π radians
+            double radius = circle.Radius * System.Math.Sqrt(random.NextDouble()); // random radius between 0 and circle radius
+            double angle = 2 * System.Math.PI * random.NextDouble(); // random angle between 0 and 2π radians
 
-            double x = circle.CenterPoint.X + radius * Math.Cos(angle); // x-coordinate of the point
-            double y = circle.CenterPoint.Y + radius * Math.Sin(angle); // y-coordinate of the point
+            double x = circle.CenterPoint.X + radius * System.Math.Cos(angle); // x-coordinate of the point
+            double y = circle.CenterPoint.Y + radius * System.Math.Sin(angle); // y-coordinate of the point
 
             // calculate the z-coordinate of the point by generating a random value between -1 and 1
             // and scaling it by the distance from the circle's center to the point in the x-y plane
-            double z = circle.CenterPoint.Z + 2 * (random.NextDouble() - 0.5) * Math.Sqrt(circle.Radius * circle.Radius - radius * radius);
+            double z = circle.CenterPoint.Z + 2 * (random.NextDouble() - 0.5) * System.Math.Sqrt(circle.Radius * circle.Radius - radius * radius);
             Autodesk.DesignScript.Geometry.Point coordinates = Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
             Autodesk.DesignScript.Geometry.Point point = ProjectOntoPlane(coordinates, Autodesk.DesignScript.Geometry.Plane.ByOriginNormal(circle.CenterPoint, circle.Normal));
             points[i] = point;

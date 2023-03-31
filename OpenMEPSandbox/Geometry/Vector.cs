@@ -99,11 +99,11 @@ public class Vector
     /// <returns name="double">value compare between two vector</returns>
     public static double CompareTo(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2,double tolerance = 0.001)
     {
-        if (Math.Abs(v1.X - v2.X) > tolerance)
+        if (System.Math.Abs(v1.X - v2.X) > tolerance)
             return v1.X < v2.X ? -1 : 1;
-        if (Math.Abs(v1.Y - v2.Y) > tolerance)
+        if (System.Math.Abs(v1.Y - v2.Y) > tolerance)
             return v1.Y < v2.Y ? -1 : 1;
-        if (Math.Abs(v1.Z - v2.Z) > tolerance)
+        if (System.Math.Abs(v1.Z - v2.Z) > tolerance)
             return v1.Z < v2.Z ? -1 : 1;
         return 0;
     }

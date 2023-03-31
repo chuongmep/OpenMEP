@@ -1,4 +1,5 @@
 ﻿using Autodesk.DesignScript.Runtime;
+using OpenMEPSandbox.Math;
 
 namespace OpenMEPSandbox.List;
 
@@ -147,30 +148,8 @@ public class Generate
             oneHotEncoded[i][labelIndex] = 1;
         }
         // Return the one-hot encoded vectors
-        return Transpose(oneHotEncoded);
+        return Matrix.Transpose(oneHotEncoded);
     }
     
-    /// <summary>
-    /// Transposes a 2D array of integers.
-    /// </summary>
-    /// <param name="matrix">The 2D array of integers to be transposed.</param>
-    /// <returns>The transposed 2D array of integers.</returns>
-
-    private static int[][] Transpose(int[][] matrix)
-    {
-        int numRows = matrix.Length;
-        int numCols = matrix[0].Length;
-
-        int[][] transposed = new int[numCols][];
-        for (int i = 0; i < numCols; i++)
-        {
-            transposed[i] = new int[numRows];
-            for (int j = 0; j < numRows; j++)
-            {
-                transposed[i][j] = matrix[j][i];
-            }
-        }
-
-        return transposed;
-    }
+    
 }

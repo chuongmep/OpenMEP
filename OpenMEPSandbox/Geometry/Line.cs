@@ -40,8 +40,8 @@ public class Line
                 Autodesk.DesignScript.Geometry.Vector.ZAxis());
         var project = topPoint.ToGSharkType().ProjectToPlan(plane.ToGSharkType()).ToDynamoType();
         double slope = topPoint.DistanceTo(project) / bottomPoint.DistanceTo(project);
-        double per = Math.Round(slope * 100, (int) digits);
-        double deg = Math.Round(Math.Atan(slope) * 180 / Math.PI, (int) digits);
+        double per = System.Math.Round(slope * 100, (int) digits);
+        double deg = System.Math.Round(System.Math.Atan(slope) * 180 / System.Math.PI, (int) digits);
         return new Dictionary<string, object?>()
         {
             {"Percent", per},
@@ -62,7 +62,7 @@ public class Line
     {
         Autodesk.DesignScript.Geometry.Point startPoint = line.StartPoint;
         Autodesk.DesignScript.Geometry.Point endPoint = line.EndPoint;
-        if(Math.Abs(startPoint.Z - endPoint.Z) < 0.001) throw new ArgumentException("The line is horizontal");
+        if(System.Math.Abs(startPoint.Z - endPoint.Z) < 0.001) throw new ArgumentException("The line is horizontal");
         if (startPoint.Z > endPoint.Z) return startPoint;
         return endPoint;
     }
@@ -78,7 +78,7 @@ public class Line
     {
         Autodesk.DesignScript.Geometry.Point startPoint = line.StartPoint;
         Autodesk.DesignScript.Geometry.Point endPoint = line.EndPoint;
-        if (Math.Abs(startPoint.Z - endPoint.Z) < 0.001) throw new ArgumentException("The line is horizontal");
+        if (System.Math.Abs(startPoint.Z - endPoint.Z) < 0.001) throw new ArgumentException("The line is horizontal");
         if (startPoint.Z < endPoint.Z) return startPoint;
         return endPoint;
     }
