@@ -1,0 +1,264 @@
+{
+  "Uuid": "994196c0-0829-405f-b76a-a783a13ab86b",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Graph.GetDistancesPathFromNode",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[0,0,1,1,1,2,3,3];\n[1,3,2,3,4,1,2,4];\n[6,7,5,8,-4,-2,-3,9];\nstartNode =0;",
+      "Id": "168af5f737c140598ca51a911748a3fe",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9dd574ad0a4446fbbc58f8801ba7180e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1a4f87962502466fa738507ccb4fbe23",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2154a3dcd28b4b36ac7abe8fdd5b444a",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b54212d6671b4db78a49c469426ca36c",
+          "Name": "",
+          "Description": "startNode",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 0,
+      "MaximumValue": 4,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "feda19d7f8d5445ea33e7ce032702988",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces integer values"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Graph.GetDistancesPathFromNode@double,double[],double[],double[]",
+      "Id": "fdeb8c0513e84ce296a2e71c82d46367",
+      "Inputs": [
+        {
+          "Id": "bc287c524a624a0bb77362335dc1272a",
+          "Name": "from",
+          "Description": "value of node want start check\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "eb8fc0a7ef0e40d3a0f2a395395a8a95",
+          "Name": "sources",
+          "Description": "A list of source vertices for each edge.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5c5a3342087740118ba68638c49bdb59",
+          "Name": "destinations",
+          "Description": "A list of target vertices for each edge.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5595fea4f47041bd85252679b3472720",
+          "Name": "weights",
+          "Description": "A list of weights for each edge.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bac6a0d1845743cca0c3bfd8cd3ff574",
+          "Name": "path",
+          "Description": "An array of tuples, where each tuple contains the distance and path from a source vertex to every other vertex in the graph. If there is no path from a source to a destination vertex, or if there is a negative weight cycle in the graph, the distance for that tuple will be `double.MaxValue` and the path will be an empty array.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d27fabedba764d80880948841efa087f",
+          "Name": "distance",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Finds the shortest path from each source vertex to every other vertex in the graph using the Bellman-Ford algorithm, and returns an array of tuples containing the distance and path to each vertex. The `v` and `e` parameters specify the number of vertices and edges in the graph, respectively. The `sources`, `targets`, and `weights` lists define the source, destination, and weight of each edge, respectively.\n\nGraph.GetDistancesPathFromNode (from: double, sources: double[], destinations: double[], weights: double[]): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9dd574ad0a4446fbbc58f8801ba7180e",
+      "End": "eb8fc0a7ef0e40d3a0f2a395395a8a95",
+      "Id": "591eb8e9b833404290d0c4c781007896",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1a4f87962502466fa738507ccb4fbe23",
+      "End": "5c5a3342087740118ba68638c49bdb59",
+      "Id": "0588fb05c011420a9b9a1d1060e9442f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2154a3dcd28b4b36ac7abe8fdd5b444a",
+      "End": "5595fea4f47041bd85252679b3472720",
+      "Id": "bf6012dc060a4a8cb42e22450ec99e2f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "feda19d7f8d5445ea33e7ce032702988",
+      "End": "bc287c524a624a0bb77362335dc1272a",
+      "Id": "c726a0fb9fd943b2a00b673840dff248",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "fdeb8c0513e84ce296a2e71c82d46367"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4541",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "168af5f737c140598ca51a911748a3fe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 43.369958983239,
+        "Y": 309.64068269100085
+      },
+      {
+        "Name": "FromNode",
+        "ShowGeometry": true,
+        "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -37.238444878149664,
+        "Y": 176.14482872143276
+      },
+      {
+        "Name": "Graph.GetDistancesPathFromNode",
+        "ShowGeometry": true,
+        "Id": "fdeb8c0513e84ce296a2e71c82d46367",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 448.45090130310649,
+        "Y": 241.15800695441249
+      }
+    ],
+    "Annotations": [],
+    "X": 241.70656058380621,
+    "Y": -44.332322944040868,
+    "Zoom": 1.1124170297730347
+  }
+}

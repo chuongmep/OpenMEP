@@ -87,7 +87,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
         <DynamoVersion>2.16</DynamoVersion>
-        <DynamoOutput>2.18</DynamoOutput>
+        <DynamoOutput>2.17</DynamoOutput>
         <RevitVersion>2023</RevitVersion>
         <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
