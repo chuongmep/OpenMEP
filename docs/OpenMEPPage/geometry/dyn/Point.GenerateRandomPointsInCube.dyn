@@ -1,5 +1,5 @@
 {
-  "Uuid": "241acd71-c556-4498-9ce9-1bb17b329712",
+  "Uuid": "4ab841dd-beeb-4004-9afc-79e32607cfb4",
   "IsCustomNode": false,
   "Description": "",
   "Name": "Point.GenerateRandomPointsInCube",
@@ -11,11 +11,11 @@
   "Nodes": [
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "770afdeac22f4f61aea8c0afdce50cae",
+      "Id": "be88d7d52994499fbbd6d03c4b3cad3b",
       "NodeType": "FunctionNode",
       "Inputs": [
         {
-          "Id": "abb422001c2d4f4592f096bd1e58fb58",
+          "Id": "6ad22711909642cd8725ec46c273580c",
           "Name": "width",
           "Description": "The width of the rectangular prism (i.e., the length of the x-axis).\n\ndouble",
           "UsingDefaultValue": false,
@@ -24,7 +24,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "3f67d5d060f7492aa44311dcf81d2f98",
+          "Id": "da11d01b12114bf29a12c7fdbab4c73f",
           "Name": "height",
           "Description": "The height of the rectangular prism (i.e., the length of the y-axis).\n\ndouble",
           "UsingDefaultValue": false,
@@ -33,7 +33,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "91284fbaced2405089eb74222e21c9e4",
+          "Id": "fec0783f94114830b103b17016a07a66",
           "Name": "length",
           "Description": "The length of the rectangular prism (i.e., the length of the z-axis).\n\ndouble",
           "UsingDefaultValue": false,
@@ -42,7 +42,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "c532673b443b495294e2e22e36826030",
+          "Id": "8bb7db7ddaa7436a9995fd934ba9860d",
           "Name": "numPoints",
           "Description": "The number of random points to generate.\n\nint",
           "UsingDefaultValue": false,
@@ -53,7 +53,7 @@
       ],
       "Outputs": [
         {
-          "Id": "577f6f94a5cf4aa28083a84e2f8f0639",
+          "Id": "5ad3f2d9d9554eebbacdc1c5e9215699",
           "Name": "Point[]",
           "Description": "A list of randomly generated points within the rectangular prism.",
           "UsingDefaultValue": false,
@@ -68,12 +68,12 @@
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "Id": "c3bfe6cee79c4fb8ae17221117bfc9c4",
+      "Id": "900842f11a0146abb357a01b52bfb11d",
       "NodeType": "CodeBlockNode",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "55f39154be564964b374e7816d3d48aa",
+          "Id": "bce1a9284ee2484595a3c758e040df03",
           "Name": "",
           "Description": "Value of expression at line 1",
           "UsingDefaultValue": false,
@@ -89,15 +89,15 @@
     {
       "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
       "NumberType": "Integer",
-      "MaximumValue": 1000,
+      "MaximumValue": 2000,
       "MinimumValue": 0,
       "StepValue": 50,
-      "Id": "f72f29636ed3432c8b420371efd2e1eb",
+      "Id": "64ef98338e114297be6b9dbe6bb814d4",
       "NodeType": "NumberInputNode",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "eecc42f4a8b14a6187268fbfadd3b150",
+          "Id": "b2787545845e47acb904721e67d4a9ee",
           "Name": "",
           "Description": "Int64",
           "UsingDefaultValue": false,
@@ -108,32 +108,32 @@
       ],
       "Replication": "Disabled",
       "Description": "Produces integer values",
-      "InputValue": 650
+      "InputValue": 1950
     }
   ],
   "Connectors": [
     {
-      "Start": "55f39154be564964b374e7816d3d48aa",
-      "End": "abb422001c2d4f4592f096bd1e58fb58",
-      "Id": "3fe45f7fa06d4300b14320048e751adb",
+      "Start": "bce1a9284ee2484595a3c758e040df03",
+      "End": "6ad22711909642cd8725ec46c273580c",
+      "Id": "29fc804242c24ee48f45e842ec40d3f5",
       "IsHidden": "False"
     },
     {
-      "Start": "55f39154be564964b374e7816d3d48aa",
-      "End": "3f67d5d060f7492aa44311dcf81d2f98",
-      "Id": "f02d0b583e9e42afae05314aa7035ba5",
+      "Start": "bce1a9284ee2484595a3c758e040df03",
+      "End": "da11d01b12114bf29a12c7fdbab4c73f",
+      "Id": "0be6962ccfc740629871d56b5dbd8d43",
       "IsHidden": "False"
     },
     {
-      "Start": "55f39154be564964b374e7816d3d48aa",
-      "End": "91284fbaced2405089eb74222e21c9e4",
-      "Id": "9df7a8910d7a41b89b8f69db941bb956",
+      "Start": "bce1a9284ee2484595a3c758e040df03",
+      "End": "fec0783f94114830b103b17016a07a66",
+      "Id": "d614cfe2cf674daab543dc427ab255cb",
       "IsHidden": "False"
     },
     {
-      "Start": "eecc42f4a8b14a6187268fbfadd3b150",
-      "End": "c532673b443b495294e2e22e36826030",
-      "Id": "0576f3a69ef144e4a38d0c128e36a6ce",
+      "Start": "b2787545845e47acb904721e67d4a9ee",
+      "End": "8bb7db7ddaa7436a9995fd934ba9860d",
+      "Id": "4c7ee6977199448db36fcbbb4c63bc14",
       "IsHidden": "False"
     }
   ],
@@ -144,7 +144,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "770afdeac22f4f61aea8c0afdce50cae"
+        "be88d7d52994499fbbd6d03c4b3cad3b"
       ]
     }
   ],
@@ -177,20 +177,20 @@
     },
     "Camera": {
       "Name": "_Background Preview",
-      "EyeX": -5.7909736633300781,
-      "EyeY": 15.692916870117188,
-      "EyeZ": 27.447649002075195,
-      "LookX": 6.1088504791259766,
-      "LookY": -17.598934173583984,
-      "LookZ": -34.331729888916016,
-      "UpX": 0.043566551059484482,
-      "UpY": 0.968583345413208,
-      "UpZ": -0.244843527674675
+      "EyeX": -1.9575154706835747,
+      "EyeY": 21.007598876953125,
+      "EyeZ": -0.64863312244415283,
+      "LookX": -0.036813974380493164,
+      "LookY": -22.527456283569336,
+      "LookZ": -0.777707576751709,
+      "UpX": 0.046516202390193939,
+      "UpY": 0.18051965534687042,
+      "UpZ": 0.98247087001800537
     },
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Id": "770afdeac22f4f61aea8c0afdce50cae",
+        "Id": "be88d7d52994499fbbd6d03c4b3cad3b",
         "Name": "Point.GenerateRandomPointsInCube",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -200,17 +200,17 @@
         "Y": 200.8
       },
       {
-        "Id": "c3bfe6cee79c4fb8ae17221117bfc9c4",
+        "Id": "900842f11a0146abb357a01b52bfb11d",
         "Name": "Code Block",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 409.6,
-        "Y": 229.20000000000005
+        "X": 354.256578207437,
+        "Y": 205.72097257285211
       },
       {
-        "Id": "f72f29636ed3432c8b420371efd2e1eb",
+        "Id": "64ef98338e114297be6b9dbe6bb814d4",
         "Name": "Integer Slider",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
@@ -221,8 +221,8 @@
       }
     ],
     "Annotations": [],
-    "X": 11.738073408589457,
-    "Y": -71.07149488459396,
-    "Zoom": 0.9540429248828125
+    "X": -83.129123574606609,
+    "Y": -21.721888146098365,
+    "Zoom": 0.91006380393143882
   }
 }
