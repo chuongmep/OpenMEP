@@ -1,0 +1,182 @@
+{
+  "Uuid": "60e746e8-016f-4816-ab1d-ae72d6e34e53",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Generate.UniqueValuesIndexList",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.UniqueValuesIndexList@double[],double[]",
+      "Id": "969e7a71f0d0431cb24623596a0d9d5e",
+      "Inputs": [
+        {
+          "Id": "b8a10ea0279844dab2e490587823e532",
+          "Name": "list1",
+          "Description": "The first list of doubles.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cc0d53aa0fa44d6ea3b525c3e6fe6b4a",
+          "Name": "list2",
+          "Description": "The second list of doubles.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "98f4755d3a544411b2ec17f371b2c740",
+          "Name": "value",
+          "Description": "A dictionary with unique values and indices.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "faee59344f534d95abf57bb497ea4146",
+          "Name": "index",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes two lists of doubles as input and returns a dictionary with unique values and indices.\n\nGenerate.UniqueValuesIndexList (list1: double[], list2: double[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[100,200,300,200];\n[400,300,200,100];",
+      "Id": "d2a389e7b7b64e55a36e5368127c52e4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "dca802009f274bcebe48542e44897319",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3eebf50ca25b418096a5e51f3bede764",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "dca802009f274bcebe48542e44897319",
+      "End": "b8a10ea0279844dab2e490587823e532",
+      "Id": "3b1a3f0b62664b92b33999ae8818452a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3eebf50ca25b418096a5e51f3bede764",
+      "End": "cc0d53aa0fa44d6ea3b525c3e6fe6b4a",
+      "Id": "68d97b14e3a2480090d7fb8e816501bd",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "969e7a71f0d0431cb24623596a0d9d5e"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Generate.UniqueValuesIndexList",
+        "ShowGeometry": true,
+        "Id": "969e7a71f0d0431cb24623596a0d9d5e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 416.77647578774827,
+        "Y": 12.956760089015319
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "d2a389e7b7b64e55a36e5368127c52e4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 141.38567594826316,
+        "Y": 20.395762040402957
+      }
+    ],
+    "Annotations": [],
+    "X": -176.19802553957123,
+    "Y": 69.636644613825041,
+    "Zoom": 1.2852827688530049
+  }
+}
