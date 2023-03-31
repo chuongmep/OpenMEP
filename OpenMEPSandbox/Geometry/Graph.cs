@@ -9,20 +9,23 @@ public class Graph
     {
         
     }
-
-    /// <summary>ges defined by the given source, target, and weight lists, and returns the instance.
-    /// The `v` and `e` parameters specify the number of vertices and edges in the graph, respectively.
-    /// The `source`, `target`, and `weight` lists define the source, destination, and weight of each edge, respectively.
+    
+    /// <summary>
+    /// Get shortest path and distance from start node to end node By Bellman-Ford algorithm
     /// </summary>
     /// <param name="sources">A list of source vertices for each edge.</param>
     /// <param name="destinations">A list of destinations vertices for each edge.</param>
     /// <param name="weights">A list of weights for each edge.</param>
-    /// <returns>A new `BellmanFord` instance with the specified edges.</returns>
+    /// <param name="startNode">first location of node</param>
+    /// <param name="endNode">end location of node</param>
+    /// <returns name="shortestPath">the shortest path</returns>
+    /// <returns name="distance">the value distance shortest of path</returns>
+    /// <exception cref="Exception"></exception>
     /// <example>
-    /// Creates a new `BellmanFord` instance with ed
-    /// ![](../OpenMEPPage/geometry/dyn/pic/Graph.AddEdge.png)
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Graph.GetShortestPath.png)
     /// </example>
-    public static BellmanFord AddEdge(List<double> sources, List<double> destinations, List<double> weights)
+    [MultiReturn("shortestPath", "distance")]
+    public static Dictionary<string,object> GetShortestPath(double startNode, double endNode,List<double> sources, List<double> destinations, List<double> weights)
     {
         //Get unique number in sources
         var uniqueSources = sources.Distinct();
@@ -37,24 +40,6 @@ public class Graph
         {
             bf.AddEdge((int) sources[i], (int) destinations[i], (int) weights[i]);
         }
-        return bf;
-    }
-    /// <summary>
-    /// Get shortest path and distance from start node to end node By Bellman-Ford algorithm
-    /// </summary>
-    /// <param name="bellmanFord">a class define include edge,vertex added</param>
-    /// <param name="startNode">first location of node</param>
-    /// <param name="endNode">end location of node</param>
-    /// <returns name="shortestPath">the shortest path</returns>
-    /// <returns name="distance">the value distance shortest of path</returns>
-    /// <exception cref="Exception"></exception>
-    /// <example>
-    /// ![](../OpenMEPPage/geometry/dyn/pic/Graph.GetShortestPath.png)
-    /// </example>
-    [MultiReturn("shortestPath", "distance")]
-    public static Dictionary<string,object> GetShortestPath(BellmanFord bellmanFord, double startNode, double endNode)
-    {
-       
         // check start node and end node is integer
         if (System.Math.Abs(startNode - System.Math.Floor(startNode)) > 0.001 || System.Math.Abs(endNode - System.Math.Floor(endNode)) > 0.001)
         {
@@ -62,7 +47,7 @@ public class Graph
         }
         int start = (int) startNode;
         int end = (int) endNode;
-        (List<int>, int) shortestPath = bellmanFord.GetShortestPathAndDistance(start, end);
+        (List<int>, int) shortestPath = bf.GetShortestPathAndDistance(start, end);
         return new Dictionary<string, object>
         {
             {"shortestPath", shortestPath.Item1},
