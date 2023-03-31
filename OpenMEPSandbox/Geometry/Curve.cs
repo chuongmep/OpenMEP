@@ -158,4 +158,24 @@ public class Curve
         }
         return points;
     }
+    
+    /// <summary>
+    /// Converts a curve to a list of points based on the specified number of points.
+    /// </summary>
+    /// <param name="curve">The curve to convert to a list of points.</param>
+    /// <param name="numPoints">The number of points to generate on the curve.</param>
+    /// <returns>A list of Point3D objects representing the points on the curve.</returns>
+    public static List<Autodesk.DesignScript.Geometry.Point> ToPoints(Autodesk.DesignScript.Geometry.Curve curve, int numPoints)
+    {
+        var points = new List<Autodesk.DesignScript.Geometry.Point>();
+        double tInterval = 1.0 / (numPoints - 1);
+
+        for (int i = 0; i < numPoints; i++)
+        {
+            double t = tInterval * i;
+            Autodesk.DesignScript.Geometry.Point pt = curve.PointAtParameter(t);
+            points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(pt.X, pt.Y, pt.Z));
+        }
+        return points;
+    }
 }
