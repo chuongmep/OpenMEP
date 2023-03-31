@@ -73,6 +73,7 @@ public class Curve
             curves.Add(line);
             currentPosition += segmentLength;
         }
+
         return curves;
     }
 
@@ -100,6 +101,7 @@ public class Curve
             curves.Add(line);
             currentPosition += segmentLength;
         }
+
         if (currentPosition < totalLength)
         {
             var currentPoint = curve.PointAtParameter(curve.ParameterAtSegmentLength(currentPosition));
@@ -107,6 +109,53 @@ public class Curve
             var line = Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(currentPoint, endPoint);
             curves.Add(line);
         }
+
         return curves;
+    }
+
+    /// <summary>
+    /// Generates a Bézier curve segment based on four control points.
+    /// </summary>
+    /// <param name="start">The starting point of the segment.</param>
+    /// <param name="startHandler">The control point that determines the tangent of the curve at the starting point.</param>
+    /// <param name="endHandler">The control point that determines the tangent of the curve at the ending point.</param>
+    /// <param name="end">The ending point of the segment.</param>
+    /// <param name="numPoints">The number of points to generate on the curve.</param>
+    /// <returns>A list of Point3D objects representing the points on the Bézier curve segment.</returns>
+    public static List<Autodesk.DesignScript.Geometry.Point> BezierSegment(Autodesk.DesignScript.Geometry.Point start,
+        Autodesk.DesignScript.Geometry.Point startHandler, Autodesk.DesignScript.Geometry.Point endHandler,
+        Autodesk.DesignScript.Geometry.Point end, int numPoints = 20)
+    {
+        // Generate a set of t values to use in the Bézier curve calculation
+        var t = new double[numPoints];
+        for (int i = 0; i < numPoints; i++)
+        {
+            t[i] = (double)i / (numPoints - 1);
+        }
+
+        // Calculate the x, y, and z coordinates of each point on the Bézier curve
+        var xPoints = new double[numPoints];
+        var yPoints = new double[numPoints];
+        var zPoints = new double[numPoints];
+        for (int i = 0; i < numPoints; i++)
+        {
+            double u = 1 - t[i];
+            double tt = t[i] * t[i];
+            double uu = u * u;
+            double uuu = uu * u;
+            double ttt = tt * t[i];
+
+            xPoints[i] = uuu * start.X + 3 * uu * t[i] * startHandler.X + 3 * u * tt * endHandler.X + ttt * end.X;
+            yPoints[i] = uuu * start.Y + 3 * uu * t[i] * startHandler.Y + 3 * u * tt * endHandler.Y + ttt * end.Y;
+            zPoints[i] = uuu * start.Z + 3 * uu * t[i] * startHandler.Z + 3 * u * tt * endHandler.Z + ttt * end.Z;
+        }
+
+        // Create a list of Point3D objects to represent the points on the curve
+        var points = new List<Autodesk.DesignScript.Geometry.Point>();
+        for (int i = 0; i < numPoints; i++)
+        {
+            points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(xPoints[i], yPoints[i], zPoints[i]));
+        }
+        return points;
     }
 }
