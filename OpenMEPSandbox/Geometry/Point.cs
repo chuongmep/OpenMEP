@@ -789,4 +789,29 @@ public class Point
         
         return random.NextDouble() * (max - min) + min;
     }
+    
+    /// <summary>
+    /// Returns a new point with the smallest integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.
+    /// </summary>
+    /// <param name="point">The input point.</param>
+    /// <returns>The point with the smallest integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</returns>
+    public static Autodesk.DesignScript.Geometry.Point Floor(Autodesk.DesignScript.Geometry.Point point)
+    {
+        int x = (int)System.Math.Floor(point.X);
+        int y = (int)System.Math.Floor(point.Y);
+        int z = (int)System.Math.Floor(point.Z);
+        return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
+    }
+    /// <summary>
+    /// Returns a new point with the larger integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.
+    /// </summary>
+    /// <param name="point">The input point.</param>
+    /// <returns>The point with the larger integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</returns>
+    public static Autodesk.DesignScript.Geometry.Point Ceiling(Autodesk.DesignScript.Geometry.Point point)
+    {
+        int x = (int)System.Math.Floor(point.X);
+        int y = (int)System.Math.Floor(point.Y);
+        int z = (int)System.Math.Floor(point.Z);
+        return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
+    }
 }

@@ -129,4 +129,30 @@ public class Vector
     {
         return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z);
     }
+    /// <summary>
+    /// Returns a new Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.
+    /// </summary>
+    /// <param name="vector">The input vector.</param>
+    /// <returns>The Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.</returns>
+    public static Autodesk.DesignScript.Geometry.Vector Ceiling(Autodesk.DesignScript.Geometry.Vector vector)
+    {
+        int x = (int)System.Math.Ceiling(vector.X);
+        int y = (int)System.Math.Ceiling(vector.Y);
+        int z = (int)System.Math.Ceiling(vector.Z);
+        return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(x, y, z);
+    }
+
+    /// <summary>
+    /// Returns a new Autodesk.DesignScript.Geometry.Vector object with the smallest integer values that are greater than or equal to the X, Y, and Z components of the input vector.
+    /// </summary>
+    /// <param name="vector">The input vector.</param>
+    /// <returns>The Autodesk.DesignScript.Geometry.Vector object with the smallest integer values that are greater than or equal to the X, Y, and Z components of the input vector.</returns>
+    public static Autodesk.DesignScript.Geometry.Vector Floor(Autodesk.DesignScript.Geometry.Vector vector)
+    {
+        int x = (int)System.Math.Floor(vector.X);
+        int y = (int)System.Math.Floor(vector.Y);
+        int z = (int)System.Math.Floor(vector.Z);
+
+        return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(x, y, z);
+    }
 }
