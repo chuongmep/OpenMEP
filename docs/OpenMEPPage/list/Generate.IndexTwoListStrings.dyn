@@ -1,0 +1,203 @@
+{
+  "Uuid": "0f9a1c01-40a2-450c-9204-b15d6ddc40f0",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Generate.IndexTwoListStrings",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"apple\",\"banana\",\"orange\",\"banana\",\"orange\"];",
+      "Id": "070beee1ad024625af2233359c227de1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9b413402233b4c908294a5ec74a38528",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexTwoListStrings@string[],string[]",
+      "Id": "794cf1e6e8b7410cb601ef54aebd400c",
+      "Inputs": [
+        {
+          "Id": "6e9dd746a07342138e0ec79a78257888",
+          "Name": "list1",
+          "Description": "The first list of strings to index.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6360dea155dc4b71bee586566592d983",
+          "Name": "list2",
+          "Description": "The second list of strings to index.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f490df2a40a8403a8b6dffcef87ffb7a",
+          "Name": "list1",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "698963296f1643039a975e9e440cbeed",
+          "Name": "list2",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Indexes two string lists based on the values of the first list. Returns a tuple containing the two indexed lists.\n\nGenerate.IndexTwoListStrings (list1: string[], list2: string[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"orange\",\"banana\",\"mango\",\"banana\",\"orange\"];",
+      "Id": "aad8a1889de34667badda86a95df07c9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c904863f35c94d84b7720660f84b8481",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9b413402233b4c908294a5ec74a38528",
+      "End": "6e9dd746a07342138e0ec79a78257888",
+      "Id": "d47ead2af0c94a2db6af04538b5695c1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c904863f35c94d84b7720660f84b8481",
+      "End": "6360dea155dc4b71bee586566592d983",
+      "Id": "28b09f2317794dfabb06545b321011cf",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "794cf1e6e8b7410cb601ef54aebd400c"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "070beee1ad024625af2233359c227de1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -36.0736621402707,
+        "Y": 215.13562134096324
+      },
+      {
+        "Name": "Generate.IndexTwoListStrings",
+        "ShowGeometry": true,
+        "Id": "794cf1e6e8b7410cb601ef54aebd400c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 496.40022682048357,
+        "Y": 234.20130871863316
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "aad8a1889de34667badda86a95df07c9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -41.005778853156926,
+        "Y": 498.49095271679812
+      }
+    ],
+    "Annotations": [],
+    "X": 151.43270942837796,
+    "Y": -142.04570227120161,
+    "Zoom": 0.98264231136796509
+  }
+}

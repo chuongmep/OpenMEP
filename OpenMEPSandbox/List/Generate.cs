@@ -14,6 +14,9 @@ public class Generate
     /// <param name="lst1">The first list to index.</param>
     /// <param name="lst2">The second list to index.</param>
     /// <returns>A Tuple containing the two indexed lists.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/list/pic/Generate.IndexTwoListValues.png)
+    /// </example>
     [MultiReturn("lst1", "lst2")]
     public static Dictionary<string,object> IndexTwoListValues(List<int> lst1, List<int> lst2)
     {
@@ -46,6 +49,9 @@ public class Generate
     /// </summary>
     /// <param name="list1">The first list of strings to index.</param>
     /// <param name="list2">The second list of strings to index.</param>
+    /// <example>
+    /// ![](../OpenMEPPage/list/pic/Generate.IndexTwoListStrings.png)
+    /// </example>
     [MultiReturn("list1", "list2")]
     public static Dictionary<string,object> IndexTwoListStrings(List<string> list1, List<string> list2)
     {
@@ -74,7 +80,9 @@ public class Generate
     /// </summary>
     /// <param name="strings">The input list of strings to be indexed.</param>
     /// <returns>A new list where each element is replaced with its corresponding index.</returns>
-
+    /// <example>
+    /// ![](../OpenMEPPage/list/pic/Generate.IndexListString.png)
+    /// </example>
     public static List<int> IndexListString(List<string> strings)
     {
         List<int> indexedList = new List<int>();
@@ -101,7 +109,9 @@ public class Generate
     /// </summary>
     /// <param name="values">The input list of doubles to be indexed.</param>
     /// <returns>A new list where each element is replaced with its corresponding index.</returns>
-
+    /// <example>
+    /// ![](../OpenMEPPage/list/pic/Generate.IndexListValues.png)
+    /// </example>
     public static List<int> IndexListValues(List<double> values)
     {
         var distinctList = values.Distinct().ToList();
@@ -120,6 +130,9 @@ public class Generate
     /// </summary>
     /// <param name="labels">A list of categorical values to encode.</param>
     /// <returns>An array of arrays representing the one-hot encoded values.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/list/pic/Generate.OneHotEncode.png)
+    /// </example>
     public static int[][] OneHotEncode(List<string> labels)
     {
         // Determine the number of unique labels
