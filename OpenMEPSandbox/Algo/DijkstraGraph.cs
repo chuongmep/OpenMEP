@@ -2,120 +2,86 @@
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEPSandbox.Algo;
+
 [IsVisibleInDynamoLibrary(false)]
 public class DijkstraGraph
 {
-    private Dictionary<Point, Dictionary<Point, double>> adjList;
-
+    
+    Dictionary<Autodesk.DesignScript.Geometry.Point, Dictionary<Autodesk.DesignScript.Geometry.Point, double>>
+        graph { get; set; }
     public DijkstraGraph()
     {
-        adjList = new Dictionary<Point, Dictionary<Point, double>>();
-    }
-
-    public void AddEdge(Point u, Point v)
-    {
-        double distance = u.DistanceTo(v);
-        if (!adjList.ContainsKey(u))
-        {
-            adjList[u] = new Dictionary<Point, double>();
-        }
-        adjList[u][v] = distance;
-        if (!adjList.ContainsKey(v))
-        {
-            adjList[v] = new Dictionary<Point, double>();
-        }
-        adjList[v][u] = distance;
+        
+       graph = new Dictionary<Autodesk.DesignScript.Geometry.Point,
+            Dictionary<Autodesk.DesignScript.Geometry.Point, double>>();
     }
 
     /// <summary>
-    /// Shortest path from start to end.
+    /// Adds an edge between two vertices in the graph, with a specified weight.
     /// </summary>
-    /// <param name="start">start point</param>
-    /// <param name="end">end point</param>
-    /// <returns name="points">shortest path</returns>
-    public List<Point> ShortestPath(Point start, Point end)
+    /// <param name="source">The starting vertex of the edge.</param>
+    /// <param name="destination">The ending vertex of the edge.</param>
+    /// <param name="weight">The weight of the edge.</param>
+    public void AddEdge(Autodesk.DesignScript.Geometry.Point source, Autodesk.DesignScript.Geometry.Point destination,
+        double weight)
     {
-        Dictionary<Point, double> distances = new Dictionary<Point, double>();
-        Dictionary<Point, Point> predecessors = new Dictionary<Point, Point>();
-        HashSet<Point> visited = new HashSet<Point>();
-        PriorityQueue<Point> queue = new PriorityQueue<Point>();
+        
+        if (!graph.ContainsKey(source))
+            graph[source] = new Dictionary<Point, double>();
 
-        distances[start] = 0;
-        queue.Enqueue(start, 0);
+        graph[source][destination] = weight;
+    }
 
-        while (queue.Count > 0)
+    public List<Point>? DijkstraShortestPath(Point source, Point destination)
+    {
+        var distances = new Dictionary<Point, double>();
+        var visited = new HashSet<Point>();
+        var previous = new Dictionary<Point, Point>();
+        var nodes = new List<Point>();
+
+        foreach (var vertex in graph)
         {
-            Point u = queue.Dequeue();
+            if (vertex.Key == source)
+                distances[vertex.Key] = 0;
+            else
+                distances[vertex.Key] = double.MaxValue;
 
-            if (visited.Contains(u))
+            nodes.Add(vertex.Key);
+        }
+
+        nodes.Sort((x, y) => distances[x].CompareTo(distances[y]));
+
+        while (nodes.Count > 0)
+        {
+            var smallest = nodes[0];
+            nodes.Remove(smallest);
+
+            if (smallest == destination)
             {
-                continue;
-            }
-
-            visited.Add(u);
-
-            if (u == end)
-            {
-                break;
-            }
-
-            foreach (Point v in adjList[u].Keys)
-            {
-                double alt = distances[u] + adjList[u][v];
-                if (!distances.ContainsKey(v) || alt < distances[v])
+                var path = new List<Point>();
+                while (previous.ContainsKey(smallest))
                 {
-                    distances[v] = alt;
-                    predecessors[v] = u;
-                    queue.Enqueue(v, alt);
+                    path.Add(smallest);
+                    smallest = previous[smallest];
+                }
+
+                path.Add(source);
+                path.Reverse();
+                return path;
+            }
+            if (Math.Abs(distances[smallest] - double.MaxValue) < 0.00001)
+                break;
+            foreach (var neighbor in graph[smallest])
+            {
+                var alt = distances[smallest] + neighbor.Value;
+                if (alt < distances[neighbor.Key])
+                {
+                    distances[neighbor.Key] = alt;
+                    previous[neighbor.Key] = smallest;
+                    nodes.Sort((x, y) => distances[x].CompareTo(distances[y]));
                 }
             }
         }
-
-        if (!predecessors.ContainsKey(end))
-        {
-            return null;
-        }
-
-        List<Point> path = new List<Point>();
-        Point curr = end;
-        while (curr != start)
-        {
-            path.Insert(0, curr);
-            curr = predecessors[curr];
-        }
-        path.Insert(0, start);
-
-        return path;
-    }
-}
-[IsVisibleInDynamoLibrary(false)]
-class PriorityQueue<T>
-{
-    private List<Tuple<T, double>> elements = new List<Tuple<T, double>>();
-
-    public int Count
-    {
-        get { return elements.Count; }
-    }
-
-    public void Enqueue(T item, double priority)
-    {
-        elements.Add(Tuple.Create(item, priority));
-    }
-
-    public T Dequeue()
-    {
-        int bestIndex = 0;
-        for (int i = 0; i < elements.Count; i++)
-        {
-            if (elements[i].Item2 < elements[bestIndex].Item2)
-            {
-                bestIndex = i;
-            }
-        }
-
-        T bestItem = elements[bestIndex].Item1;
-        elements.RemoveAt(bestIndex);
-        return bestItem;
+        return null;
     }
 }
