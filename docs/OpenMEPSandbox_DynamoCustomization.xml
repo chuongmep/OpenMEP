@@ -12,6 +12,12 @@
     </namespace>
     <namespace name="OpenMEPSandbox.List">
       <category>OpenMEP.List</category>
+    </namespace> 
+    <namespace name="OpenMEPSandbox.MachineLearning">
+      <category>OpenMEP.MachineLearning</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Math">
+      <category>OpenMEP.Math</category>
     </namespace>
   </namespaces>
 </doc>

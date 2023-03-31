@@ -104,6 +104,6 @@ public static class TravellingSalesman
         double dx = point2.X - point1.X;
         double dy = point2.Y - point1.Y;
         double dz = point2.Z - point1.Z;
-        return Math.Sqrt(dx * dx + dy * dy + dz * dz);
+        return System.Math.Sqrt(dx * dx + dy * dy + dz * dz);
     }
 }
