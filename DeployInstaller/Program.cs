@@ -10,12 +10,15 @@ using ICSharpCode.SharpZipLib.Zip;
 using File = System.IO.File;
 
 string installationDir = @"%AppDataFolder%\Dynamo\Dynamo Revit\";
+string installationDirSandbox = @"%AppDataFolder%\Dynamo\Dynamo Core\";
 const string projectName = "OpenMEP";
+const string projectNameSandbox = "OpenMEPSandbox";
 const string outputName = "OpenMEP";
 string folderPackageName = "OpenMEP";
 const string outputDir = "output";
 string Version = $"2.0.{GetLastTwoDigitOfYear()}.{GetDayInYear()}{GetDay()}";
 var fileName = new StringBuilder().Append(outputName).Append("-").Append(Version);
+var fileNameSandbox = new StringBuilder().Append(outputName+"Sandbox").Append("-").Append(Version);
 
 var project = new Project
 {
@@ -48,10 +51,46 @@ MajorUpgrade.Default.AllowSameVersionUpgrades = true;
 project.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.VerifyReadyDlg);
 string buildMsi = project.BuildMsi();
 FileInfo fileInfo = new FileInfo(buildMsi);
-// get version info 
+if(fileInfo.Directory == null) throw new Exception("Directory not found");
 
-string zipfileName = Path.Combine(fileInfo.Directory.FullName, fileName + ".zip");
-CompressFile(buildMsi, zipfileName);
+string zipFileName = Path.Combine(fileInfo.Directory.FullName, fileName + ".zip");
+CompressFile(buildMsi, zipFileName);
+
+var projectSandbox = new Project
+{
+    Name = projectNameSandbox,
+    OutDir = outputDir,
+    Platform = Platform.x64,
+    UI = WUI.WixUI_InstallDir,
+    Version = new Version(Version),
+    OutFileName = fileNameSandbox.ToString(),
+    InstallScope = InstallScope.perUser,
+    MajorUpgrade = MajorUpgrade.Default,
+    UpgradeCode = new Guid("E937CBEB-3675-4CD6-8C71-335F900DC6E2"),
+    GUID = new Guid("838E309D-48F2-43F6-BCD4-544FE6E8682A"),
+    BackgroundImage = @"Resources\BackgroundImage.png",
+    BannerImage = @"Resources\BannerImage.png",
+    ControlPanelInfo =
+    {
+        Manufacturer = "chuongmep",
+        HelpLink = "https://chuongmep.com",
+        ProductIcon = @"Resources\ShellIcon.ico",
+        Comments = "Project open source help mep engineer happy",
+    },
+    Dirs = new Dir[]
+    {
+        new InstallDir(installationDirSandbox, GenerateWixSandboxEntities()),
+    }
+};
+MajorUpgrade.Default.AllowSameVersionUpgrades = true;
+// MajorUpgrade.Default.AllowDowngrades = true;
+projectSandbox.RemoveDialogsBetween(NativeDialogs.WelcomeDlg, NativeDialogs.VerifyReadyDlg);
+string buildSanboxMsi = projectSandbox.BuildMsi();
+FileInfo fileSandboxInfo = new FileInfo(buildSanboxMsi);
+if (fileSandboxInfo.Directory == null) throw new ArgumentNullException(nameof(fileSandboxInfo.Directory));
+
+string sandboxZip = Path.Combine(fileSandboxInfo.Directory.FullName, fileNameSandbox + ".zip");
+CompressFile(buildMsi, sandboxZip);
 
 
 WixEntity[] GenerateWixEntities()
@@ -78,7 +117,42 @@ WixEntity[] GenerateWixEntities()
                 versionStorages[dynamoVersion].Add(files);
             }
             else
-                Console.WriteLine("Add Files Dynamo Version: " + regex.Match(dynamoVersion).Value);
+                Console.WriteLine("Add Files Dynamo Revit Version: " + regex.Match(dynamoVersion).Value);
+
+            versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
+            var assemblies = Directory.GetFiles(directoryInfo.FullName, "*", SearchOption.AllDirectories);
+            foreach (var assembly in assemblies) Console.WriteLine($"'{assembly}'");
+        }
+    }
+
+    return versionStorages.Select(storage => new Dir(storage.Key, storage.Value.ToArray())).Cast<WixEntity>().ToArray();
+}
+
+WixEntity[] GenerateWixSandboxEntities()
+{
+    var versionStorages = new Dictionary<string, List<WixEntity>>();
+    // Get appdata directory
+    var appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    DirectoryInfo dir = new DirectoryInfo(Path.Combine(appDataDir, "Dynamo", "Dynamo Core"));
+    Regex regex = new Regex(@"\d+\.\d+");
+    List<DirectoryInfo> directoryInfos =
+        dir.GetDirectories().Where(x => regex.Match(x.Name).Success).Select(x => x).ToList();
+    // order directoryInfos by regex match value *.*
+    StringNumberComparer comparer = new StringNumberComparer();
+    directoryInfos.Sort((x, y) => comparer.Compare(x.Name, y.Name));
+    foreach (var directory in directoryInfos)
+    {
+        var directoryInfo = new DirectoryInfo(Path.Combine(directory.FullName, "packages", folderPackageName));
+        if (directoryInfo.Exists)
+        {
+            var files = new Files($@"{directoryInfo.FullName}\*.*");
+            var dynamoVersion = directoryInfo.Parent.Parent.Name + $"\\packages\\{folderPackageName}";
+            if (versionStorages.ContainsKey(dynamoVersion))
+            {
+                versionStorages[dynamoVersion].Add(files);
+            }
+            else
+                Console.WriteLine("Add Files Dynamo Sandbox Version: " + regex.Match(dynamoVersion).Value);
 
             versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
             var assemblies = Directory.GetFiles(directoryInfo.FullName, "*", SearchOption.AllDirectories);
