@@ -8,7 +8,34 @@ public class Generate
     private Generate()
     {
     }
+    /// <summary>
+    /// Takes a list of doubles and returns a new list where each element is replaced
+    /// with the index of its first occurrence in the input list. If an element appears
+    /// multiple times in the input list, the index of its first occurrence is used.
+    /// </summary>
+    /// <param name="objects">The input list of strings to be indexed.</param>
+    /// <returns>A new list where each element is replaced with its corresponding index.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/list/pic/Generate.IndexListObjects.png)
+    /// </example>
+    public static List<int> IndexListObjects(List<object> objects)
+    {
+        List<int> indexedList = new List<int>();
+        Dictionary<object, int> indexMap = new Dictionary<object, int>();
+        int index = 0;
 
+        foreach (object item in objects)
+        {
+            if (!indexMap.ContainsKey(item))
+            {
+                indexMap[item] = index;
+                index++;
+            }
+
+            indexedList.Add(indexMap[item]);
+        }
+        return indexedList;
+    }
     /// <summary>
     /// Takes two lists as input and returns two indexed lists
     /// where each element is replaced with the index of its first occurrence in the input list.
@@ -44,34 +71,7 @@ public class Generate
             {"lst2", indexedLst2}
         };
     }
-    /// <summary>
-    /// Takes a list of doubles and returns a new list where each element is replaced
-    /// with the index of its first occurrence in the input list. If an element appears
-    /// multiple times in the input list, the index of its first occurrence is used.
-    /// </summary>
-    /// <param name="objects">The input list of strings to be indexed.</param>
-    /// <returns>A new list where each element is replaced with its corresponding index.</returns>
-    /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.IndexListObjects.png)
-    /// </example>
-    public static List<int> IndexListObjects(List<object> objects)
-    {
-        List<int> indexedList = new List<int>();
-        Dictionary<object, int> indexMap = new Dictionary<object, int>();
-        int index = 0;
-
-        foreach (object item in objects)
-        {
-            if (!indexMap.ContainsKey(item))
-            {
-                indexMap[item] = index;
-                index++;
-            }
-
-            indexedList.Add(indexMap[item]);
-        }
-        return indexedList;
-    }
+    
     /// <summary>
     /// Encodes a list of categorical values using one-hot encoding.
     /// </summary>
@@ -119,14 +119,14 @@ public class Generate
     /// <param name="lst">list of strings input</param>
     /// <returns></returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.UniqueNamesIndex.png)
+    /// ![](../OpenMEPPage/list/pic/Generate.UniqueObjectsIndex.png)
     /// </example>
     [MultiReturn("name", "index")]
-    public static Dictionary<string, object> UniqueNamesIndex(List<string> lst)
+    public static Dictionary<string, object> IndexUniqueListObjects(List<object> lst)
     {
-        Dictionary<string, int> dict = new Dictionary<string, int>();
+        Dictionary<object, int> dict = new Dictionary<object, int>();
         int index = 0;
-        foreach (string elem in lst)
+        foreach (object elem in lst)
         {
             if (!dict.ContainsKey(elem))
             {
@@ -141,56 +141,23 @@ public class Generate
             {"index", dict.Values.ToList()}
         };
     }
-
-    /// <summary>
-    /// Takes a list of doubles as input and returns a dictionary with unique values and indices.
-    /// </summary>
-    /// <param name="list">The input list of doubles.</param>
-    /// <returns>A dictionary with unique values and indices.</returns>
-    /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.UniqueValuesIndex.png)
-    /// </example>
-    [MultiReturn("value", "index")]
-    public static Dictionary<string, object> UniqueValuesIndex(List<double> list)
-    {
-        Dictionary<double, int> dict = new Dictionary<double, int>();
-
-        for (int i = 0; i < list.Count; i++)
-        {
-            double value = list[i];
-
-            // If the dictionary doesn't already contain the value, add it to the dictionary
-            // and set its index to the current value of the index variable.
-            if (!dict.ContainsKey(value))
-            {
-                dict[value] = i;
-            }
-        }
-
-        return new Dictionary<string, object>()
-        {
-            {"value", dict.Keys.ToList()},
-            {"index", dict.Values.ToList()}
-        };
-    }
-
     /// <summary>
     /// Takes two lists of strings as input, merges them, and returns a dictionary with unique names and indices.
     /// </summary>
-    /// <param name="list1">The first list of names.</param>
-    /// <param name="list2">The second list of names.</param>
+    /// <param name="list1">The first list of objects.</param>
+    /// <param name="list2">The second list of objects.</param>
     /// <returns>A dictionary with unique names and indices.</returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.UniqueNamesIndexList.png)
+    /// ![](../OpenMEPPage/list/pic/Generate.IndexUniqueTwoListObjects.png)
     /// </example>
     [MultiReturn("name", "index")]
-    public static Dictionary<string, object> UniqueNamesIndexTwoList(List<string> list1, List<string> list2)
+    public static Dictionary<string, object> IndexUniqueTwoListObjects(List<object> list1, List<object> list2)
     {
         // Merge the two lists and get the unique values
         var uniqueValues = list1.Union(list2).Distinct().ToList();
 
         // Create a dictionary to hold the unique values and their corresponding indices
-        var uniqueDict = new Dictionary<string, int>();
+        var uniqueDict = new Dictionary<object, int>();
 
         // Iterate over the unique values and add their index to the dictionary
         for (int i = 0; i < uniqueValues.Count; i++)
@@ -201,37 +168,6 @@ public class Generate
         return new Dictionary<string, object>()
         {
             {"name", uniqueDict.Keys.ToList()},
-            {"index", uniqueDict.Values.ToList()}
-        };
-    }
-
-    /// <summary>
-    /// Returns a dictionary of unique values and their corresponding indices from two lists of doubles.
-    /// </summary>
-    /// <param name="list1">The first list of doubles.</param>
-    /// <param name="list2">The second list of doubles.</param>
-    /// <returns>A dictionary containing unique values and their corresponding indices.</returns>
-    /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.UniqueValuesIndexList.png)
-    /// </example>
-    [MultiReturn("value", "index")]
-    public static Dictionary<string, object> UniqueValuesIndexTwoList(List<double> list1, List<double> list2)
-    {
-        // Merge the two lists and get the unique values
-        var uniqueValues = list1.Union(list2).Distinct().ToList();
-
-        // Create a dictionary to hold the unique values and their corresponding indices
-        var uniqueDict = new Dictionary<double, int>();
-
-        // Iterate over the unique values and add their index to the dictionary
-        for (int i = 0; i < uniqueValues.Count; i++)
-        {
-            uniqueDict.Add(uniqueValues[i], i);
-        }
-
-        return new Dictionary<string, object>()
-        {
-            {"value", uniqueDict.Keys.ToList()},
             {"index", uniqueDict.Values.ToList()}
         };
     }

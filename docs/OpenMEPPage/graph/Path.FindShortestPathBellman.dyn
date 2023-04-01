@@ -112,54 +112,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexTwoListValues@int[],int[]",
-      "Id": "dd2a1989cbe14a8ea4ce3f9a889f532a",
-      "Inputs": [
-        {
-          "Id": "74ea063abe5c4dc9a1e3bcba7a156374",
-          "Name": "lst1",
-          "Description": "The first list to index.\n\nint[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "a03c86b3f7ed4a8e941ec33b75e06108",
-          "Name": "lst2",
-          "Description": "The second list to index.\n\nint[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "75a777c7e897470db39530daa2d0bfe8",
-          "Name": "lst1",
-          "Description": "A Tuple containing the two indexed lists.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "da65ed0f82c94b7f9b620fc12f665a93",
-          "Name": "lst2",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Takes two lists as input and returns two indexed lists.\n\nGenerate.IndexTwoListValues (lst1: int[], lst2: int[]): var[]..[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
       "Id": "3d4ba235bfc84ad09f568fd546fb8419",
       "Inputs": [
@@ -199,61 +151,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.List.Generate.UniqueValuesIndexTwoList@double[],double[]",
-      "Id": "ee7ddc94b79548a784569cac217c36f6",
-      "Inputs": [
-        {
-          "Id": "8650421a1f0e41cd8646e13485387cf7",
-          "Name": "list1",
-          "Description": "The first list of doubles.\n\ndouble[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "baba45e4fea84e1c8af9056a8fe39f32",
-          "Name": "list2",
-          "Description": "The second list of doubles.\n\ndouble[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "9da5dcaa9de746889bf53cd6aab3a7ae",
-          "Name": "value",
-          "Description": "A dictionary containing unique values and their corresponding indices.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "6b3b1f547d7b4388bce452eb0490c261",
-          "Name": "index",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Returns a dictionary of unique values and their corresponding indices from two lists of doubles.\n\nGenerate.UniqueValuesIndexTwoList (list1: double[], list2: double[]): var[]..[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.Graph.Path.FindShortestPathBellman@double,double,double[],double[],double[]",
+      "FunctionSignature": "OpenMEPSandbox.Graph.Path.FindShortestPathBellman@int,int,int[],int[],int[]",
       "Id": "67ac7cc8ffbb4959a86c6e6e0880d1e7",
       "Inputs": [
         {
           "Id": "bfd2d696da19490791ca9f3ba80cd2ff",
           "Name": "startNode",
-          "Description": "first location of node\n\ndouble",
+          "Description": "first location of node\n\nint",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -262,7 +166,7 @@
         {
           "Id": "dd0dd86f08df4f52a9259464bf662c6a",
           "Name": "endNode",
-          "Description": "end location of node\n\ndouble",
+          "Description": "end location of node\n\nint",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -271,7 +175,7 @@
         {
           "Id": "4daf21e4d59546b38a62d940b7f08a17",
           "Name": "sources",
-          "Description": "A list of source vertices for each edge.\n\ndouble[]",
+          "Description": "A list of source vertices for each edge.\n\nint[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -280,7 +184,7 @@
         {
           "Id": "da87a556e341486881b2ce45e74b3992",
           "Name": "destinations",
-          "Description": "A list of destinations vertices for each edge.\n\ndouble[]",
+          "Description": "A list of destinations vertices for each edge.\n\nint[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -289,7 +193,7 @@
         {
           "Id": "c051be9c5b4240fe8822381717b31fe9",
           "Name": "weights",
-          "Description": "A list of weights for each edge.\n\ndouble[]",
+          "Description": "A list of weights for each edge.\n\nint[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -317,7 +221,103 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get shortest path and distance from start node to end node By Bellman-Ford algorithm\n\nPath.FindShortestPathBellman (startNode: double, endNode: double, sources: double[], destinations: double[], weights: double[]): var[]..[]"
+      "Description": "Get shortest path and distance from start node to end node By Bellman-Ford algorithm\n\nPath.FindShortestPathBellman (startNode: int, endNode: int, sources: int[], destinations: int[], weights: int[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexTwoListObjects@var[],var[]",
+      "Id": "9e875951f0ae450380bc07fdf9b09880",
+      "Inputs": [
+        {
+          "Id": "f24a926771df4c51bf15841a6bfc15e8",
+          "Name": "lst1",
+          "Description": "The first list to index.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b9c8536859324c71b693fc9dfaea4783",
+          "Name": "lst2",
+          "Description": "The second list to index.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0b024140e45f47479cb5a9f3d1ff5ba6",
+          "Name": "lst1",
+          "Description": "A Tuple containing the two indexed lists.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f9df0d9f7f6c4691bda106a4d97c7470",
+          "Name": "lst2",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes two lists as input and returns two indexed lists where each element is replaced with the index of its first occurrence in the input list.\n\nGenerate.IndexTwoListObjects (lst1: var[], lst2: var[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexUniqueTwoListObjects@var[],var[]",
+      "Id": "98ddbead9ebe48e980afe8e5c869f9f1",
+      "Inputs": [
+        {
+          "Id": "0a28d3e9e22947febea79c6d83d649ca",
+          "Name": "list1",
+          "Description": "The first list of names.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "24691ea249e5408a81f5fcf795b75f88",
+          "Name": "list2",
+          "Description": "The second list of names.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "25e2a03534674feaa162bc5e1711123f",
+          "Name": "name",
+          "Description": "A dictionary with unique names and indices.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cf5b279b1efe44c3afffb418ab07fc96",
+          "Name": "index",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes two lists of strings as input, merges them, and returns a dictionary with unique names and indices.\n\nGenerate.IndexUniqueTwoListObjects (list1: var[], list2: var[]): var[]..[]"
     }
   ],
   "Connectors": [
@@ -341,50 +341,50 @@
     },
     {
       "Start": "172659d07563449b9e95166b18538deb",
-      "End": "8650421a1f0e41cd8646e13485387cf7",
-      "Id": "a0936c211f0b4359b9ac77b92b86f05a",
+      "End": "f24a926771df4c51bf15841a6bfc15e8",
+      "Id": "823bc2a532c14be483aafbc9d21857db",
       "IsHidden": "False"
     },
     {
       "Start": "172659d07563449b9e95166b18538deb",
-      "End": "74ea063abe5c4dc9a1e3bcba7a156374",
-      "Id": "c6bcf577e4f84083a4eb72589b3fbd37",
+      "End": "0a28d3e9e22947febea79c6d83d649ca",
+      "Id": "99fcc8f0a8c34775ac9ecae17f2e1145",
       "IsHidden": "False"
     },
     {
       "Start": "28898043d125477cb869cab89030baae",
-      "End": "a03c86b3f7ed4a8e941ec33b75e06108",
-      "Id": "cebfc6a090004f8eac17625e6cc3aae4",
+      "End": "b9c8536859324c71b693fc9dfaea4783",
+      "Id": "abd3442eda894207b5fecd2daea110a4",
       "IsHidden": "False"
     },
     {
       "Start": "28898043d125477cb869cab89030baae",
-      "End": "baba45e4fea84e1c8af9056a8fe39f32",
-      "Id": "003644a50c894976a20ec1f7b8cc717f",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "75a777c7e897470db39530daa2d0bfe8",
-      "End": "4daf21e4d59546b38a62d940b7f08a17",
-      "Id": "1535a46ff670441391c67833e161419c",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "da65ed0f82c94b7f9b620fc12f665a93",
-      "End": "da87a556e341486881b2ce45e74b3992",
-      "Id": "bf245d1854d3483c995f3db67d083b43",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "9da5dcaa9de746889bf53cd6aab3a7ae",
-      "End": "b7ad8198edb543b9acebdc5dca75be0a",
-      "Id": "e47923d9a24145d1acc0614a0a018229",
+      "End": "24691ea249e5408a81f5fcf795b75f88",
+      "Id": "d1b0929ec5df4e27b78556dc02d7a1d7",
       "IsHidden": "False"
     },
     {
       "Start": "04294c23e3454ac6831a7e6cffc2d837",
       "End": "9791b4302342400bae3ea2bf1a222c95",
       "Id": "f778dbc0206f492a8c4899064ffb4f12",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0b024140e45f47479cb5a9f3d1ff5ba6",
+      "End": "4daf21e4d59546b38a62d940b7f08a17",
+      "Id": "0f57f0e3bcf1414fa53b02121eb5d2ad",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f9df0d9f7f6c4691bda106a4d97c7470",
+      "End": "da87a556e341486881b2ce45e74b3992",
+      "Id": "f6a6ad37df604bd09280b6d5272af8ca",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "25e2a03534674feaa162bc5e1711123f",
+      "End": "b7ad8198edb543b9acebdc5dca75be0a",
+      "Id": "820c6dfeab6b449cb20ac7de5a29078e",
       "IsHidden": "False"
     }
   ],
@@ -395,9 +395,9 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "dd2a1989cbe14a8ea4ce3f9a889f532a",
-        "ee7ddc94b79548a784569cac217c36f6",
-        "67ac7cc8ffbb4959a86c6e6e0880d1e7"
+        "67ac7cc8ffbb4959a86c6e6e0880d1e7",
+        "9e875951f0ae450380bc07fdf9b09880",
+        "98ddbead9ebe48e980afe8e5c869f9f1"
       ]
     }
   ],
@@ -449,8 +449,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 145.05803633947642,
-        "Y": 273.22848594864831
+        "X": 172.64128764682789,
+        "Y": 259.43686029497263
       },
       {
         "Name": "EndNode",
@@ -473,34 +473,14 @@
         "Y": 234.02712345973026
       },
       {
-        "Name": "Generate.IndexTwoListValues",
-        "ShowGeometry": true,
-        "Id": "dd2a1989cbe14a8ea4ce3f9a889f532a",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": -192.4950176707016,
-        "Y": 233.03173954745367
-      },
-      {
         "Name": "List.GetItemAtIndex",
         "ShowGeometry": true,
         "Id": "3d4ba235bfc84ad09f568fd546fb8419",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 978.81143629141843,
-        "Y": 219.79547327982769
-      },
-      {
-        "Name": "Generate.UniqueValuesIndexTwoList",
-        "ShowGeometry": true,
-        "Id": "ee7ddc94b79548a784569cac217c36f6",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 267.67863374725152,
-        "Y": -10.386043047322488
+        "X": 931.201376668406,
+        "Y": 225.23662295102898
       },
       {
         "Name": "Path.FindShortestPathBellman",
@@ -511,11 +491,31 @@
         "Excluded": false,
         "X": 553.84192704081329,
         "Y": 318.33184378703493
+      },
+      {
+        "Name": "Generate.IndexTwoListObjects",
+        "ShowGeometry": true,
+        "Id": "9e875951f0ae450380bc07fdf9b09880",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -177.6254388484856,
+        "Y": 241.02126361601631
+      },
+      {
+        "Name": "Generate.IndexUniqueTwoListObjects",
+        "ShowGeometry": true,
+        "Id": "98ddbead9ebe48e980afe8e5c869f9f1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 277.25671953435335,
+        "Y": -8.02688940660056
       }
     ],
     "Annotations": [],
-    "X": 288.62650351172726,
-    "Y": 89.876330137099728,
-    "Zoom": 0.55637160810735753
+    "X": 350.82603531233644,
+    "Y": 110.9325295826701,
+    "Zoom": 0.57384091468036558
   }
 }

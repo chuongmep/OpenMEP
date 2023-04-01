@@ -2,52 +2,13 @@
   "Uuid": "60e746e8-016f-4816-ab1d-ae72d6e34e53",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Generate.UniqueValuesIndex",
+  "Name": "Generate.IndexUniqueListObjects",
   "ElementResolver": {
     "ResolutionMap": {}
   },
   "Inputs": [],
   "Outputs": [],
   "Nodes": [
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.List.Generate.UniqueValuesIndex@double[]",
-      "Id": "9db54546d64740debed8d76bd5044c0b",
-      "Inputs": [
-        {
-          "Id": "dcd3dce40a73478d92f3741bfd4793a4",
-          "Name": "list",
-          "Description": "The input list of doubles.\n\ndouble[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "82d7592fab544242ad157985c7fd7b91",
-          "Name": "value",
-          "Description": "A dictionary with unique values and indices.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "bf2efa417368402687f406206f281633",
-          "Name": "index",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Takes a list of doubles as input and returns a dictionary with unique values and indices.\n\nGenerate.UniqueValuesIndex (list: double[]): var[]..[]"
-    },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
@@ -67,13 +28,52 @@
       ],
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexUniqueListObjects@var[]",
+      "Id": "7ea352a3f50445e19a21985f5a75d66d",
+      "Inputs": [
+        {
+          "Id": "4dd8f031482d4921ab816ea649a084b1",
+          "Name": "lst",
+          "Description": "list of strings input\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7bd568ad89ae4b9493bb57d417959dc8",
+          "Name": "name",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "42ea062979174a3b9d8259ef188a8596",
+          "Name": "index",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This method takes a list of strings as input and returns a dictionary mapping each unique string to its corresponding index in the list.\n\nGenerate.IndexUniqueListObjects (lst: var[]): var[]..[]"
     }
   ],
   "Connectors": [
     {
       "Start": "cc4e90167a9c4932b9c51dcf29411fdc",
-      "End": "dcd3dce40a73478d92f3741bfd4793a4",
-      "Id": "8fb316ed4bbe4da198af9590fcae266d",
+      "End": "4dd8f031482d4921ab816ea649a084b1",
+      "Id": "064aedea8f6d4158bb7d38cecca71d61",
       "IsHidden": "False"
     }
   ],
@@ -84,7 +84,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "9db54546d64740debed8d76bd5044c0b"
+        "7ea352a3f50445e19a21985f5a75d66d"
       ]
     }
   ],
@@ -130,16 +130,6 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Name": "Generate.UniqueValuesIndex",
-        "ShowGeometry": true,
-        "Id": "9db54546d64740debed8d76bd5044c0b",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 538.589645181273,
-        "Y": 107.94058184235988
-      },
-      {
         "Name": "Code Block",
         "ShowGeometry": true,
         "Id": "3f10b742419e45ee9014b7a371a3d2c8",
@@ -148,11 +138,21 @@
         "Excluded": false,
         "X": 245.01791014202104,
         "Y": 115.50728190729382
+      },
+      {
+        "Name": "Generate.IndexUniqueListObjects",
+        "ShowGeometry": true,
+        "Id": "7ea352a3f50445e19a21985f5a75d66d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 522.21617492293376,
+        "Y": 98.944223160838789
       }
     ],
     "Annotations": [],
-    "X": -54.854131448325063,
-    "Y": 87.063993293397175,
-    "Zoom": 0.910063803931439
+    "X": -123.47818711214438,
+    "Y": -1.0176217272210124,
+    "Zoom": 1.1113575327695027
   }
 }
