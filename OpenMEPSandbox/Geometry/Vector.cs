@@ -97,6 +97,9 @@ public class Vector
     /// <param name="v2">the second vector</param>
     /// <param name="tolerance">the tolerance compare two vector</param>
     /// <returns name="double">value compare between two vector</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.CompareTo.png)
+    /// </example>
     public static double CompareTo(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2,double tolerance = 0.001)
     {
         if (System.Math.Abs(v1.X - v2.X) > tolerance)
@@ -114,6 +117,9 @@ public class Vector
     /// <param name="v1">the first vector</param>
     /// <param name="v2">the second vector</param>
     /// <returns name="vector"></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Multiply.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Multiply(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
     {
         return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z);
@@ -125,6 +131,9 @@ public class Vector
     /// <param name="v1">the first vector</param>
     /// <param name="v2">the second vector</param>
     /// <returns name="vector"></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Divide.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Divide(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
     {
         return Autodesk.DesignScript.Geometry.Vector.ByCoordinates(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z);
@@ -134,6 +143,9 @@ public class Vector
     /// </summary>
     /// <param name="vector">The input vector.</param>
     /// <returns>The Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Ceiling.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Ceiling(Autodesk.DesignScript.Geometry.Vector vector)
     {
         int x = (int)System.Math.Ceiling(vector.X);
@@ -147,6 +159,9 @@ public class Vector
     /// </summary>
     /// <param name="vector">The input vector.</param>
     /// <returns>The Autodesk.DesignScript.Geometry.Vector object with the smallest integer values that are greater than or equal to the X, Y, and Z components of the input vector.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Floor.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Floor(Autodesk.DesignScript.Geometry.Vector vector)
     {
         int x = (int)System.Math.Floor(vector.X);

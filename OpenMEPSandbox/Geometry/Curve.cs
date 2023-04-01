@@ -122,6 +122,9 @@ public class Curve
     /// <param name="end">The ending point of the segment.</param>
     /// <param name="numPoints">The number of points to generate on the curve.</param>
     /// <returns>A list of Point3D objects representing the points on the Bézier curve segment.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.BezierSegment.png)
+    /// </example>
     public static List<Autodesk.DesignScript.Geometry.Point> BezierSegment(Autodesk.DesignScript.Geometry.Point start,
         Autodesk.DesignScript.Geometry.Point startHandler, Autodesk.DesignScript.Geometry.Point endHandler,
         Autodesk.DesignScript.Geometry.Point end, int numPoints = 20)
@@ -165,6 +168,9 @@ public class Curve
     /// <param name="curve">The curve to convert to a list of points.</param>
     /// <param name="numPoints">The number of points to generate on the curve.</param>
     /// <returns>A list of Point3D objects representing the points on the curve.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.ToPoints.png)
+    /// </example>
     public static List<Autodesk.DesignScript.Geometry.Point> ToPoints(Autodesk.DesignScript.Geometry.Curve curve, int numPoints)
     {
         var points = new List<Autodesk.DesignScript.Geometry.Point>();

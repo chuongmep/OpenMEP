@@ -795,6 +795,9 @@ public class Point
     /// </summary>
     /// <param name="point">The input point.</param>
     /// <returns>The point with the smallest integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Floor.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Point Floor(Autodesk.DesignScript.Geometry.Point point)
     {
         int x = (int)System.Math.Floor(point.X);
@@ -807,6 +810,9 @@ public class Point
     /// </summary>
     /// <param name="point">The input point.</param>
     /// <returns>The point with the larger integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.Ceiling.png)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Point Ceiling(Autodesk.DesignScript.Geometry.Point point)
     {
         int x = (int)System.Math.Floor(point.X);
