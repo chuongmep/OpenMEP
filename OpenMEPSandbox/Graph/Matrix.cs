@@ -14,8 +14,11 @@ public class Matrix
     /// </summary>
     /// <param name="sources">The list of source points for the edges.</param>
     /// <param name="destinations">The list of destination points for the edges.</param>
-    /// <returns>An adjacency matrix for the graph.</returns>
-    public static int[][] BuildGraphAdjMatrix(List<Point> sources, List<Point> destinations)
+    /// <returns name="adjacency matrix">An adjacency matrix for the graph.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/graph/pic/Matrix.BuildAdjMatrixByPoints.png)
+    /// </example>
+    public static int[][] BuildAdjMatrixByPoints(List<Point> sources, List<Point> destinations)
     {
         int n = sources.Count;
         int[][] adjMatrix = new int[n][];
@@ -42,27 +45,35 @@ public class Matrix
     /// <param name="sources">A list of source vertices.</param>
     /// <param name="destinations">A list of destination vertices.</param>
     /// <param name="weights">A list of edge weights.</param>
-    /// <returns>An adjacency matrix representing the graph.</returns>
-    public static int[][] BuildGraphAdjMatrix(List<int> sources, List<int> destinations, List<int> weights)
+    /// <returns name="adjacency matrix">An adjacency matrix representing the graph.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/graph/pic/Matrix.BuildAdjMatrixByGraph.png)
+    /// </example>
+    public static int[][] BuildAdjMatrixByGraph(List<int> sources, List<int> destinations, List<int> weights)
     {
-        int numVertices = sources.Max() + 1; // determine the number of vertices based on the highest vertex ID
-        int[][] adjMatrix = new int[numVertices][];
-        for (int i = 0; i < numVertices; i++)
+        // Determine the maximum vertex ID in the graph
+        int maxVertexId = System.Math.Max(sources.Max(), destinations.Max());
+
+        // Initialize the adjacency matrix as a jagged array of size (maxVertexId + 1) x (maxVertexId + 1)
+        int[][] adjMatrix = new int[maxVertexId + 1][];
+
+        for (int i = 0; i <= maxVertexId; i++)
         {
-            adjMatrix[i] = new int[numVertices];
-            for (int j = 0; j < numVertices; j++)
-            {
-                adjMatrix[i][j] = -1; // initialize all edge weights to -1 (indicating no edge)
-            }
+            adjMatrix[i] = new int[maxVertexId + 1];
         }
-        for (int k = 0; k < sources.Count; k++)
+        // Add each edge to the adjacency matrix by setting the corresponding element to the edge weight
+        for (int i = 0; i < sources.Count; i++)
         {
-            int i = sources[k];
-            int j = destinations[k];
-            int weight = weights[k];
-            adjMatrix[i][j] = weight;
-            adjMatrix[j][i] = weight; // assuming an undirected graph
+            int src = sources[i];
+            int dest = destinations[i];
+            int weight = weights[i];
+
+            adjMatrix[src][dest] = weight;
+
+            // Uncomment the following line if the graph is undirected:
+            // adjMatrix[dest][src] = weight;
         }
+
         return adjMatrix;
     }
 }
