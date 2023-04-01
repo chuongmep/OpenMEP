@@ -1,0 +1,247 @@
+{
+  "Uuid": "05736522-824e-417a-a511-efb0b6697572",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Element.RotateMultiple",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "94cc1848-4cb5-4141-8b89-8508134acf0d-00148684",
+        "94cc1848-4cb5-4141-8b89-8508134acf0d-0014868b"
+      ],
+      "Id": "fc6c919494b044fabff3553ef64eeb63",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9dddd369f52a4cec9f88cd490d8c0406",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Element.RotateMultiple@Revit.Elements.Element[],Autodesk.DesignScript.Geometry.Vector,double",
+      "Id": "a750570256dc4a3dbdabdd1b2a35e48d",
+      "Inputs": [
+        {
+          "Id": "ea1f0171f64e45ffbdfe592db77a9b13",
+          "Name": "elements",
+          "Description": "the list collection of elements\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "608a6f1ef2074f03b22e8b47796a12c2",
+          "Name": "vectorAxis",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cf4ffbf2c4fc4c0ca1f041b433c3f903",
+          "Name": "angle",
+          "Description": "angle to rotate(Degrees)\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b996514e16a24d7ab97c9ca97bc0cd28",
+          "Name": "elements",
+          "Description": "collection of list elements rotated",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Rotate multiple family instances This will be help save time when you have a lot of elements to rotate because just one transaction\n\nElement.RotateMultiple (elements: Element[], vectorAxis: Vector, angle: double): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ZAxis",
+      "Id": "46e224c8992b48e5bba42838e95a894f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3a70fb0f1f66425f887c1ab07e1b1477",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical Z axis Vector (0,0,1)\n\nVector.ZAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "90;",
+      "Id": "97325f6a9f404e688f7c968a85b8a5c1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "22254f5ecad649ec8b1e181ed01c57f4",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9dddd369f52a4cec9f88cd490d8c0406",
+      "End": "ea1f0171f64e45ffbdfe592db77a9b13",
+      "Id": "20f8d38303004a9d9e46f049f518468c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3a70fb0f1f66425f887c1ab07e1b1477",
+      "End": "608a6f1ef2074f03b22e8b47796a12c2",
+      "Id": "85b6dd321d0449b8b2845d0c0ea1308b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "22254f5ecad649ec8b1e181ed01c57f4",
+      "End": "cf4ffbf2c4fc4c0ca1f041b433c3f903",
+      "Id": "29fb2f5833e04952b20026007fac3ffe",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "a750570256dc4a3dbdabdd1b2a35e48d"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Elements",
+        "ShowGeometry": true,
+        "Id": "fc6c919494b044fabff3553ef64eeb63",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 361.55853131749461,
+        "Y": 240.89330453563718
+      },
+      {
+        "Name": "Element.RotateMultiple",
+        "ShowGeometry": true,
+        "Id": "a750570256dc4a3dbdabdd1b2a35e48d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 711.15248380129572,
+        "Y": 297.61123110151175
+      },
+      {
+        "Name": "Vector.ZAxis",
+        "ShowGeometry": true,
+        "Id": "46e224c8992b48e5bba42838e95a894f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 415.234557235421,
+        "Y": 408.08639308855288
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "97325f6a9f404e688f7c968a85b8a5c1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 416.73434125269989,
+        "Y": 541.17710583153348
+      }
+    ],
+    "Annotations": [],
+    "X": -176.29298176025918,
+    "Y": -60.440511231101539,
+    "Zoom": 0.97676875
+  }
+}

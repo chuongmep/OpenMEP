@@ -98,7 +98,7 @@ public class Element
     /// <param name="newLocation">translate</param>
     /// <returns name="elements">the collection of elements moved</returns>
     /// <example>
-    /// ![](../OpenMEPPage/element/dyn/pic/Element.MoveElement.png)
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.MoveElements.png)
     /// </example>
     public static List<Revit.Elements.Element> MoveElements(List<Revit.Elements.Element> elements, Point newLocation)
     {
@@ -147,7 +147,7 @@ public class Element
     /// <param name="angle">angle to rotate(Degrees)</param>
     /// <returns name="elements">collection of list elements rotated</returns>
     /// <example>
-    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateByLine.png)
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateMultipleByLine.png)
     /// </example>
     [NodeCategory("Action")]
     public static List<Revit.Elements.Element> RotateMultiple(List<Revit.Elements.Element> elements,
@@ -175,7 +175,7 @@ public class Element
     /// <param name="angle">angle to rotate(Degrees)</param>
     /// <returns name="elements">collection of list elements rotated</returns>
     /// <example>
-    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateByDirection.png)
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateMultiple.png)
     /// </example>
     [NodeCategory("Action")]
     public static List<Revit.Elements.Element> RotateMultiple(List<Revit.Elements.Element> elements,
