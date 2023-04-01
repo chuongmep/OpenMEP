@@ -81,6 +81,7 @@ public class Element
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.MoveElement.png)
     /// </example>
+    [NodeCategory("Action")]
     public static global::Revit.Elements.Element MoveElement(global::Revit.Elements.Element element, Point newLocation)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -94,20 +95,23 @@ public class Element
     /// <summary>
     /// Move the list collection of elements to new location
     /// </summary>
-    /// <param name="elements">element to move</param>
-    /// <param name="newLocation">translate</param>
+    /// <param name="elements">the collection elements want move</param>
+    /// <param name="newLocations">the collection translate</param>
     /// <returns name="elements">the collection of elements moved</returns>
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.MoveElements.png)
     /// </example>
-    public static List<Revit.Elements.Element> MoveElements(List<Revit.Elements.Element> elements, Point newLocation)
+    [NodeCategory("Action")]
+    public static List<Revit.Elements.Element> MoveElements(List<Revit.Elements.Element> elements, List<Point> newLocations)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        foreach (var element in elements)
+        if(elements.Count != newLocations.Count)
+            throw new Exception("The number of elements and new locations must be the same.");
+        for (int i = 0; i < elements.Count; i++)
         {
-            ElementTransformUtils.MoveElement(doc, element.InternalElement.Id,
-                newLocation.ToXyz().Subtract(GetLocation(element).ToXyz()));
+            ElementTransformUtils.MoveElement(doc, elements[i].InternalElement.Id,
+                newLocations[i].ToXyz().Subtract(GetLocation(elements[i]).ToXyz()));
         }
         TransactionManager.Instance.TransactionTaskDone();
         return elements;
