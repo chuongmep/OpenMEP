@@ -1,0 +1,156 @@
+{
+  "Uuid": "cf94587c-f0e1-41a4-9e77-a992d897afdc",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Element.GetConnectedElements",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+      ],
+      "Id": "b91c9e4e6d30474c8132e865a91cf978",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c419bfba47c048349c10ca1d33007b91",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Element.GetConnectedElements@Revit.Elements.Element",
+      "Id": "bba29a34af314e8eb4b89878942bdd73",
+      "Inputs": [
+        {
+          "Id": "53d24a19c8a04c28a0f4e728a442db5d",
+          "Name": "elem",
+          "Description": "the element need get connected\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5e0cbfae8a804dcf85bfa63ebc6aad96",
+          "Name": "elements",
+          "Description": "the list elements connected with this element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This method takes in an element and returns a list of elements that are connected to it.\n\nElement.GetConnectedElements (elem: Element): Element[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "c419bfba47c048349c10ca1d33007b91",
+      "End": "53d24a19c8a04c28a0f4e728a442db5d",
+      "Id": "1bfcc2dac48447f8ae0313310524e7cd",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "bba29a34af314e8eb4b89878942bdd73"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "b91c9e4e6d30474c8132e865a91cf978",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 376.80000000000007,
+        "Y": 376.8
+      },
+      {
+        "Name": "Element.GetConnectedElements",
+        "ShowGeometry": true,
+        "Id": "bba29a34af314e8eb4b89878942bdd73",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 688.00000000000011,
+        "Y": 381.59999999999997
+      }
+    ],
+    "Annotations": [],
+    "X": -415.07200000000023,
+    "Y": -222.93599999999998,
+    "Zoom": 1.1575
+  }
+}

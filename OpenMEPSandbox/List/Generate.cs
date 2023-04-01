@@ -14,7 +14,7 @@ public class Generate
     /// multiple times in the input list, the index of its first occurrence is used.
     /// </summary>
     /// <param name="objects">The input list of strings to be indexed.</param>
-    /// <returns>A new list where each element is replaced with its corresponding index.</returns>
+    /// <returns name="indices">A new list where each element is replaced with its corresponding index.</returns>
     /// <example>
     /// ![](../OpenMEPPage/list/pic/Generate.IndexListObjects.png)
     /// </example>
@@ -43,6 +43,8 @@ public class Generate
     /// <param name="lst1">The first list to index.</param>
     /// <param name="lst2">The second list to index.</param>
     /// <returns>A Tuple containing the two indexed lists.</returns>
+    /// <returns name="lst1">indices of first list</returns>
+    /// <returns name="lst2">indices of second list</returns>
     /// <example>
     /// ![](../OpenMEPPage/list/pic/Generate.IndexTwoListObjects.png)
     /// </example>
@@ -117,7 +119,8 @@ public class Generate
     /// mapping each unique string to its corresponding index in the list.
     /// </summary>
     /// <param name="lst">list of strings input</param>
-    /// <returns></returns>
+    /// <returns name="name">name of object</returns>
+    /// <returns name="index">indices of object</returns>
     /// <example>
     /// ![](../OpenMEPPage/list/pic/Generate.IndexUniqueListObjects.png)
     /// </example>
@@ -146,7 +149,8 @@ public class Generate
     /// </summary>
     /// <param name="list1">The first list of objects.</param>
     /// <param name="list2">The second list of objects.</param>
-    /// <returns>A dictionary with unique names and indices.</returns>
+    /// <returns name="name">name of object</returns>
+    /// <returns name="index">indices of object</returns>
     /// <example>
     /// ![](../OpenMEPPage/list/pic/Generate.IndexUniqueTwoListObjects.png)
     /// </example>

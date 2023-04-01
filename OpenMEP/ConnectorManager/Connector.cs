@@ -282,10 +282,9 @@ public class Connector
     /// </summary>
     /// <param name="connectorManager">connector manager</param>
     /// <returns name="connectors">connectors</returns>
-    public static List<Autodesk.Revit.DB.Connector?> GetConnectors(
-        Autodesk.Revit.DB.ConnectorManager? connectorManager)
+    public static List<Autodesk.Revit.DB.Connector> GetConnectors(
+        Autodesk.Revit.DB.ConnectorManager connectorManager)
     {
-        if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         List<Autodesk.Revit.DB.Connector?> connectors = new List<Autodesk.Revit.DB.Connector?>();
         foreach (Autodesk.Revit.DB.Connector? c in connectorManager.Connectors)
         {
@@ -303,11 +302,12 @@ public class Connector
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectors.png)
     /// </example>
-    public static List<Autodesk.Revit.DB.Connector?> GetConnectors(Revit.Elements.Element? element)
+    public static List<Autodesk.Revit.DB.Connector> GetConnectors(Revit.Elements.Element? element)
     {
+        if (element == null) throw new ArgumentException(nameof(element));
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
             global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
-        if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
+        if (connectorManager == null) return new List<Autodesk.Revit.DB.Connector>();
         return GetConnectors(connectorManager);
     }
 

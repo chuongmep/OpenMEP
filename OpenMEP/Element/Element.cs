@@ -227,6 +227,7 @@ public class Element
                 return connector.MEPSystem.ToDynamoType();
             }
         }
+
         return null;
     }
 
@@ -255,8 +256,42 @@ public class Element
     /// </example>
     public static dynamic? ConnectorSystemType(global::Revit.Elements.Element element)
     {
+        if (element == null) throw new ArgumentNullException(nameof(element));
         List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(element);
+        if (connectors.Count==0) return null;
         dynamic? systemType = connectors.Select(x => ConnectorManager.Connector.SystemType(x)).FirstOrDefault();
         return systemType;
+    }
+
+    /// <summary>
+    /// This method takes in an element and returns a list of elements that are connected to it.
+    /// </summary>
+    /// <param name="elem">the element need get connected</param>
+    /// <returns name="elements">the list elements connected with this element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.GetConnectedElements.png)
+    /// </example>
+    public static List<Revit.Elements.Element?> GetConnectedElements(Revit.Elements.Element elem)
+    {
+        List<Autodesk.Revit.DB.Element> connectedElements = new List<Autodesk.Revit.DB.Element>();
+        Autodesk.Revit.DB.Element internalElement = elem.InternalElement;
+        if (internalElement == null) throw new ArgumentNullException(nameof(elem));
+        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(elem);
+        if (connectors.Count == 0) return new List<Revit.Elements.Element?>();
+        foreach (var connector in connectors)
+        {
+            if(connector== null) continue;
+            ConnectorSet connectedConnectors = connector.AllRefs;
+            foreach (Connector connectedConnector in connectedConnectors)
+            {
+                Autodesk.Revit.DB.Element connectedElem = connectedConnector.Owner;
+                if (connectedElem.Id != internalElement.Id && !connectedElements.Contains(connectedElem))
+                {
+                    connectedElements.Add(connectedElem);
+                }
+            }
+        }
+        if (connectedElements.Count == 0) return new List<Revit.Elements.Element?>();
+        return connectedElements.Select(x => x.ToDynamoType()).ToList();
     }
 }
