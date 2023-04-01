@@ -77,7 +77,7 @@ public class Element
     /// </summary>
     /// <param name="element">element to move</param>
     /// <param name="newLocation">translate</param>
-    /// <returns name="element">family instance</returns>
+    /// <returns name="element">the element moved</returns>
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.MoveElement.png)
     /// </example>
@@ -90,20 +90,42 @@ public class Element
         TransactionManager.Instance.TransactionTaskDone();
         return element;
     }
+    
+    /// <summary>
+    /// Move the list collection of elements to new location
+    /// </summary>
+    /// <param name="elements">element to move</param>
+    /// <param name="newLocation">translate</param>
+    /// <returns name="elements">the collection of elements moved</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.MoveElement.png)
+    /// </example>
+    public static List<Revit.Elements.Element> MoveElements(List<Revit.Elements.Element> elements, Point newLocation)
+    {
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        foreach (var element in elements)
+        {
+            ElementTransformUtils.MoveElement(doc, element.InternalElement.Id,
+                newLocation.ToXyz().Subtract(GetLocation(element).ToXyz()));
+        }
+        TransactionManager.Instance.TransactionTaskDone();
+        return elements;
+    }
 
     /// <summary>
-    /// Set Rotate of fitting
+    /// Set Rotate of family instances by line
     /// </summary>
     /// <param name="element">the element</param>
-    /// <param name="Axis">Line Axis</param>
+    /// <param name="lineAxis">Line Axis</param>
     /// <param name="angle">angle to rotate(Degrees)</param>
-    /// <returns name="fitting">family instance</returns>
+    /// <returns name="element">family instance</returns>
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateByLine.png)
     /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element Rotate(global::Revit.Elements.Element element,
-        Autodesk.DesignScript.Geometry.Line Axis,
+        Autodesk.DesignScript.Geometry.Line lineAxis,
         double angle)
     {
         TransactionManager.Instance.ForceCloseTransaction();
@@ -111,16 +133,77 @@ public class Element
         TransactionManager.Instance.EnsureInTransaction(doc);
         double degree2Radian = angle * Math.PI / 180;
         ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
-            (Autodesk.Revit.DB.Line) Axis.ToRevitType(), degree2Radian);
+            (Autodesk.Revit.DB.Line) lineAxis.ToRevitType(), degree2Radian);
         TransactionManager.Instance.TransactionTaskDone();
         return element;
     }
+    
+    /// <summary>
+    /// Set Rotate multiple family instances
+    /// This will be help save time when you have a lot of elements to rotate because just one transaction
+    /// </summary>
+    /// <param name="elements">the list collection of elements</param>
+    /// <param name="lineAxis">Line Axis</param>
+    /// <param name="angle">angle to rotate(Degrees)</param>
+    /// <returns name="elements">collection of list elements rotated</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateByLine.png)
+    /// </example>
+    [NodeCategory("Action")]
+    public static List<Revit.Elements.Element> RotateMultiple(List<Revit.Elements.Element> elements,
+        Autodesk.DesignScript.Geometry.Line lineAxis,
+        double angle)
+    {
+        TransactionManager.Instance.ForceCloseTransaction();
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        double degree2Radian = angle * Math.PI / 180;
+        foreach (var element in elements)
+        {
+            ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
+                (Autodesk.Revit.DB.Line) lineAxis.ToRevitType(), degree2Radian);
+        }
+        TransactionManager.Instance.TransactionTaskDone();
+        return elements;
+    }
 
     /// <summary>
-    /// Set Rotate of fitting
+    /// Set Rotate multiple elements by vector
+    /// </summary>
+    /// <param name="elements">the collection of elements</param>
+    /// <param name="vectorAxis">Direction Axis</param>
+    /// <param name="angle">angle to rotate(Degrees)</param>
+    /// <returns name="elements">collection of list elements rotated</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateByDirection.png)
+    /// </example>
+    [NodeCategory("Action")]
+    public static List<Revit.Elements.Element> RotateMultiple(List<Revit.Elements.Element> elements,
+        Autodesk.DesignScript.Geometry.Vector vectorAxis,
+        double angle)
+    {
+        TransactionManager.Instance.ForceCloseTransaction();
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(doc);
+        double degree2Radian = angle * Math.PI / 180;
+        foreach (var element in elements)
+        {
+            LocationPoint? locationPoint = element.InternalElement.Location as LocationPoint;
+            var location = locationPoint?.Point;
+            Autodesk.Revit.DB.Line line =
+                Autodesk.Revit.DB.Line.CreateBound(location!.Add(vectorAxis.ToRevitType().Multiply(2)), location);
+            ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
+                (Autodesk.Revit.DB.Line) line, degree2Radian);
+        }
+        TransactionManager.Instance.TransactionTaskDone();
+        return elements;
+    }
+    
+    /// <summary>
+    /// Set Rotate of fitting By Vector
     /// </summary>
     /// <param name="element">the element</param>
-    /// <param name="Axis">Direction Axis</param>
+    /// <param name="vectorAxis">Direction Axis</param>
     /// <param name="angle">angle to rotate(Degrees)</param>
     /// <returns name="fitting">family instance</returns>
     /// <example>
@@ -128,7 +211,7 @@ public class Element
     /// </example>
     [NodeCategory("Action")]
     public static global::Revit.Elements.Element Rotate(global::Revit.Elements.Element element,
-        Autodesk.DesignScript.Geometry.Vector Axis,
+        Autodesk.DesignScript.Geometry.Vector vectorAxis,
         double angle)
     {
         TransactionManager.Instance.ForceCloseTransaction();
@@ -138,7 +221,7 @@ public class Element
         LocationPoint? locationPoint = element.InternalElement.Location as LocationPoint;
         var location = locationPoint?.Point;
         Autodesk.Revit.DB.Line line =
-            Autodesk.Revit.DB.Line.CreateBound(location!.Add(Axis.ToRevitType().Multiply(2)), location);
+            Autodesk.Revit.DB.Line.CreateBound(location!.Add(vectorAxis.ToRevitType().Multiply(2)), location);
         ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
             (Autodesk.Revit.DB.Line) line, degree2Radian);
         TransactionManager.Instance.TransactionTaskDone();
