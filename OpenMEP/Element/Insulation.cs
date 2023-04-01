@@ -31,13 +31,14 @@ public class Insulation
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Insulation.GetInsulation.png)
     /// </example>
-    public static List<Revit.Elements.Element?> GetInsulation(Revit.Elements.Element element)
+    public static List<Revit.Elements.Element> GetInsulation(Revit.Elements.Element element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         Autodesk.Revit.DB.Element e = element.InternalElement;
         ICollection<ElementId> ids = InsulationLiningBase.GetInsulationIds(doc, e.Id);
-        List<Revit.Elements.Element?> elements = ids.Select(id => doc.GetElement(id).ToDynamoType()).ToList();
+        if(ids == null || ids.Count==0) return new List<Revit.Elements.Element>();
+        List<Revit.Elements.Element> elements = ids.Select(id => doc.GetElement(id).ToDynamoType()).ToList();
         return elements;
     }
     /// <summary>Returns the ids of the lining elements associated to a given element.</summary>
@@ -54,13 +55,14 @@ public class Insulation
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Insulation.GetLining.png)
     /// </example>
-    public static List<Revit.Elements.Element?> GetLining(Revit.Elements.Element element)
+    public static List<Revit.Elements.Element> GetLining(Revit.Elements.Element element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         Autodesk.Revit.DB.Element e = element.InternalElement;
         ICollection<ElementId> ids = InsulationLiningBase.GetLiningIds(doc, e.Id);
-        List<Revit.Elements.Element?> elements = ids.Select(id => doc.GetElement(id).ToDynamoType()).ToList();
+        if(ids == null || ids.Count==0) return new List<Revit.Elements.Element>();
+        List<Revit.Elements.Element> elements = ids.Select(id => doc.GetElement(id).ToDynamoType()).ToList();
         return elements;
     }
     
@@ -75,8 +77,9 @@ public class Insulation
     [NodeCategory("Query")]
     public static bool IsAddInsulationOrLining(Revit.Elements.Element element)
     {
-        List<Revit.Elements.Element?> insulation = GetInsulation(element);
-        List<Revit.Elements.Element?> lining = GetLining(element);
+        if(element == null) throw new ArgumentNullException(nameof(element));
+        List<Revit.Elements.Element> insulation = GetInsulation(element);
+        List<Revit.Elements.Element> lining = GetLining(element);
         if (insulation.Count > 0 || lining.Count > 0) return true;
         return false;
     }

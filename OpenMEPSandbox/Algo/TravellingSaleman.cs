@@ -10,11 +10,11 @@ public static class TravellingSalesman
     /// <summary>
     /// takes a list of 3D points as input and returns the shortest route that visits each point exactly once
     /// </summary>
-    /// <param name="points"></param>
-    /// <returns></returns>
+    /// <param name="points">list point to find shortest route </param>
+    /// <returns name="points">shortest route</returns>
     public static List<Point> FindShortestRoute(List<Point> points)
     {
-        List<Point> shortestRoute = null;
+        List<Point> shortestRoute = new List<Point>();
         double shortestDistance = double.MaxValue;
 
         // Generate all possible permutations of the points

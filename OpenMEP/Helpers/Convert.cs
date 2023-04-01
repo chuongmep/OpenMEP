@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
+using Dynamo.Controls;
 using GShark.Geometry;
 using Revit.Elements;
 using Revit.GeometryConversion;
@@ -194,9 +195,8 @@ namespace OpenMEP.Helpers
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        internal static dynElement? ToDynamoType(this rvtElement? item)
+        internal static dynElement ToDynamoType(this rvtElement item)
         {
-            if (item == null) return null;
             return item.ToDSType(true);
         }
 
@@ -205,10 +205,9 @@ namespace OpenMEP.Helpers
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
-        internal static IEnumerable<dynElement?> ToDynamoType(this IEnumerable<rvtElement>? items)
+        internal static IEnumerable<dynElement?> ToDynamoType(this IEnumerable<rvtElement> items)
         {
-            if(items==null) yield return null;
-            if(items.Any()==false) yield return null;
+            if (items == null) throw new ArgumentNullException(nameof(items));
             foreach (var item in items)
             {
                 yield return item.ToDSType(true);

@@ -1,9 +1,11 @@
 ﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.Exceptions;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
+using ArgumentNullException = System.ArgumentNullException;
 
 namespace OpenMEP.Element;
 /// <summary>A flex pipe in the Autodesk Revit MEP product.</summary>
@@ -130,6 +132,7 @@ public class FlexPipe
     public static List<Autodesk.DesignScript.Geometry.Point> Points(Revit.Elements.Element flexPipe)
     {
         Autodesk.Revit.DB.Plumbing.FlexPipe? flexPipe1 = flexPipe.InternalElement as Autodesk.Revit.DB.Plumbing.FlexPipe;
+        if (flexPipe1 == null) throw new ArgumentNullException(nameof(flexPipe));
         return flexPipe1.Points.Select(x=>x.ToPoint()).ToList();
     }
 }

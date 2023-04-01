@@ -129,7 +129,7 @@ public class MEPCurve
         TransactionManager.Instance.TransactionTaskDone();
         if (newUnionFitting == null)
         {
-            List<Connector?> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(mepCurve1);
+            List<Connector> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(mepCurve1);
             Connector? c11 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(c1, connectors);
             ConnectorSet connectorSet = c11!.AllRefs;
             IEnumerator enumerator = connectorSet.GetEnumerator();
@@ -143,8 +143,8 @@ public class MEPCurve
                 return dynamoType;
             }
         }
-
-        return newUnionFitting.ToDynamoType();
+        if(newUnionFitting != null) return newUnionFitting.ToDynamoType();
+        return null;
     }
 
     /// <summary>
@@ -240,6 +240,7 @@ public class MEPCurve
         Connector? connector1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
         Connector? connector2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Connector? connector3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        if(connector1==null||connector2==null||connector3==null) throw new Exception("connector is null");
         // sort connectors main-main-branch
         Connector? c1;
         Connector? c2;
@@ -293,6 +294,7 @@ public class MEPCurve
         XYZ firstPoint = curve1.GetEndPoint(0);
         XYZ secondPoint = curve2.GetEndPoint(0);
         Autodesk.DesignScript.Geometry.Line? protoType = curve2.ToProtoType(false) as Autodesk.DesignScript.Geometry.Line;
+        if(protoType==null) throw new Exception("The branch mep curve can't get location");
         Autodesk.DesignScript.Geometry.Point pointProjected = Point.ProjectOnToLine(firstPoint.ToPoint(false),protoType
             );
         Revit.Elements.Element? mainMEPCurve = null;
@@ -308,6 +310,7 @@ public class MEPCurve
             mainMEPCurve = MepCurve1;
             branchMEPCurve = MepCurve2;
             protoType = curve1.ToProtoType(false) as Autodesk.DesignScript.Geometry.Line;
+            if(protoType==null) throw new Exception("The main mep curve can't get location");
             pointProjected = Point.ProjectOnToLine(secondPoint.ToPoint(false),protoType);
             isOnLine = Point.IsOnLine(pointProjected,protoType);
             if(!isOnLine) throw new Exception("The two curves are can't create a tee fitting");
@@ -318,12 +321,14 @@ public class MEPCurve
         TransactionManager.Instance.EnsureInTransaction(doc);
         protoType = mainMEPCurve.GetLocation() as Autodesk.DesignScript.Geometry.Line;
         Autodesk.DesignScript.Geometry.Line? line = branchMEPCurve.GetLocation() as Autodesk.DesignScript.Geometry.Line;
+        if(line==null) throw new Exception("The branch mep curve can't get location");
         pointProjected = Point.ProjectOnToLine(line.StartPoint,protoType);
         Revit.Elements.Element? newMepCurve = MEPCurve.BreakCurve(mainMEPCurve,pointProjected);
         TransactionManager.Instance.TransactionTaskDone();
         Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(newMepCurve,mainMEPCurve);
+        if(c1==null) throw new Exception("Can't find connector in the main mep curve");
         Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mainMEPCurve,branchMEPCurve);
-        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(branchMEPCurve);
+        List<Connector> connectors = ConnectorManager.Connector.GetConnectors(branchMEPCurve);
         Connector? c3 = ConnectorManager.Connector.GetConnectorClosest(c1.Origin.ToPoint(), connectors);
         Revit.Elements.Element? teeFitting = Fitting.NewTeeFitting(c1, c2, c3);
         return teeFitting;
@@ -552,11 +557,14 @@ public class MEPCurve
     public static IDictionary<string, object?> GetThreeConnectorsClosest(global::Revit.Elements.Element? mepCurve1,
         global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3)
     {
-        List<Connector?> connectorsPipe1 = ConnectorManager.Connector.GetConnectors(mepCurve1);
+        if(mepCurve1==null) throw new ArgumentNullException(nameof(mepCurve1));
+        if(mepCurve2==null) throw new ArgumentNullException(nameof(mepCurve2));
+        if(mepCurve3==null) throw new ArgumentNullException(nameof(mepCurve3));
+        List<Connector> connectorsPipe1 = ConnectorManager.Connector.GetConnectors(mepCurve1);
         if (!connectorsPipe1.Any()) throw new ArgumentException(nameof(mepCurve1));
-        List<Connector?> connectorsPipe2 = ConnectorManager.Connector.GetConnectors(mepCurve2);
+        List<Connector> connectorsPipe2 = ConnectorManager.Connector.GetConnectors(mepCurve2);
         if (!connectorsPipe2.Any()) throw new ArgumentException(nameof(mepCurve2));
-        List<Connector?> connectorsPipe3 = ConnectorManager.Connector.GetConnectors(mepCurve3);
+        List<Connector> connectorsPipe3 = ConnectorManager.Connector.GetConnectors(mepCurve3);
         if (!connectorsPipe3.Any()) throw new ArgumentException(nameof(mepCurve3));
         Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
         Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
@@ -584,13 +592,17 @@ public class MEPCurve
         global::Revit.Elements.Element? mepCurve2, global::Revit.Elements.Element? mepCurve3,
         global::Revit.Elements.Element? mepCurve4)
     {
-        List<Connector?> connectors1 = ConnectorManager.Connector.GetConnectors(mepCurve1);
+        if(mepCurve1 == null) throw new ArgumentNullException(nameof(mepCurve1));
+        if(mepCurve2 == null) throw new ArgumentNullException(nameof(mepCurve2));
+        if(mepCurve3 == null) throw new ArgumentNullException(nameof(mepCurve3));
+        if(mepCurve4 == null) throw new ArgumentNullException(nameof(mepCurve4));
+        List<Connector> connectors1 = ConnectorManager.Connector.GetConnectors(mepCurve1);
         if (!connectors1.Any()) throw new ArgumentException(nameof(mepCurve1));
-        List<Connector?> connectors2 = ConnectorManager.Connector.GetConnectors(mepCurve2);
+        List<Connector> connectors2 = ConnectorManager.Connector.GetConnectors(mepCurve2);
         if (!connectors2.Any()) throw new ArgumentException(nameof(mepCurve2));
-        List<Connector?> connectors3 = ConnectorManager.Connector.GetConnectors(mepCurve3);
+        List<Connector> connectors3 = ConnectorManager.Connector.GetConnectors(mepCurve3);
         if (!connectors3.Any()) throw new ArgumentException(nameof(mepCurve3));
-        List<Connector?> connectors4 = ConnectorManager.Connector.GetConnectors(mepCurve3);
+        List<Connector> connectors4 = ConnectorManager.Connector.GetConnectors(mepCurve3);
         if (!connectors4.Any()) throw new ArgumentException(nameof(mepCurve4));
         Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
         Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);

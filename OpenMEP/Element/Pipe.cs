@@ -285,7 +285,7 @@ public class Pipe
         double value = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
 #endif
 
-        ConnectorManager.Connector.GetConnectors(pipe).ForEach(delegate(Connector? c) { c!.Radius = value / 2; });
+        ConnectorManager.Connector.GetConnectors(pipe).ForEach(delegate(Connector c) { c!.Radius = value / 2; });
         TransactionManager.Instance.TransactionTaskDone();
         return pipe;
     }
@@ -351,7 +351,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Junctions);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -381,7 +381,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Caps);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -411,7 +411,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Crosses);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -441,7 +441,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Elbows);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -471,7 +471,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Transitions);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -501,7 +501,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Segments);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -531,7 +531,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.Undefined);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -561,7 +561,7 @@ public class Pipe
             GetSymbolByRouting(pipe, raInternalUnits * 2, RoutingPreferenceRuleGroupType.MechanicalJoints);
         return new Dictionary<string, object?>()
         {
-            {"FamilySymbol", symbolByRouting.ToDynamoType() ?? null},
+            {"FamilySymbol", symbolByRouting?.ToDynamoType() ?? null},
             {"Family", symbolByRouting?.Family.ToDynamoType() ?? null}
         };
     }
@@ -685,7 +685,9 @@ public class Pipe
     public static global::Revit.Elements.Element? GetTransition(global::Revit.Elements.Element pipe)
     {
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
-        FamilySymbol? familySymbol = pipeInternalElement?.PipeType.Transition;
+        if (pipeInternalElement == null) return null;
+        FamilySymbol? familySymbol = pipeInternalElement.PipeType.Transition;
+        if (familySymbol == null) return null;
         global::Revit.Elements.Element? Transition = familySymbol.ToDynamoType();
         return Transition;
     }

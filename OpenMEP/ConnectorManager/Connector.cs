@@ -57,8 +57,8 @@ public class Connector
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorClosest.png)
     /// </example>
-    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(Point? point,
-        List<Autodesk.Revit.DB.Connector?> connectors)
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(Point point,
+        List<Autodesk.Revit.DB.Connector> connectors)
     {
         Autodesk.Revit.DB.Connector? closet = null;
         double? distance = Double.MaxValue;
@@ -85,7 +85,7 @@ public class Connector
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorClosest.png)
     /// </example>
     public static Autodesk.Revit.DB.Connector? GetConnectorClosest(Autodesk.Revit.DB.Connector? c,
-        List<Autodesk.Revit.DB.Connector?> connectors)
+        List<Autodesk.Revit.DB.Connector> connectors)
     {
         Autodesk.Revit.DB.Connector? closet = null;
         double? distance = Double.MaxValue;
@@ -244,7 +244,9 @@ public class Connector
     public static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element1,
         Revit.Elements.Element? element2)
     {
-        List<Autodesk.Revit.DB.Connector?> connectorSet = GetConnectors(element1);
+        if (element1 == null) throw new ArgumentNullException(nameof(element1));
+        if (element2 == null) throw new ArgumentNullException(nameof(element2));
+        List<Autodesk.Revit.DB.Connector> connectorSet = GetConnectors(element1);
         Autodesk.Revit.DB.Connector? connector = GetConnectorFarthest(element2, connectorSet);
         return connector;
     }
@@ -255,8 +257,8 @@ public class Connector
     /// <param name="element">element to check</param>
     /// <param name="connectors">an collection connectors</param>
     /// <returns name="connector">farthest connector</returns>
-    internal static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element? element,
-        List<Autodesk.Revit.DB.Connector?> connectors)
+    internal static Autodesk.Revit.DB.Connector? GetConnectorFarthest(Revit.Elements.Element element,
+        List<Autodesk.Revit.DB.Connector> connectors)
     {
         Autodesk.Revit.DB.Connector? farthest = null;
         Point? locationCenter = global::OpenMEP.Element.Element.GetLocation(element);
@@ -285,12 +287,12 @@ public class Connector
     public static List<Autodesk.Revit.DB.Connector> GetConnectors(
         Autodesk.Revit.DB.ConnectorManager connectorManager)
     {
-        List<Autodesk.Revit.DB.Connector?> connectors = new List<Autodesk.Revit.DB.Connector?>();
+        List<Autodesk.Revit.DB.Connector> connectors = new List<Autodesk.Revit.DB.Connector>();
         foreach (Autodesk.Revit.DB.Connector? c in connectorManager.Connectors)
         {
+            if(c == null) continue;
             connectors.Add(c);
         }
-
         return connectors;
     }
 
@@ -335,11 +337,12 @@ public class Connector
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetUsedConnectors.png)
     /// </example>
-    public static List<Autodesk.Revit.DB.Connector?> GetUsedConnectors(Revit.Elements.Element? element)
+    public static List<Autodesk.Revit.DB.Connector> GetUsedConnectors(Revit.Elements.Element? element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
-        if (!GetConnectors(element).Any()) return new List<Autodesk.Revit.DB.Connector?>();
-        return GetConnectors(element).Where(x => x!.IsConnected).ToList();
+        List<Autodesk.Revit.DB.Connector> connectors = GetConnectors(element);
+        if (!connectors.Any()) return new List<Autodesk.Revit.DB.Connector>();
+        return connectors.Where(x => x!.IsConnected).ToList();
     }
 
     /// <summary>
@@ -363,9 +366,13 @@ public class Connector
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector.png)
     /// </example>
-    public static List<Autodesk.Revit.DB.Connector?> GetRemainingConnector(Revit.Elements.Element? element ,Autodesk.Revit.DB.Connector connector)
+    public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(Revit.Elements.Element? element ,Autodesk.Revit.DB.Connector connector)
     {
-        return GetConnectors(element).Where(c => c!.Id != connector.Id).ToList();
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        if (connector == null) throw new ArgumentNullException(nameof(connector));
+        List<Autodesk.Revit.DB.Connector> connectors = GetConnectors(element);
+        if (connectors.Count == 0) return new List<Autodesk.Revit.DB.Connector>();
+        return connectors.Where(c => c!.Id != connector.Id).ToList();
     }
 
     /// <summary>
@@ -1112,6 +1119,7 @@ public class Connector
 
         if (connector == null) return new Dictionary<string, object?>();
         var origin = connector.Origin.ToDynamoType();
+        if(origin == null) return new Dictionary<string, object?>();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 #if R20  
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;

@@ -46,6 +46,8 @@ public class Point
     public static Autodesk.DesignScript.Geometry.Point ProjectOnToLine(Autodesk.DesignScript.Geometry.Point? point,
         Autodesk.DesignScript.Geometry.Line? line)
     {
+        if(point is null) throw new ArgumentNullException(nameof(point));
+        if(line is null) throw new ArgumentNullException(nameof(line));
         Autodesk.DesignScript.Geometry.Vector lineDirection = line.Direction.Normalized();
         Autodesk.DesignScript.Geometry.Point start = line.StartPoint;
         Autodesk.DesignScript.Geometry.Vector vector = point.AsVector().Subtract(start.AsVector());
@@ -210,7 +212,7 @@ public class Point
         List<Autodesk.DesignScript.Geometry.Point> lcDevices, double limit = double.MaxValue)
     {
         double min = double.MaxValue;
-        Autodesk.DesignScript.Geometry.Point result = null;
+        Autodesk.DesignScript.Geometry.Point? result = null;
         int index = 0;
 
         for (int i = 0; i < lcDevices.Count; i++)
@@ -354,7 +356,7 @@ public class Point
         int mincost = 0;
         for (int i = 0; i < assignment.Count; i++)
         {
-            mincost += originCost[i, assignment[i]];
+            mincost += originCost![i, assignment[i]];
         }
 
         return new Dictionary<string, object?>()

@@ -470,7 +470,8 @@ public class Duct
         TransactionManager.Instance.EnsureInTransaction(doc);
         var placeholder = Autodesk.Revit.DB.Mechanical.Duct.CreatePlaceholder(doc, new ElementId(systemType.Id),
             new ElementId(ductType.Id), new ElementId(level.Id), startPoint.ToXyz(), endPoint.ToXyz());
-        if (placeholder != null) SetDiameter(placeholder.ToDynamoType(), width, height);
+        if(placeholder==null) throw new Exception("Create placeholder failed.");
+        SetDiameter(placeholder.ToDynamoType(), width, height);
         TransactionManager.Instance.TransactionTaskDone();
         return placeholder.ToDynamoType();
     }
@@ -610,9 +611,9 @@ public class Duct
         double? diameter = internalElement.get_Parameter(BuiltInParameter.RBS_CURVE_DIAMETER_PARAM)?.AsDouble();
         if (height == null || width == null && diameter != null)
         {
-            diameter = UnitUtils.ConvertFromInternalUnits((double) diameter, unitTypeId);
+            bool flag = double.TryParse(diameter.ToString(), out double diameterValue);
+            if(flag) diameter = UnitUtils.ConvertFromInternalUnits(diameterValue, unitTypeId);
         }
-
         if (height != null && width != null && diameter == null)
         {
             width = UnitUtils.ConvertFromInternalUnits((double) width, unitTypeId);

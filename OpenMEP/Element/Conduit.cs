@@ -317,7 +317,7 @@ public class Conduit
         double value = UnitUtils.ConvertToInternalUnits(diameter, unitTypeId);
 #endif
 
-        ConnectorManager.Connector.GetConnectors(conduit).ForEach(delegate(Connector? c) { c!.Radius = value / 2; });
+        ConnectorManager.Connector.GetConnectors(conduit).ForEach(delegate(Connector c) { c!.Radius = value / 2; });
         TransactionManager.Instance.TransactionTaskDone();
         return conduit;
     }

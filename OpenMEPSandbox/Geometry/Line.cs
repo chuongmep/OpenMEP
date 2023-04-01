@@ -21,6 +21,7 @@ public class Line
     [MultiReturn("Percent", "Degrees", "Ratio")]
     public static Dictionary<string, object?> Slope(Autodesk.DesignScript.Geometry.Curve? line,double digits=0)
     {
+        if(line is null) throw new ArgumentNullException(nameof(line));
         Autodesk.DesignScript.Geometry.Point bottomPoint;
         Autodesk.DesignScript.Geometry.Point topPoint;
         Autodesk.DesignScript.Geometry.Point startPoint = line.StartPoint;

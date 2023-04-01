@@ -229,8 +229,10 @@ public class Fitting
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        List<Autodesk.Revit.DB.Connector?> connectors =
+        List<Autodesk.Revit.DB.Connector> connectors =
             OpenMEP.ConnectorManager.Connector.GetConnectors(fitting);
+        if (connectors.Count == 0) return fitting;
+        if(connectors.Count!=3) throw new Exception("This function just apply for tee have three connector");
         connectors.FirstOrDefault(x => x!.Angle != 0)!.Angle = angle * Math.PI / 180;
         TransactionManager.Instance.TransactionTaskDone();
         return fitting;
@@ -251,7 +253,7 @@ public class Fitting
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        List<Autodesk.Revit.DB.Connector?> connectors =
+        List<Autodesk.Revit.DB.Connector> connectors =
             OpenMEP.ConnectorManager.Connector.GetConnectors(fitting);
         // Get Current Unit 
         FormatOptions units = doc.GetUnits().GetFormatOptions(SpecTypeId.PipeSize);
@@ -273,7 +275,7 @@ public class Fitting
     [NodeCategory("Query")]
     public static IDictionary ConnectorInfo(Revit.Elements.Element fitting)
     {
-        List<Connector?> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(fitting);
+        List<Connector> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(fitting);
         Autodesk.Revit.DB.FamilyInstance? element = fitting.InternalElement as Autodesk.Revit.DB.FamilyInstance;
         Autodesk.Revit.DB.MEPModel mepModel = element!.MEPModel;
         dynamic? partType = OpenMEP.ConnectorManager.MEPModel.PartType(mepModel);

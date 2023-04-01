@@ -153,9 +153,12 @@ public class Element
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.GetLevel.png)
     /// </example>
-    public static global::Revit.Elements.Element? GetLevel(global::Revit.Elements.Element element)
+    public static global::Revit.Elements.Element? GetLevel(global::Revit.Elements.Element? element)
     {
-        return GetLevel(element.InternalElement).ToDynamoType();
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        Level? level = GetLevel(element.InternalElement);
+        if (level == null) return null;
+        return level.ToDynamoType();
     }
 
     private static Level? GetLevel(Autodesk.Revit.DB.Element element)
@@ -217,9 +220,9 @@ public class Element
     /// </example>
     public static global::Revit.Elements.Element? System(global::Revit.Elements.Element element)
     {
-        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(element);
+        List<Connector> connectors = ConnectorManager.Connector.GetConnectors(element);
         if (connectors == null) throw new ArgumentNullException(nameof(element));
-        foreach (Connector connector in connectors)
+        foreach (var connector in connectors)
         {
             if (connector == null) continue;
             if (connector.MEPSystem != null)
@@ -257,7 +260,7 @@ public class Element
     public static dynamic? ConnectorSystemType(global::Revit.Elements.Element element)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
-        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(element);
+        List<Connector> connectors = ConnectorManager.Connector.GetConnectors(element);
         if (connectors.Count==0) return null;
         dynamic? systemType = connectors.Select(x => ConnectorManager.Connector.SystemType(x)).FirstOrDefault();
         return systemType;
@@ -271,13 +274,13 @@ public class Element
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.GetConnectedElements.png)
     /// </example>
-    public static List<Revit.Elements.Element?> GetConnectedElements(Revit.Elements.Element elem)
+    public static List<Revit.Elements.Element> GetConnectedElements(Revit.Elements.Element elem)
     {
         List<Autodesk.Revit.DB.Element> connectedElements = new List<Autodesk.Revit.DB.Element>();
         Autodesk.Revit.DB.Element internalElement = elem.InternalElement;
         if (internalElement == null) throw new ArgumentNullException(nameof(elem));
-        List<Connector?> connectors = ConnectorManager.Connector.GetConnectors(elem);
-        if (connectors.Count == 0) return new List<Revit.Elements.Element?>();
+        List<Connector> connectors = ConnectorManager.Connector.GetConnectors(elem);
+        if (connectors.Count == 0) return new List<Revit.Elements.Element>();
         foreach (var connector in connectors)
         {
             if(connector== null) continue;
@@ -291,7 +294,7 @@ public class Element
                 }
             }
         }
-        if (connectedElements.Count == 0) return new List<Revit.Elements.Element?>();
+        if (connectedElements.Count == 0) return new List<Revit.Elements.Element>();
         return connectedElements.Select(x => x.ToDynamoType()).ToList();
     }
 }
