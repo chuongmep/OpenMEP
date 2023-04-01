@@ -19,5 +19,8 @@
     <namespace name="OpenMEPSandbox.Math">
       <category>OpenMEP.Math</category>
     </namespace>
+    <namespace name="OpenMEPSandbox.Graph">
+      <category>OpenMEP.Graph</category>
+    </namespace>
   </namespaces>
 </doc>

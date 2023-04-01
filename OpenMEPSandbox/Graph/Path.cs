@@ -1,15 +1,57 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using OpenMEPSandbox.Algo;
 
-namespace OpenMEPSandbox.Geometry;
+namespace OpenMEPSandbox.Graph;
 
-public class Graph
+public class Path
 {
-    private Graph()
+    private Path()
     {
-        
     }
     
+    /// <summary>
+    /// Finds the shortest path between two nodes in a graph using Dijkstra's algorithm.
+    /// The graph is represented as a list of edges, where each edge is a triple (source, destination, weight).
+    /// The startNode and endNode parameters specify the source and destination nodes, respectively.
+    /// The sources, destinations, and weights parameters contain the lists of source nodes, destination nodes,
+    /// and edge weights, respectively, that make up the graph. Returns an array of node IDs that form the shortest
+    /// path from the start node to the end node. If no path exists, returns an empty array.
+    /// </summary>
+    /// <param name="startNode">The ID of the start node.</param>
+    /// <param name="endNode">The ID of the end node.</param>
+    /// <param name="sources">The list of source nodes for each edge in the graph.</param>
+    /// <param name="destinations">The list of destination nodes for each edge in the graph.</param>
+    /// <param name="weights">The list of edge weights for each edge in the graph.</param>
+    /// <returns name="shortestPath">the shortest path</returns>
+    /// <returns name="distance">the value distance shortest of path</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/graph/pic/Path.FindShortestPathDijkstra.png)
+    /// </example>
+    [MultiReturn("shortestPath", "distance")]
+    public static Dictionary<string, object> FindShortestPathDijkstra(int startNode, int endNode,
+        List<int> sources, List<int> destinations, List<int> weights)
+    {
+        // check case weight < 1
+        for (int i = 0; i < weights.Count; i++)
+        {
+            if (weights[i] < 0)
+            {
+                throw new Exception(
+                    "Weight is negative,Dijkstra does not support negative weight, please use Bellman-Ford algorithm");
+            }
+        }
+        int[][] graphAdjMatrix = DijkstraAlgorithm.BuildGraphAdjMatrix(sources, destinations, weights);
+        (List<int> path, int weight) shortestPath =
+            DijkstraAlgorithm.FindShortestPath(graphAdjMatrix, (int) startNode, (int) endNode);
+        return new Dictionary<string, object>()
+        {
+            {"shortestPath", shortestPath.path},
+            {
+                "distance", shortestPath.weight
+            }
+        };
+    }
+
     /// <summary>
     /// Get shortest path and distance from start node to end node By Bellman-Ford algorithm
     /// </summary>
@@ -22,10 +64,11 @@ public class Graph
     /// <returns name="distance">the value distance shortest of path</returns>
     /// <exception cref="Exception"></exception>
     /// <example>
-    /// ![](../OpenMEPPage/geometry/dyn/pic/Graph.GetShortestPath.png)
+    /// ![](../OpenMEPPage/graph/pic/Path.FindShortestPathBellman.png)
     /// </example>
     [MultiReturn("shortestPath", "distance")]
-    public static Dictionary<string,object> GetShortestPath(double startNode, double endNode,List<double> sources, List<double> destinations, List<double> weights)
+    public static Dictionary<string, object> FindShortestPathBellman(int startNode, int endNode,
+        List<int> sources, List<int> destinations, List<int> weights)
     {
         //Get unique number in sources
         var uniqueSources = sources.Distinct();
@@ -38,22 +81,14 @@ public class Graph
         // add edge
         for (int i = 0; i < edge; i++)
         {
-            bf.AddEdge((int) sources[i], (int) destinations[i], (int) weights[i]);
+            bf.AddEdge(sources[i], destinations[i], weights[i]);
         }
-        // check start node and end node is integer
-        if (System.Math.Abs(startNode - System.Math.Floor(startNode)) > 0.001 || System.Math.Abs(endNode - System.Math.Floor(endNode)) > 0.001)
-        {
-            throw new Exception("Start node and end node must be integer");
-        }
-        int start = (int) startNode;
-        int end = (int) endNode;
-        (List<int>, int) shortestPath = bf.GetShortestPathAndDistance(start, end);
+        (List<int>, int) shortestPath = bf.GetShortestPathAndDistance(startNode, endNode);
         return new Dictionary<string, object>
         {
             {"shortestPath", shortestPath.Item1},
             {"distance", shortestPath.Item2}
         };
-       
     }
 
     /// <summary>
@@ -72,10 +107,11 @@ public class Graph
     /// the distance for that tuple will be `double.MaxValue` and the path will be an empty array.
     /// </returns>
     /// <example>
-    /// ![](../OpenMEPPage/geometry/dyn/pic/Graph.GetDistancesPathFromNode.png)
+    /// ![](../OpenMEPPage/graph/pic/Path.GetDistancesPathFromNode.png)
     /// </example>
     [MultiReturn("path", "distance")]
-    public static Dictionary<string,object> GetDistancesPathFromNode(double from,List<double> sources, List<double> destinations, List<double> weights)
+    public static Dictionary<string, object> GetDistancesPathFromNode(int from, List<int> sources,
+        List<int> destinations, List<int> weights)
     {
         //Get unique number in sources
         var uniqueSources = sources.Distinct();
@@ -91,6 +127,7 @@ public class Graph
         {
             bf.AddEdge((int) sources[i], (int) destinations[i], (int) weights[i]);
         }
+
         int fromInt = (int) from;
         Dictionary<int, Tuple<List<int>, int>> shortestPaths = bf.GetShortestPathsAndDistances(fromInt);
         List<int> vertexes = new List<int>();
@@ -101,21 +138,16 @@ public class Graph
             int vertex = entry.Key;
             List<int> path = entry.Value.Item1;
             int distance = entry.Value.Item2;
-            // Console.WriteLine("Shortest path from vertex 0 to vertex " + vertex + ": " + string.Join(" -> ", path));
-            // Console.WriteLine("Distance: " + distance);
-            // Console.WriteLine();
             vertexes.Add(vertex);
             paths.Add(path);
             distances.Add(distance);
         }
+
         return new Dictionary<string, object>()
         {
             {"vertex", vertexes},
             {"path", paths},
             {"distance", distances}
-
         };
-        
     }
-    
 }

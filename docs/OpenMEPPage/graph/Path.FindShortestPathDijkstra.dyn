@@ -2,7 +2,7 @@
   "Uuid": "994196c0-0829-405f-b76a-a783a13ab86b",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Graph.GetShortestPath",
+  "Name": "Path.FindShortestPathDijkstra",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -12,12 +12,12 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "startNode =0;\n// source and destinations\n// same with lst1 and lst2\n[0,0,1,1,1,2,3,3];\n[1,3,2,3,4,1,2,4];\n//Distance\n[6,7,5,8,-4,-2,-3,9];",
+      "Code": "startNode =0;\n// source and destinations\n// same with lst1 and lst2\n[0,0,1,1,1,2,3,3];\n[1,3,2,3,4,1,2,4];\n//Distance\n[6,7,5,8,1,1,1,13,9];",
       "Id": "168af5f737c140598ca51a911748a3fe",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "4fcaa4ad3ef54b6f9b5708c42bfe5867",
+          "Id": "f420b1c0ba2b4b19bc78743771a8ecc4",
           "Name": "",
           "Description": "startNode",
           "UsingDefaultValue": false,
@@ -26,7 +26,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "45560a250e6c44459daaecdf85b40514",
+          "Id": "5b33c3e41f6a4234a796ba6c943e5e07",
           "Name": "",
           "Description": "Value of expression at line 4",
           "UsingDefaultValue": false,
@@ -35,7 +35,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "7f1311cefd814ae888540553b2d3d778",
+          "Id": "2a4978ec078e4bbd808b39d6434c8704",
           "Name": "",
           "Description": "Value of expression at line 5",
           "UsingDefaultValue": false,
@@ -44,7 +44,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "35c6d5c3364b4e258b875c082c08e200",
+          "Id": "57801697f8e445a098442add4cae3dc1",
           "Name": "",
           "Description": "Value of expression at line 7",
           "UsingDefaultValue": false,
@@ -55,105 +55,6 @@
       ],
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.Geometry.Graph.GetShortestPath@double,double,double[],double[],double[]",
-      "Id": "f6ce108b086a46d1833886be837fd616",
-      "Inputs": [
-        {
-          "Id": "1817d5151d1c474b8a1ceb54ead0cc2e",
-          "Name": "startNode",
-          "Description": "first location of node\n\ndouble",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "0102564c3f1f43328ea5def245d42a75",
-          "Name": "endNode",
-          "Description": "end location of node\n\ndouble",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "a223e84a849a4e3a9f7a6a81d58b3f6c",
-          "Name": "sources",
-          "Description": "A list of source vertices for each edge.\n\ndouble[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "b58d82a44b904fa6bf11ae700e7dca04",
-          "Name": "destinations",
-          "Description": "A list of destinations vertices for each edge.\n\ndouble[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "fdb26b8acd8d49199060e9f118a88e98",
-          "Name": "weights",
-          "Description": "A list of weights for each edge.\n\ndouble[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "3651bdfb5d744555875fce20701ca345",
-          "Name": "shortestPath",
-          "Description": "the shortest path",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "3b790c6dfcb3469b942094c4e2c04173",
-          "Name": "distance",
-          "Description": "the value distance shortest of path",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Get shortest path and distance from start node to end node By Bellman-Ford algorithm\n\nGraph.GetShortestPath (startNode: double, endNode: double, sources: double[], destinations: double[], weights: double[]): var[]..[]"
-    },
-    {
-      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
-      "NodeType": "NumberInputNode",
-      "NumberType": "Integer",
-      "InputValue": 1,
-      "MaximumValue": 4,
-      "MinimumValue": 0,
-      "StepValue": 1,
-      "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "feda19d7f8d5445ea33e7ce032702988",
-          "Name": "",
-          "Description": "Int64",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Produces integer values"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -318,31 +219,118 @@
       ],
       "Replication": "Auto",
       "Description": "Returns a dictionary of unique values and their corresponding indices from two lists of doubles.\n\nGenerate.UniqueValuesIndexTwoList (list1: double[], list2: double[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Graph.Path.FindShortestPathDijkstra@int,int,int[],int[],int[]",
+      "Id": "f05da81486c34410a2b564cf8df39beb",
+      "Inputs": [
+        {
+          "Id": "1ed8e0aee1324f03accc5bb202405c58",
+          "Name": "startNode",
+          "Description": "The ID of the start node.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e6f9d888a7bb4dc6853c05ca483f13e2",
+          "Name": "endNode",
+          "Description": "The ID of the end node.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d44ccdbf5cc4468e85a08f1a6c3bd18e",
+          "Name": "sources",
+          "Description": "The list of source nodes for each edge in the graph.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b2a8f499192643e3a9bbd91318400351",
+          "Name": "destinations",
+          "Description": "The list of destination nodes for each edge in the graph.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "77ab947368ee407fb712774e0dab507d",
+          "Name": "weights",
+          "Description": "The list of edge weights for each edge in the graph.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ed8ec62777e5497fa4b0488cb0c3d00e",
+          "Name": "shortestPath",
+          "Description": "the shortest path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0c3fa7cb654241dcb8f9916574e26bd0",
+          "Name": "distance",
+          "Description": "the value distance shortest of path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Finds the shortest path between two nodes in a graph using Dijkstra's algorithm. The graph is represented as a list of edges, where each edge is a triple (source, destination, weight). The startNode and endNode parameters specify the source and destination nodes, respectively. The sources, destinations, and weights parameters contain the lists of source nodes, destination nodes, and edge weights, respectively, that make up the graph. Returns an array of node IDs that form the shortest path from the start node to the end node. If no path exists, returns an empty array.\n\nPath.FindShortestPathDijkstra (startNode: int, endNode: int, sources: int[], destinations: int[], weights: int[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 3,
+      "MaximumValue": 4,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "55f066f72ef2420c9b9384383f8c7d6c",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces integer values"
     }
   ],
   "Connectors": [
     {
-      "Start": "4fcaa4ad3ef54b6f9b5708c42bfe5867",
-      "End": "1817d5151d1c474b8a1ceb54ead0cc2e",
-      "Id": "06fb8c9fb61447db9b8670bc9ebfbeaf",
+      "Start": "f420b1c0ba2b4b19bc78743771a8ecc4",
+      "End": "1ed8e0aee1324f03accc5bb202405c58",
+      "Id": "41e5e395ccd84a0f836ff58f56aa1454",
       "IsHidden": "False"
     },
     {
-      "Start": "35c6d5c3364b4e258b875c082c08e200",
-      "End": "fdb26b8acd8d49199060e9f118a88e98",
-      "Id": "bdd29fe2bbc441b99db18e2860556c50",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "3651bdfb5d744555875fce20701ca345",
-      "End": "9791b4302342400bae3ea2bf1a222c95",
-      "Id": "79308278f8934cd7861d10d2c6017661",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "feda19d7f8d5445ea33e7ce032702988",
-      "End": "0102564c3f1f43328ea5def245d42a75",
-      "Id": "1734252ee92546fbbb506c5e3e11550b",
+      "Start": "57801697f8e445a098442add4cae3dc1",
+      "End": "77ab947368ee407fb712774e0dab507d",
+      "Id": "b8d9624acb0e48d08bd25a984e271a2d",
       "IsHidden": "False"
     },
     {
@@ -371,20 +359,32 @@
     },
     {
       "Start": "75a777c7e897470db39530daa2d0bfe8",
-      "End": "a223e84a849a4e3a9f7a6a81d58b3f6c",
-      "Id": "cc2ffd55e0a94413a2d9f1e315b71cbf",
+      "End": "d44ccdbf5cc4468e85a08f1a6c3bd18e",
+      "Id": "fd919100227f43a5b2f195c198334c5c",
       "IsHidden": "False"
     },
     {
       "Start": "da65ed0f82c94b7f9b620fc12f665a93",
-      "End": "b58d82a44b904fa6bf11ae700e7dca04",
-      "Id": "ac235ac548d34c92841f5f34bf489368",
+      "End": "b2a8f499192643e3a9bbd91318400351",
+      "Id": "253b2f0359a04e3cab45c3dd986451d4",
       "IsHidden": "False"
     },
     {
       "Start": "9da5dcaa9de746889bf53cd6aab3a7ae",
       "End": "b7ad8198edb543b9acebdc5dca75be0a",
-      "Id": "e47923d9a24145d1acc0614a0a018229",
+      "Id": "565724dbd18143d8a063f98e9536aa64",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ed8ec62777e5497fa4b0488cb0c3d00e",
+      "End": "9791b4302342400bae3ea2bf1a222c95",
+      "Id": "63709bdebab6496783dcc4b9f53eb62f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "55f066f72ef2420c9b9384383f8c7d6c",
+      "End": "e6f9d888a7bb4dc6853c05ca483f13e2",
+      "Id": "5978cdc67c574692b1f56e9633e13fe7",
       "IsHidden": "False"
     }
   ],
@@ -395,9 +395,9 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "f6ce108b086a46d1833886be837fd616",
         "dd2a1989cbe14a8ea4ce3f9a889f532a",
-        "ee7ddc94b79548a784569cac217c36f6"
+        "ee7ddc94b79548a784569cac217c36f6",
+        "f05da81486c34410a2b564cf8df39beb"
       ]
     }
   ],
@@ -453,34 +453,14 @@
         "Y": 277.21249314679903
       },
       {
-        "Name": "Graph.GetShortestPath",
-        "ShowGeometry": true,
-        "Id": "f6ce108b086a46d1833886be837fd616",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 537.24948376843713,
-        "Y": 316.95402710636569
-      },
-      {
-        "Name": "EndNode",
-        "ShowGeometry": true,
-        "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 122.09522364879703,
-        "Y": 497.25756797701558
-      },
-      {
         "Name": "Code Block",
         "ShowGeometry": true,
         "Id": "146805afc1c14603910922ed914e3f9c",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -593.92012182974679,
-        "Y": 259.51080396095324
+        "X": -598.36752650970232,
+        "Y": 172.04517858850002
       },
       {
         "Name": "Generate.IndexTwoListValues",
@@ -489,8 +469,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -204.84705026094241,
-        "Y": 250.6775003906545
+        "X": -196.62435002383336,
+        "Y": 266.91272194551368
       },
       {
         "Name": "List.GetItemAtIndex",
@@ -509,13 +489,33 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 182.87899424822422,
-        "Y": -190.85707069909859
+        "X": 226.72885053122582,
+        "Y": -10.541633310313927
+      },
+      {
+        "Name": "Path.FindShortestPathDijkstra",
+        "ShowGeometry": true,
+        "Id": "f05da81486c34410a2b564cf8df39beb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 549.16389355848912,
+        "Y": 325.73920817749666
+      },
+      {
+        "Name": "EndNode",
+        "ShowGeometry": true,
+        "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 36.9005868645287,
+        "Y": 658.347154170031
       }
     ],
     "Annotations": [],
-    "X": 330.24868808739114,
-    "Y": 135.4610541037147,
-    "Zoom": 0.61348317071780123
+    "X": 349.66464760176189,
+    "Y": 75.026842875115165,
+    "Zoom": 0.51727142039478791
   }
 }

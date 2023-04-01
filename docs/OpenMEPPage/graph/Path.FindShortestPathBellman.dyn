@@ -1,0 +1,521 @@
+{
+  "Uuid": "994196c0-0829-405f-b76a-a783a13ab86b",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Path.FindShortestPathBellman",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "startNode =0;\n// source and destinations\n// same with lst1 and lst2\n[0,0,1,1,1,2,3,3];\n[1,3,2,3,4,1,2,4];\n//Distance\n[6,7,5,8,-4,-2,-3,9];",
+      "Id": "168af5f737c140598ca51a911748a3fe",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4fcaa4ad3ef54b6f9b5708c42bfe5867",
+          "Name": "",
+          "Description": "startNode",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "45560a250e6c44459daaecdf85b40514",
+          "Name": "",
+          "Description": "Value of expression at line 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7f1311cefd814ae888540553b2d3d778",
+          "Name": "",
+          "Description": "Value of expression at line 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "35c6d5c3364b4e258b875c082c08e200",
+          "Name": "",
+          "Description": "Value of expression at line 7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 1,
+      "MaximumValue": 4,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "feda19d7f8d5445ea33e7ce032702988",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces integer values"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[0,0,100,100,100,200,300,300];\n[100,300,200,300,400,100,200,400];",
+      "Id": "146805afc1c14603910922ed914e3f9c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "172659d07563449b9e95166b18538deb",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "28898043d125477cb869cab89030baae",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexTwoListValues@int[],int[]",
+      "Id": "dd2a1989cbe14a8ea4ce3f9a889f532a",
+      "Inputs": [
+        {
+          "Id": "74ea063abe5c4dc9a1e3bcba7a156374",
+          "Name": "lst1",
+          "Description": "The first list to index.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a03c86b3f7ed4a8e941ec33b75e06108",
+          "Name": "lst2",
+          "Description": "The second list to index.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "75a777c7e897470db39530daa2d0bfe8",
+          "Name": "lst1",
+          "Description": "A Tuple containing the two indexed lists.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "da65ed0f82c94b7f9b620fc12f665a93",
+          "Name": "lst2",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes two lists as input and returns two indexed lists.\n\nGenerate.IndexTwoListValues (lst1: int[], lst2: int[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "3d4ba235bfc84ad09f568fd546fb8419",
+      "Inputs": [
+        {
+          "Id": "b7ad8198edb543b9acebdc5dca75be0a",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9791b4302342400bae3ea2bf1a222c95",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3340812414a3407d959d2067600933a3",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.UniqueValuesIndexTwoList@double[],double[]",
+      "Id": "ee7ddc94b79548a784569cac217c36f6",
+      "Inputs": [
+        {
+          "Id": "8650421a1f0e41cd8646e13485387cf7",
+          "Name": "list1",
+          "Description": "The first list of doubles.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "baba45e4fea84e1c8af9056a8fe39f32",
+          "Name": "list2",
+          "Description": "The second list of doubles.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9da5dcaa9de746889bf53cd6aab3a7ae",
+          "Name": "value",
+          "Description": "A dictionary containing unique values and their corresponding indices.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6b3b1f547d7b4388bce452eb0490c261",
+          "Name": "index",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns a dictionary of unique values and their corresponding indices from two lists of doubles.\n\nGenerate.UniqueValuesIndexTwoList (list1: double[], list2: double[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Graph.Path.FindShortestPathBellman@double,double,double[],double[],double[]",
+      "Id": "67ac7cc8ffbb4959a86c6e6e0880d1e7",
+      "Inputs": [
+        {
+          "Id": "bfd2d696da19490791ca9f3ba80cd2ff",
+          "Name": "startNode",
+          "Description": "first location of node\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dd0dd86f08df4f52a9259464bf662c6a",
+          "Name": "endNode",
+          "Description": "end location of node\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4daf21e4d59546b38a62d940b7f08a17",
+          "Name": "sources",
+          "Description": "A list of source vertices for each edge.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "da87a556e341486881b2ce45e74b3992",
+          "Name": "destinations",
+          "Description": "A list of destinations vertices for each edge.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c051be9c5b4240fe8822381717b31fe9",
+          "Name": "weights",
+          "Description": "A list of weights for each edge.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "04294c23e3454ac6831a7e6cffc2d837",
+          "Name": "shortestPath",
+          "Description": "the shortest path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dc7ca36d144a4312ac1aea8b86ec1796",
+          "Name": "distance",
+          "Description": "the value distance shortest of path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get shortest path and distance from start node to end node By Bellman-Ford algorithm\n\nPath.FindShortestPathBellman (startNode: double, endNode: double, sources: double[], destinations: double[], weights: double[]): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "4fcaa4ad3ef54b6f9b5708c42bfe5867",
+      "End": "bfd2d696da19490791ca9f3ba80cd2ff",
+      "Id": "62e83a1721c940888724ed996f84a164",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "35c6d5c3364b4e258b875c082c08e200",
+      "End": "c051be9c5b4240fe8822381717b31fe9",
+      "Id": "eb0c3c1df4884fe3847f6dd62d13b941",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "feda19d7f8d5445ea33e7ce032702988",
+      "End": "dd0dd86f08df4f52a9259464bf662c6a",
+      "Id": "1fda5db3957d4f438799f2572eef2de4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "172659d07563449b9e95166b18538deb",
+      "End": "8650421a1f0e41cd8646e13485387cf7",
+      "Id": "a0936c211f0b4359b9ac77b92b86f05a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "172659d07563449b9e95166b18538deb",
+      "End": "74ea063abe5c4dc9a1e3bcba7a156374",
+      "Id": "c6bcf577e4f84083a4eb72589b3fbd37",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "28898043d125477cb869cab89030baae",
+      "End": "a03c86b3f7ed4a8e941ec33b75e06108",
+      "Id": "cebfc6a090004f8eac17625e6cc3aae4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "28898043d125477cb869cab89030baae",
+      "End": "baba45e4fea84e1c8af9056a8fe39f32",
+      "Id": "003644a50c894976a20ec1f7b8cc717f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "75a777c7e897470db39530daa2d0bfe8",
+      "End": "4daf21e4d59546b38a62d940b7f08a17",
+      "Id": "1535a46ff670441391c67833e161419c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "da65ed0f82c94b7f9b620fc12f665a93",
+      "End": "da87a556e341486881b2ce45e74b3992",
+      "Id": "bf245d1854d3483c995f3db67d083b43",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9da5dcaa9de746889bf53cd6aab3a7ae",
+      "End": "b7ad8198edb543b9acebdc5dca75be0a",
+      "Id": "e47923d9a24145d1acc0614a0a018229",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "04294c23e3454ac6831a7e6cffc2d837",
+      "End": "9791b4302342400bae3ea2bf1a222c95",
+      "Id": "f778dbc0206f492a8c4899064ffb4f12",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "dd2a1989cbe14a8ea4ce3f9a889f532a",
+        "ee7ddc94b79548a784569cac217c36f6",
+        "67ac7cc8ffbb4959a86c6e6e0880d1e7"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "168af5f737c140598ca51a911748a3fe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 145.05803633947642,
+        "Y": 273.22848594864831
+      },
+      {
+        "Name": "EndNode",
+        "ShowGeometry": true,
+        "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 67.694688544075,
+        "Y": 517.36211355919545
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "146805afc1c14603910922ed914e3f9c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -581.77343468234267,
+        "Y": 234.02712345973026
+      },
+      {
+        "Name": "Generate.IndexTwoListValues",
+        "ShowGeometry": true,
+        "Id": "dd2a1989cbe14a8ea4ce3f9a889f532a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -192.4950176707016,
+        "Y": 233.03173954745367
+      },
+      {
+        "Name": "List.GetItemAtIndex",
+        "ShowGeometry": true,
+        "Id": "3d4ba235bfc84ad09f568fd546fb8419",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 978.81143629141843,
+        "Y": 219.79547327982769
+      },
+      {
+        "Name": "Generate.UniqueValuesIndexTwoList",
+        "ShowGeometry": true,
+        "Id": "ee7ddc94b79548a784569cac217c36f6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 267.67863374725152,
+        "Y": -10.386043047322488
+      },
+      {
+        "Name": "Path.FindShortestPathBellman",
+        "ShowGeometry": true,
+        "Id": "67ac7cc8ffbb4959a86c6e6e0880d1e7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 553.84192704081329,
+        "Y": 318.33184378703493
+      }
+    ],
+    "Annotations": [],
+    "X": 288.62650351172726,
+    "Y": 89.876330137099728,
+    "Zoom": 0.55637160810735753
+  }
+}
