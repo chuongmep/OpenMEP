@@ -127,9 +127,7 @@ public class Path
         {
             bf.AddEdge((int) sources[i], (int) destinations[i], (int) weights[i]);
         }
-
-        int fromInt = (int) from;
-        Dictionary<int, Tuple<List<int>, int>> shortestPaths = bf.GetShortestPathsAndDistances(fromInt);
+        Dictionary<int, Tuple<List<int>, int>> shortestPaths = bf.GetShortestPathsAndDistances(from);
         List<int> vertexes = new List<int>();
         List<List<int>> paths = new List<List<int>>();
         List<int> distances = new List<int>();
