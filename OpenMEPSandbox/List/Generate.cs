@@ -119,7 +119,7 @@ public class Generate
     /// <param name="lst">list of strings input</param>
     /// <returns></returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.UniqueObjectsIndex.png)
+    /// ![](../OpenMEPPage/list/pic/Generate.IndexUniqueListObjects.png)
     /// </example>
     [MultiReturn("name", "index")]
     public static Dictionary<string, object> IndexUniqueListObjects(List<object> lst)
