@@ -143,25 +143,27 @@ public class Element
     /// This will be help save time when you have a lot of elements to rotate because just one transaction
     /// </summary>
     /// <param name="elements">the list collection of elements</param>
-    /// <param name="lineAxis">Line Axis</param>
-    /// <param name="angle">angle to rotate(Degrees)</param>
+    /// <param name="lineAxis">the collection line Axis</param>
+    /// <param name="angles">the collection angle to rotate(Degrees)</param>
     /// <returns name="elements">collection of list elements rotated</returns>
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateMultipleByLine.png)
     /// </example>
     [NodeCategory("Action")]
     public static List<Revit.Elements.Element> RotateMultiple(List<Revit.Elements.Element> elements,
-        Autodesk.DesignScript.Geometry.Line lineAxis,
-        double angle)
+        List<Autodesk.DesignScript.Geometry.Line> lineAxis,
+        List<double> angles)
     {
+        if(elements.Count != lineAxis.Count)
+            throw new Exception("The number of elements and line axis must be the same");
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        double degree2Radian = angle * Math.PI / 180;
-        foreach (var element in elements)
+        for (int i = 0; i < elements.Count; i++)
         {
-            ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
-                (Autodesk.Revit.DB.Line) lineAxis.ToRevitType(), degree2Radian);
+            double degree2Radian = angles[i] * Math.PI / 180;
+            ElementTransformUtils.RotateElement(doc, elements[i].InternalElement.Id,
+                (Autodesk.Revit.DB.Line) lineAxis[i].ToRevitType(), degree2Radian);
         }
         TransactionManager.Instance.TransactionTaskDone();
         return elements;
@@ -171,28 +173,30 @@ public class Element
     /// Set Rotate multiple elements by vector
     /// </summary>
     /// <param name="elements">the collection of elements</param>
-    /// <param name="vectorAxis">Direction Axis</param>
-    /// <param name="angle">angle to rotate(Degrees)</param>
+    /// <param name="vectorAxis">the collection of direction Axis</param>
+    /// <param name="angles">the collection angle to rotate(Degrees)</param>
     /// <returns name="elements">collection of list elements rotated</returns>
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/Element.RotateMultiple.png)
     /// </example>
     [NodeCategory("Action")]
     public static List<Revit.Elements.Element> RotateMultiple(List<Revit.Elements.Element> elements,
-        Autodesk.DesignScript.Geometry.Vector vectorAxis,
-        double angle)
+        List<Autodesk.DesignScript.Geometry.Vector> vectorAxis,
+        List<double> angles)
     {
-        TransactionManager.Instance.ForceCloseTransaction();
+        if(elements.Count != vectorAxis.Count)
+            throw new Exception("The number of elements and vector axis must be the same");
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        double degree2Radian = angle * Math.PI / 180;
-        foreach (var element in elements)
+       
+        for (int i = 0; i < elements.Count; i++)
         {
-            LocationPoint? locationPoint = element.InternalElement.Location as LocationPoint;
+            double degree2Radian = angles[i] * Math.PI / 180;
+            LocationPoint? locationPoint = elements[i].InternalElement.Location as LocationPoint;
             var location = locationPoint?.Point;
             Autodesk.Revit.DB.Line line =
-                Autodesk.Revit.DB.Line.CreateBound(location!.Add(vectorAxis.ToRevitType().Multiply(2)), location);
-            ElementTransformUtils.RotateElement(doc, element.InternalElement.Id,
+                Autodesk.Revit.DB.Line.CreateBound(location!.Add(vectorAxis[i].ToRevitType().Multiply(2)), location);
+            ElementTransformUtils.RotateElement(doc, elements[i].InternalElement.Id,
                 (Autodesk.Revit.DB.Line) line, degree2Radian);
         }
         TransactionManager.Instance.TransactionTaskDone();
