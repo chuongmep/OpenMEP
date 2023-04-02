@@ -22,5 +22,8 @@
     <namespace name="OpenMEPSandbox.Graph">
       <category>OpenMEP.Graph</category>
     </namespace>
+    <namespace name="OpenMEPSandbox.Core">
+      <category>OpenMEP.Core</category>
+    </namespace>
   </namespaces>
 </doc>

@@ -1,0 +1,149 @@
+{
+  "Uuid": "9c19a553-0446-42d8-a390-c0962eec4dc9",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "List.IndexList",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexList@var[]",
+      "Id": "c394b2eb3849426ca794c1f3a4644c13",
+      "Inputs": [
+        {
+          "Id": "b8fcb80f2e83483693627ca5966bdd3e",
+          "Name": "objects",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "68edc4b9d40b4ba192dd09349f294ec1",
+          "Name": "index",
+          "Description": "list index of objects",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns a list of indices for a given list of objects.\n\nList.IndexList (objects: var[]): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"Red\",\"Green\",\"Blue\",\"Red\"];",
+      "Id": "c9a9359c240d421e8f64cd6a2a0f335e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "eef87f61d45d4debbe501d6862877f8c",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "eef87f61d45d4debbe501d6862877f8c",
+      "End": "b8fcb80f2e83483693627ca5966bdd3e",
+      "Id": "144a9ef524e3491892b80612b991f1ed",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "c394b2eb3849426ca794c1f3a4644c13"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "List.IndexList",
+        "ShowGeometry": true,
+        "Id": "c394b2eb3849426ca794c1f3a4644c13",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 655.95851903007122,
+        "Y": 281.64391234201122
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "c9a9359c240d421e8f64cd6a2a0f335e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 309.024387543088,
+        "Y": 274.09147174214576
+      }
+    ],
+    "Annotations": [],
+    "X": -22.644277704813589,
+    "Y": -139.987191629049,
+    "Zoom": 1.2484436539722303
+  }
+}

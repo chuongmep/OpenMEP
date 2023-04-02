@@ -1,8 +1,8 @@
 {
-  "Uuid": "60e746e8-016f-4816-ab1d-ae72d6e34e53",
+  "Uuid": "0f9a1c01-40a2-450c-9204-b15d6ddc40f0",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Generate.IndexUniqueTwoListObjects",
+  "Name": "List.OneHotEncode",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -12,23 +12,14 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "[100,200,300,200];\n[400,300,200,100];",
-      "Id": "d2a389e7b7b64e55a36e5368127c52e4",
+      "Code": "[\"apple\",\"banana\",\"orange\",\"banana\",\"orange\"];",
+      "Id": "070beee1ad024625af2233359c227de1",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "dca802009f274bcebe48542e44897319",
+          "Id": "9b413402233b4c908294a5ec74a38528",
           "Name": "",
           "Description": "Value of expression at line 1",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "3eebf50ca25b418096a5e51f3bede764",
-          "Name": "",
-          "Description": "Value of expression at line 2",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -41,22 +32,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexUniqueTwoListObjects@var[],var[]",
-      "Id": "84664e4efb19426b831b99049badf787",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.OneHotEncode@string[]",
+      "Id": "8a28f721ad7d4c1c95226b755f296c67",
       "Inputs": [
         {
-          "Id": "ff359c50ecc743509c8b8c9f0e661888",
-          "Name": "list1",
-          "Description": "The first list of names.\n\nvar[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "4537dc88a3b947b89d37528bc5e4ce92",
-          "Name": "list2",
-          "Description": "The second list of names.\n\nvar[]",
+          "Id": "3e7ebea29bb4477d88601b9c9ddf98ed",
+          "Name": "labels",
+          "Description": "A list of categorical values to encode.\n\nstring[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -65,18 +47,9 @@
       ],
       "Outputs": [
         {
-          "Id": "9a91b8a660a74cd4adefd7e236e8c386",
-          "Name": "name",
-          "Description": "A dictionary with unique names and indices.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "e44bb126efb943bfb06796659e87747f",
-          "Name": "index",
-          "Description": "var",
+          "Id": "ea9fe316c75c4f69a0b5df16df24ce19",
+          "Name": "int[][]",
+          "Description": "An array of arrays representing the one-hot encoded values.",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -84,20 +57,14 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Takes two lists of strings as input, merges them, and returns a dictionary with unique names and indices.\n\nGenerate.IndexUniqueTwoListObjects (list1: var[], list2: var[]): var[]..[]"
+      "Description": "Encodes a list of categorical values using one-hot encoding.\n\nList.OneHotEncode (labels: string[]): int[][]"
     }
   ],
   "Connectors": [
     {
-      "Start": "dca802009f274bcebe48542e44897319",
-      "End": "ff359c50ecc743509c8b8c9f0e661888",
-      "Id": "3afbe3751b4f49019ef7df0721f8af7e",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "3eebf50ca25b418096a5e51f3bede764",
-      "End": "4537dc88a3b947b89d37528bc5e4ce92",
-      "Id": "2e3f4be7af7d4c009914f2d5bc165b6b",
+      "Start": "9b413402233b4c908294a5ec74a38528",
+      "End": "3e7ebea29bb4477d88601b9c9ddf98ed",
+      "Id": "d281cc9bfdd34010a1a535d1caac94a3",
       "IsHidden": "False"
     }
   ],
@@ -108,7 +75,7 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "84664e4efb19426b831b99049badf787"
+        "8a28f721ad7d4c1c95226b755f296c67"
       ]
     }
   ],
@@ -156,27 +123,27 @@
       {
         "Name": "Code Block",
         "ShowGeometry": true,
-        "Id": "d2a389e7b7b64e55a36e5368127c52e4",
+        "Id": "070beee1ad024625af2233359c227de1",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 141.38567594826316,
-        "Y": 20.395762040402957
+        "X": -35.259530700228879,
+        "Y": 215.94975278100506
       },
       {
-        "Name": "Generate.IndexUniqueTwoListObjects",
+        "Name": "List.OneHotEncode",
         "ShowGeometry": true,
-        "Id": "84664e4efb19426b831b99049badf787",
+        "Id": "8a28f721ad7d4c1c95226b755f296c67",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 425.08235296448163,
-        "Y": 20.713892084228178
+        "X": 452.43382527212361,
+        "Y": 212.75731503673578
       }
     ],
     "Annotations": [],
-    "X": -13.2099195676887,
-    "Y": 57.739208971794426,
-    "Zoom": 1.036057875600608
+    "X": 186.68726462515207,
+    "Y": -38.596455376538714,
+    "Zoom": 0.98264231136796509
   }
 }

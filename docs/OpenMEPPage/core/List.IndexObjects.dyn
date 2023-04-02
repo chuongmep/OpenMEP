@@ -2,7 +2,7 @@
   "Uuid": "0f9a1c01-40a2-450c-9204-b15d6ddc40f0",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Generate.IndexListObjects",
+  "Name": "List.IndexObjects",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -30,36 +30,6 @@
       "Description": "Allows for DesignScript code to be authored directly"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexListObjects@var[]",
-      "Id": "6e3cd4016858417faf7f15c529c5ec29",
-      "Inputs": [
-        {
-          "Id": "2e0a89c5990d4ba590c8d57c4a010796",
-          "Name": "strings",
-          "Description": "The input list of strings to be indexed.\n\nvar[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "c0292a71155b4ee088c38e3c368ecb43",
-          "Name": "int[]",
-          "Description": "A new list where each element is replaced with its corresponding index.",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Takes a list of doubles and returns a new list where each element is replaced with the index of its first occurrence in the input list. If an element appears multiple times in the input list, the index of its first occurrence is used.\n\nGenerate.IndexListObjects (strings: var[]): int[]"
-    },
-    {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
       "Code": "[\"Red\",\"Green\",\"Blue\",\"Green\"];",
@@ -82,12 +52,12 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexListObjects@var[]",
-      "Id": "a7421fa32ce34f02af0a88578bac109a",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexObjects@var[]",
+      "Id": "34a92bc9e05f4fd7b169bdead8a45e81",
       "Inputs": [
         {
-          "Id": "c2b1598948d749a48b163a7d7672b87a",
-          "Name": "strings",
+          "Id": "d6e5f5fd1d604a168cda8b705404b60d",
+          "Name": "objects",
           "Description": "The input list of strings to be indexed.\n\nvar[]",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -97,8 +67,8 @@
       ],
       "Outputs": [
         {
-          "Id": "9e0cfa6ab7844b018782c20c51a25bee",
-          "Name": "int[]",
+          "Id": "20bf8a3a50444c2fb16f79fe74277dd9",
+          "Name": "indices",
           "Description": "A new list where each element is replaced with its corresponding index.",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -107,20 +77,50 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Takes a list of doubles and returns a new list where each element is replaced with the index of its first occurrence in the input list. If an element appears multiple times in the input list, the index of its first occurrence is used.\n\nGenerate.IndexListObjects (strings: var[]): int[]"
+      "Description": "Takes a list of doubles and returns a new list where each element is replaced with the index of its first occurrence in the input list. If an element appears multiple times in the input list, the index of its first occurrence is used.\n\nList.IndexObjects (objects: var[]): int[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexObjects@var[]",
+      "Id": "e3c0f498083845b18910a0250b30b2f4",
+      "Inputs": [
+        {
+          "Id": "7be5cb64e27343eb92b46b8662dd0c9d",
+          "Name": "objects",
+          "Description": "The input list of strings to be indexed.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "70da9d85826b4fffa5c18eecd12980bc",
+          "Name": "indices",
+          "Description": "A new list where each element is replaced with its corresponding index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes a list of doubles and returns a new list where each element is replaced with the index of its first occurrence in the input list. If an element appears multiple times in the input list, the index of its first occurrence is used.\n\nList.IndexObjects (objects: var[]): int[]"
     }
   ],
   "Connectors": [
     {
       "Start": "7c1a95cdc54b46d1b1b87dce7eec5ec5",
-      "End": "2e0a89c5990d4ba590c8d57c4a010796",
-      "Id": "949dc69b680d4abbb288c33d056aa5fc",
+      "End": "d6e5f5fd1d604a168cda8b705404b60d",
+      "Id": "6853fabb074f44bb81c9de0c85a8007f",
       "IsHidden": "False"
     },
     {
       "Start": "04a516f861d644e190fb2ccd2bab1c7f",
-      "End": "c2b1598948d749a48b163a7d7672b87a",
-      "Id": "36a6aaf0f1b64d4e9d7a8a8a4ae503e2",
+      "End": "7be5cb64e27343eb92b46b8662dd0c9d",
+      "Id": "45105ccb54e4437eb3fefc9b595b95cd",
       "IsHidden": "False"
     }
   ],
@@ -131,8 +131,8 @@
       "Version": "1.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "6e3cd4016858417faf7f15c529c5ec29",
-        "a7421fa32ce34f02af0a88578bac109a"
+        "34a92bc9e05f4fd7b169bdead8a45e81",
+        "e3c0f498083845b18910a0250b30b2f4"
       ]
     }
   ],
@@ -188,16 +188,6 @@
         "Y": 35.30969837979201
       },
       {
-        "Name": "Generate.IndexListObjects",
-        "ShowGeometry": true,
-        "Id": "6e3cd4016858417faf7f15c529c5ec29",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 361.79456045687829,
-        "Y": 24.579086576046919
-      },
-      {
         "Name": "Code Block",
         "ShowGeometry": true,
         "Id": "c0605143e840425ca095abc315e05bd0",
@@ -208,19 +198,29 @@
         "Y": 333.20358248014105
       },
       {
-        "Name": "Generate.IndexListObjects",
+        "Name": "List.IndexObjects",
         "ShowGeometry": true,
-        "Id": "a7421fa32ce34f02af0a88578bac109a",
+        "Id": "34a92bc9e05f4fd7b169bdead8a45e81",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 343.59469638400338,
-        "Y": 348.34082699901188
+        "X": 389.93765894445039,
+        "Y": -45.794430018363727
+      },
+      {
+        "Name": "List.IndexObjects",
+        "ShowGeometry": true,
+        "Id": "e3c0f498083845b18910a0250b30b2f4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 407.76201090789834,
+        "Y": 315.38322818834297
       }
     ],
     "Annotations": [],
-    "X": 104.43615507207849,
-    "Y": 34.413633222012265,
+    "X": 194.83615507207836,
+    "Y": 148.81363322201241,
     "Zoom": 0.85276592558149744
   }
 }

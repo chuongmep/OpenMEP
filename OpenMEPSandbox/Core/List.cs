@@ -1,12 +1,13 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using OpenMEPSandbox.Math;
 
-namespace OpenMEPSandbox.List;
+namespace OpenMEPSandbox.Core;
 
-public class Generate
+public class List
 {
-    private Generate()
+    private List()
     {
+        
     }
     /// <summary>
     /// Takes a list of doubles and returns a new list where each element is replaced
@@ -16,9 +17,10 @@ public class Generate
     /// <param name="objects">The input list of strings to be indexed.</param>
     /// <returns name="indices">A new list where each element is replaced with its corresponding index.</returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.IndexListObjects.png)
+    /// ![](../OpenMEPPage/core/pic/List.IndexObjects.png)
+    /// [List.IndexObjects.dyn](../OpenMEPPage/core/List.IndexObjects.dyn)
     /// </example>
-    public static List<int> IndexListObjects(List<object> objects)
+    public static List<int> IndexObjects(List<object> objects)
     {
         List<int> indexedList = new List<int>();
         Dictionary<object, int> indexMap = new Dictionary<object, int>();
@@ -46,7 +48,8 @@ public class Generate
     /// <returns name="lst1">indices of first list</returns>
     /// <returns name="lst2">indices of second list</returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.IndexTwoListObjects.png)
+    /// ![](../OpenMEPPage/core/pic/List.IndexTwoListObjects.png)
+    /// [List.IndexTwoListObjects.dyn](../OpenMEPPage/core/pic/List.IndexTwoListObjects.dyn)
     /// </example>
     [MultiReturn("lst1", "lst2")]
     public static Dictionary<string, object> IndexTwoListObjects(List<object> lst1, List<object> lst2)
@@ -80,7 +83,8 @@ public class Generate
     /// <param name="labels">A list of categorical values to encode.</param>
     /// <returns>An array of arrays representing the one-hot encoded values.</returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.OneHotEncode.png)
+    /// ![](../OpenMEPPage/core/pic/List.OneHotEncode.png)
+    /// [List.OneHotEncode.dyn](../OpenMEPPage/core/pic/List.OneHotEncode.dyn)
     /// </example>
     public static int[][] OneHotEncode(List<string> labels)
     {
@@ -115,21 +119,22 @@ public class Generate
     }
 
     /// <summary>
-    /// This method takes a list of strings as input and returns a dictionary
+    /// This method takes a list of objects as input and returns a dictionary
     /// mapping each unique string to its corresponding index in the list.
     /// </summary>
-    /// <param name="lst">list of strings input</param>
+    /// <param name="objects">list of objects input</param>
     /// <returns name="name">name of object</returns>
     /// <returns name="index">indices of object</returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.IndexUniqueListObjects.png)
+    /// ![](../OpenMEPPage/core/pic/List.IndexUniqueObjects.png)
+    /// [List.IndexUniqueObjects.dyn](../OpenMEPPage/core/pic/List.IndexUniqueObjects.dyn)
     /// </example>
     [MultiReturn("name", "index")]
-    public static Dictionary<string, object> IndexUniqueListObjects(List<object> lst)
+    public static Dictionary<string, object> IndexUniqueObjects(List<object> objects)
     {
         Dictionary<object, int> dict = new Dictionary<object, int>();
         int index = 0;
-        foreach (object elem in lst)
+        foreach (object elem in objects)
         {
             if (!dict.ContainsKey(elem))
             {
@@ -152,7 +157,8 @@ public class Generate
     /// <returns name="name">name of object</returns>
     /// <returns name="index">indices of object</returns>
     /// <example>
-    /// ![](../OpenMEPPage/list/pic/Generate.IndexUniqueTwoListObjects.png)
+    /// ![](../OpenMEPPage/core/pic/List.IndexUniqueTwoListObjects.png)
+    /// [List.IndexUniqueTwoListObjects.dyn](../OpenMEPPage/core/pic/List.IndexUniqueTwoListObjects.dyn)
     /// </example>
     [MultiReturn("name", "index")]
     public static Dictionary<string, object> IndexUniqueTwoListObjects(List<object> list1, List<object> list2)
@@ -174,5 +180,24 @@ public class Generate
             {"name", uniqueDict.Keys.ToList()},
             {"index", uniqueDict.Values.ToList()}
         };
+    }
+    
+    /// <summary>
+    /// Returns a list of indices for a given list of objects.
+    /// </summary>
+    /// <param name="objects"></param>
+    /// <returns name="indexs">list index of objects</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/core/pic/List.IndexList.png)
+    /// [List.IndexList.dyn](../OpenMEPPage/core/pic/List.IndexList.dyn)
+    /// </example>
+    public static List<object> IndexList(List<object> objects)
+    {
+        List<object> indexedList = new List<object>();
+        for (int i = 0; i < objects.Count; i++)
+        {
+            indexedList.Add(i);
+        }
+        return indexedList;
     }
 }
