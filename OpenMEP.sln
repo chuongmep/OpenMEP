@@ -43,6 +43,7 @@ Global
 		Release R22|Any CPU = Release R22|Any CPU
 		Release R23.1|Any CPU = Release R23.1|Any CPU
 		Release R23|Any CPU = Release R23|Any CPU
+		Release R24|Any CPU = Release R24|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A7FE0286-8CEA-4C63-9603-22D79E98EAB1}.Debug R20|Any CPU.ActiveCfg = Debug R20|Any CPU
