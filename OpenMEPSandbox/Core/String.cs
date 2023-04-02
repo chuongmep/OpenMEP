@@ -210,5 +210,39 @@ public class String
 
         return null;
     }
+    
+    /// <summary>
+    /// Indicates whether the specified regular expression finds a match in the specified input string.
+    /// </summary>
+    /// <param name="input">The string to search for a match.</param>
+    /// <param name="pattern">The regular expression pattern to match.</param>
+    /// <returns>
+    /// <see langword="true" /> if the regular expression finds a match; otherwise, <see langword="false" />.</returns>
+    /// <exception cref="T:System.ArgumentException">A regular expression parsing error occurred.</exception>
+    /// <exception cref="T:System.ArgumentNullException">
+    /// <paramref name="input" /> or <paramref name="pattern" /> is <see langword="null" />.</exception>
+    /// <exception cref="T:System.Text.RegularExpressions.RegexMatchTimeoutException">A time-out occurred. For more information about time-outs, see the Remarks section.</exception>
+    /// <example>
+    /// ![](../OpenMEPPage/core/pic/String.IsMatch.png)
+    /// [String.IsMatch.dyn](../OpenMEPPage/core/String.IsMatch.dyn)
+    /// </example>
+    public static bool IsMatch(string input, string pattern)
+    {
+        return Regex.IsMatch(input, pattern);
+    }
+    
+    /// <summary>Indicates whether the specified string is <see langword="null" /> or an empty string ("").</summary>
+    /// <param name="value">The string to test.</param>
+    /// <returns>
+    /// <see langword="true" /> if the <paramref name="value" /> parameter is <see langword="null" /> or an empty string (""); otherwise, <see langword="false" />.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/core/pic/String.IsNullOrEmpty.png)
+    /// [String.IsNullOrEmpty.dyn](../OpenMEPPage/core/String.IsNullOrEmpty.dyn)
+    /// </example>
+    public static bool IsNullOrEmpty(string? value)
+    {
+        if (value == null) return true;
+        return string.IsNullOrEmpty(value);
+    }
 
 }
