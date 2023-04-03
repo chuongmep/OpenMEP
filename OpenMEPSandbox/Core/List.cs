@@ -200,4 +200,20 @@ public class List
         }
         return indexedList;
     }
+    
+    /// <summary>
+    /// Returns the items that are common to two lists.
+    /// </summary>
+    /// <param name="list1">The first list to intersect.</param>
+    /// <param name="list2">The second list to intersect.</param>
+    /// <returns name="list">A new list containing the items that are common to both lists.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/core/pic/List.Intersect.png)
+    /// [List.Intersect.dyn](../OpenMEPPage/core/pic/List.Intersect.dyn)
+    /// </example>
+    public static List<object> Intersect(List<object> list1, List<object> list2)
+    {
+        return list1.Intersect(list2).ToList();
+    }
+  
 }
