@@ -215,5 +215,20 @@ public class List
     {
         return list1.Intersect(list2).ToList();
     }
+
+    /// <summary>
+    /// Returns the items that are in the first list but not in the second list.
+    /// </summary>
+    /// <param name="list1">The first list to compare.</param>
+    /// <param name="list2">The second list to compare.</param>
+    /// <returns name="list">A new list containing the items that are in the first list but not in the second list.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/core/pic/List.Difference.png)
+    /// [List.Difference.dyn](../OpenMEPPage/core/pic/List.Difference.dyn)
+    /// </example>
+    public static List<object> Difference(List<object> list1, List<object> list2)
+    {
+        return list1.Except(list2).ToList();
+    }
   
 }
