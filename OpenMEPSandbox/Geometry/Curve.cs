@@ -11,6 +11,10 @@ public class Curve
     /// </summary>
     /// <param name="curve">curve need to convert</param>
     /// <returns name="line">Line</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.AsLine.png)
+    /// [Curve.AsLine.dyn](../OpenMEPPage/geometry/dyn/Curve.AsLine.dyn)
+    /// </example>
     public static Autodesk.DesignScript.Geometry.Line AsLine(Autodesk.DesignScript.Geometry.Curve curve)
     {
         return Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(curve.StartPoint, curve.EndPoint);
@@ -24,6 +28,7 @@ public class Curve
     /// <returns name="curves">A list of curves that result from splitting the input curve at the specified points</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.SplitByPoints.png)
+    /// [Curve.SplitByPoints.dyn](../OpenMEPPage/geometry/dyn/Curve.SplitByPoints.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Curve> SplitByPoints(Autodesk.DesignScript.Geometry.Curve curve,
         List<Autodesk.DesignScript.Geometry.Point> points)
@@ -57,6 +62,7 @@ public class Curve
     /// <returns name="curves">A list of curves that result from splitting the input curve at the specified segment lengths.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.SplitBySegmentsLength.png)
+    /// [Curve.SplitBySegmentsLength.dyn](../OpenMEPPage/geometry/dyn/Curve.SplitBySegmentsLength.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Curve> SplitBySegmentsLength(
         Autodesk.DesignScript.Geometry.Curve curve, double segmentLength)
@@ -85,6 +91,7 @@ public class Curve
     /// <returns name="curves">A list of curves that result from splitting the input curve at the specified segment lengths.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.SplitBySegmentsLengths.png)
+    /// [Curve.SplitBySegmentsLengths.dyn](../OpenMEPPage/geometry/dyn/Curve.SplitBySegmentsLengths.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Curve> SplitBySegmentsLengths(
         Autodesk.DesignScript.Geometry.Curve curve, List<double> segmentLengths)
@@ -124,6 +131,7 @@ public class Curve
     /// <returns>A list of Point3D objects representing the points on the Bézier curve segment.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.BezierSegment.png)
+    /// [Curve.BezierSegment.dyn](../OpenMEPPage/geometry/dyn/Curve.BezierSegment.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Point> BezierSegment(Autodesk.DesignScript.Geometry.Point start,
         Autodesk.DesignScript.Geometry.Point startHandler, Autodesk.DesignScript.Geometry.Point endHandler,
@@ -170,6 +178,7 @@ public class Curve
     /// <returns>A list of Point3D objects representing the points on the curve.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Curve.ToPoints.png)
+    /// [Curve.ToPoints.dyn](../OpenMEPPage/geometry/dyn/Curve.ToPoints.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Point> ToPoints(Autodesk.DesignScript.Geometry.Curve curve, int numPoints)
     {

@@ -15,12 +15,13 @@ public class Plane
     /// <param name="plane">Autodesk.DesignScript.Geometry.Plane</param>
     /// <param name="length">double</param>
     /// <returns name="Display">GeometryColor</returns>
-    /// <returns name="Origin">Point</returns>
-    /// <returns name="XAxis">Vector</returns>
-    /// <returns name="YAxis">Vector</returns>
-    /// <returns name="Normal">Vector</returns>
+    /// <returns name="Origin">the origin point to visualize</returns>
+    /// <returns name="XAxis">the X Vector of plane</returns>
+    /// <returns name="YAxis">the Y Vector of plane</returns>
+    /// <returns name="Normal">the normal Vector of plane</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Plane.Display.gif)
+    /// [Plane.Display.dyn](../OpenMEPPage/geometry/dyn/Plane.Display.dyn)
     /// </example>
     [MultiReturn(new[] {"Display", "Origin", "XAxis", "YAxis", "Normal"})]
     public static Dictionary<string, object?> Display(Autodesk.DesignScript.Geometry.Plane? plane, double length = 1000)

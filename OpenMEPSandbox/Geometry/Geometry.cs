@@ -13,6 +13,7 @@ public class Geometry
     /// <returns name="surfaces">A list of the top surface(s) of the geometry.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Geometry.TopSurfaces.png)
+    /// [Geometry.TopSurfaces.dyn](../OpenMEPPage/geometry/dyn/Geometry.TopSurfaces.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Surface> TopSurfaces(
         Autodesk.DesignScript.Geometry.Geometry geometry)
@@ -39,6 +40,7 @@ public class Geometry
     /// <returns name="surfaces">A list of the bottom surface(s) of the geometry.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Geometry.BottomSurfaces.png)
+    /// [Geometry.BottomSurfaces.dyn](../OpenMEPPage/geometry/dyn/Geometry.BottomSurfaces.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Surface> BottomSurfaces(
         Autodesk.DesignScript.Geometry.Geometry geometry)
@@ -65,6 +67,7 @@ public class Geometry
     /// <returns name="surface">A list of side surfaces of the geometry.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Geometry.SideSurface.png)
+    /// [Geometry.SideSurface.dyn](../OpenMEPPage/geometry/dyn/Geometry.SideSurface.dyn)
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Surface> SideSurface(
         Autodesk.DesignScript.Geometry.Geometry geometry)

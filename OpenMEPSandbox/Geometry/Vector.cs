@@ -18,6 +18,7 @@ public class Vector
     /// <returns name="bool">true if two vector is same direction</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.IsSameDirection.gif)
+    /// [Vector.IsSameDirection.dyn](../OpenMEPPage/geometry/dyn/Vector.IsSameDirection.dyn)
     /// </example>
     [NodeCategory("Query")]
     public static bool IsSameDirection(Autodesk.DesignScript.Geometry.Vector v1,Autodesk.DesignScript.Geometry.Vector v2)
@@ -32,6 +33,7 @@ public class Vector
     /// <returns name="bool">true if two vector is opposite</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.IsOppositeDirection.gif)
+    /// [Vector.IsOppositeDirection.dyn](../OpenMEPPage/geometry/dyn/Vector.IsOppositeDirection.dyn)
     /// </example>
     [NodeCategory("Query")]
     public static bool IsOppositeDirection(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
@@ -47,6 +49,7 @@ public class Vector
     /// <returns name="bool">true if two vector is perpendicular</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.IsPerpendicular.png)
+    /// [Vector.IsPerpendicular.dyn](../OpenMEPPage/geometry/dyn/Vector.IsPerpendicular.dyn)
     /// </example>
     public static bool IsPerpendicular(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
     {
@@ -66,6 +69,7 @@ public class Vector
     /// <returns name="Length">double</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Display.gif)
+    /// [Vector.Display.dyn](../OpenMEPPage/geometry/dyn/Vector.Display.dyn)
     /// </example>
     [MultiReturn(new[] { "Display", "X", "Y", "Z", "Length" })]
     public static Dictionary<string, object?> Display(Autodesk.DesignScript.Geometry.Vector vector, Autodesk.DesignScript.Geometry.Point startPoint, double scale = 1000)
@@ -99,6 +103,7 @@ public class Vector
     /// <returns name="double">value compare between two vector</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.CompareTo.png)
+    /// [](../OpenMEPPage/geometry/dyn/Vector.CompareTo.dyn)
     /// </example>
     public static double CompareTo(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2,double tolerance = 0.001)
     {
@@ -119,6 +124,7 @@ public class Vector
     /// <returns name="vector"></returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Multiply.png)
+    /// [Vector.Multiply.dyn](../OpenMEPPage/geometry/dyn/Vector.Multiply.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Multiply(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
     {
@@ -133,6 +139,7 @@ public class Vector
     /// <returns name="vector"></returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Divide.png)
+    /// [Vector.Divide.dyn](../OpenMEPPage/geometry/dyn/Vector.Divide.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Divide(Autodesk.DesignScript.Geometry.Vector v1, Autodesk.DesignScript.Geometry.Vector v2)
     {
@@ -145,6 +152,7 @@ public class Vector
     /// <returns>The Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Ceiling.png)
+    /// [Vector.Ceiling.dyn](../OpenMEPPage/geometry/dyn/Vector.Ceiling.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Ceiling(Autodesk.DesignScript.Geometry.Vector vector)
     {
@@ -161,6 +169,7 @@ public class Vector
     /// <returns>The Autodesk.DesignScript.Geometry.Vector object with the smallest integer values that are greater than or equal to the X, Y, and Z components of the input vector.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Floor.png)
+    /// [Vector.Floor.dyn](../OpenMEPPage/geometry/dyn/pic/Vector.Floor.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Floor(Autodesk.DesignScript.Geometry.Vector vector)
     {

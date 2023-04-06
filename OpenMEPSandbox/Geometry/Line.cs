@@ -17,6 +17,7 @@ public class Line
     /// <param name="digits">Number of fractional digits in the return value</param>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Line.Slope.png)
+    /// [Line.Slope.dyn](../OpenMEPPage/geometry/dyn/Line.Slope.dyn)
     /// </example>
     [MultiReturn("Percent", "Degrees", "Ratio")]
     public static Dictionary<string, object?> Slope(Autodesk.DesignScript.Geometry.Curve? line,double digits=0)
@@ -58,6 +59,7 @@ public class Line
     /// <returns name="point">top point</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Line.TopPoint.png)
+    /// [Line.TopPoint.dyn](../OpenMEPPage/geometry/dyn/Line.TopPoint.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Point TopPoint(Autodesk.DesignScript.Geometry.Line line)
     {
@@ -74,6 +76,7 @@ public class Line
     /// <returns name="point">bottom point</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Line.BottomPoint.png)
+    /// [Line.BottomPoint.dyn](../OpenMEPPage/geometry/dyn/pic/Line.BottomPoint.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Point BottomPoint(Autodesk.DesignScript.Geometry.Line line)
     {
@@ -91,6 +94,7 @@ public class Line
     /// <returns>The extended line.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Line.Extend.png)
+    /// [Line.Extend.dyn](../OpenMEPPage/geometry/dyn/pic/Line.Extend.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Line Extend(Autodesk.DesignScript.Geometry.Line line,double startLength,double endLength)
     {

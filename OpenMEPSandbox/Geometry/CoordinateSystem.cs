@@ -23,6 +23,7 @@ public class CoordinateSystem
     /// <returns name="ZXPlane">Plane</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/CoordinateSystem.Display.gif)
+    /// [CoordinateSystem.Display.dyn](../OpenMEPPage/geometry/dyn/CoordinateSystem.Display.dyn)
     /// </example>
     [MultiReturn(new[] {"Display", "Origin", "XAxis", "YAxis", "ZAxis", "XYPlane", "YZPlane", "ZXPlane"})]
     public static Dictionary<string, object?> Display(Autodesk.DesignScript.Geometry.CoordinateSystem coordinateSystem,
