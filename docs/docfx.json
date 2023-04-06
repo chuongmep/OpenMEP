@@ -64,7 +64,7 @@
 			"default",
 			"modern"
 		],
-		"postProcessors": [],
+		"postProcessors": ["ExtractSearchIndex"],
 		"noLangKeyword": false,
 		"keepFileLink": false,
 		"disableGitFeatures": false,
