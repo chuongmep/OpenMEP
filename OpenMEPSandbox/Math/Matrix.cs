@@ -13,6 +13,7 @@ public class Matrix
     /// <returns>The transposed 2D array of integers.</returns>
     /// <example>
     /// ![](../OpenMEPPage/math/pic/Matrix.Transpose.png)
+    /// [Matrix.Transpose.dyn](../OpenMEPPage/math/Matrix.Transpose.dyn)
     /// </example>
     public static int[][] Transpose(int[][] matrix)
     {
@@ -39,6 +40,7 @@ public class Matrix
     /// <returns>A 2D array of output values, where each row has been transformed into a probability distribution.</returns>
     /// <example>
     /// ![](../OpenMEPPage/math/pic/Matrix.Softmax.png)
+    /// [Matrix.Softmax.dyn](../OpenMEPPage/math/pic/Matrix.Softmax.dyn)
     /// </example>
     public static double[][] Softmax(double[][]z)
     {

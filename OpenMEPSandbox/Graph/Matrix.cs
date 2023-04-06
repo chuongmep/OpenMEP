@@ -17,6 +17,7 @@ public class Matrix
     /// <returns name="adjacency matrix">An adjacency matrix for the graph.</returns>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/Matrix.BuildAdjMatrixByPoints.png)
+    /// [Matrix.BuildAdjMatrixByPoints.dyn](../OpenMEPPage/graph/Matrix.BuildAdjMatrixByPoints.dyn)
     /// </example>
     public static int[][] BuildAdjMatrixByPoints(List<Point> sources, List<Point> destinations)
     {
@@ -48,6 +49,7 @@ public class Matrix
     /// <returns name="adjacency matrix">An adjacency matrix representing the graph.</returns>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/Matrix.BuildAdjMatrixByGraph.png)
+    /// [Matrix.BuildAdjMatrixByGraph.dyn](../OpenMEPPage/graph/Matrix.BuildAdjMatrixByGraph.dyn)
     /// </example>
     public static int[][] BuildAdjMatrixByGraph(List<int> sources, List<int> destinations, List<int> weights)
     {

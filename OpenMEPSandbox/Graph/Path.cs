@@ -26,6 +26,7 @@ public class Path
     /// <returns name="distance">the value distance shortest of path</returns>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/Path.FindShortestPathDijkstra.png)
+    /// [Path.FindShortestPathDijkstra.dyn](../OpenMEPPage/graph/Path.FindShortestPathDijkstra.dyn)
     /// </example>
     [MultiReturn("shortestPath", "distance")]
     public static Dictionary<string, object> FindShortestPathDijkstra(int startNode, int endNode,
@@ -65,6 +66,7 @@ public class Path
     /// <exception cref="Exception"></exception>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/Path.FindShortestPathBellman.png)
+    /// [Path.FindShortestPathBellman.dyn](../OpenMEPPage/graph/Path.FindShortestPathBellman.dyn)
     /// </example>
     [MultiReturn("shortestPath", "distance")]
     public static Dictionary<string, object> FindShortestPathBellman(int startNode, int endNode,
@@ -108,6 +110,7 @@ public class Path
     /// </returns>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/Path.GetDistancesPathFromNode.png)
+    /// [Path.GetDistancesPathFromNode.dyn](../OpenMEPPage/graph/pic/Path.GetDistancesPathFromNode.dyn)
     /// </example>
     [MultiReturn("path", "distance")]
     public static Dictionary<string, object> GetDistancesPathFromNode(int from, List<int> sources,

@@ -16,6 +16,7 @@ public class GraphVisualizer
     /// <returns></returns>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/GraphVisualizer.VisualizeByEdge.png)
+    /// [GraphVisualizer.VisualizeByEdge.dyn](../OpenMEPPage/graph/GraphVisualizer.VisualizeByEdge.dyn)
     /// </example>
     public static Modifiers.GeometryColor VisualizeByEdge(Line line)
     {
@@ -28,9 +29,10 @@ public class GraphVisualizer
     /// </summary>
     /// <param name="source">the first node of edge</param>
     /// <param name="destination">the second node of edge</param>
-    /// <returns name="geometryColor"></returns>
+    /// <returns name="geometryColor">the geometry color of geometry</returns>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/GraphVisualizer.VisualizeByDestination.png)
+    /// [GraphVisualizer.VisualizeByDestination.dyn](../OpenMEPPage/graph/GraphVisualizer.VisualizeByDestination.dyn)
     /// </example>
     public static Modifiers.GeometryColor VisualizeByDestination(Point source, Point destination)
     {
@@ -51,6 +53,7 @@ public class GraphVisualizer
     /// <returns>A list of Point3D objects representing the vertices of the graph.</returns>
     /// <example>
     /// ![](../OpenMEPPage/graph/pic/GraphVisualizer.VisualizeByGraph.gif)
+    /// [GraphVisualizer.VisualizeByGraph.dyn](../OpenMEPPage/graph/GraphVisualizer.VisualizeByGraph.dyn)
     /// </example>
     [MultiReturn("Node", "Point", "Display")]
     public static Dictionary<string,object> VisualizeByGraph(List<int> sources, List<int> destinations,
