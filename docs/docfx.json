@@ -71,6 +71,8 @@
 		"globalMetadata": {
 			"_appTitle": "Open MEP",
 			"_appLogoPath": "images/logo.png",
+			"_enableSearch": true,
+			"_enableNewTab": false,
 			"_gitContribute": {
 			  "repo": "https://github.com/chuongmep/openmep",
 			  "branch": "dev"
