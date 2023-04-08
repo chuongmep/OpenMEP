@@ -598,6 +598,7 @@ public class Connector
     /// <returns name="double">Flow of connector</returns>
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.Flow.png)
+    /// [Connector.Flow.dyn](../OpenMEPPage/connectormanager/dyn/Connector.Flow.dyn)
     /// </example>
     public static double Flow(Autodesk.Revit.DB.Connector connector)
     {
@@ -611,6 +612,7 @@ public class Connector
     /// <returns name="double">Height</returns>
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.Height.png)
+    /// [](../OpenMEPPage/connectormanager/dyn/Connector.Height.dyn/Connector.Height.dyn)
     /// </example>
     public static double Height(Autodesk.Revit.DB.Connector connector)
     {
@@ -633,6 +635,7 @@ public class Connector
     /// <returns name="double">the width of connector</returns>
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.Width.png)
+    /// [Connector.Width.dyn](../OpenMEPPage/connectormanager/dyn/Connector.Width.dyn)
     /// </example>
     public static double Width(Autodesk.Revit.DB.Connector connector)
     {
@@ -655,6 +658,7 @@ public class Connector
     /// <returns name="double">AssignedFlow</returns>
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.AssignedFlow.png)
+    /// [Connector.AssignedFlow.dyn](../OpenMEPPage/connectormanager/dyn/Connector.AssignedFlow.dyn)
     /// </example>
     public static double AssignedFlow(Autodesk.Revit.DB.Connector connector)
     {
@@ -668,6 +672,7 @@ public class Connector
     /// <returns name="double">Connector engagement length</returns>
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.EngagementLength.png)
+    /// [Connector.EngagementLength.dyn](../OpenMEPPage/connectormanager/dyn/Connector.EngagementLength.dyn)
     /// </example>
     public static double EngagementLength(Autodesk.Revit.DB.Connector connector)
     {
@@ -681,6 +686,7 @@ public class Connector
     /// <returns name="double">PressureDrop</returns>
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.PressureDrop.png)
+    /// [Connector.PressureDrop.dyn](../OpenMEPPage/connectormanager/dyn/Connector.PressureDrop.dyn)
     /// </example>
     public static double PressureDrop(Autodesk.Revit.DB.Connector connector)
     {
