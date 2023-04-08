@@ -17,6 +17,7 @@ public class Dynamo
     /// <returns name="version">version</returns>
     /// <example>
     /// ![](../OpenMEPPage/application/dyn/pic/Dynamo.Version.png)
+    /// [Dynamo.Version.dyn](../OpenMEPPage/application/dyn/Dynamo.Version.dyn)
     /// </example>
     public static string Version()
     {
@@ -33,6 +34,7 @@ public class Dynamo
     /// <returns></returns>
     /// <example>
     /// ![](../OpenMEPPage/application/dyn/pic/Dynamo.CurrentFileName.png)
+    /// [Dynamo.CurrentFileName.dyn](../OpenMEPPage/application/dyn/Dynamo.CurrentFileName.dyn)
     /// </example>
     public static string CurrentFileName()
     {

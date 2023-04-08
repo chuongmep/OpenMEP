@@ -18,6 +18,7 @@ public class Windows
     /// <returns></returns>
     /// <example>
     /// ![](../OpenMEPPage/application/dyn/pic/Windows.Version.png)
+    /// [Windows.Version.dyn)](../OpenMEPPage/application/dyn/Windows.Version.dyn)
     /// </example>
     [MultiReturn("build", "major", "minor", "revision", "version")]
     public static Dictionary<string, object?> Version()

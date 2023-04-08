@@ -18,6 +18,7 @@ public class Revit
     /// <returns name="string">version</returns>
     /// <example>
     /// ![](../OpenMEPPage/application/dyn/pic/Revit.Version.png)
+    /// [Revit.Version.dyn](../OpenMEPPage/application/dyn/Revit.Version.dyn)
     /// </example>
     public static string Version()
     {

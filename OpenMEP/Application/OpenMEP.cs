@@ -16,6 +16,7 @@ public class OpenMEP
     /// </summary>
     /// <example>
     /// ![](../OpenMEPPage/application/dyn/pic/OpenMEP.Version.png)
+    /// [OpenMEP.Version.dyn](../OpenMEPPage/application/dyn/OpenMEP.Version.dyn)
     /// </example>
     public static string? Version
     {
