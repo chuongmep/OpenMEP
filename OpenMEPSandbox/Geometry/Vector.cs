@@ -169,7 +169,7 @@ public class Vector
     /// <returns>The Autodesk.DesignScript.Geometry.Vector object with the smallest integer values that are greater than or equal to the X, Y, and Z components of the input vector.</returns>
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Vector.Floor.png)
-    /// [Vector.Floor.dyn](../OpenMEPPage/geometry/dyn/pic/Vector.Floor.dyn)
+    /// [Vector.Floor.dyn](../OpenMEPPage/geometry/dyn/Vector.Floor.dyn)
     /// </example>
     public static Autodesk.DesignScript.Geometry.Vector Floor(Autodesk.DesignScript.Geometry.Vector vector)
     {

@@ -49,7 +49,7 @@ public class List
     /// <returns name="lst2">indices of second list</returns>
     /// <example>
     /// ![](../OpenMEPPage/core/pic/List.IndexTwoListObjects.png)
-    /// [List.IndexTwoListObjects.dyn](../OpenMEPPage/core/pic/List.IndexTwoListObjects.dyn)
+    /// [List.IndexTwoListObjects.dyn](../OpenMEPPage/core/List.IndexTwoListObjects.dyn)
     /// </example>
     [MultiReturn("lst1", "lst2")]
     public static Dictionary<string, object> IndexTwoListObjects(List<object> lst1, List<object> lst2)
@@ -84,7 +84,7 @@ public class List
     /// <returns>An array of arrays representing the one-hot encoded values.</returns>
     /// <example>
     /// ![](../OpenMEPPage/core/pic/List.OneHotEncode.png)
-    /// [List.OneHotEncode.dyn](../OpenMEPPage/core/pic/List.OneHotEncode.dyn)
+    /// [List.OneHotEncode.dyn](../OpenMEPPage/core/List.OneHotEncode.dyn)
     /// </example>
     public static int[][] OneHotEncode(List<string> labels)
     {
@@ -127,7 +127,7 @@ public class List
     /// <returns name="index">indices of object</returns>
     /// <example>
     /// ![](../OpenMEPPage/core/pic/List.IndexUniqueObjects.png)
-    /// [List.IndexUniqueObjects.dyn](../OpenMEPPage/core/pic/List.IndexUniqueObjects.dyn)
+    /// [List.IndexUniqueObjects.dyn](../OpenMEPPage/core/List.IndexUniqueObjects.dyn)
     /// </example>
     [MultiReturn("name", "index")]
     public static Dictionary<string, object> IndexUniqueObjects(List<object> objects)
@@ -158,7 +158,7 @@ public class List
     /// <returns name="index">indices of object</returns>
     /// <example>
     /// ![](../OpenMEPPage/core/pic/List.IndexUniqueTwoListObjects.png)
-    /// [List.IndexUniqueTwoListObjects.dyn](../OpenMEPPage/core/pic/List.IndexUniqueTwoListObjects.dyn)
+    /// [List.IndexUniqueTwoListObjects.dyn](../OpenMEPPage/core/List.IndexUniqueTwoListObjects.dyn)
     /// </example>
     [MultiReturn("name", "index")]
     public static Dictionary<string, object> IndexUniqueTwoListObjects(List<object> list1, List<object> list2)
@@ -189,7 +189,7 @@ public class List
     /// <returns name="indexs">list index of objects</returns>
     /// <example>
     /// ![](../OpenMEPPage/core/pic/List.IndexList.png)
-    /// [List.IndexList.dyn](../OpenMEPPage/core/pic/List.IndexList.dyn)
+    /// [List.IndexList.dyn](../OpenMEPPage/core/List.IndexList.dyn)
     /// </example>
     public static List<object> IndexList(List<object> objects)
     {
@@ -209,7 +209,7 @@ public class List
     /// <returns name="list">A new list containing the items that are common to both lists.</returns>
     /// <example>
     /// ![](../OpenMEPPage/core/pic/List.Intersect.png)
-    /// [List.Intersect.dyn](../OpenMEPPage/core/pic/List.Intersect.dyn)
+    /// [List.Intersect.dyn](../OpenMEPPage/core/List.Intersect.dyn)
     /// </example>
     public static List<object> Intersect(List<object> list1, List<object> list2)
     {
@@ -224,7 +224,7 @@ public class List
     /// <returns name="list">A new list containing the items that are in the first list but not in the second list.</returns>
     /// <example>
     /// ![](../OpenMEPPage/core/pic/List.Difference.png)
-    /// [List.Difference.dyn](../OpenMEPPage/core/pic/List.Difference.dyn)
+    /// [List.Difference.dyn](../OpenMEPPage/core/List.Difference.dyn)
     /// </example>
     public static List<object> Difference(List<object> list1, List<object> list2)
     {
