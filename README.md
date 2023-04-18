@@ -1,6 +1,6 @@
 # Open MEP
 
-![Revit API](https://img.shields.io/badge/Revit%20API%202023-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Revit API](https://img.shields.io/badge/Revit%20API%202024-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![ReSharper](https://img.shields.io/badge/ReSharper-2022-yellow) ![Rider](https://img.shields.io/badge/Rider-2022-yellow) ![Visual Studio 2022](https://img.shields.io/badge/Visual_Studio_2022-yellow) ![.NET Framework](https://img.shields.io/badge/.NET_6.0-yellow)
 
@@ -30,8 +30,8 @@ design process and ensure that their projects are completed on time and within b
 The package installer is available on the [Open MEP Release](https://github.com/chuongmep/OpenMEP/releases/latest). You
 can install it from there.
 
-- OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023
-- OpenMEP now Support Dynamo Version : 2.3, 2.6, 2.12, 2.13 2.16
+- OpenMEP now Support Revit Version : 2020, 2021, 2022 , 2023, 2024
+- OpenMEP now Support Dynamo Version : 2.3, 2.6, 2.12, 2.13 2.16, 2.17
 
 Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 

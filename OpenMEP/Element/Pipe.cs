@@ -4,12 +4,14 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
+using OpenMEPSandbox.Algo;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 using Point = OpenMEPSandbox.Geometry.Point;
 
 namespace OpenMEP.Element;
+
 /// <summary>A pipe in the Autodesk Revit MEP product.</summary>
 /// <remarks>The pipe is only available in the Autodesk Revit MEP product.</remarks>
 public class Pipe
@@ -165,6 +167,40 @@ public class Pipe
     }
 
     /// <summary>
+    /// Create pipe shortest route by the list points use TravellingSalesman algorithm
+    /// </summary>
+    /// <param name="systemType">system type of pipe</param>
+    /// <param name="pipeType">type of pipe</param>
+    /// <param name="level">level of pipe</param>
+    /// <param name="points">list point ordered of pipe</param>
+    /// <param name="diameter">value diameter for create pipe</param>
+    /// <returns name="elements">the elements include new pipe and new elbow of route</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/element/dyn/pic/Pipe.CreateRouteShortestByPoints.png)
+    /// [](../OpenMEPPage/element/dyn/Pipe.CreateRouteShortestByPoints.dyn)
+    /// </example>
+    [NodeSearchTags("create", "pipe", "network", "list", "route")]
+    [NodeCategory("Create")]
+    public static List<global::Revit.Elements.Element?> CreateRouteShortestByPoints(global::Revit.Elements.Element systemType,
+        global::Revit.Elements.Element pipeType,
+        global::Revit.Elements.Element level, List<Autodesk.DesignScript.Geometry.Point> points, double diameter)
+    {
+        List<global::Revit.Elements.Element?> elements = new List<global::Revit.Elements.Element?>();
+        if (points.Count == 0) throw new Exception("List point is empty");
+        if (points.Count == 1) throw new Exception("List point is not enough to create a route");
+        var routePoints = TravellingSalesman.FindShortestRoute(points);
+        for (int i = 0; i < routePoints.Count - 1; i++)
+        {
+            Autodesk.DesignScript.Geometry.Point startPoint = routePoints[i];
+            Autodesk.DesignScript.Geometry.Point endPoint = routePoints[i + 1];
+            var newPipe = CreateByTwoPoint(systemType, pipeType, level, startPoint, endPoint);
+            SetDiameter(newPipe, diameter);
+            elements.Add(newPipe);
+        }
+        return elements;
+    }
+
+    /// <summary>
     /// create new pipe by direction and length
     /// </summary>
     /// <param name="systemType">The Element of the piping system type.</param>
@@ -182,7 +218,7 @@ public class Pipe
     public static global::Revit.Elements.Element? CreateByPointAndDirection(global::Revit.Elements.Element systemType,
         global::Revit.Elements.Element pipeType,
         global::Revit.Elements.Element level, Autodesk.DesignScript.Geometry.Point startPoint,
-        Autodesk.DesignScript.Geometry.Vector direction,double length, double diameter)
+        Autodesk.DesignScript.Geometry.Vector direction, double length, double diameter)
     {
         var endPoint = Point.Offset(startPoint, length, direction);
         Revit.Elements.Element? pipe = CreateByTwoPoint(systemType, pipeType, level, startPoint, endPoint);
@@ -289,7 +325,7 @@ public class Pipe
         TransactionManager.Instance.TransactionTaskDone();
         return pipe;
     }
-    
+
 
     /// <summary>
     /// return information diameter of pipe
@@ -546,7 +582,8 @@ public class Pipe
     /// ![](../OpenMEPPage/element/dyn/pic/Pipe.GetFamilySymbolMechanicalJointsByRouting.png)
     /// </example>
     [MultiReturn("FamilySymbol", "Family")]
-    public static Dictionary<string,object?> GetFamilySymbolMechanicalJointsByRouting(global::Revit.Elements.Element? pipe)
+    public static Dictionary<string, object?> GetFamilySymbolMechanicalJointsByRouting(
+        global::Revit.Elements.Element? pipe)
     {
         double radius = ConnectorManager.Connector.GetConnectors(pipe).Select(x => x!.Radius).FirstOrDefault();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;

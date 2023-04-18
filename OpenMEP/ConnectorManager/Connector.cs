@@ -127,6 +127,19 @@ public class Connector
         Autodesk.Revit.DB.Connector? connector = GetConnectorClosest(element2, connectorSet);
         return connector;
     }
+    
+    /// <summary>
+    /// Get closest Connector inside the Element with a Point
+    /// </summary>
+    /// <param name="element">element contains connectors </param>
+    /// <param name="point">point need to check</param>
+    /// <returns name="Connector">closest connector with point</returns>
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(global::Revit.Elements.Element? element,
+        Autodesk.DesignScript.Geometry.Point point)
+    {
+        List<Autodesk.Revit.DB.Connector?> connectors = GetConnectors(element);
+        return GetConnectorClosest(point, connectors);
+    }
 
     /// <summary>
     /// return connector set of element
