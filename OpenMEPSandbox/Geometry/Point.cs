@@ -48,8 +48,8 @@ public class Point
     public static Autodesk.DesignScript.Geometry.Point ProjectOnToLine(Autodesk.DesignScript.Geometry.Point? point,
         Autodesk.DesignScript.Geometry.Line? line)
     {
-        if(point is null) throw new ArgumentNullException(nameof(point));
-        if(line is null) throw new ArgumentNullException(nameof(line));
+        if (point is null) throw new ArgumentNullException(nameof(point));
+        if (line is null) throw new ArgumentNullException(nameof(line));
         Autodesk.DesignScript.Geometry.Vector lineDirection = line.Direction.Normalized();
         Autodesk.DesignScript.Geometry.Point start = line.StartPoint;
         Autodesk.DesignScript.Geometry.Vector vector = point.AsVector().Subtract(start.AsVector());
@@ -288,7 +288,8 @@ public class Point
     /// <returns></returns>
     internal static double Euclidean(double x1, double x2, double y1, double y2, double z1, double z2)
     {
-        return System.Math.Sqrt(System.Math.Pow(x1 - x2, 2) + System.Math.Pow(y1 - y2, 2) + System.Math.Pow(z1 - z2, 2));
+        return System.Math.Sqrt(System.Math.Pow(x1 - x2, 2) + System.Math.Pow(y1 - y2, 2) +
+                                System.Math.Pow(z1 - z2, 2));
     }
 
     /// <summary>
@@ -446,7 +447,7 @@ public class Point
         int compareTo = point1.ToGSharkType().CompareTo(point2.ToGSharkType());
         return compareTo;
     }
-    
+
     /// <summary>
     /// takes a list of 3D points as input and returns the shortest route that visits each point exactly once'
     /// https://en.wikipedia.org/wiki/Travelling_salesman_problem
@@ -502,8 +503,10 @@ public class Point
 
             points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z));
         }
+
         return points;
     }
+
     /// <summary>
     /// Generates a given number of random points within a rectangular prism (i.e., a cube with different dimensions) of the given size.
     /// </summary>
@@ -515,7 +518,8 @@ public class Point
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsInCube.png)
     /// </example>
-    public static List<Autodesk.DesignScript.Geometry.Point> GenerateRandomPointsInCube(double width, double height, double length, int numPoints)
+    public static List<Autodesk.DesignScript.Geometry.Point> GenerateRandomPointsInCube(double width, double height,
+        double length, int numPoints)
     {
         List<Autodesk.DesignScript.Geometry.Point> points = new List<Autodesk.DesignScript.Geometry.Point>();
 
@@ -527,9 +531,10 @@ public class Point
 
             points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z));
         }
+
         return points;
     }
-    
+
     /// <summary>
     /// Generates an array of random 3D points on the circumference of a specified circle.
     /// </summary>
@@ -539,7 +544,8 @@ public class Point
     /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsOnCircle.png)
     /// </example>
-    public static List<Autodesk.DesignScript.Geometry.Point> GenerateRandomPointsOnCircle(Circle circle,double numPoints)
+    public static List<Autodesk.DesignScript.Geometry.Point> GenerateRandomPointsOnCircle(Circle circle,
+        double numPoints)
     {
         List<Autodesk.DesignScript.Geometry.Point> points = new List<Autodesk.DesignScript.Geometry.Point>();
 
@@ -551,16 +557,18 @@ public class Point
             var n = circle.Normal;
             var radius = circle.Radius;
             var center = circle.CenterPoint;
-            var u = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0,-n.Z,n.Y);
-            var v = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(System.Math.Pow(n.Y,2)+System.Math.Pow(n.Z,2), -n.X*n.Y,-n.X*n.Z);
-            var x = center.X+ radius* v.X* System.Math.Cos(theta) + radius* u.X* System.Math.Sin(theta);
-            var y = center.Y+ radius* v.Y* System.Math.Cos(theta) + radius* u.Y* System.Math.Sin(theta);
-            var z = center.Z+ radius* v.Z* System.Math.Cos(theta) + radius* u.Z* System.Math.Sin(theta);
+            var u = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, -n.Z, n.Y);
+            var v = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(
+                System.Math.Pow(n.Y, 2) + System.Math.Pow(n.Z, 2), -n.X * n.Y, -n.X * n.Z);
+            var x = center.X + radius * v.X * System.Math.Cos(theta) + radius * u.X * System.Math.Sin(theta);
+            var y = center.Y + radius * v.Y * System.Math.Cos(theta) + radius * u.Y * System.Math.Sin(theta);
+            var z = center.Z + radius * v.Z * System.Math.Cos(theta) + radius * u.Z * System.Math.Sin(theta);
             points.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z));
         }
+
         return points;
     }
-    
+
     /// <summary>
     /// Generates an array of random 3D points inside a specified circle.
     /// </summary>
@@ -577,7 +585,8 @@ public class Point
 
         for (int i = 0; i < numPoints; i++)
         {
-            double radius = circle.Radius * System.Math.Sqrt(random.NextDouble()); // random radius between 0 and circle radius
+            double radius =
+                circle.Radius * System.Math.Sqrt(random.NextDouble()); // random radius between 0 and circle radius
             double angle = 2 * System.Math.PI * random.NextDouble(); // random angle between 0 and 2π radians
 
             double x = circle.CenterPoint.X + radius * System.Math.Cos(angle); // x-coordinate of the point
@@ -585,21 +594,25 @@ public class Point
 
             // calculate the z-coordinate of the point by generating a random value between -1 and 1
             // and scaling it by the distance from the circle's center to the point in the x-y plane
-            double z = circle.CenterPoint.Z + 2 * (random.NextDouble() - 0.5) * System.Math.Sqrt(circle.Radius * circle.Radius - radius * radius);
-            Autodesk.DesignScript.Geometry.Point coordinates = Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
-            Autodesk.DesignScript.Geometry.Point point = ProjectOntoPlane(coordinates, Autodesk.DesignScript.Geometry.Plane.ByOriginNormal(circle.CenterPoint, circle.Normal));
+            double z = circle.CenterPoint.Z + 2 * (random.NextDouble() - 0.5) *
+                System.Math.Sqrt(circle.Radius * circle.Radius - radius * radius);
+            Autodesk.DesignScript.Geometry.Point coordinates =
+                Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
+            Autodesk.DesignScript.Geometry.Point point = ProjectOntoPlane(coordinates,
+                Autodesk.DesignScript.Geometry.Plane.ByOriginNormal(circle.CenterPoint, circle.Normal));
             points[i] = point;
         }
 
         return points;
     }
+
     private static Random random = new Random();
+
     private static double RandomNumber(double min, double max)
     {
-        
         return random.NextDouble() * (max - min) + min;
     }
-    
+
     /// <summary>
     /// Returns a new point with the smallest integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.
     /// </summary>
@@ -610,11 +623,12 @@ public class Point
     /// </example>
     public static Autodesk.DesignScript.Geometry.Point Floor(Autodesk.DesignScript.Geometry.Point point)
     {
-        int x = (int)System.Math.Floor(point.X);
-        int y = (int)System.Math.Floor(point.Y);
-        int z = (int)System.Math.Floor(point.Z);
+        int x = (int) System.Math.Floor(point.X);
+        int y = (int) System.Math.Floor(point.Y);
+        int z = (int) System.Math.Floor(point.Z);
         return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
     }
+
     /// <summary>
     /// Returns a new point with the larger integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.
     /// </summary>
@@ -625,9 +639,49 @@ public class Point
     /// </example>
     public static Autodesk.DesignScript.Geometry.Point Ceiling(Autodesk.DesignScript.Geometry.Point point)
     {
-        int x = (int)System.Math.Floor(point.X);
-        int y = (int)System.Math.Floor(point.Y);
-        int z = (int)System.Math.Floor(point.Z);
+        int x = (int) System.Math.Floor(point.X);
+        int y = (int) System.Math.Floor(point.Y);
+        int z = (int) System.Math.Floor(point.Z);
         return Autodesk.DesignScript.Geometry.Point.ByCoordinates(x, y, z);
+    }
+
+    /// <summary>
+    /// Sorts a list of 3D points by their direction relative to a specified direction vector.
+    /// </summary>
+    /// <param name="points">The list of points to be sorted.</param>
+    /// <param name="direction">The direction vector relative to which the points will be sorted.</param>
+    /// <returns name="points">A new list of points sorted by their direction relative to the specified direction vector.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.SortPointsByDirection.png)
+    /// [Point.SortPointsByDirection.dyn](../OpenMEPPage/geometry/dyn/Point.SortPointsByDirection.dyn)
+    /// </example>
+    public static List<Autodesk.DesignScript.Geometry.Point> SortPointsByDirection(
+        List<Autodesk.DesignScript.Geometry.Point> points, Autodesk.DesignScript.Geometry.Vector direction)
+    {
+        if (direction == null) throw new ArgumentNullException(nameof(direction));
+        if (points == null) throw new ArgumentNullException(nameof(points));
+        if(points.Count==1 || points.Count==0) return points;
+        // Normalize the direction vector
+        double length =
+            System.Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y + direction.Z * direction.Z);
+        Autodesk.DesignScript.Geometry.Point normalizedDirection =
+            Autodesk.DesignScript.Geometry.Point.ByCoordinates(direction.X / length, direction.Y / length,
+                direction.Z / length);
+
+        // Calculate the dot product of each point with the normalized direction vector
+        List<double> dotProducts = points.Select(p =>
+            p.X * normalizedDirection.X + p.Y * normalizedDirection.Y + p.Z * normalizedDirection.Z).ToList();
+
+        // Combine the dot products and points into a list of tuples
+        List<(double dotProduct, Autodesk.DesignScript.Geometry.Point point)> dotProductsAndPoints =
+            dotProducts.Zip(points, (dotProduct, point) => (dotProduct, point)).ToList();
+
+        // Sort the list by dot product, which will sort the points by direction
+        dotProductsAndPoints.Sort();
+
+        // Extract the sorted points from the sorted list of tuples
+        List<Autodesk.DesignScript.Geometry.Point> sortedPoints = dotProductsAndPoints.Select(dp => dp.point).ToList();
+
+        return sortedPoints;
     }
 }

@@ -1,0 +1,409 @@
+{
+  "Uuid": "5b1084ed-079a-499e-aeb7-be08a844e14d",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.SortPointsByDirection",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.SortPointsByDirection@Autodesk.DesignScript.Geometry.Point[],Autodesk.DesignScript.Geometry.Vector",
+      "Id": "fa38762382e6432a82fb3156d4e2088d",
+      "Inputs": [
+        {
+          "Id": "91a59e7a929c4a6a96873e9e0f256dee",
+          "Name": "points",
+          "Description": "The list of points to be sorted.\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bbb2053b809f43389096805ef670f31d",
+          "Name": "direction",
+          "Description": "The direction vector relative to which the points will be sorted.\n\nVector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8cc3e0d180f14c0c9d5c2356cda5a0a4",
+          "Name": "points",
+          "Description": "A new list of points sorted by their direction relative to the specified direction vector.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Sorts a list of 3D points by their direction relative to a specified direction vector.\n\nPoint.SortPointsByDirection (points: Point[], direction: Vector): Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "80df26589cc0489d9c38a43510309dd3",
+      "Inputs": [
+        {
+          "Id": "97488e613dd14ac19b36c70708be2b7f",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ff01ffa4c9b24f6bb804a6392c8dc196",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1a58780ff8224311bbfeb5b89a379f98",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "952fc83da49549b295ab598abc11c435",
+          "Name": "Point",
+          "Description": "Point created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "10;",
+      "Id": "363aa6f34f6b43088abf4497de3d2cea",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "327dafacfc2e4c0580d32580e4511080",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.RandomList@int,double,double,int",
+      "Id": "a0f0badc31f0441cb92c58c3ec97b4b6",
+      "Inputs": [
+        {
+          "Id": "cd0049e59c814878b88187f2f55f05bd",
+          "Name": "amount",
+          "Description": "Amount of random numbers the result list will contain.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "80bd44d2ede641e38bed0a3213c4c84b",
+          "Name": "value1",
+          "Description": "Lower end of the range for the random number.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "53548373252e4e93b09c739f0dd02a30",
+          "Name": "value2",
+          "Description": "Higher end of the range for the random number.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3359d50f332e4b87bbf05c479981aa2b",
+          "Name": "seed",
+          "Description": "Seed value for the random number generator.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2f023affc2b64205b74ca61b72de0117",
+          "Name": "number",
+          "Description": "List of random numbers in the range [lower_number, higher_number).",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a list containing the given amount of random doubles in the defined range of [lower_number, higher_number) based on an initial seed value.\n\nMath.RandomList (amount: int, value1: double, value2: double, seed: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "1;\n10;\n1;",
+      "Id": "b8c468feb3b5463fbe1e2cc27cdb221d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5feaf64678994920878675225a1b8692",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8f0aa2047e8249389ade164810246c61",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aadbb675862842c79e8a8489f5e41f33",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.XAxis",
+      "Id": "f248d70669994c86ac3ebeea3e017baf",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7b0bfebe9ed249d8a3485da3694d14f9",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical X axis Vector (1,0,0)\n\nVector.XAxis ( ): Vector"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "952fc83da49549b295ab598abc11c435",
+      "End": "91a59e7a929c4a6a96873e9e0f256dee",
+      "Id": "70f4db7e971e441a8eaf5dd79b7bd238",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "327dafacfc2e4c0580d32580e4511080",
+      "End": "cd0049e59c814878b88187f2f55f05bd",
+      "Id": "70aabf81ab874767bf6507eb152f55d3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2f023affc2b64205b74ca61b72de0117",
+      "End": "ff01ffa4c9b24f6bb804a6392c8dc196",
+      "Id": "fa24495d84754e78be99cca029dbedfc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2f023affc2b64205b74ca61b72de0117",
+      "End": "97488e613dd14ac19b36c70708be2b7f",
+      "Id": "926e86ac99074d9fa30680c5a5233bac",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2f023affc2b64205b74ca61b72de0117",
+      "End": "1a58780ff8224311bbfeb5b89a379f98",
+      "Id": "cdd0eeff8a5d4f4e918cbe0b708d9189",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5feaf64678994920878675225a1b8692",
+      "End": "80bd44d2ede641e38bed0a3213c4c84b",
+      "Id": "539a46e051f8466fa12fe59e5dd7564d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8f0aa2047e8249389ade164810246c61",
+      "End": "53548373252e4e93b09c739f0dd02a30",
+      "Id": "596da448a42a47cda7da9968d2682d57",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "aadbb675862842c79e8a8489f5e41f33",
+      "End": "3359d50f332e4b87bbf05c479981aa2b",
+      "Id": "d3ba48b5e8314d0b9b87ee55c5fb4b1e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7b0bfebe9ed249d8a3485da3694d14f9",
+      "End": "bbb2053b809f43389096805ef670f31d",
+      "Id": "c92161bda4444e5bb51120234e25cc94",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "fa38762382e6432a82fb3156d4e2088d"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Point.SortPointsByDirection",
+        "ShowGeometry": true,
+        "Id": "fa38762382e6432a82fb3156d4e2088d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 931.7304535637146,
+        "Y": 303.51101511879045
+      },
+      {
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
+        "Id": "80df26589cc0489d9c38a43510309dd3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 467.3226781857453,
+        "Y": 303.6544276457883
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "363aa6f34f6b43088abf4497de3d2cea",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -26.484702219473206,
+        "Y": 220.41474936967492
+      },
+      {
+        "Name": "Math.RandomList",
+        "ShowGeometry": true,
+        "Id": "a0f0badc31f0441cb92c58c3ec97b4b6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 173.00302375809957,
+        "Y": 319.65874730021562
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "b8c468feb3b5463fbe1e2cc27cdb221d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -24.617710583153325,
+        "Y": 353.67818574514041
+      },
+      {
+        "Name": "Vector.XAxis",
+        "ShowGeometry": true,
+        "Id": "f248d70669994c86ac3ebeea3e017baf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 733.23267959537623,
+        "Y": 433.76640326562853
+      }
+    ],
+    "Annotations": [],
+    "X": 211.89561453851849,
+    "Y": 19.592717031546471,
+    "Zoom": 0.78916103292481576
+  }
+}
