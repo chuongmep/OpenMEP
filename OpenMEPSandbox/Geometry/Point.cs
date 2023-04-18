@@ -660,7 +660,7 @@ public class Point
     {
         if (direction == null) throw new ArgumentNullException(nameof(direction));
         if (points == null) throw new ArgumentNullException(nameof(points));
-        if(points.Count==1 || points.Count==0) return points;
+        if (points.Count == 1 || points.Count == 0) return points;
         // Normalize the direction vector
         double length =
             System.Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y + direction.Z * direction.Z);
@@ -683,5 +683,48 @@ public class Point
         List<Autodesk.DesignScript.Geometry.Point> sortedPoints = dotProductsAndPoints.Select(dp => dp.point).ToList();
 
         return sortedPoints;
+    }
+
+    /// <summary>
+    /// Sorts a list of Point3D objects by their clockwise order relative to a center point
+    /// and a specified starting angle in degrees.
+    /// </summary>
+    /// <param name="points">The list of Point3D objects to be sorted</param>
+    /// <param name="startAngle">The starting angle in degrees for the clockwise ordering</param>
+    /// <returns name="points">The sorted list of Point3D objects</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/Point.SortPointsByClockwise.png)
+    /// [Point.SortPointsByClockwise.dyn](../OpenMEPPage/geometry/dyn/Point.SortPointsByClockwise.dyn)
+    /// </example>
+    public static List<Autodesk.DesignScript.Geometry.Point> SortPointsByClockwise(
+        List<Autodesk.DesignScript.Geometry.Point> points,
+        double  startAngle =0)
+    {
+        // find the center point of the polygon
+        Point3 center = new Point3(0, 0, 0);
+        foreach (var point in points)
+        {
+            center.X += point.X;
+            center.Y += point.Y;
+            center.Z += point.Z;
+        }
+        center.X /= points.Count;
+        center.Y /= points.Count;
+        center.Z /= points.Count;
+        // sort the points by their clockwise order
+        points.Sort((p1, p2) => {
+            double angle1 = GetAngle(p1,center, startAngle);
+            double angle2 = GetAngle(p2,center, startAngle);
+            if (angle1 < angle2) return -1;
+            if (angle1 > angle2) return 1;
+            return 0;
+        });
+        return points;
+    }
+    private static double GetAngle(Autodesk.DesignScript.Geometry.Point point,Point3 center, double startAngle)
+    {
+        double angle = System.Math.Atan2(point.Y - center.Y, point.X - center.X) * 180 / System.Math.PI;
+        if (angle < startAngle) angle += 360;
+        return angle;
     }
 }
