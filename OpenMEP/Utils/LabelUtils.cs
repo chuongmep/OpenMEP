@@ -21,7 +21,7 @@ public class LabelUtils
         return label;
     }
 
-#if !R20 || !R21
+#if !(R20 || R21)
     /// <summary>Gets the user-visible name for a unit.</summary>
     /// <remarks>The name is obtained in the current Revit language.</remarks>
     /// <param name="unitTypeId">Identifier of the unit to get the user-visible name.</param>

@@ -130,10 +130,11 @@ public class Connector
     /// <param name="element">element contains connectors </param>
     /// <param name="point">point need to check</param>
     /// <returns name="Connector">closest connector with point</returns>
-    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(global::Revit.Elements.Element? element,
+    public static Autodesk.Revit.DB.Connector? GetConnectorClosest(global::Revit.Elements.Element element,
         Autodesk.DesignScript.Geometry.Point point)
     {
-        List<Autodesk.Revit.DB.Connector?> connectors = GetConnectors(element);
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        List<Autodesk.Revit.DB.Connector> connectors = GetConnectors(element);
         return GetConnectorClosest(point, connectors);
     }
 
