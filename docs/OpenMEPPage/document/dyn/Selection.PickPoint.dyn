@@ -1,0 +1,155 @@
+{
+  "Uuid": "9e66a8dc-2690-4b25-a81d-a29a77aa472e",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.PickPoint",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "1b3b4528121c452ca387da21cefc9d64",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8f94cbbdcd4c4698be980a264643b0fe",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Document.Selection.PickPoint@bool",
+      "Id": "dd35147e5cde4cff90fddd8263923a20",
+      "Inputs": [
+        {
+          "Id": "4bbc8e28065e4155b59a5ff700fb178c",
+          "Name": "flag",
+          "Description": "toggle to fresh pick point\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f8d7cdc0456b487cb295d76c62b9f401",
+          "Name": "point",
+          "Description": "point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return Point Picked In Current View\n\nSelection.PickPoint (flag: bool): Point"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "8f94cbbdcd4c4698be980a264643b0fe",
+      "End": "4bbc8e28065e4155b59a5ff700fb178c",
+      "Id": "decbe4f8151e4a528480e70e18595b84",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "dd35147e5cde4cff90fddd8263923a20"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.0.3472",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "1b3b4528121c452ca387da21cefc9d64",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 243.45112359846934,
+        "Y": 300.26163049609818
+      },
+      {
+        "Name": "Selection.PickPoint",
+        "ShowGeometry": true,
+        "Id": "dd35147e5cde4cff90fddd8263923a20",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 543.40732057262539,
+        "Y": 310.81474775066033
+      }
+    ],
+    "Annotations": [],
+    "X": -169.14167781470292,
+    "Y": -130.39792721775152,
+    "Zoom": 1.0298856394709863
+  }
+}
