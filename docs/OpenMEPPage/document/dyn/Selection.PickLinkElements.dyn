@@ -1,0 +1,155 @@
+{
+  "Uuid": "99d452dc-8b23-45d7-84b4-64df52f0dd76",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.PickLinkElements",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Document.Selection.PickLinkElements@bool",
+      "Id": "539573631c624dc0896b8325bc79a458",
+      "Inputs": [
+        {
+          "Id": "561db308902a4a119d492c2ab4eac9e9",
+          "Name": "flag",
+          "Description": "flag true false to fresh pick element\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "77c52f4fb61e480097ba13d5a9f8eb3e",
+          "Name": "elements",
+          "Description": "list element inside link elements",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Pick Element In Linked Document\n\nSelection.PickLinkElements (flag: bool): Element[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "97a659d26c154af9b9aec267ff1d33d5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "eea377a1797f489ebaacb731bb275b31",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "eea377a1797f489ebaacb731bb275b31",
+      "End": "561db308902a4a119d492c2ab4eac9e9",
+      "Id": "5f0d326ab79247d4854622ad7bede3db",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "539573631c624dc0896b8325bc79a458"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.0.3472",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Selection.PickLinkElements",
+        "ShowGeometry": true,
+        "Id": "539573631c624dc0896b8325bc79a458",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 248.39999999999998,
+        "Y": 278.4
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "97a659d26c154af9b9aec267ff1d33d5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 35.19999999999996,
+        "Y": 292.80000000000007
+      }
+    ],
+    "Annotations": [],
+    "X": -25.600000000000023,
+    "Y": -107.2000000000001,
+    "Zoom": 1.0
+  }
+}

@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System.Text;
+using System.Windows;
+using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Selection;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
@@ -120,7 +123,7 @@ public class Selection
     /// Pick Select Order Element In Current View
     /// </summary>
     /// <param name="flag"></param>
-    /// <returns></returns>
+    /// <returns name="elements">list element pick ordered</returns>
     /// <example>
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickOrderElements.gif)
     /// [Selection.PickOrderElements.dyn](../OpenMEPPage/document/dyn/Selection.PickOrderElements.dyn)
@@ -130,22 +133,139 @@ public class Selection
         List<Revit.Elements.Element> elements = new List<Revit.Elements.Element>();
         try
         {
-            TaskDialog.Show("OpenMEP", "Select Ordered By Pick Element,Press Esc to Cancel", TaskDialogCommonButtons.Ok);
+            TaskDialog.Show("OpenMEP", "Select Ordered By Pick Element,Press Esc to Cancel",
+                TaskDialogCommonButtons.Ok);
             while (true)
             {
                 Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
                 UIDocument uidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument;
                 Autodesk.Revit.UI.Selection.Selection selection = uidoc.Selection;
-                Autodesk.Revit.DB.ElementId elementId = selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element).ElementId;
-                Autodesk.Revit.DB.Element element1 = doc.GetElement(elementId); 
+                Autodesk.Revit.DB.ElementId elementId =
+                    selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element).ElementId;
+                Autodesk.Revit.DB.Element element1 = doc.GetElement(elementId);
                 Revit.Elements.Element? element = element1.ToDynamoType();
                 elements.Add(element);
-                
             }
         }
         catch (Exception e)
         {
             return elements;
+        }
+    }
+
+
+    /// <summary>
+    /// Pick Element By Rectangle In Current View
+    /// </summary>
+    /// <param name="flag">toggle true false to pick again</param>
+    /// <returns name="elements">list element pick by Rectangle</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickElementsByRectangle.gif)
+    /// [Selection.PickElementsByRectangle.dyn](../OpenMEPPage/document/dyn/Selection.PickElementsByRectangle.dyn)
+    /// </example>
+    public static List<Revit.Elements.Element> PickElementsByRectangle(bool flag)
+    {
+        List<Revit.Elements.Element> elements = new List<Revit.Elements.Element>();
+        UIDocument uidoc = DocumentManager.Instance.CurrentUIDocument;
+        try
+        {
+            TaskDialog.Show("OpenMEP", "Select Element By Drag Mouse Rectangle,Press Esc to Cancel",
+                TaskDialogCommonButtons.Ok);
+            while (true)
+            {
+                IList<Autodesk.Revit.DB.Element> elementsByRectangle = uidoc.Selection.PickElementsByRectangle(
+                    new SelectionFilter(),
+                    "Select Element By Drag Mouse Rectangle");
+                elementsByRectangle.ToList().ForEach(x => elements.Add(x.ToDynamoType()));
+            }
+        }
+        catch (Autodesk.Revit.Exceptions.OperationCanceledException e)
+        {
+            return elements;
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(e.Message);
+            return elements;
+        }
+    }
+
+    /// <summary>
+    /// Pick Element In Linked Document
+    /// </summary>
+    /// <param name="flag">flag true false to fresh pick element</param>
+    /// <returns name="elements">list element inside link elements</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickLinkElements.gif)
+    /// [Selection.PickLinkElements.dyn](../OpenMEPPage/document/dyn/Selection.PickLinkElements.dyn)
+    /// </example>
+    public static List<Revit.Elements.Element> PickLinkElements(bool flag)
+    {
+        List<Revit.Elements.Element> elements = new List<Revit.Elements.Element>();
+        UIDocument uidoc = DocumentManager.Instance.CurrentUIDocument;
+        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        try
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("1.Select Link Instance First And Select Elements");
+            sb.AppendLine("2.Select Elements In Linked");
+            sb.AppendLine("3.Click Finish to end selection");
+            TaskDialog.Show("OpenMEP", sb.ToString(),
+                TaskDialogCommonButtons.Ok);
+            Reference? link_ref = uidoc.Selection.PickObject(ObjectType.Element, new LinkSelectionFilter(),
+                "Select a link instance first");
+            if (link_ref == null) return elements;
+            IList<Reference> references = uidoc.Selection.PickObjects(ObjectType.LinkedElement,
+                "Select Elements In Linked");
+            RevitLinkInstance? link1 = doc.GetElement(link_ref.ElementId) as RevitLinkInstance;
+            if (link1 == null) return elements;
+            Autodesk.Revit.DB.Document linkDoc = link1.GetLinkDocument();
+            foreach (var r1 in references)
+            {
+                ElementId elementId = r1.LinkedElementId;
+                elements.Add(linkDoc.GetElement(elementId).ToDynamoType());
+            }
+        }
+        catch (Autodesk.Revit.Exceptions.OperationCanceledException e)
+        {
+            return elements;
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(e.Message);
+            return elements;
+        }
+
+        return elements;
+    }
+
+    [IsVisibleInDynamoLibrary(false)]
+    public class SelectionFilter : ISelectionFilter
+    {
+        public bool AllowElement(Autodesk.Revit.DB.Element? elem)
+        {
+            if (elem != null) return true;
+            return false;
+        }
+
+        public bool AllowReference(Reference refer, XYZ pos)
+        {
+            return false;
+        }
+    }
+
+    [IsVisibleInDynamoLibrary(false)]
+    public class LinkSelectionFilter : ISelectionFilter
+    {
+        public bool AllowElement(Autodesk.Revit.DB.Element? elem)
+        {
+            if (elem is Autodesk.Revit.DB.RevitLinkInstance) return true;
+            return false;
+        }
+
+        public bool AllowReference(Reference refer, XYZ pos)
+        {
+            return false;
         }
     }
 }
