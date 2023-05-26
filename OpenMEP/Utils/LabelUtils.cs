@@ -1,4 +1,6 @@
-﻿namespace OpenMEP.Utils;
+﻿using Autodesk.Revit.DB;
+
+namespace OpenMEP.Utils;
 /// <summary>Used to obtain user-visible names for enums.</summary>
 /// <since>2011</since>
 public class LabelUtils
@@ -18,16 +20,22 @@ public class LabelUtils
         string label = Autodesk.Revit.DB.LabelUtils.GetLabelFor(builtInParameter);
         return label;
     }
-    
-    /// <summary>
-    /// Gets the user-visible name for a BuiltInCategory.
-    /// </summary>
-    /// <param name="builtInCategory">The BuiltInCategory to get the user-visible name.</param>
-    /// <returns name="label">The name is obtained in the current Revit language</returns>
-    public static string GetLabelForBuiltInCategory(object builtInCategory)
+
+#if !(R20 || R21)
+    /// <summary>Gets the user-visible name for a unit.</summary>
+    /// <remarks>The name is obtained in the current Revit language.</remarks>
+    /// <param name="unitTypeId">Identifier of the unit to get the user-visible name.</param>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentException">
+    ///    Cannot find DisplayUnitTypeInfo for the given unit identifier.
+    /// </exception>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.ArgumentNullException">
+    ///    A non-optional argument was null
+    /// </exception>
+    /// <since>2011</since>
+    public static string GetLabelForUnit(ForgeTypeId unitTypeId)
     {
-        Autodesk.Revit.DB.BuiltInCategory bic = (Autodesk.Revit.DB.BuiltInCategory)builtInCategory;
-        string label = Autodesk.Revit.DB.LabelUtils.GetLabelFor(bic);
+        string label = Autodesk.Revit.DB.LabelUtils.GetLabelForUnit(unitTypeId);
         return label;
     }
+#endif
 }
