@@ -4,6 +4,7 @@ using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using Dynamo.Graph.Nodes;
 using OpenMEP.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
@@ -26,6 +27,8 @@ public class Selection
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.GetSelectedElements.png)
     /// [Selection.GetSelectedElements.dyn](../OpenMEPPage/document/dyn/Selection.GetSelectedElements.dyn)
     /// </example>
+    [NodeCategory("Action")]
+    [NodeSearchTags("selection", "get", "selected", "elements")]
     public static List<Revit.Elements.Element> GetSelectedElements(bool flag)
     {
         UIDocument uidoc = DocumentManager.Instance.CurrentUIDocument;
@@ -50,6 +53,8 @@ public class Selection
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickPoint.gif)
     /// [Selection.PickPoint.dyn](../OpenMEPPage/document/dyn/Selection.PickPoint.dyn)
     /// </example>
+    [NodeCategory("Action")]
+    [NodeSearchTags("selection", "pick", "point")]
     public static Autodesk.DesignScript.Geometry.Point PickPoint(bool flag)
 
     {
@@ -81,6 +86,8 @@ public class Selection
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickPointOrders.gif)
     /// [Selection.PickPointOrders.dyn](../OpenMEPPage/document/dyn/Selection.PickPointOrders.dyn)
     /// </example>
+    [NodeCategory("Action")]
+    [NodeSearchTags("selection", "pick", "point", "order")]
     public static List<Point> PickPointOrders(bool flag)
     {
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
@@ -128,6 +135,8 @@ public class Selection
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickOrderElements.gif)
     /// [Selection.PickOrderElements.dyn](../OpenMEPPage/document/dyn/Selection.PickOrderElements.dyn)
     /// </example>
+    [NodeCategory("Action")]
+    [NodeSearchTags("selection", "pick", "order", "element")]
     public static List<Revit.Elements.Element> PickOrderElements(bool flag)
     {
         List<Revit.Elements.Element> elements = new List<Revit.Elements.Element>();
@@ -163,6 +172,8 @@ public class Selection
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickElementsByRectangle.gif)
     /// [Selection.PickElementsByRectangle.dyn](../OpenMEPPage/document/dyn/Selection.PickElementsByRectangle.dyn)
     /// </example>
+    [NodeCategory("Action")]
+    [NodeSearchTags("selection", "pick", "rectangle", "element")]
     public static List<Revit.Elements.Element> PickElementsByRectangle(bool flag)
     {
         List<Revit.Elements.Element> elements = new List<Revit.Elements.Element>();
@@ -199,6 +210,8 @@ public class Selection
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickLinkElements.gif)
     /// [Selection.PickLinkElements.dyn](../OpenMEPPage/document/dyn/Selection.PickLinkElements.dyn)
     /// </example>
+    [NodeCategory("Action")]
+    [NodeSearchTags("selection", "pick", "link", "element")]
     public static List<Revit.Elements.Element> PickLinkElements(bool flag)
     {
         List<Revit.Elements.Element> elements = new List<Revit.Elements.Element>();
