@@ -4,5 +4,6 @@ public class DuctLining
 {
     private DuctLining()
     {
+        
     }
 }

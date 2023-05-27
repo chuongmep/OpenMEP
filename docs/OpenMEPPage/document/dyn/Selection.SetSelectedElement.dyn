@@ -1,0 +1,194 @@
+{
+  "Uuid": "dc2b7e96-65eb-49dd-ae79-0a30c74eccd5",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.SetSelectedElement",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Document.Selection.SetSelectedElement@Revit.Elements.Element[]",
+      "Id": "53b81828d6624c2da1b7fc51d1a79e03",
+      "Inputs": [
+        {
+          "Id": "059034ecee8e4084bb67a45d75cc86e7",
+          "Name": "elements",
+          "Description": "list element need set selected\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3365cb3ecce24a60be40e06bb02f0db4",
+          "Name": "elements",
+          "Description": "list selected element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set selected element in Revit Project\n\nSelection.SetSelectedElement (elements: Element[]): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "fdf83630-2a1b-4c61-bab3-8911577f5251-0022d40f"
+      ],
+      "Id": "1e1ceeeb334f4c7791b6e5aa0bef50fd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2486d3c055d44fc395cac89ab94b167c",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "ca121a9b-8af3-4aea-af6f-408e5847ef53-00222b35",
+        "8af140f4-2f13-4e47-abbe-8b86d0075877-00225016",
+        "8af140f4-2f13-4e47-abbe-8b86d0075877-00225025",
+        "fdf83630-2a1b-4c61-bab3-8911577f5251-0022d40c",
+        "fdf83630-2a1b-4c61-bab3-8911577f5251-0022d40f",
+        "6a1ec9e6-bada-4749-bf2f-8536f67b0e8a-0023dbb3",
+        "6a1ec9e6-bada-4749-bf2f-8536f67b0e8a-0023dbb5",
+        "b60cef8c-5c81-4d4f-89ee-88a28068f865-0025191e"
+      ],
+      "Id": "70cca22b185040279a33323e593365d8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3fece635cf294820bf2d976f8f54eb39",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3fece635cf294820bf2d976f8f54eb39",
+      "End": "059034ecee8e4084bb67a45d75cc86e7",
+      "Id": "7cbabd318dc746ea8a4ebc2f4533fb96",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "53b81828d6624c2da1b7fc51d1a79e03"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.0.3472",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Selection.SetSelectedElement",
+        "ShowGeometry": true,
+        "Id": "53b81828d6624c2da1b7fc51d1a79e03",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 280.0,
+        "Y": 278.4
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "1e1ceeeb334f4c7791b6e5aa0bef50fd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 12.799999999999983,
+        "Y": 60.799999999999969
+      },
+      {
+        "Name": "Select Model Elements",
+        "ShowGeometry": true,
+        "Id": "70cca22b185040279a33323e593365d8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -75.2000000000001,
+        "Y": 247.2
+      }
+    ],
+    "Annotations": [],
+    "X": 135.3414467670292,
+    "Y": 84.640440469555728,
+    "Zoom": 0.80332159346259779
+  }
+}

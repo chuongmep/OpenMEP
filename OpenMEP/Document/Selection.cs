@@ -252,6 +252,27 @@ public class Selection
         return elements;
     }
 
+    /// <summary>
+    /// Set selected element in Revit Project
+    /// </summary>
+    /// <param name="elements">list element need set selected</param>
+    /// <returns name="elements">list selected element</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Selection.SetSelectedElement.gif)
+    /// [Selection.SetSelectedElement.dyn](../OpenMEPPage/document/dyn/Selection.SetSelectedElement.dyn)
+    /// </example>
+    [NodeCategory("Action")]
+    [NodeSearchTags("selection", "pick", "link", "element")]
+    public static List<Revit.Elements.Element> SetSelectedElement(List<Revit.Elements.Element> elements)
+    {
+        if (!elements.Any()) return new List<Revit.Elements.Element>();
+        List<ElementId> elementIds = new List<ElementId>();
+        elements.ForEach(x => elementIds.Add(x.InternalElement.Id));
+        Autodesk.Revit.UI.Selection.Selection selection = DocumentManager.Instance.CurrentUIDocument.Selection;
+        selection.SetElementIds(elementIds);
+        return elements;
+    }
+
     [IsVisibleInDynamoLibrary(false)]
     public class SelectionFilter : ISelectionFilter
     {
