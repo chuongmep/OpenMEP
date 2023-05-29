@@ -50,7 +50,7 @@ Some features of this package:
 - [x] Easy to report bug
 - [x] Easy to maintain, support multiple version of Dynamo Revit
 - [x] Easy install, update, uninstall
-
+- [x] Revit Database Explore - Easy to explore Revit Database use [RevitDBExplorer](https://github.com/NeVeSpl/RevitDBExplorer)
 # © Copyright
 
 This package is licensed under the [MIT License](LICENSE.md).
@@ -71,7 +71,7 @@ A part of Geometry Display Dependency is licensed under the [Miscellany Package]
   developer.
 - Chicken icon made by [icons8.com](https://icons8.com/)
 
-# 🛟 Issues
+# 🐛 Issues
 
 Now, I accept all idea and all issue, contribute from all people all the word.
 You can make suggestions or track and submit bugs via [OpenMEP](https://github.com/chuongmep/OpenMEP/issues) issues. You
