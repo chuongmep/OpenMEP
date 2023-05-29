@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using OpenMEP.Helpers;
 using RevitServices.Persistence;
 
 namespace OpenMEP.Application;
@@ -34,5 +35,27 @@ public class Database
         // execute the command
         DocumentManager.Instance.CurrentUIApplication.PostCommand(lookupCommandId);
         return "Success";
+    }
+
+    /// <summary>
+    /// Snoop Explore Elements By Id
+    /// </summary>
+    /// <param name="id">id of element</param>
+    /// <returns></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/application/dyn/pic/Database.SnoopElementById.png)
+    /// [Database.SnoopElementById.dyn](../OpenMEPPage/application/dyn/Database.SnoopElementById.dyn)
+    /// </example>
+    public static string SnoopElementById(List<string> id)
+    {
+        Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+        List<global::Revit.Elements.Element> elements = new List<global::Revit.Elements.Element>();
+        foreach (string s in id)
+        {
+            ElementId elementId = new ElementId(int.Parse(s));
+            global::Revit.Elements.Element element = document.GetElement(elementId).ToDynamoType();
+            elements.Add(element);
+        }
+        return SnoopElements(elements);
     }
 }
