@@ -66,7 +66,12 @@ public class OpenMEPViewExtension : IViewExtension
             string url = $"https://chuongmep.github.io/OpenMEP";///api/{MainNameSpace}.html#{direction}";
             Process.Start(url);
         };
+#if R21
+        viewLoadedParams.AddMenuItem(MenuBarType.Help, menuItem);
+        #else
         viewLoadedParams.AddExtensionMenuItem(menuItem);
+#endif
+        
     }
 
     public void Shutdown()
