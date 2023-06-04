@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Text;
+using Autodesk.AutoCAD.Interop.Common;
 
 namespace OpenMEPSandbox.Autocad
 {
@@ -67,6 +68,29 @@ namespace OpenMEPSandbox.Autocad
                 dynamic item = modelSpace.Item(i);
                 var cadObj = new CadObject(item);
                 if (cadObj.Is(CadFilterData.BlockReference))
+                {
+                    lst.Add(cadObj);
+                }
+            }
+            return lst.Distinct().ToList();
+        }
+        
+        /// <summary>
+        /// Get all text in database
+        /// </summary>
+        /// <param name="IAcadDocument">IAcadDocument</param>
+        /// <returns name="IAcadTexts">IAcadTexts</returns>
+        public static dynamic Texts(dynamic IAcadDocument)
+        {
+            // Return all blocks in database interop 
+            var modelSpace = IAcadDocument.ModelSpace;
+            var lst = new List<dynamic>();
+            for (int i = 0; i < modelSpace.Count; i++)
+            {
+                //AcadEntity
+                dynamic item = modelSpace.Item(i);
+                var cadObj = new CadObject(item);
+                if (cadObj.Is(CadFilterData.Text))
                 {
                     lst.Add(cadObj);
                 }
