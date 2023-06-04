@@ -13,7 +13,7 @@ namespace OpenMEPSandbox.Autocad
         /// Get Current Application Of Autocad Application Opening
         /// </summary>
         /// <para name="toggle">true false to fresh data</para>
-        /// <returns name="IAcadApplication">IAcadApplication</returns>
+        /// <returns name="AcadApplication">AcadApplication</returns>
         public static dynamic Current(bool toggle)
         {
             string ProgId = "AutoCAD.Application";
@@ -35,53 +35,53 @@ namespace OpenMEPSandbox.Autocad
         /// <summary>
         /// Return
         /// </summary>
-        /// <param name="IAcadApplication"></param>
+        /// <param name="AcadApplication"></param>
         /// <returns></returns>
-        public static string FullName(dynamic IAcadApplication)
+        public static string FullName(dynamic AcadApplication)
         {
-            return IAcadApplication.FullName;
+            return AcadApplication.FullName;
         }
 
         /// <summary>
         /// Return
         /// </summary>
-        /// <param name="IAcadApplication"></param>
+        /// <param name="AcadApplication"></param>
         /// <returns></returns>
-        public static string Name(dynamic IAcadApplication)
+        public static string Name(dynamic AcadApplication)
         {
-            return IAcadApplication.Name;
+            return AcadApplication.Name;
         }
 
         /// <summary>
         /// Return
         /// </summary>
-        /// <param name="IAcadApplication"></param>
+        /// <param name="AcadApplication"></param>
         /// <returns></returns>
-        public static string Path(dynamic IAcadApplication)
+        public static string Path(dynamic AcadApplication)
         {
-            return IAcadApplication.Path;
+            return AcadApplication.Path;
         }
 
         /// <summary>
         /// Return
         /// </summary>
-        /// <param name="IAcadApplication"></param>
+        /// <param name="AcadApplication"></param>
         /// <returns></returns>
-        public static string Version(dynamic IAcadApplication)
+        public static string Version(dynamic AcadApplication)
         {
-            return IAcadApplication.Version;
+            return AcadApplication.Version;
         }
 
         /// <summary>
         /// Return
         /// </summary>
-        /// <param name="IAcadApplication"></param>
+        /// <param name="AcadApplication"></param>
         /// <returns></returns>
-        public static List<dynamic> Documents(dynamic IAcadApplication)
+        public static List<dynamic> Documents(dynamic AcadApplication)
         {
             List<dynamic> AcadDocuments = new List<dynamic>();
-            var acadDocuments = IAcadApplication.Documents;
-            for (int i = 0; i < IAcadApplication.Documents.Count; i++)
+            var acadDocuments = AcadApplication.Documents;
+            for (int i = 0; i < AcadApplication.Documents.Count; i++)
             {
                 dynamic acadDocument = acadDocuments.Item(i);
                 AcadDocuments.Add(acadDocument);

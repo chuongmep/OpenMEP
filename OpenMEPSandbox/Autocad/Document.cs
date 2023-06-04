@@ -1,6 +1,5 @@
 ﻿using System.Runtime.InteropServices;
 using System.Text;
-using Autodesk.AutoCAD.Interop.Common;
 
 namespace OpenMEPSandbox.Autocad
 {
@@ -14,7 +13,7 @@ namespace OpenMEPSandbox.Autocad
         /// Get Current Document Of Autocad Application
         /// </summary>
         /// <para name="toggle">input true false to fresh data</para>
-        /// <returns name="IAcadDocument">IAcadDocument</returns>
+        /// <returns name="AcadDocument">AcadDocument</returns>
         public static dynamic? Current(bool toggle)
         {
             string ProgId = "AutoCAD.Application";
@@ -35,32 +34,32 @@ namespace OpenMEPSandbox.Autocad
         /// <summary>
         /// Name of Document
         /// </summary>
-        /// <param name="IAcadDocument"></param>
+        /// <param name="AcadDocument">AcadDocument</param>
         /// <returns></returns>
-        public static string Name(dynamic IAcadDocument)
+        public static string Name(dynamic AcadDocument)
         {
-            return IAcadDocument.Name;
+            return AcadDocument.Name;
         }
     
         /// <summary>
         /// FullName of Document
         /// </summary>
-        /// <param name="IAcadDocument"></param>
+        /// <param name="AcadDocument"></param>
         /// <returns></returns>
-        public static string FullName(dynamic IAcadDocument)
+        public static string FullName(dynamic AcadDocument)
         {
-            return IAcadDocument.FullName;
+            return AcadDocument.FullName;
         }
     
         /// <summary>
         /// Get all blocks in database
         /// </summary>
-        /// <param name="IAcadDocument">IAcadDocument</param>
+        /// <param name="AcadDocument">IAcadDocument</param>
         /// <returns name="AcadBlockReferences">AcadBlockReferences</returns>
-        public static dynamic BlockReferences(dynamic IAcadDocument)
+        public static dynamic BlockReferences(dynamic AcadDocument)
         {
             // Return all blocks in database interop 
-            var modelSpace = IAcadDocument.ModelSpace;
+            var modelSpace = AcadDocument.ModelSpace;
             var lst = new List<dynamic>();
             for (int i = 0; i < modelSpace.Count; i++)
             {
@@ -78,12 +77,12 @@ namespace OpenMEPSandbox.Autocad
         /// <summary>
         /// Get all text in database
         /// </summary>
-        /// <param name="IAcadDocument">IAcadDocument</param>
+        /// <param name="AcadDocument">IAcadDocument</param>
         /// <returns name="IAcadTexts">IAcadTexts</returns>
-        public static dynamic Texts(dynamic IAcadDocument)
+        public static dynamic Texts(dynamic AcadDocument)
         {
             // Return all blocks in database interop 
-            var modelSpace = IAcadDocument.ModelSpace;
+            var modelSpace = AcadDocument.ModelSpace;
             var lst = new List<dynamic>();
             for (int i = 0; i < modelSpace.Count; i++)
             {
@@ -101,11 +100,11 @@ namespace OpenMEPSandbox.Autocad
         /// <summary>
         /// Database of Document
         /// </summary>
-        /// <param name="IAcadDocument"></param>
+        /// <param name="AcadDocument"></param>
         /// <returns name="AcadDatabase">database of document</returns>
-        public static dynamic Database(dynamic IAcadDocument)
+        public static dynamic Database(dynamic AcadDocument)
         {
-            return IAcadDocument.Database;
+            return AcadDocument.Database;
         }
     }
 }
