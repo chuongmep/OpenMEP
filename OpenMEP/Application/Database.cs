@@ -17,7 +17,7 @@ public class Database
     /// </summary>
     /// <param name="elements">elements need to snoop</param>
     /// <returns name="string">result</returns>
-    /// <example>
+    /// <example> 
     /// ![](../OpenMEPPage/application/dyn/pic/Database.SnoopElements.png)
     /// [Database.SnoopElements.dyn](../OpenMEPPage/application/dyn/Database.SnoopElements.dyn)
     /// </example>
