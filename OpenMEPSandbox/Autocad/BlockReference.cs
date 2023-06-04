@@ -1,4 +1,5 @@
 ﻿using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 
 namespace OpenMEPSandbox.Autocad
 {
@@ -147,6 +148,35 @@ namespace OpenMEPSandbox.Autocad
             Point min = Point.ByCoordinates(minPoints[0], minPoints[1], minPoints[2]);
             Point max = Point.ByCoordinates(maxPoints[0], maxPoints[1], maxPoints[2]);
             return Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(min, max);
+        }
+
+        /// <summary>
+        /// Get Dynamic Block Properties
+        /// </summary>
+        /// <param name="AcadBlockReference">AcadBlockReference</param>
+        /// <returns></returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/BlockReference.GetDynamicBlockProperties.png)
+        /// [BlockReference.GetDynamicBlockProperties.dyn](../OpenMEPPage/autocad/BlockReference.GetDynamicBlockProperties.dyn)
+        /// </example>
+        [MultiReturn("names","values","allowValues")]
+        public static Dictionary<string,object> GetDynamicBlockProperties(dynamic AcadBlockReference)
+        {
+            List<dynamic> names = new List<dynamic>();
+            List<dynamic> values = new List<dynamic>();
+            List<dynamic> allowValues = new List<dynamic>();
+            foreach (dynamic dyn in AcadBlockReference.CadEntity.GetDynamicBlockProperties())
+            {
+                names.Add(dyn.PropertyName);
+                values.Add(dyn.Value);
+                allowValues.Add(dyn.AllowedValues);
+            }
+            return new Dictionary<string, object>
+            {
+                {"names", names},
+                {"values", values},
+                {"allowValues", allowValues}
+            };
         }
     }
 }

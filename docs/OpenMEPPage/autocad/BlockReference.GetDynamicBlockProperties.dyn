@@ -1,0 +1,406 @@
+{
+  "Uuid": "c1d8faf2-8739-4ee6-b4e1-8717f001fc00",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "BlockReference.GetDynamicBlockProperties",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.Current@bool",
+      "Id": "3aaed316804c4c28a0be69360febd303",
+      "Inputs": [
+        {
+          "Id": "60df8bfb126a49f68b8a4e85d1bcb9f3",
+          "Name": "toggle",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "153259982ea441b38454e8eac53df8d7",
+          "Name": "IAcadDocument",
+          "Description": "IAcadDocument",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Current Document Of Autocad Application\n\nDocument.Current (toggle: bool): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "d6b9fb06349949c78c362342e17dfab8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "97caf32999d44cb79c94c48c328bf3d3",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.BlockReferences@var",
+      "Id": "2f63d8649dfb46d3acec8059c3f5c30e",
+      "Inputs": [
+        {
+          "Id": "5e55092ba33141f5a2b27a02cd419a41",
+          "Name": "IAcadDocument",
+          "Description": "IAcadDocument\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0e4de52925d2436285581fcdb99e39e8",
+          "Name": "AcadBlockReferences",
+          "Description": "AcadBlockReferences",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get all blocks in database\n\nDocument.BlockReferences (IAcadDocument: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.IsDynamicBlock@var",
+      "Id": "5689617d436c465180a24f535a9151f1",
+      "Inputs": [
+        {
+          "Id": "c5dc561245c14d709282ed1809db5690",
+          "Name": "AcadBlockReference",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9df847f5b9874be6a3883ccc5807b855",
+          "Name": "bool",
+          "Description": "True if block is Dynamic",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Check if block reference is dynamic\n\nBlockReference.IsDynamicBlock (AcadBlockReference: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.GetDynamicBlockProperties@var",
+      "Id": "6d5e1fb53280493698bb91bcc4543c2f",
+      "Inputs": [
+        {
+          "Id": "6b501e7e45ed4185a65b1668343e9315",
+          "Name": "AcadBlockReference",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "53f00e9488124a51832fe9e1ac8a471b",
+          "Name": "names",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c409cbe2673d45fe895e9057ab9e1fb8",
+          "Name": "values",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b0aba17f439343c9adf1de18f7787a3f",
+          "Name": "allowValues",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BlockReference.GetDynamicBlockProperties (AcadBlockReference: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x;",
+      "Id": "fc44e23d63cf4bd292be27d9f4137f98",
+      "Inputs": [
+        {
+          "Id": "aa3c8b70f46841eb89c28efd0890d2fb",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7ae03d3deffd435da8c2f72571cd37d4",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "a[7];",
+      "Id": "cd9ac962f12243da804577b0b7fd3a08",
+      "Inputs": [
+        {
+          "Id": "29dbea98ed0c48beb276422c084068fd",
+          "Name": "a",
+          "Description": "a",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fa5b61db08294e61b4acbd8b2ca66825",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "153259982ea441b38454e8eac53df8d7",
+      "End": "5e55092ba33141f5a2b27a02cd419a41",
+      "Id": "c787632a8aaf44dcaecca180c5cbef76",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "97caf32999d44cb79c94c48c328bf3d3",
+      "End": "60df8bfb126a49f68b8a4e85d1bcb9f3",
+      "Id": "f89a6918b8154f28a9c5c27b3ca6b881",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0e4de52925d2436285581fcdb99e39e8",
+      "End": "c5dc561245c14d709282ed1809db5690",
+      "Id": "e242ea18a524427d937e9362b05e3a8d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0e4de52925d2436285581fcdb99e39e8",
+      "End": "29dbea98ed0c48beb276422c084068fd",
+      "Id": "8aeff4fb30b5470392a6a835b10fc343",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "53f00e9488124a51832fe9e1ac8a471b",
+      "End": "aa3c8b70f46841eb89c28efd0890d2fb",
+      "Id": "7047248eb0c94eed9bed20b4d759a731",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fa5b61db08294e61b4acbd8b2ca66825",
+      "End": "6b501e7e45ed4185a65b1668343e9315",
+      "Id": "ff58c4338b15430b8448f7a1d7c0a5a6",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "3aaed316804c4c28a0be69360febd303",
+        "2f63d8649dfb46d3acec8059c3f5c30e",
+        "5689617d436c465180a24f535a9151f1",
+        "6d5e1fb53280493698bb91bcc4543c2f"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Document.Current",
+        "ShowGeometry": true,
+        "Id": "3aaed316804c4c28a0be69360febd303",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 405.06816456811123,
+        "Y": 389.70814197152367
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "d6b9fb06349949c78c362342e17dfab8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 171.31402737755539,
+        "Y": 392.68515064193883
+      },
+      {
+        "Name": "Document.BlockReferences",
+        "ShowGeometry": true,
+        "Id": "2f63d8649dfb46d3acec8059c3f5c30e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 719.69405151254762,
+        "Y": 372.2026602604339
+      },
+      {
+        "Name": "BlockReference.IsDynamicBlock",
+        "ShowGeometry": true,
+        "Id": "5689617d436c465180a24f535a9151f1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1160.5180989207224,
+        "Y": 384.9197769735236
+      },
+      {
+        "Name": "BlockReference.GetDynamicBlockProperties",
+        "ShowGeometry": true,
+        "Id": "6d5e1fb53280493698bb91bcc4543c2f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1176.6271585432423,
+        "Y": 112.98926413125466
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "fc44e23d63cf4bd292be27d9f4137f98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1631.9293254640083,
+        "Y": 200.18486710031812
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "cd9ac962f12243da804577b0b7fd3a08",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 934.0,
+        "Y": 127.0
+      }
+    ],
+    "Annotations": [],
+    "X": -76.746343402098887,
+    "Y": 185.36344225196996,
+    "Zoom": 0.59462603698581862
+  }
+}
