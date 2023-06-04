@@ -28,11 +28,21 @@ namespace OpenMEPSandbox.Autocad
         Polyline3D,
         Spline,
         Line,
+        XLine,
         MLine,
+        Ray,
         PolygonMesh,
         PolyFaceMesh,
         SubDMesh,
         Face,
+        WipeOut,
+        RotatedDimension,
+        AngularDimension3Point,
+        AngularDimension2Line,
+        RadialDimension,
+        DiametricDimension,
+        OrdinateDimension,
+        AlignedDimension,
     }
 
     [IsVisibleInDynamoLibrary(false)]
@@ -50,6 +60,8 @@ namespace OpenMEPSandbox.Autocad
                 case CadFilterData.Point: return ObjectName.Equals("AcDbPoint");
                 case CadFilterData.LWPolyline: return ObjectName.Equals("AcDbPolyline");
                 case CadFilterData.Line: return ObjectName.Equals("AcDbLine");
+                case CadFilterData.XLine: return ObjectName.Equals("AcDbXline");
+                case CadFilterData.Ray: return ObjectName.Equals("AcDbRay");
                 case CadFilterData.MLine: return ObjectName.Equals("AcDbMline");
                 case CadFilterData.Text: return ObjectName.Equals("AcDbText");
                 case CadFilterData.MText: return ObjectName.Equals("AcDbMText");
@@ -74,6 +86,14 @@ namespace OpenMEPSandbox.Autocad
                 case CadFilterData.PolyFaceMesh: return ObjectName.Equals("AcDbPolyFaceMesh");
                 case CadFilterData.SubDMesh: return ObjectName.Equals("AcDbSubDMesh");
                 case CadFilterData.Face: return ObjectName.Equals("AcDbFace");
+                case CadFilterData.WipeOut: return ObjectName.Equals("AcDbWipeout");
+                case CadFilterData.RotatedDimension: return ObjectName.Equals("AcDbRotatedDimension");
+                case CadFilterData.AngularDimension3Point: return ObjectName.Equals("AcDb3PointAngularDimension");
+                case CadFilterData.AngularDimension2Line: return ObjectName.Equals("AcDb2LineAngularDimension");
+                case CadFilterData.RadialDimension: return ObjectName.Equals("AcDbRadialDimension");
+                case CadFilterData.DiametricDimension: return ObjectName.Equals("AcDbDiametricDimension");
+                case CadFilterData.OrdinateDimension: return ObjectName.Equals("AcDbOrdinateDimension");
+                case CadFilterData.AlignedDimension: return ObjectName.Equals("AcDbAlignedDimension");
                 default: return false;
             }
         }
