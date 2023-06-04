@@ -116,9 +116,21 @@
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
+<!--        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop.Common" Version="$(RevitVersion).*">-->
+<!--            <ExcludeAssets>runtime</ExcludeAssets>-->
+<!--        </PackageReference>-->
+<!--        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop" Version="$(RevitVersion).*">-->
+<!--            <ExcludeAssets>runtime</ExcludeAssets>-->
+<!--        </PackageReference>-->
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\OpenMEPViewExtension\OpenMEPViewExtension.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="Microsoft.CSharp" />
+      <Reference Include="PresentationCore" />
+      <Reference Include="PresentationFramework" />
+      <Reference Include="WindowsBase" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
         <ItemGroup>

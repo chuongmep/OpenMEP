@@ -25,5 +25,8 @@
     <namespace name="OpenMEPSandbox.Core">
       <category>OpenMEP.Core</category>
     </namespace>
+    <namespace name="OpenMEPSandbox.Autocad">
+      <category>OpenMEP.Autocad</category>
+    </namespace>
   </namespaces>
 </doc>
