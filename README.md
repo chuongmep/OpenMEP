@@ -35,8 +35,9 @@ can install it from there.
 
 Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
 
-# 📜 Documentation (TODO)
+# 📜 Documentation
 
+- [API Documentation](https://chuongmep.github.io/OpenMEP/api/OpenMEP.Element.html)
 - [How To Use OpenMEP Package](https://chuongmep.github.io/OpenMEP/index.html)
 - [How To Write Python Script With OpenMEP Package](https://chuongmep.github.io/OpenMEP/articles/python.html)
 
