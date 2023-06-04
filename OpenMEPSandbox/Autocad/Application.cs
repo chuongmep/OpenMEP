@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Text;
+using Autodesk.AutoCAD.Interop;
 
 namespace OpenMEPSandbox.Autocad
 {
@@ -31,7 +32,38 @@ namespace OpenMEPSandbox.Autocad
                 throw new ArgumentException(sb.ToString());
             }
         }
-        
+
+        /// <summary>
+        /// Return AcadDocument Opened by file path
+        /// </summary>
+        /// <param name="AcadApplication"></param>
+        /// <param name="filePath"></param>
+        /// <returns name="AcadDocument">AcadDocument</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static dynamic OpenDocument(dynamic AcadApplication, string filePath)
+        {
+            try
+            {
+                List<dynamic> documents = Documents(AcadApplication);
+                foreach (dynamic document in documents)
+                {
+                    if (document.FullName == filePath)
+                    {
+                        return document;
+                    }
+                }
+                return AcadApplication.Documents.Open(filePath);
+            }
+            catch (Exception)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("This process request Autocad Application opening :");
+                sb.AppendLine("Step 1: Open Autocad Application");
+                sb.AppendLine("Step 2: Assign file path to node");
+                throw new ArgumentException(sb.ToString());
+            }
+        }
+
         /// <summary>
         /// Return
         /// </summary>
