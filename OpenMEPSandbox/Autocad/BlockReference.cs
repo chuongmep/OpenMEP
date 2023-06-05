@@ -159,21 +159,27 @@ namespace OpenMEPSandbox.Autocad
         /// ![](../OpenMEPPage/autocad/pic/BlockReference.GetDynamicBlockProperties.png)
         /// [BlockReference.GetDynamicBlockProperties.dyn](../OpenMEPPage/autocad/BlockReference.GetDynamicBlockProperties.dyn)
         /// </example>
-        [MultiReturn("names","values","allowValues")]
+        [MultiReturn("names","descriptions","unitsTypes","values","allowValues")]
         public static Dictionary<string,object> GetDynamicBlockProperties(dynamic AcadBlockReference)
         {
             List<dynamic> names = new List<dynamic>();
+            List<dynamic> Descriptions = new List<dynamic>();
+            List<dynamic> UnitsTypes = new List<dynamic>();
             List<dynamic> values = new List<dynamic>();
             List<dynamic> allowValues = new List<dynamic>();
             foreach (dynamic dyn in AcadBlockReference.CadEntity.GetDynamicBlockProperties())
             {
                 names.Add(dyn.PropertyName);
+                Descriptions.Add(dyn.Description);
+                UnitsTypes.Add(dyn.UnitsType);
                 values.Add(dyn.Value);
                 allowValues.Add(dyn.AllowedValues);
             }
             return new Dictionary<string, object>
             {
                 {"names", names},
+                {"descriptions", Descriptions},
+                {"unitsTypes", UnitsTypes},
                 {"values", values},
                 {"allowValues", allowValues}
             };
