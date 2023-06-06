@@ -1,0 +1,196 @@
+{
+  "Uuid": "76db120b-784b-4fa9-89bf-25f6f42cb214",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Document.Name",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "af19d524114e4556945a7ec3f640afb8",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "9f1c2ddfada54978a8da5de7bfa8c702",
+          "Name": "toggle",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "528ff6d2f556418ab118fcfa5e177729",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.Current@bool",
+      "Replication": "Auto",
+      "Description": "Get Current Document Of Autocad Application\n\nDocument.Current (toggle: bool): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "Id": "4f32238d921144a4bcb02f0496361a3d",
+      "NodeType": "BooleanInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5181461913894997b859554df2bb8b64",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False",
+      "InputValue": true
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "5fc670a9864e4a4bb5e0880720a347c3",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "ffb65985c89d400c8dda16019603915f",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "71c2baff06e746f485505a8dfe4e0a9b",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.Name@var",
+      "Replication": "Auto",
+      "Description": "Name of Document\n\nDocument.Name (AcadDocument: var): string"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "528ff6d2f556418ab118fcfa5e177729",
+      "End": "ffb65985c89d400c8dda16019603915f",
+      "Id": "d08e5258a2ea4286a35b5fbad773e3db",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5181461913894997b859554df2bb8b64",
+      "End": "9f1c2ddfada54978a8da5de7bfa8c702",
+      "Id": "7777d8b47ab64ad3afddf1715add6064",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "af19d524114e4556945a7ec3f640afb8",
+        "5fc670a9864e4a4bb5e0880720a347c3"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.1.5092",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "af19d524114e4556945a7ec3f640afb8",
+        "Name": "Document.Current",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 685.17945549229955,
+        "Y": 371.7083813423904
+      },
+      {
+        "Id": "4f32238d921144a4bcb02f0496361a3d",
+        "Name": "Boolean",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 458.26010198582412,
+        "Y": 378.5763225511609
+      },
+      {
+        "Id": "5fc670a9864e4a4bb5e0880720a347c3",
+        "Name": "Document.Name",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 968.15232446097207,
+        "Y": 375.56271543575582
+      }
+    ],
+    "Annotations": [],
+    "X": -420.910517372542,
+    "Y": -169.74870931526749,
+    "Zoom": 1.2777169841077238
+  }
+}

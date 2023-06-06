@@ -1,0 +1,124 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyVersion>2.0.0.*</AssemblyVersion>
+        <AssemblyName>OpenMEPUI</AssemblyName>
+        <RootNamespace>OpenMEPUI</RootNamespace>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
+        <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1;Release R24</Configurations>
+        <Platforms>AnyCPU</Platforms>
+        <NoWarn>MSB3277;MSB4121;CS1591</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
+        <DynamoVersion>2.3</DynamoVersion>
+        <DynamoOutput>2.3</DynamoOutput>
+        <RevitVersion>2020</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R20</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R20'))">
+        <DynamoVersion>2.3</DynamoVersion>
+        <DynamoOutput>2.3</DynamoOutput>
+        <RevitVersion>2020</RevitVersion>
+        <DefineConstants>$(DefineConstants);R20</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R21'))">
+        <DynamoVersion>2.6</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+        <RevitVersion>2021</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R21'))">
+        <DynamoVersion>2.6</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+        <RevitVersion>2021</RevitVersion>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R22'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+        <RevitVersion>2022</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R22'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+        <RevitVersion>2022</RevitVersion>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R23'))">
+        <DynamoVersion>2.13</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R23'))">
+        <DynamoVersion>2.13</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R23.1'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.16</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R23.1'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.16</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.18</DynamoOutput>
+        <RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R24</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R24'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.18</DynamoOutput>
+        <RevitVersion>2024</RevitVersion>
+        <DefineConstants>$(DefineConstants);R24</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup>
+        <DynVersion>$(DynamoVersion)</DynVersion>
+        <BuildOutput>$(DynamoOutput)</BuildOutput>
+        <PublishSingleFile>true</PublishSingleFile>
+        <PublishTrimmed>true</PublishTrimmed>
+        <Copyright>MIT</Copyright>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>dynamo</PackageTags>
+        <FolderPackages>$(Appdata)\Dynamo\Dynamo Core\$(DynamoOutput)\packages\OpenMEP\</FolderPackages>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="$(DynVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="$(DynVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="System.Net.Http" />
+    </ItemGroup>
+</Project>

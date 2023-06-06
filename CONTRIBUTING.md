@@ -27,10 +27,14 @@ Creating a package:
 
 ### Documentation and comments
 
-- Document your code write with English language and use [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) to
+- Document your code write with English language and use [DocFx](https://dotnet.github.io/docfx/) to
   generate the documentation. Please use branch.
   **docs** to collaborate with the documentation.
-
+- Build Local Command :  
+  - Open terminal of your IDE.
+  - Command : `docfx docs/docfx.json --serve`
+  - Open browser and go to `http://localhost:8080/`
+- Update Docfx : dotnet tool update -g docfx
 ### Unit tests
 
 - The [Revit Test Framework](https://github.com/DynamoDS/RevitTestFramework) (RTF) allows for remote testing on Revit.

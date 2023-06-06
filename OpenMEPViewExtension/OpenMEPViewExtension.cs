@@ -1,4 +1,9 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
 
 namespace OpenMEPViewExtension;
@@ -35,9 +40,38 @@ public class OpenMEPViewExtension : IViewExtension
             return Assembly.Load(bytes);
         }
     }
-
+    
     public void Loaded(ViewLoadedParams viewLoadedParams)
     {
+        // Create a new menu item under Packages menu item
+        var menuItem = new MenuItem {Header = "Open MEP Help"};
+        menuItem.Click += (sender, args) =>
+        {
+            // Get current selected node
+            // var vm = viewLoadedParams.DynamoWindow.DataContext as DynamoViewModel;
+            // if(vm == null) return;
+            // var node = vm?.CurrentSpaceViewModel.Model.CurrentSelection.FirstOrDefault();
+            // if(node == null) return;
+            // string NodeEndPoint = node.CreationName;
+            // string pattern = @"\.\w+@\w+(\.\w+)*,\w+";
+            // var MainNameSpace = Regex.Replace(NodeEndPoint, pattern, string.Empty);
+            // //  replace all character . @ in NodeEndPoint become _
+            // MessageBox.Show(MainNameSpace);
+            //
+            // return;
+            // string pattern2 = @"[.@,]";
+            // string direction = Regex.Replace(NodeEndPoint, pattern2, "_");
+            //MessageBox.Show(direction);
+            // Open a new window
+            string url = $"https://chuongmep.github.io/OpenMEP";///api/{MainNameSpace}.html#{direction}";
+            Process.Start(url);
+        };
+#if R20 || R21
+        viewLoadedParams.AddMenuItem(MenuBarType.Help, menuItem);
+        #else
+        viewLoadedParams.AddExtensionMenuItem(menuItem);
+#endif
+        
     }
 
     public void Shutdown()

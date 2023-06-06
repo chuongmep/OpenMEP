@@ -87,9 +87,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
         <DynamoVersion>2.16</DynamoVersion>
-        <DynamoOutput>2.17</DynamoOutput>
+        <DynamoOutput>2.18</DynamoOutput>
         <RevitVersion>2023</RevitVersion>
-        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+        <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Release R24'))">
         <DynamoVersion>2.16</DynamoVersion>
@@ -116,9 +116,22 @@
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
+        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop.Common" Version="$(RevitVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop" Version="$(RevitVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\OpenMEPUI\OpenMEPUI.csproj" />
       <ProjectReference Include="..\OpenMEPViewExtension\OpenMEPViewExtension.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="Microsoft.CSharp" />
+      <Reference Include="PresentationCore" />
+      <Reference Include="PresentationFramework" />
+      <Reference Include="WindowsBase" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
         <ItemGroup>
