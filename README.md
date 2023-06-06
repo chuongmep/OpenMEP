@@ -44,7 +44,7 @@ Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-
 # 🦚 Features
 
 Some features of this package:
-
+- [x] Integrated with CAD anywhere with Dynamo Revit, Dynamo Sandbox.
 - [x] Fast delivery package for MEP Engineer
 - [x] Easy to use and interactive with Dynamo Revit
 - [x] Easy to collaborate with other engineer
