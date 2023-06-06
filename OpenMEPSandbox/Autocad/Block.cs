@@ -19,6 +19,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock"></param>
     /// <returns name="string">Name of the object.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.Name.png)
+    /// [Block.Name.dyn](../OpenMEPPage/autocad/Block.Name.dyn)
+    /// </example>
     public static string Name(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.Name;
@@ -29,6 +33,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="string">The AutoCAD class name of an object. </returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.ObjectName.png)
+    /// [Block.ObjectName.dyn](../OpenMEPPage/autocad/Block.ObjectName.dyn)
+    /// </example>
     public static string ObjectName(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.ObjectName;
@@ -39,6 +47,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="ownerID">The object ID of an object's owner. </returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.OwnerID.png)
+    /// [Block.OwnerID.dyn](../OpenMEPPage/autocad/Block.OwnerID.dyn)
+    /// </example>
     public static dynamic OwnerID(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.OwnerID;
@@ -49,6 +61,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="bool">true if The block is a dynamic block. </returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.IsDynamicBlock.png)
+    /// [Block.IsDynamicBlock.dyn](../OpenMEPPage/autocad/Block.IsDynamicBlock.dyn)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsDynamicBlock(CadObject AcadBlock)
     {
@@ -61,6 +77,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="BlockScaling">enum of scaling</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.BlockScaling.png)
+    /// [Block.BlockScaling.dyn](../OpenMEPPage/autocad/Block.BlockScaling.dyn)
+    /// </example>
     public static dynamic BlockScaling(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.BlockScaling;
@@ -71,6 +91,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock"></param>
     /// <returns name="handle">The handle of the entity. </returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.Handle.png)
+    /// [Block.Handle.dyn](../OpenMEPPage/autocad/Block.Handle.dyn)
+    /// </example>
     public static string Handle(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.Handle;
@@ -81,6 +105,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="bool">true if The object has an extension dictionary associated with it. </returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.HasExtensionDictionary.png)
+    /// [Block.HasExtensionDictionary.dyn](../OpenMEPPage/autocad/Block.HasExtensionDictionary.dyn)
+    /// </example>
     [NodeCategory("Query")]
     public static bool HasExtensionDictionary(CadObject AcadBlock)
     {
@@ -92,6 +120,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="long">The object ID of an object. </returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.ObjectID.png)
+    /// [Block.ObjectID.dyn](../OpenMEPPage/autocad/Block.ObjectID.dyn)
+    /// </example>
     public static long ObjectID(CadObject AcadBlock)
     {
         return AcadBlock.ObjectID;
@@ -102,6 +134,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns>true if block is an Xref block</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.IsXRef.png)
+    /// [Block.IsXRef.dyn](../OpenMEPPage/autocad/Block.IsXRef.dyn)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsXRef(CadObject AcadBlock)
     {
@@ -112,6 +148,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="bool"> true if block is layout block</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.IsLayout.png)
+    /// [Block.IsLayout.dyn](../OpenMEPPage/autocad/Block.IsLayout.dyn)
+    /// </example>
     [NodeCategory("Query")]
     public static bool IsLayout(CadObject AcadBlock)
     {
@@ -122,6 +162,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns anme="point"></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.Origin.png)
+    /// [Block.Origin.dyn](../OpenMEPPage/autocad/Block.Origin.dyn)
+    /// </example>
     public static Point Origin(CadObject AcadBlock)
     {
         double[]? doubles = AcadBlock.CadEntity.Origin as double[];
@@ -132,6 +176,10 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="enum unit"></returns>
+    /// <example>
+    /// ![](../OpenMEPPage/autocad/pic/Block.Units.png)
+    /// [Block.Units.dyn](../OpenMEPPage/autocad/Block.Units.dyn)
+    /// </example>
     public static dynamic Units(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.Units;
