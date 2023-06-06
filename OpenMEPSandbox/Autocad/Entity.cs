@@ -7,13 +7,12 @@ namespace OpenMEPSandbox.Autocad
     {
         public dynamic CadEntity;
         public string ObjectName;
-        public string Layer;
+        public long ObjectID;
         protected void BaseInit(dynamic entity)
         {
             CadEntity = entity ?? throw new ArgumentNullException("cad entity is null");
             ObjectName = entity.ObjectName;
-            Layer = entity.Layer;
-            
+            ObjectID = entity.ObjectID;
         }
 
 

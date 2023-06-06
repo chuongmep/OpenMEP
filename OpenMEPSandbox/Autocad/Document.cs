@@ -31,6 +31,8 @@ namespace OpenMEPSandbox.Autocad
                 throw new ArgumentException(sb.ToString());
             }
         }
+
+       
         /// <summary>
         /// Name of Document
         /// </summary>
@@ -72,6 +74,22 @@ namespace OpenMEPSandbox.Autocad
                 }
             }
             return lst.Distinct().ToList();
+        }
+        
+        /// <summary>
+        /// Get all blocks in Document
+        /// </summary>
+        /// <param name="acadDocument"></param>
+        /// <returns name="AcadBlocks">AcadBlocks</returns>
+        public static dynamic Blocks(dynamic acadDocument)
+        {
+            List<dynamic> Blocks = new List<dynamic>();
+            foreach (dynamic block in acadDocument.Blocks)
+            {
+                var cadObj = new CadObject(block);
+                Blocks.Add(cadObj);
+            }
+            return Blocks;
         }
         
         /// <summary>
