@@ -17,6 +17,10 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadDatabase">AcadDatabase</param>
         /// <returns name="AcadBlocks">AcadBlocks</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Database.Blocks.png)
+        /// [Database.Blocks.dyn](../OpenMEPPage/autocad/Database.Blocks.dyn)
+        /// </example>
         public static dynamic Blocks(dynamic AcadDatabase)
         {
             List<dynamic> Blocks = new List<dynamic>();
@@ -31,8 +35,12 @@ namespace OpenMEPSandbox.Autocad
         /// <summary>
         /// Get all text in database
         /// </summary>
-        /// <param name="AcadDatabase">IAcadDocument</param>
-        /// <returns name="IAcadTexts">IAcadTexts</returns>
+        /// <param name="AcadDatabase">AcadDatabase</param>
+        /// <returns name="AcadTexts">AcadTexts</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Database.Texts.png)
+        /// [Database.Texts.dyn](../OpenMEPPage/autocad/Database.Texts.dyn)
+        /// </example>
         public static dynamic Texts(dynamic AcadDatabase)
         {
             // Return all blocks in database interop 
@@ -54,8 +62,12 @@ namespace OpenMEPSandbox.Autocad
         /// <summary>
         /// Get all blocks in database
         /// </summary>
-        /// <param name="AcadDatabase">IAcadDocument</param>
+        /// <param name="AcadDatabase">AcadDatabase</param>
         /// <returns name="AcadBlockReferences">AcadBlockReferences</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Database.BlockReferences.png)
+        /// [Database.BlockReferences.dyn](../OpenMEPPage/autocad/Database.BlockReferences.dyn)
+        /// </example>
         public static dynamic BlockReferences(dynamic AcadDatabase)
         {
             // Return all blocks in database interop 

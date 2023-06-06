@@ -1,0 +1,149 @@
+{
+  "Uuid": "1d1d16f2-c17d-4403-a97e-6a6e9511630c",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Object.GetProperties",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "e3a921beed244cde969b10f51f841dc2",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "612daee876a24b93a5ffd3281366b554",
+          "Name": "Object",
+          "Description": "Object need to snoop\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f0659c71f24e40f8857272fc7cbd3f5c",
+          "Name": "string[]",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Object.GetProperties@var",
+      "Replication": "Auto",
+      "Description": "Snoops Object Properties\n\nObject.GetProperties (Object: var): string[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "fd0db925acb8477ba77571b906690b7f",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4d84c4bc2d6643df8bd5ee1067339c2a",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "\"Hello\";"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "4d84c4bc2d6643df8bd5ee1067339c2a",
+      "End": "612daee876a24b93a5ffd3281366b554",
+      "Id": "7d766a8ee2964350a8c3d8be3074581b",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "e3a921beed244cde969b10f51f841dc2"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.1.5092",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "e3a921beed244cde969b10f51f841dc2",
+        "Name": "Object.GetProperties",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1244.4303732664218,
+        "Y": 392.43227656972391
+      },
+      {
+        "Id": "fd0db925acb8477ba77571b906690b7f",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1054.4400715779327,
+        "Y": 392.44233399407659
+      }
+    ],
+    "Annotations": [],
+    "X": -1190.7982057090348,
+    "Y": -311.3362778122476,
+    "Zoom": 1.4097287639800073
+  }
+}
