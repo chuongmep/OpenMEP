@@ -1,4 +1,5 @@
-﻿using OpenMEPUI;
+﻿using Autodesk.DesignScript.Runtime;
+using OpenMEPUI;
 
 namespace OpenMEPSandbox.Autocad
 {
@@ -85,24 +86,29 @@ namespace OpenMEPSandbox.Autocad
             }
             return lst.Distinct().ToList();
         }
+        /// <summary>
+        /// Get all blocks in database
+        /// </summary>
+        /// <param name="AcadDatabase">AcadDatabase</param>
+        [MultiReturn("Names","AcadLayers")]
+        public static Dictionary<string,object> Layers(dynamic AcadDatabase)
+        {
+            List<object> layers = new List<object>();
+            List<object> names = new List<object>();
+            foreach (dynamic layer in AcadDatabase.Layers)
+            {
+                layers.Add(layer);
+                names.Add(layer.Name);
+            }
+            return new Dictionary<string, object>()
+            {
+                {"Names",names},
+                {"AcadLayers",layers},
+              
+            };
+        }
 
-        // /// <summary>
-        // /// Get User Coordinate Systems Of Autocad Database
-        // /// </summary>
-        // /// <param name="AcadDatabase"></param>
-        // /// <returns name="AcadUCSs">AcadUCSs</returns>
-        // public static dynamic UserCoordinateSystems(dynamic AcadDatabase)
-        // {
-        //     List<dynamic> ucss = new List<dynamic>();
-        //     int count = AcadDatabase.UserCoordinateSystems.Count;
-        //     for (int i = 0; i < count; i++)
-        //     {
-        //         dynamic ucs = AcadDatabase.UserCoordinateSystems.Item(i);
-        //         ucss.Add(ucs);
-        //     }
-        //     AcadDatabase database;
-        //     return ucss;
-        // }
+        
 
     }
 }

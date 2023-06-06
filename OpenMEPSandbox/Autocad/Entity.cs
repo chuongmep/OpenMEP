@@ -2,6 +2,9 @@
 
 namespace OpenMEPSandbox.Autocad
 {
+    /// <summary>
+    /// The base class for all AutoCAD objects.
+    /// </summary>
     [IsVisibleInDynamoLibrary(false)]
     public abstract class Entity
     {
