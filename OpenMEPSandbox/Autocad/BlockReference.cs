@@ -19,6 +19,54 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.Name;
         }
+
+        /// <summary>
+        /// Converts a dynamic block to a regular anonymous block. 
+        /// </summary>
+        /// <param name="AcadBlockReference">AcadBlockReference</param>
+        /// <returns name="AcadBlockReference">AcadBlockReference</returns>
+        public static dynamic ConvertToAnonymousBlock(dynamic AcadBlockReference)
+        {
+            AcadBlockReference.CadEntity.ConvertToAnonymousBlock();
+            return AcadBlockReference;
+        }
+
+        /// <summary>
+        /// Converts a dynamic block to a regular named block. 
+        /// </summary>
+        /// <param name="AcadBlockReference"></param>
+        /// <param name="newBlockName">new name of block</param>
+        /// <returns name="AcadBlockReference">AcadBlockReference</returns>
+        public static dynamic ConvertToStaticBlock(dynamic AcadBlockReference,string newBlockName)
+        {
+            AcadBlockReference.CadEntity.ConvertToStaticBlock(newBlockName);
+            return AcadBlockReference;
+        }
+        
+        /// <summary>
+        /// Get Attributes of the block reference
+        /// https://help.autodesk.com/view/OARX/2022/ENU/?guid=GUID-0630EFF2-51A2-46E4-A5A1-0377FB7E38E8
+        /// </summary>
+        /// <param name="AcadBlockReference"></param>
+        /// <returns>information of AcadAttributeReference</returns>
+        [MultiReturn("Tags","TextStrings")]
+        public static Dictionary<string,object> GetAttributes(dynamic AcadBlockReference)
+        {
+            List<string> TextStrings = new List<string>();
+            List<string> Tags = new List<string>();
+            foreach (var attribute in AcadBlockReference.CadEntity.GetAttributes())
+            {
+                TextStrings.Add(attribute.TextString);
+                Tags.Add(attribute.TagString);
+                
+            }
+            return new Dictionary<string, object>()
+            {
+                {"Tags",Tags},
+                {"TextStrings",TextStrings},
+                
+            };
+        }
         /// <summary>
         /// Return ObjectName of the block reference
         /// </summary>
