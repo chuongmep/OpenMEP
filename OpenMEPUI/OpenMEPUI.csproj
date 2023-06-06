@@ -2,13 +2,12 @@
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AssemblyVersion>2.0.0.*</AssemblyVersion>
-        <AssemblyName>OpenMEPSandbox</AssemblyName>
-        <RootNamespace>OpenMEPSandbox</RootNamespace>
-        <PlatformTarget>x64</PlatformTarget>
+        <AssemblyName>OpenMEPUI</AssemblyName>
+        <RootNamespace>OpenMEPUI</RootNamespace>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1;Release R24</Configurations>
@@ -93,7 +92,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Release R24'))">
         <DynamoVersion>2.16</DynamoVersion>
-        <DynamoOutput>2.17</DynamoOutput>
+        <DynamoOutput>2.18</DynamoOutput>
         <RevitVersion>2024</RevitVersion>
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
@@ -109,44 +108,17 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="GShark" Version="2.2.0" />
         <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop.Common" Version="$(RevitVersion).*">
-            <ExcludeAssets>runtime</ExcludeAssets>
-        </PackageReference>
-        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop" Version="$(RevitVersion).*">
+        <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\OpenMEPUI\OpenMEPUI.csproj" />
-      <ProjectReference Include="..\OpenMEPViewExtension\OpenMEPViewExtension.csproj" />
+      <Reference Include="System.Net.Http" />
     </ItemGroup>
-    <ItemGroup>
-      <Reference Include="Microsoft.CSharp" />
-      <Reference Include="PresentationCore" />
-      <Reference Include="PresentationFramework" />
-      <Reference Include="WindowsBase" />
-    </ItemGroup>
-    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
-        <ItemGroup>
-            <AssemblyFiles Include="$(TargetDir)*.*" />
-            <PgkDefinition Include="$(SolutionDir)docs\sandbox\pkg.json" />
-            <XmlCustomization Include="$(SolutionDir)docs\OpenMEPSandbox_DynamoCustomization.xml" />
-            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
-            <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
-        </ItemGroup>
-        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
-        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
-        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
-        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
-        <Message Text="Copied Completed" Importance="high" />
-    </Target>
 </Project>

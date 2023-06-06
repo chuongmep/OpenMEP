@@ -14,7 +14,7 @@ namespace OpenMEPSandbox.Autocad
         /// Return name of the block reference
         /// </summary>
         /// <param name="AcadBlockReference"></param>
-        /// <returns name="str">name of block reference object</returns>
+        /// <returns name="string">name of block reference object</returns>
         public static dynamic Name(CadObject AcadBlockReference)
         {
             return AcadBlockReference.CadEntity.Name;

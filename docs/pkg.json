@@ -20,6 +20,7 @@
   "contains_binaries": true,
   "node_libraries": [
     "OpenMEP, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
+    "OpenMEPUI, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
     "OpenMEPSandbox, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
     "OpenMEP.customization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   ]

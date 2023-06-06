@@ -1,18 +1,23 @@
 ﻿using System.Reflection;
-using System.Security.Cryptography;
 
 namespace OpenMEPSandbox.Autocad;
 
-public class ComObject
+public class Object
 {
-    private ComObject()
+    private Object()
     {
         
     }
-    public static List<string> GetMethods(dynamic AcadObject)
+    
+    /// <summary>
+    /// Snoop Object Methods
+    /// </summary>
+    /// <param name="Object"></param>
+    /// <returns name="methods"></returns>
+    public static List<string> GetMethods(dynamic Object)
     {
         List<string> list = new List<string>();
-        var methods = AcadObject.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public);
+        var methods = Object.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public);
         foreach (var method in methods)
         {
             var parameters = method.GetParameters();
@@ -26,10 +31,15 @@ public class ComObject
         }
         return list;
     }
-    public static List<string> GetProperties(dynamic AcadObject)
+    /// <summary>
+    /// Snoops Object Properties
+    /// </summary>
+    /// <param name="Object">Object need to snoop</param>
+    /// <returns name="Properties"></returns>
+    public static List<string> GetProperties(dynamic Object)
     {
         List<string> list = new List<string>();
-        var properties = AcadObject.GetType().GetProperties();
+        var properties = Object.GetType().GetProperties();
         foreach (var property in properties)
         {
             var str = property.Name + " : " + property.PropertyType.Name;

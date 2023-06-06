@@ -1,50 +1,8 @@
 ﻿using Autodesk.DesignScript.Runtime;
+using OpenMEPUI;
 
 namespace OpenMEPSandbox.Autocad
 {
-    [IsVisibleInDynamoLibrary(false)]
-    public enum CadFilterData
-    {
-        All,
-        Point,
-        Block,
-        BlockReference,
-        Attribute,
-        Text,
-        MText,
-        Table,
-        Leader,
-        MLeader,
-        Arc,
-        Circle,
-        Ellipse,
-        Hatch,
-        Region,
-        Solid,
-        Solid3D,
-        LWPolyline,
-        Polyline,
-        Polyline2D,
-        Polyline3D,
-        Spline,
-        Line,
-        XLine,
-        MLine,
-        Ray,
-        PolygonMesh,
-        PolyFaceMesh,
-        SubDMesh,
-        Face,
-        WipeOut,
-        RotatedDimension,
-        AngularDimension3Point,
-        AngularDimension2Line,
-        RadialDimension,
-        DiametricDimension,
-        OrdinateDimension,
-        AlignedDimension,
-    }
-
     [IsVisibleInDynamoLibrary(false)]
     public class CadObject : Entity
     {

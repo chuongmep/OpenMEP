@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Text;
+using OpenMEPUI;
 
 namespace OpenMEPSandbox.Autocad
 {
@@ -51,6 +52,30 @@ namespace OpenMEPSandbox.Autocad
         public static string FullName(dynamic AcadDocument)
         {
             return AcadDocument.FullName;
+        }
+        
+        /// <summary>
+        /// Get All Object in CadDocument By Filter Object Type
+        /// </summary>
+        /// <param name="AcadDocument">AcadDocument</param>
+        /// <param name="CadFilterType">Filter Type of Cad Object</param>
+        /// <returns name="CadObjects">The general objects of Autocad by Filter(Block,Text,MText,Line,....)</returns>
+        public static List<CadObject> GetCadObjectsByFilters(dynamic AcadDocument, int CadFilterType)
+        {
+            var modelSpace = AcadDocument.ModelSpace;
+            var lst = new List<CadObject>();
+            for (int i = 0; i < modelSpace.Count; i++)
+            {
+                //AcadEntity
+                dynamic item = modelSpace.Item(i);
+                CadObject cadObj = new CadObject(item);
+                CadFilterData filter = (CadFilterData)Enum.ToObject(typeof(CadFilterData), CadFilterType);
+                if (cadObj.Is(filter))
+                {
+                    lst.Add(cadObj);
+                }
+            }
+            return lst.Distinct().ToList();
         }
     
         /// <summary>
