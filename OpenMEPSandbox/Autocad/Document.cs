@@ -1,5 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows;
 using OpenMEPUI;
 
 namespace OpenMEPSandbox.Autocad
@@ -96,12 +98,12 @@ namespace OpenMEPSandbox.Autocad
         {
             var modelSpace = AcadDocument.ModelSpace;
             var lst = new List<CadObject>();
+            CadFilterData filter = (CadFilterData)Enum.ToObject(typeof(CadFilterData), CadFilterType);
             for (int i = 0; i < modelSpace.Count; i++)
             {
                 //AcadEntity
                 dynamic item = modelSpace.Item(i);
                 CadObject cadObj = new CadObject(item);
-                CadFilterData filter = (CadFilterData)Enum.ToObject(typeof(CadFilterData), CadFilterType);
                 if (cadObj.Is(filter))
                 {
                     lst.Add(cadObj);

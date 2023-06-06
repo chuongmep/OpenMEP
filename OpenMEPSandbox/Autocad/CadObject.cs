@@ -19,6 +19,7 @@ namespace OpenMEPSandbox.Autocad
         {
             switch (filter)
             {
+                case CadFilterData.All: return true;
                 case CadFilterData.Point: return ObjectName.Equals("AcDbPoint");
                 case CadFilterData.LWPolyline: return ObjectName.Equals("AcDbPolyline");
                 case CadFilterData.Line: return ObjectName.Equals("AcDbLine");
