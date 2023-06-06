@@ -4,6 +4,9 @@ using OpenMEPUI;
 
 namespace OpenMEPSandbox.Autocad
 {
+    /// <summary>
+    /// The AcadDocument object associated with the object. 
+    /// </summary>
     public class Document
     {
         private Document()
@@ -55,6 +58,15 @@ namespace OpenMEPSandbox.Autocad
         }
         
         /// <summary>
+        /// Database of Document
+        /// </summary>
+        /// <param name="AcadDocument">AcadDocument</param>
+        /// <returns name="AcadDatabase">The Database object contains all of the graphical and most of the non-graphical AutoCAD objects.</returns>
+        public static dynamic Database(dynamic AcadDocument)
+        {
+            return AcadDocument.Database;
+        }
+        /// <summary>
         /// Get All Object in CadDocument By Filter Object Type
         /// </summary>
         /// <param name="AcadDocument">AcadDocument</param>
@@ -76,78 +88,6 @@ namespace OpenMEPSandbox.Autocad
                 }
             }
             return lst.Distinct().ToList();
-        }
-    
-        /// <summary>
-        /// Get all blocks in database
-        /// </summary>
-        /// <param name="AcadDocument">IAcadDocument</param>
-        /// <returns name="AcadBlockReferences">AcadBlockReferences</returns>
-        public static dynamic BlockReferences(dynamic AcadDocument)
-        {
-            // Return all blocks in database interop 
-            var modelSpace = AcadDocument.ModelSpace;
-            var lst = new List<dynamic>();
-            for (int i = 0; i < modelSpace.Count; i++)
-            {
-                //AcadEntity
-                dynamic item = modelSpace.Item(i);
-                var cadObj = new CadObject(item);
-                if (cadObj.Is(CadFilterData.BlockReference))
-                {
-                    lst.Add(cadObj);
-                }
-            }
-            return lst.Distinct().ToList();
-        }
-        
-        /// <summary>
-        /// Get all blocks in Document
-        /// </summary>
-        /// <param name="acadDocument"></param>
-        /// <returns name="AcadBlocks">AcadBlocks</returns>
-        public static dynamic Blocks(dynamic acadDocument)
-        {
-            List<dynamic> Blocks = new List<dynamic>();
-            foreach (dynamic block in acadDocument.Blocks)
-            {
-                var cadObj = new CadObject(block);
-                Blocks.Add(cadObj);
-            }
-            return Blocks;
-        }
-        
-        /// <summary>
-        /// Get all text in database
-        /// </summary>
-        /// <param name="AcadDocument">IAcadDocument</param>
-        /// <returns name="IAcadTexts">IAcadTexts</returns>
-        public static dynamic Texts(dynamic AcadDocument)
-        {
-            // Return all blocks in database interop 
-            var modelSpace = AcadDocument.ModelSpace;
-            var lst = new List<dynamic>();
-            for (int i = 0; i < modelSpace.Count; i++)
-            {
-                //AcadEntity
-                dynamic item = modelSpace.Item(i);
-                var cadObj = new CadObject(item);
-                if (cadObj.Is(CadFilterData.Text))
-                {
-                    lst.Add(cadObj);
-                }
-            }
-            return lst.Distinct().ToList();
-        }
-    
-        /// <summary>
-        /// Database of Document
-        /// </summary>
-        /// <param name="AcadDocument"></param>
-        /// <returns name="AcadDatabase">database of document</returns>
-        public static dynamic Database(dynamic AcadDocument)
-        {
-            return AcadDocument.Database;
         }
     }
 }
