@@ -18,6 +18,10 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <para name="toggle">input true false to fresh data</para>
         /// <returns name="AcadDocument">AcadDocument</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Document.Current.png)
+        /// [Document.Current.dyn](../OpenMEPPage/autocad/Document.Current.dyn)
+        /// </example>
         public static dynamic? Current(bool toggle)
         {
             string ProgId = "AutoCAD.Application";
@@ -42,6 +46,10 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadDocument">AcadDocument</param>
         /// <returns></returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Document.Name.png)
+        /// [Document.Name.dyn](../OpenMEPPage/autocad/Document.Name.dyn)
+        /// </example>
         public static string Name(dynamic AcadDocument)
         {
             return AcadDocument.Name;
@@ -52,6 +60,10 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadDocument"></param>
         /// <returns></returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Document.FullName.png)
+        /// [Document.FullName.dyn](../OpenMEPPage/autocad/Document.FullName.dyn)
+        /// </example>
         public static string FullName(dynamic AcadDocument)
         {
             return AcadDocument.FullName;
@@ -62,6 +74,10 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadDocument">AcadDocument</param>
         /// <returns name="AcadDatabase">The Database object contains all of the graphical and most of the non-graphical AutoCAD objects.</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Document.Database.png)
+        /// [Document.Database.dyn](../OpenMEPPage/autocad/Document.Database.dyn)
+        /// </example>
         public static dynamic Database(dynamic AcadDocument)
         {
             return AcadDocument.Database;
@@ -72,6 +88,10 @@ namespace OpenMEPSandbox.Autocad
         /// <param name="AcadDocument">AcadDocument</param>
         /// <param name="CadFilterType">Filter Type of Cad Object</param>
         /// <returns name="CadObjects">The general objects of Autocad by Filter(Block,Text,MText,Line,....)</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Document.GetCadObjectsByFilters.png)
+        /// [Document.GetCadObjectsByFilters.dyn](../OpenMEPPage/autocad/Document.GetCadObjectsByFilters.dyn)
+        /// </example>
         public static List<CadObject> GetCadObjectsByFilters(dynamic AcadDocument, int CadFilterType)
         {
             var modelSpace = AcadDocument.ModelSpace;

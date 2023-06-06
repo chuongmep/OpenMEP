@@ -65,7 +65,7 @@ public class CadFilterDropDown : DSDropDownBase
 #if R20 || R21 || R22 || R23
         var intNode = AstFactory.BuildIntNode((int) Items[SelectedIndex].Item);
 #else
-        var intNode = AstFactory.BuildIntNode((long) Items[SelectedIndex].Item);
+        var intNode = AstFactory.BuildIntNode((int) Items[SelectedIndex].Item);
 #endif
         var assign = AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), intNode);
 
