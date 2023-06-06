@@ -2,7 +2,7 @@
   "Uuid": "a7853524-26a2-4dfd-ae86-e2d820a94a73",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "BlockReference.Name",
+  "Name": "BlockReference.OwnerID",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -122,13 +122,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.Name@OpenMEPSandbox.Autocad.CadObject",
-      "Id": "77b246df25064de793274c64fd15449d",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.OwnerID@OpenMEPSandbox.Autocad.CadObject",
+      "Id": "332573f57d0b48cd8a058004d3d85a60",
       "Inputs": [
         {
-          "Id": "9dfde93af8664769824b9b2ccd0eaa89",
+          "Id": "a509f2c0a78747cc97a93131d3ea66c4",
           "Name": "AcadBlockReference",
-          "Description": "CadObject",
+          "Description": "AcadBlockReference\n\nCadObject",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -137,9 +137,9 @@
       ],
       "Outputs": [
         {
-          "Id": "bd2cd4779a1f4b199c69d022d31de1fb",
-          "Name": "string",
-          "Description": "name of block reference object",
+          "Id": "4fda5d9812d0454fb8852481c83bd021",
+          "Name": "ownerId",
+          "Description": "The object ID of an object's owner.",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -147,7 +147,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Return name of the block reference\n\nBlockReference.Name (AcadBlockReference: CadObject): var[]..[]"
+      "Description": "Gets the object ID of the owner (parent) object.\n\nBlockReference.OwnerID (AcadBlockReference: CadObject): var[]..[]"
     }
   ],
   "Connectors": [
@@ -171,8 +171,8 @@
     },
     {
       "Start": "9f20151c58714533a0e530af07a5ecf7",
-      "End": "9dfde93af8664769824b9b2ccd0eaa89",
-      "Id": "791cb5871b254fa7b604eda92cd1ae9d",
+      "End": "a509f2c0a78747cc97a93131d3ea66c4",
+      "Id": "7b5e0c25932649bda5cb1fa33da366fd",
       "IsHidden": "False"
     }
   ],
@@ -186,7 +186,7 @@
         "a7a43bce4f404ed39f4569e3d12f480f",
         "af76399682ec4e8b8a1df94c3b0469b1",
         "80d7699a10b0412d9a4870cf3c813b89",
-        "77b246df25064de793274c64fd15449d"
+        "332573f57d0b48cd8a058004d3d85a60"
       ]
     }
   ],
@@ -220,7 +220,7 @@
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.16.1.2727",
-      "RunType": "Automatic",
+      "RunType": "Manual",
       "RunPeriod": "1000"
     },
     "Camera": {
@@ -278,19 +278,19 @@
         "Y": 239.01416094021226
       },
       {
-        "Name": "BlockReference.Name",
+        "Name": "BlockReference.OwnerID",
         "ShowGeometry": true,
-        "Id": "77b246df25064de793274c64fd15449d",
+        "Id": "332573f57d0b48cd8a058004d3d85a60",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 1322.8781751173137,
-        "Y": 240.44184041643575
+        "X": 1286.1640306496067,
+        "Y": 240.28862175633788
       }
     ],
     "Annotations": [],
-    "X": -399.58789717618924,
-    "Y": 6.96360492597222,
-    "Zoom": 1.1047642563030273
+    "X": -393.31519602333344,
+    "Y": -19.539161708659549,
+    "Zoom": 1.1179878830423844
   }
 }

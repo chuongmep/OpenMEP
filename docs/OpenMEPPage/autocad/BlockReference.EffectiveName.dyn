@@ -2,7 +2,7 @@
   "Uuid": "a7853524-26a2-4dfd-ae86-e2d820a94a73",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "BlockReference.GetDynamicBlockProperties",
+  "Name": "BlockReference.EffectiveName",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -122,11 +122,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.GetDynamicBlockProperties@OpenMEPSandbox.Autocad.CadObject",
-      "Id": "d649ca99d6f44df5a1241111aef6f799",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.EffectiveName@OpenMEPSandbox.Autocad.CadObject",
+      "Id": "5d531e68c09a4a00acff2063f762b9f9",
       "Inputs": [
         {
-          "Id": "f9ec40a2cd78473e830af901ca55cbf0",
+          "Id": "371700b05b3c4852af4010c775bf4a75",
           "Name": "AcadBlockReference",
           "Description": "AcadBlockReference\n\nCadObject",
           "UsingDefaultValue": false,
@@ -137,45 +137,9 @@
       ],
       "Outputs": [
         {
-          "Id": "62fa21a7aadc44b0be6d2d96fcab7586",
-          "Name": "names",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "9c2eece344ef47bcbc02c7d0ff872950",
-          "Name": "descriptions",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "0d815885388f46bf86639bf196029023",
-          "Name": "unitsTypes",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "3784e4d472654be1a4ab5414a80fdf77",
-          "Name": "values",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "81d415a82c104429bf88dd931cba49ce",
-          "Name": "allowValues",
-          "Description": "var",
+          "Id": "6573c0bd79634e419ded1ce3cbaf3aed",
+          "Name": "string",
+          "Description": "The effective name is the name of the block as the user would see it in the user interface. Dynamic blocks may draw themselves with an anonymous block whose name is different than the block name the user sees for the block in the user interface. The Name property returns the name of the block used to draw the reference, while the EffectiveName is the name the user sees for the reference.",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -183,7 +147,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get Dynamic Block Properties\n\nBlockReference.GetDynamicBlockProperties (AcadBlockReference: CadObject): var[]..[]"
+      "Description": "Specifies the original block name.\n\nBlockReference.EffectiveName (AcadBlockReference: CadObject): string"
     }
   ],
   "Connectors": [
@@ -207,8 +171,8 @@
     },
     {
       "Start": "9f20151c58714533a0e530af07a5ecf7",
-      "End": "f9ec40a2cd78473e830af901ca55cbf0",
-      "Id": "53363848306e45d599ab475e803fafc7",
+      "End": "371700b05b3c4852af4010c775bf4a75",
+      "Id": "0a884efc542d44fd8d735b544ccb4140",
       "IsHidden": "False"
     }
   ],
@@ -222,7 +186,7 @@
         "a7a43bce4f404ed39f4569e3d12f480f",
         "af76399682ec4e8b8a1df94c3b0469b1",
         "80d7699a10b0412d9a4870cf3c813b89",
-        "d649ca99d6f44df5a1241111aef6f799"
+        "5d531e68c09a4a00acff2063f762b9f9"
       ]
     }
   ],
@@ -314,19 +278,19 @@
         "Y": 239.01416094021226
       },
       {
-        "Name": "BlockReference.GetDynamicBlockProperties",
+        "Name": "BlockReference.EffectiveName",
         "ShowGeometry": true,
-        "Id": "d649ca99d6f44df5a1241111aef6f799",
+        "Id": "5d531e68c09a4a00acff2063f762b9f9",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 1300.5211297522094,
-        "Y": 251.21978050657424
+        "X": 1308.6196976890678,
+        "Y": 249.94273721563138
       }
     ],
     "Annotations": [],
-    "X": -304.09289006299286,
-    "Y": 114.65888620875222,
-    "Zoom": 0.89416808331207653
+    "X": -309.40095524429148,
+    "Y": 104.38374206135029,
+    "Zoom": 0.91556228528122618
   }
 }

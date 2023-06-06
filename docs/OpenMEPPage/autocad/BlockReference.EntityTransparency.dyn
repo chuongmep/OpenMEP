@@ -2,7 +2,7 @@
   "Uuid": "a7853524-26a2-4dfd-ae86-e2d820a94a73",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "BlockReference.GetDynamicBlockProperties",
+  "Name": "BlockReference.EntityTransparency",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -122,11 +122,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.GetDynamicBlockProperties@OpenMEPSandbox.Autocad.CadObject",
-      "Id": "d649ca99d6f44df5a1241111aef6f799",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.EntityTransparency@OpenMEPSandbox.Autocad.CadObject",
+      "Id": "082865f2d72a45619fa217bd62311ca7",
       "Inputs": [
         {
-          "Id": "f9ec40a2cd78473e830af901ca55cbf0",
+          "Id": "1a232bbb7fad44bd9169715085950b13",
           "Name": "AcadBlockReference",
           "Description": "AcadBlockReference\n\nCadObject",
           "UsingDefaultValue": false,
@@ -137,45 +137,9 @@
       ],
       "Outputs": [
         {
-          "Id": "62fa21a7aadc44b0be6d2d96fcab7586",
-          "Name": "names",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "9c2eece344ef47bcbc02c7d0ff872950",
-          "Name": "descriptions",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "0d815885388f46bf86639bf196029023",
-          "Name": "unitsTypes",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "3784e4d472654be1a4ab5414a80fdf77",
-          "Name": "values",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "81d415a82c104429bf88dd931cba49ce",
-          "Name": "allowValues",
-          "Description": "var",
+          "Id": "d3c71f9433474281b2654cad11904574",
+          "Name": "string",
+          "Description": "Use one of the following values: ByLayer: Transparency value determined by layer ByBlock: Transparency value determined by block 0: Fully opaque (not transparent) 1-90: Transparency value defined as a percentage",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -183,7 +147,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get Dynamic Block Properties\n\nBlockReference.GetDynamicBlockProperties (AcadBlockReference: CadObject): var[]..[]"
+      "Description": "Specifies the transparency value for the entity.\n\nBlockReference.EntityTransparency (AcadBlockReference: CadObject): var[]..[]"
     }
   ],
   "Connectors": [
@@ -207,8 +171,8 @@
     },
     {
       "Start": "9f20151c58714533a0e530af07a5ecf7",
-      "End": "f9ec40a2cd78473e830af901ca55cbf0",
-      "Id": "53363848306e45d599ab475e803fafc7",
+      "End": "1a232bbb7fad44bd9169715085950b13",
+      "Id": "0d3878fa14524473b6dbdfd21a898b32",
       "IsHidden": "False"
     }
   ],
@@ -222,7 +186,7 @@
         "a7a43bce4f404ed39f4569e3d12f480f",
         "af76399682ec4e8b8a1df94c3b0469b1",
         "80d7699a10b0412d9a4870cf3c813b89",
-        "d649ca99d6f44df5a1241111aef6f799"
+        "082865f2d72a45619fa217bd62311ca7"
       ]
     }
   ],
@@ -314,19 +278,19 @@
         "Y": 239.01416094021226
       },
       {
-        "Name": "BlockReference.GetDynamicBlockProperties",
+        "Name": "BlockReference.EntityTransparency",
         "ShowGeometry": true,
-        "Id": "d649ca99d6f44df5a1241111aef6f799",
+        "Id": "082865f2d72a45619fa217bd62311ca7",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 1300.5211297522094,
-        "Y": 251.21978050657424
+        "X": 1300.9741228193582,
+        "Y": 253.21941215979263
       }
     ],
     "Annotations": [],
-    "X": -304.09289006299286,
-    "Y": 114.65888620875222,
+    "X": -300.09289006299286,
+    "Y": 110.65888620875222,
     "Zoom": 0.89416808331207653
   }
 }

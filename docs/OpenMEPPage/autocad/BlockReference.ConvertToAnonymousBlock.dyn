@@ -2,7 +2,7 @@
   "Uuid": "a7853524-26a2-4dfd-ae86-e2d820a94a73",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "BlockReference.GetDynamicBlockProperties",
+  "Name": "BlockReference.ConvertToAnonymousBlock",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -122,11 +122,11 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.GetDynamicBlockProperties@OpenMEPSandbox.Autocad.CadObject",
-      "Id": "d649ca99d6f44df5a1241111aef6f799",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.BlockReference.ConvertToAnonymousBlock@OpenMEPSandbox.Autocad.CadObject",
+      "Id": "797784911a5b49d1a1e3e988a3ad6cf2",
       "Inputs": [
         {
-          "Id": "f9ec40a2cd78473e830af901ca55cbf0",
+          "Id": "7f9123e8880b425b8b1b9e1331a569c8",
           "Name": "AcadBlockReference",
           "Description": "AcadBlockReference\n\nCadObject",
           "UsingDefaultValue": false,
@@ -137,45 +137,9 @@
       ],
       "Outputs": [
         {
-          "Id": "62fa21a7aadc44b0be6d2d96fcab7586",
-          "Name": "names",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "9c2eece344ef47bcbc02c7d0ff872950",
-          "Name": "descriptions",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "0d815885388f46bf86639bf196029023",
-          "Name": "unitsTypes",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "3784e4d472654be1a4ab5414a80fdf77",
-          "Name": "values",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "81d415a82c104429bf88dd931cba49ce",
-          "Name": "allowValues",
-          "Description": "var",
+          "Id": "106e1fbad6064497a5f9af31b91cb76c",
+          "Name": "AcadBlockReference",
+          "Description": "AcadBlockReference",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -183,7 +147,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get Dynamic Block Properties\n\nBlockReference.GetDynamicBlockProperties (AcadBlockReference: CadObject): var[]..[]"
+      "Description": "Converts a dynamic block to a regular anonymous block.\n\nBlockReference.ConvertToAnonymousBlock (AcadBlockReference: CadObject): var[]..[]"
     }
   ],
   "Connectors": [
@@ -207,8 +171,8 @@
     },
     {
       "Start": "9f20151c58714533a0e530af07a5ecf7",
-      "End": "f9ec40a2cd78473e830af901ca55cbf0",
-      "Id": "53363848306e45d599ab475e803fafc7",
+      "End": "7f9123e8880b425b8b1b9e1331a569c8",
+      "Id": "4a57498c3497487f8c26b0466c51daf9",
       "IsHidden": "False"
     }
   ],
@@ -222,7 +186,7 @@
         "a7a43bce4f404ed39f4569e3d12f480f",
         "af76399682ec4e8b8a1df94c3b0469b1",
         "80d7699a10b0412d9a4870cf3c813b89",
-        "d649ca99d6f44df5a1241111aef6f799"
+        "797784911a5b49d1a1e3e988a3ad6cf2"
       ]
     }
   ],
@@ -314,19 +278,19 @@
         "Y": 239.01416094021226
       },
       {
-        "Name": "BlockReference.GetDynamicBlockProperties",
+        "Name": "BlockReference.ConvertToAnonymousBlock",
         "ShowGeometry": true,
-        "Id": "d649ca99d6f44df5a1241111aef6f799",
+        "Id": "797784911a5b49d1a1e3e988a3ad6cf2",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 1300.5211297522094,
-        "Y": 251.21978050657424
+        "X": 1307.5274727076805,
+        "Y": 254.3116371411798
       }
     ],
     "Annotations": [],
-    "X": -304.09289006299286,
-    "Y": 114.65888620875222,
-    "Zoom": 0.89416808331207653
+    "X": -278.40095524429148,
+    "Y": 101.38374206135029,
+    "Zoom": 0.91556228528122618
   }
 }
