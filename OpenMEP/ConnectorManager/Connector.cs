@@ -127,7 +127,7 @@ public class Connector
         Autodesk.Revit.DB.Connector? connector = GetConnectorClosest(element2, connectorSet);
         return connector;
     }
-    
+
     /// <summary>
     /// Get closest Connector inside the Element with a Point
     /// </summary>
@@ -166,12 +166,14 @@ public class Connector
                 .ConnectorManager?
                 .Connectors;
         }
+
         if (e is FabricationPart)
         {
             return ((FabricationPart) e)?
                 .ConnectorManager?
                 .Connectors;
         }
+
         return null;
     }
 
@@ -310,9 +312,10 @@ public class Connector
         List<Autodesk.Revit.DB.Connector> connectors = new List<Autodesk.Revit.DB.Connector>();
         foreach (Autodesk.Revit.DB.Connector? c in connectorManager.Connectors)
         {
-            if(c == null) continue;
+            if (c == null) continue;
             connectors.Add(c);
         }
+
         return connectors;
     }
 
@@ -379,7 +382,7 @@ public class Connector
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return connectorManager.UnusedConnectors.Cast<Autodesk.Revit.DB.Connector>().ToList()!;
     }
-    
+
     /// <summary>
     /// return all connectors of element except connector same id with connector input
     /// </summary>
@@ -390,7 +393,8 @@ public class Connector
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector.png)
     /// [Connector.GetRemainingConnector.dyn](../OpenMEPPage/connectormanager/dyn/Connector.GetRemainingConnector.dyn)
     /// </example>
-    public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(Revit.Elements.Element? element ,Autodesk.Revit.DB.Connector connector)
+    public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(Revit.Elements.Element? element,
+        Autodesk.Revit.DB.Connector connector)
     {
         if (element == null) throw new ArgumentNullException(nameof(element));
         if (connector == null) throw new ArgumentNullException(nameof(connector));
@@ -409,7 +413,8 @@ public class Connector
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector2.png)
     /// [Connector.GetRemainingConnector2.dyn](../OpenMEPPage/connectormanager/dyn/Connector.GetRemainingConnector2.dyn)
     /// </example>
-    public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(List<Autodesk.Revit.DB.Connector> connectors,Autodesk.Revit.DB.Connector connector)
+    public static List<Autodesk.Revit.DB.Connector> GetRemainingConnector(List<Autodesk.Revit.DB.Connector> connectors,
+        Autodesk.Revit.DB.Connector connector)
     {
         return connectors.Where(c => c!.Id != connector.Id).ToList();
     }
@@ -459,7 +464,7 @@ public class Connector
         if (t == null) return null;
         return Autodesk.DesignScript.Geometry.Point.ByCoordinates(t.BasisX.X, t.BasisX.Y, t.BasisX.Z);
     }
-    
+
     /// <summary>
     /// Get direction BasisZ of connector
     /// </summary>
@@ -806,7 +811,7 @@ public class Connector
 
         return null;
     }
-    
+
     /// <summary>
     /// Return All Element Connected Continuous In Branch
     /// Be careful, because this node require recursive to check all connected.
@@ -824,6 +829,7 @@ public class Connector
         List<Revit.Elements.Element> collector = Collector(element, OutElements);
         return collector;
     }
+
     /// <summary>
     /// Return All Element Connected Continuous In Branch
     /// Be careful, because this node require recursive to check all connected.
@@ -841,6 +847,7 @@ public class Connector
         List<Revit.Elements.Element> collector = Collector(connector.Owner.ToDynamoType(), OutElements);
         return collector;
     }
+
     //recursive element from e to end branch side by side other
     private static List<Revit.Elements.Element> Collector(Revit.Elements.Element? e,
         Dictionary<string, Revit.Elements.Element> OutElements)
@@ -849,7 +856,7 @@ public class Connector
         List<Revit.Elements.Element?> elements = GetConnectors(e).Select(GetElementConnectedWith).ToList();
         foreach (var item in elements)
         {
-            if(item==null) continue;
+            if (item == null) continue;
             if (OutElements.ContainsKey(item.Id.ToString()))
             {
                 count += 1;
@@ -860,13 +867,15 @@ public class Connector
                 Collector(item, OutElements);
             }
         }
+
         if (System.Math.Abs(count - elements.Count) < 0.0001)
         {
             return new List<Revit.Elements.Element>(OutElements.Values);
         }
+
         return new List<Revit.Elements.Element>(OutElements.Values);
     }
-    
+
     /// <summary>
     /// return element connected with  connector
     /// </summary>
@@ -1160,26 +1169,27 @@ public class Connector
 
         if (connector == null) return new Dictionary<string, object?>();
         var origin = connector.Origin.ToDynamoType();
-        if(origin == null) return new Dictionary<string, object?>();
+        if (origin == null) return new Dictionary<string, object?>();
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-#if R20  
+#if R20
         DisplayUnitType unitTypeId = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).DisplayUnits;
         double xUnits = UnitUtils.ConvertFromInternalUnits(origin.X, unitTypeId);
         double yUnits = UnitUtils.ConvertFromInternalUnits(origin.Y, unitTypeId);
         double zUnits = UnitUtils.ConvertFromInternalUnits(origin.Z, unitTypeId);
-        #else
+#else
         ForgeTypeId unitTypeId = doc.GetUnits().GetFormatOptions(SpecTypeId.Length).GetUnitTypeId();
         double xUnits = UnitUtils.ConvertFromInternalUnits(origin.X, unitTypeId);
         double yUnits = UnitUtils.ConvertFromInternalUnits(origin.Y, unitTypeId);
         double zUnits = UnitUtils.ConvertFromInternalUnits(origin.Z, unitTypeId);
 #endif
-        
+
         Point point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(xUnits, yUnits, zUnits);
         var X = connector.CoordinateSystem.BasisX.ToDynamoVector();
         var Y = connector.CoordinateSystem.BasisY.ToDynamoVector();
         var Z = connector.CoordinateSystem.BasisZ.ToDynamoVector();
-        CoordinateSystem coordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(point, X, Y, Z);
-        return OpenMEPSandbox.Geometry.CoordinateSystem.Display(coordinateSystem,length);
+        CoordinateSystem coordinateSystem =
+            Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(point, X, Y, Z);
+        return OpenMEPSandbox.Geometry.CoordinateSystem.Display(coordinateSystem, length);
     }
 
     /// <summary>
@@ -1191,7 +1201,8 @@ public class Connector
     /// <example>
     /// ![](../OpenMEPPage/connectormanager/dyn/pic/Connector.IsConnectedTo.png)
     /// </example>
-    public static bool IsConnectedTo(Autodesk.Revit.DB.Connector connector,Autodesk.Revit.DB.Connector connectorOther)
+    [NodeCategory("Query")]
+    public static bool IsConnectedTo(Autodesk.Revit.DB.Connector connector, Autodesk.Revit.DB.Connector connectorOther)
     {
         return connector.IsConnectedTo(connectorOther);
     }
