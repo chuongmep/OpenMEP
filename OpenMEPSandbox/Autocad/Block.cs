@@ -1,4 +1,5 @@
 ﻿using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace OpenMEPSandbox.Autocad;
 
@@ -47,6 +48,7 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="bool">true if The block is a dynamic block. </returns>
+    [NodeCategory("Query")]
     public static bool IsDynamicBlock(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.IsDynamicBlock;
@@ -78,6 +80,7 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="bool">true if The object has an extension dictionary associated with it. </returns>
+    [NodeCategory("Query")]
     public static bool HasExtensionDictionary(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.HasExtensionDictionary;
@@ -98,6 +101,7 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns>true if block is an Xref block</returns>
+    [NodeCategory("Query")]
     public static bool IsXRef(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.IsXRef;
@@ -107,6 +111,7 @@ public class Block
     /// </summary>
     /// <param name="AcadBlock">AcadBlock</param>
     /// <returns name="bool"> true if block is layout block</returns>
+    [NodeCategory("Query")]
     public static bool IsLayout(CadObject AcadBlock)
     {
         return AcadBlock.CadEntity.IsLayout;

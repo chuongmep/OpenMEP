@@ -1,5 +1,6 @@
 ﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
+using Dynamo.Graph.Nodes;
 
 namespace OpenMEPSandbox.Autocad
 {
@@ -15,6 +16,10 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadBlockReference"></param>
         /// <returns name="string">name of block reference object</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/BlockReference.Name.png)
+        /// [BlockReference.Name.dyn](../OpenMEPPage/autocad/BlockReference.Name.dyn)
+        /// </example>
         public static dynamic Name(CadObject AcadBlockReference)
         {
             return AcadBlockReference.CadEntity.Name;
@@ -129,6 +134,7 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadBlockReference"></param>
         /// <returns name="bool">True if block is Dynamic </returns>
+        [NodeCategory("Query")]
         public static dynamic IsDynamicBlock(CadObject AcadBlockReference)
         {
             return AcadBlockReference.CadEntity.IsDynamicBlock;
@@ -161,6 +167,7 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadBlockReference"></param>
         /// <returns name="bool">true if visible</returns>
+        [NodeCategory("Query")]
         public static bool Visible(CadObject AcadBlockReference)
         {
             return AcadBlockReference.CadEntity.Visible;
@@ -204,6 +211,7 @@ namespace OpenMEPSandbox.Autocad
         /// </summary>
         /// <param name="AcadBlockReference"></param>
         /// <returns name="bool"></returns>
+        [NodeCategory("Query")]
         public static bool HasAttributes(CadObject AcadBlockReference)
         {
             return AcadBlockReference.CadEntity.HasAttributes;
