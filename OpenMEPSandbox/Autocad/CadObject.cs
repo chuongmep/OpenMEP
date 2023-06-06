@@ -3,6 +3,10 @@ using OpenMEPUI;
 
 namespace OpenMEPSandbox.Autocad
 {
+    
+    /// <summary>
+    /// A class that represents a CAD object.
+    /// </summary>
     [IsVisibleInDynamoLibrary(false)]
     public class CadObject : Entity
     {

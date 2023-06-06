@@ -3,6 +3,9 @@ using System.Text;
 
 namespace OpenMEPSandbox.Autocad
 {
+    /// <summary>
+    /// An instance of the AutoCAD application.
+    /// </summary>
     public class Application
     {
         private Application()

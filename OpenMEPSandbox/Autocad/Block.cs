@@ -4,7 +4,8 @@ using Dynamo.Graph.Nodes;
 namespace OpenMEPSandbox.Autocad;
 
 /// <summary>
-/// A block definition containing a name and a set of objects. 
+/// A block definition containing a name and a set of objects.
+/// https://help.autodesk.com/view/OARX/2023/ENU/?guid=GUID-E6F7B03B-F5CC-4A18-9C48-BBF1D32A31FD
 /// </summary>
 public class Block
 {

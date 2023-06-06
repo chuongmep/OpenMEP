@@ -4,13 +4,21 @@ using Dynamo.Graph.Nodes;
 
 namespace OpenMEPSandbox.Autocad
 {
+    /// <summary>
+    /// This .NET class wraps the AcDbBlockReference ObjectARX class.
+    /// The BlockReference class represents the INSERT entity within AutoCAD.
+    /// A block reference is used to place, size, and display an instance of the collection of entities within the BlockTableRecord that it references.
+    /// In addition, block references can be the owner of Attribute entities (the list of which is automatically terminated by an SequenceEnd entity).
+    /// Classes Derived from AcDbBlockReference.
+    /// Classes derived from BlockReference must supermessage the base class's WorldDraw() function and allow it to do the work of drawing the entities in the block table record.
+    /// This allows the osnap code to distinguish the graphics for each entity in the block table record and automatically get each entity's osnap points without having to iterate through the block reference.
+    /// </summary>
     public class BlockReference
     {
         private BlockReference()
         {
-        
         }
-    
+
         /// <summary>
         /// Return name of the block reference
         /// </summary>
@@ -50,12 +58,12 @@ namespace OpenMEPSandbox.Autocad
         /// ![](../OpenMEPPage/autocad/pic/BlockReference.ConvertToStaticBlock.png)
         /// [BlockReference.ConvertToStaticBlock.dyn](../OpenMEPPage/autocad/BlockReference.ConvertToStaticBlock.dyn)
         /// </example>
-        public static dynamic ConvertToStaticBlock(CadObject AcadBlockReference,string newBlockName)
+        public static dynamic ConvertToStaticBlock(CadObject AcadBlockReference, string newBlockName)
         {
             AcadBlockReference.CadEntity.ConvertToStaticBlock(newBlockName);
             return AcadBlockReference;
         }
-        
+
         /// <summary>
         /// Get Attributes of the block reference
         /// https://help.autodesk.com/view/OARX/2022/ENU/?guid=GUID-0630EFF2-51A2-46E4-A5A1-0377FB7E38E8
@@ -66,8 +74,8 @@ namespace OpenMEPSandbox.Autocad
         /// ![](../OpenMEPPage/autocad/pic/BlockReference.GetAttributes.png)
         /// [BlockReference.GetAttributes.dyn](../OpenMEPPage/autocad/BlockReference.GetAttributes.dyn)
         /// </example>
-        [MultiReturn("Tags","TextStrings")]
-        public static Dictionary<string,object> GetAttributes(CadObject AcadBlockReference)
+        [MultiReturn("Tags", "TextStrings")]
+        public static Dictionary<string, object> GetAttributes(CadObject AcadBlockReference)
         {
             List<string> TextStrings = new List<string>();
             List<string> Tags = new List<string>();
@@ -75,15 +83,15 @@ namespace OpenMEPSandbox.Autocad
             {
                 TextStrings.Add(attribute.TextString);
                 Tags.Add(attribute.TagString);
-                
             }
+
             return new Dictionary<string, object>()
             {
-                {"Tags",Tags},
-                {"TextStrings",TextStrings},
-                
+                {"Tags", Tags},
+                {"TextStrings", TextStrings},
             };
         }
+
         /// <summary>
         /// Gets the AutoCAD class name of the object. 
         /// </summary>
@@ -97,6 +105,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.ObjectName;
         }
+
         /// <summary>
         /// Gets the object ID. 
         /// </summary>
@@ -110,7 +119,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.ObjectID;
         }
-        
+
         /// <summary>
         /// Specifies the original block name. 
         /// </summary>
@@ -128,7 +137,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.EffectiveName;
         }
-        
+
         /// <summary>
         /// Specifies the transparency value for the entity. 
         /// </summary>
@@ -147,7 +156,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.EntityTransparency;
         }
-        
+
         /// <summary>
         /// Gets the object ID of the owner (parent) object. 
         /// </summary>
@@ -161,6 +170,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.OwnerID;
         }
+
         /// <summary>
         /// Check if block reference is dynamic 
         /// </summary>
@@ -175,7 +185,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.IsDynamicBlock;
         }
-    
+
         /// <summary>
         /// Return Layer name of the block reference
         /// </summary>
@@ -189,7 +199,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.Layer;
         }
-    
+
         /// <summary>
         /// Return Rotation of the block reference
         /// </summary>
@@ -205,7 +215,7 @@ namespace OpenMEPSandbox.Autocad
             // convert to degress
             return radRotate * 180 / System.Math.PI;
         }
-    
+
         /// <summary>
         /// Return True if block reference is visible
         /// </summary>
@@ -220,7 +230,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.Visible;
         }
-        
+
         /// <summary>
         /// Return Location Insert of Block Reference
         /// </summary>
@@ -234,10 +244,10 @@ namespace OpenMEPSandbox.Autocad
         public static Point InsertionPoint(CadObject AcadBlockReference)
         {
             double[] point = AcadBlockReference.CadEntity.InsertionPoint;
-            if(point.Length != 3) throw new Exception("Insertion point is not 3D");
+            if (point.Length != 3) throw new Exception("Insertion point is not 3D");
             return Point.ByCoordinates(point[0], point[1], point[2]);
         }
-        
+
         /// <summary>
         /// Check Block Reference InsUnits
         /// </summary>
@@ -251,7 +261,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.InsUnits;
         }
-        
+
         /// <summary>
         /// Return result of InsUnitsFactor
         /// </summary>
@@ -265,7 +275,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.InsUnitsFactor;
         }
-        
+
         /// <summary>
         /// Check Attributes of Cad Block Reference
         /// </summary>
@@ -280,7 +290,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.HasAttributes;
         }
-        
+
         /// <summary>
         /// Return Handle value of Block Reference
         /// </summary>
@@ -294,7 +304,7 @@ namespace OpenMEPSandbox.Autocad
         {
             return AcadBlockReference.CadEntity.Handle;
         }
-        
+
         /// <summary>
         /// Highlight BlockReference
         /// </summary>
@@ -305,11 +315,11 @@ namespace OpenMEPSandbox.Autocad
         /// ![](../OpenMEPPage/autocad/pic/BlockReference.Highlight.png)
         /// [BlockReference.Highlight.dyn](../OpenMEPPage/autocad/BlockReference.Highlight.dyn)
         /// </example>
-        public static void Highlight(CadObject AcadBlockReference,bool HighlightFlag)
+        public static void Highlight(CadObject AcadBlockReference, bool HighlightFlag)
         {
             AcadBlockReference.CadEntity.Highlight(HighlightFlag);
         }
-        
+
         /// <summary>
         /// Get Bounding box of BlockReference
         /// </summary>
@@ -321,7 +331,7 @@ namespace OpenMEPSandbox.Autocad
         /// </example>
         public static BoundingBox BoundingBox(CadObject AcadBlockReference)
         {
-            AcadBlockReference.CadEntity.GetBoundingBox(out object minpoint,out object maxpoint);
+            AcadBlockReference.CadEntity.GetBoundingBox(out object minpoint, out object maxpoint);
             double[]? minPoints = minpoint as double[];
             double[]? maxPoints = maxpoint as double[];
             Point min = Point.ByCoordinates(minPoints[0], minPoints[1], minPoints[2]);
@@ -342,8 +352,8 @@ namespace OpenMEPSandbox.Autocad
         /// ![](../OpenMEPPage/autocad/pic/BlockReference.GetDynamicBlockProperties.png)
         /// [BlockReference.GetDynamicBlockProperties.dyn](../OpenMEPPage/autocad/BlockReference.GetDynamicBlockProperties.dyn)
         /// </example>
-        [MultiReturn("names","descriptions","unitsTypes","values","allowValues")]
-        public static Dictionary<string,object> GetDynamicBlockProperties(CadObject AcadBlockReference)
+        [MultiReturn("names", "descriptions", "unitsTypes", "values", "allowValues")]
+        public static Dictionary<string, object> GetDynamicBlockProperties(CadObject AcadBlockReference)
         {
             List<dynamic> names = new List<dynamic>();
             List<dynamic> Descriptions = new List<dynamic>();
@@ -358,6 +368,7 @@ namespace OpenMEPSandbox.Autocad
                 values.Add(dyn.Value);
                 allowValues.Add(dyn.AllowedValues);
             }
+
             return new Dictionary<string, object>
             {
                 {"names", names},
