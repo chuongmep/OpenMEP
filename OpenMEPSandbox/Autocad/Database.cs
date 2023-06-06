@@ -14,7 +14,7 @@ namespace OpenMEPSandbox.Autocad
         
         }
         /// <summary>
-        /// Get all blocks in Document
+        /// Get all blocks in database of Document
         /// </summary>
         /// <param name="AcadDatabase">AcadDatabase</param>
         /// <returns name="AcadBlocks">AcadBlocks</returns>
@@ -34,7 +34,7 @@ namespace OpenMEPSandbox.Autocad
         }
         
         /// <summary>
-        /// Get all text in database
+        /// Get all texts in database of Document
         /// </summary>
         /// <param name="AcadDatabase">AcadDatabase</param>
         /// <returns name="AcadTexts">AcadTexts</returns>
@@ -61,7 +61,7 @@ namespace OpenMEPSandbox.Autocad
         }
         
         /// <summary>
-        /// Get all blocks in database
+        /// Get all blocks in database of Document
         /// </summary>
         /// <param name="AcadDatabase">AcadDatabase</param>
         /// <returns name="AcadBlockReferences">AcadBlockReferences</returns>
@@ -86,10 +86,15 @@ namespace OpenMEPSandbox.Autocad
             }
             return lst.Distinct().ToList();
         }
+        
         /// <summary>
-        /// Get all blocks in database
+        /// Get all layers in database
         /// </summary>
         /// <param name="AcadDatabase">AcadDatabase</param>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/Database.Layers.png)
+        /// [Database.Layers.dyn](../OpenMEPPage/autocad/Database.Layers.dyn)
+        /// </example>
         [MultiReturn("Names","AcadLayers")]
         public static Dictionary<string,object> Layers(dynamic AcadDatabase)
         {

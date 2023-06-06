@@ -2,6 +2,9 @@
 
 namespace OpenMEPSandbox.Autocad;
 
+/// <summary>
+/// Class Presenting For Entity Object Autocad
+/// </summary>
 public class Object
 {
     private Object()
