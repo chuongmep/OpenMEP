@@ -64,7 +64,7 @@ public class Civil3DSetup : IInstaller
     {
         {"2.12", 2022},
         {"2.13", 2023},
-        {"2.16", 2023},
+        // {"2.16", 2023},
         {"2.17", 2024},
     };
 
@@ -80,8 +80,7 @@ public class Civil3DSetup : IInstaller
             Console.WriteLine("Civil3D Version: " + civil3DVersion);
             var directoryInfo = new DirectoryInfo(Path.Combine(appDataDir, "Autodesk", $"C3D {civil3DVersion}",
                 "Dynamo", dynamoVersion, "packages", PackageName));
-            string dynamoVersionPath = Path.Combine($"C3D {civil3DVersion}",
-            "Dynamo", dynamoVersion, "packages", PackageName);
+            string dynamoVersionPath = $"C3D {civil3DVersion}\\Dynamo\\{dynamoVersion}\\packages\\{PackageName}";
             Console.WriteLine("Folder Wix: " + dynamoVersionPath);
             if (directoryInfo.Exists)
             {
@@ -106,42 +105,7 @@ public class Civil3DSetup : IInstaller
                 Console.WriteLine("Directory not found: " + directoryInfo.FullName);
             }
         }
-
-        // DirectoryInfo dir = new DirectoryInfo(Path.Combine(appDataDir, "Autodesk", "Dynamo Revit"));
-        // Regex regex = new Regex(@"\d+\.\d+");
-        // List<DirectoryInfo> directoryInfos =
-        //     dir.GetDirectories().Where(x => regex.Match(x.Name).Success).Select(x => x).ToList();
-        // // order directoryInfos by regex match value *.*
-        // StringNumberComparer comparer = new StringNumberComparer();
-        // directoryInfos.Sort((x, y) => comparer.Compare(x.Name, y.Name));
-        // foreach (var directory in directoryInfos)
-        // {
-        //     var directoryInfo = new DirectoryInfo(Path.Combine(directory.FullName, "packages", PackageName));
-        //     if (directoryInfo.Exists)
-        //     {
-        //         var files = new Files($@"{directoryInfo.FullName}\*.*");
-        //         var dynamoVersion = directoryInfo.Parent.Parent.Name + $"\\packages\\{PackageName}";
-        //         // check DynamoVersion match with DynamoCivil3DVersions
-        //         var version = regex.Match(dynamoVersion).Value;
-        //         if (DynamoCivil3DVersions.TryGetValue(version, out var civil3DVersion))
-        //         {
-        //             Console.WriteLine("Add Files Dynamo Civil3D Version: " + civil3DVersion);
-        //             if (versionStorages.ContainsKey(dynamoVersion))
-        //             {
-        //                 versionStorages[dynamoVersion].Add(files);
-        //             }
-        //             else
-        //             {
-        //                 Console.WriteLine("Add Files Dynamo Revit Version: " + regex.Match(dynamoVersion).Value);
-        //             }
-        //
-        //             versionStorages.Add(dynamoVersion, new List<WixEntity> {files});
-        //             var assemblies = Directory.GetFiles(directoryInfo.FullName, "*", SearchOption.AllDirectories);
-        //             foreach (var assembly in assemblies) Console.WriteLine($"'{assembly}'");
-        //         }
-        //     }
-        // }
-
+        
         return versionStorages.Select(storage => new Dir(storage.Key, storage.Value.ToArray())).Cast<WixEntity>()
             .ToArray();
     }

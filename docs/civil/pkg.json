@@ -20,6 +20,6 @@
   "contains_binaries": true,
   "node_libraries": [
     "OpenMEPCivil, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
-    "OpenMEPSandbox, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
+    "OpenMEPSandbox, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null"
   ]
 }
