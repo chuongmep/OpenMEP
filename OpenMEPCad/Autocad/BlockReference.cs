@@ -63,7 +63,23 @@ namespace OpenMEPCad.Autocad
             AcadBlockReference.ConvertToStaticBlock(newBlockName);
             return AcadBlockReference;
         }
-
+        
+        /// <summary>
+        ///  Resets the AcDbBlockReference to the default state of the dynamic block.
+        /// All properties on the AcDbBlockReference are set to match the values in the block definition. 
+        /// </summary>
+        /// <param name="AcadBlockReference">AcadBlockReference</param>
+        /// <returns name="AcadBlockReference">AcadBlockReference</returns>
+        /// <example>
+        /// ![](../OpenMEPPage/autocad/pic/BlockReference.ResetBlock.png)
+        /// [BlockReference.ResetBlock.dyn](../OpenMEPPage/autocad/BlockReference.ResetBlock.dyn)
+        /// </example>
+        public static dynamic ResetBlock(dynamic AcadBlockReference)
+        {
+            AcadBlockReference.ResetBlock();
+            return AcadBlockReference;
+        }
+       
         /// <summary>
         /// Get Attributes of the block reference
         /// https://help.autodesk.com/view/OARX/2022/ENU/?guid=GUID-0630EFF2-51A2-46E4-A5A1-0377FB7E38E8

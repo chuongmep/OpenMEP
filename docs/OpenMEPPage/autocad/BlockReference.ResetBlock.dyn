@@ -1,0 +1,384 @@
+{
+  "Uuid": "4764454b-250b-4448-876d-2b2eeef64b15",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "BlockReference.ResetBlock",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "c30e59cc87e04181b71177bed3ec5b84",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "fe292e0a169b489287c8f1012c233c90",
+          "Name": "toggle",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3f15a47ffa64448382f14c6cf34c8e36",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPCad.Autocad.Document.Current@bool",
+      "Replication": "Auto",
+      "Description": "Get Current Document Of Autocad Application\n\nDocument.Current (toggle: bool): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "Id": "b3e83311ff824d119b4b916e9a9e985c",
+      "NodeType": "BooleanInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9ce333e371ab4e7994cb440d678a8817",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False",
+      "InputValue": true
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "eea97916bf5d47b7ac14b82325766a90",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "21945389555e41f88d2312c9de1dd73c",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "997ac48f57f94326ba9aa5c5e24bcc69",
+          "Name": "AcadDatabase",
+          "Description": "The Database object contains all of the graphical and most of the non-graphical AutoCAD objects.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPCad.Autocad.Document.Database@var",
+      "Replication": "Auto",
+      "Description": "Database of Document\n\nDocument.Database (AcadDocument: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "7d5a74494cbf48aebad0cf2b8d7f7238",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "9f0dd64c1a6540d887344a86b705d01f",
+          "Name": "AcadDatabase",
+          "Description": "AcadDatabase\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7a5aeca75ba34a08a65d9b19cd1d920c",
+          "Name": "AcadBlockReferences",
+          "Description": "AcadBlockReferences",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPCad.Autocad.Database.BlockReferences@var",
+      "Replication": "Auto",
+      "Description": "Get all blocks in database of Document\n\nDatabase.BlockReferences (AcadDatabase: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "6c8df71e298b45d98364ec9de81890ce",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "f38210446df948df9b28136ea2e92921",
+          "Name": "AcadBlockReference",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a9c48636d05e48b695497a202a4be6b6",
+          "Name": "string",
+          "Description": "name of block reference object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPCad.Autocad.BlockReference.Name@var",
+      "Replication": "Auto",
+      "Description": "Return name of the block reference\n\nBlockReference.Name (AcadBlockReference: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "2f94cf9f9b614aaaabece9fb9c94dc88",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "60dcbe45296b46a883f1bc3a09969bff",
+          "Name": "AcadBlockReference",
+          "Description": "AcadBlockReference\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fe99a315ddb746839a174c1c7e776cb6",
+          "Name": "AcadBlockReference",
+          "Description": "AcadBlockReference",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPCad.Autocad.BlockReference.ResetBlock@var",
+      "Replication": "Auto",
+      "Description": "Resets the AcDbBlockReference to the default state of the dynamic block. All properties on the AcDbBlockReference are set to match the values in the block definition.\n\nBlockReference.ResetBlock (AcadBlockReference: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "ae63b92af6194a1ebefbcd38dcc7b1af",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "b7003eda96e74837a9ec23d2ea0a5821",
+          "Name": "AcadBlockReference",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dde257866732459d82a63d29195f59ef",
+          "Name": "string",
+          "Description": "name of block reference object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPCad.Autocad.BlockReference.Name@var",
+      "Replication": "Auto",
+      "Description": "Return name of the block reference\n\nBlockReference.Name (AcadBlockReference: var): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3f15a47ffa64448382f14c6cf34c8e36",
+      "End": "21945389555e41f88d2312c9de1dd73c",
+      "Id": "cb3077e02be947eeba0d77c2829d7f88",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9ce333e371ab4e7994cb440d678a8817",
+      "End": "fe292e0a169b489287c8f1012c233c90",
+      "Id": "b712731c3cfe49fc9a5781130ff62bef",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "997ac48f57f94326ba9aa5c5e24bcc69",
+      "End": "9f0dd64c1a6540d887344a86b705d01f",
+      "Id": "810002c5619f4a9385307a68c7b9d7a9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7a5aeca75ba34a08a65d9b19cd1d920c",
+      "End": "f38210446df948df9b28136ea2e92921",
+      "Id": "8231154d47de416ab817fc2b06173b93",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7a5aeca75ba34a08a65d9b19cd1d920c",
+      "End": "60dcbe45296b46a883f1bc3a09969bff",
+      "Id": "f843b0a40daa452eb50145fde837b84d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fe99a315ddb746839a174c1c7e776cb6",
+      "End": "b7003eda96e74837a9ec23d2ea0a5821",
+      "Id": "d2086e2fa0824827850fa5c321a1c894",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "c30e59cc87e04181b71177bed3ec5b84",
+        "eea97916bf5d47b7ac14b82325766a90",
+        "7d5a74494cbf48aebad0cf2b8d7f7238",
+        "6c8df71e298b45d98364ec9de81890ce",
+        "2f94cf9f9b614aaaabece9fb9c94dc88",
+        "ae63b92af6194a1ebefbcd38dcc7b1af"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.19",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.19.0.5224",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "c30e59cc87e04181b71177bed3ec5b84",
+        "Name": "Document.Current",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 471.02245690407472,
+        "Y": 278.21494524473457
+      },
+      {
+        "Id": "b3e83311ff824d119b4b916e9a9e985c",
+        "Name": "Boolean",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 193.42245690407503,
+        "Y": 266.21494524473457
+      },
+      {
+        "Id": "eea97916bf5d47b7ac14b82325766a90",
+        "Name": "Document.Database",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 745.00998952113844,
+        "Y": 285.28035996817795
+      },
+      {
+        "Id": "7d5a74494cbf48aebad0cf2b8d7f7238",
+        "Name": "Database.BlockReferences",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1053.5113404839328,
+        "Y": 283.0109580207149
+      },
+      {
+        "Id": "6c8df71e298b45d98364ec9de81890ce",
+        "Name": "BlockReference.Name",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1498.7374412548534,
+        "Y": 586.740390764813
+      },
+      {
+        "Id": "2f94cf9f9b614aaaabece9fb9c94dc88",
+        "Name": "BlockReference.ResetBlock",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1428.4962114564885,
+        "Y": 279.70656154309688
+      },
+      {
+        "Id": "ae63b92af6194a1ebefbcd38dcc7b1af",
+        "Name": "BlockReference.Name",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1841.9780899602624,
+        "Y": 363.70638274526448
+      }
+    ],
+    "Annotations": [],
+    "X": -49.993408417516548,
+    "Y": 98.04127348658912,
+    "Zoom": 0.59748709481578632
+  }
+}
