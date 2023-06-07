@@ -31,8 +31,8 @@ public class Civil3DSetup : IInstaller
             OutFileName = fileName,
             InstallScope = InstallScope.perUser,
             MajorUpgrade = MajorUpgrade.Default,
-            UpgradeCode = new Guid("20ED4E57-73E8-4075-9402-EC650D8291D2"),
-            GUID = new Guid("9289E103-87BE-433A-8206-1473D7DE0515"),
+            UpgradeCode = new Guid("7944C304-060C-44CD-AC00-3A42005B9A42"),
+            GUID = new Guid("67F86ABD-EDDF-4CBF-99B6-7A0C10C921D1"),
             BackgroundImage = @"Resources\BackgroundImage.png",
             BannerImage = @"Resources\BannerImage.png",
             ControlPanelInfo =
@@ -81,7 +81,6 @@ public class Civil3DSetup : IInstaller
             var directoryInfo = new DirectoryInfo(Path.Combine(appDataDir, "Autodesk", $"C3D {civil3DVersion}",
                 "Dynamo", dynamoVersion, "packages", PackageName));
             string dynamoVersionPath = $"C3D {civil3DVersion}\\Dynamo\\{dynamoVersion}\\packages\\{PackageName}";
-            Console.WriteLine("Folder Wix: " + dynamoVersionPath);
             if (directoryInfo.Exists)
             {
                 var files = new Files($@"{directoryInfo.FullName}\*.*");
