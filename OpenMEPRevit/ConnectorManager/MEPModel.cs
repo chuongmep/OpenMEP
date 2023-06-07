@@ -1,7 +1,7 @@
 ﻿using Autodesk.Revit.DB.Electrical;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 
-namespace OpenMEP.ConnectorManager;
+namespace OpenMEPRevit.ConnectorManager;
 
 /// <summary>
 ///    Supports all MEP models that are persistent within the Autodesk Revit project.

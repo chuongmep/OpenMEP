@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 
-namespace OpenMEP.Application;
+namespace OpenMEPRevit.Application;
 
 /// <summary>
 ///  a class to to get information about OpenMEP

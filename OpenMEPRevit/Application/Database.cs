@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using RevitServices.Persistence;
 
-namespace OpenMEP.Application;
+namespace OpenMEPRevit.Application;
 
 public class Database
 {

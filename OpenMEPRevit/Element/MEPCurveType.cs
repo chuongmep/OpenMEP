@@ -1,7 +1,7 @@
 ﻿using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 
 
 /// <summary>

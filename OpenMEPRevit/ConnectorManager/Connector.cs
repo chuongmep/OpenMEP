@@ -2,7 +2,7 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using Revit.Elements;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
@@ -11,7 +11,7 @@ using FamilyInstance = Autodesk.Revit.DB.FamilyInstance;
 using MEPCurve = Autodesk.Revit.DB.MEPCurve;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
-namespace OpenMEP.ConnectorManager;
+namespace OpenMEPRevit.ConnectorManager;
 
 /// <summary>A connector in an Autodesk Revit MEP project document.</summary>
 /// <remarks>
@@ -187,7 +187,7 @@ public class Connector
         ConnectorSet? connectorSet)
     {
         Autodesk.Revit.DB.Connector? closet = null;
-        Point? locationCenter = global::OpenMEP.Element.Element.GetLocation(element);
+        Point? locationCenter = global::OpenMEPRevit.Element.Element.GetLocation(element);
         double distance = Double.MaxValue;
         foreach (Autodesk.Revit.DB.Connector? connector in connectorSet!)
         {
@@ -283,7 +283,7 @@ public class Connector
         List<Autodesk.Revit.DB.Connector> connectors)
     {
         Autodesk.Revit.DB.Connector? farthest = null;
-        Point? locationCenter = global::OpenMEP.Element.Element.GetLocation(element);
+        Point? locationCenter = global::OpenMEPRevit.Element.Element.GetLocation(element);
         double distance = Double.MinValue;
         foreach (Autodesk.Revit.DB.Connector? connector in connectors!)
         {
@@ -332,7 +332,7 @@ public class Connector
     {
         if (element == null) throw new ArgumentException(nameof(element));
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
-            global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
+            global::OpenMEPRevit.ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) return new List<Autodesk.Revit.DB.Connector>();
         return GetConnectors(connectorManager);
     }
@@ -349,7 +349,7 @@ public class Connector
     public static List<Autodesk.Revit.DB.Connector?> GetUnusedConnectors(Revit.Elements.Element? element)
     {
         Autodesk.Revit.DB.ConnectorManager? connectorManager =
-            global::OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(element);
+            global::OpenMEPRevit.ConnectorManager.ConnectorManager.GetConnectorManager(element);
         if (connectorManager == null) throw new ArgumentNullException(nameof(connectorManager));
         return GetUnusedConnectors(connectorManager);
     }

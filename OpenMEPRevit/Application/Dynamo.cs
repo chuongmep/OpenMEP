@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Dynamo.Applications;
 
-namespace OpenMEP.Application;
+namespace OpenMEPRevit.Application;
 /// <summary>
 /// Class Contains Dynamo Application Methods
 /// </summary>

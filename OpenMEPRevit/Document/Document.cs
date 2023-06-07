@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using Autodesk.DesignScript.Runtime;
-using OpenMEP.Helpers;
+﻿using Autodesk.DesignScript.Runtime;
+using OpenMEPRevit.Helpers;
 using RevitServices.Persistence;
 
-namespace OpenMEP.Document;
+namespace OpenMEPRevit.Document;
 
 /// <summary>An object that represents an open Autodesk Revit project.</summary>
 /// <remarks>

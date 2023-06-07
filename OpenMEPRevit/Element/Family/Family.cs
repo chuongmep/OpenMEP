@@ -1,8 +1,8 @@
 ﻿using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using RevitServices.Persistence;
 
-namespace OpenMEP.Element.Family;
+namespace OpenMEPRevit.Element.Family;
 
 /// <summary>
 ///    An element that represents a custom family (not a system family) in Autodesk Revit.

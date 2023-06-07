@@ -3,7 +3,7 @@ using Dynamo.Graph.Nodes;
 using Revit.Elements;
 using RevitServices.Persistence;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 
 public class View
 {

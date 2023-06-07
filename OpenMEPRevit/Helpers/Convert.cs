@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
-using Dynamo.Controls;
 using GShark.Geometry;
 using Revit.Elements;
 using Revit.GeometryConversion;
@@ -25,9 +24,8 @@ using rvtElement = Autodesk.Revit.DB.Element;
 using rvtFamilyParameter = Autodesk.Revit.DB.FamilyParameter;
 using rvtParameter = Autodesk.Revit.DB.Parameter;
 using Surface = Autodesk.DesignScript.Geometry.Surface;
-using Vector = Autodesk.DesignScript.Geometry.Vector;
 
-namespace OpenMEP.Helpers
+namespace OpenMEPRevit.Helpers
 {
     [IsVisibleInDynamoLibrary(false)]
     internal static class Convert

@@ -1,6 +1,6 @@
 ﻿using Autodesk.DesignScript.Runtime;
 
-namespace OpenMEP.Application;
+namespace OpenMEPRevit.Application;
 
 /// <summary>
 /// A class to get information about Windows

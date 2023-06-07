@@ -5,12 +5,12 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
-namespace OpenMEP.Document;
+namespace OpenMEPRevit.Document;
 
 public class Selection
 {

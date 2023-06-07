@@ -1,12 +1,12 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 
 /// <summary>A duct in the Autodesk Revit MEP product.</summary>
 /// <remarks>The duct is only available in the Autodesk Revit MEP product.</remarks>

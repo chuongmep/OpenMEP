@@ -1,6 +1,6 @@
 ﻿using RevitServices.Persistence;
 
-namespace OpenMEP.Application;
+namespace OpenMEPRevit.Application;
 
 /// <summary>
 /// A class to get information about Revit

@@ -1,6 +1,4 @@
-﻿using Autodesk.Revit.DB;
-
-namespace OpenMEP.Parameter;
+﻿namespace OpenMEPRevit.Parameter;
 /// <summary>The Definition object is a base object for all type of parameter definitions within the Autodesk Revit API.</summary>
 /// <remarks>This object supports properties and methods that report the name and type of a
 /// particular parameter. There are two kinds of definition object derived from this:

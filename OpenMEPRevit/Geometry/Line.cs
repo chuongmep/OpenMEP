@@ -1,4 +1,4 @@
-﻿namespace OpenMEP.Geometry;
+﻿namespace OpenMEPRevit.Geometry;
 
 public  class Line
 {

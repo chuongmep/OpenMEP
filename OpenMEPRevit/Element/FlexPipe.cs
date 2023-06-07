@@ -1,13 +1,12 @@
 ﻿using Autodesk.Revit.DB;
-using Autodesk.Revit.Exceptions;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 using ArgumentNullException = System.ArgumentNullException;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 /// <summary>A flex pipe in the Autodesk Revit MEP product.</summary>
 /// <remarks>The flex pipe is only available in the Autodesk Revit MEP product.</remarks>
 public class FlexPipe

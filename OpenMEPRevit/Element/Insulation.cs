@@ -1,11 +1,11 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Mechanical;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 
 /// <summary>
 ///    Acts as the base class for duct insulation, pipe insulation and duct lining elements.

@@ -3,7 +3,7 @@ using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
 using RevitServices.Persistence;
 
-namespace OpenMEP.Element.Family;
+namespace OpenMEPRevit.Element.Family;
 
 /// <summary>The family manager object to manage the family types and parameters in family document.</summary>
 public class FamilyManager

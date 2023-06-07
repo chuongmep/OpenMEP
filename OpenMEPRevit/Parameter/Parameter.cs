@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using Autodesk.DesignScript.Runtime;
+﻿using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 
-namespace OpenMEP.Parameter;
+namespace OpenMEPRevit.Parameter;
 /// <summary>The parameter object contains the value data assigned to that parameter.</summary>
 /// <remarks>The piece of data contained within the parameter can be either a Double, Integer,
 /// String or ElementId. The parameter object can be retrieved from any Element object using

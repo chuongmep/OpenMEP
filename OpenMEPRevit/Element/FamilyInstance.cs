@@ -3,7 +3,7 @@ using Autodesk.Revit.DB;
 using OpenMEPSandbox.Geometry;
 using Revit.GeometryConversion;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 /// <summary>
 ///    This object represents a single instance of a family type, such as a single I beam.
 /// </summary>

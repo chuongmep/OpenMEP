@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		CONTRIBUTING.md = CONTRIBUTING.md
 		docs\docfx.json = docs\docfx.json
 		docs\OpenMEPSandbox_DynamoCustomization.xml = docs\OpenMEPSandbox_DynamoCustomization.xml
-		docs\OpenMEP_DynamoCustomization.xml = docs\OpenMEP_DynamoCustomization.xml
 		docs\pkg.json = docs\pkg.json
 		docs\sandbox\pkg.json = docs\sandbox\pkg.json
 		README.md = README.md
 		docs\civil\pkg.json = docs\civil\pkg.json
 		docs\OpenMEPCivil_DynamoCustomization.xml = docs\OpenMEPCivil_DynamoCustomization.xml
 		docs\OpenMEPCad_DynamoCustomization.xml = docs\OpenMEPCad_DynamoCustomization.xml
+		docs\OpenMEPRevit_DynamoCustomization.xml = docs\OpenMEPRevit_DynamoCustomization.xml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeployInstaller", "DeployInstaller\DeployInstaller.csproj", "{C7835EFE-E1C7-48B2-90D0-E943D43A905D}"

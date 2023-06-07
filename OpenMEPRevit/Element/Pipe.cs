@@ -3,14 +3,14 @@ using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using OpenMEPSandbox.Algo;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 using Point = OpenMEPSandbox.Geometry.Point;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 
 /// <summary>A pipe in the Autodesk Revit MEP product.</summary>
 /// <remarks>The pipe is only available in the Autodesk Revit MEP product.</remarks>

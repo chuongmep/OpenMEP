@@ -1,6 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 
-namespace OpenMEP.Utils;
+namespace OpenMEPRevit.Utils;
 /// <summary>Used to obtain user-visible names for enums.</summary>
 /// <since>2011</since>
 public class LabelUtils

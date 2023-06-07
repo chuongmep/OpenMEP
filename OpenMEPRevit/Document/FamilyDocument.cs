@@ -1,6 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 
-namespace OpenMEP.Document;
+namespace OpenMEPRevit.Document;
 
 /// <summary>An object that represents an open Family In Autodesk Revit project.</summary>
 /// <remarks>

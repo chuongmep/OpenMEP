@@ -4,7 +4,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Mechanical;
 using Autodesk.Revit.DB.Plumbing;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using OpenMEPSandbox.Geometry;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
@@ -12,7 +12,7 @@ using RevitServices.Transactions;
 using Line = Autodesk.Revit.DB.Line;
 using Point = OpenMEPSandbox.Geometry.Point;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 /// <summary>
 /// A class can use for DuctType, PipeType, CableTrayType, ConduitType, WireType, MEPCurveType
 /// </summary>
@@ -123,14 +123,14 @@ public class MEPCurve
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Autodesk.Revit.DB.FamilyInstance newUnionFitting = doc.Create.NewUnionFitting(c2, c1);
         TransactionManager.Instance.TransactionTaskDone();
         if (newUnionFitting == null)
         {
-            List<Connector> connectors = OpenMEP.ConnectorManager.Connector.GetConnectors(mepCurve1);
-            Connector? c11 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(c1, connectors);
+            List<Connector> connectors = ConnectorManager.Connector.GetConnectors(mepCurve1);
+            Connector? c11 = ConnectorManager.Connector.GetConnectorClosest(c1, connectors);
             ConnectorSet connectorSet = c11!.AllRefs;
             IEnumerator enumerator = connectorSet.GetEnumerator();
             while (enumerator.MoveNext())
@@ -163,8 +163,8 @@ public class MEPCurve
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Autodesk.Revit.DB.FamilyInstance newElbowFitting = doc.Create.NewElbowFitting(c2, c1);
         TransactionManager.Instance.TransactionTaskDone();
         if (newElbowFitting == null) return null;
@@ -190,10 +190,10 @@ public class MEPCurve
     {
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
-        Connector? c3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
-        Connector? c4 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve4, mepCurve3);
+        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c3 = ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        Connector? c4 = ConnectorManager.Connector.GetConnectorClosest(mepCurve4, mepCurve3);
         bool flag1 = c1!.CoordinateSystem.BasisZ.ToDynamoVector()
             .IsParallel(c2!.CoordinateSystem.BasisZ.ToDynamoVector());
         bool flag2 = c1.CoordinateSystem.BasisZ.ToDynamoVector()
@@ -237,9 +237,9 @@ public class MEPCurve
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? connector1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
-        Connector? connector2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
-        Connector? connector3 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
+        Connector? connector1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? connector2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? connector3 = ConnectorManager.Connector.GetConnectorClosest(mepCurve3, mepCurve1);
         if(connector1==null||connector2==null||connector3==null) throw new Exception("connector is null");
         // sort connectors main-main-branch
         Connector? c1;
@@ -351,8 +351,8 @@ public class MEPCurve
         TransactionManager.Instance.ForceCloseTransaction();
         Autodesk.Revit.DB.Document doc = mepCurve1.InternalElement.Document;
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Connector? c1 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
-        Connector? c2 = OpenMEP.ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
+        Connector? c1 = ConnectorManager.Connector.GetConnectorClosest(mepCurve1, mepCurve2);
+        Connector? c2 = ConnectorManager.Connector.GetConnectorClosest(mepCurve2, mepCurve1);
         Autodesk.Revit.DB.FamilyInstance newTransitionFitting = doc.Create.NewTransitionFitting(c2, c1);
         TransactionManager.Instance.TransactionTaskDone();
         if (newTransitionFitting == null) return null;

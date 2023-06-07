@@ -1,11 +1,11 @@
 ﻿using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 /// <summary>Electrical wire element.</summary>
 public class Wire
 {

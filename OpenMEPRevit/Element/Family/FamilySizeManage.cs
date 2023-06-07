@@ -6,7 +6,7 @@ using Dynamo.Graph.Nodes;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
-namespace OpenMEP.Element.Family
+namespace OpenMEPRevit.Element.Family
 {
     /// <summary>Contains size information for a family.</summary>
     /// <since>2014</since>

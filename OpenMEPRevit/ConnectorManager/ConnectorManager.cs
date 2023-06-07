@@ -2,7 +2,7 @@
 using Autodesk.Revit.DB.Electrical;
 using Revit.Elements;
 
-namespace OpenMEP.ConnectorManager;
+namespace OpenMEPRevit.ConnectorManager;
 
 /// <summary>
 /// Provides access to the Connector Manager

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 
-namespace OpenMEP.Element.Family;
+namespace OpenMEPRevit.Element.Family;
 
 /// <summary>The family parameter object.</summary>
 public class FamilyParameter

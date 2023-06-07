@@ -1,10 +1,10 @@
 ﻿using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
-namespace OpenMEP.Element;
+namespace OpenMEPRevit.Element;
 /// <summary>This class represents a conduit in Autodesk Revit.</summary>
 public class Conduit
 {

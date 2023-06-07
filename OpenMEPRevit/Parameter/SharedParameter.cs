@@ -3,7 +3,7 @@ using Autodesk.Revit.DB;
 using Revit.Elements;
 using RevitServices.Persistence;
 
-namespace OpenMEP.Parameter;
+namespace OpenMEPRevit.Parameter;
 /// <summary>
 ///    An element that stores the definition of a shared parameter which is loaded into the document.
 /// </summary>

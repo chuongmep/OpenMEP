@@ -1,9 +1,9 @@
 ﻿using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
-using OpenMEP.Helpers;
+using OpenMEPRevit.Helpers;
 using RevitServices.Transactions;
 
-namespace OpenMEP.Element.Family;
+namespace OpenMEPRevit.Element.Family;
 
 /// <summary>The family type object provides read access to the values of family parameters for this type.</summary>
 public class FamilyType

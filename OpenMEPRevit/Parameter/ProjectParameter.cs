@@ -2,7 +2,7 @@
 using Autodesk.Revit.DB;
 using RevitServices.Persistence;
 
-namespace OpenMEP.Parameter;
+namespace OpenMEPRevit.Parameter;
 /// <summary>An Element that stores a user-defined parameter.</summary>
 /// <remarks>
 ///    Revit supports both built-in and user-defined parameters.  Built-in parameters

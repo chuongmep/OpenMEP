@@ -1,7 +1,7 @@
 using Autodesk.Revit.DB;
 using Revit.Elements;
 
-namespace OpenMEP.Utils;
+namespace OpenMEPRevit.Utils;
 
 /// <summary>Contains utilities related to family operations.</summary>
 public class FamilyUtils

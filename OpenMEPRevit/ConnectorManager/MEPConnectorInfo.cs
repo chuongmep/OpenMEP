@@ -1,4 +1,4 @@
-﻿namespace OpenMEP.ConnectorManager;
+﻿namespace OpenMEPRevit.ConnectorManager;
 
 /// <summary>MEP connector information.</summary>
 /// <since>2016</since>
