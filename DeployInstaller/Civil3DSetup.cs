@@ -40,7 +40,7 @@ public class Civil3DSetup : IInstaller
                 Manufacturer = "chuongmep",
                 HelpLink = "https://chuongmep.com",
                 ProductIcon = @"Resources\ShellIcon.ico",
-                Comments = "Project Dynamo Revit open source Automation",
+                Comments = "Project Dynamo Civil3D open source Automation",
                 Contact = "chuongpqvn@gmail.com",
                 UrlUpdateInfo = "https://github.com/chuongmep/OpenMEP/releases/latest"
             },

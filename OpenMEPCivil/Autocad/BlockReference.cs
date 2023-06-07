@@ -1,6 +1,8 @@
 ﻿using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
+using Autodesk.DesignScript.Geometry;
+using OpenMEPCivil.Helpers;
 
 namespace OpenMEPCivil.Autocad;
 using Application = Autodesk.AutoCAD.ApplicationServices.Core.Application;
@@ -57,6 +59,79 @@ public class BlockReference
         }
         return realName;
     }
-
+    
+    /// <summary>
+    /// Get Name of the BlockReference
+    /// </summary>
+    /// <param name="BlockReference">BlockReference</param>
+    /// <returns name="string">name of block reference</returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static string Name(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.Name;
+    }
+    public static string BlockName(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.BlockName;
+    }
+    
+    public static Point Position(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.Position.ToDSPoint();
+    }
+    public static double Rotation(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.Rotation;
+    }
+    public static double ScaleX(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.ScaleFactors.X;
+    }
+    public static double ScaleY(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.ScaleFactors.Y;
+    }
+    public static double ScaleZ(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.ScaleFactors.Z;
+    }
+    public static double LinetypeScale(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.LinetypeScale;
+    }
+    public static double UnitFactor(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if(acadBlockReference== null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.UnitFactor;
+    }
+    public static bool IsDynamicBlock(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if (acadBlockReference == null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.IsDynamicBlock;
+    }
+    public static Vector Normal(Autodesk.AutoCAD.DynamoNodes.BlockReference BlockReference)
+    {
+        var acadBlockReference = ToAcadBlockReference(BlockReference);
+        if (acadBlockReference == null) throw new ArgumentNullException(nameof(BlockReference));
+        return acadBlockReference.Normal.ToDSVector();
+    }
    
 }
