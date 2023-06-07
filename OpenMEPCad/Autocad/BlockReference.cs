@@ -394,5 +394,36 @@ namespace OpenMEPCad.Autocad
                 {"allowValues", allowValues}
             };
         }
+        
+        /// <summary>
+        /// Specifies the X scale factor for the block or external reference (xref). 
+        /// </summary>
+        /// <remarks>The initial scale factor is 1.0. </remarks>
+        /// <param name="AcadBlockReference"></param>
+        /// <returns name="double">A non-zero real number. </returns>
+        public static double XScaleFactor(dynamic AcadBlockReference)
+        {
+            return AcadBlockReference.XScaleFactor;
+        }
+        /// <summary>
+        /// Specifies the Y scale factor for the block or external reference (xref). 
+        /// </summary>
+        /// <remarks>The initial scale factor is 1.0. </remarks>
+        /// <param name="AcadBlockReference"></param>
+        /// <returns name="double">A non-zero real number. </returns>
+        public static double YScaleFactor(dynamic AcadBlockReference)
+        {
+            return AcadBlockReference.YScaleFactor;
+        }
+        /// <summary>
+        /// Specifies the Z scale factor for the block or external reference (xref). 
+        /// </summary>
+        /// <remarks>The initial scale factor is 1.0. </remarks>
+        /// <param name="AcadBlockReference"></param>
+        /// <returns name="double">A non-zero real number. </returns>
+        public static double ZScaleFactor(dynamic AcadBlockReference)
+        {
+            return AcadBlockReference.ZScaleFactor;
+        }
     }
 }
