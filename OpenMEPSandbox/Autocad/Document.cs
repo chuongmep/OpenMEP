@@ -104,7 +104,7 @@ namespace OpenMEPSandbox.Autocad
                 CadObject cadObj = new CadObject(item);
                 if (cadObj.Is(filter))
                 {
-                    lst.Add(cadObj);
+                    lst.Add(cadObj.CadEntity);
                 }
             }
             return lst.Distinct().ToList();

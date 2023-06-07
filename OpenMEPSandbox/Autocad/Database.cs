@@ -28,7 +28,7 @@ namespace OpenMEPSandbox.Autocad
             foreach (dynamic block in AcadDatabase.Blocks)
             {
                 var cadObj = new CadObject(block);
-                Blocks.Add(cadObj);
+                Blocks.Add(cadObj.CadEntity);
             }
             return Blocks;
         }
@@ -54,7 +54,7 @@ namespace OpenMEPSandbox.Autocad
                 var cadObj = new CadObject(item);
                 if (cadObj.Is(CadFilterData.Text))
                 {
-                    lst.Add(cadObj);
+                    lst.Add(cadObj.CadEntity);
                 }
             }
             return lst.Distinct().ToList();
@@ -81,7 +81,7 @@ namespace OpenMEPSandbox.Autocad
                 var cadObj = new CadObject(item);
                 if (cadObj.Is(CadFilterData.BlockReference))
                 {
-                    lst.Add(cadObj);
+                    lst.Add(cadObj.CadEntity);
                 }
             }
             return lst.Distinct().ToList();

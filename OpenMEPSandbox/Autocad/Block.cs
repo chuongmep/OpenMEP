@@ -23,9 +23,9 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.Name.png)
     /// [Block.Name.dyn](../OpenMEPPage/autocad/Block.Name.dyn)
     /// </example>
-    public static string Name(CadObject AcadBlock)
+    public static string Name(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.Name;
+        return AcadBlock.Name;
     }
     
     /// <summary>
@@ -37,9 +37,9 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.ObjectName.png)
     /// [Block.ObjectName.dyn](../OpenMEPPage/autocad/Block.ObjectName.dyn)
     /// </example>
-    public static string ObjectName(CadObject AcadBlock)
+    public static string ObjectName(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.ObjectName;
+        return AcadBlock.ObjectName;
     }
     
     /// <summary>
@@ -51,9 +51,9 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.OwnerID.png)
     /// [Block.OwnerID.dyn](../OpenMEPPage/autocad/Block.OwnerID.dyn)
     /// </example>
-    public static dynamic OwnerID(CadObject AcadBlock)
+    public static dynamic OwnerID(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.OwnerID;
+        return AcadBlock.OwnerID;
     }
     
     /// <summary>
@@ -66,9 +66,9 @@ public class Block
     /// [Block.IsDynamicBlock.dyn](../OpenMEPPage/autocad/Block.IsDynamicBlock.dyn)
     /// </example>
     [NodeCategory("Query")]
-    public static bool IsDynamicBlock(CadObject AcadBlock)
+    public static bool IsDynamicBlock(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.IsDynamicBlock;
+        return AcadBlock.IsDynamicBlock;
     }
     
     /// <summary>
@@ -81,9 +81,9 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.BlockScaling.png)
     /// [Block.BlockScaling.dyn](../OpenMEPPage/autocad/Block.BlockScaling.dyn)
     /// </example>
-    public static dynamic BlockScaling(CadObject AcadBlock)
+    public static dynamic BlockScaling(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.BlockScaling;
+        return AcadBlock.BlockScaling;
     }
     
     /// <summary>
@@ -95,9 +95,9 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.Handle.png)
     /// [Block.Handle.dyn](../OpenMEPPage/autocad/Block.Handle.dyn)
     /// </example>
-    public static string Handle(CadObject AcadBlock)
+    public static string Handle(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.Handle;
+        return AcadBlock.Handle;
     }
     
     /// <summary>
@@ -110,9 +110,9 @@ public class Block
     /// [Block.HasExtensionDictionary.dyn](../OpenMEPPage/autocad/Block.HasExtensionDictionary.dyn)
     /// </example>
     [NodeCategory("Query")]
-    public static bool HasExtensionDictionary(CadObject AcadBlock)
+    public static bool HasExtensionDictionary(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.HasExtensionDictionary;
+        return AcadBlock.HasExtensionDictionary;
     }
     
     /// <summary>
@@ -124,7 +124,7 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.ObjectID.png)
     /// [Block.ObjectID.dyn](../OpenMEPPage/autocad/Block.ObjectID.dyn)
     /// </example>
-    public static long ObjectID(CadObject AcadBlock)
+    public static long ObjectID(dynamic AcadBlock)
     {
         return AcadBlock.ObjectID;
     }
@@ -139,9 +139,9 @@ public class Block
     /// [Block.IsXRef.dyn](../OpenMEPPage/autocad/Block.IsXRef.dyn)
     /// </example>
     [NodeCategory("Query")]
-    public static bool IsXRef(CadObject AcadBlock)
+    public static bool IsXRef(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.IsXRef;
+        return AcadBlock.IsXRef;
     }
     /// <summary>
     /// Determines whether the given block is a layout block. 
@@ -153,9 +153,9 @@ public class Block
     /// [Block.IsLayout.dyn](../OpenMEPPage/autocad/Block.IsLayout.dyn)
     /// </example>
     [NodeCategory("Query")]
-    public static bool IsLayout(CadObject AcadBlock)
+    public static bool IsLayout(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.IsLayout;
+        return AcadBlock.IsLayout;
     }
     /// <summary>
     /// Specifies the origin of the UCS, block, hatch, or raster image in WCS coordinates. 
@@ -166,9 +166,9 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.Origin.png)
     /// [Block.Origin.dyn](../OpenMEPPage/autocad/Block.Origin.dyn)
     /// </example>
-    public static Point Origin(CadObject AcadBlock)
+    public static Point Origin(dynamic AcadBlock)
     {
-        double[]? doubles = AcadBlock.CadEntity.Origin as double[];
+        double[]? doubles = AcadBlock.Origin as double[];
         return Point.ByCoordinates(doubles[0], doubles[1], doubles[2]);
     }
     /// <summary>
@@ -180,9 +180,9 @@ public class Block
     /// ![](../OpenMEPPage/autocad/pic/Block.Units.png)
     /// [Block.Units.dyn](../OpenMEPPage/autocad/Block.Units.dyn)
     /// </example>
-    public static dynamic Units(CadObject AcadBlock)
+    public static dynamic Units(dynamic AcadBlock)
     {
-        return AcadBlock.CadEntity.Units;
+        return AcadBlock.Units;
     }
     
 }
