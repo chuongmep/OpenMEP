@@ -7,7 +7,7 @@ public interface IInstaller
     /// <summary>
     /// Execute the installer
     /// </summary>
-    public void CreateInstaller();
+    public void CreateInstaller(string Version);
     
     /// <summary>
     /// Generate Wix entities

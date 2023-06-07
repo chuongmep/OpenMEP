@@ -10,23 +10,23 @@ public class RevitSetup : IInstaller
 {
     string installationDir = @"%AppDataFolder%\Dynamo\Dynamo Revit\";
 
-    const string projectName = "OpenMEP";
+    const string projectName = "OpenMEPRevit";
 
-    const string outputName = "OpenMEP";
-    string folderPackageName = "OpenMEP";
+    const string outputName = "OpenMEPRevit";
+    string PackageName = "OpenMEP";
     const string outputDir = "output";
-    static string Version = $"2.0.{Utils.GetLastTwoDigitOfYear()}.{Utils.GetDayInYear()}{Utils.GetDay()}";
-    string fileName = new StringBuilder().Append(outputName).Append("-").Append(Version).ToString();
+    
 
-    public void CreateInstaller()
+    public void CreateInstaller(string version)
     {
+        string fileName = new StringBuilder().Append(outputName).Append("-").Append(version).ToString();
         var projectRevit = new Project
         {
             Name = projectName,
             OutDir = outputDir,
             Platform = Platform.x64,
             UI = WUI.WixUI_InstallDir,
-            Version = new Version(Version),
+            Version = new Version(version),
             OutFileName = fileName.ToString(),
             InstallScope = InstallScope.perUser,
             MajorUpgrade = MajorUpgrade.Default,
@@ -72,11 +72,11 @@ public class RevitSetup : IInstaller
         directoryInfos.Sort((x, y) => comparer.Compare(x.Name, y.Name));
         foreach (var directory in directoryInfos)
         {
-            var directoryInfo = new DirectoryInfo(Path.Combine(directory.FullName, "packages", folderPackageName));
+            var directoryInfo = new DirectoryInfo(Path.Combine(directory.FullName, "packages", PackageName));
             if (directoryInfo.Exists)
             {
                 var files = new Files($@"{directoryInfo.FullName}\*.*");
-                var dynamoVersion = directoryInfo.Parent.Parent.Name + $"\\packages\\{folderPackageName}";
+                var dynamoVersion = directoryInfo.Parent.Parent.Name + $"\\packages\\{PackageName}";
                 if (versionStorages.ContainsKey(dynamoVersion))
                 {
                     versionStorages[dynamoVersion].Add(files);

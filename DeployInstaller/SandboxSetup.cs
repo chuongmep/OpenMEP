@@ -10,17 +10,15 @@ public class SandboxSetup : IInstaller
 {
     const string outputName = "OpenMEP";
     string PackageName = "OpenMEP";
-    private static string Version = $"2.0.{Utils.GetLastTwoDigitOfYear()}.{Utils.GetDayInYear()}{Utils.GetDay()}";
     const string projectNameSandbox = "OpenMEPSandbox";
     const string outputDir = "output";
-
-    private static readonly string fileNameSandbox =
-        new StringBuilder().Append(outputName + "Sandbox").Append("-").Append(Version).ToString();
-
+    
     string installationDirSandbox = @"%AppDataFolder%\Dynamo\Dynamo Core\";
 
-    public void CreateInstaller()
+    public void CreateInstaller(string version)
     {
+        string fileNameSandbox =
+            new StringBuilder().Append(outputName + "Sandbox").Append("-").Append(version).ToString();
         //Sandbox Project Setup
         var projectSandbox = new Project
         {
@@ -28,7 +26,7 @@ public class SandboxSetup : IInstaller
             OutDir = outputDir,
             Platform = Platform.x64,
             UI = WUI.WixUI_InstallDir,
-            Version = new Version(Version),
+            Version = new Version(version),
             OutFileName = fileNameSandbox,
             InstallScope = InstallScope.perUser,
             MajorUpgrade = MajorUpgrade.Default,

@@ -121,7 +121,7 @@
       </None>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\OpenMEP\OpenMEP.csproj" />
+      <ProjectReference Include="..\OpenMEPRevit\OpenMEPRevit.csproj" />
     </ItemGroup>
 
 </Project>
