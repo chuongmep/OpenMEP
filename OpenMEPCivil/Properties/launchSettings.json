@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "Civil2022": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Autodesk\\AutoCAD 2022\\acad.exe",
+      "commandLineArgs": "/ld \"C:\\Program Files\\Autodesk\\AutoCAD 2022\\AecBase.dbx\" /p \"<<C3D_Metric>>\" /product C3D /language en-US"
+    },
+    "Civil2023": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Autodesk\\AutoCAD 2023\\acad.exe",
+      "commandLineArgs": "/ld \"C:\\Program Files\\Autodesk\\AutoCAD 2023\\AecBase.dbx\" /p \"<<C3D_Metric>>\" /product C3D /language en-US"
+      
+    },
+    "Civil2024": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Autodesk\\AutoCAD 2024\\acad.exe",
+        "commandLineArgs": "/ld \"C:\\Program Files\\Autodesk\\AutoCAD 2024\\AecBase.dbx\" /p \"<<C3D_Metric>>\" /product C3D /language en-US"
+    }
+  }
+}

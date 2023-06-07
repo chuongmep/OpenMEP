@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpenMEPCivil</name>
+  </assembly>
+  <namespaces>
+    <namespace name="OpenMEPCivil.Autocad">
+      <category>OpenMEP.Autocad</category>
+    </namespace>
+  </namespaces>
+</doc>
