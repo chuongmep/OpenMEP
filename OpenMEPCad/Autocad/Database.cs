@@ -1,7 +1,7 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using OpenMEPUI;
 
-namespace OpenMEPSandbox.Autocad
+namespace OpenMEPCad.Autocad
 {
     /// <summary>
     /// The Database object contains all of the graphical and most of the non-graphical AutoCAD objects. Some of the objects contained in the database are entities, symbol tables, and named dictionaries. Entities in the database represent graphical objects within a drawing. Lines, circles, arcs, text, hatch, and polylines are examples of entities.

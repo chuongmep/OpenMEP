@@ -3,7 +3,7 @@
   "file_hash": null,
   "name": "OpenMEP",
   "version": "1.0.0",
-  "description": "Open MEP is Dynamo package open source resolve problem with MEP in Revit",
+  "description": "Open MEP is Dynamo package open source resolve problem with MEP in Dynamo Revit",
   "group": "MEP",
   "keywords": [
     "openmep",
@@ -22,6 +22,6 @@
     "OpenMEP, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
     "OpenMEPUI, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
     "OpenMEPSandbox, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
-    "OpenMEP.customization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    "OpenMEPCad, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null"
   ]
 }

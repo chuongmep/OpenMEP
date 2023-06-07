@@ -2,7 +2,7 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace OpenMEPSandbox.Autocad
+namespace OpenMEPCad.Autocad
 {
     /// <summary>
     /// This .NET class wraps the AcDbBlockReference ObjectARX class.

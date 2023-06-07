@@ -1,6 +1,6 @@
 ﻿using Autodesk.DesignScript.Runtime;
 
-namespace OpenMEPSandbox.Autocad;
+namespace OpenMEPCad.Autocad;
 
 public class Layer
 {

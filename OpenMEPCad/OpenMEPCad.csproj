@@ -2,23 +2,23 @@
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AssemblyVersion>2.0.0.*</AssemblyVersion>
-        <AssemblyName>OpenMEPSandbox</AssemblyName>
-        <RootNamespace>OpenMEPSandbox</RootNamespace>
+        <AssemblyName>OpenMEPCad</AssemblyName>
+        <RootNamespace>OpenMEPCad</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1;Release R24</Configurations>
         <Platforms>AnyCPU</Platforms>
-        <NoWarn>MSB3277;MSB4121;CS1591</NoWarn>
+        <NoWarn>MSB3277;MSB4121;CS1591;CS8602;CS8618</NoWarn>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
         <DynamoOutput>2.3</DynamoOutput>
-        <RevitVersion>2020</RevitVersion>
+        <CadVersion>2020</CadVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <DefineConstants>$(DefineConstants);R20</DefineConstants>
@@ -26,13 +26,13 @@
     <PropertyGroup Condition="$(Configuration.Contains('Release R20'))">
         <DynamoVersion>2.3</DynamoVersion>
         <DynamoOutput>2.3</DynamoOutput>
-        <RevitVersion>2020</RevitVersion>
+        <CadVersion>2020</CadVersion>
         <DefineConstants>$(DefineConstants);R20</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R21'))">
         <DynamoVersion>2.6</DynamoVersion>
         <DynamoOutput>2.6</DynamoOutput>
-        <RevitVersion>2021</RevitVersion>
+        <CadVersion>2021</CadVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <DefineConstants>$(DefineConstants);R21</DefineConstants>
@@ -40,13 +40,13 @@
     <PropertyGroup Condition="$(Configuration.Contains('Release R21'))">
         <DynamoVersion>2.6</DynamoVersion>
         <DynamoOutput>2.6</DynamoOutput>
-        <RevitVersion>2021</RevitVersion>
+        <CadVersion>2021</CadVersion>
         <DefineConstants>$(DefineConstants);R21</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R22'))">
         <DynamoVersion>2.12</DynamoVersion>
         <DynamoOutput>2.12</DynamoOutput>
-        <RevitVersion>2022</RevitVersion>
+        <CadVersion>2022</CadVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <DefineConstants>$(DefineConstants);R22</DefineConstants>
@@ -60,7 +60,7 @@
     <PropertyGroup Condition="$(Configuration.Contains('Debug R23'))">
         <DynamoVersion>2.13</DynamoVersion>
         <DynamoOutput>2.13</DynamoOutput>
-        <RevitVersion>2023</RevitVersion>
+        <CadVersion>2023</CadVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <DefineConstants>$(DefineConstants);R23</DefineConstants>
@@ -68,13 +68,13 @@
     <PropertyGroup Condition="$(Configuration.Contains('Release R23'))">
         <DynamoVersion>2.13</DynamoVersion>
         <DynamoOutput>2.13</DynamoOutput>
-        <RevitVersion>2023</RevitVersion>
+        <CadVersion>2023</CadVersion>
         <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R23.1'))">
         <DynamoVersion>2.16</DynamoVersion>
         <DynamoOutput>2.16</DynamoOutput>
-        <RevitVersion>2023</RevitVersion>
+        <CadVersion>2023</CadVersion>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <DefineConstants>$(DefineConstants);R23</DefineConstants>
@@ -82,19 +82,19 @@
     <PropertyGroup Condition="$(Configuration.Contains('Release R23.1'))">
         <DynamoVersion>2.16</DynamoVersion>
         <DynamoOutput>2.16</DynamoOutput>
-        <RevitVersion>2023</RevitVersion>
+        <CadVersion>2023</CadVersion>
         <DefineConstants>$(DefineConstants);R23</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
         <DynamoVersion>2.16</DynamoVersion>
         <DynamoOutput>2.18</DynamoOutput>
-        <RevitVersion>2023</RevitVersion>
+        <CadVersion>2023</CadVersion>
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Release R24'))">
         <DynamoVersion>2.16</DynamoVersion>
         <DynamoOutput>2.17</DynamoOutput>
-        <RevitVersion>2024</RevitVersion>
+        <CadVersion>2024</CadVersion>
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
     <PropertyGroup>
@@ -116,40 +116,19 @@
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop.Common" Version="$(RevitVersion).*">
+        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop.Common" Version="$(CadVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
         <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop" Version="$(RevitVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="PresentationCore" />
+        <Reference Include="PresentationFramework" />
+        <Reference Include="WindowsBase" />
+        <Reference Include="System.Net.Http" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\OpenMEPCad\OpenMEPCad.csproj" />
       <ProjectReference Include="..\OpenMEPUI\OpenMEPUI.csproj" />
-      <ProjectReference Include="..\OpenMEPViewExtension\OpenMEPViewExtension.csproj" />
     </ItemGroup>
-    <ItemGroup>
-      <Reference Include="Microsoft.CSharp" />
-      <Reference Include="PresentationCore" />
-      <Reference Include="PresentationFramework" />
-      <Reference Include="WindowsBase" />
-    </ItemGroup>
-    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
-        <ItemGroup>
-            <AssemblyFiles Include="$(TargetDir)*.*" />
-            <PgkDefinition Include="$(SolutionDir)docs\sandbox\pkg.json" />
-            <SandboxXmlCustomization Include="$(SolutionDir)docs\OpenMEPSandbox_DynamoCustomization.xml" />
-            <CadXmlCustomization Include="$(SolutionDir)docs\OpenMEPCad_DynamoCustomization.xml" />
-            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
-            <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
-        </ItemGroup>
-        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
-        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(SandboxXmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(CadXmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
-        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
-        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
-        <Message Text="Copied Completed" Importance="high" />
-    </Target>
 </Project>

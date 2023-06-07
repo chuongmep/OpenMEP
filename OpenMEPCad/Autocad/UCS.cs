@@ -1,6 +1,6 @@
 ﻿using Autodesk.DesignScript.Geometry;
 
-namespace OpenMEPSandbox.Autocad;
+namespace OpenMEPCad.Autocad;
 
 /// <summary>
 /// UserCoordinateSystems class

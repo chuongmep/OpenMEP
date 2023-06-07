@@ -1,7 +1,7 @@
 ﻿using Autodesk.DesignScript.Geometry;
 using Dynamo.Graph.Nodes;
 
-namespace OpenMEPSandbox.Autocad;
+namespace OpenMEPCad.Autocad;
 
 /// <summary>
 /// A block definition containing a name and a set of objects.

@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Interop;
 using Autodesk.DesignScript.Runtime;
 
-namespace OpenMEPSandbox.Autocad
+namespace OpenMEPCad.Autocad
 {
 	[IsVisibleInDynamoLibrary(false)]
     public static class WindowHandle
@@ -68,9 +68,9 @@ namespace OpenMEPSandbox.Autocad
 				uint currentThreadID = GetCurrentThreadId();
 
 				// Search for the Revit process with current thread ID.
-				Process[] revitProcesses = Process.GetProcessesByName("Revit");
-				Process foundRevitProcess = null;
-				foreach (Process aRevitProcess in revitProcesses)
+				Process?[] revitProcesses = Process.GetProcessesByName("Revit");
+				Process? foundRevitProcess = null;
+				foreach (Process? aRevitProcess in revitProcesses)
 				{
 					foreach (ProcessThread aThread in aRevitProcess.Threads)
 					{

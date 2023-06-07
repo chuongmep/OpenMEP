@@ -1,4 +1,4 @@
-﻿namespace OpenMEPSandbox.Autocad;
+﻿namespace OpenMEPCad.Autocad;
 
 public class Color
 {

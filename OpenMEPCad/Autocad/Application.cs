@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Text;
 
-namespace OpenMEPSandbox.Autocad
+namespace OpenMEPCad.Autocad
 {
     /// <summary>
     /// An instance of the AutoCAD application.

@@ -2,7 +2,7 @@
 using System.Text;
 using OpenMEPUI;
 
-namespace OpenMEPSandbox.Autocad
+namespace OpenMEPCad.Autocad
 {
     /// <summary>
     /// The AcadDocument object associated with the object. 

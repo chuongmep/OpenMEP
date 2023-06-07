@@ -3,7 +3,7 @@
   "file_hash": null,
   "name": "OpenMEP",
   "version": "1.0.0",
-  "description": "Open MEP is Dynamo package open source resolve problem with MEP in Civil3D",
+  "description": "Open MEP is Dynamo package open source resolve problem with MEP in Dynamo Civil3D",
   "group": "MEP",
   "keywords": [
     "openmep",
@@ -21,6 +21,5 @@
   "node_libraries": [
     "OpenMEPCivil, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
     "OpenMEPSandbox, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
-    "OpenMEPUI, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null"
   ]
 }

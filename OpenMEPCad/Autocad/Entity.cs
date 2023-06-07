@@ -1,6 +1,6 @@
 ﻿using Autodesk.DesignScript.Runtime;
 
-namespace OpenMEPSandbox.Autocad
+namespace OpenMEPCad.Autocad
 {
     /// <summary>
     /// The base class for all AutoCAD objects.
@@ -14,7 +14,7 @@ namespace OpenMEPSandbox.Autocad
         protected void BaseInit(dynamic entity)
         {
             CadEntity = entity ?? throw new ArgumentNullException("cad entity is null");
-            ObjectName = entity.ObjectName;
+            ObjectName = entity.ObjectName ?? String.Empty;
             ObjectID = entity.ObjectID;
         }
 

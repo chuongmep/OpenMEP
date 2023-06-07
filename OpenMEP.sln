@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		docs\sandbox\pkg.json = docs\sandbox\pkg.json
 		README.md = README.md
 		docs\civil\pkg.json = docs\civil\pkg.json
+		docs\OpenMEPCivil_DynamoCustomization.xml = docs\OpenMEPCivil_DynamoCustomization.xml
+		docs\OpenMEPCad_DynamoCustomization.xml = docs\OpenMEPCad_DynamoCustomization.xml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeployInstaller", "DeployInstaller\DeployInstaller.csproj", "{C7835EFE-E1C7-48B2-90D0-E943D43A905D}"
@@ -33,6 +35,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenMEPUI", "OpenMEPUI\OpenMEPUI.csproj", "{7AC76E66-5ADA-4D1C-81A5-2EFC2E2C7337}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenMEPCivil", "OpenMEPCivil\OpenMEPCivil.csproj", "{48298D76-A390-4E7D-98E2-720DE0353318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMEPCad", "OpenMEPCad\OpenMEPCad.csproj", "{317A55CB-BAE9-43AF-8740-18511EFC6567}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -220,6 +224,30 @@ Global
 		{48298D76-A390-4E7D-98E2-720DE0353318}.Release R23|Any CPU.Build.0 = Release R23|Any CPU
 		{48298D76-A390-4E7D-98E2-720DE0353318}.Release R24|Any CPU.ActiveCfg = Release R24|Any CPU
 		{48298D76-A390-4E7D-98E2-720DE0353318}.Release R24|Any CPU.Build.0 = Release R24|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R20|Any CPU.ActiveCfg = Debug R20|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R20|Any CPU.Build.0 = Debug R20|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R21|Any CPU.ActiveCfg = Debug R21|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R21|Any CPU.Build.0 = Debug R21|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R22|Any CPU.ActiveCfg = Debug R22|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R22|Any CPU.Build.0 = Debug R22|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R23|Any CPU.ActiveCfg = Debug R23|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R23|Any CPU.Build.0 = Debug R23|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R23.1|Any CPU.ActiveCfg = Debug R23.1|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R23.1|Any CPU.Build.0 = Debug R23.1|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R24|Any CPU.ActiveCfg = Debug R24|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Debug R24|Any CPU.Build.0 = Debug R24|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R20|Any CPU.ActiveCfg = Release R20|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R20|Any CPU.Build.0 = Release R20|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R21|Any CPU.ActiveCfg = Release R21|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R21|Any CPU.Build.0 = Release R21|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R22|Any CPU.ActiveCfg = Release R22|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R22|Any CPU.Build.0 = Release R22|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R23|Any CPU.ActiveCfg = Release R23|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R23|Any CPU.Build.0 = Release R23|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R23.1|Any CPU.ActiveCfg = Release R23.1|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R23.1|Any CPU.Build.0 = Release R23.1|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R24|Any CPU.ActiveCfg = Release R24|Any CPU
+		{317A55CB-BAE9-43AF-8740-18511EFC6567}.Release R24|Any CPU.Build.0 = Release R24|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
