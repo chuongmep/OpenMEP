@@ -1,4 +1,6 @@
-﻿namespace OpenMEPRevit.Utils;
+﻿using Autodesk.Revit.DB;
+
+namespace OpenMEPRevit.Utils;
 /// <summary>A utility class of functions related to parameters.</summary>
 /// <since>2022</since>
 public class ParameterUtils
