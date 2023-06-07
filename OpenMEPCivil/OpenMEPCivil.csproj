@@ -25,7 +25,7 @@
     <PropertyGroup Condition="$(Configuration.Contains('Release R20'))">
         <DynamoVersion>2.3</DynamoVersion>
         <DynamoOutput>2.3</DynamoOutput>
-        <RevitVersion>2020</RevitVersion>
+        <CivilVersion>2020</CivilVersion>
         <DefineConstants>$(DefineConstants);R20</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R21'))">
@@ -118,7 +118,7 @@
       <PackageReference Include="Chuongmep.Civil3D.Api.accoremgd" Version="$(CivilVersion).*" />
       <PackageReference Include="Chuongmep.Civil3D.Api.acdbmgd" Version="$(CivilVersion).*" />
       <PackageReference Include="Chuongmep.Civil3D.Api.acmgd" Version="$(CivilVersion).*" />
-      <PackageReference Include="Chuongmep.Civil3D.Api.AutoCADNodes" Version="2022.0.2" />
+      <PackageReference Include="Chuongmep.Civil3D.Api.AutoCADNodes" Version="$(CivilVersion).*" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
         <ItemGroup>

@@ -54,7 +54,7 @@
     <PropertyGroup Condition="$(Configuration.Contains('Release R22'))">
         <DynamoVersion>2.12</DynamoVersion>
         <DynamoOutput>2.12</DynamoOutput>
-        <RevitVersion>2022</RevitVersion>
+        <CadVersion>2022</CadVersion>
         <DefineConstants>$(DefineConstants);R22</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R23'))">
@@ -119,7 +119,7 @@
         <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop.Common" Version="$(CadVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop" Version="$(RevitVersion).*">
+        <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop" Version="$(CadVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
         <Reference Include="Microsoft.CSharp" />

@@ -146,6 +146,7 @@
       <ProjectReference Include="..\OpenMEPSandbox\OpenMEPSandbox.csproj" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
+        <Message Text="Build Revit Version $(RevitVersion)" Importance="high"/>
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\pkg.json" />
