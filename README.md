@@ -35,7 +35,8 @@ can install it from there.
 - OpenMEP now Support Dynamo **[Revit](https://www.autodesk.com.sg/products/revit/overview)** Version : 2020, 2021, 2022 , 2023, 2024
 - OpenMEP now Support Dynamo **[Sandbox](https://dynamobuilds.com/)** Version : 2.3, 2.6, 2.12, 2.13 2.16, 2.17
 - OpenMEP now Support Dynamo **[Civil3D](https://www.autodesk.com.sg/products/civil-3d/overview)** Version : 2020, 2021, 2022 , 2023, 2024
-Read more about [Installation](https://github.com/chuongmep/OpenMEP/wiki/How-To-Install-OpenMEP-Package)
+
+Read more about [Installation](https://chuongmep.github.io/OpenMEP/articles/installation.html)
 
 # 📜 Documentation
 
