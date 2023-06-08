@@ -30,6 +30,34 @@ can install it from there.
 
 ![](pic/SetupFinish.png)
 
-6. Open Dynamo Revit and use package
+6. Open Dynamo Revit/Civil/Sandbox and use package
+
+![](pic/OpenMEPPackage.png)
+
+# Resolve Windows protected your PC (Business).
+
+![image](pic/WindowProtect.png)
+
+1. Download zip file install
+
+![image](pic/UnzipInstalelr.png)
+
+2. Extract Zip file to folder :
+
+![image](pic/ExtractInstaller.png)
+
+3. Click to **MSI **file and install normal !
+
+![image](pic/InstallExtractedInstaller.png)
+
+4. Click next to install package
+
+![](pic/SetupNextStep.png)
+
+5. Click finish to finish install package
+
+![](pic/SetupFinish.png)
+
+6. Open Dynamo Revit/Civil/Sandbox and use package
 
 ![](pic/OpenMEPPackage.png)
