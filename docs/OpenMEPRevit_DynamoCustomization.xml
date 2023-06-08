@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpenMEPRevit</name>
+  </assembly>
+  <namespaces>
+    <namespace name="OpenMEPRevit.Application">
+      <category>OpenMEP.Application</category>
+    </namespace>
+    <namespace name="OpenMEPRevit.ConnectorManager">
+      <category>OpenMEP.ConnectorManager</category>
+    </namespace>
+    <namespace name="OpenMEPRevit.Document">
+      <category>OpenMEP.Document</category>
+    </namespace>
+    <namespace name="OpenMEPRevit.Element">
+      <category>OpenMEP.Element</category>
+    </namespace>  
+    <namespace name="OpenMEPRevit.Element.Family">
+      <category>OpenMEP.Element.Family</category>
+    </namespace>
+    <namespace name="OpenMEPRevit.Geometry">
+      <category>OpenMEP.Geometry</category>
+    </namespace>
+    <namespace name="OpenMEPRevit.Parameter">
+      <category>OpenMEP.Parameter</category>
+    </namespace>
+    <namespace name="OpenMEPRevit.Utils">
+      <category>OpenMEP.Utils</category>
+    </namespace>
+  </namespaces>
+</doc>

@@ -87,7 +87,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
         <DynamoVersion>2.16</DynamoVersion>
-        <DynamoOutput>2.18</DynamoOutput>
+        <DynamoOutput>2.19</DynamoOutput>
         <RevitVersion>2023</RevitVersion>
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
@@ -124,6 +124,7 @@
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\OpenMEPCad\OpenMEPCad.csproj" />
       <ProjectReference Include="..\OpenMEPUI\OpenMEPUI.csproj" />
       <ProjectReference Include="..\OpenMEPViewExtension\OpenMEPViewExtension.csproj" />
     </ItemGroup>
@@ -137,13 +138,15 @@
         <ItemGroup>
             <AssemblyFiles Include="$(TargetDir)*.*" />
             <PgkDefinition Include="$(SolutionDir)docs\sandbox\pkg.json" />
-            <XmlCustomization Include="$(SolutionDir)docs\OpenMEPSandbox_DynamoCustomization.xml" />
+            <SandboxXmlCustomization Include="$(SolutionDir)docs\OpenMEPSandbox_DynamoCustomization.xml" />
+            <CadXmlCustomization Include="$(SolutionDir)docs\OpenMEPCad_DynamoCustomization.xml" />
             <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />
             <DyfFiles Include="$(SolutionDir)docs\dyf\*.*" />
         </ItemGroup>
         <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
         <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
-        <Copy SourceFiles="@(XmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(SandboxXmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(CadXmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
         <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
         <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />
         <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />

@@ -18,7 +18,7 @@ public class OpenMEPTest
     [Test]
     public void CanGetOpenMEPVersion()
     {
-        string version = OpenMEP.Application.Dynamo.Version();
+        string version = OpenMEPRevit.Application.Dynamo.Version();
         Assert.IsTrue(version.Length > 0);
     }
 }

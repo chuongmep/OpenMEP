@@ -28,7 +28,7 @@ public class ConnectorManagerTest
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         Element pipe = doc.GetElement(new ElementId(elementid));
         Assert.IsNotNull(pipe);
-        Autodesk.Revit.DB.ConnectorManager? connectorManager = OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(pipe.ToDSType(true));
+        Autodesk.Revit.DB.ConnectorManager? connectorManager = OpenMEPRevit.ConnectorManager.ConnectorManager.GetConnectorManager(pipe.ToDSType(true));
         Assert.IsNotNull(connectorManager);
     }
     
@@ -41,9 +41,9 @@ public class ConnectorManagerTest
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         Element pipe = doc.GetElement(new ElementId(elementid));
         Assert.IsNotNull(pipe);
-        Autodesk.Revit.DB.ConnectorManager? connectorManager = OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(pipe.ToDSType(true));
+        Autodesk.Revit.DB.ConnectorManager? connectorManager = OpenMEPRevit.ConnectorManager.ConnectorManager.GetConnectorManager(pipe.ToDSType(true));
         Assert.IsNotNull(connectorManager);
-        List<Connector> connectors = OpenMEP.ConnectorManager.ConnectorManager.Connectors(connectorManager);
+        List<Connector> connectors = OpenMEPRevit.ConnectorManager.ConnectorManager.Connectors(connectorManager);
         Assert.IsNotNull(connectors);
     }
     [Test]
@@ -54,9 +54,9 @@ public class ConnectorManagerTest
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         Element pipe = doc.GetElement(new ElementId(elementid));
         Assert.IsNotNull(pipe);
-        Autodesk.Revit.DB.ConnectorManager? connectorManager = OpenMEP.ConnectorManager.ConnectorManager.GetConnectorManager(pipe.ToDSType(true));
+        Autodesk.Revit.DB.ConnectorManager? connectorManager = OpenMEPRevit.ConnectorManager.ConnectorManager.GetConnectorManager(pipe.ToDSType(true));
         Assert.IsNotNull(connectorManager);
-        List<Connector> connectors = OpenMEP.ConnectorManager.ConnectorManager.UnusedConnectors(connectorManager);
+        List<Connector> connectors = OpenMEPRevit.ConnectorManager.ConnectorManager.UnusedConnectors(connectorManager);
         Assert.IsTrue(connectors.Count==1);
     }
     

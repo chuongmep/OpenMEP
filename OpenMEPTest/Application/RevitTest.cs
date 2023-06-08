@@ -17,7 +17,7 @@ public class RevitTest
     [Test]
     public void CanGetRevitVersion()
     {
-        string version = OpenMEP.Application.Revit.Version();
+        string version = OpenMEPRevit.Application.Revit.Version();
         Assert.IsTrue(version.Length > 0);
     }
     

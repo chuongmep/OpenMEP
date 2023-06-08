@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpenMEPCad</name>
+  </assembly>
+  <namespaces>
+    <namespace name="OpenMEPCad.Autocad">
+      <category>OpenMEP.Autocad</category>
+    </namespace>
+  </namespaces>
+</doc>
