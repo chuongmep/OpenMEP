@@ -40,7 +40,7 @@ Read more about [Installation](https://chuongmep.github.io/OpenMEP/articles/inst
 
 # 📜 Documentation
 
-- [API Documentation](https://chuongmep.github.io/OpenMEP/api/OpenMEP.Element.html)
+- [API Documentation](https://chuongmep.github.io/OpenMEP/api/OpenMEPRevit.Element.CableTray.html)
 - [How To Use OpenMEP Package](https://chuongmep.github.io/OpenMEP/index.html)
 - [How To Write Python Script With OpenMEP Package](https://chuongmep.github.io/OpenMEP/articles/python.html)
 
