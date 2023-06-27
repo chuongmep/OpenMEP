@@ -92,10 +92,10 @@ namespace OpenMEPCad.Autocad
         /// ![](../OpenMEPPage/autocad/pic/Document.GetCadObjectsByFilters.png)
         /// [Document.GetCadObjectsByFilters.dyn](../OpenMEPPage/autocad/Document.GetCadObjectsByFilters.dyn)
         /// </example>
-        public static List<CadObject> GetCadObjectsByFilters(dynamic AcadDocument, int CadFilterType)
+        public static List<dynamic> GetCadObjectsByFilters(dynamic AcadDocument, int CadFilterType)
         {
             var modelSpace = AcadDocument.ModelSpace;
-            var lst = new List<CadObject>();
+            var lst = new List<dynamic>();
             CadFilterData filter = (CadFilterData)Enum.ToObject(typeof(CadFilterData), CadFilterType);
             for (int i = 0; i < modelSpace.Count; i++)
             {
