@@ -127,6 +127,51 @@ public class Selection
     }
 
     /// <summary>
+    /// Return list point pick orders on curve element (Pipe, Duct, Cable Tray, Conduit, Flex Duct, Flex Pipe, Wire)
+    /// </summary>
+    /// <param name="flag">toggle true false to fresh pick point</param>
+    /// <returns name="points">list point orders picked</returns>
+    public static List<Point> PickPointOnCurveElement(bool flag)
+    {
+        UIDocument uiDoc = DocumentManager.Instance.CurrentUIDocument;
+        Autodesk.Revit.DB.Document doc = uiDoc.Document;
+        List<Point> Points = new List<Point>();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.AppendLine("Select Point On Curve Element");
+        stringBuilder.AppendLine("Press [Esc] to Cancel.");
+        TaskDialog.Show("OpenMEP", stringBuilder.ToString(), TaskDialogCommonButtons.Ok);
+        Transaction? tran = default;
+        ViewDetailLevel detailLevel = doc.ActiveView.DetailLevel;
+        try
+        {
+            while (true)
+            {
+                tran = new Transaction(doc);
+                //set detail level is fine
+                tran.Start("Set Detail Level");
+                doc.ActiveView.DetailLevel = ViewDetailLevel.Coarse;
+                tran.Commit();
+                tran.Start("Pick Point On Curve Element");
+                Reference r = uiDoc.Selection.PickObject(ObjectType.PointOnElement, "Please pick point on Curve Element");
+                XYZ rGlobalPoint = r.GlobalPoint;
+                Points.Add(rGlobalPoint.ToPoint());
+                tran.RollBack();
+            }
+        }
+        catch (Autodesk.Revit.Exceptions.OperationCanceledException)
+        {
+            doc.ActiveView.DetailLevel = detailLevel;
+            tran.Commit();
+            return Points;
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(e.Message);
+            return Points;
+        }
+    }
+
+    /// <summary>
     /// Pick Select Order Element In Current View
     /// </summary>
     /// <param name="flag"></param>
