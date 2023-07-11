@@ -81,7 +81,7 @@ public class Selection
     /// Return a list points pick order in Current View
     /// </summary>
     /// <param name="flag">toggle true false to fresh pick point</param>
-    /// <returns></returns>
+    /// <returns name="points">list point picked orders</returns>
     /// <example>
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickPointOrders.gif)
     /// [Selection.PickPointOrders.dyn](../OpenMEPPage/document/dyn/Selection.PickPointOrders.dyn)
@@ -131,6 +131,10 @@ public class Selection
     /// </summary>
     /// <param name="flag">toggle true false to fresh pick point</param>
     /// <returns name="points">list point orders picked</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickPointOnCurveElement.png)
+    /// [Selection.PickPointOnCurveElement.dyn](../OpenMEPPage/document/dyn/Selection.PickPointOnCurveElement.dyn)
+    /// </example>
     public static List<Point> PickPointOnCurveElement(bool flag)
     {
         UIDocument uiDoc = DocumentManager.Instance.CurrentUIDocument;
