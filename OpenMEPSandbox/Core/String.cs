@@ -255,6 +255,10 @@ public class String
     /// <returns>
     /// The cosine similarity value between the two input strings.
     /// </returns>
+    /// <example>
+    /// ![](../OpenMEPPage/core/pic/String.SimilarityScore.png)
+    /// [String.SimilarityScore.dyn](../OpenMEPPage/core/String.SimilarityScore.dyn)
+    /// </example>
     public static double SimilarityScore(string str1, string str2)
     {
         if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
