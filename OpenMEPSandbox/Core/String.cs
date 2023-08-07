@@ -265,5 +265,35 @@ public class String
             return 0.0;
         return CosineSimilarity.CalculateCosineSimilarity(str1, str2);
     }
-
+    
+    /// <summary>
+    /// Finds the most similar string to the input string from a list of strings, based on their similarity scores.
+    /// </summary>
+    /// <param name="string">The input string to compare against the list of strings.</param>
+    /// <param name="listString">The list of strings to compare the input string against.</param>
+    /// <param name="threshold">The similarity threshold below which strings are considered similar.</param>
+    /// <returns>The most similar string from the list, or an empty string if inputString is null or listString is empty.</returns>
+    /// <example>
+    /// ![](../OpenMEPPage/core/pic/String.BestSimilarityScore.png)
+    /// [String.BestSimilarityScore.dyn](../OpenMEPPage/core/String.BestSimilarityScore.dyn)
+    /// </example>
+    public static string BestSimilarityScore(string @string, List<string> listString,double threshold =1)
+    {
+        if (string.IsNullOrEmpty(@string) || listString.Count == 0)
+            return "";
+        double max = 0;
+        string best = "";
+        foreach (string str2 in listString)
+        {
+            double score = SimilarityScore(@string, str2);
+            if (score > max)
+            {
+                max = score;
+                best = str2;
+            }
+        }
+        if (max < threshold)
+            return "";
+        return best;
+    }
 }
