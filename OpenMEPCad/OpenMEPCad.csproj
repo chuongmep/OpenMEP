@@ -87,7 +87,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
         <DynamoVersion>2.16</DynamoVersion>
-        <DynamoOutput>2.18</DynamoOutput>
+        <DynamoOutput>2.17</DynamoOutput>
         <CadVersion>2023</CadVersion>
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
@@ -131,4 +131,12 @@
     <ItemGroup>
       <ProjectReference Include="..\OpenMEPUI\OpenMEPUI.csproj" />
     </ItemGroup>
+    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
+        <ItemGroup>
+            <AssemblyFiles Include="$(TargetDir)*.*" />
+        </ItemGroup>
+        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
+        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
+        <Message Text="Copied Completed" Importance="high" />
+    </Target>
 </Project>
