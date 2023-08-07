@@ -106,7 +106,7 @@
       <PackageReference Include="Chuongmep.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*">
           <ExcludeAssets>runtime</ExcludeAssets>
       </PackageReference>
-      <PackageReference Include="NUnit" Version="2.6.3" />
+      <PackageReference Include="NUnit" Version="3.13.3" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Lib" />

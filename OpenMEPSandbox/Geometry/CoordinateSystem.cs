@@ -33,6 +33,7 @@ public class CoordinateSystem
         {
             length = 1;
         }
+
         var pt = coordinateSystem.Origin;
         var lineX = Autodesk.DesignScript.Geometry.Line.ByStartPointDirectionLength(pt, coordinateSystem.XAxis, length);
         var colorX = DSCore.Color.ByARGB(255, 255, 0, 0);
