@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using OpenMEPSandbox.Algo;
 
 namespace OpenMEPSandbox.Core;
 
@@ -243,6 +244,22 @@ public class String
     {
         if (value == null) return true;
         return string.IsNullOrEmpty(value);
+    }
+
+    
+    /// <summary>
+    /// Get Similarity Score between two strings
+    /// </summary>
+    /// <param name="str1">The first input string to compare as a vector representation of term frequencies.</param>
+    /// <param name="str2">The second input string to compare as a vector representation of term frequencies.</param>
+    /// <returns>
+    /// The cosine similarity value between the two input strings.
+    /// </returns>
+    public static double SimilarityScore(string str1, string str2)
+    {
+        if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
+            return 0.0;
+        return CosineSimilarity.CalculateCosineSimilarity(str1, str2);
     }
 
 }
