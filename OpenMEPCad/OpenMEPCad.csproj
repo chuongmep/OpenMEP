@@ -109,7 +109,7 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="GShark" Version="2.3.0" />
+        <PackageReference Include="GShark" Version="2.3.1" />
         <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
