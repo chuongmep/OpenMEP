@@ -186,26 +186,6 @@
       "Description": "Divide the bounding box by value\n\nBoundingBox.Divide (boundingBox: BoundingBox, value: double): BoundingBox[]"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "NodeType": "CodeBlockNode",
-      "Code": "3;",
-      "Id": "edecae2359734ddd9e2dd88bfb3e7520",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "bd67ad26eed54093879200c208aa3ecc",
-          "Name": "",
-          "Description": "Value of expression at line 1",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly"
-    },
-    {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
       "FunctionSignature": "OpenMEPSandbox.Geometry.Abstract.BoundingBox.Visualize@Autodesk.DesignScript.Geometry.BoundingBox",
@@ -234,6 +214,30 @@
       ],
       "Replication": "Auto",
       "Description": "Visualize the bounding box by corner points\n\nBoundingBox.Visualize (boundingBox: BoundingBox): Line[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 10.0,
+      "MinimumValue": 1.0,
+      "StepValue": 1.0,
+      "InputValue": 2.0,
+      "Id": "ab13f550b2da48e7a1b5ac898e794f6f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ddafe6d977f245ac8ae99c526185fd7f",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces numeric values"
     }
   ],
   "Connectors": [
@@ -280,9 +284,9 @@
       "IsHidden": "False"
     },
     {
-      "Start": "bd67ad26eed54093879200c208aa3ecc",
+      "Start": "ddafe6d977f245ac8ae99c526185fd7f",
       "End": "803009ab29634f06bce4986cd216767f",
-      "Id": "ad242caaf76343c4bc8854f70dc28f46",
+      "Id": "8934b23d862e4c42bd80ab8c8f2d5da9",
       "IsHidden": "False"
     }
   ],
@@ -391,16 +395,6 @@
         "Y": 511.623558435771
       },
       {
-        "Name": "Code Block",
-        "ShowGeometry": true,
-        "Id": "edecae2359734ddd9e2dd88bfb3e7520",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1178.8836664783348,
-        "Y": 616.776733295667
-      },
-      {
         "Name": "BoundingBox.Visualize",
         "ShowGeometry": true,
         "Id": "5a3ba44f06194160815e94c4a1381254",
@@ -409,11 +403,21 @@
         "Excluded": false,
         "X": 1704.7540548814422,
         "Y": 515.45987802172851
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "ab13f550b2da48e7a1b5ac898e794f6f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 993.1486737155326,
+        "Y": 637.79339557182379
       }
     ],
     "Annotations": [],
-    "X": -86.549759981075113,
-    "Y": 205.88262099540611,
-    "Zoom": 0.63524834044862033
+    "X": -411.14109841503819,
+    "Y": -8.9761320444004014,
+    "Zoom": 0.9050166988567081
   }
 }
