@@ -215,4 +215,34 @@ public class BoundingBox
                     (maxPoint.X - minPoint.X) * (maxPoint.Z - minPoint.Z) +
                     (maxPoint.Y - minPoint.Y) * (maxPoint.Z - minPoint.Z));
     }
+
+    /// <summary>
+    /// Visualize the bounding box by corner points
+    /// </summary>
+    /// <param name="boundingBox">the boundingBox</param>
+    /// <returns name="lines">the list line corner of the boundingBox</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Visualize.png)
+    /// [BoundingBox.Visualize.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Visualize.dyn)
+    ///</example>
+    public static List<Autodesk.DesignScript.Geometry.Line> Visualize(Autodesk.DesignScript.Geometry.BoundingBox boundingBox)
+    {
+        // get 8 corner points
+        var corners = Corners(boundingBox);
+        // get 12 lines
+        List<Autodesk.DesignScript.Geometry.Line> lines = new List<Autodesk.DesignScript.Geometry.Line>();
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[0], corners[1]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[0], corners[2]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[0], corners[4]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[1], corners[3]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[1], corners[5]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[2], corners[3]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[2], corners[6]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[3], corners[7]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[4], corners[5]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[4], corners[6]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[5], corners[7]));
+        lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[6], corners[7]));
+        return lines;
+    }
 }
