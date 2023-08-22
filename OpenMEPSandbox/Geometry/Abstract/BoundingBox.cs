@@ -130,10 +130,12 @@ public class BoundingBox
         {
             throw new ArgumentNullException($"BoundingBoxs is empty");
         }
+
         if (boundingBoxes.Count == 1)
         {
             return boundingBoxes[0];
         }
+
         Autodesk.DesignScript.Geometry.Point minPoint = boundingBoxes[0].MinPoint;
         Autodesk.DesignScript.Geometry.Point maxPoint = boundingBoxes[0].MaxPoint;
         foreach (var boundingBox in boundingBoxes)
@@ -174,6 +176,43 @@ public class BoundingBox
                     boundingBox.MaxPoint.Z);
             }
         }
+
         return Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(minPoint, maxPoint);
+    }
+
+    /// <summary>
+    /// Returns the volume of the bounding box.
+    /// </summary>
+    /// <param name="boundingBox">the boundingBox</param>
+    /// <returns name="double">volume of the boundingBox</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Volume.png)
+    /// [BoundingBox.Volume.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Volume.dyn)
+    ///</example>
+    [NodeCategory("Query")]
+    public static double Volume(Autodesk.DesignScript.Geometry.BoundingBox boundingBox)
+    {
+        var minPoint = boundingBox.MinPoint;
+        var maxPoint = boundingBox.MaxPoint;
+        return (maxPoint.X - minPoint.X) * (maxPoint.Y - minPoint.Y) * (maxPoint.Z - minPoint.Z);
+    }
+
+    /// <summary>
+    /// Get area of bounding box
+    /// </summary>
+    /// <param name="boundingBox">the boundingBox</param>
+    /// <returns name="double">the area value of boundingBox</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Area.png)
+    /// [BoundingBox.Area.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Area.dyn)
+    ///</example>
+    [NodeCategory("Query")]
+    public static double Area(Autodesk.DesignScript.Geometry.BoundingBox boundingBox)
+    {
+        var minPoint = boundingBox.MinPoint;
+        var maxPoint = boundingBox.MaxPoint;
+        return 2 * ((maxPoint.X - minPoint.X) * (maxPoint.Y - minPoint.Y) +
+                    (maxPoint.X - minPoint.X) * (maxPoint.Z - minPoint.Z) +
+                    (maxPoint.Y - minPoint.Y) * (maxPoint.Z - minPoint.Z));
     }
 }
