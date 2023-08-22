@@ -729,26 +729,4 @@ public class Point
         if (angle < startAngle) angle += 360;
         return angle;
     }
-
-    /// <summary>
-    /// Creates a bounding box from a list of points.
-    /// </summary>
-    /// <param name="points">the list point to can create a boundi</param>
-    /// <returns></returns>
-    public Autodesk.DesignScript.Geometry.BoundingBox CreateBoundingBox(
-        List<Autodesk.DesignScript.Geometry.Point> points)
-    {
-        Point3 min = points[0].ToGSharkType();
-        Point3 max = points[0].ToGSharkType();
-        foreach (var point in points)
-        {
-            if (point.X < min.X) min.X = point.X;
-            if (point.Y < min.Y) min.Y = point.Y;
-            if (point.Z < min.Z) min.Z = point.Z;
-            if (point.X > max.X) max.X = point.X;
-            if (point.Y > max.Y) max.Y = point.Y;
-            if (point.Z > max.Z) max.Z = point.Z;
-        }
-        return Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(min.ToDynamoType(), max.ToDynamoType());
-    }
 }

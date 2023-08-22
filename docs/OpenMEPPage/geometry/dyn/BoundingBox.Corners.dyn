@@ -1,0 +1,373 @@
+{
+  "Uuid": "a8a6ce67-2f3d-4ae1-9fc7-f9b4bd332abd",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "BoundingBox.Corners",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0..100..10;",
+      "Id": "c783099ea7a54801aeec30452e29653a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fb70785421144b61bb73d937ba8defc4",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Abstract.BoundingBox.ByPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "b8515ce00ab34ea5a22f5c0be41ce3db",
+      "Inputs": [
+        {
+          "Id": "65083165be6642ec86f2a7a890fb9e97",
+          "Name": "points",
+          "Description": "the list point to create new bounding box\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3ecc480e44584757a73ac6034a040d51",
+          "Name": "boundingBox",
+          "Description": "new boundingBox from list point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a bounding box from a list of points\n\nBoundingBox.ByPoints (points: Point[]): BoundingBox"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "96626de1f1484d718087294e45f2c520",
+      "Inputs": [
+        {
+          "Id": "96c4d7d91c0b478e96888e05f9a5b84c",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "95de4262d60f42d9affdf1f4050b072b",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "69263a7027594ba4a828e00455b3ecf0",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a0789a86ad3a4ae39bbe7f91d8b463e1",
+          "Name": "Point",
+          "Description": "Point created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "CrossProduct",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "e0567f9d1c704b268bd18e7045892b3c",
+      "Inputs": [
+        {
+          "Id": "5346255638614ab3ba57296171cd4179",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1d868d9a3832498a816dc8b3f4eddab7",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b7379994c13c4200ae45793ea89949be",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Abstract.BoundingBox.Corners@Autodesk.DesignScript.Geometry.BoundingBox",
+      "Id": "cbbe7be38f29480ba20bbd1068cf96b3",
+      "Inputs": [
+        {
+          "Id": "99cddbd2b8004995bfa3ef3475a24d7c",
+          "Name": "boundingBox",
+          "Description": "BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7c55301e9eb3485daf9c6ba6fe7664b3",
+          "Name": "points",
+          "Description": "list point corner of the boundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get 4 points corners of bounding box\n\nBoundingBox.Corners (boundingBox: BoundingBox): Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Tessellation.ConvexHull.ByPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "2e488d83d11146f79b5cfae70eb634ba",
+      "Inputs": [
+        {
+          "Id": "276ee19c524f4ddcb6c65bd2f8c7f665",
+          "Name": "points",
+          "Description": "A set of points.\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b9806e137adf4498aa5a164cecd81f49",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a convex hull of a set of points.\n\nConvexHull.ByPoints (points: Point[]): Curve[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "fb70785421144b61bb73d937ba8defc4",
+      "End": "96c4d7d91c0b478e96888e05f9a5b84c",
+      "Id": "efeaae948ad0482c871f4cd2872608b7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fb70785421144b61bb73d937ba8defc4",
+      "End": "95de4262d60f42d9affdf1f4050b072b",
+      "Id": "083930fcaab04a7899b7097a7f69d487",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fb70785421144b61bb73d937ba8defc4",
+      "End": "69263a7027594ba4a828e00455b3ecf0",
+      "Id": "226508a5c0b74d0bb20f85eaeccc7c31",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3ecc480e44584757a73ac6034a040d51",
+      "End": "99cddbd2b8004995bfa3ef3475a24d7c",
+      "Id": "9fb9f45afb2245a5bde85c68131e112d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a0789a86ad3a4ae39bbe7f91d8b463e1",
+      "End": "5346255638614ab3ba57296171cd4179",
+      "Id": "594168a521ba42f68af19166c6ac768e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b7379994c13c4200ae45793ea89949be",
+      "End": "65083165be6642ec86f2a7a890fb9e97",
+      "Id": "d2e9e06378f3426d834740c89d0e7486",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7c55301e9eb3485daf9c6ba6fe7664b3",
+      "End": "276ee19c524f4ddcb6c65bd2f8c7f665",
+      "Id": "44287aaab3814ffeb05fe6a2819ccb11",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "b8515ce00ab34ea5a22f5c0be41ce3db",
+        "cbbe7be38f29480ba20bbd1068cf96b3"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.3.4871",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -61.707115173339844,
+      "EyeY": 118.69263458251953,
+      "EyeZ": 143.62689208984375,
+      "LookX": 122.43647766113281,
+      "LookY": -62.178718566894531,
+      "LookZ": -164.3248291015625,
+      "UpX": 0.046878766268491745,
+      "UpY": 0.996917188167572,
+      "UpZ": -0.062916286289691925
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "c783099ea7a54801aeec30452e29653a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1155.1519569513293,
+        "Y": 593.87635578986419
+      },
+      {
+        "Name": "BoundingBox.ByPoints",
+        "ShowGeometry": true,
+        "Id": "b8515ce00ab34ea5a22f5c0be41ce3db",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2001.5943720448513,
+        "Y": 628.52957107143129
+      },
+      {
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": false,
+        "Id": "96626de1f1484d718087294e45f2c520",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1423.0346584529373,
+        "Y": 550.82942842904527
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": false,
+        "Id": "e0567f9d1c704b268bd18e7045892b3c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1743.6665350776123,
+        "Y": 604.14303509698129
+      },
+      {
+        "Name": "BoundingBox.Corners",
+        "ShowGeometry": true,
+        "Id": "cbbe7be38f29480ba20bbd1068cf96b3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2261.4777927366986,
+        "Y": 735.19005835130042
+      },
+      {
+        "Name": "ConvexHull.ByPoints",
+        "ShowGeometry": true,
+        "Id": "2e488d83d11146f79b5cfae70eb634ba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2565.4771091524071,
+        "Y": 777.94824027282823
+      }
+    ],
+    "Annotations": [],
+    "X": -732.62394784666913,
+    "Y": -27.227219312374359,
+    "Zoom": 0.69990909121838829
+  }
+}
