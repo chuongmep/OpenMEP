@@ -99,6 +99,10 @@ public class BoundingBox
     public static List<Autodesk.DesignScript.Geometry.Point> Corners(
         Autodesk.DesignScript.Geometry.BoundingBox boundingBox)
     {
+        if (boundingBox == null)
+        {
+            throw new ArgumentNullException($"BoundingBox is null");
+        }
         var minPoint = boundingBox.MinPoint;
         var maxPoint = boundingBox.MaxPoint;
         List<Autodesk.DesignScript.Geometry.Point> corners = new List<Autodesk.DesignScript.Geometry.Point>();
@@ -244,5 +248,39 @@ public class BoundingBox
         lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[5], corners[7]));
         lines.Add(Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint(corners[6], corners[7]));
         return lines;
+    }
+
+    /// <summary>
+    /// Divide the bounding box by value
+    /// </summary>
+    /// <param name="boundingBox">the boundingBox</param>
+    /// <param name="value">how many part boundingBox will divide for each edge</param>
+    /// <returns name="boundingBoxs">the collection boundingBoxs divide</returns>
+    public static List<Autodesk.DesignScript.Geometry.BoundingBox> Divide(
+        Autodesk.DesignScript.Geometry.BoundingBox boundingBox, double value)
+    {
+        var minPoint = boundingBox.MinPoint;
+        var maxPoint = boundingBox.MaxPoint;
+        var x = (maxPoint.X - minPoint.X) / value;
+        var y = (maxPoint.Y - minPoint.Y) / value;
+        var z = (maxPoint.Z - minPoint.Z) / value;
+        List<Autodesk.DesignScript.Geometry.BoundingBox> boundingBoxes =
+            new List<Autodesk.DesignScript.Geometry.BoundingBox>();
+        for (int i = 0; i < value; i++)
+        {
+            for (int j = 0; j < value; j++)
+            {
+                for (int k = 0; k < value; k++)
+                {
+                    var min = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X + i * x, minPoint.Y + j * y,
+                        minPoint.Z + k * z);
+                    var max = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X + (i + 1) * x,
+                        minPoint.Y + (j + 1) * y, minPoint.Z + (k + 1) * z);
+                    boundingBoxes.Add(Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(min, max));
+                }
+            }
+        }
+
+        return boundingBoxes;
     }
 }
