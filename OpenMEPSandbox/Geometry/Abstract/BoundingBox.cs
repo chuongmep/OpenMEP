@@ -311,4 +311,33 @@ public class BoundingBox
         var max = Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X + x, maxPoint.Y + y, maxPoint.Z + z);
         return Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(min, max);
     }
+
+    /// <summary>
+    /// Determines whether two bounding boxes are similar within a specified tolerance.
+    /// </summary>
+    /// <param name="boundingBox1">The first bounding box to compare.</param>
+    /// <param name="boundingBox2">The second bounding box to compare.</param>
+    /// <param name="tolerance">The acceptable tolerance for dimension differences (default is 0.001).</param>
+    /// <returns>True if the bounding boxes are similar within the tolerance; otherwise, false.</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.IsSimilar.png)
+    /// [BoundingBox.IsSimilar.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.IsSimilar.dyn)
+    ///</example>
+    public static bool IsSimilar(Autodesk.DesignScript.Geometry.BoundingBox boundingBox1, Autodesk.DesignScript.Geometry.BoundingBox boundingBox2,double tolerance = 0.001)
+    {
+        var minPoint1 = boundingBox1.MinPoint;
+        var maxPoint1 = boundingBox1.MaxPoint;
+        var minPoint2 = boundingBox2.MinPoint;
+        var maxPoint2 = boundingBox2.MaxPoint;
+        var x1 = maxPoint1.X - minPoint1.X;
+        var y1 = maxPoint1.Y - minPoint1.Y;
+        var z1 = maxPoint1.Z - minPoint1.Z;
+        var x2 = maxPoint2.X - minPoint2.X;
+        var y2 = maxPoint2.Y - minPoint2.Y;
+        var z2 = maxPoint2.Z - minPoint2.Z;
+        if (System.Math.Abs(x1 - x2) > tolerance) return false;
+        if (System.Math.Abs(y1 - y2) > tolerance) return false;
+        if (System.Math.Abs(z1 - z2) > tolerance) return false;
+        return true;
+    }
 }
