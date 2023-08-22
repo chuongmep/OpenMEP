@@ -258,7 +258,7 @@ public class BoundingBox
     /// <param name="value">how many part boundingBox will divide for each edge</param>
     /// <returns name="boundingBoxs">the collection boundingBoxs divide</returns>
     /// /// <example>
-    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Divide.png)
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Divide.gif)
     /// [BoundingBox.Divide.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Divide.dyn)
     ///</example>
     public static List<Autodesk.DesignScript.Geometry.BoundingBox> Divide(
