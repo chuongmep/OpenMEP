@@ -1,4 +1,6 @@
-﻿namespace OpenMEPSandbox.Geometry.Abstract;
+﻿using Dynamo.Graph.Nodes;
+
+namespace OpenMEPSandbox.Geometry.Abstract;
 
 public class BoundingBox
 {
@@ -15,6 +17,7 @@ public class BoundingBox
     /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.ByPoints.png)
     /// [BoundingBox.ByPoints.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.ByPoints.dyn)
     ///</example>
+    [NodeCategory("Create")]
     public static Autodesk.DesignScript.Geometry.BoundingBox ByPoints(List<Autodesk.DesignScript.Geometry.Point> points)
     {
         if (points.Count == 0)
@@ -61,9 +64,10 @@ public class BoundingBox
                 maxPoint = Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, maxPoint.Y, point.Z);
             }
         }
+
         return Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(minPoint, maxPoint);
     }
-    
+
     /// <summary>
     /// Get center point of bounding box
     /// </summary>
@@ -73,11 +77,13 @@ public class BoundingBox
     /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Center.png)
     /// [BoundingBox.Center.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Center.dyn)
     ///</example>
+    [NodeCategory("Query")]
     public static Autodesk.DesignScript.Geometry.Point Center(Autodesk.DesignScript.Geometry.BoundingBox boundingBox)
     {
         Autodesk.DesignScript.Geometry.Point maxPoint = boundingBox.MaxPoint;
         Autodesk.DesignScript.Geometry.Point minPoint = boundingBox.MinPoint;
-        return Autodesk.DesignScript.Geometry.Point.ByCoordinates((maxPoint.X + minPoint.X) / 2, (maxPoint.Y + minPoint.Y) / 2, (maxPoint.Z + minPoint.Z) / 2);
+        return Autodesk.DesignScript.Geometry.Point.ByCoordinates((maxPoint.X + minPoint.X) / 2,
+            (maxPoint.Y + minPoint.Y) / 2, (maxPoint.Z + minPoint.Z) / 2);
     }
 
     /// <summary>
@@ -89,19 +95,85 @@ public class BoundingBox
     /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Corners.png)
     /// [BoundingBox.Corners.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Corners.dyn)
     ///</example>
-    public static List<Autodesk.DesignScript.Geometry.Point> Corners(Autodesk.DesignScript.Geometry.BoundingBox boundingBox)
+    [NodeCategory("Query")]
+    public static List<Autodesk.DesignScript.Geometry.Point> Corners(
+        Autodesk.DesignScript.Geometry.BoundingBox boundingBox)
     {
-         var minPoint = boundingBox.MinPoint;
-         var maxPoint = boundingBox.MaxPoint;
-         List<Autodesk.DesignScript.Geometry.Point> corners = new List<Autodesk.DesignScript.Geometry.Point>();
-            corners.Add(minPoint);
-            corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, minPoint.Y, maxPoint.Z));
-            corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, maxPoint.Y, minPoint.Z));
-            corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, maxPoint.Y, maxPoint.Z));
-            corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, minPoint.Y, minPoint.Z));
-            corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, minPoint.Y, maxPoint.Z));
-            corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, maxPoint.Y, minPoint.Z));
-            corners.Add(maxPoint);
-            return corners;
+        var minPoint = boundingBox.MinPoint;
+        var maxPoint = boundingBox.MaxPoint;
+        List<Autodesk.DesignScript.Geometry.Point> corners = new List<Autodesk.DesignScript.Geometry.Point>();
+        corners.Add(minPoint);
+        corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, minPoint.Y, maxPoint.Z));
+        corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, maxPoint.Y, minPoint.Z));
+        corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, maxPoint.Y, maxPoint.Z));
+        corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, minPoint.Y, minPoint.Z));
+        corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, minPoint.Y, maxPoint.Z));
+        corners.Add(Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, maxPoint.Y, minPoint.Z));
+        corners.Add(maxPoint);
+        return corners;
+    }
+
+    /// <summary>
+    /// Create a bounding box from a list of bounding boxes
+    /// </summary>
+    /// <param name="boundingBoxes">the list of boundingBox</param>
+    /// <returns name="boundingBox">new boundingBox crete by collection boundingBox</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.ByBoundingBoxs.gif)
+    /// [BoundingBox.ByBoundingBoxs.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.ByBoundingBoxs.dyn)
+    ///</example>
+    [NodeCategory("Create")]
+    public static Autodesk.DesignScript.Geometry.BoundingBox ByBoundingBoxs(
+        List<Autodesk.DesignScript.Geometry.BoundingBox> boundingBoxes)
+    {
+        if (boundingBoxes.Count == 0)
+        {
+            throw new ArgumentNullException($"BoundingBoxs is empty");
+        }
+        if (boundingBoxes.Count == 1)
+        {
+            return boundingBoxes[0];
+        }
+        Autodesk.DesignScript.Geometry.Point minPoint = boundingBoxes[0].MinPoint;
+        Autodesk.DesignScript.Geometry.Point maxPoint = boundingBoxes[0].MaxPoint;
+        foreach (var boundingBox in boundingBoxes)
+        {
+            if (boundingBox.MinPoint.X < minPoint.X)
+            {
+                minPoint = Autodesk.DesignScript.Geometry.Point.ByCoordinates(boundingBox.MinPoint.X, minPoint.Y,
+                    minPoint.Z);
+            }
+
+            if (boundingBox.MinPoint.Y < minPoint.Y)
+            {
+                minPoint = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, boundingBox.MinPoint.Y,
+                    minPoint.Z);
+            }
+
+            if (boundingBox.MinPoint.Z < minPoint.Z)
+            {
+                minPoint = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X, minPoint.Y,
+                    boundingBox.MinPoint.Z);
+            }
+
+            if (boundingBox.MaxPoint.X > maxPoint.X)
+            {
+                maxPoint = Autodesk.DesignScript.Geometry.Point.ByCoordinates(boundingBox.MaxPoint.X, maxPoint.Y,
+                    maxPoint.Z);
+            }
+
+            if (boundingBox.MaxPoint.Y > maxPoint.Y)
+            {
+                maxPoint = Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, boundingBox.MaxPoint.Y,
+                    maxPoint.Z);
+            }
+
+            if (boundingBox.MaxPoint.Z > maxPoint.Z)
+            {
+                maxPoint = Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X, maxPoint.Y,
+                    boundingBox.MaxPoint.Z);
+            }
+        }
+        return Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(minPoint, maxPoint);
     }
 }
