@@ -1,4 +1,5 @@
-﻿using Dynamo.Graph.Nodes;
+﻿using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace OpenMEPSandbox.Geometry.Abstract;
 
@@ -323,6 +324,7 @@ public class BoundingBox
     /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.IsSimilar.png)
     /// [BoundingBox.IsSimilar.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.IsSimilar.dyn)
     ///</example>
+    [NodeCategory("Query")]
     public static bool IsSimilar(Autodesk.DesignScript.Geometry.BoundingBox boundingBox1, Autodesk.DesignScript.Geometry.BoundingBox boundingBox2,double tolerance = 0.001)
     {
         var minPoint1 = boundingBox1.MinPoint;
