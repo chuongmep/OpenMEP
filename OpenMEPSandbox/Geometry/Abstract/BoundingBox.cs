@@ -256,6 +256,10 @@ public class BoundingBox
     /// <param name="boundingBox">the boundingBox</param>
     /// <param name="value">how many part boundingBox will divide for each edge</param>
     /// <returns name="boundingBoxs">the collection boundingBoxs divide</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Divide.png)
+    /// [BoundingBox.Divide.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Divide.dyn)
+    ///</example>
     public static List<Autodesk.DesignScript.Geometry.BoundingBox> Divide(
         Autodesk.DesignScript.Geometry.BoundingBox boundingBox, double value)
     {
@@ -282,5 +286,29 @@ public class BoundingBox
         }
 
         return boundingBoxes;
+    }
+
+    /// <summary>
+    /// Scale the bounding box by value
+    /// </summary>
+    /// <param name="boundingBox">the boundingBox need scale</param>
+    /// <param name="value">scale value</param>
+    /// <returns name="boundingBox">boundingBox</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.Scale.png)
+    /// [BoundingBox.Scale.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.Scale.dyn)
+    ///</example>
+    public static Autodesk.DesignScript.Geometry.BoundingBox Scale(
+        Autodesk.DesignScript.Geometry.BoundingBox boundingBox, double value)
+    {
+        // scale apply for value > 1 and value < 1
+        var minPoint = boundingBox.MinPoint;
+        var maxPoint = boundingBox.MaxPoint;
+        var x = (maxPoint.X - minPoint.X) * value;
+        var y = (maxPoint.Y - minPoint.Y) * value;
+        var z = (maxPoint.Z - minPoint.Z) * value;
+        var min = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X - x, minPoint.Y - y, minPoint.Z - z);
+        var max = Autodesk.DesignScript.Geometry.Point.ByCoordinates(maxPoint.X + x, maxPoint.Y + y, maxPoint.Z + z);
+        return Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(min, max);
     }
 }
