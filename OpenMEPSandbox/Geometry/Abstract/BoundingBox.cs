@@ -88,7 +88,7 @@ public class BoundingBox
     }
 
     /// <summary>
-    /// Get 4 points corners of bounding box
+    /// Get 8 points corners of bounding box
     /// </summary>
     /// <param name="boundingBox"></param>
     /// <returns name="points">list point corner of the boundingBox</returns>
