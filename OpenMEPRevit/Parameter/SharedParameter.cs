@@ -55,9 +55,16 @@ public class SharedParameter
         #else
         string? versionGuid = sharedParameterElement?.VersionGuid.ToString();
 #endif
+#if R20 || R21 || R22 || R23
         int? groupId = sharedParameterElement?.GroupId.IntegerValue;
-        string? name = sharedParameterElement?.Name;
         int? id = sharedParameterElement?.Id?.IntegerValue;
+
+#else
+        long? groupId = sharedParameterElement?.GroupId.Value;
+        long? id = sharedParameterElement?.Id?.Value;
+
+#endif
+        string? name = sharedParameterElement?.Name;
         string? uniqueId = sharedParameterElement?.UniqueId;
         bool? pinned = sharedParameterElement?.Pinned;
         bool? shouldHideWhenNoValue = sharedParameterElement?.ShouldHideWhenNoValue();

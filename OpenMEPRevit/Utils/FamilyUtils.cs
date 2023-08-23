@@ -30,7 +30,13 @@ public class FamilyUtils
     {
         using Transaction tran = new Autodesk.Revit.DB.Transaction (doc, "convert");
         tran.Start();
+#if R20 || R21 || R22 || R23
         Autodesk.Revit.DB.FamilyUtils.ConvertFamilyToFaceHostBased(doc,new ElementId(familyId));
+
+#else
+        Autodesk.Revit.DB.FamilyUtils.ConvertFamilyToFaceHostBased(doc, new ElementId((long)familyId));
+
+#endif
         tran.Commit();
     }
 
@@ -50,7 +56,13 @@ public class FamilyUtils
     {
         using Transaction tran = new Autodesk.Revit.DB.Transaction (doc, "convert");
         tran.Start();
+#if R20 || R21 || R22 || R23
         bool result = Autodesk.Revit.DB.FamilyUtils.FamilyCanConvertToFaceHostBased(doc,new ElementId(familyId));
+
+#else
+        bool result = Autodesk.Revit.DB.FamilyUtils.FamilyCanConvertToFaceHostBased(doc, new ElementId((long)familyId));
+
+#endif
         tran.Commit();
         return result;
     }

@@ -137,7 +137,11 @@ public class MEPCurve
             {
                 Connector? current = enumerator.Current as Autodesk.Revit.DB.Connector;
                 if (current == null) continue;
+#if R20 || R21 || R22 || R23
                 if (current.Owner.Id.IntegerValue == mepCurve1.Id) continue;
+#else
+                if (current.Owner.Id.Value == mepCurve1.Id) continue;
+#endif
                 if (current.Owner is Autodesk.Revit.DB.Plumbing.PipingSystem) continue;
                 global::Revit.Elements.Element? dynamoType = current.Owner.ToDynamoType();
                 return dynamoType;

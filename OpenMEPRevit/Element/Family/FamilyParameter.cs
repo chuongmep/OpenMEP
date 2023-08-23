@@ -122,7 +122,12 @@ public class FamilyParameter
     {
         Definition? definition = familyParameter?.Definition;
         string? formula = familyParameter?.Formula;
+#if R20 || R21 || R22 || R23
         int? id = familyParameter?.Id.IntegerValue;
+#else
+        long? id = familyParameter?.Id.Value;
+
+#endif
         ParameterSet? parameterSet = familyParameter?.AssociatedParameters;
         List<global::Revit.Elements.Parameter?> associatedParameters = new List<global::Revit.Elements.Parameter?>();
         bool? isInstance = familyParameter?.IsInstance;

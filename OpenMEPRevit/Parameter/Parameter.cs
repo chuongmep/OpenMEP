@@ -85,7 +85,12 @@ public class Parameter
         var SpecType = parameter.SpecType;
         string StorageType = parameter.StorageType;
         var UnitType = parameter.Unit;
+#if R20 || R21 || R22 || R23
         int Id = parameter.Id;
+#else
+        long Id = parameter.Id;
+
+#endif
         object Value = parameter.Value;
         bool IsReadOnly = parameter.IsReadOnly;
         bool HasValue = parameter.HasValue;
@@ -169,7 +174,13 @@ public class Parameter
         if (parameter == null) throw new ArgumentNullException(nameof(parameter));
         if (elementid == null) throw new ArgumentNullException(nameof(elementid));
         Autodesk.Revit.DB.Parameter? revitParameter = parameter?.ToRevitType();
+#if R20 || R21 || R22 || R23
         bool? flag = revitParameter?.CanBeAssociatedWithGlobalParameter(new ElementId((int) elementid));
+
+#else
+        bool? flag = revitParameter?.CanBeAssociatedWithGlobalParameter(new ElementId((long)elementid));
+
+#endif
         return flag;
     }
 

@@ -268,8 +268,13 @@ public class Element
             {
                 levelId = levelPara.AsElementId();
             }
-
+#if R20 || R21 || R22 || R23
             if (levelId.IntegerValue == -1)
+
+#else
+            if (levelId.Value == -1)
+
+#endif
             {
                 // General get level method
                 var bbox = element.get_BoundingBox(null);

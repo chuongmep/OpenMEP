@@ -63,7 +63,8 @@ public class OpenMEPViewExtension : IViewExtension
             // string direction = Regex.Replace(NodeEndPoint, pattern2, "_");
             //MessageBox.Show(direction);
             // Open a new window
-            string url = $"https://chuongmep.github.io/OpenMEP";///api/{MainNameSpace}.html#{direction}";
+            string url = $"https://chuongmep.github.io/OpenMEP";
+            //api/{MainNameSpace}.html#{direction}";
             Process.Start(url);
         };
 #if R20 || R21

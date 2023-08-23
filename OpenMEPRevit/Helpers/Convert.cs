@@ -69,7 +69,13 @@ namespace OpenMEPRevit.Helpers
         internal static dynCategory? ToDynamoType(this rvtCategory item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
+#if R20 || R21 || R22 || R23
             return dynCategory.ById(item.Id.IntegerValue);
+
+#else
+            return dynCategory.ById(item.Id.Value);
+
+#endif
         }
 
         /// <summary>
@@ -175,7 +181,12 @@ namespace OpenMEPRevit.Helpers
         internal static dynElement ToDynamoType(this ElementId item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
+#if R20 || R21 || R22 || R23
             return dynElementSelector.ByElementId(item.IntegerValue);
+#else
+            return dynElementSelector.ByElementId(item.Value);
+
+#endif
         }
 
         /// <summary>

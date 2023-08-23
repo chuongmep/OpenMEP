@@ -52,7 +52,13 @@ public class Database
         List<global::Revit.Elements.Element> elements = new List<global::Revit.Elements.Element>();
         foreach (string s in id)
         {
+#if R20 || R21 || R22 || R23
             ElementId elementId = new ElementId(int.Parse(s));
+
+#else
+            ElementId elementId = new ElementId(long.Parse(s));
+
+#endif
             global::Revit.Elements.Element element = document.GetElement(elementId).ToDynamoType();
             elements.Add(element);
         }

@@ -803,7 +803,13 @@ public class Pipe
         Autodesk.Revit.DB.Plumbing.Pipe? pipeInternalElement = pipe.InternalElement as Autodesk.Revit.DB.Plumbing.Pipe;
         Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
         TransactionManager.Instance.EnsureInTransaction(doc);
+#if R20 || R21 || R22 || R23
         pipeInternalElement?.SetSystemType(new ElementId(systemTypeId));
+
+#else
+        pipeInternalElement?.SetSystemType(new ElementId((long)systemTypeId));
+
+#endif
         TransactionManager.Instance.TransactionTaskDone();
         return pipe;
     }
