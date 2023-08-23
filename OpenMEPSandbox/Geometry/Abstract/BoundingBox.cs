@@ -295,7 +295,7 @@ public class BoundingBox
     /// <param name="boundingBox">The original bounding box to be divided.</param>
     /// <param name="width">The number of divisions along the width.</param>
     /// <param name="length">The number of divisions along the length.</param>
-    /// <returns name="boundingBox">A list of smaller bounding boxes resulting from the division.</returns>
+    /// <returns name="bounding boxs">A list of smaller bounding boxes resulting from the division.</returns>
     /// /// <example>
     /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.DivideByWidthAndLength.gif)
     /// [BoundingBox.DivideByWidthAndLength.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.DivideByWidthAndLength.dyn)
@@ -318,6 +318,46 @@ public class BoundingBox
                 var max = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X + (i + 1) * x,
                     minPoint.Y + (j + 1) * y, maxPoint.Z);
                 boundingBoxes.Add(Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(min, max));
+            }
+        }
+        return boundingBoxes;
+    }
+    
+    /// <summary>
+    /// Divides a given bounding box into smaller bounding boxes based on specified width, length, and height divisions.
+    /// </summary>
+    /// <param name="boundingBox">The original bounding box to be divided.</param>
+    /// <param name="width">The number of divisions along the width.</param>
+    /// <param name="length">The number of divisions along the length.</param>
+    /// <param name="height">The number of divisions along the height.</param>
+    /// <returns name="bounding boxs">A list of smaller bounding boxes resulting from the division.</returns>
+    /// <returns name="bounding boxs">A list of smaller bounding boxes resulting from the division.</returns>
+    /// /// <example>
+    /// ![](../OpenMEPPage/geometry/dyn/pic/BoundingBox.DivideByWidthLengthHeight.png)
+    /// [BoundingBox.DivideByWidthLengthHeight.dyn](../OpenMEPPage/geometry/dyn/BoundingBox.DivideByWidthLengthHeight.dyn)
+    ///</example>
+    public static List<Autodesk.DesignScript.Geometry.BoundingBox> DivideByWidthLengthHeight(
+        Autodesk.DesignScript.Geometry.BoundingBox boundingBox, double width, double length, double height)
+    {
+        var minPoint = boundingBox.MinPoint;
+        var maxPoint = boundingBox.MaxPoint;
+        var x = (maxPoint.X - minPoint.X) / width;
+        var y = (maxPoint.Y - minPoint.Y) / length;
+        var z = (maxPoint.Z - minPoint.Z) / height;
+        List<Autodesk.DesignScript.Geometry.BoundingBox> boundingBoxes =
+            new List<Autodesk.DesignScript.Geometry.BoundingBox>();
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < length; j++)
+            {
+                for (int k = 0; k < height; k++)
+                {
+                    var min = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X + i * x, minPoint.Y + j * y,
+                        minPoint.Z + k * z);
+                    var max = Autodesk.DesignScript.Geometry.Point.ByCoordinates(minPoint.X + (i + 1) * x,
+                        minPoint.Y + (j + 1) * y, minPoint.Z + (k + 1) * z);
+                    boundingBoxes.Add(Autodesk.DesignScript.Geometry.BoundingBox.ByCorners(min, max));
+                }
             }
         }
         return boundingBoxes;

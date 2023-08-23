@@ -1,0 +1,521 @@
+{
+  "Uuid": "a8a6ce67-2f3d-4ae1-9fc7-f9b4bd332abd",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "BoundingBox.DivideByWidthLengthHeight",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Abstract.BoundingBox.ByPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "f2a21eef962c4418a8b9b3f79ed41c4f",
+      "Inputs": [
+        {
+          "Id": "1e6664c1c61d4116859fcc03d6cf3d03",
+          "Name": "points",
+          "Description": "the list point to create new bounding box\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b089ad5666994f48b33ae209ca280845",
+          "Name": "boundingBox",
+          "Description": "new boundingBox from list point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a bounding box from a list of points\n\nBoundingBox.ByPoints (points: Point[]): BoundingBox"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "28d270587b0d4251bad80af11741baa3",
+      "Inputs": [
+        {
+          "Id": "95652a6759be4364865ee13a29a5db60",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6b194c894d4f4d11b75215776796495c",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d931c0408fc943e8952f8ee1a0407218",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "758d768d778940c798025430cd4ff91f",
+          "Name": "Point",
+          "Description": "Point created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "CrossProduct",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0..100..10;",
+      "Id": "f07a3517cfb0457d92545385bc6efb63",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3f99cc80cc90436b9dbe17ec0898202f",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "31b473b4625c499e9d8a0967cf2a9232",
+      "Inputs": [
+        {
+          "Id": "8ade3f634b7c48bc8ae477b9a238d9c2",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ba283b8bddd24409a6de301e0bd51486",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9b043528f6be4c53b113307552cc772c",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Abstract.BoundingBox.Visualize@Autodesk.DesignScript.Geometry.BoundingBox",
+      "Id": "5a3ba44f06194160815e94c4a1381254",
+      "Inputs": [
+        {
+          "Id": "dc82e38b693c4bdc8cda00ed72d29e65",
+          "Name": "boundingBox",
+          "Description": "the boundingBox\n\nBoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e4560c0e6a0e4a4a9463603547d30b3e",
+          "Name": "lines",
+          "Description": "the list line corner of the boundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Visualize the bounding box by corner points\n\nBoundingBox.Visualize (boundingBox: BoundingBox): Line[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 10.0,
+      "MinimumValue": 1.0,
+      "StepValue": 1.0,
+      "InputValue": 3.0,
+      "Id": "ab13f550b2da48e7a1b5ac898e794f6f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ddafe6d977f245ac8ae99c526185fd7f",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces numeric values"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 10.0,
+      "MinimumValue": 1.0,
+      "StepValue": 1.0,
+      "InputValue": 3.0,
+      "Id": "28f289ea483948feb1b5712348fc3098",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "042c4497b67c4cabbd3f6814302a9951",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces numeric values"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Abstract.BoundingBox.DivideByWidthLengthHeight@Autodesk.DesignScript.Geometry.BoundingBox,double,double,double",
+      "Id": "150f48bd26f24453bc79a27c60353de8",
+      "Inputs": [
+        {
+          "Id": "d8df7374b55145b6ba3e2dcf4473ad7e",
+          "Name": "boundingBox",
+          "Description": "The original bounding box to be divided.\n\nBoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "408f74717ccc46b6bfed8867f7257a3b",
+          "Name": "width",
+          "Description": "The number of divisions along the width.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "336d367465d144f7bc76669d295f316e",
+          "Name": "length",
+          "Description": "The number of divisions along the length.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cd876df7ea824d3a9c7431d5ebf3ba61",
+          "Name": "height",
+          "Description": "The number of divisions along the height.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "39ac7a06611446f799bd9749e611bd58",
+          "Name": "bounding boxs",
+          "Description": "A list of smaller bounding boxes resulting from the division.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Divides a given bounding box into smaller bounding boxes based on specified width, length, and height divisions.\n\nBoundingBox.DivideByWidthLengthHeight (boundingBox: BoundingBox, width: double, length: double, height: double): BoundingBox[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 10.0,
+      "MinimumValue": 1.0,
+      "StepValue": 1.0,
+      "InputValue": 2.0,
+      "Id": "36084bb19c2c4f969b26389c70ba1e9c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1b2f43e72835460e8e93acdffa60f2ea",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces numeric values"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b089ad5666994f48b33ae209ca280845",
+      "End": "d8df7374b55145b6ba3e2dcf4473ad7e",
+      "Id": "d9483ab15535402d9fa05b082b8cf63e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "758d768d778940c798025430cd4ff91f",
+      "End": "8ade3f634b7c48bc8ae477b9a238d9c2",
+      "Id": "47bf36850a934120904dcb9724d6eb6e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3f99cc80cc90436b9dbe17ec0898202f",
+      "End": "6b194c894d4f4d11b75215776796495c",
+      "Id": "f35bbb3909214a7da0348ba4385f4642",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3f99cc80cc90436b9dbe17ec0898202f",
+      "End": "95652a6759be4364865ee13a29a5db60",
+      "Id": "18494ccce76e473caf536def1a11e7cc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3f99cc80cc90436b9dbe17ec0898202f",
+      "End": "d931c0408fc943e8952f8ee1a0407218",
+      "Id": "dc22a3239e164ba7b78497bfe7b45462",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9b043528f6be4c53b113307552cc772c",
+      "End": "1e6664c1c61d4116859fcc03d6cf3d03",
+      "Id": "a883bdf1524d416789433ea3c7eb85a5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ddafe6d977f245ac8ae99c526185fd7f",
+      "End": "408f74717ccc46b6bfed8867f7257a3b",
+      "Id": "4e1e2b3070954a76ba64e8e6e53d3178",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "042c4497b67c4cabbd3f6814302a9951",
+      "End": "336d367465d144f7bc76669d295f316e",
+      "Id": "42da1cdb0e4e421aadb75b1d5a987216",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "39ac7a06611446f799bd9749e611bd58",
+      "End": "dc82e38b693c4bdc8cda00ed72d29e65",
+      "Id": "262a7e861bce45428f36ca344f68e858",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1b2f43e72835460e8e93acdffa60f2ea",
+      "End": "cd876df7ea824d3a9c7431d5ebf3ba61",
+      "Id": "675cfaa2509c440182e0d6ee168edeb0",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "f2a21eef962c4418a8b9b3f79ed41c4f",
+        "5a3ba44f06194160815e94c4a1381254",
+        "150f48bd26f24453bc79a27c60353de8"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.3.4871",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -79.21942138671875,
+      "EyeY": 133.24269866943359,
+      "EyeZ": 65.536041259765625,
+      "LookX": 142.36909484863281,
+      "LookY": -88.225578308105469,
+      "LookZ": -93.5564193725586,
+      "UpX": 0.21630087494850159,
+      "UpY": 0.96592456102371216,
+      "UpZ": -0.14214016497135162
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "BoundingBox.ByPoints",
+        "ShowGeometry": false,
+        "Id": "f2a21eef962c4418a8b9b3f79ed41c4f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1121.36073029455,
+        "Y": 319.128002532131
+      },
+      {
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": false,
+        "Id": "28d270587b0d4251bad80af11741baa3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 563.883185017014,
+        "Y": 319.128002532131
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "f07a3517cfb0457d92545385bc6efb63",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 296.000483515406,
+        "Y": 319.128002532131
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": false,
+        "Id": "31b473b4625c499e9d8a0967cf2a9232",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 891.184861754688,
+        "Y": 319.128002532131
+      },
+      {
+        "Name": "BoundingBox.Visualize",
+        "ShowGeometry": true,
+        "Id": "5a3ba44f06194160815e94c4a1381254",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1898.73544714862,
+        "Y": 292.539566742295
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "ab13f550b2da48e7a1b5ac898e794f6f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 999.77950101277975,
+        "Y": 517.82095571575246
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "28f289ea483948feb1b5712348fc3098",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 999.77950101277975,
+        "Y": 651.53157338644849
+      },
+      {
+        "Name": "BoundingBox.DivideByWidthLengthHeight",
+        "ShowGeometry": true,
+        "Id": "150f48bd26f24453bc79a27c60353de8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1465.42697256362,
+        "Y": 292.539566742295
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "36084bb19c2c4f969b26389c70ba1e9c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 999.77950101277975,
+        "Y": 788.90210474473747
+      }
+    ],
+    "Annotations": [],
+    "X": -94.456496917565119,
+    "Y": 230.22286338390978,
+    "Zoom": 0.64348452115349619
+  }
+}
