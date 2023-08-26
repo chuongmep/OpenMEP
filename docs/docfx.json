@@ -78,8 +78,7 @@
 			"_gitContribute": {
 			  "repo": "https://github.com/chuongmep/openmep",
 			  "branch": "dev"
-			},
-			"_enableSearch": true
+			}
 		}
 	}
 }
