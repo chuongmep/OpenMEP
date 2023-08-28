@@ -321,6 +321,30 @@ public class Selection
         selection.SetElementIds(elementIds);
         return elements;
     }
+    
+    /// <summary>
+    /// Zoom to element in Revit Project
+    /// </summary>
+    /// <param name="elements">the list element need zoom to</param>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Selection.ZoomToElement.png)
+    /// [Selection.ZoomToElement.dyn](../OpenMEPPage/document/dyn/Selection.ZoomToElement.dyn)
+    /// </example>
+    [NodeCategory("Action")]
+    public static void ZoomToElement(List<Revit.Elements.Element> elements)
+    {
+        if (elements.Any(x => x.InternalElement.Document.IsLinked))
+        {
+            throw new ArgumentNullException($"Can't Zoom To Element In Linked Document");
+        }
+        if (!elements.Any()) return;
+        List<ElementId> elementIds = new List<ElementId>();
+        elements.ForEach(x => elementIds.Add(x.InternalElement.Id));
+        Autodesk.Revit.UI.Selection.Selection selection = DocumentManager.Instance.CurrentUIDocument.Selection;
+        selection.SetElementIds(elementIds);
+        DocumentManager.Instance.CurrentUIDocument.ShowElements(elementIds);
+    }
+    
 
     [IsVisibleInDynamoLibrary(false)]
     public class SelectionFilter : ISelectionFilter
