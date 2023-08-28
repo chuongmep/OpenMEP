@@ -8,6 +8,7 @@ using Dynamo.Graph.Nodes;
 using OpenMEPRevit.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
+using RevitServices.Transactions;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEPRevit.Document;
@@ -156,7 +157,8 @@ public class Selection
                 doc.ActiveView.DetailLevel = ViewDetailLevel.Coarse;
                 tran.Commit();
                 tran.Start("Pick Point On Curve Element");
-                Reference r = uiDoc.Selection.PickObject(ObjectType.PointOnElement, "Please pick point on Curve Element");
+                Reference r =
+                    uiDoc.Selection.PickObject(ObjectType.PointOnElement, "Please pick point on Curve Element");
                 XYZ rGlobalPoint = r.GlobalPoint;
                 Points.Add(rGlobalPoint.ToPoint());
                 tran.RollBack();
@@ -321,7 +323,7 @@ public class Selection
         selection.SetElementIds(elementIds);
         return elements;
     }
-    
+
     /// <summary>
     /// Zoom to element in Revit Project
     /// </summary>
@@ -335,7 +337,8 @@ public class Selection
     {
         if (elements.Any(x => x.InternalElement.Document.IsLinked))
         {
-            throw new ArgumentNullException($"Can't Zoom To Element In Linked Document");
+            ZoomToLinkElement(elements);
+            return;
         }
         if (!elements.Any()) return;
         List<ElementId> elementIds = new List<ElementId>();
@@ -344,6 +347,51 @@ public class Selection
         selection.SetElementIds(elementIds);
         DocumentManager.Instance.CurrentUIDocument.ShowElements(elementIds);
     }
+
+    /// <summary>
+    /// Zooms to specified elements within a Revit project.
+    /// </summary>
+    /// <param name="elements">A list of Revit elements to zoom to.</param>
+    /// <param name="isCropView">Specifies whether to use a crop view for zooming (optional, default is false).</param>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Selection.ZoomToLinkElement.png)
+    /// [Selection.ZoomToLinkElement.dyn](../OpenMEPPage/document/dyn/Selection.ZoomToLinkElement.dyn)
+    /// </example>
+    public static void ZoomToLinkElement(List<Revit.Elements.Element> elements,bool isCropView=false)
+    {
+        if(elements==null) throw new ArgumentNullException($"{nameof(elements)} is null");
+        UIDocument uidoc = DocumentManager.Instance.CurrentUIDocument;
+        ElementId viewId = uidoc.ActiveView.Id;
+        List<UIView> uiViews = uidoc.GetOpenUIViews().Where(x => x.ViewId == viewId).ToList();
+        if (uiViews.Count == 0) return;
+        UIView uiView = uiViews.First();
+        BoundingBoxXYZ boundingBoxXYZ = new BoundingBoxXYZ();
+        boundingBoxXYZ.Min = new XYZ(double.MaxValue, double.MaxValue, double.MaxValue);
+        boundingBoxXYZ.Max = new XYZ(double.MinValue, double.MinValue, double.MinValue);
+        foreach (var element in elements)
+        {
+            BoundingBoxXYZ boundingBox = element.InternalElement.get_BoundingBox(uidoc.ActiveView);
+            if (boundingBox == null) continue;
+            boundingBoxXYZ.Min = new XYZ(Math.Min(boundingBoxXYZ.Min.X, boundingBox.Min.X),
+                Math.Min(boundingBoxXYZ.Min.Y, boundingBox.Min.Y),
+                Math.Min(boundingBoxXYZ.Min.Z, boundingBox.Min.Z));
+            boundingBoxXYZ.Max = new XYZ(Math.Max(boundingBoxXYZ.Max.X, boundingBox.Max.X),
+                Math.Max(boundingBoxXYZ.Max.Y, boundingBox.Max.Y),
+                Math.Max(boundingBoxXYZ.Max.Z, boundingBox.Max.Z));
+        }
+        uiView.ZoomAndCenterRectangle(boundingBoxXYZ.Min, boundingBoxXYZ.Max);
+        if (isCropView)
+        {
+            TransactionManager.Instance.EnsureInTransaction(DocumentManager.Instance.CurrentDBDocument);
+            uidoc.ActiveView.CropBoxActive = true;
+            uidoc.ActiveView.CropBoxVisible = true;
+            uidoc.ActiveView.CropBox = boundingBoxXYZ;
+            TransactionManager.Instance.TransactionTaskDone();
+        }
+    }
+    
+
+
     
 
     [IsVisibleInDynamoLibrary(false)]
