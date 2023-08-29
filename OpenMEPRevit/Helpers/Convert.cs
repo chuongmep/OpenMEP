@@ -36,7 +36,7 @@ namespace OpenMEPRevit.Helpers
         /// <param name="item"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        internal static dynDocument? ToDynamoType(this rvtDocument item)
+        internal static dynDocument? ToDynamoType(this rvtDocument? item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
             var constructor = typeof(dynDocument).GetConstructors(
