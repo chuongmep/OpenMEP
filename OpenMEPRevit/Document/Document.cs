@@ -177,6 +177,13 @@ public class Document
     ///    It is cached in Revit model opened session after getting it;
     /// </remarks>
     /// <exception cref="T:Autodesk.Revit.Exceptions.RevitServerUnauthorizedException">
+    ///    Thrown when cannot get data from ForgeDM for Revit cloud model.
+    /// </exception>
+    /// <param name="revitDocument">Autodesk.Revit.DB.Document</param>
+    /// <returns name="projectId">id of project locates the project</returns>
+    /// <since>2022</since>
+    public static string GetProjectId(Autodesk.Revit.DB.Document revitDocument)
+    {
         return revitDocument.GetProjectId();
     }
     /// <summary>Gets ForgeDM hub id where the model locates. It is cached in session.</summary>
