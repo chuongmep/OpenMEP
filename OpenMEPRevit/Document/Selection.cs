@@ -9,6 +9,7 @@ using OpenMEPRevit.Helpers;
 using Revit.GeometryConversion;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
+using OperationCanceledException = Autodesk.Revit.Exceptions.OperationCanceledException;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace OpenMEPRevit.Document;
@@ -213,6 +214,50 @@ public class Selection
         }
     }
 
+    /// <summary>
+    /// Retrieves a list of linked elements from the host Revit document based on the user's selection.
+    /// </summary>
+    /// <param name="flag">A boolean flag indicating fresh the selection process.</param>
+    /// <returns>A list of Revit elements from linked documents.</returns>
+    /// <exception cref="System.ArgumentException">Thrown when an error occurs during the element retrieval process.</exception>
+    /// <example>
+    /// ![](../OpenMEPPage/document/dyn/pic/Selection.PickOrderLinkElements.png)
+    /// [Selection.PickOrderLinkElements.dyn](../OpenMEPPage/document/dyn/Selection.PickOrderLinkElements.dyn)
+    /// </example>
+    public static List<Revit.Elements.Element> PickOrderLinkElements(bool flag)
+    {
+        List<Revit.Elements.Element> elements = new List<Revit.Elements.Element>();
+        UIDocument uiDoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument;
+        Autodesk.Revit.DB.Document doc = uiDoc.Document;
+        if (doc==null) return elements;
+        try
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("1.Select Ordered By Pick Link Element");
+            sb.AppendLine("2.Press Esc to Cancel");
+            TaskDialog.Show("OpenMEP", sb.ToString(), TaskDialogCommonButtons.Ok);
+            while (true)
+            {
+                var reference = uiDoc.Selection.PickObject(ObjectType
+                    .LinkedElement);
+                var representation = reference.ConvertToStableRepresentation(doc).Split(':')[0];
+                var parsedReference = Reference.ParseFromStableRepresentation(doc, representation);
+                var revitLinkInstance = (RevitLinkInstance)doc.GetElement(parsedReference);
+                var linkedDocument = revitLinkInstance.GetLinkDocument();
+                var linkedElement = linkedDocument.GetElement(reference.LinkedElementId);
+                Revit.Elements.Element? element = linkedElement.ToDynamoType();
+                elements.Add(element);
+            }
+        }
+        catch (OperationCanceledException e)
+        {
+            return elements;
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException(e.Message);
+        }
+    }
 
     /// <summary>
     /// Pick Element By Rectangle In Current View
@@ -303,6 +348,7 @@ public class Selection
         return elements;
     }
 
+
     /// <summary>
     /// Set selected element in Revit Project
     /// </summary>
@@ -340,6 +386,7 @@ public class Selection
             ZoomToLinkElement(elements);
             return;
         }
+
         if (!elements.Any()) return;
         List<ElementId> elementIds = new List<ElementId>();
         elements.ForEach(x => elementIds.Add(x.InternalElement.Id));
@@ -357,9 +404,9 @@ public class Selection
     /// ![](../OpenMEPPage/document/dyn/pic/Selection.ZoomToLinkElement.png)
     /// [Selection.ZoomToLinkElement.dyn](../OpenMEPPage/document/dyn/Selection.ZoomToLinkElement.dyn)
     /// </example>
-    public static void ZoomToLinkElement(List<Revit.Elements.Element> elements,bool isCropView=false)
+    public static void ZoomToLinkElement(List<Revit.Elements.Element> elements, bool isCropView = false)
     {
-        if(elements==null) throw new ArgumentNullException($"{nameof(elements)} is null");
+        if (elements == null) throw new ArgumentNullException($"{nameof(elements)} is null");
         UIDocument uidoc = DocumentManager.Instance.CurrentUIDocument;
         ElementId viewId = uidoc.ActiveView.Id;
         List<UIView> uiViews = uidoc.GetOpenUIViews().Where(x => x.ViewId == viewId).ToList();
@@ -379,6 +426,7 @@ public class Selection
                 Math.Max(boundingBoxXYZ.Max.Y, boundingBox.Max.Y),
                 Math.Max(boundingBoxXYZ.Max.Z, boundingBox.Max.Z));
         }
+
         uiView.ZoomAndCenterRectangle(boundingBoxXYZ.Min, boundingBoxXYZ.Max);
         if (isCropView)
         {
@@ -389,10 +437,7 @@ public class Selection
             TransactionManager.Instance.TransactionTaskDone();
         }
     }
-    
 
-
-    
 
     [IsVisibleInDynamoLibrary(false)]
     public class SelectionFilter : ISelectionFilter
