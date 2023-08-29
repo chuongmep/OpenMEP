@@ -15,7 +15,7 @@ public class View
     /// Get All View Filters Created In Current Document
     /// </summary>
     /// <param name="flag">toggle true false to fresh data</param>
-    /// <returns name="view filters"></returns>
+    /// <returns name="view filters">view filters</returns>
     /// <example>
     /// ![](../OpenMEPPage/element/dyn/pic/View.GetAllViewFilters.png)
     /// [View.GetAllViewFilters.dyn](../OpenMEPPage/element/dyn/View.GetAllViewFilters.dyn)
