@@ -99,7 +99,8 @@ public class Document
     {
         return revitDocument.IsDetached;
     }
-
+#if R20 || R21
+#else
     /// <summary>Gets ForgeDM folder id where the model locates.</summary>
     /// <remarks>
     ///    It is empty for non-cloud model;
@@ -201,6 +202,9 @@ public class Document
     {
         return revitDocument.GetHubId();
     }
+#endif
+
+    
     /// <summary>
     /// Convert Revit Document to Dynamo Document
     /// </summary>
