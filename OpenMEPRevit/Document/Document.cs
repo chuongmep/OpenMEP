@@ -171,6 +171,29 @@ public class Document
     {
         return revitDocument.GetCloudModelUrn();
     }
+    /// <summary>Gets ForgeDM project id where the model locates.</summary>
+    /// <remarks>
+    ///    It is empty for non-cloud model;
+    ///    It is cached in Revit model opened session after getting it;
+    /// </remarks>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.RevitServerUnauthorizedException">
+        return revitDocument.GetProjectId();
+    }
+    /// <summary>Gets ForgeDM hub id where the model locates. It is cached in session.</summary>
+    /// <remarks>
+    ///    It is empty for non-cloud model;
+    ///    It is cached in Revit model opened session after getting it;
+    /// </remarks>
+    /// <param name="revitDocument">Autodesk.Revit.DB.Document</param>
+    /// <returns name="hubId">Id hub locates the model</returns>
+    /// <exception cref="T:Autodesk.Revit.Exceptions.RevitServerUnauthorizedException">
+    ///    Thrown when cannot get data from ForgeDM for Revit cloud model.
+    /// </exception>
+    /// <since>2022</since>
+    public static string GetHubId(Autodesk.Revit.DB.Document revitDocument)
+    {
+        return revitDocument.GetHubId();
+    }
     /// <summary>
     /// Convert Revit Document to Dynamo Document
     /// </summary>
