@@ -168,7 +168,7 @@ public class Selection
         catch (Autodesk.Revit.Exceptions.OperationCanceledException)
         {
             doc.ActiveView.DetailLevel = detailLevel;
-            tran.Commit();
+            tran?.Commit();
             return Points;
         }
         catch (Exception e)
