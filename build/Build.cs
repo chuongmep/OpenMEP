@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using _build;
@@ -6,6 +7,7 @@ using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
+using Nuke.Common.Tools.Git;
 using Nuke.Common.Tools.GitHub;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Tools.MSBuild;
@@ -122,11 +124,12 @@ class Build : NukeBuild
         .Requires(() => GitHubToken)
         .Requires(() => GitRepository)
         .Requires(() => GitVersion)
-        .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
-        // .OnlyWhenStatic(() => IsServerBuild)
+        // .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
+        .OnlyWhenStatic(() => IsLocalBuild) // Just run this on the server
         .TriggeredBy(CreateInstaller)
         .Executes(() =>
         {
+            
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
                 Credentials = new Credentials(GitHubToken)
@@ -141,7 +144,7 @@ class Build : NukeBuild
             var newRelease = new NewRelease(version)
             {
                 Name = version,
-                //Body = CreateChangelog(version),
+                Body = GetNewCommitMessages(),
                 Draft = true,
                 TargetCommitish = GitVersion.Sha,
                 GenerateReleaseNotes = true,
@@ -151,6 +154,35 @@ class Build : NukeBuild
             UploadArtifacts(draft, artifacts);
             ReleaseDraft(gitHubOwner, gitHubName, draft);
         });
+
+    string GetNewCommitMessages()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.AppendLine("What is news:");
+        var latestTag = GitTasks.Git($"describe --tags --abbrev=0").ToArray();
+        Log.Information("Latest Tag: {Version}", latestTag[0].Text);
+        var previousRelease = GitTasks.Git($"describe --tags --abbrev=0 --always").ToArray();
+        
+        var commitMessages = GitTasks.Git($"log --pretty=format:\"%s\" {latestTag[0].Text}..HEAD").ToArray();
+        
+        var description = string.Join("\n", commitMessages.Select(x => x.Text));
+        Log.Information("Description: {Description}", description);
+        var titleCase = commitMessages.Select(x => ToTitleCase(x.Text)).ToArray();
+        foreach (var message in titleCase)
+        {
+            stringBuilder.AppendLine($"- {message}");
+        }
+        string previousReleaseUrl = "https://github.com/chuongmep/OpenMEP/releases/tag/" + previousRelease[0].Text;
+        stringBuilder.AppendLine($"See What is new in previous release: [{previousRelease[0].Text} Release](" + previousReleaseUrl + ")");
+       
+        return stringBuilder.ToString();
+    }
+    string ToTitleCase(string str)
+    {
+        var textInfo = new CultureInfo("en-US", false).TextInfo;
+        return textInfo.ToTitleCase(str);
+    }
+    
     string GetProductVersion(IEnumerable<string> artifacts)
     {
         var stringVersion = string.Empty;
@@ -239,5 +271,6 @@ class Build : NukeBuild
 
         if (gitHubTags.Select(tag => tag.Name).Contains(version)) throw new ArgumentException($"The repository already contains a Release with the tag: {version}");
     }
+    
 
 }
