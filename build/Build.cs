@@ -36,7 +36,8 @@ class Build : NukeBuild
     public const string BuildConfiguration = "Release";
     public const string InstallerConfiguration = "Installer";
     const string BinOutputFolder = "bin";
-
+    // define github token here
+   
     static readonly Lazy<string> MsBuildPath = new(() =>
     {
         if (IsServerBuild) return null;
@@ -120,6 +121,31 @@ class Build : NukeBuild
             });
         });
 
+    // target try test github release 
+    Target TestPublishGithubRelease => _ => _
+        .Requires(() => GitRepository)
+        .Requires(() => GitVersion)
+        .TriggeredBy(RestoreAndBuild)
+        .OnlyWhenStatic(()=>IsLocalBuild || GitRepository.IsOnDevelopBranch())
+        .Executes(() =>
+        {
+            // get github token from environment variable with name: GITHUB_TOKEN
+            GitHubToken = Environment.GetEnvironmentVariable("GITHUB_TOKEN",EnvironmentVariableTarget.User);
+            if (GitHubToken == null || GitHubToken.Equals(string.Empty))
+            {
+                Log.Warning("Can't find github token, please set environment with variable name: GITHUB_TOKEN");
+                return;
+            }
+            GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
+            {
+                Credentials = new Credentials(GitHubToken)
+            };
+            var gitHubName = GitRepository.GetGitHubName();
+            Log.Information("Detected Name: {Name}", gitHubName);
+            var gitHubOwner = GitRepository.GetGitHubOwner();
+            Log.Information("Detected Owner: {Owner}", gitHubOwner);
+            GetNewCommitMessages();
+        });
     Target PublishGitHubRelease => _ => _
         .Requires(() => GitHubToken)
         .Requires(() => GitRepository)
@@ -129,7 +155,8 @@ class Build : NukeBuild
         .TriggeredBy(CreateInstaller)
         .Executes(() =>
         {
-            
+            // if local get the token from environment variable
+            GitHubToken = "";
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
                 Credentials = new Credentials(GitHubToken)

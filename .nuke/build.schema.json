@@ -71,7 +71,8 @@
               "Compile",
               "CreateInstaller",
               "PublishGitHubRelease",
-              "RestoreAndBuild"
+              "RestoreAndBuild",
+              "TestPublishGithubRelease"
             ]
           }
         },
@@ -89,7 +90,8 @@
               "Compile",
               "CreateInstaller",
               "PublishGitHubRelease",
-              "RestoreAndBuild"
+              "RestoreAndBuild",
+              "TestPublishGithubRelease"
             ]
           }
         },
