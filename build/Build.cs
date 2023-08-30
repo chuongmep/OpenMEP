@@ -158,13 +158,26 @@ class Build : NukeBuild
     string GetNewCommitMessages()
     {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.AppendLine("What is news:");
+        stringBuilder.AppendLine("What Is News:");
         var latestTag = GitTasks.Git($"describe --tags --abbrev=0").ToArray();
+        if (latestTag.Length == 0)
+        {
+            Log.Warning("Can't find latest tag");
+            return string.Empty;
+        }
         Log.Information("Latest Tag: {Version}", latestTag[0].Text);
         var previousRelease = GitTasks.Git($"describe --tags --abbrev=0 --always").ToArray();
-        
+        if (previousRelease.Length == 0)
+        {
+            Log.Warning("Can't find previous release");
+            return string.Empty;
+        }
         var commitMessages = GitTasks.Git($"log --pretty=format:\"%s\" {latestTag[0].Text}..HEAD").ToArray();
-        
+        if (commitMessages.Length == 0)
+        {
+            Log.Warning("Can't find commit messages");
+            return string.Empty;
+        }
         var description = string.Join("\n", commitMessages.Select(x => x.Text));
         Log.Information("Description: {Description}", description);
         var titleCase = commitMessages.Select(x => ToTitleCase(x.Text)).ToArray();
@@ -173,6 +186,7 @@ class Build : NukeBuild
             stringBuilder.AppendLine($"- {message}");
         }
         string previousReleaseUrl = "https://github.com/chuongmep/OpenMEP/releases/tag/" + previousRelease[0].Text;
+        stringBuilder.AppendLine();
         stringBuilder.AppendLine($"See What is new in previous release: [{previousRelease[0].Text} Release](" + previousReleaseUrl + ")");
        
         return stringBuilder.ToString();
