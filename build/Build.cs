@@ -124,8 +124,8 @@ class Build : NukeBuild
         .Requires(() => GitHubToken)
         .Requires(() => GitRepository)
         .Requires(() => GitVersion)
-        // .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
-        .OnlyWhenStatic(() => IsLocalBuild) // Just run this on the server
+        .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
+        .OnlyWhenStatic(() => IsServerBuild) // Just run this on the server
         .TriggeredBy(CreateInstaller)
         .Executes(() =>
         {
