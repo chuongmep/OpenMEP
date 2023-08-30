@@ -29,7 +29,7 @@ class Build : NukeBuild
     {
         "OpenMEPRevit",
     };
-
+    const string GithubRepository = "https://github.com/chuongmep/OpenMEP";
     const string ArtifactsFolder = "output";
     public const string InstallerProject = "DeployInstaller";
 
@@ -186,6 +186,7 @@ class Build : NukeBuild
     {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.AppendLine("What Is News:");
+        Log.Information("Current Branch: {Branch}", GitRepository.Branch);
         var latestTag = GitTasks.Git($"describe --tags --abbrev=0").ToArray();
         if (latestTag.Length == 0)
         {
@@ -205,17 +206,18 @@ class Build : NukeBuild
             Log.Warning("Can't find commit messages");
             return string.Empty;
         }
-        var description = string.Join("\n", commitMessages.Select(x => x.Text));
-        Log.Information("Description: {Description}", description);
         var titleCase = commitMessages.Select(x => ToTitleCase(x.Text)).ToArray();
         foreach (var message in titleCase)
         {
+            Log.Information("Commit Message: {Message}", message);
             stringBuilder.AppendLine($"- {message}");
         }
-        string previousReleaseUrl = "https://github.com/chuongmep/OpenMEP/releases/tag/" + previousRelease[0].Text;
+        // add download latest release url
         stringBuilder.AppendLine();
+        stringBuilder.AppendLine($"Download Latest Release: [Click To Download]({GithubRepository}/releases/latest)");
+        stringBuilder.AppendLine();
+        string previousReleaseUrl = $"{GithubRepository}/releases/tag/" + previousRelease[0].Text;
         stringBuilder.AppendLine($"See What is new in previous release: [{previousRelease[0].Text} Release](" + previousReleaseUrl + ")");
-       
         return stringBuilder.ToString();
     }
     string ToTitleCase(string str)
