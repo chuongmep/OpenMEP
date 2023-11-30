@@ -38,7 +38,7 @@ public class Plane
         var colorY = DSCore.Color.ByARGB(255, 0, 255, 0);
         var lineN = Autodesk.DesignScript.Geometry.Line.ByStartPointDirectionLength(pt, plane.Normal, length);
         var colorN = DSCore.Color.ByARGB(255, 0, 0, 255);
-        var rect = Rectangle.ByWidthLength(plane, length, length);
+        var rect = Autodesk.DesignScript.Geometry.Rectangle.ByWidthLength(plane, length, length);
         var colorR = DSCore.Color.ByARGB(50, 50, 50, 50);
         List<Modifiers.GeometryColor> display = new List<Modifiers.GeometryColor>();
         display.Add(Modifiers.GeometryColor.ByGeometryColor(lineX, colorX));
