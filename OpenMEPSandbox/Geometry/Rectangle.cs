@@ -12,14 +12,13 @@ public class Rectangle
     /// <summary>
     /// Divide a rectangle into smaller rectangles
     /// </summary>
-    /// <param name="rectangle"></param>
-    /// <param name="distanceX"></param>
-    /// <param name="distanceY"></param>
+    /// <param name="rectangle">The rectangle to divide</param>
+    /// <param name="distanceX">the distance between each rectangle in X direction</param>
+    /// <param name="distanceY">the distance between each rectangle in Y direction</param>
     /// <returns name="DividedRectangles">Rectangles</returns>
     [MultiReturn("DividedRectangles")]
     public static Dictionary<string, object> Divide(Autodesk.DesignScript.Geometry.Rectangle rectangle, double distanceX, double distanceY)
     {
-        Autodesk.DesignScript.Geometry.Surface surface;
         List<Autodesk.DesignScript.Geometry.Rectangle> dividedRectangles = new List<Autodesk.DesignScript.Geometry.Rectangle>();
 
         double currentX = rectangle.BoundingBox.MinPoint.X;
