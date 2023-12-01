@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		docs\civil\pkg.json = docs\civil\pkg.json
 		README.md = README.md
 		docs\extra\OpenMEP_ViewExtensionDefinition.xml = docs\extra\OpenMEP_ViewExtensionDefinition.xml
+		.github\workflows\docfx_deploy.yml = .github\workflows\docfx_deploy.yml
+		.github\workflows\Workflow.yml = .github\workflows\Workflow.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeployInstaller", "DeployInstaller\DeployInstaller.csproj", "{C7835EFE-E1C7-48B2-90D0-E943D43A905D}"

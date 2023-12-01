@@ -700,7 +700,7 @@ public class Point
     /// </example>
     public static List<Autodesk.DesignScript.Geometry.Point> SortPointsByClockwise(
         List<Autodesk.DesignScript.Geometry.Point> points,
-        double  startAngle =0)
+        double startAngle = 0)
     {
         // find the center point of the polygon
         Point3 center = new Point3(0, 0, 0);
@@ -710,23 +710,68 @@ public class Point
             center.Y += point.Y;
             center.Z += point.Z;
         }
+
         center.X /= points.Count;
         center.Y /= points.Count;
         center.Z /= points.Count;
         // sort the points by their clockwise order
-        points.Sort((p1, p2) => {
-            double angle1 = GetAngle(p1,center, startAngle);
-            double angle2 = GetAngle(p2,center, startAngle);
+        points.Sort((p1, p2) =>
+        {
+            double angle1 = GetAngle(p1, center, startAngle);
+            double angle2 = GetAngle(p2, center, startAngle);
             if (angle1 < angle2) return -1;
             if (angle1 > angle2) return 1;
             return 0;
         });
         return points;
     }
-    private static double GetAngle(Autodesk.DesignScript.Geometry.Point point,Point3 center, double startAngle)
+    private static double GetAngle(Autodesk.DesignScript.Geometry.Point point, Point3 center, double startAngle)
     {
         double angle = System.Math.Atan2(point.Y - center.Y, point.X - center.X) * 180 / System.Math.PI;
         if (angle < startAngle) angle += 360;
         return angle;
     }
+
+    /// <summary>
+    /// Sort points along a curve
+    /// </summary>
+    /// <param name="Points">Points</param>
+    /// <param name="Guide">Guide curve</param>
+    /// <returns path="SortedPoints">Points sorted along a curve.</returns>
+    /// <remarks path="Indices">Index map of sorted points.</remarks>
+    /// <search>lunchbox,point,sort</search>
+    [MultiReturn(new[] {"SortedPoints", "Indices"})]
+    public static Dictionary<string, object> SortPointsAlongCurve(List<Autodesk.DesignScript.Geometry.Point> Points,
+        Autodesk.DesignScript.Geometry.Curve Guide)
+    {
+        List<double> m_parameter1 = new List<double>();
+        List<double> m_parameter2 = new List<double>();
+        List<int> m_indices = new List<int>();
+
+        int i = 0;
+        foreach (Autodesk.DesignScript.Geometry.Point pt in Points)
+        {
+            Autodesk.DesignScript.Geometry.Point closest = Guide.ClosestPointTo(pt);
+            double param = Guide.ParameterAtPoint(closest);
+            m_parameter1.Add(param);
+            m_parameter2.Add(param);
+            m_indices.Add(i);
+            i++;
+        }
+
+        Autodesk.DesignScript.Geometry.Point[] m_ptarr = Points.ToArray();
+        int[] m_ind = m_indices.ToArray();
+        double[] m_key = m_parameter1.ToArray();
+        double[] m_key2 = m_parameter2.ToArray();
+
+        Array.Sort(m_key, m_ptarr);
+        Array.Sort(m_key2, m_ind);
+
+        return new Dictionary<string, object>
+        {
+            {"SortedPoints", m_ptarr},
+            {"Indices", m_ind}
+        };
+    }
 }
+
