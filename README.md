@@ -63,7 +63,10 @@ software, both commercially and non-commercially, with the only requirement bein
 license notice be included with any distribution. It is a popular choice among developers for its simplicity and
 permissiveness.
 
-A part of Geometry Display Dependency is licensed under the [Miscellany Package](https://github.com/thomascorrie/Miscellany)
+A part of Geometry Display Dependency is licensed under the [Miscellany Package](https://github.com/thomascorrie/Miscellany) under AGPL-3.0.
+
+A part of this library depend on [LunchBox Package](https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/) under  [https://www.gnu.org/licenses/lgpl-3.0.en.html](https://www.gnu.org/licenses/lgpl-3.0.en.html).
+
 
 # ⛑️ Sponsors
 
