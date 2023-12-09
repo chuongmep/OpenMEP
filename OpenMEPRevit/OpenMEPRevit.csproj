@@ -108,7 +108,7 @@
         <DynVersion>$(DynamoVersion)</DynVersion>
         <BuildOutput>$(DynamoOutput)</BuildOutput>
         <PublishSingleFile>true</PublishSingleFile>
-        <PublishTrimmed>true</PublishTrimmed>
+<!--        <PublishTrimmed>true</PublishTrimmed>-->
         <Copyright>MIT</Copyright>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>dynamo</PackageTags>

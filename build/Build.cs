@@ -7,6 +7,7 @@ using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
+using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.Git;
 using Nuke.Common.Tools.GitHub;
 using Nuke.Common.Tools.GitVersion;
@@ -17,7 +18,7 @@ using Octokit;
 using Serilog;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
-
+using static Nuke.Common.Tools.DotNet.DotNetTasks;
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -93,13 +94,18 @@ class Build : NukeBuild
             var configurations = Solution.GetConfigurations(BuildConfiguration);
             configurations.ForEach(configuration =>
             {
-                MSBuild(s => s
-                    .SetTargets("Rebuild")
-                    .SetProcessToolPath(MsBuildPath.Value)
+                DotNetTasks.DotNetBuild(s => s
                     .SetConfiguration(configuration)
-                    .SetVerbosity(MSBuildVerbosity.Minimal)
-                    .DisableNodeReuse()
-                    .EnableRestore());
+                    // .SetFramework("net6.0")
+                    .SetVersion(GitVersion.NuGetVersionV2)
+                    .SetVerbosity(DotNetVerbosity.Minimal));
+                // MSBuild(s => s
+                //     .SetTargets("Rebuild")
+                //     .SetProcessToolPath(MsBuildPath.Value)
+                //     .SetConfiguration(configuration)
+                //     .SetVerbosity(MSBuildVerbosity.Minimal)
+                //     .DisableNodeReuse()
+                //     .EnableRestore());
             });
         });
    
