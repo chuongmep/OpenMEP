@@ -162,7 +162,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             // if local get the token from environment variable
-            GitHubToken = "";
+            //GitHubToken = "";
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
                 Credentials = new Credentials(GitHubToken)
