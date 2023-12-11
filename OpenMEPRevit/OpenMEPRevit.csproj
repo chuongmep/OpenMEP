@@ -13,7 +13,7 @@
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug R23.1;Debug R24;Debug R20;Debug R21;Debug R22;Debug R23;</Configurations>
-        <Configurations>$(Configurations);Release R24.1;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R23;</Configurations>
+        <Configurations>$(Configurations);Release R24.1;Release R24.2;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R23;</Configurations>
         <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;MSB3277</NoWarn>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
@@ -101,6 +101,12 @@
     <PropertyGroup Condition="$(Configuration.Contains('Release R24.1'))">
         <DynamoVersion>2.18</DynamoVersion>
         <DynamoOutput>2.18</DynamoOutput>
+        <RevitVersion>2024</RevitVersion>
+        <DefineConstants>$(DefineConstants);R24</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R24.2'))">
+        <DynamoVersion>2.18</DynamoVersion>
+        <DynamoOutput>2.19</DynamoOutput>
         <RevitVersion>2024</RevitVersion>
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
