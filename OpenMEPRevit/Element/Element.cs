@@ -37,6 +37,10 @@ public class Element
     {
         if (element == null)
             throw new ArgumentNullException(nameof(element));
+        if (element.InternalElement is Autodesk.Revit.DB.FabricationPart fabricationPart)
+        {
+            return fabricationPart.Origin.ToPoint();
+        }
         if (element.InternalElement.Location is LocationPoint)
         {
             LocationPoint? lc = element.InternalElement.Location as LocationPoint;
