@@ -1,0 +1,249 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Fitting.NewTakeoffFitting",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000d9f64"
+      ],
+      "Id": "3d247db1565e4f689171ee0385c91e15",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b951df86194d40608a1b44dce6211e53",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetUnusedConnectors@Revit.Elements.Element",
+      "Id": "50b9b655d2c84b1b9c0be90e59f8b0c3",
+      "Inputs": [
+        {
+          "Id": "8963fb27df354c48a9954b4b45373b31",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cf99206267c54fce922e39b9070e8d83",
+          "Name": "connectors",
+          "Description": "unused connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector unused from element\n\nConnector.GetUnusedConnectors (element: Element): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000d9f51"
+      ],
+      "Id": "fdb799881d664a32a559664d91921c0e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ea6291ba76854a4587e86cd208c1d9a1",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Fitting.NewTakeoffFitting@var,Revit.Elements.Element",
+      "Id": "0cc5964dda55489382bc7d650437775e",
+      "Inputs": [
+        {
+          "Id": "a7aea5c7b7f4491abc51c3bad9d44ddb",
+          "Name": "connector",
+          "Description": "The connector to be connected to the takeoff.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d5d967d190a8475f9fb95f41dce14e3d",
+          "Name": "mepCurve",
+          "Description": "The duct or pipe which is the trunk for the takeoff.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "923dda6410064496adc8a738609ea716",
+          "Name": "familyinstance",
+          "Description": "new takeoff",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Add a new family instance of an takeoff fitting into the Autodesk Revit document, using one connector and one MEP curve.\n\nFitting.NewTakeoffFitting (connector: var, mepCurve: Element): Element"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b951df86194d40608a1b44dce6211e53",
+      "End": "d5d967d190a8475f9fb95f41dce14e3d",
+      "Id": "f0478f0174024f85b1ffcdfda4f63a26",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cf99206267c54fce922e39b9070e8d83",
+      "End": "a7aea5c7b7f4491abc51c3bad9d44ddb",
+      "Id": "90d4c4b7ad2d4f82950984ef5046dab9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ea6291ba76854a4587e86cd208c1d9a1",
+      "End": "8963fb27df354c48a9954b4b45373b31",
+      "Id": "7f2df2fb38ee4abfa0e274bbfb38fae8",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "50b9b655d2c84b1b9c0be90e59f8b0c3",
+        "0cc5964dda55489382bc7d650437775e"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "3d247db1565e4f689171ee0385c91e15",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 35.257253263846451,
+        "Y": 536.047174861096
+      },
+      {
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
+        "Id": "50b9b655d2c84b1b9c0be90e59f8b0c3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 309.91133839473315,
+        "Y": 364.1817719830554
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "fdb799881d664a32a559664d91921c0e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 51.100341674433253,
+        "Y": 380.70793439956003
+      },
+      {
+        "Name": "Fitting.NewTakeoffFitting",
+        "ShowGeometry": true,
+        "Id": "0cc5964dda55489382bc7d650437775e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 700.2035558434593,
+        "Y": 439.21024959174804
+      }
+    ],
+    "Annotations": [],
+    "X": 40.763341006226028,
+    "Y": -61.721514744921421,
+    "Zoom": 0.78436932804482717
+  }
+}

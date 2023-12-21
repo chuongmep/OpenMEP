@@ -1,0 +1,203 @@
+{
+  "Uuid": "bdaf8f11-89b6-4e6c-82cf-01b2268c03b2",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MEPModel.GetElectricalSystems",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "4aded12f-bb3e-43d3-a764-654a0a8454e4-00098720"
+      ],
+      "Id": "072670fb86fa4d9e9f4e33f49ff3d262",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "203bd092dbd447ba9572d70adf626f35",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.FamilyInstance.GetMEPModel@Revit.Elements.Element",
+      "Id": "72929d4b4379435ba7f2a04e7e6b81ad",
+      "Inputs": [
+        {
+          "Id": "0fde2ad82bc947edba33121449da1d24",
+          "Name": "familyInstance",
+          "Description": "the element to get MepModel\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "361eaf2168c140488f7268c1f2ed29bc",
+          "Name": "mepModel",
+          "Description": "Autodesk.Revit.DB.MEPModel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the MEP model for the family instance.\n\nFamilyInstance.GetMEPModel (familyInstance: Element): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.MEPModel.GetElectricalSystems@var",
+      "Id": "009c4399a9c7420f81069da6d5fc12cd",
+      "Inputs": [
+        {
+          "Id": "0e1b7bb88df14d718da4cc182bbc6dc3",
+          "Name": "mepModel",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "027d2d1ff123438ea58fae99d4472572",
+          "Name": "electricSystems",
+          "Description": "electricSystems",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the electrical systems that are currently created using this MEPModel.\n\nMEPModel.GetElectricalSystems (mepModel: var): Element[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "203bd092dbd447ba9572d70adf626f35",
+      "End": "0fde2ad82bc947edba33121449da1d24",
+      "Id": "ad7c672dbb164eb38f96f90681d37eca",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "361eaf2168c140488f7268c1f2ed29bc",
+      "End": "0e1b7bb88df14d718da4cc182bbc6dc3",
+      "Id": "40013042fd4c459ebab0b8e695a52c95",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "72929d4b4379435ba7f2a04e7e6b81ad",
+        "009c4399a9c7420f81069da6d5fc12cd"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "072670fb86fa4d9e9f4e33f49ff3d262",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 238.39999999999998,
+        "Y": 244.79999999999995
+      },
+      {
+        "Name": "FamilyInstance.GetMEPModel",
+        "ShowGeometry": true,
+        "Id": "72929d4b4379435ba7f2a04e7e6b81ad",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 511.59548237214517,
+        "Y": 239.37982947394039
+      },
+      {
+        "Name": "MEPModel.GetElectricalSystems",
+        "ShowGeometry": true,
+        "Id": "009c4399a9c7420f81069da6d5fc12cd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 861.1071013120951,
+        "Y": 236.83186461010655
+      }
+    ],
+    "Annotations": [],
+    "X": -105.62047099819188,
+    "Y": 60.236393041399765,
+    "Zoom": 0.86797750764901571
+  }
+}

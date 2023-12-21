@@ -1,0 +1,247 @@
+{
+  "Uuid": "a7853524-26a2-4dfd-ae86-e2d820a94a73",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Application.OpenDocument",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "74f76eb53b444656a82c2eda15c2e988",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f2e4d58e374b4e59a6a626d399f24790",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Application.Current@bool",
+      "Id": "f70826e003db40aba890d48263ac3cd3",
+      "Inputs": [
+        {
+          "Id": "bb58a7e311d74d768ea91da322397a12",
+          "Name": "toggle",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1dce56a3661d441784639784356bcb8e",
+          "Name": "AcadApplication",
+          "Description": "AcadApplication",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Current Application Of Autocad Application Opening\n\nApplication.Current (toggle: bool): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Application.OpenDocument@var,string",
+      "Id": "cf760713d3a44540b6ea9891f4f36ecd",
+      "Inputs": [
+        {
+          "Id": "2a43b582394f4990b751734720ffe10f",
+          "Name": "AcadApplication",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "917ea3ea09ac4efa8a96ce08466874f3",
+          "Name": "filePath",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eed3b56e41a14e0dbb4dd401626b4502",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return AcadDocument Opened by file path\n\nApplication.OpenDocument (AcadApplication: var, filePath: string): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Your Path",
+      "Id": "536268e93bbd44f9a50405dc6c9efb2c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5cce96cda2e145388e53a2284a7e3f29",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f2e4d58e374b4e59a6a626d399f24790",
+      "End": "bb58a7e311d74d768ea91da322397a12",
+      "Id": "1b87826647b44b0297ccb3f59fae4c32",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1dce56a3661d441784639784356bcb8e",
+      "End": "2a43b582394f4990b751734720ffe10f",
+      "Id": "5bc79a7d80634245a22a145c53783022",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5cce96cda2e145388e53a2284a7e3f29",
+      "End": "917ea3ea09ac4efa8a96ce08466874f3",
+      "Id": "fcaf897188c540a0aef5b8467988fe94",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "f70826e003db40aba890d48263ac3cd3",
+        "cf760713d3a44540b6ea9891f4f36ecd"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "74f76eb53b444656a82c2eda15c2e988",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 504.22470892884405,
+        "Y": 280.25711288998173
+      },
+      {
+        "Name": "Application.Current",
+        "ShowGeometry": true,
+        "Id": "f70826e003db40aba890d48263ac3cd3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 743.22433585777344,
+        "Y": 278.75057707108061
+      },
+      {
+        "Name": "Application.OpenDocument",
+        "ShowGeometry": true,
+        "Id": "cf760713d3a44540b6ea9891f4f36ecd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1037.2371620211161,
+        "Y": 293.44149735788
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "536268e93bbd44f9a50405dc6c9efb2c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 848.57417513506573,
+        "Y": 443.97283843425936
+      }
+    ],
+    "Annotations": [],
+    "X": -481.99326188511873,
+    "Y": -73.8653965763014,
+    "Zoom": 1.2632876338883303
+  }
+}

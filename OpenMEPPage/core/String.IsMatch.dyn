@@ -1,0 +1,511 @@
+{
+  "Uuid": "f8b2b9bf-23a6-462a-a653-989c1d8626f4",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "String.IsMatch",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.String.IsMatch@string,string",
+      "Id": "a98c9131175940cd9a6c0d3e460f6884",
+      "Inputs": [
+        {
+          "Id": "9985177c26134a14b1a9cc68adad649c",
+          "Name": "input",
+          "Description": "The string to search for a match.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "466ed70803304e51bb6b6db8f4a0bddb",
+          "Name": "pattern",
+          "Description": "The regular expression pattern to match.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4bcd6eaae26744aeaf3f4c4f21c2218f",
+          "Name": "bool",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Indicates whether the specified regular expression finds a match in the specified input string.\n\nString.IsMatch (input: string, pattern: string): bool"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "12345",
+      "Id": "1a95a687d42c4913a31d17376e94c92e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fdcf2ec7af5847cd8a6249238055cd35",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "^[0-9]+$",
+      "Id": "bf83048de44249628711b8af541937e3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "731db91715dc47859dbd663a313a3a7b",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.String.IsMatch@string,string",
+      "Id": "0aab90b5f2bc4ad0a52ace089d1192d9",
+      "Inputs": [
+        {
+          "Id": "f2a8476ab84546afacb3ae322df11f30",
+          "Name": "input",
+          "Description": "The string to search for a match.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bc8f8ae1bc9649ca80bdd7cf9a445382",
+          "Name": "pattern",
+          "Description": "The regular expression pattern to match.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3b93dd7bce2c416f86a098d1d1428b28",
+          "Name": "bool",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Indicates whether the specified regular expression finds a match in the specified input string.\n\nString.IsMatch (input: string, pattern: string): bool"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "example@example.com",
+      "Id": "f21d75a4dfbb481f82db681847516b11",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "166348fe7e45444197789299fbb1ad96",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+      "Id": "8e3a077132d9402abc158726e3f22bce",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "414d781a4c91409598155d3e5d27eeab",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.String.IsMatch@string,string",
+      "Id": "1cda87568eb24f93adf31c320253faf8",
+      "Inputs": [
+        {
+          "Id": "190b0107952a48f3a54740eb78f9fd9d",
+          "Name": "input",
+          "Description": "The string to search for a match.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7751c0fca9e44449a4a80c2fffdb540f",
+          "Name": "pattern",
+          "Description": "The regular expression pattern to match.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "63e520aca80b473e99337c7a908871a4",
+          "Name": "bool",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Indicates whether the specified regular expression finds a match in the specified input string.\n\nString.IsMatch (input: string, pattern: string): bool"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "^https?://[\\w-]+(\\.[\\w-]+)+([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?$",
+      "Id": "eaed6287e61c432487183859784186d0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "88c652425467481cb8667985e6c57ba4",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "https://www.example.com",
+      "Id": "b464bc7c4c5845c29e31ea89fb69dec9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4c73906846cd4cc7a965652351f5d2ac",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "fdcf2ec7af5847cd8a6249238055cd35",
+      "End": "9985177c26134a14b1a9cc68adad649c",
+      "Id": "36679580878244f0bcc6992b46cf7039",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "731db91715dc47859dbd663a313a3a7b",
+      "End": "466ed70803304e51bb6b6db8f4a0bddb",
+      "Id": "c49c2fb73f6b487a8c100d1adac8d282",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "166348fe7e45444197789299fbb1ad96",
+      "End": "f2a8476ab84546afacb3ae322df11f30",
+      "Id": "54793bc5c05643dd88b44e7fab8aea47",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "414d781a4c91409598155d3e5d27eeab",
+      "End": "bc8f8ae1bc9649ca80bdd7cf9a445382",
+      "Id": "1fdb9fee280245e39aaead641b9c3cf2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "88c652425467481cb8667985e6c57ba4",
+      "End": "7751c0fca9e44449a4a80c2fffdb540f",
+      "Id": "705e7f8972194a28bffd2056bd9dc9f0",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4c73906846cd4cc7a965652351f5d2ac",
+      "End": "190b0107952a48f3a54740eb78f9fd9d",
+      "Id": "ab036a28d64e4321902e0fe7f6eb4bf8",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "a98c9131175940cd9a6c0d3e460f6884",
+        "0aab90b5f2bc4ad0a52ace089d1192d9",
+        "1cda87568eb24f93adf31c320253faf8"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "String.IsMatch",
+        "ShowGeometry": true,
+        "Id": "a98c9131175940cd9a6c0d3e460f6884",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 375.00055036260017,
+        "Y": 310.99536677728719
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "1a95a687d42c4913a31d17376e94c92e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 160.05972962825882,
+        "Y": 265.51631710126122
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "bf83048de44249628711b8af541937e3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 155.91286137771891,
+        "Y": 397.52495641011654
+      },
+      {
+        "Name": "String.IsMatch",
+        "ShowGeometry": true,
+        "Id": "0aab90b5f2bc4ad0a52ace089d1192d9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1440.0404705688577,
+        "Y": 265.7980288715076
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "f21d75a4dfbb481f82db681847516b11",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1154.6028895753363,
+        "Y": 224.46584744602262
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "8e3a077132d9402abc158726e3f22bce",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1167.0434943269561,
+        "Y": 357.16563146330094
+      },
+      {
+        "Name": "String.IsMatch",
+        "ShowGeometry": true,
+        "Id": "1cda87568eb24f93adf31c320253faf8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 902.21432547215022,
+        "Y": 292.865268683841
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "eaed6287e61c432487183859784186d0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 619.24252881080952,
+        "Y": 370.38556108024716
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "b464bc7c4c5845c29e31ea89fb69dec9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 620.93231599687033,
+        "Y": 223.63443538451705
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "3597049c992a4329922851dddb53c990",
+        "Title": "Check if a string contains a valid URL:",
+        "DescriptionText": "In this example, the regular expression ^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$ matches a string that contains a valid email address. The expression ensures that the string contains a single \"@\" symbol, followed by one or more characters before and after the \"@\" symbol, and then followed by a period and one or more characters.",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "1cda87568eb24f93adf31c320253faf8",
+          "eaed6287e61c432487183859784186d0",
+          "b464bc7c4c5845c29e31ea89fb69dec9"
+        ],
+        "HasNestedGroups": false,
+        "Left": 609.24252881080952,
+        "Top": 69.634435384517047,
+        "Width": 502.9717966613407,
+        "Height": 495.75112569573014,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 223.63443538451705,
+        "InitialHeight": 293.80863930885494,
+        "TextblockHeight": 144.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "a3744500cb1c4ed5a9c9162d269b01d1",
+        "Title": "Check if a string contains only numeric characters:",
+        "DescriptionText": "In this example, the regular expression ^[0-9]+$ matches a string that contains only one or more numeric characters. The ^ and $ anchors ensure that the entire string is matched, rather than just a portion of it.",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "a98c9131175940cd9a6c0d3e460f6884",
+          "1a95a687d42c4913a31d17376e94c92e",
+          "bf83048de44249628711b8af541937e3"
+        ],
+        "HasNestedGroups": false,
+        "Left": 145.91286137771891,
+        "Top": 125.91631710126123,
+        "Width": 439.08768898488125,
+        "Height": 403.4086393088553,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 265.51631710126122,
+        "InitialHeight": 293.80863930885528,
+        "TextblockHeight": 129.6,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "fd9e840e8c494e4ca7b4bf05f0331004",
+        "Title": "Check if a string contains a valid email address:",
+        "DescriptionText": "In this example, the regular expression ^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$ matches a string that contains a valid email address. The expression ensures that the string contains a single \"@\" symbol, followed by one or more characters before and after the \"@\" symbol, and then followed by a period and one or more characters.",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "0aab90b5f2bc4ad0a52ace089d1192d9",
+          "f21d75a4dfbb481f82db681847516b11",
+          "8e3a077132d9402abc158726e3f22bce"
+        ],
+        "HasNestedGroups": false,
+        "Left": 1144.6028895753363,
+        "Top": 70.465847446022622,
+        "Width": 505.43758099352135,
+        "Height": 436.89978401727831,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 224.46584744602262,
+        "InitialHeight": 312.89978401727831,
+        "TextblockHeight": 144.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 35.493646663876234,
+    "Y": 57.053727396527904,
+    "Zoom": 0.80332159346259757
+  }
+}

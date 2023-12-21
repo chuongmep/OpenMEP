@@ -1,0 +1,226 @@
+{
+  "Uuid": "0f9a1c01-40a2-450c-9204-b15d6ddc40f0",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "List.IndexObjects",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[100,200,300,200,100,300];",
+      "Id": "ff46db14a1154949a4cff56da4d64e7a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7c1a95cdc54b46d1b1b87dce7eec5ec5",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"Red\",\"Green\",\"Blue\",\"Green\"];",
+      "Id": "c0605143e840425ca095abc315e05bd0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "04a516f861d644e190fb2ccd2bab1c7f",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexObjects@var[]",
+      "Id": "34a92bc9e05f4fd7b169bdead8a45e81",
+      "Inputs": [
+        {
+          "Id": "d6e5f5fd1d604a168cda8b705404b60d",
+          "Name": "objects",
+          "Description": "The input list of strings to be indexed.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "20bf8a3a50444c2fb16f79fe74277dd9",
+          "Name": "indices",
+          "Description": "A new list where each element is replaced with its corresponding index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes a list of doubles and returns a new list where each element is replaced with the index of its first occurrence in the input list. If an element appears multiple times in the input list, the index of its first occurrence is used.\n\nList.IndexObjects (objects: var[]): int[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexObjects@var[]",
+      "Id": "e3c0f498083845b18910a0250b30b2f4",
+      "Inputs": [
+        {
+          "Id": "7be5cb64e27343eb92b46b8662dd0c9d",
+          "Name": "objects",
+          "Description": "The input list of strings to be indexed.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "70da9d85826b4fffa5c18eecd12980bc",
+          "Name": "indices",
+          "Description": "A new list where each element is replaced with its corresponding index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes a list of doubles and returns a new list where each element is replaced with the index of its first occurrence in the input list. If an element appears multiple times in the input list, the index of its first occurrence is used.\n\nList.IndexObjects (objects: var[]): int[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7c1a95cdc54b46d1b1b87dce7eec5ec5",
+      "End": "d6e5f5fd1d604a168cda8b705404b60d",
+      "Id": "6853fabb074f44bb81c9de0c85a8007f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "04a516f861d644e190fb2ccd2bab1c7f",
+      "End": "7be5cb64e27343eb92b46b8662dd0c9d",
+      "Id": "45105ccb54e4437eb3fefc9b595b95cd",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "34a92bc9e05f4fd7b169bdead8a45e81",
+        "e3c0f498083845b18910a0250b30b2f4"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "ff46db14a1154949a4cff56da4d64e7a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 34.680634642892414,
+        "Y": 35.30969837979201
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "c0605143e840425ca095abc315e05bd0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.034468044815980647,
+        "Y": 333.20358248014105
+      },
+      {
+        "Name": "List.IndexObjects",
+        "ShowGeometry": true,
+        "Id": "34a92bc9e05f4fd7b169bdead8a45e81",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 389.93765894445039,
+        "Y": -45.794430018363727
+      },
+      {
+        "Name": "List.IndexObjects",
+        "ShowGeometry": true,
+        "Id": "e3c0f498083845b18910a0250b30b2f4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 407.76201090789834,
+        "Y": 315.38322818834297
+      }
+    ],
+    "Annotations": [],
+    "X": 194.83615507207836,
+    "Y": 148.81363322201241,
+    "Zoom": 0.85276592558149744
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "Uuid": "2b447393-5070-43dd-8637-7b18cec8529e",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.Offset",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.Offset@Autodesk.DesignScript.Geometry.Point,double,Autodesk.DesignScript.Geometry.Vector",
+      "Id": "389504202b734c478f0edc640d05c3d1",
+      "Inputs": [
+        {
+          "Id": "f1068d63936447a3b5c6940234de9ad3",
+          "Name": "point",
+          "Description": "point to offset\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "33f2426739554e44a4c5d6205484b4d8",
+          "Name": "distance",
+          "Description": "distance from start point to end point\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fdc79636ef764e61afdd122a59749846",
+          "Name": "direction",
+          "Description": "direction to direct to\n\nVector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4e3af58fc82d49488208e4c8b0c7663d",
+          "Name": "point",
+          "Description": "new point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Offset a point by a distance and a direction\n\nPoint.Offset (point: Point, distance: double, direction: Vector): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.XAxis",
+      "Id": "190b7a0642f94cb8aa3320cbee26df09",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7254a18426a74c148d962c8c80886c53",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical X axis Vector (1,0,0)\n\nVector.XAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13d5ead8d1914d4397bc55c1491ba0a4",
+      "Inputs": [
+        {
+          "Id": "d879daa4a508493db0e2c76feeb85845",
+          "Name": "startPoint",
+          "Description": "Line start point\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f2b7fe1a52d246f8b793aa43117f9542",
+          "Name": "endPoint",
+          "Description": "Line end point\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4ef8815a8bec4a1fb8b1592914a813f6",
+          "Name": "Line",
+          "Description": "Line from start and end point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.Origin",
+      "Id": "52cb0f74df634853a64cd5148046a8ae",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "69d3d2c5c6c04c0e8c87ac9d0c81abf5",
+          "Name": "point",
+          "Description": "point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Gets a point with X,Y,Z = 0\n\nPoint.Origin ( ): Point"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 100.0,
+      "MinimumValue": 0.0,
+      "StepValue": 0.1,
+      "InputValue": 22.1,
+      "Id": "3dbafb1eec9e47a78fcd9c7da3786657",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5c9f5c76c70447f294250da4b7d2b2e1",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces numeric values."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "4e3af58fc82d49488208e4c8b0c7663d",
+      "End": "d879daa4a508493db0e2c76feeb85845",
+      "Id": "9661c32f3ee54db78eaf0ea68ce9f07d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7254a18426a74c148d962c8c80886c53",
+      "End": "fdc79636ef764e61afdd122a59749846",
+      "Id": "e62e2e8352a0431d8ae289165e12e145",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "69d3d2c5c6c04c0e8c87ac9d0c81abf5",
+      "End": "f1068d63936447a3b5c6940234de9ad3",
+      "Id": "1d595aaa4c0c49d1b8807d6f2b5a34a0",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "69d3d2c5c6c04c0e8c87ac9d0c81abf5",
+      "End": "f2b7fe1a52d246f8b793aa43117f9542",
+      "Id": "684b2f78759e4724a80640004d00629b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5c9f5c76c70447f294250da4b7d2b2e1",
+      "End": "33f2426739554e44a4c5d6205484b4d8",
+      "Id": "b5cfad7718b04c7b8210105e2f61a0a2",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "389504202b734c478f0edc640d05c3d1",
+        "52cb0f74df634853a64cd5148046a8ae"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Point.Offset",
+        "ShowGeometry": true,
+        "Id": "389504202b734c478f0edc640d05c3d1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 611.45508146282555,
+        "Y": 310.33966033777324
+      },
+      {
+        "Name": "Vector.XAxis",
+        "ShowGeometry": true,
+        "Id": "190b7a0642f94cb8aa3320cbee26df09",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 399.27432554085073,
+        "Y": 490.68234978934578
+      },
+      {
+        "Name": "Line.ByStartPointEndPoint",
+        "ShowGeometry": true,
+        "Id": "13d5ead8d1914d4397bc55c1491ba0a4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 954.642678268071,
+        "Y": 285.48474888209228
+      },
+      {
+        "Name": "Point.Origin",
+        "ShowGeometry": true,
+        "Id": "52cb0f74df634853a64cd5148046a8ae",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 308.01866869645403,
+        "Y": 225.19223005810863
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "3dbafb1eec9e47a78fcd9c7da3786657",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 61.748778858018795,
+        "Y": 364.32216330362115
+      }
+    ],
+    "Annotations": [],
+    "X": -1.4121961813395387,
+    "Y": -9.6728978741280685,
+    "Zoom": 0.7658293928515516
+  }
+}

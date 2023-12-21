@@ -1,0 +1,252 @@
+{
+  "Uuid": "a255e386-a2e1-4eba-b466-330cc2feb311",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Database.Layers",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "fb4cda1e1009473688dbe54560943b9a",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "7701e53887b64a779795a04d8b1f7d93",
+          "Name": "toggle",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "390ff4a2c60e4bd6bdbeb481c8cb9ce8",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.Current@bool",
+      "Replication": "Auto",
+      "Description": "Get Current Document Of Autocad Application\n\nDocument.Current (toggle: bool): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "Id": "ac7a91e54c1a4a4794d6c2eccac67c0b",
+      "NodeType": "BooleanInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d532ba29db844111877a8fb78f1259f6",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False",
+      "InputValue": false
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "0e855ceda6734089beae0600e5145116",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "b757770ed76c4a84a7ed1fb3c5b07eb5",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d8b6b8dfe19d41cb86371837daa0bae3",
+          "Name": "AcadDatabase",
+          "Description": "The Database object contains all of the graphical and most of the non-graphical AutoCAD objects.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.Database@var",
+      "Replication": "Auto",
+      "Description": "Database of Document\n\nDocument.Database (AcadDocument: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "78f99a4263c1430ba4e68a30c3f4a8ef",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "25da5b62c05243c88dc0a54a87af2fd3",
+          "Name": "AcadDatabase",
+          "Description": "AcadDatabase\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7132ca08c2f4473fa39e7ee8336924ef",
+          "Name": "Names",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a0a84adef9ea46bcaa48498fe7d593cb",
+          "Name": "AcadLayers",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Database.Layers@var",
+      "Replication": "Auto",
+      "Description": "Get all blocks in database\n\nDatabase.Layers (AcadDatabase: var): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "390ff4a2c60e4bd6bdbeb481c8cb9ce8",
+      "End": "b757770ed76c4a84a7ed1fb3c5b07eb5",
+      "Id": "2c31397a777f454f8ea2fd980285499f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d532ba29db844111877a8fb78f1259f6",
+      "End": "7701e53887b64a779795a04d8b1f7d93",
+      "Id": "cc4cdf02b4c348d99a01f6978277b882",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d8b6b8dfe19d41cb86371837daa0bae3",
+      "End": "25da5b62c05243c88dc0a54a87af2fd3",
+      "Id": "b7d2c11e33ef47c3b8473d5f6c949a2c",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "fb4cda1e1009473688dbe54560943b9a",
+        "0e855ceda6734089beae0600e5145116",
+        "78f99a4263c1430ba4e68a30c3f4a8ef"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.1.5092",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "fb4cda1e1009473688dbe54560943b9a",
+        "Name": "Document.Current",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 448.90501780321574,
+        "Y": 388.87335707095434
+      },
+      {
+        "Id": "ac7a91e54c1a4a4794d6c2eccac67c0b",
+        "Name": "Boolean",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 214.0,
+        "Y": 385.0
+      },
+      {
+        "Id": "0e855ceda6734089beae0600e5145116",
+        "Name": "Document.Database",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 729.36013418894959,
+        "Y": 388.21305799948044
+      },
+      {
+        "Id": "78f99a4263c1430ba4e68a30c3f4a8ef",
+        "Name": "Database.Layers",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1074.0835312799386,
+        "Y": 399.883954469852
+      }
+    ],
+    "Annotations": [],
+    "X": -140.98971718744906,
+    "Y": -173.03370344762686,
+    "Zoom": 0.94920856635317863
+  }
+}

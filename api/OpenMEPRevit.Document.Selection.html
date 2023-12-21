@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Selection
+ | Open MEP </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Selection
+ | Open MEP ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/chuongmep/openmep/new/dev/apiSpec/new?filename=OpenMEPRevit_Document_Selection.md&amp;value=---%0Auid%3A%20OpenMEPRevit.Document.Selection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OpenMEPRevit.Document.Selection">
+
+
+
+  <h1 id="OpenMEPRevit_Document_Selection" data-uid="OpenMEPRevit.Document.Selection" class="text-break">
+    Class Selection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OpenMEPRevit.html">OpenMEPRevit</a>.<a class="xref" href="OpenMEPRevit.Document.html">Document</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>OpenMEPRevit.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Selection</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Selection</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OpenMEPRevit_Document_Selection_GetSelectedElements_" data-uid="OpenMEPRevit.Document.Selection.GetSelectedElements*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_GetSelectedElements_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.GetSelectedElements(System.Boolean)">
+  GetSelectedElements(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the selected elements in the current document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+[NodeSearchTags(new string[] { &quot;selection&quot;, &quot;get&quot;, &quot;selected&quot;, &quot;elements&quot; })]
+public static List&lt;Element&gt; GetSelectedElements(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>flag true false to fresh</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>element selected</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_GetSelectedElements_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.GetSelectedElements.png" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.GetSelectedElements.dyn">Selection.GetSelectedElements.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_PickElementsByRectangle_" data-uid="OpenMEPRevit.Document.Selection.PickElementsByRectangle*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_PickElementsByRectangle_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.PickElementsByRectangle(System.Boolean)">
+  PickElementsByRectangle(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pick Element By Rectangle In Current View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+[NodeSearchTags(new string[] { &quot;selection&quot;, &quot;pick&quot;, &quot;rectangle&quot;, &quot;element&quot; })]
+public static List&lt;Element&gt; PickElementsByRectangle(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>toggle true false to pick again</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>list element pick by Rectangle</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_PickElementsByRectangle_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.PickElementsByRectangle.gif" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.PickElementsByRectangle.dyn">Selection.PickElementsByRectangle.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_PickLinkElements_" data-uid="OpenMEPRevit.Document.Selection.PickLinkElements*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_PickLinkElements_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.PickLinkElements(System.Boolean)">
+  PickLinkElements(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pick Element In Linked Document</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+[NodeSearchTags(new string[] { &quot;selection&quot;, &quot;pick&quot;, &quot;link&quot;, &quot;element&quot; })]
+public static List&lt;Element&gt; PickLinkElements(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>flag true false to fresh pick element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>list element inside link elements</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_PickLinkElements_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.PickLinkElements.gif" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.PickLinkElements.dyn">Selection.PickLinkElements.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_PickOrderElements_" data-uid="OpenMEPRevit.Document.Selection.PickOrderElements*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_PickOrderElements_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.PickOrderElements(System.Boolean)">
+  PickOrderElements(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pick Select Order Element In Current View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+[NodeSearchTags(new string[] { &quot;selection&quot;, &quot;pick&quot;, &quot;order&quot;, &quot;element&quot; })]
+public static List&lt;Element&gt; PickOrderElements(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>list element pick ordered</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_PickOrderElements_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.PickOrderElements.gif" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.PickOrderElements.dyn">Selection.PickOrderElements.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_PickOrderLinkElements_" data-uid="OpenMEPRevit.Document.Selection.PickOrderLinkElements*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_PickOrderLinkElements_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.PickOrderLinkElements(System.Boolean)">
+  PickOrderLinkElements(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a list of linked elements from the host Revit document based on the user's selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Element&gt; PickOrderLinkElements(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>A boolean flag indicating fresh the selection process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>A list of Revit elements from linked documents.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_PickOrderLinkElements_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.PickOrderLinkElements.png" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.PickOrderLinkElements.dyn">Selection.PickOrderLinkElements.dyn</a></p>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when an error occurs during the element retrieval process.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_PickPoint_" data-uid="OpenMEPRevit.Document.Selection.PickPoint*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_PickPoint_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.PickPoint(System.Boolean)">
+  PickPoint(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Point Picked In Current View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+[NodeSearchTags(new string[] { &quot;selection&quot;, &quot;pick&quot;, &quot;point&quot; })]
+public static Point PickPoint(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>toggle to fresh pick point</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_PickPoint_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.PickPoint.gif" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.PickPoint.dyn">Selection.PickPoint.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_PickPointOnCurveElement_" data-uid="OpenMEPRevit.Document.Selection.PickPointOnCurveElement*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_PickPointOnCurveElement_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.PickPointOnCurveElement(System.Boolean)">
+  PickPointOnCurveElement(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return list point pick orders on curve element (Pipe, Duct, Cable Tray, Conduit, Flex Duct, Flex Pipe, Wire)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; PickPointOnCurveElement(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>toggle true false to fresh pick point</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list point orders picked</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_PickPointOnCurveElement_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.PickPointOnCurveElement.png" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.PickPointOnCurveElement.dyn">Selection.PickPointOnCurveElement.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_PickPointOrders_" data-uid="OpenMEPRevit.Document.Selection.PickPointOrders*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_PickPointOrders_System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.PickPointOrders(System.Boolean)">
+  PickPointOrders(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return a list points pick order in Current View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+[NodeSearchTags(new string[] { &quot;selection&quot;, &quot;pick&quot;, &quot;point&quot;, &quot;order&quot; })]
+public static List&lt;Point&gt; PickPointOrders(bool flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>toggle true false to fresh pick point</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list point picked orders</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_PickPointOrders_System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.PickPointOrders.gif" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.PickPointOrders.dyn">Selection.PickPointOrders.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_SetSelectedElement_" data-uid="OpenMEPRevit.Document.Selection.SetSelectedElement*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_SetSelectedElement_System_Collections_Generic_List_Revit_Elements_Element__" data-uid="OpenMEPRevit.Document.Selection.SetSelectedElement(System.Collections.Generic.List{Revit.Elements.Element})">
+  SetSelectedElement(List&lt;Element&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L361"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set selected element in Revit Project</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+[NodeSearchTags(new string[] { &quot;selection&quot;, &quot;pick&quot;, &quot;link&quot;, &quot;element&quot; })]
+public static List&lt;Element&gt; SetSelectedElement(List&lt;Element&gt; elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>list element need set selected</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>list selected element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_SetSelectedElement_System_Collections_Generic_List_Revit_Elements_Element___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.SetSelectedElement.gif" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.SetSelectedElement.dyn">Selection.SetSelectedElement.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_ZoomToElement_" data-uid="OpenMEPRevit.Document.Selection.ZoomToElement*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_ZoomToElement_System_Collections_Generic_List_Revit_Elements_Element__" data-uid="OpenMEPRevit.Document.Selection.ZoomToElement(System.Collections.Generic.List{Revit.Elements.Element})">
+  ZoomToElement(List&lt;Element&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Zoom to element in Revit Project</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+public static void ZoomToElement(List&lt;Element&gt; elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>the list element need zoom to</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_ZoomToElement_System_Collections_Generic_List_Revit_Elements_Element___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.ZoomToElement.png" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.ZoomToElement.dyn">Selection.ZoomToElement.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Document_Selection_ZoomToLinkElement_" data-uid="OpenMEPRevit.Document.Selection.ZoomToLinkElement*"></a>
+
+  <h3 id="OpenMEPRevit_Document_Selection_ZoomToLinkElement_System_Collections_Generic_List_Revit_Elements_Element__System_Boolean_" data-uid="OpenMEPRevit.Document.Selection.ZoomToLinkElement(System.Collections.Generic.List{Revit.Elements.Element},System.Boolean)">
+  ZoomToLinkElement(List&lt;Element&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Zooms to specified elements within a Revit project.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ZoomToLinkElement(List&lt;Element&gt; elements, bool isCropView = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>A list of Revit elements to zoom to.</p>
+</dd>
+    <dt><code>isCropView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Specifies whether to use a crop view for zooming (optional, default is false).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Document_Selection_ZoomToLinkElement_System_Collections_Generic_List_Revit_Elements_Element__System_Boolean__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/document/dyn/pic/Selection.ZoomToLinkElement.png" alt="">
+<a href="../OpenMEPPage/document/dyn/Selection.ZoomToLinkElement.dyn">Selection.ZoomToLinkElement.dyn</a></p>
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Document/Selection.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

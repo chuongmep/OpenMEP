@@ -1,0 +1,228 @@
+{
+  "Uuid": "4ab841dd-beeb-4004-9afc-79e32607cfb4",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.GenerateRandomPointsInCube",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "be88d7d52994499fbbd6d03c4b3cad3b",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "6ad22711909642cd8725ec46c273580c",
+          "Name": "width",
+          "Description": "The width of the rectangular prism (i.e., the length of the x-axis).\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "da11d01b12114bf29a12c7fdbab4c73f",
+          "Name": "height",
+          "Description": "The height of the rectangular prism (i.e., the length of the y-axis).\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fec0783f94114830b103b17016a07a66",
+          "Name": "length",
+          "Description": "The length of the rectangular prism (i.e., the length of the z-axis).\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8bb7db7ddaa7436a9995fd934ba9860d",
+          "Name": "numPoints",
+          "Description": "The number of random points to generate.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5ad3f2d9d9554eebbacdc1c5e9215699",
+          "Name": "Point[]",
+          "Description": "A list of randomly generated points within the rectangular prism.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.GenerateRandomPointsInCube@double,double,double,int",
+      "Replication": "Auto",
+      "Description": "Generates a given number of random points within a rectangular prism (i.e., a cube with different dimensions) of the given size.\n\nPoint.GenerateRandomPointsInCube (width: double, height: double, length: double, numPoints: int): Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "900842f11a0146abb357a01b52bfb11d",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bce1a9284ee2484595a3c758e040df03",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "10;"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NumberType": "Integer",
+      "MaximumValue": 2000,
+      "MinimumValue": 0,
+      "StepValue": 50,
+      "Id": "64ef98338e114297be6b9dbe6bb814d4",
+      "NodeType": "NumberInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b2787545845e47acb904721e67d4a9ee",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces integer values",
+      "InputValue": 1950
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "bce1a9284ee2484595a3c758e040df03",
+      "End": "6ad22711909642cd8725ec46c273580c",
+      "Id": "29fc804242c24ee48f45e842ec40d3f5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bce1a9284ee2484595a3c758e040df03",
+      "End": "da11d01b12114bf29a12c7fdbab4c73f",
+      "Id": "0be6962ccfc740629871d56b5dbd8d43",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bce1a9284ee2484595a3c758e040df03",
+      "End": "fec0783f94114830b103b17016a07a66",
+      "Id": "d614cfe2cf674daab543dc427ab255cb",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b2787545845e47acb904721e67d4a9ee",
+      "End": "8bb7db7ddaa7436a9995fd934ba9860d",
+      "Id": "4c7ee6977199448db36fcbbb4c63bc14",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "be88d7d52994499fbbd6d03c4b3cad3b"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.0.2986",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -1.9575154706835747,
+      "EyeY": 21.007598876953125,
+      "EyeZ": -0.64863312244415283,
+      "LookX": -0.036813974380493164,
+      "LookY": -22.527456283569336,
+      "LookZ": -0.777707576751709,
+      "UpX": 0.046516202390193939,
+      "UpY": 0.18051965534687042,
+      "UpZ": 0.98247087001800537
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "be88d7d52994499fbbd6d03c4b3cad3b",
+        "Name": "Point.GenerateRandomPointsInCube",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 672.80000000000007,
+        "Y": 200.8
+      },
+      {
+        "Id": "900842f11a0146abb357a01b52bfb11d",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 354.256578207437,
+        "Y": 205.72097257285211
+      },
+      {
+        "Id": "64ef98338e114297be6b9dbe6bb814d4",
+        "Name": "Integer Slider",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 220.80000000000007,
+        "Y": 420.79999999999995
+      }
+    ],
+    "Annotations": [],
+    "X": -83.129123574606609,
+    "Y": -21.721888146098365,
+    "Zoom": 0.91006380393143882
+  }
+}

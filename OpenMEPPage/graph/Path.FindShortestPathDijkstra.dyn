@@ -1,0 +1,521 @@
+{
+  "Uuid": "994196c0-0829-405f-b76a-a783a13ab86b",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Path.FindShortestPathDijkstra",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "startNode =0;\n// source and destinations\n// same with lst1 and lst2\n[0,0,1,1,1,2,3,3];\n[1,3,2,3,4,1,2,4];\n//Distance\n[6,7,5,8,1,1,1,13,9];",
+      "Id": "168af5f737c140598ca51a911748a3fe",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f420b1c0ba2b4b19bc78743771a8ecc4",
+          "Name": "",
+          "Description": "startNode",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5b33c3e41f6a4234a796ba6c943e5e07",
+          "Name": "",
+          "Description": "Value of expression at line 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2a4978ec078e4bbd808b39d6434c8704",
+          "Name": "",
+          "Description": "Value of expression at line 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "57801697f8e445a098442add4cae3dc1",
+          "Name": "",
+          "Description": "Value of expression at line 7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[0,0,100,100,100,200,300,300];\n[100,300,200,300,400,100,200,400];",
+      "Id": "146805afc1c14603910922ed914e3f9c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6fe719cbca684508afc5d11c67167039",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9af2321a0dad407e91d8a61b6714165f",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "3d4ba235bfc84ad09f568fd546fb8419",
+      "Inputs": [
+        {
+          "Id": "b7ad8198edb543b9acebdc5dca75be0a",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9791b4302342400bae3ea2bf1a222c95",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3340812414a3407d959d2067600933a3",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Graph.Path.FindShortestPathDijkstra@int,int,int[],int[],int[]",
+      "Id": "f05da81486c34410a2b564cf8df39beb",
+      "Inputs": [
+        {
+          "Id": "1ed8e0aee1324f03accc5bb202405c58",
+          "Name": "startNode",
+          "Description": "The ID of the start node.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e6f9d888a7bb4dc6853c05ca483f13e2",
+          "Name": "endNode",
+          "Description": "The ID of the end node.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d44ccdbf5cc4468e85a08f1a6c3bd18e",
+          "Name": "sources",
+          "Description": "The list of source nodes for each edge in the graph.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b2a8f499192643e3a9bbd91318400351",
+          "Name": "destinations",
+          "Description": "The list of destination nodes for each edge in the graph.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "77ab947368ee407fb712774e0dab507d",
+          "Name": "weights",
+          "Description": "The list of edge weights for each edge in the graph.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ed8ec62777e5497fa4b0488cb0c3d00e",
+          "Name": "shortestPath",
+          "Description": "the shortest path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0c3fa7cb654241dcb8f9916574e26bd0",
+          "Name": "distance",
+          "Description": "the value distance shortest of path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Finds the shortest path between two nodes in a graph using Dijkstra's algorithm. The graph is represented as a list of edges, where each edge is a triple (source, destination, weight). The startNode and endNode parameters specify the source and destination nodes, respectively. The sources, destinations, and weights parameters contain the lists of source nodes, destination nodes, and edge weights, respectively, that make up the graph. Returns an array of node IDs that form the shortest path from the start node to the end node. If no path exists, returns an empty array.\n\nPath.FindShortestPathDijkstra (startNode: int, endNode: int, sources: int[], destinations: int[], weights: int[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 3,
+      "MaximumValue": 4,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "55f066f72ef2420c9b9384383f8c7d6c",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces integer values"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexTwoListObjects@var[],var[]",
+      "Id": "2cec888edfec4dc5a953c8d3411940a5",
+      "Inputs": [
+        {
+          "Id": "d78526294c904510888fe0430bfc076a",
+          "Name": "lst1",
+          "Description": "The first list to index.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f95ad4a9588d46658fccaa9cc7df0989",
+          "Name": "lst2",
+          "Description": "The second list to index.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0995f3fe899a40fb87bbbad670f36d65",
+          "Name": "lst1",
+          "Description": "A Tuple containing the two indexed lists.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1dfd1b4f3bb2403daf37dd99ecbd9ffb",
+          "Name": "lst2",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes two lists as input and returns two indexed lists where each element is replaced with the index of its first occurrence in the input list.\n\nGenerate.IndexTwoListObjects (lst1: var[], lst2: var[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.List.Generate.IndexUniqueTwoListObjects@var[],var[]",
+      "Id": "100521c7bca240b9b027d3fc28cc3c1e",
+      "Inputs": [
+        {
+          "Id": "44957a498a064ff29fe3eb437448ea9b",
+          "Name": "list1",
+          "Description": "The first list of names.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a2d6dc6c09734d2198c96a0097c06e1c",
+          "Name": "list2",
+          "Description": "The second list of names.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "abfaf042c619408a8e9076b8d30ed32b",
+          "Name": "name",
+          "Description": "A dictionary with unique names and indices.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "68084fa36d4c475588bb29dd0ec1d957",
+          "Name": "index",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes two lists of strings as input, merges them, and returns a dictionary with unique names and indices.\n\nGenerate.IndexUniqueTwoListObjects (list1: var[], list2: var[]): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f420b1c0ba2b4b19bc78743771a8ecc4",
+      "End": "1ed8e0aee1324f03accc5bb202405c58",
+      "Id": "41e5e395ccd84a0f836ff58f56aa1454",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "57801697f8e445a098442add4cae3dc1",
+      "End": "77ab947368ee407fb712774e0dab507d",
+      "Id": "b8d9624acb0e48d08bd25a984e271a2d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6fe719cbca684508afc5d11c67167039",
+      "End": "d78526294c904510888fe0430bfc076a",
+      "Id": "f4ed274dbc7c47ce96399701579ab7ff",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6fe719cbca684508afc5d11c67167039",
+      "End": "44957a498a064ff29fe3eb437448ea9b",
+      "Id": "66e76fe2e24f41178f1ca33dcb35d4e9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9af2321a0dad407e91d8a61b6714165f",
+      "End": "f95ad4a9588d46658fccaa9cc7df0989",
+      "Id": "bdc178fb141d4820b5675b8550eeef2b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9af2321a0dad407e91d8a61b6714165f",
+      "End": "a2d6dc6c09734d2198c96a0097c06e1c",
+      "Id": "c64d9ea7002240f4b0183725c9b5995b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ed8ec62777e5497fa4b0488cb0c3d00e",
+      "End": "9791b4302342400bae3ea2bf1a222c95",
+      "Id": "63709bdebab6496783dcc4b9f53eb62f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "55f066f72ef2420c9b9384383f8c7d6c",
+      "End": "e6f9d888a7bb4dc6853c05ca483f13e2",
+      "Id": "5978cdc67c574692b1f56e9633e13fe7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0995f3fe899a40fb87bbbad670f36d65",
+      "End": "d44ccdbf5cc4468e85a08f1a6c3bd18e",
+      "Id": "bcec08c8bf614a0abdadd1015ac2641a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1dfd1b4f3bb2403daf37dd99ecbd9ffb",
+      "End": "b2a8f499192643e3a9bbd91318400351",
+      "Id": "9f015729464d4b3a8666df53baefd4dc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "abfaf042c619408a8e9076b8d30ed32b",
+      "End": "b7ad8198edb543b9acebdc5dca75be0a",
+      "Id": "1d14061bc4354af3898dbd6f6e6f6464",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "f05da81486c34410a2b564cf8df39beb",
+        "2cec888edfec4dc5a953c8d3411940a5",
+        "100521c7bca240b9b027d3fc28cc3c1e"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "168af5f737c140598ca51a911748a3fe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 130.45000994625744,
+        "Y": 277.21249314679903
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "146805afc1c14603910922ed914e3f9c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -598.36752650970232,
+        "Y": 172.04517858850002
+      },
+      {
+        "Name": "List.GetItemAtIndex",
+        "ShowGeometry": true,
+        "Id": "3d4ba235bfc84ad09f568fd546fb8419",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 978.81143629141843,
+        "Y": 219.79547327982769
+      },
+      {
+        "Name": "Path.FindShortestPathDijkstra",
+        "ShowGeometry": true,
+        "Id": "f05da81486c34410a2b564cf8df39beb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 549.16389355848912,
+        "Y": 325.73920817749666
+      },
+      {
+        "Name": "EndNode",
+        "ShowGeometry": true,
+        "Id": "8d0fd08dd0174b57a3bf94f20862cc23",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 64.742461801766808,
+        "Y": 514.96149824325562
+      },
+      {
+        "Name": "Generate.IndexTwoListObjects",
+        "ShowGeometry": true,
+        "Id": "2cec888edfec4dc5a953c8d3411940a5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -211.83768196463325,
+        "Y": 281.992566793031
+      },
+      {
+        "Name": "Generate.IndexUniqueTwoListObjects",
+        "ShowGeometry": true,
+        "Id": "100521c7bca240b9b027d3fc28cc3c1e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 151.33540409182348,
+        "Y": -10.931710646665948
+      }
+    ],
+    "Annotations": [],
+    "X": 196.33959699130247,
+    "Y": 51.163394135578812,
+    "Zoom": 0.5470225447355832
+  }
+}

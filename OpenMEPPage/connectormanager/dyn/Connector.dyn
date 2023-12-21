@@ -1,0 +1,718 @@
+{
+  "Uuid": "7d501b7b-18d4-44b0-b614-7a1215a5a8ac",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Connector",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AllRefs@var",
+      "Id": "d175a1dfab9543b5a88e49a4ca599ca6",
+      "Inputs": [
+        {
+          "Id": "c33fd95209cb4647b606ad0fddb4eee9",
+          "Name": "connector",
+          "Description": "connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "aae3b7896e254cd8bc3f1831a11ec47d",
+          "Name": "connectors",
+          "Description": "A set of connectors that the connectors is connected to, including both physical connection and logical connection.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "All references of the connector.\n\nConnector.AllRefs (connector: var): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Angle@var",
+      "Id": "313a7b8bac6041fa98d16479b9241488",
+      "Inputs": [
+        {
+          "Id": "243551dd670c4ad5b7bbf6d8965fec7a",
+          "Name": "connector",
+          "Description": "connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "135c281f2b3c4a60b9f858352b49e2f5",
+          "Name": "angle",
+          "Description": "angle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return angle of connector\n\nConnector.Angle (connector: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedFixtureUnits@var",
+      "Id": "47f8111820d045daa29d6236b0401d7b",
+      "Inputs": [
+        {
+          "Id": "b9d5f285a9f44d82a5fa4ae39a1224b2",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cac9f309ef3d43a29f5e15668ec431fc",
+          "Name": "AssignedFixtureUnits",
+          "Description": "AssignedFixtureUnits",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The assigned fixture units of the connector.\n\nConnector.AssignedFixtureUnits (connector: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedFlowFactor@var",
+      "Id": "9ee3e8f5a6b04ca782af19aa070737bf",
+      "Inputs": [
+        {
+          "Id": "1a7da4463b394acf8156e936c0ca5442",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "16a04d7d057849d8af18824d4607bc58",
+          "Name": "AssignedFlowFactor",
+          "Description": "AssignedFlowFactor",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The assigned flow factor of connector.\n\nConnector.AssignedFlowFactor (connector: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.AssignedLossCoefficient@var",
+      "Id": "358d2e161c304cf4b501296d1ad0b490",
+      "Inputs": [
+        {
+          "Id": "d7ff0fba3aec40f88a33fab3e3ddf971",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "928c115f3a6d4c7181f4f2e905bf11b0",
+          "Name": "AssignedLossCoefficient",
+          "Description": "AssignedLossCoefficient",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The assigned loss coefficient of the connector.\n\nConnector.AssignedLossCoefficient (connector: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Coefficient@var",
+      "Id": "2eb5ed8ef4854b2cbf3a96e06032e0d0",
+      "Inputs": [
+        {
+          "Id": "a95f20e1c0f54885a94dc8c72325b3ac",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5f052c84e0ea4b8c875ac3011563399d",
+          "Name": "Coefficient",
+          "Description": "Coefficient",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The coefficient of the connector.\n\nConnector.Coefficient (connector: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.ConnectorManager@var",
+      "Id": "34d7faa25cdd4ca4aff94b0503b4d8a6",
+      "Inputs": [
+        {
+          "Id": "36e496bc907e403db6e1447a28fed9e3",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "388f743d706c495d9ce65aaf448ddbfa",
+          "Name": "ConnectorManager",
+          "Description": "ConnectorManager",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The connector manager of the connector.\n\nConnector.ConnectorManager (connector: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.CoordinateSystem@var",
+      "Id": "c62cac071a7142438d7241e2bf1872f2",
+      "Inputs": [
+        {
+          "Id": "4ce6625ce8754f1bbda056968835c7fb",
+          "Name": "connector",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8eb408638e5b48efaafa6024fae81b26",
+          "Name": "Origin",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7a90d4005f6c4e3bac68fe0781fc42bc",
+          "Name": "BasisX",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4bcb7212b6b2441fa6663e8a6a4a2804",
+          "Name": "BasisY",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "79fefa0f0a284a90b43348a623e6b3b7",
+          "Name": "BasisZ",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "13615f263fe44542a5658a36782da27d",
+          "Name": "Determinant",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "adec9b8fe43f41f48e35420a90dec2bb",
+          "Name": "Scale",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a14bba38567e4f0ebe5c9305b7613f06",
+          "Name": "HasReflection",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d1aaa3041b4942d092600da33613307e",
+          "Name": "IsConformal",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c66210f1e968430a8927f96868bfa511",
+          "Name": "IsTranslation",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b5d01b81b6a3470ba81f589c4fe806b8",
+          "Name": "IsIdentity",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return CoordinateSystem of the connector.\n\nConnector.CoordinateSystem (connector: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Direction@var",
+      "Id": "5eb216718db54d1eba1a590fa9b863a6",
+      "Inputs": [
+        {
+          "Id": "8f1a65ad86cf47f9b81623f102b4c103",
+          "Name": "connector",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "99561e7b4de1458490ee4424d34978ef",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get direction of connector\n\nConnector.Direction (connector: var): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.DistanceTo@var,Autodesk.DesignScript.Geometry.Point",
+      "Id": "c875e06a3e7f4e86bcb4ce0688ac67af",
+      "Inputs": [
+        {
+          "Id": "e5e9bd3299db42b7a337048d9ead12c7",
+          "Name": "connector",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f7ba5e01665943eda3910f853722eebb",
+          "Name": "point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "763004b6bda04535b9821770c6e8fa95",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return distance between one connector with another point\n\nConnector.DistanceTo (connector: var, point: Point): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.DistanceTo@var,var",
+      "Id": "d6300a6169b54d80b45df39a89c069d8",
+      "Inputs": [
+        {
+          "Id": "43921ad0fb61464b9ceb1f87e39aa483",
+          "Name": "connector1",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b4c27b16e9a74912b2ee1d476c6053ca",
+          "Name": "connector2",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "92d316f151434cffb0e10ac4b4a2c9b8",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return distance between one connector with another point\n\nConnector.DistanceTo (connector1: var, connector2: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.ConnectTo@var,var",
+      "Id": "31854f5db9ca4ea9a9fb0e8775002b15",
+      "Inputs": [
+        {
+          "Id": "cf1c13f7c30b4e23bf2c49e25e5bd5a4",
+          "Name": "connector",
+          "Description": "connect need connect\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "39e55ed16a4a44948d927e34ec40daf4",
+          "Name": "connectorFrom",
+          "Description": "Indicate the connector, connection will be removed from.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3894b849f915454fbc9f37934f870a99",
+          "Name": "connector",
+          "Description": "connect need connect",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Remove connection between two connectors.\n\nConnector.ConnectTo (connector: var, connectorFrom: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Demand@var",
+      "Id": "79d020d3871e49eb9bee5abe635e29c2",
+      "Inputs": [
+        {
+          "Id": "da0cddd2f92c4cc69bd3ef0cf4d8d044",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6222e94703b5475fa732ead7f04b4db2",
+          "Name": "Demand",
+          "Description": "Demand",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The demand of the connector.\n\nConnector.Demand (connector: var): double"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "d175a1dfab9543b5a88e49a4ca599ca6",
+        "313a7b8bac6041fa98d16479b9241488",
+        "47f8111820d045daa29d6236b0401d7b",
+        "9ee3e8f5a6b04ca782af19aa070737bf",
+        "358d2e161c304cf4b501296d1ad0b490",
+        "2eb5ed8ef4854b2cbf3a96e06032e0d0",
+        "34d7faa25cdd4ca4aff94b0503b4d8a6",
+        "c62cac071a7142438d7241e2bf1872f2",
+        "5eb216718db54d1eba1a590fa9b863a6",
+        "c875e06a3e7f4e86bcb4ce0688ac67af",
+        "d6300a6169b54d80b45df39a89c069d8",
+        "31854f5db9ca4ea9a9fb0e8775002b15",
+        "79d020d3871e49eb9bee5abe635e29c2"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Connector.AllRefs",
+        "ShowGeometry": true,
+        "Id": "d175a1dfab9543b5a88e49a4ca599ca6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -20.400000000000091,
+        "Y": 398.4
+      },
+      {
+        "Name": "Connector.Angle",
+        "ShowGeometry": true,
+        "Id": "313a7b8bac6041fa98d16479b9241488",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 18.799999999999841,
+        "Y": 553.59999999999991
+      },
+      {
+        "Name": "Connector.AssignedFixtureUnits",
+        "ShowGeometry": true,
+        "Id": "47f8111820d045daa29d6236b0401d7b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 560.39999999999986,
+        "Y": 702.4
+      },
+      {
+        "Name": "Connector.AssignedFlowFactor",
+        "ShowGeometry": true,
+        "Id": "9ee3e8f5a6b04ca782af19aa070737bf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -26.800000000000296,
+        "Y": 697.60000000000014
+      },
+      {
+        "Name": "Connector.AssignedLossCoefficient",
+        "ShowGeometry": true,
+        "Id": "358d2e161c304cf4b501296d1ad0b490",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 259.59999999999991,
+        "Y": 404.8
+      },
+      {
+        "Name": "Connector.Coefficient",
+        "ShowGeometry": true,
+        "Id": "2eb5ed8ef4854b2cbf3a96e06032e0d0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 282.0,
+        "Y": 552.0
+      },
+      {
+        "Name": "Connector.ConnectorManager",
+        "ShowGeometry": true,
+        "Id": "34d7faa25cdd4ca4aff94b0503b4d8a6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 836.39999999999986,
+        "Y": 539.2
+      },
+      {
+        "Name": "Connector.CoordinateSystem",
+        "ShowGeometry": true,
+        "Id": "c62cac071a7142438d7241e2bf1872f2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1155.6,
+        "Y": 388.0
+      },
+      {
+        "Name": "Connector.Direction",
+        "ShowGeometry": true,
+        "Id": "5eb216718db54d1eba1a590fa9b863a6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 299.6,
+        "Y": 701.59999999999991
+      },
+      {
+        "Name": "Connector.DistanceTo",
+        "ShowGeometry": true,
+        "Id": "c875e06a3e7f4e86bcb4ce0688ac67af",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 560.40000000000009,
+        "Y": 540.8
+      },
+      {
+        "Name": "Connector.DistanceTo",
+        "ShowGeometry": true,
+        "Id": "d6300a6169b54d80b45df39a89c069d8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 897.2,
+        "Y": 669.59999999999991
+      },
+      {
+        "Name": "Connector.ConnectTo",
+        "ShowGeometry": true,
+        "Id": "31854f5db9ca4ea9a9fb0e8775002b15",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 609.99999999999989,
+        "Y": 376.80000000000007
+      },
+      {
+        "Name": "Connector.Demand",
+        "ShowGeometry": true,
+        "Id": "79d020d3871e49eb9bee5abe635e29c2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 904.39999999999986,
+        "Y": 397.60000000000008
+      }
+    ],
+    "Annotations": [],
+    "X": 64.000000000000114,
+    "Y": -132.00000000000017,
+    "Zoom": 1.0
+  }
+}

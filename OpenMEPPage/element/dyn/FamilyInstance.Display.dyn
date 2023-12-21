@@ -1,0 +1,274 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "FamilyInstance.Display",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000d9ea5"
+      ],
+      "Id": "d3536533d7cc4faa9d9752aedbced9a0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3cde5a3dea4641e8a4c94262f83dc7d6",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.FamilyInstance.Display@Revit.Elements.Element,double",
+      "Id": "f12c120878d94a73989ee723f4a243c8",
+      "Inputs": [
+        {
+          "Id": "dab68fc9742e445d999791db045230e3",
+          "Name": "familyInstance",
+          "Description": "the family instance\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9fc08ba730ac415fa5b7e02643061c96",
+          "Name": "length",
+          "Description": "double\n\ndouble\nDefault value : 1000",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "662c4305a2eb4a87a6f2c099c9eb2da1",
+          "Name": "Display",
+          "Description": "GeometryColor",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "92de6f43b63f48beb22d4f7432201fab",
+          "Name": "Origin",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a778af7c3bcf4b209953710440eb693b",
+          "Name": "XAxis",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b5518efdf0d8487a8fac4dc51f6b13fd",
+          "Name": "YAxis",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a9816cd46a85461e8307c7ca4f8500a7",
+          "Name": "ZAxis",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1be3083d4ec44badba4c950b9e3f437d",
+          "Name": "XYPlane",
+          "Description": "Plane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2ad0efe744454b3b8b60cbc321775c3d",
+          "Name": "YZPlane",
+          "Description": "Plane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bf38e9036a964120b494436921e33e97",
+          "Name": "ZXPlane",
+          "Description": "Plane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Shows scalable lines representing the CoordinateSystem of family instance axes and rectangles for the planes\n\nFamilyInstance.Display (familyInstance: Element, length: double = 1000): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Geometry",
+      "Id": "c239cf86b3be4d0e93fa5d45d4ac1de2",
+      "Inputs": [
+        {
+          "Id": "4b74f5f8ccce48f98bb61e37defbaf7d",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ebfee54449fe4fe3bcd657460cac1431",
+          "Name": "var[]",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get all of the Geometry associated with this object\n\nElement.Geometry ( ): var[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3cde5a3dea4641e8a4c94262f83dc7d6",
+      "End": "dab68fc9742e445d999791db045230e3",
+      "Id": "31d0607580ad4393bfb25147902c86aa",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3cde5a3dea4641e8a4c94262f83dc7d6",
+      "End": "4b74f5f8ccce48f98bb61e37defbaf7d",
+      "Id": "83c496f739b848acb89931a056a67bc5",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "f12c120878d94a73989ee723f4a243c8"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -31.137838363647461,
+      "EyeY": 37.596309661865234,
+      "EyeZ": 124.06230926513672,
+      "LookX": 31.137838363647461,
+      "LookY": -37.596309661865234,
+      "LookZ": -124.06230926513672,
+      "UpX": 0.016981188207864761,
+      "UpY": 0.99756407737731934,
+      "UpZ": -0.067658029496669769
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "d3536533d7cc4faa9d9752aedbced9a0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -120.20868202972679,
+        "Y": 146.90451180873825
+      },
+      {
+        "Name": "FamilyInstance.Display",
+        "ShowGeometry": true,
+        "Id": "f12c120878d94a73989ee723f4a243c8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 161.02180668826315,
+        "Y": 151.01930622190042
+      },
+      {
+        "Name": "Element.Geometry",
+        "ShowGeometry": true,
+        "Id": "c239cf86b3be4d0e93fa5d45d4ac1de2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 158.43606831751003,
+        "Y": 20.09223174447709
+      }
+    ],
+    "Annotations": [],
+    "X": 290.499166419772,
+    "Y": 28.38531973281323,
+    "Zoom": 1.1643898080562645
+  }
+}

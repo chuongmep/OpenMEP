@@ -1,0 +1,774 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Element
+ | Open MEP </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Element
+ | Open MEP ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/chuongmep/openmep/new/dev/apiSpec/new?filename=OpenMEPRevit_Element_Element.md&amp;value=---%0Auid%3A%20OpenMEPRevit.Element.Element%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OpenMEPRevit.Element.Element">
+
+
+
+  <h1 id="OpenMEPRevit_Element_Element" data-uid="OpenMEPRevit.Element.Element" class="text-break">
+    Class Element
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OpenMEPRevit.html">OpenMEPRevit</a>.<a class="xref" href="OpenMEPRevit.Element.html">Element</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>OpenMEPRevit.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Base class for most persistent data within a Revit document.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Element</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Element</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="OpenMEPRevit_Element_Element_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The data in a Revit document consists primarily of a collection of
+elements.  An element usually corresponds to a single component of a
+building or drawing, such as a wall, door, or dimension, but it can
+also be something more abstract, like a wall type or a view.
+Every element in a document has a unique ID, represented by the
+ElementId class.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OpenMEPRevit_Element_Element_ConnectorSystemType_" data-uid="OpenMEPRevit.Element.Element.ConnectorSystemType*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_ConnectorSystemType_Revit_Elements_Element_" data-uid="OpenMEPRevit.Element.Element.ConnectorSystemType(Revit.Elements.Element)">
+  ConnectorSystemType(Element)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the MEP System Type from connectors of the element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static dynamic? ConnectorSystemType(Element element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>the element of mep</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">dynamic</span></dt>
+    <dd><p>system type from connector of element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_ConnectorSystemType_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.ConnectorSystemType.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_GetConnectedElements_" data-uid="OpenMEPRevit.Element.Element.GetConnectedElements*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_GetConnectedElements_Revit_Elements_Element_" data-uid="OpenMEPRevit.Element.Element.GetConnectedElements(Revit.Elements.Element)">
+  GetConnectedElements(Element)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This method takes in an element and returns a list of elements that are connected to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Element&gt; GetConnectedElements(Element elem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elem</code> <span class="xref">Element</span></dt>
+    <dd><p>the element need get connected</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>the list elements connected with this element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_GetConnectedElements_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.GetConnectedElements.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_GetDocument_" data-uid="OpenMEPRevit.Element.Element.GetDocument*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_GetDocument_Revit_Elements_Element_" data-uid="OpenMEPRevit.Element.Element.GetDocument(Revit.Elements.Element)">
+  GetDocument(Element)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Document in which the Element resides</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+[MultiReturn(new string[] { &quot;Revit Document&quot;, &quot;Dynamo Document&quot; })]
+public static Dictionary&lt;string, object?&gt; GetDocument(Element element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>the element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_GetDocument_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.GetDocument.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_GetLevel_" data-uid="OpenMEPRevit.Element.Element.GetLevel*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_GetLevel_Revit_Elements_Element_" data-uid="OpenMEPRevit.Element.Element.GetLevel(Revit.Elements.Element)">
+  GetLevel(Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Level Of Element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Element? GetLevel(Element? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>element to get level</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>level of element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_GetLevel_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.GetLevel.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_GetLocation_" data-uid="OpenMEPRevit.Element.Element.GetLocation*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_GetLocation_Revit_Elements_Element_" data-uid="OpenMEPRevit.Element.Element.GetLocation(Revit.Elements.Element)">
+  GetLocation(Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return A Location Of Element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point? GetLocation(Element? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>location of element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_GetLocation_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.GetLocation.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_MoveElement_" data-uid="OpenMEPRevit.Element.Element.MoveElement*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_MoveElement_Revit_Elements_Element_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPRevit.Element.Element.MoveElement(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point)">
+  MoveElement(Element, Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Move element to new location</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+public static Element MoveElement(Element element, Point newLocation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>element to move</p>
+</dd>
+    <dt><code>newLocation</code> <span class="xref">Point</span></dt>
+    <dd><p>translate</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>the element moved</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_MoveElement_Revit_Elements_Element_Autodesk_DesignScript_Geometry_Point__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.MoveElement.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_MoveElements_" data-uid="OpenMEPRevit.Element.Element.MoveElements*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_MoveElements_System_Collections_Generic_List_Revit_Elements_Element__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__" data-uid="OpenMEPRevit.Element.Element.MoveElements(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+  MoveElements(List&lt;Element&gt;, List&lt;Point&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Move the list collection of elements to new location</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+public static List&lt;Element&gt; MoveElements(List&lt;Element&gt; elements, List&lt;Point&gt; newLocations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>the collection elements want move</p>
+</dd>
+    <dt><code>newLocations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>the collection translate</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>the collection of elements moved</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_MoveElements_System_Collections_Generic_List_Revit_Elements_Element__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.MoveElements.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_Rotate_" data-uid="OpenMEPRevit.Element.Element.Rotate*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_Rotate_Revit_Elements_Element_Autodesk_DesignScript_Geometry_Line_System_Double_" data-uid="OpenMEPRevit.Element.Element.Rotate(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Line,System.Double)">
+  Rotate(Element, Line, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set Rotate of family instances by line</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+public static Element Rotate(Element element, Line lineAxis, double angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>the element</p>
+</dd>
+    <dt><code>lineAxis</code> <span class="xref">Line</span></dt>
+    <dd><p>Line Axis</p>
+</dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>angle to rotate(Degrees)</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>family instance</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_Rotate_Revit_Elements_Element_Autodesk_DesignScript_Geometry_Line_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.RotateByLine.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_Rotate_" data-uid="OpenMEPRevit.Element.Element.Rotate*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_Rotate_Revit_Elements_Element_Autodesk_DesignScript_Geometry_Vector_System_Double_" data-uid="OpenMEPRevit.Element.Element.Rotate(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector,System.Double)">
+  Rotate(Element, Vector, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set Rotate of fitting By Vector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+public static Element Rotate(Element element, Vector vectorAxis, double angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>the element</p>
+</dd>
+    <dt><code>vectorAxis</code> <span class="xref">Vector</span></dt>
+    <dd><p>Direction Axis</p>
+</dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>angle to rotate(Degrees)</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>family instance</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_Rotate_Revit_Elements_Element_Autodesk_DesignScript_Geometry_Vector_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.RotateByDirection.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_RotateMultiple_" data-uid="OpenMEPRevit.Element.Element.RotateMultiple*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_RotateMultiple_System_Collections_Generic_List_Revit_Elements_Element__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Line__System_Collections_Generic_List_System_Double__" data-uid="OpenMEPRevit.Element.Element.RotateMultiple(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Line},System.Collections.Generic.List{System.Double})">
+  RotateMultiple(List&lt;Element&gt;, List&lt;Line&gt;, List&lt;double&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set Rotate multiple family instances
+This will be help save time when you have a lot of elements to rotate because just one transaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+public static List&lt;Element&gt; RotateMultiple(List&lt;Element&gt; elements, List&lt;Line&gt; lineAxis, List&lt;double&gt; angles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>the list collection of elements</p>
+</dd>
+    <dt><code>lineAxis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Line</span>&gt;</dt>
+    <dd><p>the collection line Axis</p>
+</dd>
+    <dt><code>angles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>the collection angle to rotate(Degrees)</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>collection of list elements rotated</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_RotateMultiple_System_Collections_Generic_List_Revit_Elements_Element__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Line__System_Collections_Generic_List_System_Double___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.RotateMultipleByLine.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_RotateMultiple_" data-uid="OpenMEPRevit.Element.Element.RotateMultiple*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_RotateMultiple_System_Collections_Generic_List_Revit_Elements_Element__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Vector__System_Collections_Generic_List_System_Double__" data-uid="OpenMEPRevit.Element.Element.RotateMultiple(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Vector},System.Collections.Generic.List{System.Double})">
+  RotateMultiple(List&lt;Element&gt;, List&lt;Vector&gt;, List&lt;double&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set Rotate multiple elements by vector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Action&quot;)]
+public static List&lt;Element&gt; RotateMultiple(List&lt;Element&gt; elements, List&lt;Vector&gt; vectorAxis, List&lt;double&gt; angles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>the collection of elements</p>
+</dd>
+    <dt><code>vectorAxis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector</span>&gt;</dt>
+    <dd><p>the collection of direction Axis</p>
+</dd>
+    <dt><code>angles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>the collection angle to rotate(Degrees)</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>collection of list elements rotated</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_RotateMultiple_System_Collections_Generic_List_Revit_Elements_Element__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Vector__System_Collections_Generic_List_System_Double___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.RotateMultiple.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_System_" data-uid="OpenMEPRevit.Element.Element.System*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_System_Revit_Elements_Element_" data-uid="OpenMEPRevit.Element.Element.System(Revit.Elements.Element)">
+  System(Element)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L321"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The system of the MEP element belong to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Element? System(Element element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>the element to get system</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>mep system of element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_System_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.System.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_Element_Element_SystemType_" data-uid="OpenMEPRevit.Element.Element.SystemType*"></a>
+
+  <h3 id="OpenMEPRevit_Element_Element_SystemType_Revit_Elements_Element_" data-uid="OpenMEPRevit.Element.Element.SystemType(Revit.Elements.Element)">
+  SystemType(Element)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L345"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return type of MEP System</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Element? SystemType(Element element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>the element of mep</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>system type of element from connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_Element_Element_SystemType_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/element/dyn/pic/Element.SystemType.png" alt=""></p>
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/Element/Element.cs/#L22" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
