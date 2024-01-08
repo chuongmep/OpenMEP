@@ -69,11 +69,6 @@ A part of this library depend on [LunchBox Package](https://bitbucket.org/provin
 
 
 # ⛑️ Sponsors
-
-- [Exyte](https://www.exyte.net/en) is a global leader in design, engineering and delivery of facilities for high-tech
-  industries.
-- [RFR-Group](https://rfr-group.vn/index.html) - RFR Group delivering complex projects for since 2011 and are constantly
-  innovating to stay at the forefront of the construction environment.
 - This package is sponsored by [Jetbrains](https://www.jetbrains.com/?from=OpenMEP), the best IDE for C# and Python
   developer.
 - Chicken icon made by [icons8.com](https://icons8.com/)
