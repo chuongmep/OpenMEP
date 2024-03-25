@@ -360,3 +360,4 @@ _build
 *.0001.rvt
 *.dwl
 *.dwl2
+.idea
