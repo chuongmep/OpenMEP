@@ -32,7 +32,15 @@ public class Definition
     /// <returns name="BuiltInParameterGroup">BuiltInParameterGroup</returns>
     public static dynamic ParameterGroup(Autodesk.Revit.DB.Definition definition)
     {
+#if R25
+        ForgeTypeId groupTypeId = definition.GetGroupTypeId();
+        string group = LabelUtils.GetLabelForGroup(groupTypeId);
+        return group;
+#else
         return definition.ParameterGroup;
+#endif
+
+
     }
 
 

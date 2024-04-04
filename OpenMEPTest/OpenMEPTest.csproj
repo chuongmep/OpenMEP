@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
         <Nullable>enable</Nullable>
+        <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
         <PlatformTarget>x64</PlatformTarget>
         <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
         <Configurations>Debug R23.1;Debug R24;Debug R20;Debug R21;Debug R22;Debug R23;Debug R24</Configurations>
-        <Configurations>$(Configurations);Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R23;Release R24</Configurations>
+        <Configurations>$(Configurations);Release R25;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R23;Release R24</Configurations>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
@@ -89,6 +89,13 @@
         <DynamoOutput>2.17</DynamoOutput>
         <RevitVersion>2024</RevitVersion>
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R25'))">
+        <DynamoVersion>3.0</DynamoVersion>
+        <DynamoOutput>3.0</DynamoOutput>
+        <RevitVersion>2025</RevitVersion>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <DefineConstants>$(DefineConstants);R25</DefineConstants>
     </PropertyGroup>
     <ItemGroup>
       <Reference Include="RevitTestFrameworkTypes">
