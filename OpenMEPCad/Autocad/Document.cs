@@ -27,7 +27,12 @@ namespace OpenMEPCad.Autocad
             string ProgId = "AutoCAD.Application";
             try
             {
+#if R25
+                dynamic App = MarshalCore.MarshalForCore.GetActiveObject(ProgId);
+#else
                 dynamic App = Marshal.GetActiveObject(ProgId);
+#endif
+
                 return App.ActiveDocument;
             }
             catch (Exception)
@@ -39,8 +44,6 @@ namespace OpenMEPCad.Autocad
                 throw new ArgumentException(sb.ToString());
             }
         }
-
-       
         /// <summary>
         /// Name of Document
         /// </summary>
