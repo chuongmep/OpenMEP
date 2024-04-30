@@ -123,6 +123,9 @@
         <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
+        <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="$(DynVersion).*">
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
         <PackageReference Include="Chuongmep.Acad.Api.Autodesk.AutoCAD.Interop.Common" Version="$(RevitVersion).*">
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>

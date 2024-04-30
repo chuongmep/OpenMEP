@@ -7,6 +7,9 @@
     <namespace name="OpenMEPSandbox.Geometry.Abstract">
       <category>OpenMEP.Geometry.Abstract</category>
     </namespace>
+    <namespace name="OpenMEPSandbox.Application">
+      <category>OpenMEP.Application</category>
+    </namespace>
     <namespace name="OpenMEPSandbox.Geometry">
       <category>OpenMEP.Geometry</category>
     </namespace>

@@ -1,8 +1,6 @@
-﻿using System.IO;
-using Autodesk.DesignScript.Runtime;
-using Dynamo.Applications;
+﻿using Autodesk.DesignScript.Runtime;
 
-namespace OpenMEPRevit.Application;
+namespace OpenMEPSandbox.Application;
 
 /// <summary>
 /// A class to get information about Windows
@@ -51,7 +49,7 @@ public class Windows
     {
         try
         {
-            string fileName = DynamoRevit.RevitDynamoModel.CurrentWorkspace.FileName;
+            string fileName = Dynamo.Events.ExecutionEvents.ActiveSession.CurrentWorkspacePath;
             if (string.IsNullOrEmpty(fileName)) throw new ArgumentNullException(nameof(relativeFileName));
             var directory = Path.GetDirectoryName(fileName);
             if (directory == null) throw new ArgumentNullException(nameof(relativeFileName));
@@ -59,7 +57,7 @@ public class Windows
             if (!File.Exists(filePath)) throw new FileNotFoundException("File not found");
             return filePath;
         }
-        catch (Exception e)
+        catch (Exception)
         {
             return string.Empty;
         }
