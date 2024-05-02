@@ -111,37 +111,37 @@ namespace OpenMEPSandbox.Geometry;
         /// Rebuild the Surface into desired U and V space
         /// </summary>
         /// <param name="surface">Surface</param>
-        /// <param name="u">Number of U spans after rebuilding</param>
-        /// <param name="v">Number of V spans after rebuilding</param>
+        /// <param name="uDiv">Number of U spans after rebuilding</param>
+        /// <param name="vDiv">Number of V spans after rebuilding</param>
         /// <returns name="Rebuilt">Rebuilt surface</returns>
         [MultiReturn(new[] {"Rebuilt"})]
-        public static Dictionary<string, object> RebuildSurface(Surface surface, int uDiv, int vDiv)
+        public static Dictionary<string, object?> RebuildSurface(Surface surface, int uDiv, int vDiv)
         {
-            double m_uStep = 1.0 / uDiv;
-            double m_vStep = 1.0 / vDiv;
+            double mUStep = 1.0 / uDiv;
+            double mVStep = 1.0 / vDiv;
             List<NurbsCurve> crvs = new List<NurbsCurve>();
-            Surface s = null;
+            Surface? s = null;
             for (int i = 0; i <= uDiv; i++)
             {
-                List<Autodesk.DesignScript.Geometry.Point> m_ptrow = new List<Autodesk.DesignScript.Geometry.Point>();
+                List<Autodesk.DesignScript.Geometry.Point> mPtrow = new List<Autodesk.DesignScript.Geometry.Point>();
 
                 for (int j = 0; j <= vDiv; j++)
                 {
-                    double u = m_uStep * i;
-                    double v = m_vStep * j;
+                    double u = mUStep * i;
+                    double v = mVStep * j;
 
-                    Autodesk.DesignScript.Geometry.Point m_pt = surface.PointAtParameter(u, v);
+                    Autodesk.DesignScript.Geometry.Point mPt = surface.PointAtParameter(u, v);
 
-                    m_ptrow.Add(m_pt);
+                    mPtrow.Add(mPt);
                 }
 
-                NurbsCurve crv = NurbsCurve.ByPoints(m_ptrow);
+                NurbsCurve crv = NurbsCurve.ByPoints(mPtrow);
                 crvs.Add(crv);
             }
 
             s = Surface.ByLoft(crvs);
 
-            return new Dictionary<string, object>
+            return new Dictionary<string, object?>
             {
                 {"Rebuilt", s},
             };

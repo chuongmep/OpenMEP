@@ -25,11 +25,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Quads</returns>
-        public List<clsQuad> PanelQuad(int u, int v)
+        public List<clsQuad>? PanelQuad(int u, int v)
         {
             try
             {
-                List<clsQuad> m_quads = new List<clsQuad>();
+                List<clsQuad>? m_quads = new List<clsQuad>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -58,11 +58,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Quads</returns>
-        public List<clsQuad> PanelQuadStaggered(int u, int v)
+        public List<clsQuad>? PanelQuadStaggered(int u, int v)
         {
             try
             {
-                List<clsQuad> m_quads = new List<clsQuad>();
+                List<clsQuad>? m_quads = new List<clsQuad>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -136,12 +136,12 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="v">Number of divisions in the V direction</param>
         /// <param name="t">Scew parameter (0-1)</param>
         /// <returns>List of Quads</returns>
-        public clsPanelCollection PanelQuadScewed(int u, int v, double t)
+        public clsPanelCollection? PanelQuadScewed(int u, int v, double t)
         {
             try
             {
                 List<clsQuad> m_quads = new List<clsQuad>();
-                List<clsTriangle> m_tris = new List<clsTriangle>();
+                List<clsTriangle>? m_tris = new List<clsTriangle>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -195,11 +195,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="v">Number of divisions in the V direction</param>
         /// <param name="s">Random seed</param>
         /// <returns>List of Quads</returns>
-        public List<clsQuadVar> RandomQuad(int u, int v, int s)
+        public List<clsQuadVar>? RandomQuad(int u, int v, int s)
         {
             try
             {
-                List<clsQuadVar> m_quads = new List<clsQuadVar>();
+                List<clsQuadVar>? m_quads = new List<clsQuadVar>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -235,7 +235,7 @@ namespace OpenMEPSandbox.Helpers
                 }
                 return m_quads;
             }
-            catch (Exception ex){ return null; }
+            catch (Exception){ return null; }
         }
 
         /// <summary>
@@ -244,12 +244,12 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Diamonds</returns>
-        public clsPanelCollection PanelDiamond(int u, int v)
+        public clsPanelCollection? PanelDiamond(int u, int v)
         {
             try
             {
                 List<clsQuad> m_quads = new List<clsQuad>();
-                List<clsTriangle> m_tris = new List<clsTriangle>();
+                List<clsTriangle>? m_tris = new List<clsTriangle>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -372,13 +372,13 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="v">Number of divisions in the V direction</param>
         /// <param name="t">Hex parameter (0-1)</param>
         /// <returns>List of Hexagons</returns>
-        public clsPanelCollection PanelHexagonal(int u, int v, double t)
+        public clsPanelCollection? PanelHexagonal(int u, int v, double t)
         {
             try
             {
                 List<clsQuad> m_quads = new List<clsQuad>();
-                List<clsPentagon> m_pents = new List<clsPentagon>();
-                List<clsHexagon> m_hexs = new List<clsHexagon>();
+                List<clsPentagon>? m_pents = new List<clsPentagon>();
+                List<clsHexagon>? m_hexs = new List<clsHexagon>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -660,11 +660,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Triangles</returns>
-        public List<clsTriangle> PanelTriangleA(int u, int v)
+        public List<clsTriangle>? PanelTriangleA(int u, int v)
         {
             try
             {
-                List<clsTriangle> m_triangles = new List<clsTriangle>();
+                List<clsTriangle>? m_triangles = new List<clsTriangle>();
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
 
@@ -694,11 +694,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Triangles</returns>
-        public List<clsTriangle> PanelTriangleB(int u, int v)
+        public List<clsTriangle>? PanelTriangleB(int u, int v)
         {
             try
             {
-                List<clsTriangle> m_triangles = new List<clsTriangle>();
+                List<clsTriangle>? m_triangles = new List<clsTriangle>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -735,11 +735,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Triangles</returns>
-        public List<clsTriangle> PanelTriangleC(int u, int v)
+        public List<clsTriangle>? PanelTriangleC(int u, int v)
         {
             try
             {
-                List<clsTriangle> m_triangles = new List<clsTriangle>();
+                List<clsTriangle>? m_triangles = new List<clsTriangle>();
 
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
@@ -814,11 +814,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Wires</returns>
-        public List<clsLine> WireGrid(int u, int v)
+        public List<clsLine>? WireGrid(int u, int v)
         {
             try
             {
-                List<clsLine> lines = new List<clsLine>();
+                List<clsLine>? lines = new List<clsLine>();
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
 
@@ -855,11 +855,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Wires</returns>
-        public List<clsLine> WireBraced1DGrid(int u, int v)
+        public List<clsLine>? WireBraced1DGrid(int u, int v)
         {
             try
             {
-                List<clsLine> lines = new List<clsLine>();
+                List<clsLine>? lines = new List<clsLine>();
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
 
@@ -904,11 +904,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="u">Number of divisions in the U direction</param>
         /// <param name="v">Number of divisions in the V direction</param>
         /// <returns>List of Wires</returns>
-        public List<clsLine> WireBraced2DGrid(int u, int v)
+        public List<clsLine>? WireBraced2DGrid(int u, int v)
         {
             try
             {
-                List<clsLine> lines = new List<clsLine>();
+                List<clsLine>? lines = new List<clsLine>();
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
 
@@ -965,11 +965,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="v">Number of divisions in the V direction</param>
         /// <param name="t">Boolean toggle to change diagrid division</param>
         /// <returns>List of Wires</returns>
-        public List<clsLine> WireDiagrid(int u, int v, bool t)
+        public List<clsLine>? WireDiagrid(int u, int v, bool t)
         {
             try
             {
-                List<clsLine> lines = new List<clsLine>();
+                List<clsLine>? lines = new List<clsLine>();
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
 
@@ -1024,11 +1024,11 @@ namespace OpenMEPSandbox.Helpers
         /// <param name="a">Hexagon shape adjust</param>
         /// <param name="t">Boolean toggle to change diagrid division</param>
         /// <returns>List of Wires</returns>
-        public List<clsLine> WireHexagon(int u, int v, double a, bool t)
+        public List<clsLine>? WireHexagon(int u, int v, double a, bool t)
         {
             try
             {
-                List<clsLine> lines = new List<clsLine>();
+                List<clsLine>? lines = new List<clsLine>();
                 double ustep = 1.0 / u;
                 double vstep = 1.0 / v;
 

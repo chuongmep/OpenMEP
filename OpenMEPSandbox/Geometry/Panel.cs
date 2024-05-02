@@ -26,31 +26,31 @@ public class Panel
     [MultiReturn(new[] {"Panels", "Points"})]
     public static Dictionary<string, object> PanelQuad(Autodesk.DesignScript.Geometry.Surface srf, int u, int v)
     {
-        List<List<Autodesk.DesignScript.Geometry.Point>> m_points =
+        List<List<Autodesk.DesignScript.Geometry.Point>> mPoints =
             new List<List<Autodesk.DesignScript.Geometry.Point>>();
-        List<Autodesk.DesignScript.Geometry.Surface> m_panels = new List<Autodesk.DesignScript.Geometry.Surface>();
+        List<Autodesk.DesignScript.Geometry.Surface> mPanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        List<clsQuad> m_quads = tess.PanelQuad(u, v);
-        foreach (clsQuad q in m_quads)
+        List<clsQuad>? mQuads = tess.PanelQuad(u, v);
+        foreach (clsQuad q in mQuads!)
         {
-            List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-            m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
-            m_pts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
-            m_pts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
-            m_pts.Add(srf.PointAtParameter(q.D.X, q.D.Y));
+            List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+            mPts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
+            mPts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
+            mPts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
+            mPts.Add(srf.PointAtParameter(q.D.X, q.D.Y));
 
             Autodesk.DesignScript.Geometry.Surface panel =
-                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-            m_points.Add(m_pts);
-            m_panels.Add(panel);
+            mPoints.Add(mPts);
+            mPanels.Add(panel);
         }
 
         return new Dictionary<string, object>
         {
-            {"Panels", m_panels},
-            {"Points", m_points},
+            {"Panels", mPanels},
+            {"Points", mPoints},
         };
     }
 
@@ -66,31 +66,31 @@ public class Panel
     public static Dictionary<string, object> PanelQuadStaggered(Autodesk.DesignScript.Geometry.Surface srf, int u,
         int v)
     {
-        List<List<Autodesk.DesignScript.Geometry.Point>> m_points =
+        List<List<Autodesk.DesignScript.Geometry.Point>> mPoints =
             new List<List<Autodesk.DesignScript.Geometry.Point>>();
-        List<Autodesk.DesignScript.Geometry.Surface> m_panels = new List<Autodesk.DesignScript.Geometry.Surface>();
+        List<Autodesk.DesignScript.Geometry.Surface> mPanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        List<clsQuad> m_quads = tess.PanelQuadStaggered(u, v);
-        foreach (clsQuad q in m_quads)
+        List<clsQuad>? mQuads = tess.PanelQuadStaggered(u, v);
+        foreach (clsQuad q in mQuads!)
         {
-            List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-            m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
-            m_pts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
-            m_pts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
-            m_pts.Add(srf.PointAtParameter(q.D.X, q.D.Y));
+            List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+            mPts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
+            mPts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
+            mPts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
+            mPts.Add(srf.PointAtParameter(q.D.X, q.D.Y));
 
             Autodesk.DesignScript.Geometry.Surface panel =
-                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-            m_points.Add(m_pts);
-            m_panels.Add(panel);
+            mPoints.Add(mPts);
+            mPanels.Add(panel);
         }
 
         return new Dictionary<string, object>
         {
-            {"Panels", m_panels},
-            {"Points", m_points},
+            {"Panels", mPanels},
+            {"Points", mPoints},
         };
     }
 
@@ -109,11 +109,11 @@ public class Panel
     {
         List<List<Autodesk.DesignScript.Geometry.Point>> m_points =
             new List<List<Autodesk.DesignScript.Geometry.Point>>();
-        List<Autodesk.DesignScript.Geometry.Surface> m_panels = new List<Autodesk.DesignScript.Geometry.Surface>();
+        List<Surface?> m_panels = new List<Surface?>();
 
         TesselationUtils tess = new TesselationUtils();
-        List<clsQuadVar> m_quads = tess.RandomQuad(u, v, s);
-        foreach (clsQuadVar q in m_quads)
+        List<clsQuadVar>? mQuads = tess.RandomQuad(u, v, s);
+        foreach (clsQuadVar q in mQuads!)
         {
             if (q.RowCount > 1)
             {
@@ -143,12 +143,12 @@ public class Panel
                 crvs.Add(NurbsCurve.ByPoints(dsPtsA));
                 crvs.Add(NurbsCurve.ByPoints(dsPtsB));
 
-                Autodesk.DesignScript.Geometry.Surface panel = null;
+                Surface? panel = null;
                 try
                 {
                     panel = Autodesk.DesignScript.Geometry.Surface.ByLoft(crvs);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
 
@@ -189,8 +189,8 @@ public class Panel
         List<Autodesk.DesignScript.Geometry.Surface> m_tripanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        clsPanelCollection m_panelcollection = tess.PanelQuadScewed(u, v, t);
-        foreach (clsQuad q in m_panelcollection.Quads)
+        clsPanelCollection? mPanelcollection = tess.PanelQuadScewed(u, v, t);
+        foreach (clsQuad q in mPanelcollection!.Quads)
         {
             List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
             m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
@@ -205,17 +205,17 @@ public class Panel
             m_quadpanels.Add(panel);
         }
 
-        foreach (clsTriangle q in m_panelcollection.Triangles)
+        foreach (clsTriangle q in mPanelcollection.Triangles!)
         {
-            List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-            m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
-            m_pts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
-            m_pts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
+            List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+            mPts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
+            mPts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
+            mPts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
 
             Autodesk.DesignScript.Geometry.Surface panel =
-                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-            m_tripoints.Add(m_pts);
+            m_tripoints.Add(mPts);
             m_tripanels.Add(panel);
         }
 
@@ -250,21 +250,21 @@ public class Panel
         List<Autodesk.DesignScript.Geometry.Surface> m_tripanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        clsPanelCollection m_panelcollection = tess.PanelDiamond(u, v);
-        foreach (clsQuad q in m_panelcollection.Quads)
+        clsPanelCollection? mPanelcollection = tess.PanelDiamond(u, v);
+        foreach (clsQuad q in mPanelcollection!.Quads)
         {
             try
             {
-                List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-                m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
-                m_pts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
-                m_pts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
-                m_pts.Add(srf.PointAtParameter(q.D.X, q.D.Y));
+                List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+                mPts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
+                mPts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
+                mPts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
+                mPts.Add(srf.PointAtParameter(q.D.X, q.D.Y));
 
                 Autodesk.DesignScript.Geometry.Surface panel =
-                    Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                    Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-                m_quadpoints.Add(m_pts);
+                m_quadpoints.Add(mPts);
                 m_quadpanels.Add(panel);
             }
             catch
@@ -272,7 +272,7 @@ public class Panel
             }
         }
 
-        foreach (clsTriangle q in m_panelcollection.Triangles)
+        foreach (clsTriangle q in mPanelcollection.Triangles!)
         {
             try
             {
@@ -331,8 +331,8 @@ public class Panel
         List<Autodesk.DesignScript.Geometry.Surface> m_hexpanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        clsPanelCollection m_panelcollection = tess.PanelHexagonal(u, v, t);
-        foreach (clsQuad q in m_panelcollection.Quads)
+        clsPanelCollection? mPanelcollection = tess.PanelHexagonal(u, v, t);
+        foreach (clsQuad q in mPanelcollection!.Quads)
         {
             try
             {
@@ -353,7 +353,7 @@ public class Panel
             }
         }
 
-        foreach (clsPentagon p in m_panelcollection.Pentagons)
+        foreach (clsPentagon p in mPanelcollection.Pentagons!)
         {
             try
             {
@@ -375,22 +375,22 @@ public class Panel
             }
         }
 
-        foreach (clsHexagon p in m_panelcollection.Hexagons)
+        foreach (clsHexagon p in mPanelcollection.Hexagons!)
         {
             try
             {
-                List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-                m_pts.Add(srf.PointAtParameter(p.A.X, p.A.Y));
-                m_pts.Add(srf.PointAtParameter(p.B.X, p.B.Y));
-                m_pts.Add(srf.PointAtParameter(p.C.X, p.C.Y));
-                m_pts.Add(srf.PointAtParameter(p.D.X, p.D.Y));
-                m_pts.Add(srf.PointAtParameter(p.E.X, p.E.Y));
-                m_pts.Add(srf.PointAtParameter(p.F.X, p.F.Y));
+                List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+                mPts.Add(srf.PointAtParameter(p.A.X, p.A.Y));
+                mPts.Add(srf.PointAtParameter(p.B.X, p.B.Y));
+                mPts.Add(srf.PointAtParameter(p.C.X, p.C.Y));
+                mPts.Add(srf.PointAtParameter(p.D.X, p.D.Y));
+                mPts.Add(srf.PointAtParameter(p.E.X, p.E.Y));
+                mPts.Add(srf.PointAtParameter(p.F.X, p.F.Y));
 
                 Autodesk.DesignScript.Geometry.Surface panel =
-                    Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                    Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-                m_hexpoints.Add(m_pts);
+                m_hexpoints.Add(mPts);
                 m_hexpanels.Add(panel);
             }
             catch
@@ -420,30 +420,30 @@ public class Panel
     [MultiReturn(new[] {"Panels", "Points"})]
     public static Dictionary<string, object> PanelTriangleA(Autodesk.DesignScript.Geometry.Surface srf, int u, int v)
     {
-        List<List<Autodesk.DesignScript.Geometry.Point>> m_points =
+        List<List<Autodesk.DesignScript.Geometry.Point>> mPoints =
             new List<List<Autodesk.DesignScript.Geometry.Point>>();
-        List<Autodesk.DesignScript.Geometry.Surface> m_panels = new List<Autodesk.DesignScript.Geometry.Surface>();
+        List<Autodesk.DesignScript.Geometry.Surface> mPanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        List<clsTriangle> m_tris = tess.PanelTriangleA(u, v);
-        foreach (clsTriangle q in m_tris)
+        List<clsTriangle>? mTris = tess.PanelTriangleA(u, v);
+        foreach (clsTriangle q in mTris!)
         {
-            List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-            m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
-            m_pts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
-            m_pts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
+            List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+            mPts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
+            mPts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
+            mPts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
 
             Autodesk.DesignScript.Geometry.Surface panel =
-                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-            m_points.Add(m_pts);
-            m_panels.Add(panel);
+            mPoints.Add(mPts);
+            mPanels.Add(panel);
         }
 
         return new Dictionary<string, object>
         {
-            {"Panels", m_panels},
-            {"Points", m_points},
+            {"Panels", mPanels},
+            {"Points", mPoints},
         };
     }
 
@@ -458,30 +458,30 @@ public class Panel
     [MultiReturn(new[] {"Panels", "Points"})]
     public static Dictionary<string, object> PanelTriangleB(Autodesk.DesignScript.Geometry.Surface srf, int u, int v)
     {
-        List<List<Autodesk.DesignScript.Geometry.Point>> m_points =
+        List<List<Autodesk.DesignScript.Geometry.Point>> mPoints =
             new List<List<Autodesk.DesignScript.Geometry.Point>>();
-        List<Autodesk.DesignScript.Geometry.Surface> m_panels = new List<Autodesk.DesignScript.Geometry.Surface>();
+        List<Autodesk.DesignScript.Geometry.Surface> mPanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        List<clsTriangle> m_tris = tess.PanelTriangleB(u, v);
-        foreach (clsTriangle q in m_tris)
+        List<clsTriangle>? mTris = tess.PanelTriangleB(u, v);
+        foreach (clsTriangle q in mTris!)
         {
-            List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-            m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
-            m_pts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
-            m_pts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
+            List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+            mPts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
+            mPts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
+            mPts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
 
             Autodesk.DesignScript.Geometry.Surface panel =
-                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-            m_points.Add(m_pts);
-            m_panels.Add(panel);
+            mPoints.Add(mPts);
+            mPanels.Add(panel);
         }
 
         return new Dictionary<string, object>
         {
-            {"Panels", m_panels},
-            {"Points", m_points},
+            {"Panels", mPanels},
+            {"Points", mPoints},
         };
     }
 
@@ -496,30 +496,30 @@ public class Panel
     [MultiReturn(new[] {"Panels", "Points"})]
     public static Dictionary<string, object> PanelTriangleC(Autodesk.DesignScript.Geometry.Surface srf, int u, int v)
     {
-        List<List<Autodesk.DesignScript.Geometry.Point>> m_points =
+        List<List<Autodesk.DesignScript.Geometry.Point>> mPoints =
             new List<List<Autodesk.DesignScript.Geometry.Point>>();
-        List<Autodesk.DesignScript.Geometry.Surface> m_panels = new List<Autodesk.DesignScript.Geometry.Surface>();
+        List<Autodesk.DesignScript.Geometry.Surface> mPanels = new List<Autodesk.DesignScript.Geometry.Surface>();
 
         TesselationUtils tess = new TesselationUtils();
-        List<clsTriangle> m_tris = tess.PanelTriangleC(u, v);
-        foreach (clsTriangle q in m_tris)
+        List<clsTriangle>? mTris = tess.PanelTriangleC(u, v);
+        foreach (clsTriangle q in mTris!)
         {
-            List<Autodesk.DesignScript.Geometry.Point> m_pts = new List<Autodesk.DesignScript.Geometry.Point>();
-            m_pts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
-            m_pts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
-            m_pts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
+            List<Autodesk.DesignScript.Geometry.Point> mPts = new List<Autodesk.DesignScript.Geometry.Point>();
+            mPts.Add(srf.PointAtParameter(q.A.X, q.A.Y));
+            mPts.Add(srf.PointAtParameter(q.B.X, q.B.Y));
+            mPts.Add(srf.PointAtParameter(q.C.X, q.C.Y));
 
             Autodesk.DesignScript.Geometry.Surface panel =
-                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(m_pts);
+                Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints(mPts);
 
-            m_points.Add(m_pts);
-            m_panels.Add(panel);
+            mPoints.Add(mPts);
+            mPanels.Add(panel);
         }
 
         return new Dictionary<string, object>
         {
-            {"Panels", m_panels},
-            {"Points", m_points},
+            {"Panels", mPanels},
+            {"Points", mPoints},
         };
     }
 }

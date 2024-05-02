@@ -10,17 +10,17 @@ namespace OpenMEPSandbox.Helpers.CLASSES
     public class clsPanelCollection
     {
         #region Private Members
-        private List<clsTriangle> _tris;
+        private List<clsTriangle>? _tris;
         private List<clsQuad> _quads;
-        private List<clsPentagon> _pents;
-        private List<clsHexagon> _hexs;
+        private List<clsPentagon>? _pents;
+        private List<clsHexagon>? _hexs;
         #endregion
 
         #region Public Properties
         /// <summary>
         /// List of Triangles
         /// </summary>
-        public List<clsTriangle> Triangles { get { return _tris; } }
+        public List<clsTriangle>? Triangles { get { return _tris; } }
 
         /// <summary>
         /// List of Quads
@@ -30,12 +30,12 @@ namespace OpenMEPSandbox.Helpers.CLASSES
         /// <summary>
         /// List of Pentagons
         /// </summary>
-        public List<clsPentagon> Pentagons { get { return _pents; } }
+        public List<clsPentagon>? Pentagons { get { return _pents; } }
 
         /// <summary>
         /// List of Hexagons 
         /// </summary>
-        public List<clsHexagon> Hexagons { get { return _hexs; } }
+        public List<clsHexagon>? Hexagons { get { return _hexs; } }
         #endregion
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace OpenMEPSandbox.Helpers.CLASSES
         /// <param name="quads">List of Quads</param>
         /// <param name="hexs">List of Hexagons</param>
         /// <param name="pents">List of Pentagons</param>
-        public clsPanelCollection(List<clsTriangle> tris, List<clsQuad> quads, List<clsPentagon> pents, List<clsHexagon> hexs)
+        public clsPanelCollection(List<clsTriangle>? tris, List<clsQuad> quads, List<clsPentagon>? pents, List<clsHexagon>? hexs)
         {
             _tris = tris;
             _quads = quads;
