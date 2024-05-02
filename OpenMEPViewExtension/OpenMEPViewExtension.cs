@@ -1,10 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Windows;
 using System.Windows.Controls;
-using Dynamo.Events;
-using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
 
 namespace OpenMEPViewExtension;
