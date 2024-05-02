@@ -3,7 +3,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
-        <AssemblyVersion>2.0.0.*</AssemblyVersion>
+        <AssemblyVersion>2.0.1.0</AssemblyVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <LangVersion>latest</LangVersion>
         <UseWPF>true</UseWPF>
@@ -127,6 +127,7 @@
         <DynamoVersion>3.0</DynamoVersion>
         <DynamoOutput>3.0</DynamoOutput>
         <RevitVersion>2025</RevitVersion>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <TargetFramework>net8.0-windows</TargetFramework>
         <DefineConstants>$(DefineConstants);R25</DefineConstants>
     </PropertyGroup>

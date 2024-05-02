@@ -1,9 +1,12 @@
-﻿namespace OpenMEPSandbox.Helpers.CLASSES
+﻿using Autodesk.DesignScript.Runtime;
+
+namespace OpenMEPSandbox.Helpers.CLASSES
 {
     /// <summary>
     /// Line class
     /// Use Open Source From lunchbox package : https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/
     /// </summary>
+    [IsVisibleInDynamoLibrary(false)]
     public class clsLine
     {
         #region Private Mebers

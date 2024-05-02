@@ -15,6 +15,11 @@
       "commandName": "Executable",
       "executablePath": "C:\\Program Files\\Autodesk\\AutoCAD 2024\\acad.exe",
         "commandLineArgs": "/ld \"C:\\Program Files\\Autodesk\\AutoCAD 2024\\AecBase.dbx\" /p \"<<C3D_Metric>>\" /product C3D /language en-US"
+    },
+    "Civil2025": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Autodesk\\AutoCAD 2025\\acad.exe",
+      "commandLineArgs": "/ld \"C:\\Program Files\\Autodesk\\AutoCAD 2025\\AecBase.dbx\" /p \"<<C3D_Metric>>\" /product C3D /language en-US"
     }
   }
 }

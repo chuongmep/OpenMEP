@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <AssemblyVersion>2.0.0.*</AssemblyVersion>
+        <AssemblyVersion>2.0.1.0</AssemblyVersion>
         <AssemblyName>OpenMEPCivil</AssemblyName>
         <RootNamespace>OpenMEPCivil</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
@@ -101,6 +101,7 @@
         <DynamoOutput>3.0</DynamoOutput>
         <CivilVersion>2025</CivilVersion>
         <TargetFramework>net8.0-windows</TargetFramework>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <DefineConstants>$(DefineConstants);R25</DefineConstants>
     </PropertyGroup>
     <PropertyGroup>
@@ -122,10 +123,18 @@
       <ProjectReference Include="..\OpenMEPSandbox\OpenMEPSandbox.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Chuongmep.Civil3D.Api.accoremgd" Version="$(CivilVersion).*" />
-      <PackageReference Include="Chuongmep.Civil3D.Api.acdbmgd" Version="$(CivilVersion).*" />
-      <PackageReference Include="Chuongmep.Civil3D.Api.acmgd" Version="$(CivilVersion).*" />
-      <PackageReference Include="Chuongmep.Civil3D.Api.AutoCADNodes" Version="$(CivilVersion).*" />
+      <PackageReference Include="Chuongmep.Civil3D.Api.accoremgd" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="Chuongmep.Civil3D.Api.acdbmgd" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="Chuongmep.Civil3D.Api.acmgd" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="Chuongmep.Civil3D.Api.AutoCADNodes" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
         <ItemGroup>
@@ -133,6 +142,7 @@
             <PgkDefinition Include="$(SolutionDir)docs\civil\pkg.json" />
             <SandboxXmlCustomization Include="$(SolutionDir)docs\OpenMEPSandbox_DynamoCustomization.xml" />
             <CivilXmlCustomization Include="$(SolutionDir)docs\OpenMEPCivil_DynamoCustomization.xml" />
+            <CivilXmlCustomization Include="$(SolutionDir)docs\OpenMEPCad_DynamoCustomization.xml" />
             <!--            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />-->
             <DyfFiles Include="$(SolutionDir)docs\civil\dyf\*.*" />
         </ItemGroup>

@@ -2,8 +2,11 @@
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Security;
+using Autodesk.DesignScript.Runtime;
+
 namespace OpenMEPCad.MarshalCore;
 
+[IsVisibleInDynamoLibrary(false)]
 public static class MarshalForCore
 {
     internal const String OLEAUT32 = "oleaut32.dll";

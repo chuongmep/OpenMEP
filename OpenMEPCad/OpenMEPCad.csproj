@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <AssemblyVersion>2.0.0.*</AssemblyVersion>
+        <AssemblyVersion>2.0.1.0</AssemblyVersion>
         <AssemblyName>OpenMEPCad</AssemblyName>
         <RootNamespace>OpenMEPCad</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
@@ -101,6 +101,7 @@
         <DynamoVersion>3.0</DynamoVersion>
         <DynamoOutput>3.0</DynamoOutput>
         <CadVersion>2025</CadVersion>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <TargetFramework>net8.0-windows</TargetFramework>
         <DefineConstants>$(DefineConstants);R25</DefineConstants>
     </PropertyGroup>

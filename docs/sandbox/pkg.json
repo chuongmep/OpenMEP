@@ -19,8 +19,8 @@
   "repository_url": "mailto:chuongpqvn@gmail.com?subject=DynaMEP%20Error%20Node&body=%2F%2FContent%3A",
   "contains_binaries": true,
   "node_libraries": [
-    "OpenMEPSandbox, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
-    "OpenMEPCad, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null",
-    "OpenMEPUI, Version=2.0.0.*, Culture=neutral, PublicKeyToken=null"
+    "OpenMEPSandbox, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+    "OpenMEPCad, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+    "OpenMEPUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null"
   ]
 }
