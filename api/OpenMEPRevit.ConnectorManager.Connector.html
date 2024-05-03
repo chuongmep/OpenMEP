@@ -1,0 +1,2663 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Connector | Open MEP </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Connector | Open MEP ">
+      
+      <meta name="description" content="A connector in an Autodesk Revit MEP project document.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/chuongmep/openmep/new/dev/apiSpec/new?filename=OpenMEPRevit_ConnectorManager_Connector.md&amp;value=---%0Auid%3A%20OpenMEPRevit.ConnectorManager.Connector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OpenMEPRevit.ConnectorManager.Connector">
+
+
+
+  <h1 id="OpenMEPRevit_ConnectorManager_Connector" data-uid="OpenMEPRevit.ConnectorManager.Connector" class="text-break">
+Class Connector  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OpenMEPRevit.html">OpenMEPRevit</a>.<a class="xref" href="OpenMEPRevit.ConnectorManager.html">ConnectorManager</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>OpenMEPRevit.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A connector in an Autodesk Revit MEP project document.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Connector</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Connector</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="OpenMEPRevit_ConnectorManager_Connector_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This connector is an item that is a part of another element (duct, pipe, fitting, or equipment etc.).
+This connector does not represent the connector element that can be created inside a family;
+for that element, refer to <span class="xref">Autodesk.Revit.DB.ConnectorElement</span>.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_AllRefs_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AllRefs*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_AllRefs_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AllRefs(Autodesk.Revit.DB.Connector)">
+  AllRefs(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L723"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>All references of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector&gt; AllRefs(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>A set of connectors that the connectors is connected to, including both physical connection and logical connection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_AllRefs_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.AllRefs.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Angle_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Angle*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Angle_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Angle(Autodesk.Revit.DB.Connector)">
+  Angle(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L580"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return angle of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Angle(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>radian</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Angle_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Angle.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Angle.dyn">Connector.Angle.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_AssignedFixtureUnits_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedFixtureUnits*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_AssignedFixtureUnits_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedFixtureUnits(Autodesk.Revit.DB.Connector)">
+  AssignedFixtureUnits(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L762"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The assigned fixture units of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AssignedFixtureUnits(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>AssignedFixtureUnits</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_AssignedFixtureUnits_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.AssignedFixtureUnits.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_AssignedFlow_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedFlow*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_AssignedFlow_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedFlow(Autodesk.Revit.DB.Connector)">
+  AssignedFlow(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L682"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The assigned flow of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AssignedFlow(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>AssignedFlow</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_AssignedFlow_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.AssignedFlow.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.AssignedFlow.dyn">Connector.AssignedFlow.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_AssignedFlowFactor_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedFlowFactor*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_AssignedFlowFactor_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedFlowFactor(Autodesk.Revit.DB.Connector)">
+  AssignedFlowFactor(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L775"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The assigned flow factor of  connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AssignedFlowFactor(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>AssignedFlowFactor</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_AssignedFlowFactor_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.AssignedFlowFactor.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_AssignedKCoefficient_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedKCoefficient*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_AssignedKCoefficient_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedKCoefficient(Autodesk.Revit.DB.Connector)">
+  AssignedKCoefficient(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L788"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The assigned kCoefficient of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AssignedKCoefficient(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>AssignedKCoefficient</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_AssignedKCoefficient_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.AssignedKCoefficient.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_AssignedLossCoefficient_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedLossCoefficient*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_AssignedLossCoefficient_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedLossCoefficient(Autodesk.Revit.DB.Connector)">
+  AssignedLossCoefficient(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L905"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The assigned loss coefficient of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AssignedLossCoefficient(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>AssignedLossCoefficient</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_AssignedLossCoefficient_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.AssignedLossCoefficient.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_AssignedPressureDrop_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedPressureDrop*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_AssignedPressureDrop_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.AssignedPressureDrop(Autodesk.Revit.DB.Connector)">
+  AssignedPressureDrop(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L918"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The assigned pressure drop of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AssignedPressureDrop(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>AssignedPressureDrop</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_AssignedPressureDrop_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.AssignedPressureDrop.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Coefficient_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Coefficient*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Coefficient_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Coefficient(Autodesk.Revit.DB.Connector)">
+  Coefficient(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L594"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coefficient of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Coefficient(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Coefficient</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Coefficient_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Coefficient.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Coefficient.dyn">Connector.Coefficient.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_ConnectTo_" data-uid="OpenMEPRevit.ConnectorManager.Connector.ConnectTo*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_ConnectTo_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.ConnectTo(Autodesk.Revit.DB.Connector,Autodesk.Revit.DB.Connector)">
+  ConnectTo(Connector, Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove connection between two connectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector ConnectTo(Connector connector, Connector connectorFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connect need connect</p>
+</dd>
+    <dt><code>connectorFrom</code> <span class="xref">Connector</span></dt>
+    <dd><p>Indicate the connector, connection will be removed from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>connect need connect</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_ConnectTo_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.ConnectTo.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_ConnectorManager_" data-uid="OpenMEPRevit.ConnectorManager.Connector.ConnectorManager*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_ConnectorManager_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.ConnectorManager(Autodesk.Revit.DB.Connector)">
+  ConnectorManager(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1027"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The connector manager of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConnectorManager ConnectorManager(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ConnectorManager</span></dt>
+    <dd><p>ConnectorManager</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_ConnectorManager_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.ConnectorManager.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_CoordinateSystem_" data-uid="OpenMEPRevit.ConnectorManager.Connector.CoordinateSystem*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_CoordinateSystem_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.CoordinateSystem(Autodesk.Revit.DB.Connector)">
+  CoordinateSystem(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L958"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return CoordinateSystem of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;Origin&quot;, &quot;BasisX&quot;, &quot;BasisY&quot;, &quot;BasisZ&quot;, &quot;Determinant&quot;, &quot;Scale&quot;, &quot;HasReflection&quot;, &quot;IsConformal&quot;, &quot;IsTranslation&quot;, &quot;IsIdentity&quot; })]
+public static Dictionary&lt;string, object?&gt; CoordinateSystem(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_CoordinateSystem_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.CoordinateSystem.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Demand_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Demand*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Demand_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Demand(Autodesk.Revit.DB.Connector)">
+  Demand(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L608"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The demand of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Demand(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Demand</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Demand_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Demand.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Demand.dyn">Connector.Demand.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Description_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Description*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Description_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Description(Autodesk.Revit.DB.Connector)">
+  Description(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L931"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The description of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Description(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Description</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Description_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Description.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Direction_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Direction*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Direction_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Direction(Autodesk.Revit.DB.Connector)">
+  Direction(Connector?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L461"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get direction of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point? Direction(Connector? connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Direction_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Direction.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Direction.dyn">Connector.Direction.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_DisConnectFrom_" data-uid="OpenMEPRevit.ConnectorManager.Connector.DisConnectFrom*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_DisConnectFrom_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.DisConnectFrom(Autodesk.Revit.DB.Connector,Autodesk.Revit.DB.Connector)">
+  DisConnectFrom(Connector, Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove connection between two connectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector DisConnectFrom(Connector connector, Connector connectorFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connect need disconnect</p>
+</dd>
+    <dt><code>connectorFrom</code> <span class="xref">Connector</span></dt>
+    <dd><p>Indicate the connector, connection will be removed from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>connector need disconnect</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_DisConnectFrom_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.DisConnectFrom.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Display_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Display*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Display_Autodesk_Revit_DB_Connector_System_Double_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Display(Autodesk.Revit.DB.Connector,System.Double)">
+  Display(Connector?, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows scalable lines representing the CoordinateSystem of a Connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;Display&quot;, &quot;Origin&quot;, &quot;XAxis&quot;, &quot;YAxis&quot;, &quot;ZAxis&quot;, &quot;XYPlane&quot;, &quot;YZPlane&quot;, &quot;ZXPlane&quot; })]
+public static Dictionary&lt;string, object?&gt; Display(Connector? connector, double length = 1000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Autodesk.Revit.DB.Connector</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>double</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>GeometryColor order by x,y,z</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Display_Autodesk_Revit_DB_Connector_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Display.gif" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_DistanceTo_" data-uid="OpenMEPRevit.ConnectorManager.Connector.DistanceTo*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_DistanceTo_Autodesk_Revit_DB_Connector_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPRevit.ConnectorManager.Connector.DistanceTo(Autodesk.Revit.DB.Connector,Autodesk.DesignScript.Geometry.Point)">
+  DistanceTo(Connector?, Point?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L516"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return distance between one connector with another point</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double? DistanceTo(Connector? connector, Point? point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>the connector</p>
+</dd>
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>point to get distance from this to the connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>distance from connector to point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_DistanceTo_" data-uid="OpenMEPRevit.ConnectorManager.Connector.DistanceTo*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_DistanceTo_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.DistanceTo(Autodesk.Revit.DB.Connector,Autodesk.Revit.DB.Connector)">
+  DistanceTo(Connector?, Connector?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L532"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return distance between one connector with another connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double? DistanceTo(Connector? connector1, Connector? connector2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector1</code> <span class="xref">Connector</span></dt>
+    <dd></dd>
+    <dt><code>connector2</code> <span class="xref">Connector</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_DistanceTo_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.DistanceTo.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.DistanceTo.dyn">Connector.DistanceTo.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Domain_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Domain*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Domain_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Domain(Autodesk.Revit.DB.Connector)">
+  Domain(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L736"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The domain of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static dynamic Domain(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">dynamic</span></dt>
+    <dd><p>Domain</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Domain_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Domain.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_EngagementLength_" data-uid="OpenMEPRevit.ConnectorManager.Connector.EngagementLength*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_EngagementLength_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.EngagementLength(Autodesk.Revit.DB.Connector)">
+  EngagementLength(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L696"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Connector engagement length</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double EngagementLength(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Connector engagement length</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_EngagementLength_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.EngagementLength.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.EngagementLength.dyn">Connector.EngagementLength.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Flow_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Flow*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Flow_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Flow(Autodesk.Revit.DB.Connector)">
+  Flow(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L622"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Flow of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Flow(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Flow of connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Flow_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Flow.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Flow.dyn">Connector.Flow.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetArea_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetArea*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetArea_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetArea(Autodesk.Revit.DB.Connector)">
+  GetArea(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1040"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get area of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetArea(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>area of connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetArea_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetArea.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_Autodesk_DesignScript_Geometry_Point_System_Collections_Generic_List_Autodesk_Revit_DB_Connector__" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest(Autodesk.DesignScript.Geometry.Point,System.Collections.Generic.List{Autodesk.Revit.DB.Connector})">
+  GetConnectorClosest(Point, List&lt;Connector&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Connector Closet With Connector Current</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorClosest(Point point, List&lt;Connector&gt; connectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>origin</p>
+</dd>
+    <dt><code>connectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>list connector to check</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_Autodesk_DesignScript_Geometry_Point_System_Collections_Generic_List_Autodesk_Revit_DB_Connector___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorClosest.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetConnectorClosest.dyn">Connector.GetConnectorClosest.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_Autodesk_Revit_DB_Connector_System_Collections_Generic_List_Autodesk_Revit_DB_Connector__" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest(Autodesk.Revit.DB.Connector,System.Collections.Generic.List{Autodesk.Revit.DB.Connector})">
+  GetConnectorClosest(Connector?, List&lt;Connector&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Connector Closet With Connector Current</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorClosest(Connector? c, List&lt;Connector&gt; connectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <span class="xref">Connector</span></dt>
+    <dd><p>first connector</p>
+</dd>
+    <dt><code>connectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>an collection connectors to check</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>closet connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_Autodesk_Revit_DB_Connector_System_Collections_Generic_List_Autodesk_Revit_DB_Connector___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorClosest.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetConnectorClosest.dyn">Connector.GetConnectorClosest.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_Revit_Elements_Element_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point)">
+  GetConnectorClosest(Element, Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get closest Connector inside the Element with a Point</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorClosest(Element element, Point point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>element contains connectors</p>
+</dd>
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>point need to check</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>closest connector with point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_Revit_Elements_Element_Revit_Elements_Element_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorClosest(Revit.Elements.Element,Revit.Elements.Element)">
+  GetConnectorClosest(Element?, Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Closet Connector between element1 from element2</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorClosest(Element? element1, Element? element2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element1</code> <span class="xref">Element</span></dt>
+    <dd><p>first element</p>
+</dd>
+    <dt><code>element2</code> <span class="xref">Element</span></dt>
+    <dd><p>second element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>closet connector of element1</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorClosest_Revit_Elements_Element_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorClosest.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetConnectorClosest.dyn">Connector.GetConnectorClosest.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorConnectedWith_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorConnectedWith*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorConnectedWith_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorConnectedWith(Autodesk.Revit.DB.Connector)">
+  GetConnectorConnectedWith(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L887"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return element connected with  connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorConnectedWith(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>element has connected with connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorConnectedWith_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorConnectedWith.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorFarthest_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorFarthest*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorFarthest_Autodesk_DesignScript_Geometry_Point_System_Collections_Generic_List_Autodesk_Revit_DB_Connector__" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorFarthest(Autodesk.DesignScript.Geometry.Point,System.Collections.Generic.List{Autodesk.Revit.DB.Connector})">
+  GetConnectorFarthest(Point?, List&lt;Connector?&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return connector farthest with point current</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorFarthest(Point? point, List&lt;Connector?&gt; connectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>the point to check</p>
+</dd>
+    <dt><code>connectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>an collection of connectors</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>the connector farthest with this point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorFarthest_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorFarthest*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorFarthest_Autodesk_Revit_DB_Connector_System_Collections_Generic_List_Autodesk_Revit_DB_Connector__" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorFarthest(Autodesk.Revit.DB.Connector,System.Collections.Generic.List{Autodesk.Revit.DB.Connector})">
+  GetConnectorFarthest(Connector?, List&lt;Connector?&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return connector farthest with connector current</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorFarthest(Connector? connector, List&lt;Connector?&gt; connectors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>the connector</p>
+</dd>
+    <dt><code>connectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>an collection connector to check</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorFarthest_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorFarthest*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorFarthest_Revit_Elements_Element_Revit_Elements_Element_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorFarthest(Revit.Elements.Element,Revit.Elements.Element)">
+  GetConnectorFarthest(Element?, Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Farthest Connector between element1 with element2</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Connector? GetConnectorFarthest(Element? element1, Element? element2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element1</code> <span class="xref">Element</span></dt>
+    <dd><p>first element</p>
+</dd>
+    <dt><code>element2</code> <span class="xref">Element</span></dt>
+    <dd><p>second element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd><p>Farthest connector of element1</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorFarthest_Revit_Elements_Element_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorFarthest.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetConnectorFarthest.dyn">Connector.GetConnectorFarthest.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorSet_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorSet*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorSet_Revit_Elements_Element_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectorSet(Revit.Elements.Element)">
+  GetConnectorSet(Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return connector set of element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConnectorSet? GetConnectorSet(Element? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ConnectorSet</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetConnectorSet_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectorSet.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetConnectorSet.dyn">Connector.GetConnectorSet.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectors_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectors*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectors_Autodesk_Revit_DB_ConnectorManager_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectors(Autodesk.Revit.DB.ConnectorManager)">
+  GetConnectors(ConnectorManager)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return list connector from connector manager</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector&gt; GetConnectors(ConnectorManager connectorManager)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectorManager</code> <span class="xref">ConnectorManager</span></dt>
+    <dd><p>connector manager</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>connectors</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetConnectors_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectors*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetConnectors_Revit_Elements_Element_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetConnectors(Revit.Elements.Element)">
+  GetConnectors(Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return list connector from element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector&gt; GetConnectors(Element? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>connectors</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetConnectors_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetConnectors.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetConnectors.dyn">Connector.GetConnectors.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetDirection_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetDirection*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetDirection_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetDirection(Autodesk.Revit.DB.Connector)">
+  GetDirection(Connector?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get direction BasisZ of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point? GetDirection(Connector? connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedContinuous_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetElementConnectedContinuous*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedContinuous_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetElementConnectedContinuous(Autodesk.Revit.DB.Connector)">
+  GetElementConnectedContinuous(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L842"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return All Element Connected Continuous In Branch
+Be careful, because this node require recursive to check all connected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Element&gt; GetElementConnectedContinuous(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>list element connected Continuous from element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedContinuous_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedContinuous.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedContinuous_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetElementConnectedContinuous*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedContinuous_Revit_Elements_Element_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetElementConnectedContinuous(Revit.Elements.Element)">
+  GetElementConnectedContinuous(Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L824"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return All Element Connected Continuous In Branch
+Be careful, because this node require recursive to check all connected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Element&gt; GetElementConnectedContinuous(Element? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Element</span>&gt;</dt>
+    <dd><p>list element connected Continuous from element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedContinuous_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedContinuous.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedWith_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetElementConnectedWith*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedWith_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetElementConnectedWith(Autodesk.Revit.DB.Connector)">
+  GetElementConnectedWith(Connector?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L801"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return element connected with  connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Element? GetElementConnectedWith(Connector? connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>element has connected with connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetElementConnectedWith_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetElementConnectedWith.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetMEPConnectorInfo_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetMEPConnectorInfo*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetMEPConnectorInfo_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetMEPConnectorInfo(Autodesk.Revit.DB.Connector)">
+  GetMEPConnectorInfo(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1063"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets MEP connector information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MEPConnectorInfo GetMEPConnectorInfo(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MEPConnectorInfo</span></dt>
+    <dd><p>Returns null if there is no MEP connector information associated</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetMEPConnectorInfo_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetMEPConnectorInfo.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetRemainingConnector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetRemainingConnector*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetRemainingConnector_Revit_Elements_Element_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetRemainingConnector(Revit.Elements.Element,Autodesk.Revit.DB.Connector)">
+  GetRemainingConnector(Element?, Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L396"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return all connectors of element except connector same id with connector input</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector&gt; GetRemainingConnector(Element? element, Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>the element</p>
+</dd>
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>list of connectors</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetRemainingConnector_Revit_Elements_Element_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetRemainingConnector.dyn">Connector.GetRemainingConnector.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetRemainingConnector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetRemainingConnector*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetRemainingConnector_System_Collections_Generic_List_Autodesk_Revit_DB_Connector__Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetRemainingConnector(System.Collections.Generic.List{Autodesk.Revit.DB.Connector},Autodesk.Revit.DB.Connector)">
+  GetRemainingConnector(List&lt;Connector&gt;, Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L416"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return all connectors of list connectors except connector same id with connector input</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector&gt; GetRemainingConnector(List&lt;Connector&gt; connectors, Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>list connectors need to check</p>
+</dd>
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector need to remove</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>list of connectors</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetRemainingConnector_System_Collections_Generic_List_Autodesk_Revit_DB_Connector__Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetRemainingConnector2.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetRemainingConnector2.dyn">Connector.GetRemainingConnector2.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetUnusedConnectors_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetUnusedConnectors*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetUnusedConnectors_Autodesk_Revit_DB_ConnectorManager_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetUnusedConnectors(Autodesk.Revit.DB.ConnectorManager)">
+  GetUnusedConnectors(ConnectorManager?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L379"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return list connector from element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector?&gt; GetUnusedConnectors(ConnectorManager? connectorManager)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectorManager</code> <span class="xref">ConnectorManager</span></dt>
+    <dd><p>connector manager</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>connectors</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetUnusedConnectors_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetUnusedConnectors*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetUnusedConnectors_Revit_Elements_Element_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetUnusedConnectors(Revit.Elements.Element)">
+  GetUnusedConnectors(Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return list connector unused from element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector?&gt; GetUnusedConnectors(Element? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>unused connectors</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetUnusedConnectors_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetUnusedConnectors.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetUnusedConnectors.dyn">Connector.GetUnusedConnectors.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_GetUsedConnectors_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetUsedConnectors*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_GetUsedConnectors_Revit_Elements_Element_" data-uid="OpenMEPRevit.ConnectorManager.Connector.GetUsedConnectors(Revit.Elements.Element)">
+  GetUsedConnectors(Element?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return list connector used from element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Connector&gt; GetUsedConnectors(Element? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Element</span></dt>
+    <dd><p>element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Connector</span>&gt;</dt>
+    <dd><p>used connectors</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_GetUsedConnectors_Revit_Elements_Element__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.GetUsedConnectors.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.GetUsedConnectors.dyn">Connector.GetUsedConnectors.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Height_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Height*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Height_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Height(Autodesk.Revit.DB.Connector)">
+  Height(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L636"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The height of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Height(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Height</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Height_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Height.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Height.dyn/Connector.Height.dyn"></a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Id_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Id*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Id_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Id(Autodesk.Revit.DB.Connector)">
+  Id(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L566"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return id of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Id(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Id of connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Id_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Id.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Id.dyn">Connector.Id.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_IsConnected_" data-uid="OpenMEPRevit.ConnectorManager.Connector.IsConnected*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_IsConnected_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.IsConnected(Autodesk.Revit.DB.Connector)">
+  IsConnected(Connector?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L503"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>check connector is connected or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool? IsConnected(Connector? connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>the connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>true if connector is connected</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_IsConnected_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.IsConnected.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.IsConnected.dyn">Connector.IsConnected.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_IsConnectedTo_" data-uid="OpenMEPRevit.ConnectorManager.Connector.IsConnectedTo*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_IsConnectedTo_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.IsConnectedTo(Autodesk.Revit.DB.Connector,Autodesk.Revit.DB.Connector)">
+  IsConnectedTo(Connector, Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies if the connector is connected to the specified connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsConnectedTo(Connector connector, Connector connectorOther)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>the connector to check</p>
+</dd>
+    <dt><code>connectorOther</code> <span class="xref">Connector</span></dt>
+    <dd><p>the second connector to identifies</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if connector is connected to other</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_IsConnectedTo_Autodesk_Revit_DB_Connector_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.IsConnectedTo.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Origin_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Origin*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Origin_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Origin(Autodesk.Revit.DB.Connector)">
+  Origin(Connector?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L489"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get origin of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point? Origin(Connector? connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>the connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>location origin of connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Origin_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Origin.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Origin.dyn">Connector.Origin.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Owner_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Owner*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Owner_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Owner(Autodesk.Revit.DB.Connector)">
+  Owner(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L551"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The host of the connector.
+The element that contains  connector. It may also contain other connectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Element Owner(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Element</span></dt>
+    <dd><p>element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Owner_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Owner.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Owner.dyn">Connector.Owner.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_PressureDrop_" data-uid="OpenMEPRevit.ConnectorManager.Connector.PressureDrop*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_PressureDrop_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.PressureDrop(Autodesk.Revit.DB.Connector)">
+  PressureDrop(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L710"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The pressure drop of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double PressureDrop(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>PressureDrop</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_PressureDrop_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.PressureDrop.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.PressureDrop.dyn">Connector.PressureDrop.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Radius_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Radius*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Radius_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Radius(Autodesk.Revit.DB.Connector)">
+  Radius(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return the radius of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Radius(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>radius</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Radius_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Radius.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Radius.dyn">Connector.Radius.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_SetAngle_" data-uid="OpenMEPRevit.ConnectorManager.Connector.SetAngle*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_SetAngle_Autodesk_Revit_DB_Connector_System_Double_" data-uid="OpenMEPRevit.ConnectorManager.Connector.SetAngle(Autodesk.Revit.DB.Connector,System.Double)">
+  SetAngle(Connector, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1077"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>set new angle for connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetAngle(Connector connector, double angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>angle</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_SetAngle_Autodesk_Revit_DB_Connector_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.SetAngle.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_SetOrigin_" data-uid="OpenMEPRevit.ConnectorManager.Connector.SetOrigin*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_SetOrigin_Autodesk_Revit_DB_Connector_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPRevit.ConnectorManager.Connector.SetOrigin(Autodesk.Revit.DB.Connector,Autodesk.DesignScript.Geometry.Point)">
+  SetOrigin(Connector, Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L1095"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>set new origin for connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetOrigin(Connector connector, Point origin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+    <dt><code>origin</code> <span class="xref">Point</span></dt>
+    <dd><p>new point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_SetOrigin_Autodesk_Revit_DB_Connector_Autodesk_DesignScript_Geometry_Point__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.SetOrigin.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Shape_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Shape*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Shape_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Shape(Autodesk.Revit.DB.Connector)">
+  Shape(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L944"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shape of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static dynamic Shape(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">dynamic</span></dt>
+    <dd><p>ConnectorProfileType</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Shape_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Shape.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_SystemType_" data-uid="OpenMEPRevit.ConnectorManager.Connector.SystemType*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_SystemType_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.SystemType(Autodesk.Revit.DB.Connector)">
+  SystemType(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L431"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return system type of connector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static dynamic? SystemType(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">dynamic</span></dt>
+    <dd><p>domain</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_SystemType_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.SystemType.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.SystemType.dyn">Connector.SystemType.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_VelocityPressure_" data-uid="OpenMEPRevit.ConnectorManager.Connector.VelocityPressure*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_VelocityPressure_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.VelocityPressure(Autodesk.Revit.DB.Connector)">
+  VelocityPressure(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L749"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The velocity pressure of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double VelocityPressure(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>VelocityPressure</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_VelocityPressure_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.VelocityPressure.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPRevit_ConnectorManager_Connector_Width_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Width*"></a>
+
+  <h3 id="OpenMEPRevit_ConnectorManager_Connector_Width_Autodesk_Revit_DB_Connector_" data-uid="OpenMEPRevit.ConnectorManager.Connector.Width(Autodesk.Revit.DB.Connector)">
+  Width(Connector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L659"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Width of the connector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Width(Connector connector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connector</code> <span class="xref">Connector</span></dt>
+    <dd><p>Connector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>the width of connector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPRevit_ConnectorManager_Connector_Width_Autodesk_Revit_DB_Connector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/connectormanager/dyn/pic/Connector.Width.png" alt="">
+<a href="../OpenMEPPage/connectormanager/dyn/Connector.Width.dyn">Connector.Width.dyn</a></p>
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPRevit/ConnectorManager/Connector.cs/#L22" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

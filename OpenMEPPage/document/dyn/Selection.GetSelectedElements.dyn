@@ -1,0 +1,155 @@
+{
+  "Uuid": "9e66a8dc-2690-4b25-a81d-a29a77aa472e",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.GetSelectedElements",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "1b3b4528121c452ca387da21cefc9d64",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8f94cbbdcd4c4698be980a264643b0fe",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Document.Selection.GetSelectedElements@bool",
+      "Id": "a557303dfe9940cfb493fa75e96711e2",
+      "Inputs": [
+        {
+          "Id": "2540d541728b48d09549941c80514430",
+          "Name": "flag",
+          "Description": "flag true false to fresh\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0687bacb53ab49a9874904a3c8a1077e",
+          "Name": "elements",
+          "Description": "element selected",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the selected elements in the current document.\n\nSelection.GetSelectedElements (flag: bool): Element[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "8f94cbbdcd4c4698be980a264643b0fe",
+      "End": "2540d541728b48d09549941c80514430",
+      "Id": "bc24136a6a3d41aa89e85049f13d0758",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "a557303dfe9940cfb493fa75e96711e2"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.0.3472",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "1b3b4528121c452ca387da21cefc9d64",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 243.45112359846934,
+        "Y": 300.26163049609818
+      },
+      {
+        "Name": "Selection.GetSelectedElements",
+        "ShowGeometry": true,
+        "Id": "a557303dfe9940cfb493fa75e96711e2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 562.79877690111425,
+        "Y": 332.20773335916647
+      }
+    ],
+    "Annotations": [],
+    "X": -69.141677814702916,
+    "Y": -107.99792721775154,
+    "Zoom": 1.0298856394709863
+  }
+}

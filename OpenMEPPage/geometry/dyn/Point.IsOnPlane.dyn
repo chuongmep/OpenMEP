@@ -1,0 +1,332 @@
+{
+  "Uuid": "a00b1189-f932-48a5-a71b-7c17a9167b43",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.IsOnPlane",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Plane.ByOriginNormal@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector",
+      "Id": "02cc9842f059440cbabb18bdb615b942",
+      "Inputs": [
+        {
+          "Id": "901421a8a134474fbf67129e8a936ad2",
+          "Name": "origin",
+          "Description": "Origin point of plane\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b10fe1fca0cd43b2b10dbb02b3e401ed",
+          "Name": "normal",
+          "Description": "Normal direction vector of plane\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8a6dfccd3e444029b037cbd0c6f9ab1e",
+          "Name": "Plane",
+          "Description": "Plane created by origin and normal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Plane centered at root Point, with input normal Vector.\n\nPlane.ByOriginNormal (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Plane"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "410c0ad7864249a98f163e1cbc40d52e",
+      "Inputs": [
+        {
+          "Id": "a76e5db212544633a6b6dbb649100dfa",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e4ff4422aecc4b35a32a45aa48a85005",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8599cd9c69a144448dea4c8a47543acf",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "67e8693f073e4a14a619877f6ae53f5e",
+          "Name": "Point",
+          "Description": "Point created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Geometry.Point.IsOnPlane@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Plane,double",
+      "Id": "7c6740ab7cd54cfeae3ae72cf061a988",
+      "Inputs": [
+        {
+          "Id": "37747004d2c64a9681215ad6fef3df2c",
+          "Name": "point",
+          "Description": "point to check\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ab82ce0c97ff424db42f33d2c85c7055",
+          "Name": "plane",
+          "Description": "The plane to test against.\n\nPlane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f3829bb2bb1b4a9a95994a3ce7a5edba",
+          "Name": "tolerance",
+          "Description": "Default is use 1e-6\n\ndouble\nDefault value : 0.001",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b8b3eeee945f49b686b771dee3392eda",
+          "Name": "bool",
+          "Description": "Returns true if point is on plane.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Test whether a point lies on a plane.\n\nPoint.IsOnPlane (point: Point, plane: Plane, tolerance: double = 0.001): bool"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 100.0,
+      "MinimumValue": 0.0,
+      "StepValue": 0.1,
+      "InputValue": 0.0,
+      "Id": "f4564b12aaba4b3eb413574e06f150f5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9ce4a458a7f943f39b6cab31d60bf90e",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces numeric values."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.XAxis",
+      "Id": "70cdb0bef8d74bcfa68ba86de205d001",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "246b612e3f70408b9614f8995367f9f3",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical X axis Vector (1,0,0)\n\nVector.XAxis ( ): Vector"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "8a6dfccd3e444029b037cbd0c6f9ab1e",
+      "End": "ab82ce0c97ff424db42f33d2c85c7055",
+      "Id": "178ccdeafd304307bc192bdcbf9d1f23",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "67e8693f073e4a14a619877f6ae53f5e",
+      "End": "37747004d2c64a9681215ad6fef3df2c",
+      "Id": "c93c98721bb64cd2a8aba90a421aa974",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9ce4a458a7f943f39b6cab31d60bf90e",
+      "End": "a76e5db212544633a6b6dbb649100dfa",
+      "Id": "a6ba3dd22af54451a36927b10145138a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "246b612e3f70408b9614f8995367f9f3",
+      "End": "b10fe1fca0cd43b2b10dbb02b3e401ed",
+      "Id": "e3ae0bc5af1e411297a52a83937d2409",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "7c6740ab7cd54cfeae3ae72cf061a988"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Plane.ByOriginNormal",
+        "ShowGeometry": true,
+        "Id": "02cc9842f059440cbabb18bdb615b942",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 641.18063557065079,
+        "Y": 351.00472031340416
+      },
+      {
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
+        "Id": "410c0ad7864249a98f163e1cbc40d52e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 655.59597827510606,
+        "Y": 551.16815710032631
+      },
+      {
+        "Name": "Point.IsOnPlane",
+        "ShowGeometry": true,
+        "Id": "7c6740ab7cd54cfeae3ae72cf061a988",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 983.6196077031077,
+        "Y": 388.12682649705914
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "f4564b12aaba4b3eb413574e06f150f5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 233.29371105135573,
+        "Y": 573.99460199978171
+      },
+      {
+        "Name": "Vector.XAxis",
+        "ShowGeometry": true,
+        "Id": "70cdb0bef8d74bcfa68ba86de205d001",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 342.67201995540825,
+        "Y": 363.67365939692331
+      }
+    ],
+    "Annotations": [],
+    "X": -215.57179928189271,
+    "Y": -176.7736598606424,
+    "Zoom": 1.1047642563030273
+  }
+}

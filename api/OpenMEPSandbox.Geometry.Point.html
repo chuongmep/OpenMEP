@@ -1,0 +1,1445 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Point | Open MEP </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Point | Open MEP ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/chuongmep/openmep/new/dev/apiSpec/new?filename=OpenMEPSandbox_Geometry_Point.md&amp;value=---%0Auid%3A%20OpenMEPSandbox.Geometry.Point%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OpenMEPSandbox.Geometry.Point">
+
+
+
+  <h1 id="OpenMEPSandbox_Geometry_Point" data-uid="OpenMEPSandbox.Geometry.Point" class="text-break">
+Class Point  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OpenMEPSandbox.html">OpenMEPSandbox</a>.<a class="xref" href="OpenMEPSandbox.Geometry.html">Geometry</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>OpenMEPSandbox.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Point</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Point</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_AssignmentMatching_" data-uid="OpenMEPSandbox.Geometry.Point.AssignmentMatching*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_AssignmentMatching_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__" data-uid="OpenMEPSandbox.Geometry.Point.AssignmentMatching(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+  AssignmentMatching(List&lt;Point&gt;, List&lt;Point&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assignments Optimize by using Hungarian Algorithm</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;assignment&quot;, &quot;mincost&quot; })]
+public static Dictionary&lt;string, object?&gt; AssignmentMatching(List&lt;Point&gt; lcMachines, List&lt;Point&gt; lcDevices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lcMachines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list location of machine</p>
+</dd>
+    <dt><code>lcDevices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list location of devices</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Permutation of list index matching optimize</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_AssignmentMatching_" data-uid="OpenMEPSandbox.Geometry.Point.AssignmentMatching*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_AssignmentMatching_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__System_Double_" data-uid="OpenMEPSandbox.Geometry.Point.AssignmentMatching(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},System.Double)">
+  AssignmentMatching(List&lt;Point&gt;, List&lt;Point&gt;, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assignments Optimize by using Hungarian Algorithm</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;lines&quot;, &quot;machines&quot;, &quot;devices&quot; })]
+public static Dictionary&lt;string, object?&gt; AssignmentMatching(List&lt;Point&gt; lcMachines, List&lt;Point&gt; lcDevices, double limit = 1.7976931348623157E+308)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lcMachines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list location of machine</p>
+</dd>
+    <dt><code>lcDevices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list location of devices</p>
+</dd>
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>number distance limit to break</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_BruteForceMatching_" data-uid="OpenMEPSandbox.Geometry.Point.BruteForceMatching*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_BruteForceMatching_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__" data-uid="OpenMEPSandbox.Geometry.Point.BruteForceMatching(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+  BruteForceMatching(List&lt;Point&gt;, List&lt;Point&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assignments Optimize by using Brute Force</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;assignment&quot;, &quot;mincost&quot; })]
+public static Dictionary&lt;string, object?&gt; BruteForceMatching(List&lt;Point&gt; lcMachines, List&lt;Point&gt; lcDevices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lcMachines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list location of machine</p>
+</dd>
+    <dt><code>lcDevices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list location of devices</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>minimum cost can optimize</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Ceiling_" data-uid="OpenMEPSandbox.Geometry.Point.Ceiling*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Ceiling_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPSandbox.Geometry.Point.Ceiling(Autodesk.DesignScript.Geometry.Point)">
+  Ceiling(Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L640"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new point with the larger integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Ceiling(Point point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>The input point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>The point with the larger integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_Ceiling_Autodesk_DesignScript_Geometry_Point__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.Ceiling.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Centroid_" data-uid="OpenMEPSandbox.Geometry.Point.Centroid*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Centroid_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__" data-uid="OpenMEPSandbox.Geometry.Point.Centroid(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+  Centroid(List&lt;Point&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the centroid of a list of points</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Centroid(List&lt;Point&gt; points)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>list of points</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>centroid</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_Centroid_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.Centroid.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.Centroid.dyn">Point.Centroid.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_CompareTo_" data-uid="OpenMEPSandbox.Geometry.Point.CompareTo*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_CompareTo_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPSandbox.Geometry.Point.CompareTo(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point)">
+  CompareTo(Point, Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares this a point with another point.
+0: if this is identical to other
+1: if this is greater than other
+-1: if this is less than other</p>
+<p>Component evaluation priority is first X, then Y, then Z.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double CompareTo(Point point1, Point point2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point1</code> <span class="xref">Point</span></dt>
+    <dd><p>the first point to use in comparison</p>
+</dd>
+    <dt><code>point2</code> <span class="xref">Point</span></dt>
+    <dd><p>the second point to use in comparison</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>value compare</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_CompareTo_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.CompareTo.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Deconstruct_" data-uid="OpenMEPSandbox.Geometry.Point.Deconstruct*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Deconstruct_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPSandbox.Geometry.Point.Deconstruct(Autodesk.DesignScript.Geometry.Point)">
+  Deconstruct(Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deconstruct a point into its components</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;X&quot;, &quot;Y&quot;, &quot;Z&quot; })]
+public static Dictionary&lt;string, object?&gt; Deconstruct(Point point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>the point</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>X point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_Deconstruct_Autodesk_DesignScript_Geometry_Point__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.Deconstruct.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.Deconstruct.dyn">Point.Deconstruct.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Euclidean_" data-uid="OpenMEPSandbox.Geometry.Point.Euclidean*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Euclidean_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPSandbox.Geometry.Point.Euclidean(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point)">
+  Euclidean(Point, Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return distance two points by Euclidean distance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Euclidean(Point p1, Point p2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p1</code> <span class="xref">Point</span></dt>
+    <dd><p>the first point</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">Point</span></dt>
+    <dd><p>the second point</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>euclidean between two point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_FindLocationShortest_" data-uid="OpenMEPSandbox.Geometry.Point.FindLocationShortest*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_FindLocationShortest_Autodesk_DesignScript_Geometry_Point_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__System_Double_" data-uid="OpenMEPSandbox.Geometry.Point.FindLocationShortest(Autodesk.DesignScript.Geometry.Point,System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},System.Double)">
+  FindLocationShortest(Point, List&lt;Point&gt;, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return the closest point from a list of points by manhattan distance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;point&quot;, &quot;distance&quot; })]
+public static Dictionary&lt;string, object?&gt; FindLocationShortest(Point lcMachine, List&lt;Point&gt; lcDevices, double limit = 1.7976931348623157E+308)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lcMachine</code> <span class="xref">Point</span></dt>
+    <dd><p>location of machine</p>
+</dd>
+    <dt><code>lcDevices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>location of devide</p>
+</dd>
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>max limit</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_FindShortestRoute_" data-uid="OpenMEPSandbox.Geometry.Point.FindShortestRoute*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_FindShortestRoute_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__" data-uid="OpenMEPSandbox.Geometry.Point.FindShortestRoute(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+  FindShortestRoute(List&lt;Point&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L460"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>takes a list of 3D points as input and returns the shortest route that visits each point exactly once'
+<a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">https://en.wikipedia.org/wiki/Travelling_salesman_problem</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Line&gt; FindShortestRoute(List&lt;Point&gt; points)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>the list 3d points</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Line</span>&gt;</dt>
+    <dd><p>shortest route</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_FindShortestRoute_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.FindShortestRoute.gif" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Floor_" data-uid="OpenMEPSandbox.Geometry.Point.Floor*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Floor_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPSandbox.Geometry.Point.Floor(Autodesk.DesignScript.Geometry.Point)">
+  Floor(Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L624"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new point with the smallest integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Floor(Point point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>The input point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>The point with the smallest integer values that are greater than or equal to the X, Y, and Z coordinates of the input point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_Floor_Autodesk_DesignScript_Geometry_Point__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.Floor.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointInCircle_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointInCircle*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointInCircle_Autodesk_DesignScript_Geometry_Circle_System_Int32_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointInCircle(Autodesk.DesignScript.Geometry.Circle,System.Int32)">
+  GenerateRandomPointInCircle(Circle, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L581"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an array of random 3D points inside a specified circle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point[] GenerateRandomPointInCircle(Circle circle, int numPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>circle</code> <span class="xref">Circle</span></dt>
+    <dd><p>The circle to generate points inside of.</p>
+</dd>
+    <dt><code>numPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of random points to generate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span>[]</dt>
+    <dd><p>An array of Point3d objects representing the generated random points.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointInCircle_Autodesk_DesignScript_Geometry_Circle_System_Int32__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointInCircle.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsInCube_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointsInCube*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsInCube_System_Double_System_Double_System_Double_System_Int32_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointsInCube(System.Double,System.Double,System.Double,System.Int32)">
+  GenerateRandomPointsInCube(double, double, double, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L521"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a given number of random points within a rectangular prism (i.e., a cube with different dimensions) of the given size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; GenerateRandomPointsInCube(double width, double height, double length, int numPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The width of the rectangular prism (i.e., the length of the x-axis).</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The height of the rectangular prism (i.e., the length of the y-axis).</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The length of the rectangular prism (i.e., the length of the z-axis).</p>
+</dd>
+    <dt><code>numPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of random points to generate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>A list of randomly generated points within the rectangular prism.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsInCube_System_Double_System_Double_System_Double_System_Int32__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsInCube.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsInSphere_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointsInSphere*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsInSphere_System_Double_System_Int32_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointsInSphere(System.Double,System.Int32)">
+  GenerateRandomPointsInSphere(double, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L485"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a given number of random points within a sphere of the given radius.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; GenerateRandomPointsInSphere(double radius, int numPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The radius of the sphere.</p>
+</dd>
+    <dt><code>numPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of random points to generate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>A list of randomly generated points within the sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsInSphere_System_Double_System_Int32__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsInSphere.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsOnCircle_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointsOnCircle*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsOnCircle_Autodesk_DesignScript_Geometry_Circle_System_Double_" data-uid="OpenMEPSandbox.Geometry.Point.GenerateRandomPointsOnCircle(Autodesk.DesignScript.Geometry.Circle,System.Double)">
+  GenerateRandomPointsOnCircle(Circle, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L547"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an array of random 3D points on the circumference of a specified circle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; GenerateRandomPointsOnCircle(Circle circle, double numPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>circle</code> <span class="xref">Circle</span></dt>
+    <dd><p>The circle to generate points on the circumference of.</p>
+</dd>
+    <dt><code>numPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The number of random points to generate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>An array of Point3d objects representing the generated random points.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_GenerateRandomPointsOnCircle_Autodesk_DesignScript_Geometry_Circle_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.GenerateRandomPointsOnCircle.png" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_IsInPolygon_" data-uid="OpenMEPSandbox.Geometry.Point.IsInPolygon*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_IsInPolygon_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Polygon_" data-uid="OpenMEPSandbox.Geometry.Point.IsInPolygon(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Polygon)">
+  IsInPolygon(Point, Polygon)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether an input point is contained within the polygon. If the polygon is not planar then the point will be projected onto the best-fit plane and the containment will be computed using the projection of the polygon onto the best-fit plane. This will return a failed status if the polygon self-intersects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsInPolygon(Point point, Polygon polygon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>the point</p>
+</dd>
+    <dt><code>polygon</code> <span class="xref">Polygon</span></dt>
+    <dd><p>the polygon</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if point is in polygon</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_IsInPolygon_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Polygon__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.IsInPolygons.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.IsInPolygons.dyn">Point.IsInPolygons.dyn</a></p>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_IsInPolygonPlus_" data-uid="OpenMEPSandbox.Geometry.Point.IsInPolygonPlus*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_IsInPolygonPlus_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Polygon_" data-uid="OpenMEPSandbox.Geometry.Point.IsInPolygonPlus(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Polygon)">
+  IsInPolygonPlus(Point, Polygon)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether a point is inside, outside, or coincident with a polygon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double IsInPolygonPlus(Point point, Polygon polygon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd></dd>
+    <dt><code>polygon</code> <span class="xref">Polygon</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Returns -1 if point is outside the polygon, 0 if it is coincident with a polygon edge, or 1 if it is inside the polygon.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_IsInPolygonPlus_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Polygon__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.IsInPolygonPlus.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.IsInPolygonPlus.dyn">Point.IsInPolygonPlus.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_IsOnLine_" data-uid="OpenMEPSandbox.Geometry.Point.IsOnLine*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_IsOnLine_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Line_System_Double_" data-uid="OpenMEPSandbox.Geometry.Point.IsOnLine(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Line,System.Double)">
+  IsOnLine(Point, Line, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Test whether a point lies on a line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsOnLine(Point point, Line line, double tolerance = 0.001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>a point to check</p>
+</dd>
+    <dt><code>line</code> <span class="xref">Line</span></dt>
+    <dd><p>The line to test against.</p>
+</dd>
+    <dt><code>tolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Default is use 1e-6</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Returns true if point is on line.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_IsOnLine_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Line_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.IsOnLine.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.IsOnLine.dyn">Point.IsOnLine.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_IsOnPlane_" data-uid="OpenMEPSandbox.Geometry.Point.IsOnPlane*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_IsOnPlane_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Plane_System_Double_" data-uid="OpenMEPSandbox.Geometry.Point.IsOnPlane(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Plane,System.Double)">
+  IsOnPlane(Point, Plane, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Test whether a point lies on a plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsOnPlane(Point point, Plane plane, double tolerance = 0.001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>point to check</p>
+</dd>
+    <dt><code>plane</code> <span class="xref">Plane</span></dt>
+    <dd><p>The plane to test against.</p>
+</dd>
+    <dt><code>tolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Default is use 1e-6</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Returns true if point is on plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_IsOnPlane_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Plane_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.IsOnPlane.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.IsOnPlane.dyn">Point.IsOnPlane.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Manhattan_" data-uid="OpenMEPSandbox.Geometry.Point.Manhattan*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Manhattan_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_" data-uid="OpenMEPSandbox.Geometry.Point.Manhattan(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point)">
+  Manhattan(Point, Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>return distance between two points by Manhattan distance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Manhattan(Point p1, Point p2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p1</code> <span class="xref">Point</span></dt>
+    <dd></dd>
+    <dt><code>p2</code> <span class="xref">Point</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>manhattan distance between two point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Offset_" data-uid="OpenMEPSandbox.Geometry.Point.Offset*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Offset_Autodesk_DesignScript_Geometry_Point_System_Double_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Point.Offset(Autodesk.DesignScript.Geometry.Point,System.Double,Autodesk.DesignScript.Geometry.Vector)">
+  Offset(Point, double, Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Offset a point by a distance and a direction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Offset(Point point, double distance, Vector direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>point to offset</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>distance from start point to end point</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector</span></dt>
+    <dd><p>direction to direct to</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>new point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_Offset_Autodesk_DesignScript_Geometry_Point_System_Double_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.Offset.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/pic/Point.Offset.dyn">Point.Offset.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Origin_" data-uid="OpenMEPSandbox.Geometry.Point.Origin*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Origin" data-uid="OpenMEPSandbox.Geometry.Point.Origin">
+  Origin()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a point with X,Y,Z = 0</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Origin()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_Origin_examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.Origin.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.Origin.dyn">Point.Origin.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_ProjectOnToLine_" data-uid="OpenMEPSandbox.Geometry.Point.ProjectOnToLine*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_ProjectOnToLine_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Line_" data-uid="OpenMEPSandbox.Geometry.Point.ProjectOnToLine(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Line)">
+  ProjectOnToLine(Point?, Line?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Project a point onto a line</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point ProjectOnToLine(Point? point, Line? line)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>Point need to project</p>
+</dd>
+    <dt><code>line</code> <span class="xref">Line</span></dt>
+    <dd><p>Line to project the point</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>projected point</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_ProjectOnToLine_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Line__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.ProjectOnToLine.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.ProjectOnToLine.dyn">Point.ProjectOnToLine.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_ProjectOntoPlane_" data-uid="OpenMEPSandbox.Geometry.Point.ProjectOntoPlane*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_ProjectOntoPlane_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Plane_" data-uid="OpenMEPSandbox.Geometry.Point.ProjectOntoPlane(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Plane)">
+  ProjectOntoPlane(Point, Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Project a point onto a plane</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point ProjectOntoPlane(Point point, Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>point need to project</p>
+</dd>
+    <dt><code>plane</code> <span class="xref">Plane</span></dt>
+    <dd><p>plane to be project</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>new point projected on plane</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_ProjectOntoPlane_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Plane__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.ProjectOntoPlane.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.ProjectOntoPlane.dyn">Point.ProjectOntoPlane.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_Reflect_" data-uid="OpenMEPSandbox.Geometry.Point.Reflect*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_Reflect_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Plane_" data-uid="OpenMEPSandbox.Geometry.Point.Reflect(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Plane)">
+  Reflect(Point, Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L420"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reflect Point by Plane</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Reflect(Point point, Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <span class="xref">Point</span></dt>
+    <dd><p>point need to reflect</p>
+</dd>
+    <dt><code>plane</code> <span class="xref">Plane</span></dt>
+    <dd><p>plane to reflect point</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd><p>point has reflected</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_Reflect_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Plane__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.Reflect.gif" alt=""></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_SortPointsAlongCurve_" data-uid="OpenMEPSandbox.Geometry.Point.SortPointsAlongCurve*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_SortPointsAlongCurve_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__Autodesk_DesignScript_Geometry_Curve_" data-uid="OpenMEPSandbox.Geometry.Point.SortPointsAlongCurve(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},Autodesk.DesignScript.Geometry.Curve)">
+  SortPointsAlongCurve(List&lt;Point&gt;, Curve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L741"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sort points along a curve</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;SortedPoints&quot;, &quot;Indices&quot; })]
+public static Dictionary&lt;string, object&gt; SortPointsAlongCurve(List&lt;Point&gt; Points, Curve Guide)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>Points</p>
+</dd>
+    <dt><code>Guide</code> <span class="xref">Curve</span></dt>
+    <dd><p>Guide curve</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Points sorted along a curve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_SortPointsAlongCurve_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__Autodesk_DesignScript_Geometry_Curve__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Index map of sorted points.</p>
+</div>
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_SortPointsByClockwise_" data-uid="OpenMEPSandbox.Geometry.Point.SortPointsByClockwise*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_SortPointsByClockwise_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__System_Double_" data-uid="OpenMEPSandbox.Geometry.Point.SortPointsByClockwise(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},System.Double)">
+  SortPointsByClockwise(List&lt;Point&gt;, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L699"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sorts a list of Point3D objects by their clockwise order relative to a center point
+and a specified starting angle in degrees.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; SortPointsByClockwise(List&lt;Point&gt; points, double startAngle = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>The list of Point3D objects to be sorted</p>
+</dd>
+    <dt><code>startAngle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The starting angle in degrees for the clockwise ordering</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>The sorted list of Point3D objects</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_SortPointsByClockwise_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.SortPointsByClockwise.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.SortPointsByClockwise.dyn">Point.SortPointsByClockwise.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Point_SortPointsByDirection_" data-uid="OpenMEPSandbox.Geometry.Point.SortPointsByDirection*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Point_SortPointsByDirection_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Point.SortPointsByDirection(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},Autodesk.DesignScript.Geometry.Vector)">
+  SortPointsByDirection(List&lt;Point&gt;, Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L658"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sorts a list of 3D points by their direction relative to a specified direction vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; SortPointsByDirection(List&lt;Point&gt; points, Vector direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>The list of points to be sorted.</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector</span></dt>
+    <dd><p>The direction vector relative to which the points will be sorted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>A new list of points sorted by their direction relative to the specified direction vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Point_SortPointsByDirection_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Point.SortPointsByDirection.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Point.SortPointsByDirection.dyn">Point.SortPointsByDirection.dyn</a></p>
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Point.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

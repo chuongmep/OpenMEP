@@ -1,0 +1,294 @@
+{
+  "Uuid": "850ec9b8-4cc6-425a-858e-610b431d6b67",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "View.GetAllElementByViewFilter",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.View.GetAllElementByViewFilter@Revit.Elements.Element",
+      "Id": "0e7259a168f446cfa9f02c2597c2665f",
+      "Inputs": [
+        {
+          "Id": "b6f6468a68e348e7bc991982a880616c",
+          "Name": "viewFilter",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "57243d01b88d468d842699936fffd77c",
+          "Name": "elements",
+          "Description": "elements get from view filter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return All Element Inside View Filter\n\nView.GetAllElementByViewFilter (viewFilter: Element): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.View.GetAllViewFilters@bool",
+      "Id": "2033d88ceed242c297c293dde4fb5112",
+      "Inputs": [
+        {
+          "Id": "d8c45cdf441b497a9eedf05df8ba545a",
+          "Name": "flag",
+          "Description": "toggle true false to fresh data\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b68d7bba0944414c9ee041dd72ca082b",
+          "Name": "Element[]",
+          "Description": "Element[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get All View Filters Created In Current Document\n\nView.GetAllViewFilters (flag: bool): Element[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "a1b0ea8cff60464d86a92fade11b5f07",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c1f918af320e4d41a89d598ff3919bfe",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "a[42];",
+      "Id": "faf6716501c4422f8c2afd21d6c015b5",
+      "Inputs": [
+        {
+          "Id": "d052b49882bd43a89ef22d4211f4f93b",
+          "Name": "a",
+          "Description": "a",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9f7b4e0a3bea4e6ca0986bc13d2c464b",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x.Name;",
+      "Id": "c3d7a6e2736b459597f21b6870613996",
+      "Inputs": [
+        {
+          "Id": "9487214e474244e395cb9d0a80389b0c",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "281c0b29aa664638b6feeca1cc104628",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b68d7bba0944414c9ee041dd72ca082b",
+      "End": "9487214e474244e395cb9d0a80389b0c",
+      "Id": "38c83d0a7e2d4c5e9ea9ef943ae997a2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b68d7bba0944414c9ee041dd72ca082b",
+      "End": "d052b49882bd43a89ef22d4211f4f93b",
+      "Id": "451178dc07ca40ad8c9aa30aa2ee443c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c1f918af320e4d41a89d598ff3919bfe",
+      "End": "d8c45cdf441b497a9eedf05df8ba545a",
+      "Id": "88366f61bd2b41a29a880d14cd1c2c9d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9f7b4e0a3bea4e6ca0986bc13d2c464b",
+      "End": "b6f6468a68e348e7bc991982a880616c",
+      "Id": "aa663af9295f4810adce1e6533ba8549",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "0e7259a168f446cfa9f02c2597c2665f",
+        "2033d88ceed242c297c293dde4fb5112"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.0.3472",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "View.GetAllElementByViewFilter",
+        "ShowGeometry": true,
+        "Id": "0e7259a168f446cfa9f02c2597c2665f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 961.03521717985359,
+        "Y": 379.8629399530322
+      },
+      {
+        "Name": "View.GetAllViewFilters",
+        "ShowGeometry": true,
+        "Id": "2033d88ceed242c297c293dde4fb5112",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 367.11101511879048,
+        "Y": 392.08552915766734
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "a1b0ea8cff60464d86a92fade11b5f07",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 164.89692304940843,
+        "Y": 402.5806182810914
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "faf6716501c4422f8c2afd21d6c015b5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 669.17659599501781,
+        "Y": 398.09658740817105
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "c3d7a6e2736b459597f21b6870613996",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 704.68398033725089,
+        "Y": 568.22784236398354
+      }
+    ],
+    "Annotations": [],
+    "X": -96.312073001012777,
+    "Y": -198.17976604518429,
+    "Zoom": 1.0360578756006076
+  }
+}

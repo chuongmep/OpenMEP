@@ -1,0 +1,632 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Curve | Open MEP </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Curve | Open MEP ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/chuongmep/openmep/new/dev/apiSpec/new?filename=OpenMEPSandbox_Geometry_Curve.md&amp;value=---%0Auid%3A%20OpenMEPSandbox.Geometry.Curve%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OpenMEPSandbox.Geometry.Curve">
+
+
+
+  <h1 id="OpenMEPSandbox_Geometry_Curve" data-uid="OpenMEPSandbox.Geometry.Curve" class="text-break">
+Class Curve  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OpenMEPSandbox.html">OpenMEPSandbox</a>.<a class="xref" href="OpenMEPSandbox.Geometry.html">Geometry</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>OpenMEPSandbox.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Curve</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Curve</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_AsLine_" data-uid="OpenMEPSandbox.Geometry.Curve.AsLine*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_AsLine_Autodesk_DesignScript_Geometry_Curve_" data-uid="OpenMEPSandbox.Geometry.Curve.AsLine(Autodesk.DesignScript.Geometry.Curve)">
+  AsLine(Curve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Convert a curve simple to line</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Line AsLine(Curve curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>curve need to convert</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Line</span></dt>
+    <dd><p>Line</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Curve_AsLine_Autodesk_DesignScript_Geometry_Curve__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Curve.AsLine.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Curve.AsLine.dyn">Curve.AsLine.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_BezierSegment_" data-uid="OpenMEPSandbox.Geometry.Curve.BezierSegment*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_BezierSegment_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_System_Int32_" data-uid="OpenMEPSandbox.Geometry.Curve.BezierSegment(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,System.Int32)">
+  BezierSegment(Point, Point, Point, Point, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Bézier curve segment based on four control points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; BezierSegment(Point start, Point startHandler, Point endHandler, Point end, int numPoints = 20)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <span class="xref">Point</span></dt>
+    <dd><p>The starting point of the segment.</p>
+</dd>
+    <dt><code>startHandler</code> <span class="xref">Point</span></dt>
+    <dd><p>The control point that determines the tangent of the curve at the starting point.</p>
+</dd>
+    <dt><code>endHandler</code> <span class="xref">Point</span></dt>
+    <dd><p>The control point that determines the tangent of the curve at the ending point.</p>
+</dd>
+    <dt><code>end</code> <span class="xref">Point</span></dt>
+    <dd><p>The ending point of the segment.</p>
+</dd>
+    <dt><code>numPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of points to generate on the curve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>A list of Point3D objects representing the points on the Bézier curve segment.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Curve_BezierSegment_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_Autodesk_DesignScript_Geometry_Point_System_Int32__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Curve.BezierSegment.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Curve.BezierSegment.dyn">Curve.BezierSegment.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_DeconstructPolyCurve_" data-uid="OpenMEPSandbox.Geometry.Curve.DeconstructPolyCurve*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_DeconstructPolyCurve_Autodesk_DesignScript_Geometry_PolyCurve_" data-uid="OpenMEPSandbox.Geometry.Curve.DeconstructPolyCurve(Autodesk.DesignScript.Geometry.PolyCurve)">
+  DeconstructPolyCurve(PolyCurve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get segment and vertices of a polycurve
+Use Open Source From lunchbox package : <a href="https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/">https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;Segments&quot;, &quot;Points&quot; })]
+public static Dictionary&lt;string, object&gt; DeconstructPolyCurve(PolyCurve polycurve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>polycurve</code> <span class="xref">PolyCurve</span></dt>
+    <dd><p>PolyCurve</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>PolyCurve segments.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_DivideCurve_" data-uid="OpenMEPSandbox.Geometry.Curve.DivideCurve*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_DivideCurve_Autodesk_DesignScript_Geometry_Curve_System_Double_" data-uid="OpenMEPSandbox.Geometry.Curve.DivideCurve(Autodesk.DesignScript.Geometry.Curve,System.Double)">
+  DivideCurve(Curve, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides a curve evenly along the parameter space
+Use Open Source From lunchbox package : <a href="https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/">https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;Points&quot;, &quot;Planes&quot;, &quot;Tangents&quot;, &quot;Parameters&quot; })]
+public static Dictionary&lt;string, object&gt; DivideCurve(Curve curve, double Number)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>Curve to divide</p>
+</dd>
+    <dt><code>Number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Number of divisions</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>A list of points</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_DivideCurveByDistance_" data-uid="OpenMEPSandbox.Geometry.Curve.DivideCurveByDistance*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_DivideCurveByDistance_Autodesk_DesignScript_Geometry_Curve_System_Double_" data-uid="OpenMEPSandbox.Geometry.Curve.DivideCurveByDistance(Autodesk.DesignScript.Geometry.Curve,System.Double)">
+  DivideCurveByDistance(Curve, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides a curve using a distance between segments
+Use Open Source From lunchbox package : <a href="https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/">https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;Points&quot;, &quot;Planes&quot;, &quot;Tangents&quot;, &quot;Distances&quot;, &quot;Parameters&quot; })]
+public static Dictionary&lt;string, object&gt; DivideCurveByDistance(Curve curve, double Distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>Curve to divide</p>
+</dd>
+    <dt><code>Distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Distance between curve segments</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>A list of points</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_EndPoints_" data-uid="OpenMEPSandbox.Geometry.Curve.EndPoints*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_EndPoints_Autodesk_DesignScript_Geometry_Curve_" data-uid="OpenMEPSandbox.Geometry.Curve.EndPoints(Autodesk.DesignScript.Geometry.Curve)">
+  EndPoints(Curve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets start and end points and parameter values
+Use Open Source From lunchbox package : <a href="https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/">https://bitbucket.org/provingground-io/lunchbox-for-dynamo/src/master/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;StartPoint&quot;, &quot;EndPoint&quot;, &quot;StartParameter&quot;, &quot;EndParameter&quot; })]
+public static Dictionary&lt;string, object&gt; EndPoints(Curve curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>Curve</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Start point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_SplitByPoints_" data-uid="OpenMEPSandbox.Geometry.Curve.SplitByPoints*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_SplitByPoints_Autodesk_DesignScript_Geometry_Curve_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point__" data-uid="OpenMEPSandbox.Geometry.Curve.SplitByPoints(Autodesk.DesignScript.Geometry.Curve,System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+  SplitByPoints(Curve, List&lt;Point&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>splits the curve at each point in the input list, creating a new curve between each adjacent pair of points</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Curve&gt; SplitByPoints(Curve curve, List&lt;Point&gt; points)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>The input curve to be split.</p>
+</dd>
+    <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>A list of points that represent the locations at which to split the curve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Curve</span>&gt;</dt>
+    <dd><p>A list of curves that result from splitting the input curve at the specified points</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Curve_SplitByPoints_Autodesk_DesignScript_Geometry_Curve_System_Collections_Generic_List_Autodesk_DesignScript_Geometry_Point___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Curve.SplitByPoints.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Curve.SplitByPoints.dyn">Curve.SplitByPoints.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_SplitBySegmentsLength_" data-uid="OpenMEPSandbox.Geometry.Curve.SplitBySegmentsLength*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_SplitBySegmentsLength_Autodesk_DesignScript_Geometry_Curve_System_Double_" data-uid="OpenMEPSandbox.Geometry.Curve.SplitBySegmentsLength(Autodesk.DesignScript.Geometry.Curve,System.Double)">
+  SplitBySegmentsLength(Curve, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>splits a curve into segments of a specified length</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Curve&gt; SplitBySegmentsLength(Curve curve, double segmentLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>The input curve to be split.</p>
+</dd>
+    <dt><code>segmentLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>A number that represents the length of each segment to split the curve into, or a list of numbers that represent the lengths of the segments to split the curve into.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Curve</span>&gt;</dt>
+    <dd><p>A list of curves that result from splitting the input curve at the specified segment lengths.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Curve_SplitBySegmentsLength_Autodesk_DesignScript_Geometry_Curve_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Curve.SplitBySegmentsLength.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Curve.SplitBySegmentsLength.dyn">Curve.SplitBySegmentsLength.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_SplitBySegmentsLengths_" data-uid="OpenMEPSandbox.Geometry.Curve.SplitBySegmentsLengths*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_SplitBySegmentsLengths_Autodesk_DesignScript_Geometry_Curve_System_Collections_Generic_List_System_Double__" data-uid="OpenMEPSandbox.Geometry.Curve.SplitBySegmentsLengths(Autodesk.DesignScript.Geometry.Curve,System.Collections.Generic.List{System.Double})">
+  SplitBySegmentsLengths(Curve, List&lt;double&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>splits a curve into segments of varying lengths specified by a list of segment lengths</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Curve&gt; SplitBySegmentsLengths(Curve curve, List&lt;double&gt; segmentLengths)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>The input curve to be split.</p>
+</dd>
+    <dt><code>segmentLengths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>A list of numbers that represent the lengths of the segments to split the curve into.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Curve</span>&gt;</dt>
+    <dd><p>A list of curves that result from splitting the input curve at the specified segment lengths.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Curve_SplitBySegmentsLengths_Autodesk_DesignScript_Geometry_Curve_System_Collections_Generic_List_System_Double___examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Curve.SplitBySegmentsLengths.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Curve.SplitBySegmentsLengths.dyn">Curve.SplitBySegmentsLengths.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Curve_ToPoints_" data-uid="OpenMEPSandbox.Geometry.Curve.ToPoints*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Curve_ToPoints_Autodesk_DesignScript_Geometry_Curve_System_Int32_" data-uid="OpenMEPSandbox.Geometry.Curve.ToPoints(Autodesk.DesignScript.Geometry.Curve,System.Int32)">
+  ToPoints(Curve, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a curve to a list of points based on the specified number of points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Point&gt; ToPoints(Curve curve, int numPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <span class="xref">Curve</span></dt>
+    <dd><p>The curve to convert to a list of points.</p>
+</dd>
+    <dt><code>numPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of points to generate on the curve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Point</span>&gt;</dt>
+    <dd><p>A list of Point3D objects representing the points on the curve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Curve_ToPoints_Autodesk_DesignScript_Geometry_Curve_System_Int32__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Curve.ToPoints.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Curve.ToPoints.dyn">Curve.ToPoints.dyn</a></p>
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Curve.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

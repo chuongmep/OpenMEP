@@ -1,0 +1,372 @@
+{
+  "Uuid": "0d0bed86-dbd8-4bfa-8ef0-8acac943cb20",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.IsInPolygonPlus",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "106aec48de9343e99a1462c62656a1a3",
+      "Inputs": [
+        {
+          "Id": "b81351156f044c5684e9348318537794",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fdfd9e42bc3149748f89e89d3ca597af",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e18a25c4409e4f489e5084e00e975906",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "53ccc245705249b2a252ab1aa489d5b3",
+          "Name": "Point",
+          "Description": "Point created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 100.0,
+      "MinimumValue": 0.0,
+      "StepValue": 0.1,
+      "InputValue": 8.9,
+      "Id": "ef292927f6324c889214417cc700cb5f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6cca38abefc24af8b05eb1e3646005bb",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces numeric values"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Circle.ByCenterPointRadius@Autodesk.DesignScript.Geometry.Point,double",
+      "Id": "eb28d76686894710b2ca7b07c2a16385",
+      "Inputs": [
+        {
+          "Id": "5badc64b787f425dba5c8c9781abc576",
+          "Name": "centerPoint",
+          "Description": "Center point of circle\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "97866e259246481f8501d4965222cde1",
+          "Name": "radius",
+          "Description": "Radius\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b6aa5ca2c90b41389cbfa92b97efacc4",
+          "Name": "Circle",
+          "Description": "Circle created with center point and radius",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Circle with input center Point and radius in the world XY plane, with world Z as normal.\n\nCircle.ByCenterPointRadius (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1): Circle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "10;",
+      "Id": "c633850852be4e8d9186411119a58fe5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "faf7bd292d07410cbc7a37b1d818bdbd",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Polygon.RegularPolygon@Autodesk.DesignScript.Geometry.Circle,int",
+      "Id": "e703ac9f66dd4cfeb561fa113d1e1f7a",
+      "Inputs": [
+        {
+          "Id": "5adba588e72b486a9a6bc9a6c6aed5ca",
+          "Name": "circle",
+          "Description": "Circle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7fa43d2f17a94bbfaca7ffdf4042b3a6",
+          "Name": "numberSides",
+          "Description": "int\nDefault value : 5",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b21c6c2cfeb44d24b222a08c4f3115f4",
+          "Name": "Polygon",
+          "Description": "Polygon",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Construct an inscribed Polygon Curve within a circle.\n\nPolygon.RegularPolygon (circle: Circle, numberSides: int = 5): Polygon"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.IsInPolygonPlus@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Polygon",
+      "Id": "c24c3edfd4804019b5e69ebd49a86238",
+      "Inputs": [
+        {
+          "Id": "6c95b36c71fa40beb01f835994b72d30",
+          "Name": "point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "03518d85c2994c849cc4f7809c5e6820",
+          "Name": "polygon",
+          "Description": "Polygon",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d58d979e3042459087418ca06dcc39a1",
+          "Name": "double",
+          "Description": "Returns -1 if point is outside the polygon, 0 if it is coincident with a polygon edge, or 1 if it is inside the polygon.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Tests whether a point is inside, outside, or coincident with a polygon.\n\nPoint.IsInPolygonPlus (point: Point, polygon: Polygon): double"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "53ccc245705249b2a252ab1aa489d5b3",
+      "End": "6c95b36c71fa40beb01f835994b72d30",
+      "Id": "7f66b52fb23a40649298984b1307917c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6cca38abefc24af8b05eb1e3646005bb",
+      "End": "b81351156f044c5684e9348318537794",
+      "Id": "a7277373579347c8b5e8ccd12222c672",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b6aa5ca2c90b41389cbfa92b97efacc4",
+      "End": "5adba588e72b486a9a6bc9a6c6aed5ca",
+      "Id": "a44028600e624e61b642897f2a36328e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "faf7bd292d07410cbc7a37b1d818bdbd",
+      "End": "97866e259246481f8501d4965222cde1",
+      "Id": "1081ae44d590480a8ee125bad29c48cb",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b21c6c2cfeb44d24b222a08c4f3115f4",
+      "End": "03518d85c2994c849cc4f7809c5e6820",
+      "Id": "8af3b02d81ee4ff688ed560a6be0eff3",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "c24c3edfd4804019b5e69ebd49a86238"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.3.4871",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Point.ByCoordinates",
+        "ShowGeometry": true,
+        "Id": "106aec48de9343e99a1462c62656a1a3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -89.564666334856838,
+        "Y": 166.68350189300719
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "ef292927f6324c889214417cc700cb5f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -599.79582525561727,
+        "Y": 203.36999723119141
+      },
+      {
+        "Name": "Circle.ByCenterPointRadius",
+        "ShowGeometry": false,
+        "Id": "eb28d76686894710b2ca7b07c2a16385",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -334.41271708230033,
+        "Y": 383.50005186762405
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "c633850852be4e8d9186411119a58fe5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -614.7835095206342,
+        "Y": 420.48159251157938
+      },
+      {
+        "Name": "Polygon.RegularPolygon",
+        "ShowGeometry": true,
+        "Id": "e703ac9f66dd4cfeb561fa113d1e1f7a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 24.663587486213146,
+        "Y": 493.13763747965129
+      },
+      {
+        "Name": "Point.IsInPolygonPlus",
+        "ShowGeometry": true,
+        "Id": "c24c3edfd4804019b5e69ebd49a86238",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 384.37929009928229,
+        "Y": 246.09462598981651
+      }
+    ],
+    "Annotations": [],
+    "X": 565.3926755664537,
+    "Y": 217.97896220065434,
+    "Zoom": 0.63524834044862033
+  }
+}

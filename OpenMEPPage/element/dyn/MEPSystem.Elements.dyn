@@ -1,0 +1,203 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MEPSystem.Elements",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "cf861f32-eaa5-4e67-885f-4c918314a895-00062aed"
+      ],
+      "Id": "e0ebb668225f448787851cb671eb923b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "296a0e69e3444d2390fba5a97d9bf00c",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Element.System@Revit.Elements.Element",
+      "Id": "1c01f48941b846068dc02e1a5f34d907",
+      "Inputs": [
+        {
+          "Id": "eb4f51aeabc748cca52be7b8cb3464ba",
+          "Name": "element",
+          "Description": "the element to get system\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e85b566cc3654220a217b48fdd28314e",
+          "Name": "system",
+          "Description": "mep system of element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The system of the MEP element belong to.\n\nElement.System (element: Element): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.MEPSystem.Elements@Revit.Elements.Element",
+      "Id": "938bdd458dd34a9b815a531f041abbd7",
+      "Inputs": [
+        {
+          "Id": "f484f8deb2fc40f0830941079409fed6",
+          "Name": "mepSystem",
+          "Description": "mep system\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b0c5574fab5d40129a45cb73928bd41c",
+          "Name": "elements",
+          "Description": "The return value is a read only collection and doesn't include the base equipment or panel.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Terminal elements in the system.\n\nMEPSystem.Elements (mepSystem: Element): Element[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "296a0e69e3444d2390fba5a97d9bf00c",
+      "End": "eb4f51aeabc748cca52be7b8cb3464ba",
+      "Id": "3d95bc42ab64410ab6d35824e2521e64",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e85b566cc3654220a217b48fdd28314e",
+      "End": "f484f8deb2fc40f0830941079409fed6",
+      "Id": "679583a2b1534faea8042d357cf00c76",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "1c01f48941b846068dc02e1a5f34d907",
+        "938bdd458dd34a9b815a531f041abbd7"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "e0ebb668225f448787851cb671eb923b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 180.94198642781271,
+        "Y": 60.852436515976621
+      },
+      {
+        "Name": "Element.System",
+        "ShowGeometry": true,
+        "Id": "1c01f48941b846068dc02e1a5f34d907",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 464.44310243710322,
+        "Y": 44.682222061672292
+      },
+      {
+        "Name": "MEPSystem.Elements",
+        "ShowGeometry": true,
+        "Id": "938bdd458dd34a9b815a531f041abbd7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 733.08188594597164,
+        "Y": 56.51150032260017
+      }
+    ],
+    "Annotations": [],
+    "X": -114.92843569495813,
+    "Y": 214.25960494699717,
+    "Zoom": 0.88385192930220713
+  }
+}

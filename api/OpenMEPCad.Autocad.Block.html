@@ -1,0 +1,699 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Block | Open MEP </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Block | Open MEP ">
+      
+      <meta name="description" content="A block definition containing a name and a set of objects. https://help.autodesk.com/view/OARX/2023/ENU/?guid=GUID-E6F7B03B-F5CC-4A18-9C48-BBF1D32A31FD">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/chuongmep/openmep/new/dev/apiSpec/new?filename=OpenMEPCad_Autocad_Block.md&amp;value=---%0Auid%3A%20OpenMEPCad.Autocad.Block%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OpenMEPCad.Autocad.Block">
+
+
+
+  <h1 id="OpenMEPCad_Autocad_Block" data-uid="OpenMEPCad.Autocad.Block" class="text-break">
+Class Block  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OpenMEPCad.html">OpenMEPCad</a>.<a class="xref" href="OpenMEPCad.Autocad.html">Autocad</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>OpenMEPCad.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A block definition containing a name and a set of objects.
+<a href="https://help.autodesk.com/view/OARX/2023/ENU/?guid=GUID-E6F7B03B-F5CC-4A18-9C48-BBF1D32A31FD">https://help.autodesk.com/view/OARX/2023/ENU/?guid=GUID-E6F7B03B-F5CC-4A18-9C48-BBF1D32A31FD</a></p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Block</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Block</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OpenMEPCad_Autocad_Block_BlockScaling_" data-uid="OpenMEPCad.Autocad.Block.BlockScaling*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_BlockScaling_System_Object_" data-uid="OpenMEPCad.Autocad.Block.BlockScaling(System.Object)">
+  BlockScaling(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies the scaling allowed for the block.
+<a href="https://help.autodesk.com/view/OARX/2023/ENU/?guid=GUID-F8A1C955-9669-4132-BBF3-6F7BE4710471">https://help.autodesk.com/view/OARX/2023/ENU/?guid=GUID-F8A1C955-9669-4132-BBF3-6F7BE4710471</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static dynamic BlockScaling(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">dynamic</span></dt>
+    <dd><p>enum of scaling</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_BlockScaling_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.BlockScaling.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.BlockScaling.dyn">Block.BlockScaling.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_Handle_" data-uid="OpenMEPCad.Autocad.Block.Handle*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_Handle_System_Object_" data-uid="OpenMEPCad.Autocad.Block.Handle(System.Object)">
+  Handle(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the handle of an object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Handle(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The handle of the entity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_Handle_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.Handle.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.Handle.dyn">Block.Handle.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_HasExtensionDictionary_" data-uid="OpenMEPCad.Autocad.Block.HasExtensionDictionary*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_HasExtensionDictionary_System_Object_" data-uid="OpenMEPCad.Autocad.Block.HasExtensionDictionary(System.Object)">
+  HasExtensionDictionary(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the object has an extension dictionary associated with it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool HasExtensionDictionary(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if The object has an extension dictionary associated with it.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_HasExtensionDictionary_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.HasExtensionDictionary.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.HasExtensionDictionary.dyn">Block.HasExtensionDictionary.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_IsDynamicBlock_" data-uid="OpenMEPCad.Autocad.Block.IsDynamicBlock*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_IsDynamicBlock_System_Object_" data-uid="OpenMEPCad.Autocad.Block.IsDynamicBlock(System.Object)">
+  IsDynamicBlock(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies whether this is a dynamic block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsDynamicBlock(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if The block is a dynamic block.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_IsDynamicBlock_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.IsDynamicBlock.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.IsDynamicBlock.dyn">Block.IsDynamicBlock.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_IsLayout_" data-uid="OpenMEPCad.Autocad.Block.IsLayout*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_IsLayout_System_Object_" data-uid="OpenMEPCad.Autocad.Block.IsLayout(System.Object)">
+  IsLayout(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the given block is a layout block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsLayout(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if block is layout block</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_IsLayout_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.IsLayout.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.IsLayout.dyn">Block.IsLayout.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_IsXRef_" data-uid="OpenMEPCad.Autocad.Block.IsXRef*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_IsXRef_System_Object_" data-uid="OpenMEPCad.Autocad.Block.IsXRef(System.Object)">
+  IsXRef(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the given block is an XRef block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsXRef(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if block is an Xref block</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_IsXRef_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.IsXRef.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.IsXRef.dyn">Block.IsXRef.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_Name_" data-uid="OpenMEPCad.Autocad.Block.Name*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_Name_System_Object_" data-uid="OpenMEPCad.Autocad.Block.Name(System.Object)">
+  Name(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies the name of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Name(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of the object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_Name_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.Name.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.Name.dyn">Block.Name.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_ObjectID_" data-uid="OpenMEPCad.Autocad.Block.ObjectID*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_ObjectID_System_Object_" data-uid="OpenMEPCad.Autocad.Block.ObjectID(System.Object)">
+  ObjectID(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the object ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long ObjectID(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The object ID of an object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_ObjectID_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.ObjectID.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.ObjectID.dyn">Block.ObjectID.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_ObjectName_" data-uid="OpenMEPCad.Autocad.Block.ObjectName*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_ObjectName_System_Object_" data-uid="OpenMEPCad.Autocad.Block.ObjectName(System.Object)">
+  ObjectName(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the AutoCAD class name of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ObjectName(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The AutoCAD class name of an object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_ObjectName_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.ObjectName.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.ObjectName.dyn">Block.ObjectName.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_Origin_" data-uid="OpenMEPCad.Autocad.Block.Origin*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_Origin_System_Object_" data-uid="OpenMEPCad.Autocad.Block.Origin(System.Object)">
+  Origin(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies the origin of the UCS, block, hatch, or raster image in WCS coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Origin(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Point</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_Origin_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.Origin.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.Origin.dyn">Block.Origin.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_OwnerID_" data-uid="OpenMEPCad.Autocad.Block.OwnerID*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_OwnerID_System_Object_" data-uid="OpenMEPCad.Autocad.Block.OwnerID(System.Object)">
+  OwnerID(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the object ID of the owner (parent) object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static dynamic OwnerID(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">dynamic</span></dt>
+    <dd><p>The object ID of an object's owner.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_OwnerID_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.OwnerID.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.OwnerID.dyn">Block.OwnerID.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPCad_Autocad_Block_Units_" data-uid="OpenMEPCad.Autocad.Block.Units*"></a>
+
+  <h3 id="OpenMEPCad_Autocad_Block_Units_System_Object_" data-uid="OpenMEPCad.Autocad.Block.Units(System.Object)">
+  Units(dynamic)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies the native units of measure for the block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static dynamic Units(dynamic AcadBlock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>AcadBlock</code> <span class="xref">dynamic</span></dt>
+    <dd><p>AcadBlock</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">dynamic</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPCad_Autocad_Block_Units_System_Object__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/autocad/pic/Block.Units.png" alt="">
+<a href="../OpenMEPPage/autocad/Block.Units.dyn">Block.Units.dyn</a></p>
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPCad/Autocad/Block.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

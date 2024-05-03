@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Vector | Open MEP </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Vector | Open MEP ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/chuongmep/openmep/new/dev/apiSpec/new?filename=OpenMEPSandbox_Geometry_Vector.md&amp;value=---%0Auid%3A%20OpenMEPSandbox.Geometry.Vector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="OpenMEPSandbox.Geometry.Vector">
+
+
+
+  <h1 id="OpenMEPSandbox_Geometry_Vector" data-uid="OpenMEPSandbox.Geometry.Vector" class="text-break">
+Class Vector  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="OpenMEPSandbox.html">OpenMEPSandbox</a>.<a class="xref" href="OpenMEPSandbox.Geometry.html">Geometry</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>OpenMEPSandbox.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Vector</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Vector</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_Ceiling_" data-uid="OpenMEPSandbox.Geometry.Vector.Ceiling*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_Ceiling_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Vector.Ceiling(Autodesk.DesignScript.Geometry.Vector)">
+  Ceiling(Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector Ceiling(Vector vector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <span class="xref">Vector</span></dt>
+    <dd><p>The input vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector</span></dt>
+    <dd><p>The Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_Ceiling_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.Ceiling.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.Ceiling.dyn">Vector.Ceiling.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_CompareTo_" data-uid="OpenMEPSandbox.Geometry.Vector.CompareTo*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_CompareTo_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector_System_Double_" data-uid="OpenMEPSandbox.Geometry.Vector.CompareTo(Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Vector,System.Double)">
+  CompareTo(Vector, Vector, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares this a vector with another vector.
+0: if this is identical to other
+1: if this is greater than other
+-1: if this is less than other</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double CompareTo(Vector v1, Vector v2, double tolerance = 0.001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v1</code> <span class="xref">Vector</span></dt>
+    <dd><p>the first vector</p>
+</dd>
+    <dt><code>v2</code> <span class="xref">Vector</span></dt>
+    <dd><p>the second vector</p>
+</dd>
+    <dt><code>tolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>the tolerance compare two vector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>value compare between two vector</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_CompareTo_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.CompareTo.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.CompareTo.dyn"></a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_Display_" data-uid="OpenMEPSandbox.Geometry.Vector.Display*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_Display_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Point_System_Double_" data-uid="OpenMEPSandbox.Geometry.Vector.Display(Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Point,System.Double)">
+  Display(Vector, Point, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows a scalable line representing a Vector from a chosen starting point</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MultiReturn(new string[] { &quot;Display&quot;, &quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;, &quot;Length&quot; })]
+public static Dictionary&lt;string, object?&gt; Display(Vector vector, Point startPoint, double scale = 1000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <span class="xref">Vector</span></dt>
+    <dd><p>Autodesk.DesignScript.Geometry.Vector</p>
+</dd>
+    <dt><code>startPoint</code> <span class="xref">Point</span></dt>
+    <dd><p>Autodesk.DesignScript.Geometry.Point</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>value scale start from 1</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>GeometryColor</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_Display_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Point_System_Double__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.Display.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.Display.dyn">Vector.Display.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_Divide_" data-uid="OpenMEPSandbox.Geometry.Vector.Divide*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_Divide_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Vector.Divide(Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Vector)">
+  Divide(Vector, Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divide two vector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector Divide(Vector v1, Vector v2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v1</code> <span class="xref">Vector</span></dt>
+    <dd><p>the first vector</p>
+</dd>
+    <dt><code>v2</code> <span class="xref">Vector</span></dt>
+    <dd><p>the second vector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_Divide_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.Divide.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.Divide.dyn">Vector.Divide.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_Floor_" data-uid="OpenMEPSandbox.Geometry.Vector.Floor*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_Floor_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Vector.Floor(Autodesk.DesignScript.Geometry.Vector)">
+  Floor(Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new Autodesk.DesignScript.Geometry.Vector object with the smallest integer values that are greater than or equal to the X, Y, and Z components of the input vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector Floor(Vector vector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <span class="xref">Vector</span></dt>
+    <dd><p>The input vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector</span></dt>
+    <dd><p>The Autodesk.DesignScript.Geometry.Vector object with the smallest integer values that are greater than or equal to the X, Y, and Z components of the input vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_Floor_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.Floor.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.Floor.dyn">Vector.Floor.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_IsOppositeDirection_" data-uid="OpenMEPSandbox.Geometry.Vector.IsOppositeDirection*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_IsOppositeDirection_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Vector.IsOppositeDirection(Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Vector)">
+  IsOppositeDirection(Vector, Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check two Vector is opposite direction or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsOppositeDirection(Vector v1, Vector v2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v1</code> <span class="xref">Vector</span></dt>
+    <dd><p>the first vector</p>
+</dd>
+    <dt><code>v2</code> <span class="xref">Vector</span></dt>
+    <dd><p>the second vector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if two vector is opposite</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_IsOppositeDirection_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.IsOppositeDirection.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.IsOppositeDirection.dyn">Vector.IsOppositeDirection.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_IsPerpendicular_" data-uid="OpenMEPSandbox.Geometry.Vector.IsPerpendicular*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_IsPerpendicular_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Vector.IsPerpendicular(Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Vector)">
+  IsPerpendicular(Vector, Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Evaluate whether two Vector is perpendicular or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPerpendicular(Vector v1, Vector v2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v1</code> <span class="xref">Vector</span></dt>
+    <dd><p>first vector</p>
+</dd>
+    <dt><code>v2</code> <span class="xref">Vector</span></dt>
+    <dd><p>second vector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if two vector is perpendicular</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_IsPerpendicular_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.IsPerpendicular.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.IsPerpendicular.dyn">Vector.IsPerpendicular.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_IsSameDirection_" data-uid="OpenMEPSandbox.Geometry.Vector.IsSameDirection*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_IsSameDirection_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Vector.IsSameDirection(Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Vector)">
+  IsSameDirection(Vector, Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check whether two vector is same direction or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NodeCategory(&quot;Query&quot;)]
+public static bool IsSameDirection(Vector v1, Vector v2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v1</code> <span class="xref">Vector</span></dt>
+    <dd><p>the first vector</p>
+</dd>
+    <dt><code>v2</code> <span class="xref">Vector</span></dt>
+    <dd><p>the second vector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if two vector is same direction</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_IsSameDirection_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.IsSameDirection.gif" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.IsSameDirection.dyn">Vector.IsSameDirection.dyn</a></p>
+
+
+
+
+
+
+  <a id="OpenMEPSandbox_Geometry_Vector_Multiply_" data-uid="OpenMEPSandbox.Geometry.Vector.Multiply*"></a>
+
+  <h3 id="OpenMEPSandbox_Geometry_Vector_Multiply_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector_" data-uid="OpenMEPSandbox.Geometry.Vector.Multiply(Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Vector)">
+  Multiply(Vector, Vector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Multiply two vector</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector Multiply(Vector v1, Vector v2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v1</code> <span class="xref">Vector</span></dt>
+    <dd><p>the first vector</p>
+</dd>
+    <dt><code>v2</code> <span class="xref">Vector</span></dt>
+    <dd><p>the second vector</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="OpenMEPSandbox_Geometry_Vector_Multiply_Autodesk_DesignScript_Geometry_Vector_Autodesk_DesignScript_Geometry_Vector__examples">Examples</h4>
+  <p><img src="../OpenMEPPage/geometry/dyn/pic/Vector.Multiply.png" alt="">
+<a href="../OpenMEPPage/geometry/dyn/Vector.Multiply.dyn">Vector.Multiply.dyn</a></p>
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/chuongmep/OpenMEP/blob/docs/OpenMEPSandbox/Geometry/Vector.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
