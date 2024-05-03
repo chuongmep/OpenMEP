@@ -30,8 +30,8 @@ jobs:
 
       - name: 🚧 Restore dependencies
         run: dotnet restore
-      - name: 🚧 Build Project Release R23
-        run: dotnet build -c "Release R23" -p:Configuration=R23
+      - name: 🚧 Build Project Release R24
+        run: dotnet build -c "Release R24" -p:Configuration=R24
 
       - name: 📚 Build Docs
         working-directory: docs
