@@ -16,7 +16,10 @@
 			"includePrivateMembers": false,
 			"disableGitFeatures": false,
 			"disableDefaultFilter": false,
-			"namespaceLayout": "flattened"
+			"namespaceLayout": "flattened",
+			"properties": {
+				"TargetFramework": "net48"
+			}
 		}
 	],
 	"build": {
