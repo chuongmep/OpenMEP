@@ -19,7 +19,8 @@
 			"namespaceLayout": "flattened",
 			"properties": {
 				"TargetFramework": "net48"
-			}
+			},
+			"noRestore": true
 		}
 	],
 	"build": {
