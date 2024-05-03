@@ -23,15 +23,15 @@ jobs:
       - name: 🚧 Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: 8.0.x
 
       - name: 🚧 Setup docfx
         run: dotnet tool update -g docfx
 
       - name: 🚧 Restore dependencies
         run: dotnet restore
-      - name: 🚧 Build Project Release R23
-        run: dotnet build -c "Release R23" -p:Configuration=R23
+      - name: 🚧 Build Project Release R25
+        run: dotnet build -c "Release R25" -p:Configuration=R25
 
       - name: 📚 Build Docs
         working-directory: docs
