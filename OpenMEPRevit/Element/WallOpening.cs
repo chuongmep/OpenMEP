@@ -133,7 +133,7 @@ public class WallOpening
         XYZ xyz6 = identity.OfPoint(xyz4);
         XYZ xyz7 = identity.OfPoint(xyz5);
         TransactionManager.Instance.EnsureInTransaction(doc);
-        Opening opening = doc.Create.NewOpening(wall2,
+        Opening opening = doc.Create.NewOpening(wall2, xyz6, xyz7);
         TransactionManager.Instance.TransactionTaskDone();
         return opening.ToDSType(true);
     }
