@@ -48,7 +48,7 @@ Read more about [Installation](https://chuongmep.github.io/OpenMEP/articles/inst
 
 Some features of this package:
 - [x] Integrated with CAD anywhere with Dynamo Revit, Dynamo Sandbox.
-- [x] Connect Eco Software with Dynamo like Dynamo Sandbox, Dynamo Revit, Dynamo Civil3D,.. 
+- [x] Connect Ecosystem Software with Dynamo like Dynamo Sandbox, Dynamo Revit, Dynamo Civil3D,.. 
 - [x] Fast delivery package for MEP Engineer
 - [x] Easy to use and interactive with Dynamo Revit
 - [x] Easy to collaborate with other engineer
