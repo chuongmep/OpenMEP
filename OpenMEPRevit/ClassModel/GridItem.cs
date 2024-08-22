@@ -6,11 +6,11 @@ namespace OpenMEPRevit.ClassModel;
 [IsVisibleInDynamoLibrary(false)]
 public class GridItem
 {
-    public Autodesk.Revit.DB.Grid Grid { get; set; }
+    public Grid? Grid { get; set; }
 
     public bool IsHorizontal => Direction(Grid.Curve)!.IsAlmostEqualTo(XYZ.BasisX);
 
-    public GridItem(Autodesk.Revit.DB.Grid grid)
+    public GridItem(Grid? grid)
     {
         Grid = grid;
     }

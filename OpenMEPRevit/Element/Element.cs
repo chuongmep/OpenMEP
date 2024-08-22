@@ -11,6 +11,7 @@ using RevitServices.Transactions;
 using Grid = Autodesk.Revit.DB.Grid;
 using Level = Autodesk.Revit.DB.Level;
 using Point = Autodesk.DesignScript.Geometry.Point;
+using Revision = Revit.Elements.Revision;
 
 namespace OpenMEPRevit.Element;
 
@@ -168,12 +169,106 @@ public class Element
         };
     }
 
+    /// <summary>
+    /// Get the location of the element belong to the grid line with the closest distance
+    /// the location include the top, bottom, left, right grid line
+    /// </summary>
+    /// <param name="element">the elements</param>
+    /// <param name="grids">list grids need to check with</param>
+    /// <returns></returns>
+    [NodeCategory("Query")]
+    [MultiReturn("TopGrid", "BottomGrid", "LeftGrid", "RightGrid")]
+    public static Dictionary<string, object?> GetLocationGridLine(Revit.Elements.Element element,List<Revit.Elements.Element> grids)
+    {
+        var gridItems = grids.Select(x => new GridItem(x.InternalElement as Grid)).ToList();
+        XYZ? location = GetLocation(element)?.ToXyz();
+        if (location == null)
+        {
+            return new Dictionary<string, object?>()
+            {
+                { "TopGrid", null },
+                { "BottomGrid", null },
+                { "LeftGrid", null },
+                { "RightGrid", null }
+            };
+        }
+
+        Grid? topGrid = null;
+        Grid? bottomGrid = null;
+        Grid? leftGrid = null;
+        Grid? rightGrid = null;
+
+        var xGrids = gridItems.Where(x => x.IsHorizontal).ToList();
+        var yGrids = gridItems.Where(x => !x.IsHorizontal).ToList();
+        // top
+        double locationY = location.Y;
+        double yDistance = double.MaxValue;
+        foreach (var item in xGrids)
+        {
+            double yCurrent = item.Grid.Curve.GetEndPoint(0).Y;
+            double distanceTo = item.DistanceTo(location);
+            if (yCurrent >= locationY && distanceTo <= yDistance)
+            {
+                yDistance = distanceTo;
+                topGrid = item.Grid;
+            }
+        }
+
+        // bottom
+        yDistance = double.MaxValue;
+        foreach (var item in xGrids)
+        {
+            double yCurrent = item.Grid.Curve.GetEndPoint(0).Y;
+            double distanceTo = item.DistanceTo(location);
+            if (yCurrent <= locationY && distanceTo <= yDistance)
+            {
+                yDistance = distanceTo;
+                bottomGrid = item.Grid;
+            }
+        }
+
+        // left
+        double locationX = location.X;
+        double xDistance = double.MaxValue;
+        foreach (var item in yGrids)
+        {
+            double xCurrent = item.Grid.Curve.GetEndPoint(0).X;
+            double distanceTo = item.DistanceTo(location);
+            if (xCurrent <= locationX && distanceTo <= xDistance)
+            {
+                xDistance = distanceTo;
+                leftGrid = item.Grid;
+            }
+        }
+
+        // right
+        xDistance = double.MaxValue;
+        foreach (var item in yGrids)
+        {
+            double xCurrent = item.Grid.Curve.GetEndPoint(0).X;
+            double distanceTo = item.DistanceTo(location);
+            if (xCurrent >= locationX && distanceTo <= xDistance)
+            {
+                xDistance = distanceTo;
+                rightGrid = item.Grid;
+            }
+        }
+
+        return new Dictionary<string, object?>()
+        {
+            { "TopGrid", topGrid?.ToDynamoType() },
+            { "BottomGrid", bottomGrid?.ToDynamoType() },
+            { "LeftGrid", leftGrid?.ToDynamoType() },
+            { "RightGrid", rightGrid?.ToDynamoType() }
+        };
+    }
+
     private static List<GridItem> GetGrids(Autodesk.Revit.DB.Document doc)
     {
         List<GridItem> gridItems = new List<GridItem>();
         FilteredElementCollector collector = new FilteredElementCollector(doc);
-        var grids = collector.OfClass(typeof(Grid)).Cast<Autodesk.Revit.DB.Grid>().ToList();
-        foreach (Grid grid in grids)
+        List<Grid?> grids = collector.OfClass(typeof(Grid)).Cast<Autodesk.Revit.DB.Grid>().ToList();
+        foreach (Grid? grid in grids)
         {
             gridItems.Add(new GridItem(grid));
         }
