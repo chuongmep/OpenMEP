@@ -30,8 +30,8 @@ public class ImportInstance
         {
             ElementId elementId = import.GetTypeId();
             ElementType? elementType = import.Document.GetElement(elementId) as Autodesk.Revit.DB.ElementType;
-            IDictionary<ExternalResourceType,ExternalResourceReference> externalResourceReferences = elementType.GetExternalResourceReferences();
-            foreach (KeyValuePair<ExternalResourceType, ExternalResourceReference> externalResourceReference in externalResourceReferences)
+            IDictionary<ExternalResourceType, ExternalResourceReference>? externalResourceReferences = elementType?.GetExternalResourceReferences();
+            foreach (KeyValuePair<ExternalResourceType, ExternalResourceReference> externalResourceReference in externalResourceReferences!)
             {
                 IDictionary<string,string> information = externalResourceReference.Value.GetReferenceInformation();
                 foreach (KeyValuePair<string, string> keyValuePair in information)
