@@ -197,7 +197,7 @@ public class Element
                 { "RightGrids", null }
             };
         }
-        List<GridItem> gridItems = GetGrids(DocumentManager.Instance.CurrentDBDocument);
+        List<GridItem> gridItems = grids.Select(x => new GridItem(x.InternalElement as Grid)).ToList();
         var xGrids = gridItems.Where(x => x.IsHorizontal).ToList();
         var yGrids = gridItems.Where(x => x.IsVertical).ToList();
         topGrids = xGrids.Where(x => x?.Grid?.Curve.GetEndPoint(0).Y >= location.Y)
@@ -216,7 +216,6 @@ public class Element
             { "RightGrids", rightGrids.Select(x => x?.ToDynamoType()).ToList() }
         };
     }
-
     /// <summary>
     /// Get the location of the element belong to the grid line with the closest distance
     /// the location include the top, bottom, left, right grid line
