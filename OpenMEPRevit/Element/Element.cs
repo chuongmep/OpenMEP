@@ -170,6 +170,54 @@ public class Element
     }
 
     /// <summary>
+    /// Get the closest grid line to the element, return the list closest grid line with 4 direction:
+    /// e.g: top, bottom, left, right
+    /// </summary>
+    /// <param name="element"></param>
+    /// <param name="grids"></param>
+    /// <returns></returns>
+    [NodeCategory("Query")]
+    [MultiReturn("TopGrids", "BottomGrids", "LeftGrids", "RightGrids")]
+    public static Dictionary<string, object?> GetClosestGridLine(Revit.Elements.Element element,
+        List<Revit.Elements.Element> grids)
+    {
+        List<Grid?> topGrids = null;
+        List<Grid?> bottomGrids = null;
+        List<Grid?> leftGrids = null;
+        List<Grid?> rightGrids = null;
+        // group top : from element to top view plan
+        XYZ location = GetLocation(element).ToXyz();
+        if (location == null)
+        {
+            return new Dictionary<string, object?>()
+            {
+                { "TopGrids", null },
+                { "BottomGrids", null },
+                { "LeftGrids", null },
+                { "RightGrids", null }
+            };
+        }
+        List<GridItem> gridItems = GetGrids(DocumentManager.Instance.CurrentDBDocument);
+        var xGrids = gridItems.Where(x => x.IsHorizontal).ToList();
+        var yGrids = gridItems.Where(x => x.IsVertical).ToList();
+        topGrids = xGrids.Where(x => x?.Grid?.Curve.GetEndPoint(0).Y >= location.Y)
+            .OrderBy(x => x.DistanceTo(location)).Select(x => x.Grid).ToList();
+        bottomGrids = xGrids.Where(x => x?.Grid?.Curve.GetEndPoint(0).Y <= location.Y)
+            .OrderBy(x => x.DistanceTo(location)).Select(x => x.Grid).ToList();
+        leftGrids = yGrids.Where(x => x?.Grid?.Curve.GetEndPoint(0).X <= location.X)
+            .OrderBy(x => x.DistanceTo(location)).Select(x => x.Grid).ToList();
+        rightGrids = yGrids.Where(x => x?.Grid?.Curve.GetEndPoint(0).X >= location.X)
+            .OrderBy(x => x.DistanceTo(location)).Select(x => x.Grid).ToList();
+        return new Dictionary<string, object?>()
+        {
+            { "TopGrids", topGrids.Select(x => x?.ToDynamoType()).ToList() },
+            { "BottomGrids", bottomGrids.Select(x => x?.ToDynamoType()).ToList() },
+            { "LeftGrids", leftGrids.Select(x => x?.ToDynamoType()).ToList() },
+            { "RightGrids", rightGrids.Select(x => x?.ToDynamoType()).ToList() }
+        };
+    }
+
+    /// <summary>
     /// Get the location of the element belong to the grid line with the closest distance
     /// the location include the top, bottom, left, right grid line
     /// </summary>
