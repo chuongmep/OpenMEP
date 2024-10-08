@@ -1,39 +1,40 @@
-﻿using Autodesk.Revit.DB;
+﻿using Autodesk.DesignScript.Runtime;
+using Autodesk.Revit.DB;
 using Dynamo.Graph.Nodes;
 using Revit.Elements;
-using RevitServices.Persistence;
+using Category = Revit.Elements.Category;
 
 namespace OpenMEPRevit.Element;
 
-public class View
+[IsVisibleInDynamoLibrary(true)]
+public class ParameterFilterElement
 {
-    private View()
+    private ParameterFilterElement()
     {
     }
 
-    /// <summary>
-    /// Get All View Filters Created In Current Document
-    /// </summary>
-    /// <param name="flag">toggle true false to fresh data</param>
-    /// <returns name="view filters">view filters</returns>
-    /// <example>
-    /// ![](../OpenMEPPage/element/dyn/pic/View.GetAllViewFilters.png)
-    /// [View.GetAllViewFilters.dyn](../OpenMEPPage/element/dyn/View.GetAllViewFilters.dyn)
-    /// </example>
-    [NodeCategory("Action")]
-    public static List<Revit.Elements.Element> GetAllViewFilters(bool flag)
+    public List<Category>? Categories(Revit.Elements.Element parameterElement)
     {
-        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
-        List<Autodesk.Revit.DB.ParameterFilterElement> parameterFilterElements = new FilteredElementCollector(doc)
-            .OfClass(typeof(Autodesk.Revit.DB.ParameterFilterElement))
-            .OfType<Autodesk.Revit.DB.ParameterFilterElement>()
-            .OrderBy(x => x.Name)
-            .ToList();
-        if (parameterFilterElements.Count == 0)
-            return new List<Revit.Elements.Element>();
-        return parameterFilterElements.Select(x => x.ToDSType(true)).ToList();
+        List<Category> categories = new List<Category>();
+        Autodesk.Revit.DB.ParameterFilterElement? parameterFilterElement = parameterElement.InternalElement as Autodesk.Revit.DB.ParameterFilterElement;
+        ICollection<ElementId>? elementIds = parameterFilterElement?.GetCategories();
+        if (elementIds == null)
+        {
+            return categories;
+        }
+#if R20 || R21 || R22 || R23
+        foreach (ElementId elementId in elementIds)
+        {
+            categories.Add(Category.ById(elementId.IntegerValue));
+        }
+#else
+        foreach (ElementId elementId in elementIds)
+        {
+            categories.Add(Category.ById(elementId.Value));
+        }
+#endif
+        return categories;
     }
-
     /// <summary>
     /// Return All Element Inside View Filter
     /// </summary>
@@ -43,12 +44,11 @@ public class View
     /// ![](../OpenMEPPage/element/dyn/pic/View.GetAllElementByViewFilter.png)
     /// [View.GetAllElementByViewFilter.dyn](../OpenMEPPage/element/dyn/View.GetAllElementByViewFilter.dyn)
     /// </example>
-    [Obsolete("This method is obsolete, please use OpenMEPRevit.Element.ParameterFilterElement.GetAllElementByViewFilter instead.")]
     [NodeCategory("Action")]
     [NodeSearchTags("get element")]
     public static List<Revit.Elements.Element> GetAllElementByViewFilter(Revit.Elements.Element viewFilter)
     {
-        Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+        Autodesk.Revit.DB.Document doc = viewFilter.InternalElement.Document;
         Autodesk.Revit.DB.ParameterFilterElement? parameterFilterElement = viewFilter.InternalElement as Autodesk.Revit.DB.ParameterFilterElement;
         if (parameterFilterElement == null)
             return new List<Revit.Elements.Element>();
