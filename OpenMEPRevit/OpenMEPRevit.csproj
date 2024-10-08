@@ -57,7 +57,7 @@
         <DefineConstants>$(DefineConstants);R22</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Release R22'))">
-        <DynamoVersion>2.10</DynamoVersion>
+        <DynamoVersion>2.12</DynamoVersion>
         <DynamoOutput>2.10</DynamoOutput>
         <RevitVersion>2022</RevitVersion>
         <TargetFramework>net48</TargetFramework>
