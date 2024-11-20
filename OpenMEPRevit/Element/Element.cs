@@ -173,8 +173,8 @@ public class Element
     /// Get the closest grid line to the element, return the list closest grid line with 4 direction:
     /// e.g: top, bottom, left, right
     /// </summary>
-    /// <param name="element"></param>
-    /// <param name="grids"></param>
+    /// <param name="element">the elements in revit model</param>
+    /// <param name="grids">list grids need to check with</param>
     /// <returns></returns>
     [NodeCategory("Query")]
     [MultiReturn("TopGrids", "BottomGrids", "LeftGrids", "RightGrids")]
@@ -667,4 +667,68 @@ public class Element
         if (connectedElements.Count == 0) return new List<Revit.Elements.Element>();
         return connectedElements.Select(x => x.ToDynamoType()).ToList();
     }
+
+    /// <summary>
+    /// Check if the element is a nested element
+    /// </summary>
+    /// <param name="element"></param>
+    /// <returns></returns>
+    public static bool? IsNestedElement(Revit.Elements.Element element)
+    {
+        Autodesk.Revit.DB.Element internalElement = element.InternalElement;
+        if (internalElement == null) return null;
+        if (internalElement is Autodesk.Revit.DB.FamilyInstance familyInstance)
+        {
+            return familyInstance.SuperComponent != null;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Get the sub components of the element (from parent of nested element)
+    /// </summary>
+    /// <param name="element">the parent element contains nested element</param>
+    /// <returns name="element">the list nested elements as a sub component</returns>
+    public static List<Revit.Elements.Element?>? GetSubComponents(Revit.Elements.Element element)
+    {
+        if(element == null) throw new ArgumentNullException(nameof(element));
+        var doc = element.InternalElement.Document;
+        Autodesk.Revit.DB.Element internalElement = element.InternalElement;
+        if (internalElement == null) throw new ArgumentNullException(nameof(element));
+        if (internalElement is Autodesk.Revit.DB.FamilyInstance familyInstance)
+        {
+            List<Revit.Elements.Element?> superComponents = new List<Revit.Elements.Element?>();
+            foreach (ElementId? superComponent in familyInstance.GetSubComponentIds())
+            {
+                Autodesk.Revit.DB.Element superComponentElement = doc.GetElement(superComponent);
+                if (superComponentElement != null)
+                {
+                    superComponents.Add(superComponentElement.ToDynamoType());
+                }
+            }
+            return superComponents;
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Get the super components of the element (from nested element)
+    /// </summary>
+    /// <param name="element">the element able nested</param>
+    /// <returns name="element">the super component of element</returns>
+    public static Revit.Elements.Element? GetSuperComponents(Revit.Elements.Element element)
+    {
+        if(element == null) throw new ArgumentNullException(nameof(element));
+        Autodesk.Revit.DB.Element internalElement = element.InternalElement;
+        if (internalElement == null) throw new ArgumentNullException(nameof(element));
+        if (internalElement is Autodesk.Revit.DB.FamilyInstance familyInstance)
+        {
+            if (familyInstance.SuperComponent != null)
+            {
+               return  familyInstance.SuperComponent.ToDynamoType();
+            }
+        }
+        return null;
+    }
+
 }
