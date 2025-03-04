@@ -132,7 +132,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Release R25'))">
         <DynamoVersion>3.0</DynamoVersion>
-        <DynamoOutput>3.2</DynamoOutput>
+        <DynamoOutput>3.3</DynamoOutput>
         <RevitVersion>2025</RevitVersion>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <TargetFramework>net8.0-windows</TargetFramework>
