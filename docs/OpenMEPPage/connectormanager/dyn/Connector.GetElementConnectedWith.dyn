@@ -1,0 +1,203 @@
+{
+  "Uuid": "f928cf34-4e6a-4040-a79c-862d96f0353a",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Connector.GetElementConnectedWith",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "e5b8d4d3-122d-4ea0-bbd3-26614c917825-00093c35"
+      ],
+      "Id": "36d61c2272d340e291bc2edf7169cf86",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9df9e54412cc4d38a3d755c16db4f048",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetElementConnectedWith@var",
+      "Id": "c8bb9ca5d0a54f77995264542d61c3b3",
+      "Inputs": [
+        {
+          "Id": "7ac3d75809e0402288f9b4af07ce3441",
+          "Name": "connector",
+          "Description": "connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "64fb8672c1a14ed69b00fc2a909d84d1",
+          "Name": "element",
+          "Description": "element has connected with connector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return element connected with connector\n\nConnector.GetElementConnectedWith (connector: var): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectors@Revit.Elements.Element",
+      "Id": "8ba510b7776744cc8dc068f9865fda35",
+      "Inputs": [
+        {
+          "Id": "e0435ecdffed4f05afdbda9d8b5a912a",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "91ed37fd92ca4e41b35766ffe39fedbd",
+          "Name": "connectors",
+          "Description": "connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector from element\n\nConnector.GetConnectors (element: Element): var[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9df9e54412cc4d38a3d755c16db4f048",
+      "End": "e0435ecdffed4f05afdbda9d8b5a912a",
+      "Id": "29d2a69b822b408c8c9adc895b832878",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "91ed37fd92ca4e41b35766ffe39fedbd",
+      "End": "7ac3d75809e0402288f9b4af07ce3441",
+      "Id": "5c44e4dbc851401e8a4ec82eb27659a4",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "c8bb9ca5d0a54f77995264542d61c3b3",
+        "8ba510b7776744cc8dc068f9865fda35"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "36d61c2272d340e291bc2edf7169cf86",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 247.2000000000001,
+        "Y": 306.40000000000003
+      },
+      {
+        "Name": "Connector.GetElementConnectedWith",
+        "ShowGeometry": true,
+        "Id": "c8bb9ca5d0a54f77995264542d61c3b3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 902.52199007090621,
+        "Y": 279.55674131204228
+      },
+      {
+        "Name": "Connector.GetConnectors",
+        "ShowGeometry": true,
+        "Id": "8ba510b7776744cc8dc068f9865fda35",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 554.96681592669552,
+        "Y": 279.38900464800827
+      }
+    ],
+    "Annotations": [],
+    "X": -520.43776444435343,
+    "Y": 51.401472854783378,
+    "Zoom": 0.83780161710767143
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "Uuid": "f928cf34-4e6a-4040-a79c-862d96f0353a",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Connector.PressureDrop",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.PressureDrop@var",
+      "Id": "6810879d9aea4c539972729df97d55c6",
+      "Inputs": [
+        {
+          "Id": "e5a0a1266d7d4da8b54571d80d1e7437",
+          "Name": "connector",
+          "Description": "Connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "04835c95e930469f8a306439250fb22c",
+          "Name": "double",
+          "Description": "PressureDrop",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The pressure drop of the connector.\n\nConnector.PressureDrop (connector: var): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "be616ece-f29c-41ea-90be-1913ce942448-0009415a"
+      ],
+      "Id": "c79ab7b2cd2a4346aeac0584e9dee7d0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "34bd4861c43a4c75b7418395858876cf",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetConnectors@Revit.Elements.Element",
+      "Id": "3f6070f192c44f1594a93ceba4a65cee",
+      "Inputs": [
+        {
+          "Id": "9e12e0f9f760468ca74f9fcca107a0e8",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "77a8608265d74c48a513cf3b860ec985",
+          "Name": "connectors",
+          "Description": "connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector from element\n\nConnector.GetConnectors (element: Element): var[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "34bd4861c43a4c75b7418395858876cf",
+      "End": "9e12e0f9f760468ca74f9fcca107a0e8",
+      "Id": "59c2c7213adb4f1588fc50cc0a5f7efa",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "77a8608265d74c48a513cf3b860ec985",
+      "End": "e5a0a1266d7d4da8b54571d80d1e7437",
+      "Id": "06ed0d5e54d947a09acafe5a88450925",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "6810879d9aea4c539972729df97d55c6",
+        "3f6070f192c44f1594a93ceba4a65cee"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Connector.PressureDrop",
+        "ShowGeometry": true,
+        "Id": "6810879d9aea4c539972729df97d55c6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 595.5,
+        "Y": 273.0
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "c79ab7b2cd2a4346aeac0584e9dee7d0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 54.5,
+        "Y": 282.0
+      },
+      {
+        "Name": "Connector.GetConnectors",
+        "ShowGeometry": true,
+        "Id": "3f6070f192c44f1594a93ceba4a65cee",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 316.5,
+        "Y": 277.0
+      }
+    ],
+    "Annotations": [],
+    "X": -0.50999999999999091,
+    "Y": 70.37,
+    "Zoom": 0.8425
+  }
+}

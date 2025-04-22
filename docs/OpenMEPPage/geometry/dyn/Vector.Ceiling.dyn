@@ -1,0 +1,225 @@
+{
+  "Uuid": "3f8b28c5-b474-4b10-bad9-1852390c1f74",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Vector.Ceiling",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Vector.Ceiling@Autodesk.DesignScript.Geometry.Vector",
+      "Id": "856cbad8626e4b4bb69a93aa0ef065d9",
+      "Inputs": [
+        {
+          "Id": "ef433cd4289b4674a3a8795b6401a128",
+          "Name": "vector",
+          "Description": "The input vector.\n\nVector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b67a437a3af44807b7b84d2c72fa9782",
+          "Name": "Vector",
+          "Description": "The Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns a new Autodesk.DesignScript.Geometry.Vector object with the largest integer values that are less than or equal to the X, Y, and Z components of the input vector.\n\nVector.Ceiling (vector: Vector): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ByCoordinates@double,double,double",
+      "Id": "df93cc3b43a04634abe79970da90915e",
+      "Inputs": [
+        {
+          "Id": "8526c484f8ed42f2b5208758b253dcad",
+          "Name": "x",
+          "Description": "X coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b17d1d9131c54f18bd557522e5a757e5",
+          "Name": "y",
+          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "165102cb10a647b1bfc56d4b00110885",
+          "Name": "z",
+          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9a8b4f84f9514cf4b6ae389f4cd41f03",
+          "Name": "Vector",
+          "Description": "Vector created by coordinates",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Vector by 3 Euclidean coordinates\n\nVector.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "3.6;",
+      "Id": "0bb65495154243cfbc3004dea696c2f5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3f7ae8fa98004d49b52aab6d1cf5d7db",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9a8b4f84f9514cf4b6ae389f4cd41f03",
+      "End": "ef433cd4289b4674a3a8795b6401a128",
+      "Id": "edf975deaaba4128a98a2abfd0496eae",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3f7ae8fa98004d49b52aab6d1cf5d7db",
+      "End": "8526c484f8ed42f2b5208758b253dcad",
+      "Id": "6b726df25ea74925b17d3e5d32da473a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3f7ae8fa98004d49b52aab6d1cf5d7db",
+      "End": "b17d1d9131c54f18bd557522e5a757e5",
+      "Id": "c0a13b3fe7694ba5abeab32cb98e3617",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3f7ae8fa98004d49b52aab6d1cf5d7db",
+      "End": "165102cb10a647b1bfc56d4b00110885",
+      "Id": "c8cca8eb31a94bf1a256766f2dcf6703",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "856cbad8626e4b4bb69a93aa0ef065d9"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Vector.Ceiling",
+        "ShowGeometry": true,
+        "Id": "856cbad8626e4b4bb69a93aa0ef065d9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 662.8,
+        "Y": 338.4
+      },
+      {
+        "Name": "Vector.ByCoordinates",
+        "ShowGeometry": true,
+        "Id": "df93cc3b43a04634abe79970da90915e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 381.59999999999997,
+        "Y": 314.40000000000009
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "0bb65495154243cfbc3004dea696c2f5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 168.39999999999998,
+        "Y": 354.2
+      }
+    ],
+    "Annotations": [],
+    "X": -24.000000000000114,
+    "Y": -126.40000000000009,
+    "Zoom": 1.0
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "Uuid": "4285db4b-5221-4f0d-8d1e-f2d9a772e405",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MEPCurve.Slope",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.MEPCurve.Slope@Revit.Elements.Element,double",
+      "Id": "5e850609cd7a46f88430493771dfc524",
+      "Inputs": [
+        {
+          "Id": "ad28805228a14042951e11b197f688dd",
+          "Name": "mepCurve",
+          "Description": "The element mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f3fed6123e9847219e2eccd5f6e96370",
+          "Name": "digit",
+          "Description": "Number of fractional digits in the return value\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "de7460cd7b994b1fb1e627d123f0c1fa",
+          "Name": "Percent",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "14d8ef3f29194b07ab98f2b1822d7380",
+          "Name": "Degrees",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c2801e44882f463cbcc3bb72ae30ea4b",
+          "Name": "Ratio",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return the slope of mepCurve\n\nMEPCurve.Slope (mepCurve: Element, digit: double): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "be616ece-f29c-41ea-90be-1913ce942448-00094146"
+      ],
+      "Id": "e62015e3eaf5421ab8f607dfc2032bdf",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "24df6e0768e8457ba6048926a1e3a090",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "3;",
+      "Id": "66a8e703a4d0497d8cd43d0841c7d4e9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5928114a61344463ae4614a9948c26dd",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "24df6e0768e8457ba6048926a1e3a090",
+      "End": "ad28805228a14042951e11b197f688dd",
+      "Id": "e23e1da4e09943f5854838d1132fc624",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5928114a61344463ae4614a9948c26dd",
+      "End": "f3fed6123e9847219e2eccd5f6e96370",
+      "Id": "f1d67db527474838a8b6dfd214fa6ba9",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "5e850609cd7a46f88430493771dfc524"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "MEPCurve.Slope",
+        "ShowGeometry": true,
+        "Id": "5e850609cd7a46f88430493771dfc524",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 453.6,
+        "Y": 275.19999999999993
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "e62015e3eaf5421ab8f607dfc2032bdf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 125.59999999999991,
+        "Y": 244.0
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "66a8e703a4d0497d8cd43d0841c7d4e9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 215.60000000000002,
+        "Y": 389.4
+      }
+    ],
+    "Annotations": [],
+    "X": -79.845948656884616,
+    "Y": -175.51417583966793,
+    "Zoom": 1.3076413563671876
+  }
+}

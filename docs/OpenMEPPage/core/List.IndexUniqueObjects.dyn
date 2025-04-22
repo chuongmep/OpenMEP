@@ -1,0 +1,244 @@
+{
+  "Uuid": "60e746e8-016f-4816-ab1d-ae72d6e34e53",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "List.IndexUniqueObjects",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[100,200,300,100];",
+      "Id": "3f10b742419e45ee9014b7a371a3d2c8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cc4e90167a9c4932b9c51dcf29411fdc",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"Red\",\"Green\",\"Blue\",\"Red\"];",
+      "Id": "427eb97b9fcb4da19b464a46d5d34ad2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1c03adff6001496c8125a1d49a829beb",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexUniqueObjects@var[]",
+      "Id": "44a2a958df494972a290fef90dfe06dc",
+      "Inputs": [
+        {
+          "Id": "c1b3298fe0bf4ede9ff2538d6abfb422",
+          "Name": "lst",
+          "Description": "list of strings input\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f4c3afade6674d32b2d83f6dd3506f50",
+          "Name": "name",
+          "Description": "name of object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9dd6f1ab20794f158023d25063723f9c",
+          "Name": "index",
+          "Description": "indices of object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This method takes a list of objects as input and returns a dictionary mapping each unique string to its corresponding index in the list.\n\nList.IndexUniqueObjects (lst: var[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexUniqueObjects@var[]",
+      "Id": "12bcca45ef3141879bad6959d91fee41",
+      "Inputs": [
+        {
+          "Id": "ae9db4efaa604d1094d860b0a5be353b",
+          "Name": "lst",
+          "Description": "list of strings input\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8fda71a9a5dd4d5abb5086fceb08d5eb",
+          "Name": "name",
+          "Description": "name of object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4ccd5eee383d4d79b978abb677d25309",
+          "Name": "index",
+          "Description": "indices of object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This method takes a list of objects as input and returns a dictionary mapping each unique string to its corresponding index in the list.\n\nList.IndexUniqueObjects (lst: var[]): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "cc4e90167a9c4932b9c51dcf29411fdc",
+      "End": "c1b3298fe0bf4ede9ff2538d6abfb422",
+      "Id": "8ffcf34e9db946c1a3f52a7ef01e6347",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1c03adff6001496c8125a1d49a829beb",
+      "End": "ae9db4efaa604d1094d860b0a5be353b",
+      "Id": "0f641aa7177a49e8859c8c38cf640e9d",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "44a2a958df494972a290fef90dfe06dc",
+        "12bcca45ef3141879bad6959d91fee41"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "3f10b742419e45ee9014b7a371a3d2c8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 250.26059005267905,
+        "Y": 95.410342249771531
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "427eb97b9fcb4da19b464a46d5d34ad2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 875.45595228151467,
+        "Y": 76.273104751028768
+      },
+      {
+        "Name": "List.IndexUniqueObjects",
+        "ShowGeometry": true,
+        "Id": "44a2a958df494972a290fef90dfe06dc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 526.21237400167388,
+        "Y": 103.10496160425566
+      },
+      {
+        "Name": "List.IndexUniqueObjects",
+        "ShowGeometry": true,
+        "Id": "12bcca45ef3141879bad6959d91fee41",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1218.5477292134906,
+        "Y": 114.36244705485439
+      }
+    ],
+    "Annotations": [],
+    "X": -182.97427844704964,
+    "Y": 138.63730570642716,
+    "Zoom": 0.85276592558149777
+  }
+}

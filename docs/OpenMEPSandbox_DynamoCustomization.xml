@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpenMEPSandbox</name>
+  </assembly>
+  <namespaces>
+    <namespace name="OpenMEPSandbox.Geometry.Abstract">
+      <category>OpenMEP.Geometry.Abstract</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Application">
+      <category>OpenMEP.Application</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Geometry">
+      <category>OpenMEP.Geometry</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Display">
+      <category>OpenMEP.Display</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.List">
+      <category>OpenMEP.List</category>
+    </namespace> 
+    <namespace name="OpenMEPSandbox.MachineLearning">
+      <category>OpenMEP.MachineLearning</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Math">
+      <category>OpenMEP.Math</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Graph">
+      <category>OpenMEP.Graph</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Core">
+      <category>OpenMEP.Core</category>
+    </namespace>
+    <namespace name="OpenMEPSandbox.Autocad">
+      <category>OpenMEP.Autocad</category>
+    </namespace>
+  </namespaces>
+</doc>

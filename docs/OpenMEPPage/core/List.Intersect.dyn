@@ -1,0 +1,219 @@
+{
+  "Uuid": "c94f3c23-a68e-47ec-9a8f-6d592d60173f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "List.Intersect",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.Intersect@var[],var[]",
+      "Id": "cd511ea491de434bbf404c57eed4b79c",
+      "Inputs": [
+        {
+          "Id": "6cf4029215ec473ab89195d0919bf9fc",
+          "Name": "list1",
+          "Description": "The first list to intersect.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cc2ae61c621e467e867a913292764b85",
+          "Name": "list2",
+          "Description": "The second list to intersect.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "38423ba890144122859458932f4651dc",
+          "Name": "list",
+          "Description": "A new list containing the items that are common to both lists.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the items that are common to two lists.\n\nList.Intersect (list1: var[], list2: var[]): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[1, \"hello\", true, 3.14];",
+      "Id": "c3d48d5ac1e74e16b96fc9da52cb65a0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7e38344057904ff2b457988e68a50940",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"hello\", false, 3.14, 'a'];",
+      "Id": "2fb505f9ffac4fbf8c78ff8d59d68f59",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "adcbf2f0d640468cafc759a61c77741a",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7e38344057904ff2b457988e68a50940",
+      "End": "6cf4029215ec473ab89195d0919bf9fc",
+      "Id": "9554588145864ea4815e353a1522e663",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "adcbf2f0d640468cafc759a61c77741a",
+      "End": "cc2ae61c621e467e867a913292764b85",
+      "Id": "67f0a992c34a4d9391ea67f0844d5680",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "cd511ea491de434bbf404c57eed4b79c"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "List.Intersect",
+        "ShowGeometry": true,
+        "Id": "cd511ea491de434bbf404c57eed4b79c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 898.10640222475888,
+        "Y": 348.234988238486
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "c3d48d5ac1e74e16b96fc9da52cb65a0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 452.31709779657649,
+        "Y": 325.434988238486
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "2fb505f9ffac4fbf8c78ff8d59d68f59",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 429.51709779657665,
+        "Y": 464.23498823848593
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "b6861ccf50d24e33bc76a745ab49c95b",
+        "Title": "Here's an example",
+        "DescriptionText": "In this example, we've called the modified node with two lists of different types of objects, and the node has returned a new list containing the items that are common to both lists. The output shows the items that are common to list1 and list2.",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "cd511ea491de434bbf404c57eed4b79c",
+          "c3d48d5ac1e74e16b96fc9da52cb65a0",
+          "2fb505f9ffac4fbf8c78ff8d59d68f59"
+        ],
+        "HasNestedGroups": false,
+        "Left": 419.51709779657665,
+        "Top": 229.03498823848602,
+        "Width": 662.98930442818221,
+        "Height": 366.19999999999993,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 325.434988238486,
+        "InitialHeight": 299.7999999999999,
+        "TextblockHeight": 86.4,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -123.33129970915672,
+    "Y": -118.54506111666262,
+    "Zoom": 1.2484436539722303
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "Uuid": "af04c9d9-9883-4de4-9548-953599f22b40",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.ZoomToLinkElement",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "RhythmUI.SelectElementsInLink, RhythmUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "d9797366-9102-411d-9c23-67cada0d591d-0011624b"
+      ],
+      "Id": "e04f5a0025d24585a2f73bdfded5a1e5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f0291031afb0478f99a2d7d812ad7757",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c6872c7357ab4881bd61f8c09b759b32",
+          "Name": "transform",
+          "Description": "the link instance transforms",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "This allows you to select multiple elements from links. Useful for Dynamo player and Generative Design."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "0538d53a1d344da9b4a5ef8eb8de06b0",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "ff62cbe72a0f4dd8b5d6e5d4740f78ed",
+          "Name": "elements",
+          "Description": "Element[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8db320d6c1474f08bbc8843eaf6b2233",
+          "Name": "isCropView",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9c835dd37b6c489a9ba80093d7c916f5",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPRevit.Document.Selection.ZoomToLinkElement@Revit.Elements.Element[],bool",
+      "Replication": "Auto",
+      "Description": "Zoom to element in Revit Project\n\nSelection.ZoomToLinkElement (elements: Element[], isCropView: bool = false): void"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "Id": "0a49621b7a544d65a7e12e6843eed713",
+      "NodeType": "BooleanInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5cdb11547df34e2480d60f6da97d5567",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False",
+      "InputValue": false
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f0291031afb0478f99a2d7d812ad7757",
+      "End": "ff62cbe72a0f4dd8b5d6e5d4740f78ed",
+      "Id": "8a8af0941f564985a25d7acbadf592f1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5cdb11547df34e2480d60f6da97d5567",
+      "End": "8db320d6c1474f08bbc8843eaf6b2233",
+      "Id": "99af1711ee114147851e2aaeb7afc04b",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Rhythm",
+      "Version": "2023.7.2",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "e04f5a0025d24585a2f73bdfded5a1e5"
+      ]
+    },
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "0538d53a1d344da9b4a5ef8eb8de06b0"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "6.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.1.5096",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "e04f5a0025d24585a2f73bdfded5a1e5",
+        "Name": "Select Elements from Link",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 38.0,
+        "Y": 173.0
+      },
+      {
+        "Id": "0538d53a1d344da9b4a5ef8eb8de06b0",
+        "Name": "Selection.ZoomToLinkElement",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 371.18249258160245,
+        "Y": 220.47774480712167
+      },
+      {
+        "Id": "0a49621b7a544d65a7e12e6843eed713",
+        "Name": "Boolean",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 92.575667655786333,
+        "Y": 372.49554896142422
+      }
+    ],
+    "Annotations": [],
+    "X": 75.92711116468837,
+    "Y": 54.456729840504451,
+    "Zoom": 0.70823125000000009
+  }
+}

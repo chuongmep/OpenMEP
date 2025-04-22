@@ -1,0 +1,155 @@
+{
+  "Uuid": "9e66a8dc-2690-4b25-a81d-a29a77aa472e",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.PickOrderElements",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "1b3b4528121c452ca387da21cefc9d64",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8f94cbbdcd4c4698be980a264643b0fe",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Document.Selection.PickOrderElements@bool",
+      "Id": "444f0d1b12d140ef9267cbe63c4b8854",
+      "Inputs": [
+        {
+          "Id": "4a490b25d3154325a7b86a68b544d198",
+          "Name": "flag",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "14c69d4947b042f48f528458761ec986",
+          "Name": "Element[]",
+          "Description": "Element[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Pick Select Order Element In Current View\n\nSelection.PickOrderElements (flag: bool): Element[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "8f94cbbdcd4c4698be980a264643b0fe",
+      "End": "4a490b25d3154325a7b86a68b544d198",
+      "Id": "77513086820140f7bc0b07d9f4acf8e2",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "444f0d1b12d140ef9267cbe63c4b8854"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.0.3472",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "1b3b4528121c452ca387da21cefc9d64",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 272.307439385095,
+        "Y": 293.39107911833025
+      },
+      {
+        "Name": "Selection.PickOrderElements",
+        "ShowGeometry": true,
+        "Id": "444f0d1b12d140ef9267cbe63c4b8854",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 514.59394482267555,
+        "Y": 298.71771243270314
+      }
+    ],
+    "Annotations": [],
+    "X": -308.20743504180433,
+    "Y": -174.84335024533476,
+    "Zoom": 1.1643898080562645
+  }
+}

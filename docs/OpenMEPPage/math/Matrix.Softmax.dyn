@@ -1,0 +1,149 @@
+{
+  "Uuid": "0f9a1c01-40a2-450c-9204-b15d6ddc40f0",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Matrix.Softmax",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Math.Matrix.Softmax@double[][]",
+      "Id": "93deb23d73a940e0ba3bf8f1388982f9",
+      "Inputs": [
+        {
+          "Id": "105736450fdf4d28b66255da24d8adf9",
+          "Name": "z",
+          "Description": "A 2D array of input values.\n\ndouble[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8d0a762ddfd24f13b484e4fa3af81687",
+          "Name": "double[][]",
+          "Description": "A 2D array of output values, where each row has been transformed into a probability distribution.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Applies the softmax function to a 2D array of values.\n\nMatrix.Softmax (z: double[][]): double[][]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[[0,0,0],[0,0,2],[0,0,1]];",
+      "Id": "04eb1856371f4daca690d0ea7890fee6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "226df02c550d483297128cb9be1bd741",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "226df02c550d483297128cb9be1bd741",
+      "End": "105736450fdf4d28b66255da24d8adf9",
+      "Id": "288a97cb317b4ec795de8ec5b57978aa",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "93deb23d73a940e0ba3bf8f1388982f9"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Matrix.Softmax",
+        "ShowGeometry": true,
+        "Id": "93deb23d73a940e0ba3bf8f1388982f9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 392.59516442905169,
+        "Y": 338.94768824321415
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "04eb1856371f4daca690d0ea7890fee6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 30.683616236698185,
+        "Y": 318.83258255891326
+      }
+    ],
+    "Annotations": [],
+    "X": 103.16486795188797,
+    "Y": -185.31181085866334,
+    "Zoom": 0.93743229668600081
+  }
+}

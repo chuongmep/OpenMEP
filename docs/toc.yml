@@ -1,0 +1,7 @@
+- name: Tutorials
+  href: articles/installation.md
+  homepage: articles/installation.md
+- name: API Documentation
+  href: api/
+- name: Github
+  href: https://github.com/chuongmep/OpenMEP

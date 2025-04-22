@@ -1,0 +1,158 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyVersion>2.0.1.0</AssemblyVersion>
+        <AssemblyName>OpenMEPCivil</AssemblyName>
+        <RootNamespace>OpenMEPCivil</RootNamespace>
+        <PlatformTarget>x64</PlatformTarget>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <Configurations>Debug R23.1;Debug R24;Debug R20;Debug R21;Debug R22;Debug R23;</Configurations>
+        <Configurations>$(Configurations);Release R25;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R23;</Configurations>
+        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;MSB3277</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
+        <DynamoVersion>2.3</DynamoVersion>
+        <DynamoOutput>2.3</DynamoOutput>
+        <CivilVersion>2020</CivilVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R20</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R20'))">
+        <DynamoVersion>2.3</DynamoVersion>
+        <DynamoOutput>2.3</DynamoOutput>
+        <CivilVersion>2020</CivilVersion>
+        <DefineConstants>$(DefineConstants);R20</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R21'))">
+        <DynamoVersion>2.6</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+        <CivilVersion>2021</CivilVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R21'))">
+        <DynamoVersion>2.6</DynamoVersion>
+        <DynamoOutput>2.6</DynamoOutput>
+        <CivilVersion>2021</CivilVersion>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R22'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+        <CivilVersion>2022</CivilVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R22'))">
+        <DynamoVersion>2.12</DynamoVersion>
+        <DynamoOutput>2.12</DynamoOutput>
+        <CivilVersion>2022</CivilVersion>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R23'))">
+        <DynamoVersion>2.13</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <CivilVersion>2023</CivilVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R23'))">
+        <DynamoVersion>2.13</DynamoVersion>
+        <DynamoOutput>2.13</DynamoOutput>
+        <CivilVersion>2023</CivilVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R23.1'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.16</DynamoOutput>
+        <CivilVersion>2023</CivilVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R23.1'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.16</DynamoOutput>
+        <CivilVersion>2023</CivilVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R24'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.17</DynamoOutput>
+        <CivilVersion>2024</CivilVersion>
+        <DefineConstants>$(DefineConstants);R24</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R24'))">
+        <DynamoVersion>2.16</DynamoVersion>
+        <DynamoOutput>2.17</DynamoOutput>
+        <CivilVersion>2024</CivilVersion>
+        <DefineConstants>$(DefineConstants);R24</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R25'))">
+        <DynamoVersion>3.0</DynamoVersion>
+        <DynamoOutput>3.0</DynamoOutput>
+        <CivilVersion>2025</CivilVersion>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <DefineConstants>$(DefineConstants);R25</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup>
+        <DynVersion>$(DynamoVersion)</DynVersion>
+        <BuildOutput>$(DynamoOutput)</BuildOutput>
+        <PublishSingleFile>true</PublishSingleFile>
+<!--        <PublishTrimmed>true</PublishTrimmed>-->
+        <Copyright>MIT</Copyright>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>dynamo</PackageTags>
+        <FolderPackages>$(Appdata)\Autodesk\C3D $(CivilVersion)\Dynamo\$(BuildOutput)\packages\OpenMEP\</FolderPackages>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\OpenMEPSandbox\OpenMEPSandbox.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Chuongmep.Civil3D.Api.accoremgd" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="Chuongmep.Civil3D.Api.acdbmgd" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="Chuongmep.Civil3D.Api.acmgd" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="Chuongmep.Civil3D.Api.AutoCADNodes" Version="$(CivilVersion).*">
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+    </ItemGroup>
+    <Target Name="CopyFiles" AfterTargets="CoreBuild" Condition="'$(OS)' =='Windows_NT'">
+        <ItemGroup>
+            <AssemblyFiles Include="$(TargetDir)*.*" />
+            <PgkDefinition Include="$(SolutionDir)docs\civil\pkg.json" />
+            <SandboxXmlCustomization Include="$(SolutionDir)docs\OpenMEPSandbox_DynamoCustomization.xml" />
+            <CivilXmlCustomization Include="$(SolutionDir)docs\OpenMEPCivil_DynamoCustomization.xml" />
+            <CivilXmlCustomization Include="$(SolutionDir)docs\OpenMEPCad_DynamoCustomization.xml" />
+            <!--            <ExtralFiles Include="$(SolutionDir)docs\extra\*.*" />-->
+            <DyfFiles Include="$(SolutionDir)docs\civil\dyf\*.*" />
+        </ItemGroup>
+        <Message Text="Copying From $(TargetDir) To $(FolderPackages)" Importance="high" />
+        <Copy SourceFiles="@(AssemblyFiles)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(SandboxXmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(CivilXmlCustomization)" DestinationFolder="$(FolderPackages)bin" />
+        <Copy SourceFiles="@(PgkDefinition)" DestinationFolder="$(FolderPackages)" />
+        <!--        <Copy SourceFiles="@(ExtralFiles)" DestinationFolder="$(FolderPackages)extra" />-->
+        <Copy SourceFiles="@(DyfFiles)" DestinationFolder="$(FolderPackages)dyf" />
+        <Message Text="Copied Completed" Importance="high" />
+    </Target>
+</Project>

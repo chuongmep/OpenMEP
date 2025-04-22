@@ -1,0 +1,194 @@
+{
+  "Uuid": "f46194a1-bcce-4d85-a2ea-865591c9ec98",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "String.SimilarityScore",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.String.SimilarityScore@string,string",
+      "Id": "a8a3dec53bfc4377b5e4c706d4b0e201",
+      "Inputs": [
+        {
+          "Id": "008a79017fce47e1a68bfac074863d9f",
+          "Name": "str1",
+          "Description": "The first input string to compare as a vector representation of term frequencies.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7cd1b9844f174f2f8d722ea8fa4b2cb9",
+          "Name": "str2",
+          "Description": "The second input string to compare as a vector representation of term frequencies.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dd6f350d75784f778de74d84e2f331a9",
+          "Name": "double",
+          "Description": "The cosine similarity value between the two input strings.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Similarity Score between two strings\n\nString.SimilarityScore (str1: string, str2: string): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Hello World\";",
+      "Id": "93648146f17d4c6f8b2f23409fd99fbd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fd0a8753257a4d3c9a8c24a425146f62",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Hello World 1\";",
+      "Id": "6e60784b9f9e4dd6b3bd863ac3d1d2fd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d6625425822c4b3ab3cc83b497cd1a64",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "fd0a8753257a4d3c9a8c24a425146f62",
+      "End": "008a79017fce47e1a68bfac074863d9f",
+      "Id": "748e46c763474cda965850809c24b3bd",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d6625425822c4b3ab3cc83b497cd1a64",
+      "End": "7cd1b9844f174f2f8d722ea8fa4b2cb9",
+      "Id": "d1cb6916052e41e3ac4c5ce08e1b14a0",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "a8a3dec53bfc4377b5e4c706d4b0e201"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.3.4871",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "String.SimilarityScore",
+        "ShowGeometry": true,
+        "Id": "a8a3dec53bfc4377b5e4c706d4b0e201",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 870.14625016316415,
+        "Y": 396.26726217752719
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "93648146f17d4c6f8b2f23409fd99fbd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 521.35608959671606,
+        "Y": 320.8882741918901
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "6e60784b9f9e4dd6b3bd863ac3d1d2fd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 515.10938604822968,
+        "Y": 457.79519362955466
+      }
+    ],
+    "Annotations": [],
+    "X": -734.5163585422722,
+    "Y": -471.90122343656606,
+    "Zoom": 1.9210132043015347
+  }
+}

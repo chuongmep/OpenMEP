@@ -1,0 +1,298 @@
+{
+  "Uuid": "4ab841dd-beeb-4004-9afc-79e32607cfb4",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.GenerateRandomPointInCircle",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "18f99f14306a452e846a2263671a2c26",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "1e21507c0b9a4c529debae4e81186016",
+          "Name": "circle",
+          "Description": "The circle to generate points inside of.\n\nCircle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4d5631c9c4c549f792c5452112a428af",
+          "Name": "numPoints",
+          "Description": "The number of random points to generate.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "afb557be94954cb98c4335214ba1f3a5",
+          "Name": "Point[]",
+          "Description": "An array of Point3d objects representing the generated random points.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.GenerateRandomPointInCircle@Autodesk.DesignScript.Geometry.Circle,int",
+      "Replication": "Auto",
+      "Description": "Generates an array of random 3D points inside a specified circle.\n\nPoint.GenerateRandomPointInCircle (circle: Circle, numPoints: int): Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "e6beff7da22942618d00c62eeb26d543",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "9928f124b1f24fa0aec25fb3020735fa",
+          "Name": "centerPoint",
+          "Description": "Center point of circle\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "26f63d5c51dc450b99446e5ebcea8972",
+          "Name": "radius",
+          "Description": "Radius\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3022902f0ba143db84ec2b7f4a76081b",
+          "Name": "normal",
+          "Description": "Normal direction vector\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "71c70d6a80b74f5cb2fa05fbedb34854",
+          "Name": "Circle",
+          "Description": "Circle created with center point radius and normal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Circle.ByCenterPointRadiusNormal@Autodesk.DesignScript.Geometry.Point,double,Autodesk.DesignScript.Geometry.Vector",
+      "Replication": "Auto",
+      "Description": "Creates a Circle with specified center Point, radius, and normal direction.\n\nCircle.ByCenterPointRadiusNormal (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1, normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Circle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "f822ce890c9c4deeb792cb4cf9af9dfa",
+      "NodeType": "FunctionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a3f8ed4884de4095a8e7742c1bfde79b",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ZAxis",
+      "Replication": "Auto",
+      "Description": "Get the canonical Z axis Vector (0,0,1)\n\nVector.ZAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "7debe33a7b1f4f60a2682f108d84949c",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f2fdb12f83554331b8005cc4936882c3",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "10;"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NumberType": "Integer",
+      "MaximumValue": 1000,
+      "MinimumValue": 0,
+      "StepValue": 50,
+      "Id": "f0d42e5a3de6412c963471b8cdcc1a77",
+      "NodeType": "NumberInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "00f64bd39cf1409bbe1b45f0ee9a66bd",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces integer values",
+      "InputValue": 450
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "71c70d6a80b74f5cb2fa05fbedb34854",
+      "End": "1e21507c0b9a4c529debae4e81186016",
+      "Id": "208797411bd54d2da0241fb9b4a1f731",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a3f8ed4884de4095a8e7742c1bfde79b",
+      "End": "3022902f0ba143db84ec2b7f4a76081b",
+      "Id": "dd0df0ab77804feb84f06d7ff6b88ebc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f2fdb12f83554331b8005cc4936882c3",
+      "End": "26f63d5c51dc450b99446e5ebcea8972",
+      "Id": "61ee4e0444e8411dbd3b50ae9cb333c7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "00f64bd39cf1409bbe1b45f0ee9a66bd",
+      "End": "4d5631c9c4c549f792c5452112a428af",
+      "Id": "35a8daa764ae4cacb6e13abbd89c9597",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "18f99f14306a452e846a2263671a2c26"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.0.2986",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "18f99f14306a452e846a2263671a2c26",
+        "Name": "Point.GenerateRandomPointInCircle",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 680.79999999999984,
+        "Y": 285.59999999999997
+      },
+      {
+        "Id": "e6beff7da22942618d00c62eeb26d543",
+        "Name": "Circle.ByCenterPointRadiusNormal",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 245.60000000000014,
+        "Y": 216.79999999999995
+      },
+      {
+        "Id": "f822ce890c9c4deeb792cb4cf9af9dfa",
+        "Name": "Vector.ZAxis",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 20.800000000000068,
+        "Y": 316.0
+      },
+      {
+        "Id": "7debe33a7b1f4f60a2682f108d84949c",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 27.799999999999955,
+        "Y": 185.8
+      },
+      {
+        "Id": "f0d42e5a3de6412c963471b8cdcc1a77",
+        "Name": "Integer Slider",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 227.20000000000016,
+        "Y": 469.6
+      }
+    ],
+    "Annotations": [],
+    "X": 103.99999999999989,
+    "Y": -16.800000000000125,
+    "Zoom": 1.0
+  }
+}

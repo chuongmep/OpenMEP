@@ -1,0 +1,324 @@
+{
+  "Uuid": "ede9f09b-0e32-4cf4-9caa-71e08792c623",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.FindShortestRoute",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Autodesk.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "f0d8492c9c46470bbd11755d95060c51",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "0b800a9c796b4335a0c6658a02f9dc77",
+          "Name": "points",
+          "Description": "the list 3d points\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0c7b2d2372ca469d9003faf79156dd0b",
+          "Name": "lines",
+          "Description": "shortest route",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.FindShortestRoute@Autodesk.DesignScript.Geometry.Point[]",
+      "Replication": "Auto",
+      "Description": "takes a list of 3D points as input and returns the shortest route that visits each point exactly once' https://en.wikipedia.org/wiki/Travelling_salesman_problem\n\nPoint.FindShortestRoute (points: Point[]): Line[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "0d145102a0624e9b9360705884f4d9ca",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f6ba902e55ba4f1886924eb0b8731366",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "82e1b2e58aca4678ae967b8531d91796",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6e0e33b9d1c7428a9c9e1338b690bbb0",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "42a5367ef6074cd0937634d73f79de3f",
+          "Name": "",
+          "Description": "Value of expression at line 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "50d79e44d5f04cabbbaa1b61c25cdc3c",
+          "Name": "",
+          "Description": "Value of expression at line 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "806635c5731d4ea6b6969e2892008e23",
+          "Name": "",
+          "Description": "Value of expression at line 6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Autodesk.Point.ByCoordinates(0,0,0);\nAutodesk.Point.ByCoordinates(0,5,0);\nAutodesk.Point.ByCoordinates(5,5,0);\nAutodesk.Point.ByCoordinates(5,2,0);\nAutodesk.Point.ByCoordinates(2,0,0);\nAutodesk.Point.ByCoordinates(2,4,0);"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "Id": "00a91c25b26b4e58b9d64e0325b4d6d3",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "1f0e54bd5b274730b1a8f8d73cbbce86",
+          "Name": "item0",
+          "Description": "Item Index #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "637feeeccd964fef93113db41c224118",
+          "Name": "item1",
+          "Description": "Item Index #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "14bd760ca1c843eb96c57f7014b93d38",
+          "Name": "item2",
+          "Description": "Item Index #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d2e2388d856346a3b5c349b427a0b50d",
+          "Name": "item3",
+          "Description": "Item Index #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cc1d927822a9498a9f9683017f5dd851",
+          "Name": "item4",
+          "Description": "Item Index #4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "91402a60e71046578cb4d9509dfb5bac",
+          "Name": "item5",
+          "Description": "Item Index #5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d7143d61192f43a18ab648d5f4b98091",
+          "Name": "list",
+          "Description": "A list (type: var[]..[])",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Makes a new list from the given inputs"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f6ba902e55ba4f1886924eb0b8731366",
+      "End": "1f0e54bd5b274730b1a8f8d73cbbce86",
+      "Id": "ed0d33587178492d959a2cb19c97c369",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "82e1b2e58aca4678ae967b8531d91796",
+      "End": "637feeeccd964fef93113db41c224118",
+      "Id": "717de5bec4c74e39b875f062fbd24092",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6e0e33b9d1c7428a9c9e1338b690bbb0",
+      "End": "cc1d927822a9498a9f9683017f5dd851",
+      "Id": "363ca047293d4fcd87341eb5ed85c56c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "42a5367ef6074cd0937634d73f79de3f",
+      "End": "d2e2388d856346a3b5c349b427a0b50d",
+      "Id": "c48b7a2dcbea4ae08917b8fccef1c631",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "50d79e44d5f04cabbbaa1b61c25cdc3c",
+      "End": "14bd760ca1c843eb96c57f7014b93d38",
+      "Id": "c59babffa8e348a89faf780ed6137c67",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "806635c5731d4ea6b6969e2892008e23",
+      "End": "91402a60e71046578cb4d9509dfb5bac",
+      "Id": "d6a1c3b02c494b64a5d8b889c5ac1b77",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d7143d61192f43a18ab648d5f4b98091",
+      "End": "0b800a9c796b4335a0c6658a02f9dc77",
+      "Id": "00b51307133540b09d2c6817b921ae26",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "f0d8492c9c46470bbd11755d95060c51"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.0.2986",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 4.1163740158081055,
+      "EyeY": 11.711480140686035,
+      "EyeZ": -4.6511685848236084,
+      "LookX": -0.29294729232788086,
+      "LookY": -11.582551956176758,
+      "LookZ": -0.58217883110046387,
+      "UpX": -0.43292644619941711,
+      "UpY": 0.26892164349555969,
+      "UpZ": -0.86038118600845337
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "f0d8492c9c46470bbd11755d95060c51",
+        "Name": "Point.FindShortestRoute",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 675.4272957172451,
+        "Y": -35.555634987164353
+      },
+      {
+        "Id": "0d145102a0624e9b9360705884f4d9ca",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -96.96352347258852,
+        "Y": -80.3031184014437
+      },
+      {
+        "Id": "00a91c25b26b4e58b9d64e0325b4d6d3",
+        "Name": "List Create",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 413.63838848029928,
+        "Y": -36.427648472860483
+      }
+    ],
+    "Annotations": [],
+    "X": 197.38466150851013,
+    "Y": 126.77739430526466,
+    "Zoom": 1.0485066619380725
+  }
+}

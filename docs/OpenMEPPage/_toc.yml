@@ -1,0 +1,71 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+options:
+  numbered: True
+parts:
+- caption: Getting Started
+  maxdepth: 3
+  chapters:
+  - file: tutorial/installation
+  - file : tutorial/uninstall
+  - file: tutorial/upgrade
+- caption: Tutorial
+  maxdepth: 3  # The displayed Table of Contents will only have two levels
+  chapters:
+  - file: application/application
+    sections:
+    - file: application/revit
+    - file: application/dynamo
+    - file: application/windows
+    - file: application/openmep
+  - file: document/document
+    sections:
+    - file: document/familydocument
+  - file: connectormanager/connectormanager
+    sections:
+    - file: connectormanager/connector
+    - file: connectormanager/mepconnectorinfo
+    - file: connectormanager/mepmodel
+  - file: element/element
+    sections:
+    - file: element/family/family
+      sections:
+      - file: element/family/familymanager
+      - file: element/family/familyparameter
+      - file: element/family/familysizemanager
+      - file: element/family/familytype
+    - file: element/cabletray
+    - file: element/wire
+    - file: element/familyinstance
+    - file: element/conduit
+    - file: element/duct
+    - file: element/insulation
+    - file: element/fitting
+    - file: element/mepcurve
+    - file: element/pipe
+  - file: parameter/parameter
+    sections:
+    - file: parameter/definition
+    - file: parameter/projectparameter
+    - file: parameter/sharedparameter
+- caption: Geometry
+  maxdepth: 3
+  chapters:
+  - file: geometry/vector
+  - file: geometry/point
+  - file: geometry/coordinatesystem
+  - file: geometry/line
+  - file: geometry/curve
+  - file: geometry/plane
+  - file: geometry/surface
+  - file: geometry/geometry  
+- caption: Advanced
+  maxdepth: 3
+  chapters:
+  - file: advanced/createcustomnode
+  - file : advanced/python

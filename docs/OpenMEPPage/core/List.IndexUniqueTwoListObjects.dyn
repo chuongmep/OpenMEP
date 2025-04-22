@@ -1,0 +1,182 @@
+{
+  "Uuid": "60e746e8-016f-4816-ab1d-ae72d6e34e53",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "List.IndexUniqueTwoListObjects",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[100,200,300,200];\n[400,300,200,100];",
+      "Id": "d2a389e7b7b64e55a36e5368127c52e4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "dca802009f274bcebe48542e44897319",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3eebf50ca25b418096a5e51f3bede764",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.IndexUniqueTwoListObjects@var[],var[]",
+      "Id": "624d8197329849e6987f7367b43741e0",
+      "Inputs": [
+        {
+          "Id": "75f143cc52db4f32aa33c0a952bd816b",
+          "Name": "list1",
+          "Description": "The first list of objects.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "311c7ea99c8f4116af72695a365a0b7e",
+          "Name": "list2",
+          "Description": "The second list of objects.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9be3c3d84982437ca083b1f6f4424b3f",
+          "Name": "name",
+          "Description": "name of object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b7d76964d1ce4a5881d40e416270e35e",
+          "Name": "index",
+          "Description": "indices of object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Takes two lists of strings as input, merges them, and returns a dictionary with unique names and indices.\n\nList.IndexUniqueTwoListObjects (list1: var[], list2: var[]): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "dca802009f274bcebe48542e44897319",
+      "End": "75f143cc52db4f32aa33c0a952bd816b",
+      "Id": "1fdcd48033644ade9985b258e387520c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3eebf50ca25b418096a5e51f3bede764",
+      "End": "311c7ea99c8f4116af72695a365a0b7e",
+      "Id": "8b878088822b4bdb8de610bfc5db7ed7",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "624d8197329849e6987f7367b43741e0"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "d2a389e7b7b64e55a36e5368127c52e4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 141.38567594826316,
+        "Y": 20.395762040402957
+      },
+      {
+        "Name": "List.IndexUniqueTwoListObjects",
+        "ShowGeometry": true,
+        "Id": "624d8197329849e6987f7367b43741e0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 414.84847121932955,
+        "Y": 9.7078527030592454
+      }
+    ],
+    "Annotations": [],
+    "X": -31.724602884219735,
+    "Y": 166.33120219118663,
+    "Zoom": 1.1988764122516977
+  }
+}

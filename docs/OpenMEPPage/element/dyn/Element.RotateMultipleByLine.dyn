@@ -1,0 +1,282 @@
+{
+  "Uuid": "05736522-824e-417a-a511-efb0b6697572",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Element.RotateMultipleByLine",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Autodesk.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.Line": {
+        "Key": "Autodesk.DesignScript.Geometry.Line",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Line": {
+        "Key": "Autodesk.DesignScript.Geometry.Line",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "94cc1848-4cb5-4141-8b89-8508134acf0d-00148684",
+        "94cc1848-4cb5-4141-8b89-8508134acf0d-0014868b"
+      ],
+      "Id": "fc6c919494b044fabff3553ef64eeb63",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9dddd369f52a4cec9f88cd490d8c0406",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "90;",
+      "Id": "97325f6a9f404e688f7c968a85b8a5c1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "22254f5ecad649ec8b1e181ed01c57f4",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Element.RotateMultiple@Revit.Elements.Element[],Autodesk.DesignScript.Geometry.Line,double",
+      "Id": "1d6f6b919ac1456d94693de2701817ba",
+      "Inputs": [
+        {
+          "Id": "9cd4fb5543be4618ab62864c5976225c",
+          "Name": "elements",
+          "Description": "the list collection of elements\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9b6d3dd016174db5b04a708c70a8fdc1",
+          "Name": "lineAxis",
+          "Description": "Line Axis\n\nLine",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8b247fd9ae0f43ebbe989f61dc7f7962",
+          "Name": "angle",
+          "Description": "angle to rotate(Degrees)\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c983c900b3004e27aa3b6345ed93de80",
+          "Name": "elements",
+          "Description": "collection of list elements rotated",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Rotate multiple family instances This will be help save time when you have a lot of elements to rotate because just one transaction\n\nElement.RotateMultiple (elements: Element[], lineAxis: Line, angle: double): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "p1=Autodesk.Point.ByCoordinates(0,0,0);\np2=Autodesk.Point.ByCoordinates(0,10,0);\nAutodesk.Line.ByStartPointEndPoint(p1,p2);",
+      "Id": "50ee1643ef6b4174ae05d3e53dd10d47",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e7a72fd7e9714a9f9816c53359f01eb6",
+          "Name": "",
+          "Description": "p1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7653869eaa994dd49bacad741234d962",
+          "Name": "",
+          "Description": "p2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5f97008cd94a4159a9b24425159cd987",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9dddd369f52a4cec9f88cd490d8c0406",
+      "End": "9cd4fb5543be4618ab62864c5976225c",
+      "Id": "432587a508624467aee11b0523bd7a4c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "22254f5ecad649ec8b1e181ed01c57f4",
+      "End": "8b247fd9ae0f43ebbe989f61dc7f7962",
+      "Id": "2d025fcdc2b74493927ce3fff104890e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5f97008cd94a4159a9b24425159cd987",
+      "End": "9b6d3dd016174db5b04a708c70a8fdc1",
+      "Id": "b06646e5a8d9459d8575fb7b3f2ab6d0",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "1d6f6b919ac1456d94693de2701817ba"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Elements",
+        "ShowGeometry": true,
+        "Id": "fc6c919494b044fabff3553ef64eeb63",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 361.55853131749461,
+        "Y": 240.89330453563718
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "97325f6a9f404e688f7c968a85b8a5c1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 366.77369294162304,
+        "Y": 525.61559242316548
+      },
+      {
+        "Name": "Element.RotateMultiple",
+        "ShowGeometry": true,
+        "Id": "1d6f6b919ac1456d94693de2701817ba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 709.94751240788491,
+        "Y": 375.11649889608088
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "50ee1643ef6b4174ae05d3e53dd10d47",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 226.93708208826308,
+        "Y": 382.11589232354129
+      }
+    ],
+    "Annotations": [],
+    "X": -193.89298176025943,
+    "Y": -142.84051123110157,
+    "Zoom": 0.97676875
+  }
+}

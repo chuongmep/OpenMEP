@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "file_hash": null,
+  "name": "OpenMEP",
+  "version": "1.0.0",
+  "description": "Open MEP is Dynamo package open source resolve problem with MEP in Dynamo Civil3D",
+  "group": "MEP",
+  "keywords": [
+    "openmep",
+    "mep",
+    "mepexpert"
+  ],
+  "dependencies": [],
+  "contents": "",
+  "engine_version": "2.1.0.7733",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "https://chuongmep.com/",
+  "repository_url": "mailto:chuongpqvn@gmail.com?subject=DynaMEP%20Error%20Node&body=%2F%2FContent%3A",
+  "contains_binaries": true,
+  "node_libraries": [
+    "OpenMEPCivil, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+    "OpenMEPCad, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+    "OpenMEPSandbox, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

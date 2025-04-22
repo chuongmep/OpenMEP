@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+	    <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+	    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	    <LangVersion>latest</LangVersion>
+        <Deterministic>false</Deterministic>
+        <ApplicationIcon>Resources\ShellIcon.ico</ApplicationIcon>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="SharpZipLib" Version="1.4.0" />
+      <PackageReference Include="WixSharp" Version="1.20.2" />
+      <PackageReference Include="WixSharp.bin" Version="1.20.2" />
+      <PackageReference Include="WixSharp.wix.bin" Version="3.11.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="System.Net.Http">
+        <HintPath>C:\Users\vho2\.nuget\packages\microsoft.netframework.referenceassemblies.net48\1.0.2\build\.NETFramework\v4.8\System.Net.Http.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\BannerImage.png" />
+      <EmbeddedResource Include="Resources\BannerImage.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Resources\BackgroundImage.png" />
+      <EmbeddedResource Include="Resources\BackgroundImage.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Update="Resources\ShellIcon.ico">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,197 @@
+{
+  "Uuid": "4ab841dd-beeb-4004-9afc-79e32607cfb4",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "List.Difference",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[1, 2, 3, 4];\n[2,4,6,8];",
+      "Id": "5393ac23ebd14f5eb2b0ab4e48fb4baa",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f369d0ed07014eff84ee2513fd8000ea",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0084bcf374194a24a71e1b4002be309e",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.Difference@var[],var[]",
+      "Id": "55c30a5708f5409ea5b9305122ed4d37",
+      "Inputs": [
+        {
+          "Id": "816aef83e47545bda3c792e278c41f5f",
+          "Name": "list1",
+          "Description": "The first list to compare.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8fc4ff97f1cb46eea03bbe1c41629208",
+          "Name": "list2",
+          "Description": "The second list to compare.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e118afd519a040f4a92fd41f9bab6280",
+          "Name": "list",
+          "Description": "A new list containing the items that are in the first list but not in the second list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the items that are in the first list but not in the second list.\n\nList.Difference (list1: var[], list2: var[]): var[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f369d0ed07014eff84ee2513fd8000ea",
+      "End": "816aef83e47545bda3c792e278c41f5f",
+      "Id": "8e2c5161e4714326b1e176860aa84007",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0084bcf374194a24a71e1b4002be309e",
+      "End": "8fc4ff97f1cb46eea03bbe1c41629208",
+      "Id": "a2faca2cbca94451896223d2f5915115",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "55c30a5708f5409ea5b9305122ed4d37"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "5393ac23ebd14f5eb2b0ab4e48fb4baa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 460.52372276527115,
+        "Y": 255.54691542235093
+      },
+      {
+        "Name": "List.Difference",
+        "ShowGeometry": true,
+        "Id": "55c30a5708f5409ea5b9305122ed4d37",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 772.15464596716629,
+        "Y": 236.10030246570832
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "68862dcfa9074b89aeefe2d7805b63c3",
+        "Title": "List.Difference",
+        "DescriptionText": "This node takes two List objects as input and returns a new List objects containing the items that are in list1 but not in list2.",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "5393ac23ebd14f5eb2b0ab4e48fb4baa",
+          "55c30a5708f5409ea5b9305122ed4d37"
+        ],
+        "HasNestedGroups": false,
+        "Left": 450.52372276527115,
+        "Top": 154.10030246570832,
+        "Width": 512.4309232018951,
+        "Height": 244.20000000000002,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 236.10030246570832,
+        "InitialHeight": 192.20000000000002,
+        "TextblockHeight": 72.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -197.97126184942522,
+    "Y": -63.517010340665649,
+    "Zoom": 1.3461373047445635
+  }
+}
