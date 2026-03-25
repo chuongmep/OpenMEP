@@ -1,0 +1,155 @@
+{
+  "Uuid": "c33a46da-65ac-4ade-a0ff-de530639f054",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.PickOrderLinkElements",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "0d2799e802424f7897d181cbae20591e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "57b8b94788d5491081602ba711fad0a5",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPRevit.Document.Selection.PickOrderLinkElements@bool",
+      "Id": "e91a09f465bc42c99a6110e571909465",
+      "Inputs": [
+        {
+          "Id": "2e4c81631f4e465fa7bff65da6e86c1f",
+          "Name": "flag",
+          "Description": "A boolean flag indicating fresh the selection process.\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f427b3c0807240ea8a75e600f2fe2cc5",
+          "Name": "Element[]",
+          "Description": "A list of Revit elements from linked documents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves a list of linked elements from the host Revit document based on the user's selection.\n\nSelection.PickOrderLinkElements (flag: bool): Element[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "57b8b94788d5491081602ba711fad0a5",
+      "End": "2e4c81631f4e465fa7bff65da6e86c1f",
+      "Id": "806b7cba870d4f55a6a0ff829ed3c46d",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "e91a09f465bc42c99a6110e571909465"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "0d2799e802424f7897d181cbae20591e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 53.485963228311789,
+        "Y": 563.83377179848321
+      },
+      {
+        "Name": "Selection.PickOrderLinkElements",
+        "ShowGeometry": true,
+        "Id": "e91a09f465bc42c99a6110e571909465",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 276.13429152917359,
+        "Y": 580.177847669747
+      }
+    ],
+    "Annotations": [],
+    "X": 56.682041624627914,
+    "Y": -436.76396078146468,
+    "Zoom": 1.442589092933134
+  }
+}

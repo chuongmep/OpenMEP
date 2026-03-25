@@ -1,0 +1,409 @@
+{
+  "Uuid": "994196c0-0829-405f-b76a-a783a13ab86b",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "GraphVisualizer.Visualize",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "startNode =0;\n// source and destinations\n// same with lst1 and lst2\n[0,0,1,1,1,2,3,3];\n[1,3,2,3,4,1,2,4];\n//Distance\n[6,x,5,8,1,1,1,13,9];",
+      "Id": "168af5f737c140598ca51a911748a3fe",
+      "Inputs": [
+        {
+          "Id": "f6e0d158d1cc4b7eb0262f9a97e5cae6",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ee8d7cce4c9a47fc8d5f9f2f3cf9a422",
+          "Name": "",
+          "Description": "startNode",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5c001a03bd36467184c86ef79ff0617b",
+          "Name": "",
+          "Description": "Value of expression at line 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d5b1d375dc36435e8af348a7b99b4f08",
+          "Name": "",
+          "Description": "Value of expression at line 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "539cf477ca6a49659a974b47c9799772",
+          "Name": "",
+          "Description": "Value of expression at line 7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoText.Text.FromStringOriginAndScale@string,Autodesk.DesignScript.Geometry.Point,double",
+      "Id": "2c85f296044c40ebb63261b6f01b9c86",
+      "Inputs": [
+        {
+          "Id": "b8b391f7e00c43ada43ec2c8854fbe16",
+          "Name": "text",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e9ea7ffccc1b4e68af72052f98e64c08",
+          "Name": "origin",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "635d151cc11f48d2aeb17ca2258faae5",
+          "Name": "scale",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "43038cc322b04319a34896a31b45fb1a",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Text.FromStringOriginAndScale (text: string, origin: Point, scale: double): Curve[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "1;",
+      "Id": "630be552e72748a2a80e58c671a869ca",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ff4e2a4a978846e089ecd1cccfc52bd5",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 10.0,
+      "MinimumValue": 0.0,
+      "StepValue": 0.01,
+      "InputValue": 7.58,
+      "Id": "49fe76d90bf84a21981dd0509ebd5f7a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6c2afdaf840c4172a752cbc84bee002b",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Produces numeric values"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Graph.GraphVisualizer.VisualizeByGraph@int[],int[],double[]",
+      "Id": "441c1f35e399478baf4a7489d59bac16",
+      "Inputs": [
+        {
+          "Id": "2387026f24d643178fcc329cb31d65db",
+          "Name": "sources",
+          "Description": "A list of integers representing the starting vertices for each edge.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "60362c443cf6400db2cf2e9bb1a66790",
+          "Name": "destinations",
+          "Description": "A list of integers representing the ending vertices for each edge.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d4ee084b157a4f66823ed902792e074c",
+          "Name": "weights",
+          "Description": "A list of doubles representing the weight of each edge.\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4819e328d4284ac7b4fa8c944854abef",
+          "Name": "Node",
+          "Description": "A list of Point3D objects representing the vertices of the graph.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c4517ef82dd14bd1ad7ba72e2c2ab9e8",
+          "Name": "Point",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8031650b00e34211a781aa059f65c90c",
+          "Name": "Display",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Visualizes a graph with the given vertex connections and edge weights using 3D points. Determines the maximum weight and creates a 3D point for each vertex, then calculates the coordinates of each point based on their position along a circle with radius proportional to their weight. Returns a list of the generated points.\n\nGraphVisualizer.VisualizeByGraph (sources: int[], destinations: int[], weights: double[]): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "5c001a03bd36467184c86ef79ff0617b",
+      "End": "2387026f24d643178fcc329cb31d65db",
+      "Id": "be0ae9abb76946f88dc8b100bfe1cf4f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d5b1d375dc36435e8af348a7b99b4f08",
+      "End": "60362c443cf6400db2cf2e9bb1a66790",
+      "Id": "164126a7116e4d91bcddd1ac5752ebc7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "539cf477ca6a49659a974b47c9799772",
+      "End": "d4ee084b157a4f66823ed902792e074c",
+      "Id": "99c182556ffe475594a733d6c7661da6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ff4e2a4a978846e089ecd1cccfc52bd5",
+      "End": "635d151cc11f48d2aeb17ca2258faae5",
+      "Id": "b31a8697db4b489e81806a1e2a4fdfb0",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6c2afdaf840c4172a752cbc84bee002b",
+      "End": "f6e0d158d1cc4b7eb0262f9a97e5cae6",
+      "Id": "f1ce67f550ea4b37859735ba8fd4b4cd",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4819e328d4284ac7b4fa8c944854abef",
+      "End": "b8b391f7e00c43ada43ec2c8854fbe16",
+      "Id": "208064b54a8d4d079a428a715933f69d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c4517ef82dd14bd1ad7ba72e2c2ab9e8",
+      "End": "e9ea7ffccc1b4e68af72052f98e64c08",
+      "Id": "8fcf231483bc4df28bb866218cc76cb3",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Dynamo Text",
+      "Version": "2.0.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "2c85f296044c40ebb63261b6f01b9c86"
+      ]
+    },
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "441c1f35e399478baf4a7489d59bac16"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 7.8872804641723633,
+      "EyeY": 33.8160343170166,
+      "EyeZ": 6.3994870185852051,
+      "LookX": -7.9034481048583984,
+      "LookY": -23.750944137573242,
+      "LookZ": -9.3158454895019531,
+      "UpX": -0.49846699833869934,
+      "UpY": 0.63743168115615845,
+      "UpZ": -0.58754706382751465
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "168af5f737c140598ca51a911748a3fe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 130.45000994625741,
+        "Y": 277.21249314679903
+      },
+      {
+        "Name": "Text.FromStringOriginAndScale",
+        "ShowGeometry": true,
+        "Id": "2c85f296044c40ebb63261b6f01b9c86",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 993.82472435296279,
+        "Y": 152.08617744384532
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "630be552e72748a2a80e58c671a869ca",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 822.349091008901,
+        "Y": 227.77359619525976
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "49fe76d90bf84a21981dd0509ebd5f7a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -255.77493455731371,
+        "Y": 256.78337007675555
+      },
+      {
+        "Name": "GraphVisualizer.VisualizeByGraph",
+        "ShowGeometry": true,
+        "Id": "441c1f35e399478baf4a7489d59bac16",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 473.01801996045765,
+        "Y": 74.553863242713447
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "53c94f3828dd4f68ad967e728c126458",
+        "Title": "Dynamo Text Pacage",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 993.67639347428826,
+        "Top": 113.77108419582822,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 202.46192920046053,
+    "Y": 26.475831131710038,
+    "Zoom": 0.69072799143711472
+  }
+}

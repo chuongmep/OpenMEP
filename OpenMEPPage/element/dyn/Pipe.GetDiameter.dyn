@@ -1,0 +1,183 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Pipe.GetDiameter",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9ea7"
+      ],
+      "Id": "c04abc6cfe834837a790d7eaa8c9c7c7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1a2842ad37341278b0e69f24c0f6abe",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Pipe.GetDiameter@Revit.Elements.Element",
+      "Id": "1ad3136b32c540bca27175fa8a0919ba",
+      "Inputs": [
+        {
+          "Id": "37f506820f4840a69e893f51382950dd",
+          "Name": "pipe",
+          "Description": "pipe\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1c3ed342725248359dfaae678e1f14a9",
+          "Name": "OverallSize",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6fc44393bfd64d1a8788eef8c70a5ff0",
+          "Name": "Diameter",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c21c61306ed24c7c92345b4c81ba8927",
+          "Name": "OutsideDiameter",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "85ada7dd752d4530b82a76b78db84abc",
+          "Name": "InsideDiameter",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return information diameter of pipe\n\nPipe.GetDiameter (pipe: Element): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f1a2842ad37341278b0e69f24c0f6abe",
+      "End": "37f506820f4840a69e893f51382950dd",
+      "Id": "966869cbe5614bc5872e9e9228510f76",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "1ad3136b32c540bca27175fa8a0919ba"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "c04abc6cfe834837a790d7eaa8c9c7c7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 254.40000000000003,
+        "Y": 303.2
+      },
+      {
+        "Name": "Pipe.GetDiameter",
+        "ShowGeometry": true,
+        "Id": "1ad3136b32c540bca27175fa8a0919ba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 548.00000000000034,
+        "Y": 291.99999999999966
+      }
+    ],
+    "Annotations": [],
+    "X": -105.60000000000036,
+    "Y": -24.79999999999967,
+    "Zoom": 1.0
+  }
+}

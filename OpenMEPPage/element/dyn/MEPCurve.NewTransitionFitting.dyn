@@ -1,0 +1,202 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MEPCurve.NewTransitionFitting",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e02"
+      ],
+      "Id": "e0ebb668225f448787851cb671eb923b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "296a0e69e3444d2390fba5a97d9bf00c",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e16"
+      ],
+      "Id": "d76b6b374f494336be4218c13fc00040",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "89847d25a99647708047e3a1fa3af664",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.MEPCurve.NewTransitionFitting@Revit.Elements.Element,Revit.Elements.Element",
+      "Id": "061fc002547a44279f988cc7da5e8f99",
+      "Inputs": [
+        {
+          "Id": "4202f209f7c34c8c9ea7370fabd8d761",
+          "Name": "mepCurve1",
+          "Description": "the first mepCurve(Pipe/Duct/CableTray)\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2a69ba557eec49bbb389ce19a3dae3f3",
+          "Name": "mepCurve2",
+          "Description": "the second mepCurve(Pipe/Duct/CableTray)\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8b94afef9ff64f44936ecea6cb569719",
+          "Name": "family instance",
+          "Description": "new transition",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Add a new family instance of an transition fitting into the Autodesk Revit document, using two connectors.\n\nMEPCurve.NewTransitionFitting (mepCurve1: Element, mepCurve2: Element): Element"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "296a0e69e3444d2390fba5a97d9bf00c",
+      "End": "4202f209f7c34c8c9ea7370fabd8d761",
+      "Id": "d39ee0b6e6ed4052bfdee96d51d794e9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "89847d25a99647708047e3a1fa3af664",
+      "End": "2a69ba557eec49bbb389ce19a3dae3f3",
+      "Id": "664841b41d6d4266829a163025d6ecf9",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "061fc002547a44279f988cc7da5e8f99"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "e0ebb668225f448787851cb671eb923b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 237.73768545994085,
+        "Y": 103.66765578635014
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "d76b6b374f494336be4218c13fc00040",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 240.76276001800613,
+        "Y": 273.28611820653919
+      },
+      {
+        "Name": "MEPCurve.NewTransitionFitting",
+        "ShowGeometry": true,
+        "Id": "061fc002547a44279f988cc7da5e8f99",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 572.637814959349,
+        "Y": 185.778220986426
+      }
+    ],
+    "Annotations": [],
+    "X": -45.9473309530116,
+    "Y": 170.18049019496056,
+    "Zoom": 0.74769281712332525
+  }
+}

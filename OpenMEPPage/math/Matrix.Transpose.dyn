@@ -1,0 +1,149 @@
+{
+  "Uuid": "0f9a1c01-40a2-450c-9204-b15d6ddc40f0",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Matrix.Transpose",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[[0,0,0],[0,0,2],[0,0,1]];",
+      "Id": "04eb1856371f4daca690d0ea7890fee6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "226df02c550d483297128cb9be1bd741",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Math.Matrix.Transpose@int[][]",
+      "Id": "9e38f5df427f43d1bf7210bc9f5ccbb3",
+      "Inputs": [
+        {
+          "Id": "036f2b063da2464db6b63e022ca966f9",
+          "Name": "matrix",
+          "Description": "The 2D array of integers to be transposed.\n\nint[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c261c0597b594ea38d69638d6a7df3f4",
+          "Name": "int[][]",
+          "Description": "The transposed 2D array of integers.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Transposes a 2D array of integers.\n\nMatrix.Transpose (matrix: int[][]): int[][]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "226df02c550d483297128cb9be1bd741",
+      "End": "036f2b063da2464db6b63e022ca966f9",
+      "Id": "a0135573253c4fd7bac4097568f2ee2d",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "9e38f5df427f43d1bf7210bc9f5ccbb3"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "04eb1856371f4daca690d0ea7890fee6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 30.683616236698185,
+        "Y": 318.83258255891326
+      },
+      {
+        "Name": "Matrix.Transpose",
+        "ShowGeometry": true,
+        "Id": "9e38f5df427f43d1bf7210bc9f5ccbb3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 370.76119357367372,
+        "Y": 308.54515792434461
+      }
+    ],
+    "Annotations": [],
+    "X": 50.745894886294536,
+    "Y": -253.85177446235673,
+    "Zoom": 1.0857035604471859
+  }
+}

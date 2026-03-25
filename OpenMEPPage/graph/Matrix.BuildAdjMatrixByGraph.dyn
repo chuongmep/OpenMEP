@@ -1,0 +1,206 @@
+{
+  "Uuid": "994196c0-0829-405f-b76a-a783a13ab86b",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Matrix.BuildAdjMatrixByGraph",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "startNode =0;\n// source and destinations\n// same with lst1 and lst2\n[0,0,1,1,1,2,3,3];\n[1,3,2,3,4,1,2,4];\n//Distance\n[6,7,5,8,1,1,1,13,9];",
+      "Id": "7e04ea7e930449eea0df58127f797a8e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "429ca2b6b1da45c99b17b237cd737fd0",
+          "Name": "",
+          "Description": "startNode",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3c7747e1ca7a4486b8999f9e1621dc45",
+          "Name": "",
+          "Description": "Value of expression at line 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7d4c919dab884511b639d1d52178d420",
+          "Name": "",
+          "Description": "Value of expression at line 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "75218b8e91434dd09b33deee0d8e0ff8",
+          "Name": "",
+          "Description": "Value of expression at line 7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Graph.Matrix.BuildAdjMatrixByGraph@int[],int[],int[]",
+      "Id": "ad53484d5de24c9c83328a1ee74c9822",
+      "Inputs": [
+        {
+          "Id": "e4c659e654bc449b857d6fcb571395e3",
+          "Name": "sources",
+          "Description": "A list of source vertices.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "35ea02db71f34cc29f9fc7aa11645119",
+          "Name": "destinations",
+          "Description": "A list of destination vertices.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "db3943692ef94a89a96a509f43680be4",
+          "Name": "weights",
+          "Description": "A list of edge weights.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6858957acbe04583834d88ac202fd76e",
+          "Name": "int[][]",
+          "Description": "An adjacency matrix representing the graph.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Builds an adjacency matrix for a graph given its source vertices, destination vertices, and edge weights.\n\nMatrix.BuildAdjMatrixByGraph (sources: int[], destinations: int[], weights: int[]): int[][]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3c7747e1ca7a4486b8999f9e1621dc45",
+      "End": "e4c659e654bc449b857d6fcb571395e3",
+      "Id": "ae590debe21344568ad95897cf2d7475",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7d4c919dab884511b639d1d52178d420",
+      "End": "35ea02db71f34cc29f9fc7aa11645119",
+      "Id": "e4dc8cceb4dc412d91d52ce32685d851",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "75218b8e91434dd09b33deee0d8e0ff8",
+      "End": "db3943692ef94a89a96a509f43680be4",
+      "Id": "f48a4723039e4bb9886939eb52ad79f1",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "ad53484d5de24c9c83328a1ee74c9822"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "7e04ea7e930449eea0df58127f797a8e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 164.8500099462575,
+        "Y": 173.21249314679903
+      },
+      {
+        "Name": "Matrix.BuildAdjMatrixByGraph",
+        "ShowGeometry": true,
+        "Id": "ad53484d5de24c9c83328a1ee74c9822",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 544.39999999999986,
+        "Y": 223.19999999999993
+      }
+    ],
+    "Annotations": [],
+    "X": 48.092790059702452,
+    "Y": -73.279037989019287,
+    "Zoom": 0.93181152849833071
+  }
+}

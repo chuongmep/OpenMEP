@@ -1,0 +1,643 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "FlexDuct.NewFlexDuctByConnectorAndPoints",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000da0b5"
+      ],
+      "Id": "098b20b264374344aca6107c432151cd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "41bc93fe9e7243db9d8552a75420d80f",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetUnusedConnectors@Revit.Elements.Element",
+      "Id": "c1cb0a2d735d4d4aaa90d25a09181114",
+      "Inputs": [
+        {
+          "Id": "3674ec57b4414f99aeb82d56ea018990",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bc39746cdac04f7cb68fccba9b715971",
+          "Name": "connectors",
+          "Description": "unused connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector unused from element\n\nConnector.GetUnusedConnectors (element: Element): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.GetUnusedConnectors@Revit.Elements.Element",
+      "Id": "11256560e92343f59d78aaf29a607c48",
+      "Inputs": [
+        {
+          "Id": "5132e1b5abeb4c38b3a8ed7feaeb4e3a",
+          "Name": "element",
+          "Description": "element\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "54d8b8a94da04bf8a72ed7e3b4a3a460",
+          "Name": "connectors",
+          "Description": "unused connectors",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "return list connector unused from element\n\nConnector.GetUnusedConnectors (element: Element): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000da0c6"
+      ],
+      "Id": "ce3353a6b591403ba3cf38d72d2f90c6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "701690d7dee848f1bd5ac11faa0d433e",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementTypes, DSRevitNodesUI",
+      "SelectedIndex": 98,
+      "SelectedString": "DuctType",
+      "NodeType": "ExtensionNode",
+      "Id": "0c19ab4b99a84f728ff6368d5c2129c4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8d1f65ab8ef14f708ea2b62407dcde94",
+          "Name": "Classes",
+          "Description": "The selected Classes",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All element subclasses."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfType, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "a5444990b3a1451eb4c17c59bbed9ffa",
+      "Inputs": [
+        {
+          "Id": "d6a8b262d35a40bbacab688bc727852f",
+          "Name": "element class",
+          "Description": "An element class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8c486115ce9b48799718b8d30072c133",
+          "Name": "elements",
+          "Description": "All elements in the active document of a given class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All elements in the active document of a given class."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FirstItem@var[]..[]",
+      "Id": "8e4538fe766e48b79736c0201b1a581e",
+      "Inputs": [
+        {
+          "Id": "ea3d79a67bd747c4b252363e09b25f55",
+          "Name": "list",
+          "Description": "List to get the first item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "544b163630a84af4a79568cd6286b20f",
+          "Name": "item",
+          "Description": "First item in the list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the first item in a list.\n\nList.FirstItem (list: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Origin@var",
+      "Id": "c8543349489b466bba3db49681b7b5bb",
+      "Inputs": [
+        {
+          "Id": "506fa84445614fd3912c5727e71718f1",
+          "Name": "connector",
+          "Description": "the connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "29e460edf78142af8840edd78c6b9948",
+          "Name": "point",
+          "Description": "location origin of connector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get origin of connector\n\nConnector.Origin (connector: var): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.ConnectorManager.Connector.Origin@var",
+      "Id": "f1fe3568708c4f18bb3b3dcbbec594d6",
+      "Inputs": [
+        {
+          "Id": "f1caabd088b4491e8a86009e8c0d49d5",
+          "Name": "connector",
+          "Description": "the connector\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "01f86439539e485ebac06bd2a63287ce",
+          "Name": "point",
+          "Description": "location origin of connector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get origin of connector\n\nConnector.Origin (connector: var): Point"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "e5d0cb1786ba4b6aaf2c70af53a7d12a",
+      "Inputs": [
+        {
+          "Id": "349ee622ca38491e9f6518e82b5c50f2",
+          "Name": "item0",
+          "Description": "Item Index #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b3c4372c6aae4e2496820bfa047e6e2c",
+          "Name": "item1",
+          "Description": "Item Index #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bfeec014ac2f4bd3ae06fbfc381f6f40",
+          "Name": "list",
+          "Description": "A list (type: var[]..[])",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Makes a new list out of the given inputs"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "dd8d3e976e97426ba0e2b77e8252ce51",
+      "Inputs": [
+        {
+          "Id": "ce750f46fa7f4fa29e6d393705d6a91e",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0d30429e3e4240eba70b33fb983dc455",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cddc1d3d6ab3445c9cdbddb685b363e4",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.FlexDuct.NewFlexDuct@var,Autodesk.DesignScript.Geometry.Point[],Revit.Elements.Element",
+      "Id": "9b5856f83e324cce8d531b9487f5b02b",
+      "Inputs": [
+        {
+          "Id": "60f63f42222b48d5a4e67fa19ae78367",
+          "Name": "connector",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bb0908255c124363926db44099c4c2bd",
+          "Name": "points",
+          "Description": "Point[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f55a9d4c0d9b4fdbbae34a54c66d5bec",
+          "Name": "ductType",
+          "Description": "The type of the flexible duct.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "16129c001f9648cca88032b68d7e3092",
+          "Name": "Element",
+          "Description": "If creation was successful then a new flexible duct is returned, otherwise an exception with failure information will be thrown.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Adds a new flexible duct into the document, using two connector, and duct type.\n\nFlexDuct.NewFlexDuct (connector: var, points: Point[], ductType: Element): Element"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "41bc93fe9e7243db9d8552a75420d80f",
+      "End": "3674ec57b4414f99aeb82d56ea018990",
+      "Id": "86ffd6e2fb744a1abec35724d3afa88f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bc39746cdac04f7cb68fccba9b715971",
+      "End": "506fa84445614fd3912c5727e71718f1",
+      "Id": "23a5f12f547542ce987059d9c07a6388",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bc39746cdac04f7cb68fccba9b715971",
+      "End": "60f63f42222b48d5a4e67fa19ae78367",
+      "Id": "5102146fe30b4a93b5a8258dfe608ab3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "54d8b8a94da04bf8a72ed7e3b4a3a460",
+      "End": "f1caabd088b4491e8a86009e8c0d49d5",
+      "Id": "79daa27f7af74ac884c126d345690834",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "701690d7dee848f1bd5ac11faa0d433e",
+      "End": "5132e1b5abeb4c38b3a8ed7feaeb4e3a",
+      "Id": "ca6d6af9bf914aa9bfedf5d774e0d309",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8d1f65ab8ef14f708ea2b62407dcde94",
+      "End": "d6a8b262d35a40bbacab688bc727852f",
+      "Id": "3e266cdec27646e79756e718c6862291",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8c486115ce9b48799718b8d30072c133",
+      "End": "ea3d79a67bd747c4b252363e09b25f55",
+      "Id": "bcd508d32c5643878d14dcfa740c77a6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "544b163630a84af4a79568cd6286b20f",
+      "End": "f55a9d4c0d9b4fdbbae34a54c66d5bec",
+      "Id": "4ad36a0887304ab69174670f699c4c57",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "29e460edf78142af8840edd78c6b9948",
+      "End": "349ee622ca38491e9f6518e82b5c50f2",
+      "Id": "d14853f841b54703b8a12265f53645ae",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "01f86439539e485ebac06bd2a63287ce",
+      "End": "b3c4372c6aae4e2496820bfa047e6e2c",
+      "Id": "01be773ee74d41b8bc26baf53684ecc1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bfeec014ac2f4bd3ae06fbfc381f6f40",
+      "End": "ce750f46fa7f4fa29e6d393705d6a91e",
+      "Id": "89fcad9abdfe46e5ae20f73cb6e17d66",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cddc1d3d6ab3445c9cdbddb685b363e4",
+      "End": "bb0908255c124363926db44099c4c2bd",
+      "Id": "36f572fb623a43399087ee44ec9b6f9e",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "c1cb0a2d735d4d4aaa90d25a09181114",
+        "11256560e92343f59d78aaf29a607c48",
+        "c8543349489b466bba3db49681b7b5bb",
+        "f1fe3568708c4f18bb3b3dcbbec594d6",
+        "9b5856f83e324cce8d531b9487f5b02b"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "098b20b264374344aca6107c432151cd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 8.0,
+        "Y": 203.20000000000005
+      },
+      {
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
+        "Id": "c1cb0a2d735d4d4aaa90d25a09181114",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 260.80000000000007,
+        "Y": 200.80000000000007
+      },
+      {
+        "Name": "Connector.GetUnusedConnectors",
+        "ShowGeometry": true,
+        "Id": "11256560e92343f59d78aaf29a607c48",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 272.8,
+        "Y": 354.40000000000009
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "ce3353a6b591403ba3cf38d72d2f90c6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 20.0,
+        "Y": 356.80000000000007
+      },
+      {
+        "Name": "Element Classes",
+        "ShowGeometry": true,
+        "Id": "0c19ab4b99a84f728ff6368d5c2129c4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 38.39999999999975,
+        "Y": 508.80000000000013
+      },
+      {
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
+        "Id": "a5444990b3a1451eb4c17c59bbed9ffa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 323.19999999999982,
+        "Y": 505.60000000000025
+      },
+      {
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
+        "Id": "8e4538fe766e48b79736c0201b1a581e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 587.99999999999989,
+        "Y": 478.4000000000002
+      },
+      {
+        "Name": "Connector.Origin",
+        "ShowGeometry": true,
+        "Id": "c8543349489b466bba3db49681b7b5bb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 664.24193124637384,
+        "Y": 166.37984966075484
+      },
+      {
+        "Name": "Connector.Origin",
+        "ShowGeometry": true,
+        "Id": "f1fe3568708c4f18bb3b3dcbbec594d6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 658.26674019080872,
+        "Y": 312.77203052209916
+      },
+      {
+        "Name": "List Create",
+        "ShowGeometry": true,
+        "Id": "e5d0cb1786ba4b6aaf2c70af53a7d12a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 975.85333633064579,
+        "Y": 205.94184083824962
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Id": "dd8d3e976e97426ba0e2b77e8252ce51",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1161.1930088363024,
+        "Y": 214.92510757531062
+      },
+      {
+        "Name": "FlexDuct.NewFlexDuct",
+        "ShowGeometry": true,
+        "Id": "9b5856f83e324cce8d531b9487f5b02b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1384.2320829980702,
+        "Y": 332.525621984837
+      }
+    ],
+    "Annotations": [],
+    "X": 0.23199401161173228,
+    "Y": 85.640697831262457,
+    "Zoom": 0.63920154224848036
+  }
+}

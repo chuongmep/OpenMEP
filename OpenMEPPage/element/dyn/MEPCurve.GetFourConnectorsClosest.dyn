@@ -1,0 +1,321 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MEPCurve.GetFourConnectorsClosest",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e02"
+      ],
+      "Id": "e0ebb668225f448787851cb671eb923b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "296a0e69e3444d2390fba5a97d9bf00c",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.MEPCurve.GetFourConnectorsClosest@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element",
+      "Id": "c5579ea12bf147d38fdcc2c34d1af979",
+      "Inputs": [
+        {
+          "Id": "7e1ffbf09b384152a876c21d4b9bbc4b",
+          "Name": "mepCurve1",
+          "Description": "the first mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dc0771cdd2e64f13af5ae7939580d25d",
+          "Name": "mepCurve2",
+          "Description": "the second mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ec9f1bf34c364f58b43edb2a989d5ebb",
+          "Name": "mepCurve3",
+          "Description": "the three mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "61814b399b154082b5be9577ee482a73",
+          "Name": "mepCurve4",
+          "Description": "the four mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0fafc2622ec148648db6566668f52488",
+          "Name": "Connector1",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "934a6bd3fad540a090a094512a192c72",
+          "Name": "Connector2",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ba2e4ab4f701407a9bd8fdadd1e35ee0",
+          "Name": "Connector3",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "095821ee6bec44c0a93fc0271d12b772",
+          "Name": "Connector4",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return four connector closest inside four mep curves\n\nMEPCurve.GetFourConnectorsClosest (mepCurve1: Element, mepCurve2: Element, mepCurve3: Element, mepCurve4: Element): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e25"
+      ],
+      "Id": "e7caddf2be4a45eb8d54a5bab5c9fcd8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1d5ecabc0154f848fbd5f0e856d7fba",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e16"
+      ],
+      "Id": "ed0d9f6918824fe887079934bb49de8b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ed51dc12bde144528be590d6e28601a5",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9e32"
+      ],
+      "Id": "be4b81efb645489c9659a6e641b3389e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7ddb8cab1cc248e5a800b8810664adee",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "296a0e69e3444d2390fba5a97d9bf00c",
+      "End": "7e1ffbf09b384152a876c21d4b9bbc4b",
+      "Id": "fffc343d58b04e35bee1bba04e510e12",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f1d5ecabc0154f848fbd5f0e856d7fba",
+      "End": "dc0771cdd2e64f13af5ae7939580d25d",
+      "Id": "9e599292b67c4a1ea211fa7850c1b12c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ed51dc12bde144528be590d6e28601a5",
+      "End": "ec9f1bf34c364f58b43edb2a989d5ebb",
+      "Id": "70103c6fbc224dfa9d9d5f15ef8c5b26",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7ddb8cab1cc248e5a800b8810664adee",
+      "End": "61814b399b154082b5be9577ee482a73",
+      "Id": "eea10a046870419690cafb700bf21a12",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "c5579ea12bf147d38fdcc2c34d1af979"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "e0ebb668225f448787851cb671eb923b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 180.94198642781271,
+        "Y": 60.852436515976621
+      },
+      {
+        "Name": "MEPCurve.GetFourConnectorsClosest",
+        "ShowGeometry": true,
+        "Id": "c5579ea12bf147d38fdcc2c34d1af979",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 589.3777750839256,
+        "Y": 250.00316828816048
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "e7caddf2be4a45eb8d54a5bab5c9fcd8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 193.17490621934803,
+        "Y": 225.99685370170317
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "ed0d9f6918824fe887079934bb49de8b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 173.07796656182563,
+        "Y": 364.05409134903005
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "be4b81efb645489c9659a6e641b3389e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 174.82552653204505,
+        "Y": 544.92654826673049
+      }
+    ],
+    "Annotations": [],
+    "X": 19.779430258050809,
+    "Y": 41.19568959929552,
+    "Zoom": 0.77051684820224564
+  }
+}

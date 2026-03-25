@@ -1,0 +1,201 @@
+{
+  "Uuid": "850ec9b8-4cc6-425a-858e-610b431d6b67",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "View.GetAllViewFilters",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.View.GetAllViewFilters@bool",
+      "Id": "2033d88ceed242c297c293dde4fb5112",
+      "Inputs": [
+        {
+          "Id": "d8c45cdf441b497a9eedf05df8ba545a",
+          "Name": "flag",
+          "Description": "toggle true false to fresh data\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b68d7bba0944414c9ee041dd72ca082b",
+          "Name": "Element[]",
+          "Description": "Element[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get All View Filters Created In Current Document\n\nView.GetAllViewFilters (flag: bool): Element[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "a1b0ea8cff60464d86a92fade11b5f07",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c1f918af320e4d41a89d598ff3919bfe",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Name",
+      "Id": "b88164664cdd42a3a204d5d9d0f308e8",
+      "Inputs": [
+        {
+          "Id": "70e1ca517aea48d9bbfbaa2fd7e60110",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6ed8521837a34dab8fb32e2e27b9024f",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the Name of the Element\n\nElement.Name: string"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b68d7bba0944414c9ee041dd72ca082b",
+      "End": "70e1ca517aea48d9bbfbaa2fd7e60110",
+      "Id": "9b8108e281b040018245ce8a8e1cc81f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c1f918af320e4d41a89d598ff3919bfe",
+      "End": "d8c45cdf441b497a9eedf05df8ba545a",
+      "Id": "88366f61bd2b41a29a880d14cd1c2c9d",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "2033d88ceed242c297c293dde4fb5112"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "4.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.0.3472",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "View.GetAllViewFilters",
+        "ShowGeometry": true,
+        "Id": "2033d88ceed242c297c293dde4fb5112",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 457.02616237110271,
+        "Y": 380.22831540284147
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "a1b0ea8cff60464d86a92fade11b5f07",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 164.89692304940843,
+        "Y": 402.5806182810914
+      },
+      {
+        "Name": "Element.Name",
+        "ShowGeometry": true,
+        "Id": "b88164664cdd42a3a204d5d9d0f308e8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 784.843862230912,
+        "Y": 363.006446754623
+      }
+    ],
+    "Annotations": [],
+    "X": -94.747510532676642,
+    "Y": -323.54260632070151,
+    "Zoom": 1.354087815010524
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "Uuid": "5d929e47-ce87-49f2-8775-ac75eba8c72d",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "String.BestSimilarityScore",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.String.BestSimilarityScore@string,string[],double",
+      "Id": "bfacd4e053fd4d1a852f81ed9b4a1bdb",
+      "Inputs": [
+        {
+          "Id": "30b253bc15f6453794a9c37997249b64",
+          "Name": "string",
+          "Description": "The input string to compare against the list of strings.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a888fcda3ac24964abf97cf806c1ed47",
+          "Name": "listString",
+          "Description": "The list of strings to compare the input string against.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b7436682d172422ba8670bb94567ef7a",
+          "Name": "threshold",
+          "Description": "The similarity threshold below which strings are considered similar.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "74766d7c7adc43b1b8451a71c77c0dad",
+          "Name": "string",
+          "Description": "The most similar string from the list, or an empty string if inputString is null or listString is empty.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Finds the most similar string to the input string from a list of strings, based on their similarity scores.\n\nString.BestSimilarityScore (string: string, listString: string[], threshold: double): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "a = \"Hello\";\nb = [\"Hello A\",\"Hello \",\"Hello B\"];",
+      "Id": "b047425af757489ca1e200372892a0b7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6c329a61c85a45acb7255dfc0bdfe55d",
+          "Name": "",
+          "Description": "a",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9253b748969b40a3802a9b5e66cac8e7",
+          "Name": "",
+          "Description": "b",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0.8;",
+      "Id": "be95112268b341fba61715346e005494",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ba24ebb659ab4c44986c3e873c318cf6",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "6c329a61c85a45acb7255dfc0bdfe55d",
+      "End": "30b253bc15f6453794a9c37997249b64",
+      "Id": "3cfaa2c894db4ca4bb46e83877d59ab7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9253b748969b40a3802a9b5e66cac8e7",
+      "End": "a888fcda3ac24964abf97cf806c1ed47",
+      "Id": "493787d33c0c46f0a86bda5fcd68b87b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ba24ebb659ab4c44986c3e873c318cf6",
+      "End": "b7436682d172422ba8670bb94567ef7a",
+      "Id": "2b1e8c4ce402463285e910186c0cf001",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "bfacd4e053fd4d1a852f81ed9b4a1bdb"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.3.4871",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "String.BestSimilarityScore",
+        "ShowGeometry": true,
+        "Id": "bfacd4e053fd4d1a852f81ed9b4a1bdb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 305.25815256986766,
+        "Y": 223.45854719665249
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "b047425af757489ca1e200372892a0b7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -115.34839818963951,
+        "Y": 212.06963064239244
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "be95112268b341fba61715346e005494",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 83.336073854692813,
+        "Y": 361.46053603842626
+      }
+    ],
+    "Annotations": [],
+    "X": 285.96499173102296,
+    "Y": 24.447451629315765,
+    "Zoom": 1.3153754050082138
+  }
+}

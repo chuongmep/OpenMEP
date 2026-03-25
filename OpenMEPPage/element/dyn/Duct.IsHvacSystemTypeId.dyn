@@ -1,0 +1,201 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Duct.IsHvacSystemTypeId",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfType, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "de27fca33ae3428daceda163831e34a4",
+      "Inputs": [
+        {
+          "Id": "95c93f146674440ba09a8128740b1a73",
+          "Name": "element class",
+          "Description": "An element class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bdf843e8325c4e5ab90696e7f6840d89",
+          "Name": "elements",
+          "Description": "All elements in the active document of a given class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All elements in the active document of a given class."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementTypes, DSRevitNodesUI",
+      "SelectedIndex": 201,
+      "SelectedString": "MechanicalSystemType",
+      "NodeType": "ExtensionNode",
+      "Id": "9e89c311b7f74c1fbf4ef29742426fc6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9dcf70d128bc4e979976a253ee50323c",
+          "Name": "Classes",
+          "Description": "The selected Classes",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All element subclasses."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Duct.IsHvacSystemTypeId@Revit.Elements.Element",
+      "Id": "5442b20a4dc74dd790375145f7ecf5c6",
+      "Inputs": [
+        {
+          "Id": "83fcaa4979574d228427024883e09585",
+          "Name": "systemType",
+          "Description": "the element of system type\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cea50c7e135c4628961b8e14f62a339a",
+          "Name": "bool",
+          "Description": "true if is HvacSystemTypeId",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Check if the element of duct is a valid system type\n\nDuct.IsHvacSystemTypeId (systemType: Element): bool"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "bdf843e8325c4e5ab90696e7f6840d89",
+      "End": "83fcaa4979574d228427024883e09585",
+      "Id": "d27375a3026f4f59b3662733ae81df8c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9dcf70d128bc4e979976a253ee50323c",
+      "End": "95c93f146674440ba09a8128740b1a73",
+      "Id": "a9cbee5bc1ef4806a6031e10af9e09b3",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "5442b20a4dc74dd790375145f7ecf5c6"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "All Elements of Class",
+        "ShowGeometry": true,
+        "Id": "de27fca33ae3428daceda163831e34a4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 274.67579964496719,
+        "Y": 132.72315978737387
+      },
+      {
+        "Name": "Element Classes",
+        "ShowGeometry": true,
+        "Id": "9e89c311b7f74c1fbf4ef29742426fc6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -50.796539929785013,
+        "Y": 130.95893739391889
+      },
+      {
+        "Name": "Duct.IsHvacSystemTypeId",
+        "ShowGeometry": true,
+        "Id": "5442b20a4dc74dd790375145f7ecf5c6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 531.83353730339365,
+        "Y": 121.17070397627472
+      }
+    ],
+    "Annotations": [],
+    "X": 104.21998357030861,
+    "Y": 113.85755351004821,
+    "Zoom": 0.87323933894951822
+  }
+}

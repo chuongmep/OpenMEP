@@ -1,0 +1,243 @@
+{
+  "Uuid": "0468804f-8e6e-4d91-b738-be8982351a6f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Document.GetCadObjectsByFilters",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "e478586ddd5546e4998550d1af9ee2b7",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "0ff4545b9fe94b7eab3ca7aeccf9dcd6",
+          "Name": "toggle",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "70a04e36c16741f3859935eee4a28629",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.Current@bool",
+      "Replication": "Auto",
+      "Description": "Get Current Document Of Autocad Application\n\nDocument.Current (toggle: bool): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "Id": "e3e8ad48f9244f23ad06bb80f477a93b",
+      "NodeType": "BooleanInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "29a72ded9f2f474c991eb290889683d7",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False",
+      "InputValue": true
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "19062c4c913b4c27b7a28976de4909fd",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "c5343f5b0d9b49d598b285110638b34a",
+          "Name": "AcadDocument",
+          "Description": "AcadDocument\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6215888b84a3450babd3a6b8acbb1242",
+          "Name": "CadFilterType",
+          "Description": "Filter Type of Cad Object\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "53d57856e6e04760af23a9786532b3d4",
+          "Name": "CadObjects",
+          "Description": "The general objects of Autocad by Filter(Block,Text,MText,Line,....)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Autocad.Document.GetCadObjectsByFilters@var,int",
+      "Replication": "Auto",
+      "Description": "Get All Object in CadDocument By Filter Object Type\n\nDocument.GetCadObjectsByFilters (AcadDocument: var, CadFilterType: int): CadObject[]"
+    },
+    {
+      "ConcreteType": "OpenMEPUI.CadFilterDropDown, OpenMEPUI",
+      "SelectedIndex": 0,
+      "SelectedString": "Point",
+      "Id": "decd55a5674a4d74aa69e369d281d7b9",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9c3e43b5b5c341cf8389c0cee2316564",
+          "Name": "CadFilterType",
+          "Description": "The selected CadFilterType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "List filter types object in AutoCAD"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "70a04e36c16741f3859935eee4a28629",
+      "End": "c5343f5b0d9b49d598b285110638b34a",
+      "Id": "656db735d86b4ae5a26597c201cdb01b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "29a72ded9f2f474c991eb290889683d7",
+      "End": "0ff4545b9fe94b7eab3ca7aeccf9dcd6",
+      "Id": "e2843c00812142c3b5b28e13175ff0d7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9c3e43b5b5c341cf8389c0cee2316564",
+      "End": "6215888b84a3450babd3a6b8acbb1242",
+      "Id": "1c75a1404b56457cbcc6d88b0fb30ec7",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "e478586ddd5546e4998550d1af9ee2b7",
+        "19062c4c913b4c27b7a28976de4909fd",
+        "decd55a5674a4d74aa69e369d281d7b9"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.1.5092",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "e478586ddd5546e4998550d1af9ee2b7",
+        "Name": "Document.Current",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 685.17945549229955,
+        "Y": 371.7083813423904
+      },
+      {
+        "Id": "e3e8ad48f9244f23ad06bb80f477a93b",
+        "Name": "Boolean",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 458.26010198582412,
+        "Y": 378.5763225511609
+      },
+      {
+        "Id": "19062c4c913b4c27b7a28976de4909fd",
+        "Name": "Document.GetCadObjectsByFilters",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 992.41434835638768,
+        "Y": 376.34536136786608
+      },
+      {
+        "Id": "decd55a5674a4d74aa69e369d281d7b9",
+        "Name": "CadFilterTypes",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 680.92126737653541,
+        "Y": 507.82987796237643
+      }
+    ],
+    "Annotations": [],
+    "X": -264.11273372199628,
+    "Y": -95.54169385210065,
+    "Zoom": 1.0792537289518345
+  }
+}

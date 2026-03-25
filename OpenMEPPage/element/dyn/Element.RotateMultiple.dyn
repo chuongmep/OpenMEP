@@ -1,0 +1,415 @@
+{
+  "Uuid": "6591b4e7-9fd9-4ac5-a83c-65a38c8f0615",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Element.RotateMultiple",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "d8d63f4f-22b5-4d34-8615-dbe8cc737fb1-00148684",
+        "d8d63f4f-22b5-4d34-8615-dbe8cc737fb1-00148690"
+      ],
+      "Id": "15f797c3458d4d229e4fa9d1ff336377",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "16cbba91c4a2433a8cfb831895ecf598",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "90;",
+      "Id": "9f2f0081b58d4d22becbdac3e1f71305",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "be8dfe6958c34c7381494296fd1341d8",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Cycle@var[]..[],int",
+      "Id": "5d051e6a935b48f6a331e549dfbd4bb5",
+      "Inputs": [
+        {
+          "Id": "aaf2fa2e3e844022a83d15a6b5490c68",
+          "Name": "list",
+          "Description": "List to repeat.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e73c76ab8ffe4ae0a7f65a48db38148b",
+          "Name": "amount",
+          "Description": "Number of times to repeat.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3c6cc59791094191969c6085a2493f1a",
+          "Name": "list",
+          "Description": "List of repeated lists of type: var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new list by concatenating copies of a given list.\n\nList.Cycle (list: var[]..[], amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Count@var[]..[]",
+      "Id": "61e3d153e7044e7ca6aaa53a4d396aac",
+      "Inputs": [
+        {
+          "Id": "53de20a259044aae932bc3379249d0df",
+          "Name": "list",
+          "Description": "List to get the item count of.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b8d80e4503da4f97b724a4acb91c2e93",
+          "Name": "int",
+          "Description": "List length.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the number of items stored in the given list.\n\nList.Count (list: var[]..[]): int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Element.RotateMultiple@Revit.Elements.Element[],Autodesk.DesignScript.Geometry.Vector[],double[]",
+      "Id": "9ddd0337cc9347458f8e7a75525b3791",
+      "Inputs": [
+        {
+          "Id": "cc186a4b9d92402ea92a0e81534d9459",
+          "Name": "elements",
+          "Description": "the list collection of elements\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "892c622d9c7f49a281efe192f93772b7",
+          "Name": "vectorAxis",
+          "Description": "Vector[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "749fd36a456a40c08876e61ff7180d1c",
+          "Name": "angles",
+          "Description": "the collection angle to rotate(Degrees)\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c9b427f5a4394a158bb1fc222949aa61",
+          "Name": "elements",
+          "Description": "collection of list elements rotated",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Rotate multiple family instances This will be help save time when you have a lot of elements to rotate because just one transaction\n\nElement.RotateMultiple (elements: Element[], vectorAxis: Vector[], angles: double[]): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ZAxis",
+      "Id": "1289e6117e0f4eff94d286ad4eebf535",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a8702c1d71494c22950c0ffb4efcd0a1",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical Z axis Vector (0,0,1)\n\nVector.ZAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Cycle@var[]..[],int",
+      "Id": "9b773d286eb14a51bd8736aeb4f1be4c",
+      "Inputs": [
+        {
+          "Id": "85d6c99dd6f84823aad4d3e60cc0d18a",
+          "Name": "list",
+          "Description": "List to repeat.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "69f62e1f9154450a91f61452b1b61317",
+          "Name": "amount",
+          "Description": "Number of times to repeat.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fd4f7d4a687f48edbb85a309fb0ffa49",
+          "Name": "list",
+          "Description": "List of repeated lists of type: var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new list by concatenating copies of a given list.\n\nList.Cycle (list: var[]..[], amount: int): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "16cbba91c4a2433a8cfb831895ecf598",
+      "End": "53de20a259044aae932bc3379249d0df",
+      "Id": "fa204a6488984fec95547a6371da1571",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "16cbba91c4a2433a8cfb831895ecf598",
+      "End": "cc186a4b9d92402ea92a0e81534d9459",
+      "Id": "ccce32c2f57e48eebc9c91a1a145f76c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "be8dfe6958c34c7381494296fd1341d8",
+      "End": "aaf2fa2e3e844022a83d15a6b5490c68",
+      "Id": "c0f185d681ae4e878ea2ae3a107691d7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3c6cc59791094191969c6085a2493f1a",
+      "End": "749fd36a456a40c08876e61ff7180d1c",
+      "Id": "44d8cd7a312c437891ea05ea1844f5ae",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b8d80e4503da4f97b724a4acb91c2e93",
+      "End": "e73c76ab8ffe4ae0a7f65a48db38148b",
+      "Id": "349f6c35deff421291f0debb74c2429b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b8d80e4503da4f97b724a4acb91c2e93",
+      "End": "69f62e1f9154450a91f61452b1b61317",
+      "Id": "d54f8f39f9aa49c3a87b5c427cbf2387",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a8702c1d71494c22950c0ffb4efcd0a1",
+      "End": "85d6c99dd6f84823aad4d3e60cc0d18a",
+      "Id": "abb745c4d7a2454a9df7afa944998dcc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fd4f7d4a687f48edbb85a309fb0ffa49",
+      "End": "892c622d9c7f49a281efe192f93772b7",
+      "Id": "d4ab0bebef694cec9ecff4b658a3238b",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "9ddd0337cc9347458f8e7a75525b3791"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Elements",
+        "ShowGeometry": true,
+        "Id": "15f797c3458d4d229e4fa9d1ff336377",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -70.365095122955836,
+        "Y": 373.51180341808163
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "9f2f0081b58d4d22becbdac3e1f71305",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 450.19173035185497,
+        "Y": 562.76476553735756
+      },
+      {
+        "Name": "List.Cycle",
+        "ShowGeometry": true,
+        "Id": "5d051e6a935b48f6a331e549dfbd4bb5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 644.39173035185513,
+        "Y": 584.3647655373577
+      },
+      {
+        "Name": "List.Count",
+        "ShowGeometry": true,
+        "Id": "61e3d153e7044e7ca6aaa53a4d396aac",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 427.59173035185518,
+        "Y": 727.56476553735763
+      },
+      {
+        "Name": "Element.RotateMultiple",
+        "ShowGeometry": true,
+        "Id": "9ddd0337cc9347458f8e7a75525b3791",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1076.1235043248914,
+        "Y": 345.89329319663875
+      },
+      {
+        "Name": "Vector.ZAxis",
+        "ShowGeometry": true,
+        "Id": "1289e6117e0f4eff94d286ad4eebf535",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 408.60949921400015,
+        "Y": 364.92712654459172
+      },
+      {
+        "Name": "List.Cycle",
+        "ShowGeometry": true,
+        "Id": "9b773d286eb14a51bd8736aeb4f1be4c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 690.545002942104,
+        "Y": 411.8972732264275
+      }
+    ],
+    "Annotations": [],
+    "X": 56.455806201633436,
+    "Y": -103.05392132889574,
+    "Zoom": 0.71259483262848822
+  }
+}

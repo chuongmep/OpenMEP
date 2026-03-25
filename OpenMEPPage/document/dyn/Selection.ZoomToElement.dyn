@@ -1,0 +1,157 @@
+{
+  "Uuid": "0959bc3a-5f64-49c2-8893-c8afe5e1fbdf",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.ZoomToElement",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "de2781c1-f964-4812-81d5-8f16b6a9ff61-00092b14"
+      ],
+      "Id": "4f1da8cde1b94b57ba3350f62604774b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "85b1639ba28b40ca8aafad9f34566c66",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a model element from the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "6b2a9e7ec9f24d62bff6a01a2f6af629",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "13780352854043cf83a705488acb5632",
+          "Name": "elements",
+          "Description": "the list element need zoom to\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "45d4b480098e45259225571216511d7e",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPRevit.Document.Selection.ZoomToElement@Revit.Elements.Element[]",
+      "Replication": "Auto",
+      "Description": "Zoom to element in Revit Project\n\nSelection.ZoomToElement (elements: Element[]): void"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "85b1639ba28b40ca8aafad9f34566c66",
+      "End": "13780352854043cf83a705488acb5632",
+      "Id": "726ad241cbe84ff38aa2ba32dbca687b",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "6b2a9e7ec9f24d62bff6a01a2f6af629"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "6.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.1.5096",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "4f1da8cde1b94b57ba3350f62604774b",
+        "Name": "Select Model Element",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 104.0,
+        "Y": 224.0
+      },
+      {
+        "Id": "6b2a9e7ec9f24d62bff6a01a2f6af629",
+        "Name": "Selection.ZoomToElement",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 462.53510947165921,
+        "Y": 245.27844895293731
+      }
+    ],
+    "Annotations": [],
+    "X": 11.260906249999948,
+    "Y": 89.573006249999935,
+    "Zoom": 0.70823125000000009
+  }
+}

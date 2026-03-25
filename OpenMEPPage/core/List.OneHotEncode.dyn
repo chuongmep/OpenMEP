@@ -1,0 +1,149 @@
+{
+  "Uuid": "0f9a1c01-40a2-450c-9204-b15d6ddc40f0",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "List.OneHotEncode",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"apple\",\"banana\",\"orange\",\"banana\",\"orange\"];",
+      "Id": "070beee1ad024625af2233359c227de1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9b413402233b4c908294a5ec74a38528",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPSandbox.Core.List.OneHotEncode@string[]",
+      "Id": "8a28f721ad7d4c1c95226b755f296c67",
+      "Inputs": [
+        {
+          "Id": "3e7ebea29bb4477d88601b9c9ddf98ed",
+          "Name": "labels",
+          "Description": "A list of categorical values to encode.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ea9fe316c75c4f69a0b5df16df24ce19",
+          "Name": "int[][]",
+          "Description": "An array of arrays representing the one-hot encoded values.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Encodes a list of categorical values using one-hot encoding.\n\nList.OneHotEncode (labels: string[]): int[][]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9b413402233b4c908294a5ec74a38528",
+      "End": "3e7ebea29bb4477d88601b9c9ddf98ed",
+      "Id": "d281cc9bfdd34010a1a535d1caac94a3",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "8a28f721ad7d4c1c95226b755f296c67"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.17",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.17.2.4543",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "070beee1ad024625af2233359c227de1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -35.259530700228879,
+        "Y": 215.94975278100506
+      },
+      {
+        "Name": "List.OneHotEncode",
+        "ShowGeometry": true,
+        "Id": "8a28f721ad7d4c1c95226b755f296c67",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 452.43382527212361,
+        "Y": 212.75731503673578
+      }
+    ],
+    "Annotations": [],
+    "X": 186.68726462515207,
+    "Y": -38.596455376538714,
+    "Zoom": 0.98264231136796509
+  }
+}

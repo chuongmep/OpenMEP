@@ -1,0 +1,173 @@
+{
+  "Uuid": "187f3975-d262-4166-8d88-caf1eac8dce9",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Point.GenerateRandomPointsInSphere",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "dd0b26bb4f774110a42e4d74153d8c88",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "815ad4fe06024ed488030053b69f8409",
+          "Name": "radius",
+          "Description": "The radius of the sphere.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0d0875173e984281bd2652dfbd6eb948",
+          "Name": "numPoints",
+          "Description": "The number of random points to generate.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "708a9808303f4d5484b1db92f6e7946f",
+          "Name": "Point[]",
+          "Description": "A list of randomly generated points within the sphere.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Point.GenerateRandomPointsInSphere@double,int",
+      "Replication": "Auto",
+      "Description": "Generates a given number of random points within a sphere of the given radius.\n\nPoint.GenerateRandomPointsInSphere (radius: double, numPoints: int): Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "e9c5ae07cfca49af9b5e7219c5471d15",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "973399e0e3894f7eb6ae397752dc239e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8a7f05e3ce1d472c80f50eb068e9fb85",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "10;\n3000;"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "973399e0e3894f7eb6ae397752dc239e",
+      "End": "815ad4fe06024ed488030053b69f8409",
+      "Id": "a03295dbc76f4d21b21212d9a4595a32",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8a7f05e3ce1d472c80f50eb068e9fb85",
+      "End": "0d0875173e984281bd2652dfbd6eb948",
+      "Id": "83c071acfada4a30bedcf73c2b16c6d0",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "dd0b26bb4f774110a42e4d74153d8c88"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.0.2986",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 13.139108657836914,
+      "EyeY": 10.610527992248535,
+      "EyeZ": 33.62263298034668,
+      "LookX": 1.2092552185058594,
+      "LookY": -28.073881149291992,
+      "LookZ": -53.732749938964844,
+      "UpX": 0.0058993608690798283,
+      "UpY": 0.96501767635345459,
+      "UpZ": -0.26211857795715332
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "dd0b26bb4f774110a42e4d74153d8c88",
+        "Name": "Point.GenerateRandomPointsInSphere",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 702.4,
+        "Y": 351.2
+      },
+      {
+        "Id": "e9c5ae07cfca49af9b5e7219c5471d15",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 445.19657998094914,
+        "Y": 377.10808141653558
+      }
+    ],
+    "Annotations": [],
+    "X": -84.333939623580363,
+    "Y": -140.36078744725725,
+    "Zoom": 1.054298215011326
+  }
+}

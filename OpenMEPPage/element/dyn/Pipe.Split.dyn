@@ -1,0 +1,308 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Pipe.Split",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1e12091-0c8a-4299-b9fe-a6a59d270813-000d9f26"
+      ],
+      "Id": "c04abc6cfe834837a790d7eaa8c9c7c7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1a2842ad37341278b0e69f24c0f6abe",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Pipe.Split@Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point",
+      "Id": "e08aed2c73dc4a78961501a84df699c4",
+      "Inputs": [
+        {
+          "Id": "bb901f1d24bc44ffab4283f7e5ff4c29",
+          "Name": "pipe",
+          "Description": "pipe will be break\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7e781418b8784bedbc479361f5db5d20",
+          "Name": "point",
+          "Description": "point on pipe to break\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c7fde81d99794e40957156080fee42f9",
+          "Name": "pipe",
+          "Description": "new pipe has split",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "split a pipe at a point\n\nPipe.Split (pipe: Element, point: Point): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.GetLocation",
+      "Id": "f88af786bb954adaa110cdeedd3730ce",
+      "Inputs": [
+        {
+          "Id": "537b3591d7d6403fa57d5d80d3a2057d",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d49d2fb05ccb4ac7995ddc0fa5de7f9c",
+          "Name": "Geometry",
+          "Description": "Location Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get an existing element's location\n\nElement.GetLocation ( ): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.PointAtParameter@double",
+      "Id": "71e0ca7f53084689aeea7e5a9896c502",
+      "Inputs": [
+        {
+          "Id": "63344c25d53e4713b07ea61457fea13a",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4e56326b08584da481b0d94452c5d6cd",
+          "Name": "param",
+          "Description": "The parameter at which to evaluate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "38f0762c5a5e4e43a10fdb8328d08920",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get a Point on the Curve at a specified parameter between StartParameter() and EndParameter()\n\nCurve.PointAtParameter (param: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0.5;",
+      "Id": "9bf9f492b514417c812b04dcf1c454c8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e830726801c34baab7b10a0761925cb2",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f1a2842ad37341278b0e69f24c0f6abe",
+      "End": "bb901f1d24bc44ffab4283f7e5ff4c29",
+      "Id": "1d1e03c6440d4f95902c15120f8323a7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f1a2842ad37341278b0e69f24c0f6abe",
+      "End": "537b3591d7d6403fa57d5d80d3a2057d",
+      "Id": "48b81f517186402698673aea87839550",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d49d2fb05ccb4ac7995ddc0fa5de7f9c",
+      "End": "63344c25d53e4713b07ea61457fea13a",
+      "Id": "1fc4b6bd341b45399ba7452c69a63066",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "38f0762c5a5e4e43a10fdb8328d08920",
+      "End": "7e781418b8784bedbc479361f5db5d20",
+      "Id": "93deb3b01f6446889db173eda95c00f0",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e830726801c34baab7b10a0761925cb2",
+      "End": "4e56326b08584da481b0d94452c5d6cd",
+      "Id": "8c093eb4cad04a4eb5fa97869c0dedda",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "e08aed2c73dc4a78961501a84df699c4"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "c04abc6cfe834837a790d7eaa8c9c7c7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 254.40000000000003,
+        "Y": 303.2
+      },
+      {
+        "Name": "Pipe.Split",
+        "ShowGeometry": true,
+        "Id": "e08aed2c73dc4a78961501a84df699c4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1136.5673254246572,
+        "Y": 267.719518160469
+      },
+      {
+        "Name": "Element.GetLocation",
+        "ShowGeometry": true,
+        "Id": "f88af786bb954adaa110cdeedd3730ce",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 541.88975240989214,
+        "Y": 384.47316530866419
+      },
+      {
+        "Name": "Curve.PointAtParameter",
+        "ShowGeometry": true,
+        "Id": "71e0ca7f53084689aeea7e5a9896c502",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 824.37609636790671,
+        "Y": 381.81267902223817
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "9bf9f492b514417c812b04dcf1c454c8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 553.0,
+        "Y": 541.0
+      }
+    ],
+    "Annotations": [],
+    "X": -154.15653413795758,
+    "Y": -87.207813583877282,
+    "Zoom": 0.78436932804482717
+  }
+}

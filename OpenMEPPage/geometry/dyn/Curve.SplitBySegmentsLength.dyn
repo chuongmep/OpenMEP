@@ -1,0 +1,273 @@
+{
+  "Uuid": "860bd5b0-4be9-4747-9609-1c8ca404b9ed",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Curve.SplitBySegmentsLength",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Autodesk.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "2a18619f650d4b86bb441b8c30ad0c7b",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "6fe905f67d9c4e92af726fbce1411d15",
+          "Name": "startPoint",
+          "Description": "Line start point\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "26775681fceb4334a83f2d3320d59d81",
+          "Name": "endPoint",
+          "Description": "Line end point\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "824c5649c4ce41f29010259986cd875c",
+          "Name": "Line",
+          "Description": "Line from start and end point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Replication": "Auto",
+      "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "7998726003284c86897270ee75748c24",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "956463be18d3480680e9b8485f0cd81a",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3544ed7ad25a440baff5f8395f5b5610",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Autodesk.Point.ByCoordinates(0,0,0);\nAutodesk.Point.ByCoordinates(100,0,0);"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "14873e374f4e42a185395e974a9945e0",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "9704f17ea1b2467b9dd30cbea05c2f81",
+          "Name": "curve",
+          "Description": "The input curve to be split.\n\nCurve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0eedccd075574a6f9b14bc7c81ef9888",
+          "Name": "segmentLength",
+          "Description": "A number that represents the length of each segment to split the curve into, or a list of numbers that represent the lengths of the segments to split the curve into.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b7f580b93b744aeeb740b509d018c87f",
+          "Name": "Curve[]",
+          "Description": "A list of curves that result from splitting the input curve at the specified segment lengths. The list includes the original curve and the newly created segments.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "OpenMEPSandbox.Geometry.Curve.SplitBySegmentsLength@Autodesk.DesignScript.Geometry.Curve,double",
+      "Replication": "Auto",
+      "Description": "splits a curve into segments of a specified length\n\nCurve.SplitBySegmentsLength (curve: Curve, segmentLength: double): Curve[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "6c9cb04f3e254ae391769808740f0e76",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "169162a51ba94a8c854deabd3c857aa7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "20;"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "824c5649c4ce41f29010259986cd875c",
+      "End": "9704f17ea1b2467b9dd30cbea05c2f81",
+      "Id": "9a7fb3a2974e4788a3ea948a50ae0426",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "956463be18d3480680e9b8485f0cd81a",
+      "End": "6fe905f67d9c4e92af726fbce1411d15",
+      "Id": "77f72800d4144f38afdb1e84a6e029a9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3544ed7ad25a440baff5f8395f5b5610",
+      "End": "26775681fceb4334a83f2d3320d59d81",
+      "Id": "955b41cf40364a1195d7e245cac7a45b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "169162a51ba94a8c854deabd3c857aa7",
+      "End": "0eedccd075574a6f9b14bc7c81ef9888",
+      "Id": "a7dc1a5e6fb4463683e82e34e79e6f84",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "14873e374f4e42a185395e974a9945e0"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.0.2986",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -31.445751190185547,
+      "EyeY": 152.2044677734375,
+      "EyeZ": 238.4566650390625,
+      "LookX": 102.42955780029297,
+      "LookY": -149.7088623046875,
+      "LookZ": -216.79536437988281,
+      "UpX": 0.14330178499221802,
+      "UpY": 0.94205731153488159,
+      "UpZ": -0.30330276489257813
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "2a18619f650d4b86bb441b8c30ad0c7b",
+        "Name": "Line.ByStartPointEndPoint",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": false,
+        "X": 210.313209328394,
+        "Y": 247.31339057409735
+      },
+      {
+        "Id": "7998726003284c86897270ee75748c24",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -241.63462917316929,
+        "Y": 256.08380586719136
+      },
+      {
+        "Id": "14873e374f4e42a185395e974a9945e0",
+        "Name": "Curve.SplitBySegmentsLength",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 581.86752207329789,
+        "Y": 305.30932518182112
+      },
+      {
+        "Id": "6c9cb04f3e254ae391769808740f0e76",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 379.0,
+        "Y": 429.0
+      }
+    ],
+    "Annotations": [],
+    "X": 314.51198981885773,
+    "Y": 13.234226889952993,
+    "Zoom": 0.828477476518277
+  }
+}

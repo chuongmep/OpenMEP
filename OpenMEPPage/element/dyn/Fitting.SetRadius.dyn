@@ -1,0 +1,201 @@
+{
+  "Uuid": "712c951e-7674-4c1a-8299-cebe956a660f",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Fitting.SetRadius",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f1f9b0f3-dc68-499a-bc3d-9661d81d57e6-000d9e7f"
+      ],
+      "Id": "fdb799881d664a32a559664d91921c0e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ea6291ba76854a4587e86cd208c1d9a1",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "50;",
+      "Id": "8bee6605477646148cf5f8934ea62620",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "33a695b7069c40cb83cc0b7a0cb5c6c6",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Fitting.SetRadius@Revit.Elements.Element,double",
+      "Id": "70669be5f95541c1897fd7da3f3bb727",
+      "Inputs": [
+        {
+          "Id": "8b0b5bcc9aac4eb1ad74ff36e0002d7d",
+          "Name": "fitting",
+          "Description": "fitting will be set\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3ddac3243dab4721b327879e0af1dc5e",
+          "Name": "radius",
+          "Description": "value radius\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "aad25c88c3a2471c8426e459bd287c00",
+          "Name": "fitting",
+          "Description": "fitting",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set radius of fitting\n\nFitting.SetRadius (fitting: Element, radius: double): Element"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ea6291ba76854a4587e86cd208c1d9a1",
+      "End": "8b0b5bcc9aac4eb1ad74ff36e0002d7d",
+      "Id": "78eba50fb504430cb326d88c0e3c328a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "33a695b7069c40cb83cc0b7a0cb5c6c6",
+      "End": "3ddac3243dab4721b327879e0af1dc5e",
+      "Id": "7032dd42d67443f4abc838201f73d060",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "70669be5f95541c1897fd7da3f3bb727"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "fdb799881d664a32a559664d91921c0e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 51.100341674433253,
+        "Y": 380.70793439956003
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "8bee6605477646148cf5f8934ea62620",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 126.75250974557503,
+        "Y": 531.92609701577226
+      },
+      {
+        "Name": "Fitting.SetRadius",
+        "ShowGeometry": true,
+        "Id": "70669be5f95541c1897fd7da3f3bb727",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 331.657487184551,
+        "Y": 459.32332644058278
+      }
+    ],
+    "Annotations": [],
+    "X": 131.46733541391291,
+    "Y": -124.71672389153099,
+    "Zoom": 0.91006380393143915
+  }
+}

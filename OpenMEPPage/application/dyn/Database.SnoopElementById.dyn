@@ -1,0 +1,155 @@
+{
+  "Uuid": "5d8156c2-ab88-477b-bf54-97d6725cd43e",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Database.SnoopElementById",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Application.Database.SnoopElementById@string[]",
+      "Id": "2e08a8a8f4b24690a0a9adb59ce60a65",
+      "Inputs": [
+        {
+          "Id": "d0b3db882f1a47c6911d6d5aa3396ef3",
+          "Name": "id",
+          "Description": "id of element\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cf395efbd706416989460b6b1f6d17e0",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Snoop Explore Elements By Id\n\nDatabase.SnoopElementById (id: string[]): string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "960073",
+      "Id": "a6b00ae3d9104151b0b020f93b3a68a7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "826558db73774650a09992373de9d4e5",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "826558db73774650a09992373de9d4e5",
+      "End": "d0b3db882f1a47c6911d6d5aa3396ef3",
+      "Id": "a75fd84cdf44487c941ab8de8643583f",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "2e08a8a8f4b24690a0a9adb59ce60a65"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Database.SnoopElementById",
+        "ShowGeometry": true,
+        "Id": "2e08a8a8f4b24690a0a9adb59ce60a65",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 483.20000000000005,
+        "Y": 287.2
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "a6b00ae3d9104151b0b020f93b3a68a7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 254.40000000000009,
+        "Y": 271.2
+      }
+    ],
+    "Annotations": [],
+    "X": -96.800000000000068,
+    "Y": -33.599999999999966,
+    "Zoom": 1.0
+  }
+}

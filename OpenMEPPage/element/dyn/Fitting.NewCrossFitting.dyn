@@ -1,0 +1,413 @@
+{
+  "Uuid": "6d65bda8-f8ca-4f40-bc4b-8058de2601f7",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Fitting.NewCrossFitting",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "b26d5f45-0674-4505-88cf-91794fa2cb39-000d9fe2"
+      ],
+      "Id": "aabd06ab8c18468a9cd3c0d42451911f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "abd28c4705844a9e84b5602222467193",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "b26d5f45-0674-4505-88cf-91794fa2cb39-000d9fdb"
+      ],
+      "Id": "0789e49c01194a28a68b461afd164816",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e3aac2e497b94441b69f1543f3ed73df",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "b26d5f45-0674-4505-88cf-91794fa2cb39-000d9fe3"
+      ],
+      "Id": "fa207193d0b44fe5a619e227ff945d89",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "30df249f2b074e3ab4f7d9a7f53182d5",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.MEPCurve.GetFourConnectorsClosest@Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element",
+      "Id": "18e9d1d1a90b4a88a0bcc6c3a6fb53ac",
+      "Inputs": [
+        {
+          "Id": "7f78129c45d24752b1368b534776fef5",
+          "Name": "mepCurve1",
+          "Description": "the first mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cc63ab2a994d4290bbdbf1c99b2b3146",
+          "Name": "mepCurve2",
+          "Description": "the second mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "40ce35bd4f6845cdafa3c98a221bc9f5",
+          "Name": "mepCurve3",
+          "Description": "the three mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "645818539df74aabb73a6736d12a0313",
+          "Name": "mepCurve4",
+          "Description": "the four mepCurve\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7038566310f045c783a68cf08fdad0e0",
+          "Name": "Connector1",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "42aec718ccf34c9db56c6d6a8b424f03",
+          "Name": "Connector2",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a9b54bc00ef947da87450318e6a3f856",
+          "Name": "Connector3",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e8496693462544409b63890977b6f4b5",
+          "Name": "Connector4",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return four points closest inside four mep curves\n\nMEPCurve.GetFourConnectorsClosest (mepCurve1: Element, mepCurve2: Element, mepCurve3: Element, mepCurve4: Element): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "b26d5f45-0674-4505-88cf-91794fa2cb39-000d9fa0"
+      ],
+      "Id": "e4b42c2dc8924595953c4f6b11326107",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "dd2df1ab5f2141689bd479799087f56f",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEP.Element.Fitting.NewCrossFitting@var,var,var,var",
+      "Id": "440e77d774f049cd82a32946335f27bd",
+      "Inputs": [
+        {
+          "Id": "caab0c9657854ac38ea3321851240c21",
+          "Name": "c1",
+          "Description": "The first connector to be connected to the cross.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "691a038a8cba4f399effba87e1bcaeb3",
+          "Name": "c2",
+          "Description": "The second connector to be connected to the cross.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "df90ebe85155464c99e81182f5242ae6",
+          "Name": "c3",
+          "Description": "The third connector to be connected to the cross.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1bb27b6850d8431bb6db7a3514f59946",
+          "Name": "c4",
+          "Description": "The fourth connector to be connected to the cross\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3100c40e9d5a4f68b942a224b91e8a9a",
+          "Name": "familyInstance",
+          "Description": "If creation was successful then an family instance to the new object is returned, and the transition fitting will be added at the connectors' end if necessary, otherwise an exception with failure information will be thrown.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Add a new family instance of a cross fitting into the Autodesk Revit document, using four connectors. Please Input order of connectors as below: Main-Main-Side-Side https://adndevblog.typepad.com/aec/2015/06/revitiapi-crossfitting-creation-problem-invalidoperationexception-failed-to-insert-cross.html\n\nFitting.NewCrossFitting (c1: var, c2: var, c3: var, c4: var): Element"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "abd28c4705844a9e84b5602222467193",
+      "End": "7f78129c45d24752b1368b534776fef5",
+      "Id": "9810e32cd538494887f213a7288bbc4f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e3aac2e497b94441b69f1543f3ed73df",
+      "End": "cc63ab2a994d4290bbdbf1c99b2b3146",
+      "Id": "043d19a46d674a4caf4923e2654a0e49",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "30df249f2b074e3ab4f7d9a7f53182d5",
+      "End": "40ce35bd4f6845cdafa3c98a221bc9f5",
+      "Id": "2275e96f38984c25a7c4c30d01bed305",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7038566310f045c783a68cf08fdad0e0",
+      "End": "caab0c9657854ac38ea3321851240c21",
+      "Id": "c104ae59f33843079da84a4eaafaf266",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "42aec718ccf34c9db56c6d6a8b424f03",
+      "End": "691a038a8cba4f399effba87e1bcaeb3",
+      "Id": "c1679ebf39344b8f9b3d644e24d64278",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a9b54bc00ef947da87450318e6a3f856",
+      "End": "df90ebe85155464c99e81182f5242ae6",
+      "Id": "4427eb2085604355a9d297338c056cf8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e8496693462544409b63890977b6f4b5",
+      "End": "1bb27b6850d8431bb6db7a3514f59946",
+      "Id": "782509b6c1a647f5b27adaab490d4b5f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dd2df1ab5f2141689bd479799087f56f",
+      "End": "645818539df74aabb73a6736d12a0313",
+      "Id": "3ae80fa0b97d4bed8d9dd53b81fd7477",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "18e9d1d1a90b4a88a0bcc6c3a6fb53ac",
+        "440e77d774f049cd82a32946335f27bd"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "aabd06ab8c18468a9cd3c0d42451911f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 465.92492996537578,
+        "Y": 814.34592774026692
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "0789e49c01194a28a68b461afd164816",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 479.44033273323032,
+        "Y": 997.69074106018934
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "fa207193d0b44fe5a619e227ff945d89",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 511.20643418523161,
+        "Y": 1169.436766454563
+      },
+      {
+        "Name": "MEPCurve.GetFourConnectorsClosest",
+        "ShowGeometry": true,
+        "Id": "18e9d1d1a90b4a88a0bcc6c3a6fb53ac",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 922.3473630482506,
+        "Y": 1028.602907138727
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "e4b42c2dc8924595953c4f6b11326107",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 463.41766832133715,
+        "Y": 1316.2998030118974
+      },
+      {
+        "Name": "Fitting.NewCrossFitting",
+        "ShowGeometry": true,
+        "Id": "440e77d774f049cd82a32946335f27bd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1338.3648571314079,
+        "Y": 1027.6383927300888
+      }
+    ],
+    "Annotations": [],
+    "X": -358.081921573101,
+    "Y": -682.78681072709514,
+    "Zoom": 0.97182687479800423
+  }
+}

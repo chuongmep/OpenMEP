@@ -1,0 +1,155 @@
+{
+  "Uuid": "780bc56b-a933-4637-9517-5bf540acca03",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Selection.PickPointOnCurveElement",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "OpenMEPRevit.Document.Selection.PickPointOnCurveElement@bool",
+      "Id": "af186567a8d642128f718ef2b5306fc5",
+      "Inputs": [
+        {
+          "Id": "f6d788a1af2d439a9dccc60b755b4368",
+          "Name": "flag",
+          "Description": "flag true of false to fresh\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "feeb8b14b3664defa8518d14b53fed48",
+          "Name": "points",
+          "Description": "list point orders picked",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return list point pick orders on curve element (Pipe, Duct, Cable Tray, Conduit, Flex Duct, Flex Pipe, Wire)\n\nSelection.PickPointOnCurveElement (flag: bool): Point[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "a2ec2971f3e84bde829a04bac69e45b3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "64f4cb8043ab4ba0a980a5b1e61bb959",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "64f4cb8043ab4ba0a980a5b1e61bb959",
+      "End": "f6d788a1af2d439a9dccc60b755b4368",
+      "Id": "a2c359c484824d22911ca90d34435719",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "OpenMEP",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "af186567a8d642128f718ef2b5306fc5"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Selection.PickPointOnCurveElement",
+        "ShowGeometry": true,
+        "Id": "af186567a8d642128f718ef2b5306fc5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 648.56847240534069,
+        "Y": 257.83824568296558
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "a2ec2971f3e84bde829a04bac69e45b3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 407.76856533829266,
+        "Y": 244.08499350225486
+      }
+    ],
+    "Annotations": [],
+    "X": -506.25539649999996,
+    "Y": -146.26273537499992,
+    "Zoom": 1.545620359375
+  }
+}
