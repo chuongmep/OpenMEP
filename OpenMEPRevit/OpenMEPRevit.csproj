@@ -3,7 +3,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
-        <AssemblyVersion>2.0.1.1</AssemblyVersion>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <LangVersion>latest</LangVersion>
         <UseWPF>true</UseWPF>
@@ -11,16 +11,19 @@
         <AssemblyName>OpenMEPRevit</AssemblyName>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <Configurations>Debug R23.1;Debug R24;Debug R20;Debug R21;Debug R22;Debug R23;</Configurations>
-        <Configurations>$(Configurations);Release R25;Release R24.2;Release R24.1;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R22.1;Release R23;</Configurations>
-        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;MSB3277</NoWarn>
+        <Configurations>Debug R26;Debug R25;Debug R23.1;Debug R24;Debug R20;Debug R21;Debug R22;Debug R23;</Configurations>
+        <Configurations>$(Configurations);Release R26;Release R25;Release R24.2;Release R24.1;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R22.1;Release R23;</Configurations>
+        <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;MSB3277;CA1416</NoWarn>
+        <SupportedOSPlatform>windows</SupportedOSPlatform>
     </PropertyGroup>
     <!-- Default configuration when no specific Revit version is selected -->
-    <PropertyGroup Condition="'$(DynamoVersion)' == ''">
-        <DynamoVersion>2.19</DynamoVersion>
-        <DynamoOutput>2.19</DynamoOutput>
-        <RevitVersion>2024</RevitVersion>
-        <TargetFramework>net48</TargetFramework>
+    <PropertyGroup>
+        <DynamoVersion Condition="'$(DynamoVersion)' == ''">2.19</DynamoVersion>
+        <DynamoOutput Condition="'$(DynamoOutput)' == ''">2.19</DynamoOutput>
+        <RevitVersion Condition="'$(RevitVersion)' == ''">2024</RevitVersion>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' != '' AND !$(Configuration.Contains('R20')) AND !$(Configuration.Contains('R21')) AND !$(Configuration.Contains('R22')) AND !$(Configuration.Contains('R23')) AND !$(Configuration.Contains('R24')) AND !$(Configuration.Contains('R25')) AND !$(Configuration.Contains('R26'))">
         <DefineConstants>$(DefineConstants);R24</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
@@ -145,6 +148,24 @@
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <TargetFramework>net8.0-windows</TargetFramework>
         <DefineConstants>$(DefineConstants);R25</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug R26'))">
+        <DynamoVersion>3.0</DynamoVersion>
+        <DynamoOutput>3.3</DynamoOutput>
+        <RevitVersion>2025</RevitVersion>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <DefineConstants>$(DefineConstants);R26</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release R26'))">
+        <DynamoVersion>3.0</DynamoVersion>
+        <DynamoOutput>3.3</DynamoOutput>
+        <RevitVersion>2025</RevitVersion>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <DefineConstants>$(DefineConstants);R26</DefineConstants>
     </PropertyGroup>
     <PropertyGroup>
         <DynVersion>$(DynamoVersion)</DynVersion>

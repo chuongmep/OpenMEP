@@ -5,15 +5,22 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <AssemblyVersion>2.0.1.0</AssemblyVersion>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
         <AssemblyName>OpenMEPUI</AssemblyName>
         <RootNamespace>OpenMEPUI</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
-        <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R23.1;Release R24;Release R25</Configurations>
+        <Configurations>Debug R26;Debug R25;Debug R20;Debug R21;Debug R22;Debug R23;Debug R23.1;Debug R24</Configurations>
+        <Configurations>$(Configurations);Release R26;Release R25;Release R20;Release R21;Release R22;Release R23;Release R23.1;Release R24</Configurations>
         <Platforms>AnyCPU</Platforms>
         <NoWarn>MSB3277;MSB4121;CS1591</NoWarn>
+    </PropertyGroup>
+    <!-- Default configuration when no specific version is selected -->
+    <PropertyGroup>
+        <DynamoVersion Condition="'$(DynamoVersion)' == ''">2.19</DynamoVersion>
+        <DynamoOutput Condition="'$(DynamoOutput)' == ''">2.19</DynamoOutput>
+        <RevitVersion Condition="'$(RevitVersion)' == ''">2024</RevitVersion>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
@@ -104,6 +111,14 @@
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <TargetFramework>net8.0-windows</TargetFramework>
         <DefineConstants>$(DefineConstants);R25</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R26'))">
+        <DynamoVersion>3.0</DynamoVersion>
+        <DynamoOutput>3.3</DynamoOutput>
+        <RevitVersion>2025</RevitVersion>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <DefineConstants>$(DefineConstants);R26</DefineConstants>
     </PropertyGroup>
     <PropertyGroup>
         <DynVersion>$(DynamoVersion)</DynVersion>

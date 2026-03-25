@@ -5,14 +5,21 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <AssemblyVersion>2.0.1.0</AssemblyVersion>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
         <AssemblyName>OpenMEPCivil</AssemblyName>
         <RootNamespace>OpenMEPCivil</RootNamespace>
         <PlatformTarget>x64</PlatformTarget>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <Configurations>Debug R23.1;Debug R24;Debug R20;Debug R21;Debug R22;Debug R23;</Configurations>
-        <Configurations>$(Configurations);Release R25;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R23;</Configurations>
+        <Configurations>Debug R26;Debug R25;Debug R23.1;Debug R24;Debug R20;Debug R21;Debug R22;Debug R23;</Configurations>
+        <Configurations>$(Configurations);Release R26;Release R25;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R23;</Configurations>
         <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;MSB3277</NoWarn>
+    </PropertyGroup>
+    <!-- Default configuration when no specific version is selected -->
+    <PropertyGroup>
+        <DynamoVersion Condition="'$(DynamoVersion)' == ''">2.19</DynamoVersion>
+        <DynamoOutput Condition="'$(DynamoOutput)' == ''">2.19</DynamoOutput>
+        <CivilVersion Condition="'$(CivilVersion)' == ''">2024</CivilVersion>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net48</TargetFramework>
     </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
@@ -103,6 +110,14 @@
         <TargetFramework>net8.0-windows</TargetFramework>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <DefineConstants>$(DefineConstants);R25</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R26'))">
+        <DynamoVersion>3.0</DynamoVersion>
+        <DynamoOutput>3.3</DynamoOutput>
+        <CivilVersion>2025</CivilVersion>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <DefineConstants>$(DefineConstants);R26</DefineConstants>
     </PropertyGroup>
     <PropertyGroup>
         <DynVersion>$(DynamoVersion)</DynVersion>
