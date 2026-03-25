@@ -15,6 +15,13 @@ on:
 jobs:
   build-docs:
     runs-on: windows-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: 🛎 Checkout repo
@@ -30,26 +37,17 @@ jobs:
 
       - name: 🚧 Restore dependencies
         run: dotnet restore
-      - name: 🚧 Build Project Release R24
-        run: dotnet build -c "Release R24" -p:Configuration=R24
 
       - name: 📚 Build Docs
         working-directory: docs
         run: docfx docfx.json
         continue-on-error: false
         
-      - name: 🚀 Publish
-        if: github.event_name == 'push'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_site
-          force_orphan: true
-      - name: Upload artifact
+      - name: � Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-            # Upload entire repository
             path: 'docs/_site'
-      - name: Deploy to GitHub Pages
+            
+      - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
