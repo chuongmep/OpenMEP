@@ -45,3 +45,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_site
           force_orphan: true
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+            # Upload entire repository
+            path: 'docs/_site'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
