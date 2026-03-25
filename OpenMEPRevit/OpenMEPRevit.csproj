@@ -15,6 +15,14 @@
         <Configurations>$(Configurations);Release R25;Release R24.2;Release R24.1;Release R24;Release R23.1;Release R20;Release R21;Release R22;Release R22.1;Release R23;</Configurations>
         <NoWarn>CS1591;CS0168;CS8618;CS1591;CS0419;MSB3277</NoWarn>
     </PropertyGroup>
+    <!-- Default configuration when no specific Revit version is selected -->
+    <PropertyGroup Condition="'$(DynamoVersion)' == ''">
+        <DynamoVersion>2.19</DynamoVersion>
+        <DynamoOutput>2.19</DynamoOutput>
+        <RevitVersion>2024</RevitVersion>
+        <TargetFramework>net48</TargetFramework>
+        <DefineConstants>$(DefineConstants);R24</DefineConstants>
+    </PropertyGroup>
     <PropertyGroup Condition="$(Configuration.Contains('Debug R20'))">
         <DynamoVersion>2.3</DynamoVersion>
         <DynamoOutput>2.3</DynamoOutput>
