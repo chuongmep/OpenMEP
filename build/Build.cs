@@ -48,7 +48,23 @@ class Build : NukeBuild
             .SetProperty("installationPath")
         );
 
-        if (output.Count > 0) return null;
+        // VSWhere prints the installation root, not MSBuild.exe itself. Resolve the executable
+        // from it, otherwise Nuke falls back to its own lookup which does not know newer
+        // Visual Studio releases and fails with "Could not find a suitable MSBuild instance".
+        var installationPath = output
+            .Select(x => x.Text.Trim())
+            .FirstOrDefault(x => !string.IsNullOrWhiteSpace(x) && Directory.Exists(x));
+
+        if (installationPath is not null)
+        {
+            var vsMsBuildPath = Path.Combine(installationPath, "MSBuild", "Current", "Bin", "MSBuild.exe");
+            if (File.Exists(vsMsBuildPath))
+            {
+                Log.Information("Detected MSBuild: {Path}", vsMsBuildPath);
+                return vsMsBuildPath;
+            }
+        }
+
         if (!File.Exists(CustomMsBuildPath)) throw new Exception($"Missing file: {CustomMsBuildPath}. Change the path to the build platform or install Visual Studio.");
         return CustomMsBuildPath;
     });

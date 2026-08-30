@@ -1,4 +1,4 @@
-﻿#if R25 || R26
+﻿#if R25 || R26 || R27
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Security;

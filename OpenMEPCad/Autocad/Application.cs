@@ -26,7 +26,7 @@ namespace OpenMEPCad.Autocad
             string ProgId = "AutoCAD.Application";
             try
             {
-#if R25 || R26
+#if R25 || R26 || R27
                 dynamic App = MarshalCore.MarshalForCore.GetActiveObject(ProgId);
 #else
                 dynamic App = Marshal.GetActiveObject(ProgId);
